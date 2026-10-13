@@ -215,7 +215,9 @@ def main():
             data = None
             if thumbs_bereikbaar:
                 try:
-                    data = haal(meta['thumb'], pogingen=2)
+                    data = haal(meta['thumb'], pogingen=8)
+                except urllib.error.HTTPError:
+                    raise  # server bereikbaar maar weigert: niet terugvallen op het (zwaardere) origineel
                 except urllib.error.URLError:
                     thumbs_bereikbaar = False
                     print('   verkleinde versies niet bereikbaar; originelen worden gebruikt', flush=True)
