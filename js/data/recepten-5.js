@@ -113,8 +113,9 @@ RECEPTEN.push(
   id: 'souvlaki-tzatziki', naam: 'Souvlaki met tzatziki', keuken: 'Grieks', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '1 uur marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Spiesjes varkenshaas met citroen en oregano, met huisgemaakte tzatziki.',
-  methodes: [ { id: 'grillpan', naam: 'Grillpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
+  methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'grillpan', naam: 'Grillpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
   gerei: [
+    { tool: 'contactgrill', tekst: 'Contactgrill, spiesen passend gemaakt', m: 'contactgrill' },
     { tool: 'grillpan', tekst: 'Grillpan of barbecue', m: 'grillpan' },
     { tool: 'airfryer', tekst: 'Airfryer, spiesen passend gemaakt', m: 'airfryer' },
     { tool: 'bakplaat', tekst: 'Bakplaat met rooster', m: 'oven' },
@@ -139,6 +140,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Meng het vlees met olie, citroen, oregano, knoflook en peper. Laat minimaal 1 uur marineren. Rijg aan de spiesen en bestrooi met zout.', min: 60 },
     { t: 'Tzatziki: knijp de geraspte komkommer goed uit in een theedoek. Meng met yoghurt, knoflook, dille en zout.' },
+    { t: 'Leg de spiesen op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 8 minuten; haal ze eraf als het vlees vanbinnen nog net licht roze is.', m: 'contactgrill', min: 7 },
     { t: 'Grill de spiesen op een gloeiend hete grillpan 8 à 10 minuten rondom.', m: 'grillpan', min: 9 },
     { t: 'Bak de spiesen 10 à 12 minuten in de airfryer op 200 °C. Keer halverwege.', m: 'airfryer', min: 11 },
     { t: 'Gril de spiesen 12 minuten op het rooster onder de ovengrill. Keer halverwege.', m: 'oven', min: 12 },

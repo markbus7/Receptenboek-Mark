@@ -189,6 +189,14 @@ const Hulp = (() => {
       if (gij && !anti && teer) return eenmalig('koekenpan-teer', { soort: 'tip', tekst: 'Met je gietijzeren pan: goed voorverwarmen en wat extra vet gebruiken, dan plakt er niets.' });
     }
 
+    if (g.tool === 'contactgrill' && heb('contactgrill')) {
+      return { soort: 'ok', tekst: 'Met je OptiGrill: kies het passende programma, leg het eten er pas op als hij aangeeft dat hij is voorverwarmd, en houd de gaarheidsaanduiding in de gaten. Omdraaien is niet nodig.' };
+    }
+
+    if (g.tool === 'kookpan' && heb('rijstkoker') && /rijst/.test(tekst)) {
+      return eenmalig('rijst', { soort: 'vervang', tekst: 'Gebruik je rijstkoker: spoel de rijst, vul water bij tot het streepje voor het aantal maatbekers en zet hem aan. Hij houdt de rijst daarna warm.' });
+    }
+
     if (g.tool === 'kookpan' && heb('rvs-kookpan') && /bechamel|saus|melk|room/.test(tekst)) {
       return eenmalig('steelpan', { soort: 'tip', tekst: 'In je RVS-steelpan brandt melk of saus snel aan: houd het vuur middelhoog en blijf roeren met een garde.' });
     }

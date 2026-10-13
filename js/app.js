@@ -24,7 +24,17 @@ const App = (() => {
   const APPARATEN = Object.entries(GEREEDSCHAP).filter(([, g]) => g.apparaat);
   const standaardKeuken = APPARATEN.filter(([, g]) => g.standaard).map(([k]) => k);
   const standaardPannen = Object.entries(PANNEN).filter(([, p]) => p.standaard).map(([k]) => k);
-  const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
+  // Nieuwe apparaten met standaard: true worden ook aangevinkt bij wie "Mijn keuken" al eerder had ingesteld.
+  const OUDE_APPARATEN = ['oven', 'airfryer', 'wok', 'grillpan', 'staafmixer', 'mixer', 'slowcooker', 'magnetron'];
+  function laadKeuken() {
+    const keuken = opslag.lees('keuken', standaardKeuken);
+    const bekend = opslag.lees('apparaten-bekend', OUDE_APPARATEN);
+    APPARATEN.forEach(([k, g]) => { if (!bekend.includes(k) && g.standaard && !keuken.includes(k)) keuken.push(k); });
+    opslag.schrijf('apparaten-bekend', APPARATEN.map(([k]) => k));
+    opslag.schrijf('keuken', keuken);
+    return keuken;
+  }
+  const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['contactgrill', 'Contactgrill'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
   const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
   const ALIASSEN = { indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'] };
   const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
@@ -39,7 +49,7 @@ const App = (() => {
     voorraad: opslag.lees('voorraad', []),
     basis: opslag.lees('basis', true),
     compleet: false,
-    keuken: opslag.lees('keuken', standaardKeuken),
+    keuken: laadKeuken(),
     pannen: opslag.lees('pannen', standaardPannen),
     bereid: new Set(),
     maakbaar: false,

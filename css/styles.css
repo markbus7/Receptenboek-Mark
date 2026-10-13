@@ -466,6 +466,7 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .stap-methode .stap-tekst p::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 999px; background: var(--k); vertical-align: 2px; }
 .stap.is-klaar .stap-tekst p { color: var(--potlood); text-decoration: line-through; text-decoration-color: var(--lijn); }
 .stap.is-klaar .stap-nr { color: var(--ok); }
+.stap-notitie { font-family: var(--font-hand); font-size: 21px; line-height: 1; color: var(--pen); transform: rotate(-1deg); margin-top: -4px; }
 .timer-knop {
   display: inline-flex; align-items: center; gap: 6px;
   min-height: 32px; padding: 0 12px; border-radius: 999px;
