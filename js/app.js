@@ -400,7 +400,7 @@ const App = (() => {
   }
 
   function start() {
-    $('#teller').textContent = `${RECEPTEN.length} recepten uit ${KEUKENS.length} keukens`;
+    $('#teller').textContent = `${RECEPTEN.length} recepten uit ${KEUKENS.length} keukens · versie ${window.VERSIE || '?'}`;
     vulDatalist();
     renderFilters();
     koppel();

@@ -1,5 +1,11 @@
 /* Foto's per recept. Wordt gevuld door tools/fotos-ophalen.py; zonder foto toont een recept het tegeltje. */
 window.FOTOS = {
+ "groene-curry": {
+  "src": "img/groene-curry.jpg",
+  "auteur": "Takeaway",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Thai_green_chicken_curry_and_roti.jpg"
+ },
  "kip-tajine": {
   "src": "img/kip-tajine.jpg",
   "auteur": "BBouchra00",
@@ -11,6 +17,12 @@ window.FOTOS = {
   "auteur": "jules / stonesoup",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Lasagne_-_stonesoup.jpg"
+ },
+ "pad-thai": {
+  "src": "img/pad-thai.jpg",
+  "auteur": "Takeaway",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Phat_Thai_kung_Chang_Khien_street_stall.jpg"
  },
  "pasta-pesto-kip": {
   "src": "img/pasta-pesto-kip.jpg",
