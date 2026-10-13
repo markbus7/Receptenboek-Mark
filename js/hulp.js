@@ -1,5 +1,7 @@
 /* Gedeelde hulpfuncties: opslag, getallen, omrekenen en ingrediënten matchen. */
 const Hulp = (() => {
+  /* Opslag in deze browser. Elke wijziging krijgt een tijdstempel, zodat synchroniseren (js/sync.js)
+     per onderdeel de nieuwste versie kan kiezen. */
   const opslag = {
     lees(sleutel, standaard) {
       try {
@@ -7,8 +9,23 @@ const Hulp = (() => {
         return waarde == null ? standaard : JSON.parse(waarde);
       } catch (e) { return standaard; }
     },
-    schrijf(sleutel, waarde) {
-      try { localStorage.setItem('receptenboek:' + sleutel, JSON.stringify(waarde)); } catch (e) { /* opslag niet beschikbaar */ }
+    schrijf(sleutel, waarde, { tijd, stil } = {}) {
+      try {
+        const nieuw = JSON.stringify(waarde);
+        if (localStorage.getItem('receptenboek:' + sleutel) === nieuw && !tijd) return;
+        localStorage.setItem('receptenboek:' + sleutel, nieuw);
+        localStorage.setItem('receptenboek:tijd:' + sleutel, String(tijd || Date.now()));
+      } catch (e) { return; /* opslag niet beschikbaar */ }
+      if (!stil) document.dispatchEvent(new CustomEvent('opslag-gewijzigd', { detail: sleutel }));
+    },
+    tijd(sleutel) {
+      try { return Number(localStorage.getItem('receptenboek:tijd:' + sleutel)) || 0; } catch (e) { return 0; }
+    },
+    heeft(sleutel) {
+      try { return localStorage.getItem('receptenboek:' + sleutel) != null; } catch (e) { return false; }
+    },
+    wis(sleutel) {
+      try { localStorage.removeItem('receptenboek:' + sleutel); } catch (e) { /* genegeerd */ }
     }
   };
 

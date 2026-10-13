@@ -30,8 +30,9 @@ const App = (() => {
     const keuken = opslag.lees('keuken', standaardKeuken);
     const bekend = opslag.lees('apparaten-bekend', OUDE_APPARATEN);
     APPARATEN.forEach(([k, g]) => { if (!bekend.includes(k) && g.standaard && !keuken.includes(k)) keuken.push(k); });
-    opslag.schrijf('apparaten-bekend', APPARATEN.map(([k]) => k));
-    opslag.schrijf('keuken', keuken);
+    opslag.schrijf('apparaten-bekend', APPARATEN.map(([k]) => k), { stil: true });
+    // Automatische aanpassingen houden de oude tijd, zodat ze bij synchroniseren niet winnen van een ander apparaat.
+    opslag.schrijf('keuken', keuken, { tijd: opslag.tijd('keuken') || 1, stil: true });
     return keuken;
   }
   const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['contactgrill', 'Contactgrill'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
@@ -462,12 +463,26 @@ const App = (() => {
     document.addEventListener('lijst-gewijzigd', () => { if (state.view === 'lijst') renderLijst(); else $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || ''; });
   }
 
+  /* Na ontvangst van nieuwere gegevens van een ander apparaat: alles opnieuw inlezen en tonen. */
+  function herlaadOpslag() {
+    state.voorraad = opslag.lees('voorraad', []);
+    state.basis = opslag.lees('basis', true);
+    state.keuken = opslag.lees('keuken', standaardKeuken);
+    state.pannen = opslag.lees('pannen', standaardPannen);
+    state.favs = new Set(opslag.lees('favorieten', []));
+    Boodschappen.herlaad();
+    renderFilters();
+    if (state.view === 'lijst') renderLijst(); else render();
+    toast('Bijgewerkt met je andere apparaten');
+  }
+
   function start() {
     $('#teller').textContent = `${RECEPTEN.length} recepten · ${KEUKENS.length} hoofdstukken · versie ${window.VERSIE || '?'}`;
     vulDatalist();
     renderFilters();
     koppel();
     render();
+    Sync.start(herlaadOpslag);
     const id = location.hash.slice(1);
     if (id && RECEPTEN.some((r) => r.id === id)) openRecept(id, true);
   }

@@ -218,6 +218,17 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .gerei-optie-tekst { display: flex; flex-direction: column; min-width: 0; overflow-wrap: break-word; }
 .gerei-optie-tekst small { font-size: 12px; color: var(--inkt-zacht); }
 .gerei-optie:not(:has(input:checked)) .tegel { opacity: .45; }
+.blok-sync { padding-top: 18px; border-top: 1px solid var(--lijn); }
+.blok-sync a { color: var(--inkt); text-decoration-color: var(--potlood); text-underline-offset: 3px; }
+.sync-status { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+.sync-status::before { content: ''; width: 9px; height: 9px; border-radius: 999px; background: var(--potlood); flex: none; }
+.sync-ok::before { background: var(--ok); }
+.sync-bezig::before { background: var(--pen); animation: pols 1s ease-in-out infinite; }
+.sync-fout::before, .sync-status.sync-fout::before { background: var(--warn); }
+p.sync-fout { font-size: 14px; line-height: 1.45; color: var(--warn); }
+p.sync-fout::before { display: none; }
+.sync-knoppen { display: flex; flex-wrap: wrap; gap: 8px; }
+.sync-knoppen .knop:disabled { opacity: .5; cursor: default; transform: none; box-shadow: none; }
 
 /* ---------- Tabbladen en boekpagina ---------- */
 .tabbladen {
