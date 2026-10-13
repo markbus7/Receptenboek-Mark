@@ -92,6 +92,7 @@ const Detail = (() => {
 
   function render() {
     const fav = ctx.isFav(r.id);
+    const foto = window.FOTOS && FOTOS[r.id];
     const ms = Hulp.methodes(r, ctx.keuken);
     const meta = [
       `<li>${icoon('klok')} ${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="zacht">+ ${Hulp.esc(r.wacht)}</span>` : ''}</li>`,
@@ -108,11 +109,17 @@ const Detail = (() => {
           <button type="button" class="ikoon-knop fav-knop" id="d-fav" aria-pressed="${fav}" aria-label="${fav ? 'Verwijder uit favorieten' : 'Voeg toe aan favorieten'}">${icoon('hart')}</button>
         </div>
       </header>
-      <div class="d-kop">
-        <p class="eyebrow">${Hulp.esc(r.keuken)} · ${Hulp.esc(r.soort)}</p>
-        <h2 id="d-titel">${Hulp.esc(r.naam)}</h2>
-        <p class="d-intro">${Hulp.esc(r.intro)}</p>
-        <ul class="d-meta">${meta}</ul>
+      <div class="d-kop${foto ? ' met-foto' : ''}">
+        <div class="d-kop-tekst">
+          <p class="eyebrow">${Hulp.esc(r.keuken)} · ${Hulp.esc(r.soort)}</p>
+          <h2 id="d-titel">${Hulp.esc(r.naam)}</h2>
+          <p class="d-intro">${Hulp.esc(r.intro)}</p>
+          <ul class="d-meta">${meta}</ul>
+        </div>
+        ${foto ? `<figure class="d-foto">
+          <img src="${Hulp.esc(foto.src)}" alt="${Hulp.esc(r.naam)}">
+          <figcaption>Foto: ${foto.bron ? `<a href="${Hulp.esc(foto.bron)}" target="_blank" rel="noopener">${Hulp.esc(foto.auteur)}</a>` : Hulp.esc(foto.auteur)}, ${Hulp.esc(foto.licentie)}, via Wikimedia Commons</figcaption>
+        </figure>` : ''}
       </div>
       <section class="d-gerei" aria-labelledby="d-gerei-titel">
         <h3 id="d-gerei-titel">Pannen en apparatuur</h3>
@@ -120,7 +127,7 @@ const Detail = (() => {
           <div class="methode" role="group" aria-label="Bereidingswijze">
             <span class="methode-label">Bereiden met</span>
             <div class="segment">
-              ${ms.map((m) => `<button type="button" data-methode="${m.id}" aria-pressed="${m.id === methode}" class="${m.heb ? '' : 'mist'}">${toolIcoon(m.id)} ${Hulp.esc(m.naam)}${m.heb ? '' : '<span class="sr"> (niet in jouw keuken)</span>'}</button>`).join('')}
+              ${ms.map((m) => `<button type="button" data-methode="${m.id}" aria-pressed="${m.id === methode}" class="${m.heb ? '' : 'mist'}">${toolIcoon(m.id)} ${Hulp.esc(m.naam === 'Braadpan' && ctx.keuken.includes('dutchoven') ? 'Dutch oven' : m.naam)}${m.heb ? '' : '<span class="sr"> (niet in jouw keuken)</span>'}</button>`).join('')}
             </div>
           </div>` : ''}
         <ul class="gerei-lijst" id="d-gerei-lijst"></ul>
@@ -170,14 +177,17 @@ const Detail = (() => {
 
   function renderGerei() {
     const lijst = r.gerei.filter((g) => !g.m || g.m === methode);
+    const gezien = new Set();
     blad.querySelector('#d-gerei-lijst').innerHTML = lijst.map((g) => {
       const mist = !Hulp.heeftTool(g.tool, ctx.keuken);
+      const advies = Hulp.panAdvies(g, r, ctx.keuken, gezien);
       return `<li class="${mist ? 'mist' : ''}">
         <span class="tegel tegel-klein">${toolIcoon(g.tool)}</span>
         <div class="gerei-tekst">
           <strong>${Hulp.esc(g.tekst)}</strong>
           ${mist ? `<span class="label-mist">Niet in jouw keuken</span>` : ''}
-          ${g.of ? `<span class="gerei-of">${Hulp.esc(g.of)}</span>` : ''}
+          ${g.of && !(advies && advies.soort === 'vervang') ? `<span class="gerei-of">${Hulp.esc(g.of)}</span>` : ''}
+          ${advies ? `<span class="gerei-jij gerei-jij-${advies.soort}"><b>Jouw keuken:</b> ${Hulp.esc(advies.tekst)}</span>` : ''}
         </div>
       </li>`;
     }).join('');

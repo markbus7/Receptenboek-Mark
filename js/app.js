@@ -8,6 +8,11 @@ const App = (() => {
   const TIJDEN = [20, 30, 45, 60];
   const APPARATEN = Object.entries(GEREEDSCHAP).filter(([, g]) => g.apparaat);
   const standaardKeuken = APPARATEN.filter(([, g]) => g.standaard).map(([k]) => k);
+  const standaardPannen = Object.entries(PANNEN).filter(([, p]) => p.standaard).map(([k]) => k);
+  const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
+  const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
+  const ALIASSEN = { indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'] };
+  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
   const state = {
     view: 'alle',
@@ -20,11 +25,14 @@ const App = (() => {
     basis: opslag.lees('basis', true),
     compleet: false,
     keuken: opslag.lees('keuken', standaardKeuken),
+    pannen: opslag.lees('pannen', standaardPannen),
+    bereid: new Set(),
     maakbaar: false,
     sorteer: 'match',
     favs: new Set(opslag.lees('favorieten', []))
   };
 
+  const mijnKeuken = () => [...state.keuken, ...state.pannen];
   const icoon = (naam) => `<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${naam}"/></svg>`;
 
   /* ---------- Toast ---------- */
@@ -47,16 +55,22 @@ const App = (() => {
     $('#f-keuken').innerHTML = KEUKENS.map((k) => chip('keuken', k, `${k} ${aantalPer('keuken', k)}`, state.keukens.has(k))).join('');
     $('#f-soort').innerHTML = SOORTEN.map((s) => chip('soort', s, s, state.soorten.has(s))).join('');
     $('#f-tijd').innerHTML = TIJDEN.map((t) => chip('tijd', t, `≤ ${t} min`, state.tijd === t)).join('');
+    $('#f-bereid').innerHTML = BEREID.map(([k, l]) => chip('bereid', k, l, state.bereid.has(k))).join('');
     $('#f-vega').checked = state.vega;
     $('#basis').checked = state.basis;
     $('#alleen-compleet').checked = state.compleet;
     $('#f-maakbaar').checked = state.maakbaar;
-    $('#mijn-keuken').innerHTML = APPARATEN.map(([k, g]) => `
+    const optie = (attr, k, item, aan) => `
       <label class="gerei-optie">
-        <input type="checkbox" data-tool="${k}" ${state.keuken.includes(k) ? 'checked' : ''}>
-        <span class="tegel tegel-mini">${icoon(g.icoon)}</span>
-        <span>${esc(g.naam)}</span>
-      </label>`).join('');
+        <input type="checkbox" ${attr}="${k}" ${aan ? 'checked' : ''}>
+        <span class="tegel tegel-mini">${icoon(item.icoon)}</span>
+        <span class="gerei-optie-tekst">${esc(item.naam)}${item.sub ? `<small>${esc(item.sub)}</small>` : ''}</span>
+      </label>`;
+    $('#mijn-keuken').innerHTML = `
+      <p class="gerei-groep">Pannen</p>
+      <div class="gerei-keuze pannen">${Object.entries(PANNEN).map(([k, p]) => optie('data-pan', k, p, state.pannen.includes(k))).join('')}</div>
+      <p class="gerei-groep">Apparaten</p>
+      <div class="gerei-keuze">${APPARATEN.map(([k, g]) => optie('data-tool', k, g, state.keuken.includes(k))).join('')}</div>`;
     renderVoorraad();
   }
 
@@ -73,9 +87,10 @@ const App = (() => {
 
   /* ---------- Filteren en sorteren ---------- */
   function zoektermPast(r, q) {
-    if (!q) return true;
     const t = Hulp.norm(q);
-    return Hulp.norm(r.naam).includes(t) || Hulp.norm(r.keuken).includes(t) || r.ingr.some((i) => i.n && Hulp.norm(i.n).includes(t));
+    if (!t) return true;
+    const tekst = ZOEKTEKST.get(r.id);
+    return [t, ...(ALIASSEN[t] || [])].some((x) => tekst.includes(x));
   }
 
   function resultaten() {
@@ -83,7 +98,7 @@ const App = (() => {
     let lijst = RECEPTEN.map((r) => ({
       r,
       m: metVoorraad ? Hulp.match(r, state.voorraad, state.basis) : null,
-      maakbaar: Hulp.maakbaar(r, state.keuken)
+      maakbaar: Hulp.maakbaar(r, mijnKeuken())
     }));
     lijst = lijst.filter(({ r, m, maakbaar }) =>
       (state.view !== 'fav' || state.favs.has(r.id)) &&
@@ -91,6 +106,7 @@ const App = (() => {
       (!state.keukens.size || state.keukens.has(r.keuken)) &&
       (!state.soorten.size || state.soorten.has(r.soort)) &&
       (!state.tijd || r.tijd <= state.tijd) &&
+      (!state.bereid.size || [...state.bereid].some((t) => BEREID_PER_RECEPT.get(r.id).has(t))) &&
       (!state.vega || r.vega) &&
       (!state.maakbaar || maakbaar) &&
       (!metVoorraad || m.heb.length > 0) &&
@@ -117,7 +133,8 @@ const App = (() => {
     if (r.methodes && r.methodes.length) {
       return r.methodes.map((m) => {
         const heb = Hulp.heeftTool(m.id, state.keuken);
-        return `<span class="${heb ? '' : 'doorgestreept'}">${esc(m.naam)}</span>`;
+        const naam = m.naam === 'Braadpan' && state.pannen.includes('dutchoven') ? 'Dutch oven' : m.naam;
+        return `<span class="${heb ? '' : 'doorgestreept'}">${esc(naam)}</span>`;
       }).join('<span class="punt" aria-hidden="true">·</span>');
     }
     const namen = [...new Set(r.gerei.filter((g) => !g.m).map((g) => (GEREEDSCHAP[g.tool] || {}).naam).filter(Boolean))];
@@ -126,6 +143,8 @@ const App = (() => {
 
   function kaart({ r, m, maakbaar }) {
     const fav = state.favs.has(r.id);
+    const foto = window.FOTOS && FOTOS[r.id];
+    const tegelIcoon = icoon((GEREEDSCHAP[hoofdTool(r)] || {}).icoon || 'koekenpan');
     const matchHtml = m ? `
       <div class="match${m.mist.length === 0 ? ' is-compleet' : ''}">
         <div class="match-balk" aria-hidden="true"><span style="width:${Math.round(m.pct * 100)}%"></span></div>
@@ -133,9 +152,11 @@ const App = (() => {
       </div>
       ${m.mist.length ? `<p class="mist-tekst"><span>Mist:</span> ${esc(m.mist.slice(0, 4).join(', '))}${m.mist.length > 4 ? ` en nog ${m.mist.length - 4}` : ''}</p>` : ''}` : '';
     return `
-      <article class="kaart${maakbaar ? '' : ' niet-maakbaar'}">
+      <article class="kaart${maakbaar ? '' : ' niet-maakbaar'}${foto ? ' met-foto' : ''}">
         <a class="kaart-link" href="#${r.id}" data-open="${r.id}">
-          <span class="tegel kaart-tegel" aria-hidden="true">${icoon((GEREEDSCHAP[hoofdTool(r)] || {}).icoon || 'koekenpan')}</span>
+          ${foto
+            ? `<span class="kaart-foto"><img src="${esc(foto.src)}" alt="" loading="lazy" decoding="async"><span class="tegel tegel-mini kaart-foto-tegel" aria-hidden="true">${tegelIcoon}</span></span>`
+            : `<span class="tegel kaart-tegel" aria-hidden="true">${tegelIcoon}</span>`}
           <span class="kaart-body">
             <span class="eyebrow">${esc(r.keuken)} · ${esc(r.soort)}</span>
             <span class="kaart-titel">${esc(r.naam)}</span>
@@ -158,6 +179,7 @@ const App = (() => {
     state.keukens.forEach((k) => items.push(['keuken', k, k]));
     state.soorten.forEach((s) => items.push(['soort', s, s]));
     if (state.tijd) items.push(['tijd', state.tijd, `≤ ${state.tijd} min`]);
+    state.bereid.forEach((b) => items.push(['bereid', b, BEREID.find(([k]) => k === b)[1]]));
     if (state.vega) items.push(['vega', '1', 'Vegetarisch']);
     if (state.maakbaar) items.push(['maakbaar', '1', 'Past bij mijn keuken']);
     if (state.compleet) items.push(['compleet', '1', 'Alles in huis']);
@@ -215,7 +237,7 @@ const App = (() => {
 
   /* ---------- Recept openen en sluiten ---------- */
   const context = {
-    get keuken() { return state.keuken; },
+    get keuken() { return mijnKeuken(); },
     isFav: (id) => state.favs.has(id),
     wisselFav: (id) => wisselFav(id),
     sluit: () => sluitRecept()
@@ -255,7 +277,7 @@ const App = (() => {
   function bewaarVoorraad() { opslag.schrijf('voorraad', state.voorraad); renderVoorraad(); render(); }
 
   function wisAlles() {
-    state.keukens.clear(); state.soorten.clear(); state.tijd = null; state.vega = false;
+    state.keukens.clear(); state.soorten.clear(); state.bereid.clear(); state.tijd = null; state.vega = false;
     state.maakbaar = false; state.compleet = false; state.voorraad = []; state.zoek = '';
     $('#zoek').value = '';
     opslag.schrijf('voorraad', []);
@@ -281,6 +303,7 @@ const App = (() => {
         if (groep === 'keuken') state.keukens.has(waarde) ? state.keukens.delete(waarde) : state.keukens.add(waarde);
         if (groep === 'soort') state.soorten.has(waarde) ? state.soorten.delete(waarde) : state.soorten.add(waarde);
         if (groep === 'tijd') state.tijd = state.tijd === +waarde ? null : +waarde;
+        if (groep === 'bereid') state.bereid.has(waarde) ? state.bereid.delete(waarde) : state.bereid.add(waarde);
         renderFilters(); render();
         return;
       }
@@ -300,6 +323,10 @@ const App = (() => {
       if (t.dataset.tool) {
         state.keuken = APPARATEN.map(([k]) => k).filter((k) => $(`[data-tool="${k}"]`).checked);
         opslag.schrijf('keuken', state.keuken);
+      }
+      if (t.dataset.pan) {
+        state.pannen = Object.keys(PANNEN).filter((k) => $(`[data-pan="${k}"]`).checked);
+        opslag.schrijf('pannen', state.pannen);
       }
       render();
     });
@@ -322,6 +349,7 @@ const App = (() => {
       if (g === 'keuken') state.keukens.delete(w);
       if (g === 'soort') state.soorten.delete(w);
       if (g === 'tijd') state.tijd = null;
+      if (g === 'bereid') state.bereid.delete(w);
       if (g === 'vega') state.vega = false;
       if (g === 'maakbaar') state.maakbaar = false;
       if (g === 'compleet') state.compleet = false;

@@ -215,13 +215,17 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 
 .schakel { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; cursor: pointer; }
 .schakel input, .gerei-optie input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--delft); flex: none; }
-.gerei-keuze { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.gerei-keuze { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
 .gerei-optie {
   display: flex; align-items: center; gap: 8px;
   padding: 6px 8px; border: 1px solid var(--lijn); border-radius: 8px;
   background: var(--vlak); font-size: 14px; line-height: 1.25; cursor: pointer;
 }
 .gerei-optie input { margin: 0; }
+.gerei-optie-tekst { display: flex; flex-direction: column; min-width: 0; overflow-wrap: break-word; }
+.gerei-optie-tekst small { font-size: 12px; color: var(--zacht); }
+.mijn-keuken { display: flex; flex-direction: column; gap: 8px; }
+.gerei-groep { font-size: 13px; font-weight: 600; color: var(--inkt); margin-top: 4px; }
 .gerei-optie:has(input:checked) { border-color: var(--delft); background: var(--delft-zacht); }
 .gerei-optie:not(:has(input:checked)) .tegel { opacity: .5; }
 
@@ -264,6 +268,13 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 }
 .kaart.niet-maakbaar .kaart-tegel { filter: grayscale(1); opacity: .6; }
 .kaart-fav { position: absolute; top: 12px; right: 12px; }
+.kaart.met-foto .kaart-link { flex-direction: column; gap: 12px; padding: 0 0 16px; }
+.kaart.met-foto .kaart-body { padding-inline: 16px; }
+.kaart-foto { position: relative; display: block; aspect-ratio: 16 / 10; border-radius: var(--r) var(--r) 0 0; overflow: hidden; background: var(--vlak-2); }
+.kaart-foto img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease-out; }
+.kaart:hover .kaart-foto img { transform: scale(1.03); }
+.kaart-foto-tegel { position: absolute; left: 12px; bottom: 12px; }
+.kaart.niet-maakbaar .kaart-foto img { filter: grayscale(.8); }
 .kaart-voet { padding: 12px 16px 14px; border-top: 1px dashed var(--lijn); display: flex; flex-direction: column; gap: 6px; }
 .match { display: flex; align-items: center; gap: 10px; }
 .match-balk { flex: 1; height: 6px; border-radius: 999px; background: var(--vlak-2); overflow: hidden; }
@@ -327,6 +338,12 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .d-kop, .d-gerei, .d-kolommen, .d-extra { padding-inline: clamp(16px, 4vw, 40px); }
 .d-kop { padding-top: 28px; display: flex; flex-direction: column; gap: 10px; }
 .d-kop h2 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -0.025em; }
+.d-kop-tekst { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.d-kop.met-foto { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 28px; align-items: center; }
+.d-foto { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.d-foto img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r); background: var(--vlak-2); }
+.d-foto figcaption { font-size: 12px; color: var(--zacht); }
+.d-foto figcaption a { color: inherit; }
 .d-intro { font-size: 18px; color: var(--zacht); max-width: 60ch; }
 .d-meta { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .d-meta li {
@@ -362,6 +379,10 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .gerei-of { font-size: 14px; color: var(--zacht); }
 .gerei-of::before { content: 'Alternatief: '; font-weight: 600; color: var(--delft); }
 .gerei-lijst li.mist .tegel { filter: grayscale(1); opacity: .6; }
+.gerei-jij { font-size: 14px; line-height: 1.45; padding: 6px 10px; border-radius: 8px; background: var(--delft-zacht); }
+.gerei-jij b { color: var(--delft); font-weight: 700; }
+.gerei-jij-ok { background: var(--ok-zacht); }
+.gerei-jij-ok b { color: var(--ok); }
 
 .d-kolommen { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px; margin-top: 28px; align-items: start; }
 .d-ingr { display: flex; flex-direction: column; gap: 14px; position: sticky; top: 76px; }
@@ -452,6 +473,8 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 /* ---------- Kleinere schermen ---------- */
 @media (max-width: 1100px) {
   .d-kolommen { grid-template-columns: minmax(0, 1fr); }
+  .d-kop.met-foto { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .d-kop.met-foto .d-foto { order: -1; }
   .d-ingr { position: static; }
 }
 @media (max-width: 960px) {

@@ -133,5 +133,67 @@ const Hulp = (() => {
     return u + ' uur' + (m ? ' ' + m + ' min' : '');
   }
 
-  return { opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst };
+  /* Welke pannen en apparaten een recept gebruikt, voor het filter "Bereid in". */
+  function bereidIn(recept) {
+    const tools = new Set(recept.gerei.map((g) => g.tool));
+    (recept.methodes || []).forEach((m) => tools.add(m.id));
+    if (recept.gerei.some((g) => /braadpan|stoofpan|dutch oven|tajine/i.test(g.tekst))) tools.add('braadpan');
+    return tools;
+  }
+
+  /* Advies voor één stuk keukengerei, afgestemd op de pannen die je hebt.
+     `gezien` voorkomt dat hetzelfde advies twee keer in één recept staat. */
+  function panAdvies(g, recept, keuken, gezien) {
+    const heb = (k) => keuken.includes(k);
+    const eenmalig = (sleutel, advies) => { if (gezien.has(sleutel)) return null; gezien.add(sleutel); return advies; };
+    const tekst = norm(g.tekst);
+    const ovenMethode = (recept.methodes || []).some((m) => m.id === 'oven');
+
+    if (g.tool === 'braadpan') {
+      if (heb('dutchoven')) {
+        return { soort: 'ok', tekst: 'Gebruik je Dutch oven. ' + (ovenMethode
+          ? 'Hij kan met deksel en al de oven in.'
+          : 'Gietijzer houdt de warmte goed vast, dus het vuur kan een stand lager dan je gewend bent.') };
+      }
+      if (heb('hapjespan')) return { soort: 'vervang', tekst: 'Geen Dutch oven? Een hapjespan met deksel werkt ook. Houd het vuur laag en roer wat vaker.' };
+      return { soort: 'vervang', tekst: 'Geen Dutch oven? Gebruik je dikste kookpan met deksel op het kleinste pit.' };
+    }
+
+    if (g.tool === 'hapjespan' && !heb('hapjespan')) {
+      if (heb('dutchoven')) return eenmalig('hapjespan', { soort: 'vervang', tekst: 'Je hebt geen hapjespan: gebruik je Dutch oven. Zet het vuur een stand lager, want gietijzer wordt heter.' });
+      return eenmalig('hapjespan', { soort: 'vervang', tekst: 'Je hebt geen hapjespan: gebruik je grootste koekenpan of een brede kookpan.' });
+    }
+
+    if (g.tool === 'wok' && !heb('wok')) {
+      if (heb('rvs-koekenpan') || heb('gietijzer-koekenpan')) {
+        return { soort: 'vervang', tekst: `Gebruik je ${heb('rvs-koekenpan') ? 'RVS-koekenpan' : 'gietijzeren koekenpan'}: die kan net als een wok heel heet worden. Bak in kleine porties, anders gaat het koken in plaats van bakken.` };
+      }
+      if (heb('dutchoven')) return { soort: 'vervang', tekst: 'Gebruik je Dutch oven op hoog vuur en bak in kleine porties.' };
+    }
+
+    if (g.tool === 'koekenpan') {
+      const anti = heb('antiaanbakpan'), rvs = heb('rvs-koekenpan'), gij = heb('gietijzer-koekenpan');
+      // Recepten die juist een hete, stevige pan willen (smash burgers).
+      if (/gietijzer|rvs/.test(tekst)) {
+        if (rvs || gij) return eenmalig('koekenpan', { soort: 'ok', tekst: `Perfect voor je ${gij ? 'gietijzeren pan' : 'RVS-pan'}: die wordt heel heet en geeft een mooie korst.` });
+        if (anti) return { soort: 'tip', tekst: 'Je antiaanbakpan mag niet zo heet worden. Bak op middelhoog vuur; de korst wordt iets minder krokant.' };
+        return null;
+      }
+      // Recepten die makkelijk aanplakken: ei, beslag, vis.
+      const teer = /antiaanbak/.test(tekst) || /pannenkoe|pancake|spiegelei|omelet|vis|zalm/.test(norm(recept.naam + ' ' + g.tekst));
+      if (teer && anti) return null;
+      if (rvs && !anti) {
+        if (teer) return eenmalig('koekenpan-teer', { soort: 'tip', tekst: 'Met je RVS-pan: verhit hem 2 minuten droog op middelhoog vuur tot een druppel water als een balletje rondrolt. Doe dan royaal boter of olie erin en zet het vuur een stand lager. Keer pas als het vanzelf loslaat.' });
+        return eenmalig('koekenpan', { soort: 'tip', tekst: 'Met je RVS-pan: verhit hem eerst droog tot een druppel water als een balletje rondrolt en doe dan pas de olie erin. Wat je bakt plakt eerst vast en laat vanzelf los als het klaar is om te keren.' });
+      }
+      if (gij && !anti && teer) return eenmalig('koekenpan-teer', { soort: 'tip', tekst: 'Met je gietijzeren pan: goed voorverwarmen en wat extra vet gebruiken, dan plakt er niets.' });
+    }
+
+    if (g.tool === 'kookpan' && heb('rvs-kookpan') && /bechamel|saus|melk|room/.test(tekst)) {
+      return eenmalig('steelpan', { soort: 'tip', tekst: 'In je RVS-steelpan brandt melk of saus snel aan: houd het vuur middelhoog en blijf roeren met een garde.' });
+    }
+    return null;
+  }
+
+  return { opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies };
 })();

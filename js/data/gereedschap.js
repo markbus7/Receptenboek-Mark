@@ -13,7 +13,7 @@ window.GEREEDSCHAP = {
   koekenpan:  { naam: 'Koekenpan',         icoon: 'koekenpan' },
   hapjespan:  { naam: 'Hapjespan',         icoon: 'hapjespan' },
   kookpan:    { naam: 'Kookpan',           icoon: 'kookpan' },
-  braadpan:   { naam: 'Braadpan',          icoon: 'braadpan' },
+  braadpan:   { naam: 'Dutch oven (braadpan)', icoon: 'braadpan' },
   ovenschaal: { naam: 'Ovenschaal',        icoon: 'ovenschaal' },
   bakplaat:   { naam: 'Bakplaat',          icoon: 'bakplaat' },
   bakvorm:    { naam: 'Bakvorm',           icoon: 'bakvorm' }
@@ -40,6 +40,17 @@ window.EENHEDEN = {
   vel:    { e: 'vel',    m: 'vellen',  soort: 'stuk' },
   bol:    { e: 'bol',    m: 'bollen',  soort: 'stuk' },
   handje: { e: 'handje', m: 'handjes', soort: 'lepel' }
+};
+
+/* Pannen die je zelf aanvinkt onder "Mijn keuken". Recepten gebruiken de algemene namen
+   hierboven (braadpan, koekenpan, hapjespan); deze lijst bepaalt welk advies je krijgt. */
+window.PANNEN = {
+  dutchoven:            { naam: 'Dutch oven', sub: 'gietijzer, met deksel', icoon: 'braadpan', standaard: true },
+  'rvs-koekenpan':      { naam: 'RVS-koekenpan', sub: 'roestvrij staal', icoon: 'koekenpan', standaard: true },
+  'rvs-kookpan':        { naam: 'RVS-kookpan en steelpan', sub: 'roestvrij staal', icoon: 'kookpan', standaard: true },
+  antiaanbakpan:        { naam: 'Antiaanbak koekenpan', sub: 'teflon of keramisch', icoon: 'koekenpan', standaard: false },
+  'gietijzer-koekenpan':{ naam: 'Gietijzeren koekenpan', sub: 'of carbonstaal', icoon: 'koekenpan', standaard: false },
+  hapjespan:            { naam: 'Hapjespan', sub: 'koekenpan met hoge rand', icoon: 'hapjespan', standaard: false }
 };
 
 window.RECEPTEN = window.RECEPTEN || [];
