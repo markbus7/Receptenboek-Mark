@@ -1,9 +1,10 @@
 # Receptenboek Mark
 
-Een receptenboek in de browser met 77 recepten uit 21 keukens. Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
+Een receptenboek in de browser met 88 recepten uit 21 keukens. Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
 
 ## Wat kan het
 
+- **Zoeken** met suggesties terwijl je typt (recepten, hoofdstukken en ingrediënten). Een tikfout is geen probleem: "ommelet" of "spagetti" vindt toch het juiste gerecht.
 - **Filteren** op keuken (Italiaans, Indiaas, Indonesisch, Surinaams, Thais, Nederlands, …), soort gerecht, pan of apparaat (*Bereid in*: Dutch oven, koekenpan, oven, airfryer, …), maximale bereidingstijd en vegetarisch.
 - **Wat heb ik in huis?** Typ de ingrediënten die je hebt. Recepten waarvoor je het minst hoeft te kopen komen bovenaan, met per recept wat je nog mist.
 - **Omrekenen.** Pas het aantal personen aan, of vul in hoeveel je van één ingrediënt hebt (bijvoorbeeld *300 g kipfilet*). Alle andere hoeveelheden schalen mee.
@@ -61,6 +62,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`.
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.7.0**: 11 ei- en lunchgerechten (o.a. omelet, boerenomelet, uitsmijter, roerei, tortilla, frittata, menemen, eggs Benedict, eieren koken); zoeksuggesties terwijl je typt; zoeken vindt ook gerechten met een tikfout ("ommelet" → omelet).
 - **1.6.0**: synchroniseren tussen apparaten via een geheime GitHub-gist (met je eigen token).
 - **1.5.0**: contactgrill (zoals Tefal OptiGrill) en rijstkoker bij Mijn keuken; contactgrill als bereidingswijze bij saté, souvlaki, köfte, quesadilla's, teriyaki zalm en citroengraskip; rijstkoker-tip bij recepten met rijst.
 - **1.4.0**: nieuw recept: Indiase kip madras met kipfilet (met foto).

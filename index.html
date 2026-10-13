@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=1.6.0">
+<link rel="stylesheet" href="css/styles.css?v=1.7.0">
 </head>
 <body>
 <div class="app">
@@ -26,11 +26,14 @@
       </nav>
     </div>
     <div class="zoekrij">
-      <label class="zoek" for="zoek">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zoek"/></svg>
-        <span class="sr">Zoeken</span>
-        <input id="zoek" type="search" placeholder="Zoek gerecht of ingrediënt…" autocomplete="off">
-      </label>
+      <div class="zoek-wrap">
+        <label class="zoek" for="zoek">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-zoek"/></svg>
+          <span class="sr">Zoeken</span>
+          <input id="zoek" type="search" placeholder="Zoek gerecht of ingrediënt…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggesties">
+        </label>
+        <ul class="suggesties" id="suggesties" role="listbox" aria-label="Suggesties" hidden></ul>
+      </div>
       <button type="button" class="knop filter-knop" id="filter-knop" aria-controls="paneel" aria-expanded="false">
         <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-filter"/></svg>
         Filters <span class="badge" id="filter-aantal"></span>
@@ -188,24 +191,25 @@
   </defs>
 </svg>
 
-<script src="js/versie.js?v=1.6.0"></script>
-<script src="js/data/gereedschap.js?v=1.6.0"></script>
-<script src="js/data/hoofdstukken.js?v=1.6.0"></script>
-<script src="js/data/recepten-1.js?v=1.6.0"></script>
-<script src="js/data/recepten-2.js?v=1.6.0"></script>
-<script src="js/data/recepten-3.js?v=1.6.0"></script>
-<script src="js/data/recepten-4.js?v=1.6.0"></script>
-<script src="js/data/recepten-5.js?v=1.6.0"></script>
-<script src="js/data/recepten-6.js?v=1.6.0"></script>
-<script src="js/data/recepten-7.js?v=1.6.0"></script>
-<script src="js/data/recepten-8.js?v=1.6.0"></script>
-<script src="js/data/recepten-9.js?v=1.6.0"></script>
-<script src="js/data/recepten-10.js?v=1.6.0"></script>
-<script src="js/data/fotos.js?v=1.6.0"></script>
-<script src="js/hulp.js?v=1.6.0"></script>
-<script src="js/boodschappen.js?v=1.6.0"></script>
-<script src="js/detail.js?v=1.6.0"></script>
-<script src="js/sync.js?v=1.6.0"></script>
-<script src="js/app.js?v=1.6.0"></script>
+<script src="js/versie.js?v=1.7.0"></script>
+<script src="js/data/gereedschap.js?v=1.7.0"></script>
+<script src="js/data/hoofdstukken.js?v=1.7.0"></script>
+<script src="js/data/recepten-1.js?v=1.7.0"></script>
+<script src="js/data/recepten-2.js?v=1.7.0"></script>
+<script src="js/data/recepten-3.js?v=1.7.0"></script>
+<script src="js/data/recepten-4.js?v=1.7.0"></script>
+<script src="js/data/recepten-5.js?v=1.7.0"></script>
+<script src="js/data/recepten-6.js?v=1.7.0"></script>
+<script src="js/data/recepten-7.js?v=1.7.0"></script>
+<script src="js/data/recepten-8.js?v=1.7.0"></script>
+<script src="js/data/recepten-9.js?v=1.7.0"></script>
+<script src="js/data/recepten-10.js?v=1.7.0"></script>
+<script src="js/data/recepten-11.js?v=1.7.0"></script>
+<script src="js/data/fotos.js?v=1.7.0"></script>
+<script src="js/hulp.js?v=1.7.0"></script>
+<script src="js/boodschappen.js?v=1.7.0"></script>
+<script src="js/detail.js?v=1.7.0"></script>
+<script src="js/sync.js?v=1.7.0"></script>
+<script src="js/app.js?v=1.7.0"></script>
 </body>
 </html>

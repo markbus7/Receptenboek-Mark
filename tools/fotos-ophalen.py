@@ -54,6 +54,10 @@ ARTIKELEN = {
     'hongaarse-goulash': 'Goulash', 'coq-au-vin': 'Coq au vin', 'pulled-pork': 'Pulled pork',
     'kip-dutch-oven': 'Roast chicken', 'ossobuco': 'Ossobuco', 'roti-kip': 'nl:Roti (gerecht)',
     'bakabana': 'File:Pisang Goreng.jpg', 'linzensoep-mercimek': 'Lentil soup', 'kofte': 'Kofta', 'pho-bo': 'Pho',
+    'franse-omelet': 'Omelette', 'boerenomelet': 'nl:Boerenomelet', 'uitsmijter': 'Uitsmijter',
+    'roerei-toast': 'Scrambled eggs', 'tortilla-patatas': 'Spanish omelette', 'frittata': "File:Frittata - Bam's Kitchen 2024-04-02.jpg",
+    'menemen': 'Menemen (food)', 'tamagoyaki': 'Tamagoyaki', 'eggs-benedict': 'Eggs Benedict',
+    'huevos-rancheros': 'Huevos rancheros', 'eieren-koken': 'Boiled egg',
     'kip-madras': 'File:Madras chicken curry @ New Delhi @ Annecy (31691503017).jpg',
     'bun-cha-gio': 'Bún thịt nướng', 'harira': 'Harira', 'shepherds-pie': 'Shepherd\'s pie',
 }
