@@ -99,16 +99,57 @@ const Hulp = (() => {
   const isBasis = (ingr) => BASIS.includes(norm(ingr.n));
 
   /* Matcht een zoekterm ("kip") met een ingrediënt ("kippendijfilet"). */
+  // Woorden die van een groente of vlees iets anders maken: paprika ≠ paprikapoeder, kip ≠ kippenbouillon.
+  const AFGELEID = /(poeder|puree|pasta|saus|bouillon|kruiden|vlokken|zaad|chips|olie|azijn|meel)$/;
+
   function termPast(term, ingr) {
     const t = norm(term);
     if (!t) return false;
     const namen = [ingr.n, ingr.p].filter(Boolean).map(norm);
     return namen.some((nm) => {
       if (nm === t) return true;
-      if (t.length >= 4 && nm.includes(t)) return true;
-      if (nm.length >= 4 && t.includes(nm)) return true;
-      return nm.split(/[\s-]+/).some((w) => w.startsWith(t));
+      if (nm.length >= 4 && t.split(/[\s-]+/).includes(nm)) return true;   // "kipfilet met vel" ⊃ "kipfilet"
+      if (t.includes(' ') && nm.includes(t)) return true;
+      return nm.split(/[\s-]+/).some((w) => {
+        if (AFGELEID.test(w) && !AFGELEID.test(t)) return false;
+        if (t.length >= 4) return w.includes(t);
+        if (t.length === 3) return w.startsWith(t);
+        // Heel korte woorden (ui, ei): alleen het woord zelf of het meervoud, dus "ui" ≠ "uitjes".
+        return w === t || w === t + 'en' || w === t + 'eren' || (t === 'ei' && /^ei(dooier|wit)/.test(w));
+      });
     });
+  }
+
+  /* Groentemixen staan in de voorraad als "mix:<id>"; voor het matchen tellen de groenten die erin zitten. */
+  const MIXEN = () => new Map((window.GROENTEMIXEN || []).map((m) => [m.id, m]));
+  const isMix = (t) => typeof t === 'string' && t.startsWith('mix:');
+  const mixVan = (t) => MIXEN().get(t.slice(4));
+  const voorraadTermen = (voorraad) => voorraad.flatMap((t) => (isMix(t) ? ((mixVan(t) || {}).bevat || []) : [t]));
+
+  /* Gewicht in gram van een ingrediënt, om aan te geven hoeveel van een groentemix je gebruikt. */
+  function gram(i) {
+    if (i.q == null) return 0;
+    const per = { g: 1, kg: 1000, blik: 250, stengel: 40, handje: 30, bos: 50 }[i.u || 'st'];
+    if (per) return i.q * per;
+    if ((i.u || 'st') === 'st') return i.q * ((window.STUKGEWICHT || {})[norm(i.n)] || 100);
+    return 0;
+  }
+
+  /* Welke groenten uit een recept een mix vervangt, en ongeveer hoeveel gram mix je dan gebruikt. */
+  function mixDekking(recept, mix, factor = 1) {
+    const gedekt = ingrediënten(recept).filter((i) => !isBasis(i) && mix.bevat.some((t) => termPast(t, i)));
+    const totaal = gedekt.reduce((som, i) => som + gram(i), 0) * factor;
+    const aanrader = (mix.aanraders || []).includes(recept.id);
+    // Vervangt de mix niets maar past hij er wel bij? Dan ± 100 g per persoon erbij.
+    const erbij = !gedekt.length && aanrader ? Math.round((recept.pers * factor * 100) / 50) * 50 : 0;
+    return { gedekt, aanrader, gram: totaal ? Math.max(100, Math.round(totaal / 50) * 50) : 0, erbij };
+  }
+
+  /* Mixen uit de voorraad die bij dit recept passen. */
+  function mixenVoor(recept, voorraad, factor = 1) {
+    return voorraad.filter(isMix).map(mixVan).filter(Boolean)
+      .map((mix) => ({ mix, ...mixDekking(recept, mix, factor) }))
+      .filter((d) => d.gedekt.length || d.aanrader);
   }
 
   /* Unieke, echte ingrediënten van een recept (zonder kopjes en dubbelingen). */
@@ -127,7 +168,8 @@ const Hulp = (() => {
   function match(recept, voorraad, basisAan) {
     const lijst = ingrediënten(recept).filter((i) => !i.opt && !(basisAan && isBasis(i)));
     const heb = [], mist = [];
-    lijst.forEach((i) => (voorraad.some((t) => termPast(t, i)) ? heb : mist).push(i.n));
+    const termen = voorraadTermen(voorraad);
+    lijst.forEach((i) => (termen.some((t) => termPast(t, i)) ? heb : mist).push(i.n));
     return { heb, mist, totaal: lijst.length, pct: lijst.length ? heb.length / lijst.length : 0 };
   }
 
@@ -252,5 +294,5 @@ const Hulp = (() => {
     return null;
   }
 
-  return { afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies };
+  return { isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies };
 })();

@@ -163,7 +163,8 @@ const Detail = (() => {
               </div>
               <p class="schaal-info" id="d-schaal-info"></p>
             </div>
-            <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
+            <div class="mix-notitie" id="d-mix" hidden></div>
+          <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
             <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
           </section>
           <p class="d-blz">${blz}</p>
@@ -221,15 +222,27 @@ const Detail = (() => {
       info.innerHTML = `<strong>Aangepast ×${Hulp.getal(factor, 2)}</strong>${ikHeb ? ` op ${Hulp.esc(ikHeb)}` : ''}.${advies} <button type="button" class="knop-tekst" id="d-reset">Terug naar origineel</button>`;
     }
 
+    // Groentemix uit "Wat heb ik in huis?": wat vervangt hij hier en hoeveel gebruik je?
+    const mixen = Hulp.mixenVoor(r, ctx.voorraad || [], factor);
+    const mixEl = blad.querySelector('#d-mix');
+    mixEl.hidden = !mixen.length;
+    mixEl.innerHTML = mixen.map(({ mix, gedekt, gram, erbij }) => `<p>${gedekt.length
+      ? `<b>Met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> die vervangt hier ${Hulp.esc(gedekt.map((i) => i.n).join(', '))}. Gebruik ± ${gram} g van je mix.`
+      : `<b>Lekker met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> voeg ± ${erbij} g toe.`} ${Hulp.esc(mix.bereiding)}</p>`).join('');
+
+    const uitMix = new Map();
+    mixen.forEach(({ mix, gedekt }) => gedekt.forEach((i) => uitMix.set(i.n, mix.naam.toLowerCase())));
+
     blad.querySelector('#d-ingr-lijst').innerHTML = r.ingr.map((i, idx) => {
       if (i.kop) return `<li class="ingr-kop">${Hulp.esc(i.kop)}</li>`;
+      const mixNaam = uitMix.get(i.n);
       const h = Hulp.hoeveelheid(i, factor);
       const extra = i.x || (i.q == null ? 'naar smaak' : '');
       return `<li class="ingr${i.opt ? ' is-opt' : ''}">
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${Hulp.esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}</span>
+          <span class="ingr-naam">${Hulp.esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}</span>
         </label>
       </li>`;
     }).join('');

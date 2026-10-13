@@ -113,12 +113,17 @@ const App = (() => {
   }
 
   function renderVoorraad() {
-    $('#voorraad-chips').innerHTML = state.voorraad.map((v) =>
-      `<button type="button" class="chip chip-voorraad" data-weg-voorraad="${esc(v)}" aria-label="Verwijder ${esc(v)}">${esc(v)} ${icoon('sluit')}</button>`).join('');
+    $('#voorraad-chips').innerHTML = state.voorraad.map((v) => {
+      const mix = Hulp.isMix(v) ? Hulp.mixVan(v) : null;
+      const label = mix ? `${mix.naam} (mix)` : v;
+      return `<button type="button" class="chip chip-voorraad${mix ? ' chip-mix' : ''}" data-weg-voorraad="${esc(v)}" aria-label="Verwijder ${esc(label)}">${esc(label)} ${icoon('sluit')}</button>`;
+    }).join('');
   }
 
   function vulDatalist() {
     $('#ingr-lijst').innerHTML = INGR_NAMEN.map((n) => `<option value="${esc(n)}"></option>`).join('');
+    $('#mix-kiezer').innerHTML = '<option value="">Kies je groentemix…</option>' +
+      GROENTEMIXEN.map((m) => `<option value="mix:${m.id}">${esc(m.naam)} (${esc(m.voorbeeld)})</option>`).join('');
   }
 
   /* ---------- Filteren en sorteren ---------- */
@@ -151,7 +156,7 @@ const App = (() => {
       (!state.bereid.size || [...state.bereid].some((t) => BEREID_PER_RECEPT.get(r.id).has(t))) &&
       (!state.vega || r.vega) &&
       (!state.maakbaar || maakbaar) &&
-      (!metVoorraad || m.heb.length > 0) &&
+      (!metVoorraad || m.heb.length > 0 || isAanrader(r)) &&
       (!metVoorraad || !state.compleet || m.mist.length === 0)
     );
     // Niets gevonden? Probeer het opnieuw met tikfouten, zodat "ommelet" toch omelet vindt.
@@ -163,14 +168,32 @@ const App = (() => {
     }
     lijst = gevonden;
     const opNaam = (a, b) => a.r.naam.localeCompare(b.r.naam, 'nl');
+    const aanrader = (x) => (isAanrader(x.r) ? 0 : 1);
     const opBlz = (a, b) => BLZ.get(a.r.id) - BLZ.get(b.r.id);
     const sorteer = {
-      match: (a, b) => metVoorraad ? (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
+      match: (a, b) => metVoorraad ? (aanrader(a) - aanrader(b)) || (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
       naam: opNaam,
       tijd: (a, b) => (a.r.tijd - b.r.tijd) || opBlz(a, b),
       keuken: opBlz
     }[state.sorteer];
     return lijst.sort(sorteer);
+  }
+
+  /* ---------- Groentemixen ---------- */
+  const mixenInVoorraad = () => state.voorraad.filter(Hulp.isMix).map(Hulp.mixVan).filter(Boolean);
+  const isAanrader = (r) => mixenInVoorraad().some((m) => (m.aanraders || []).includes(r.id));
+
+  function renderMixInfo() {
+    const mixen = mixenInVoorraad();
+    $('#mix-info').innerHTML = mixen.map((m) => `
+      <aside class="mix-kaart">
+        <h3>Je ${esc(m.naam.toLowerCase())}</h3>
+        <p class="mix-bevat">Zit er meestal in: ${esc(m.bevat.slice(0, 8).join(', '))}.</p>
+        <p><b>Zo gebruik je hem:</b> ${esc(m.bereiding)}</p>
+        <p><b>Snel idee:</b> ${esc(m.snel)}</p>
+        <p class="mix-aanraders"><b>Past het best in:</b> ${(m.aanraders || []).map((id) => RECEPTEN.find((r) => r.id === id)).filter(Boolean)
+          .map((r) => `<a href="#${r.id}" data-open="${r.id}">${esc(r.naam)}</a>`).join(', ')}</p>
+      </aside>`).join('');
   }
 
   /* ---------- Kaarten ---------- */
@@ -267,6 +290,7 @@ const App = (() => {
     });
     $('#raster').innerHTML = html;
     renderTabbladen();
+    renderMixInfo();
     const leeg = !lijst.length;
     $('#leeg').hidden = !leeg;
     if (leeg && state.view === 'fav' && !state.favs.size) {
@@ -318,6 +342,7 @@ const App = (() => {
   const context = {
     get keuken() { return mijnKeuken(); },
     blz: (id) => BLZ.get(id),
+    get voorraad() { return state.voorraad; },
     hoofdstuk: (keuken) => hk(keuken),
     isFav: (id) => state.favs.has(id),
     wisselFav: (id) => wisselFav(id),
@@ -527,6 +552,20 @@ const App = (() => {
     });
 
     $('#sorteer').addEventListener('change', (e) => { state.sorteer = e.target.value; render(); });
+
+    $('#mix-kiezer').addEventListener('change', (e) => {
+      const v = e.target.value;
+      e.target.value = '';
+      if (!v || state.voorraad.includes(v)) return;
+      state.voorraad.push(v);
+      state.sorteer = 'match'; $('#sorteer').value = 'match';
+      bewaarVoorraad();
+      toast(`${Hulp.mixVan(v).naam} toegevoegd: de recepten waar hij in past staan bovenaan`);
+    });
+    $('#mix-info').addEventListener('click', (e) => {
+      const a = e.target.closest('[data-open]');
+      if (a && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openRecept(a.dataset.open); }
+    });
 
     $('#tabbladen').addEventListener('click', (e) => {
       const t = e.target.closest('[data-tab]');

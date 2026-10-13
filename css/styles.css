@@ -231,6 +231,25 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .gerei-optie-tekst { display: flex; flex-direction: column; min-width: 0; overflow-wrap: break-word; }
 .gerei-optie-tekst small { font-size: 12px; color: var(--inkt-zacht); }
 .gerei-optie:not(:has(input:checked)) .tegel { opacity: .45; }
+.mix-kies { display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--inkt-zacht); }
+.mix-kies select { min-height: 40px; padding: 0 12px; border: 1px solid var(--lijn); border-radius: 999px; background: var(--papier-2); color: var(--inkt); font-size: 15px; }
+.chip-mix { background: color-mix(in srgb, var(--ok-zacht) 60%, var(--notitie)); }
+.mix-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 22px; margin-bottom: 22px; }
+.mix-info:empty { display: none; }
+.mix-kaart {
+  position: relative; padding: 22px 22px 18px;
+  background: var(--notitie); border: 1px solid var(--notitie-rand); border-radius: 2px; box-shadow: var(--schaduw-klein);
+  font-family: var(--font-lees); font-size: 15px; line-height: 1.55; color: var(--inkt); transform: rotate(-0.6deg);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.mix-kaart::before { content: ''; position: absolute; left: 50%; top: -11px; width: 90px; height: 22px; transform: translateX(-50%) rotate(2deg); background: var(--tape); }
+.mix-kaart h3 { font-family: var(--font-hand); font-weight: 700; font-size: 28px; color: var(--pen); }
+.mix-kaart b { font-family: var(--font-ui); font-weight: 700; font-size: 14px; }
+.mix-bevat { font-style: italic; color: var(--inkt-zacht); }
+.mix-aanraders a { color: var(--pen); font-weight: 600; text-underline-offset: 3px; }
+.mix-notitie { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-hand); font-size: 20px; line-height: 1.2; color: var(--pen); transform: rotate(-0.5deg); }
+.mix-notitie b { font-weight: 700; }
+.ingr-mix { display: block; font-family: var(--font-hand); font-size: 18px; line-height: 1.1; color: var(--pen); }
 .blok-sync { padding-top: 18px; border-top: 1px solid var(--lijn); }
 .blok-sync a { color: var(--inkt); text-decoration-color: var(--potlood); text-underline-offset: 3px; }
 .sync-status { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
