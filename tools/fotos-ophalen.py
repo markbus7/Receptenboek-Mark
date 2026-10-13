@@ -30,15 +30,16 @@ BREEDTE = 800    # opgeslagen breedte
 PAUZE = 1.5      # seconden tussen downloads
 
 # Recept-id -> Wikipedia-artikel ("nl:" voor de Nederlandse Wikipedia) of "File:..." op Commons.
+# Een "File:" is met de hand gekozen omdat de foto van het artikel niet het gerecht liet zien.
 ARTIKELEN = {
     'spaghetti-carbonara': 'Carbonara', 'lasagne-bolognese': 'Lasagna', 'risotto-paddenstoelen': 'Risotto',
-    'pizza-margherita': 'Pizza Margherita', 'penne-arrabbiata': 'Arrabbiata sauce', 'pasta-pesto-kip': 'Pesto',
-    'tiramisu': 'Tiramisu', 'hutspot-rookworst': 'Hutspot', 'erwtensoep': 'Snert',
+    'pizza-margherita': 'Pizza Margherita', 'penne-arrabbiata': 'Arrabbiata sauce', 'pasta-pesto-kip': 'File:Trofie al pesto .jpg',
+    'tiramisu': 'Tiramisu', 'hutspot-rookworst': 'Hutspot', 'erwtensoep': 'File:Andersens Pea Soup.jpg',
     'boerenkool-stamppot': 'nl:Boerenkoolstamppot', 'pannenkoeken': 'nl:Pannenkoek', 'draadjesvlees': 'nl:Draadjesvlees',
     'appeltaart': 'nl:Appeltaart', 'gehaktballen-jus': 'nl:Gehaktbal', 'nasi-goreng': 'Nasi goreng',
-    'sate-ajam': 'Satay', 'pad-thai': 'Pad thai', 'groene-curry': 'Green curry', 'tom-kha-kai': 'Tom kha kai',
-    'kung-pao-kip': 'Kung Pao chicken', 'teriyaki-zalm': 'Teriyaki', 'butter-chicken': 'Butter chicken',
-    'chana-masala': 'Chana masala', 'dal': 'Dal', 'chili-con-carne': 'Chili con carne', 'kip-fajitas': 'Fajita',
+    'sate-ajam': 'File:Chicken Satay With Peanut Sauce.jpg', 'pad-thai': 'Pad thai', 'groene-curry': 'Green curry', 'tom-kha-kai': 'Tom kha kai',
+    'kung-pao-kip': 'Kung Pao chicken', 'teriyaki-zalm': 'File:Salmon Teriyaki.jpg', 'butter-chicken': 'Butter chicken',
+    'chana-masala': 'Chana masala', 'dal': 'File:Dal Tadka-Delhi.jpg', 'chili-con-carne': 'Chili con carne', 'kip-fajitas': 'Fajita',
     'quesadillas': 'Quesadilla', 'chicken-katsu': 'Katsu curry', 'bibimbap': 'Bibimbap', 'shakshuka': 'Shakshouka',
     'falafel': 'Falafel', 'kip-shoarma': 'Shawarma', 'souvlaki-tzatziki': 'Souvlaki', 'moussaka': 'Moussaka',
     'kip-tajine': 'Tajine', 'griekse-salade': 'Greek salad', 'quiche-lorraine': 'Quiche', 'ratatouille': 'Ratatouille',
@@ -52,7 +53,7 @@ ARTIKELEN = {
     'no-knead-brood': 'No-knead bread', 'vlaamse-stoverij': 'Carbonade flamande', 'boeuf-bourguignon': 'Beef bourguignon',
     'hongaarse-goulash': 'Goulash', 'coq-au-vin': 'Coq au vin', 'pulled-pork': 'Pulled pork',
     'kip-dutch-oven': 'Roast chicken', 'ossobuco': 'Ossobuco', 'roti-kip': 'nl:Roti (gerecht)',
-    'bakabana': 'nl:Bakabana', 'linzensoep-mercimek': 'Lentil soup', 'kofte': 'Kofta', 'pho-bo': 'Pho',
+    'bakabana': 'File:Pisang Goreng.jpg', 'linzensoep-mercimek': 'Lentil soup', 'kofte': 'Kofta', 'pho-bo': 'Pho',
     'bun-cha-gio': 'Bún thịt nướng', 'harira': 'Harira', 'shepherds-pie': 'Shepherd\'s pie',
 }
 
@@ -134,7 +135,7 @@ def info_per_bestand(bestanden):
     """Bestandsnaam -> thumbnail-url, licentie, auteur en bronpagina."""
     resultaat = {}
     for groep in groepen(sorted(set(bestanden))):
-        data = api('commons.wikimedia.org', action='query', prop='imageinfo', iiprop='url|extmetadata|mime|size',
+        data = api('commons.wikimedia.org', action='query', prop='imageinfo', iiprop='url|extmetadata|mime|size|user',
                    iiurlwidth=THUMB, titles='|'.join('File:' + b for b in groep))['query']
         for pagina in data.get('pages', []):
             ii = (pagina.get('imageinfo') or [None])[0]
@@ -149,7 +150,8 @@ def info_per_bestand(bestanden):
                 'grootte': ii.get('size', 0),
                 'mime': ii.get('mime', ''),
                 'licentie': waarde('LicenseShortName'),
-                'auteur': re.sub(r'\s+', ' ', waarde('Artist'))[:80] or 'Onbekend',
+                # Maker uit de metadata, ingekort tot de naam; anders de uploader van het bestand.
+                'auteur': re.split(r';| from ', re.sub(r'\s+', ' ', waarde('Artist')))[0].strip()[:60] or ii.get('user') or 'Onbekend',
                 'bron': ii.get('descriptionurl', ''),
             }
         time.sleep(1)
@@ -189,6 +191,13 @@ def main():
     cache = json.loads(CACHE.read_text(encoding='utf-8')) if CACHE.exists() and not opnieuw else {}
     if all(rid in cache.get('gezocht', []) for rid in nodig) and cache.get('info'):
         bestanden, info = {r: cache['bestanden'][r] for r in nodig if r in cache['bestanden']}, cache['info']
+        # Vaste keuzes ("File:...") gaan voor op eerdere zoekresultaten.
+        bestanden.update({r: ARTIKELEN[r][5:] for r in nodig if ARTIKELEN[r].startswith('File:')})
+        ontbrekend = [b for b in bestanden.values() if b.replace(' ', '_') not in info]
+        if ontbrekend:
+            info.update(info_per_bestand(ontbrekend))
+            cache.update(bestanden={**cache['bestanden'], **bestanden}, info=info)
+            CACHE.write_text(json.dumps(cache, ensure_ascii=False), encoding='utf-8')
         print(f'{len(nodig)} recepten zonder foto (zoekresultaten uit de cache).', flush=True)
     else:
         print(f'{len(nodig)} recepten zonder foto. Bestanden zoeken…', flush=True)
