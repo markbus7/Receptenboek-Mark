@@ -1,6 +1,6 @@
 # Receptenboek Mark
 
-Een receptenboek in de browser met 76 recepten uit 21 keukens. Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
+Een receptenboek in de browser met 77 recepten uit 21 keukens. Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
 
 ## Wat kan het
 
@@ -47,6 +47,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`.
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.4.0**: nieuw recept: Indiase kip madras met kipfilet (met foto).
 - **1.3.1**: foto's bij 74 van de 76 recepten (Wikimedia Commons, met bronvermelding); zes foto's met de hand gekozen omdat de standaardfoto niet het gerecht liet zien.
 - **1.3.0**: nieuw uiterlijk als echt kookboek: hoofdstukken per keuken met eigen kleur en tabbladen, paginanummers, een recept opent als dubbele pagina, tips met de hand geschreven en de boodschappenlijst als notitieblok.
 - **1.2.1**: updates verschijnen direct (geen oude kopie meer uit de browsercache) en meer foto's.

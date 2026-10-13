@@ -38,8 +38,49 @@ RECEPTEN.push(
     { t: 'Kook de rijst volgens de verpakking.', min: 12 },
     { t: 'Roer garam masala, citroensap en eventueel de kokosmelk door de curry. Laat 5 minuten zonder deksel inkoken tot de saus dik is. Breng op smaak met zout en bestrooi met koriander.', min: 5 }
   ],
-  tips: ['Kip madras: gebruik 700 g kippendijen in stukken en stoof maar 30 minuten.', 'Lekker met naan en een schepje yoghurt om de scherpte te temperen.'],
+  tips: ['Liever met kip? Kijk bij kip madras met kipfilet, een paar bladzijden verder.', 'Lekker met naan en een schepje yoghurt om de scherpte te temperen.'],
   alt: ['Geen madras-kerrie? Gebruik gewone kerrie en verdubbel de chilipoeder.']
+},
+{
+  id: 'kip-madras', naam: 'Kip madras met kipfilet', keuken: 'Indiaas', soort: 'Hoofdgerecht',
+  tijd: 45, wacht: '15 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
+  intro: 'Pittige, diep-rode madras met sappige stukjes kipfilet in een saus van tomaat, chili en geroosterde specerijen.',
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of braadpan (24 à 26 cm)' },
+    { tool: 'kookpan', tekst: 'Pan met deksel voor de rijst' }
+  ],
+  ingr: [
+    { n: 'kipfilet', q: 600, u: 'g', x: 'in blokjes van 3 cm' },
+    { n: 'kurkuma', q: 0.5, u: 'tl', x: 'voor de kip' },
+    { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'sap; de helft voor de kip' },
+    { kop: 'Madrassaus' },
+    { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'fijngesnipperd' },
+    { n: 'knoflook', q: 4, u: 'teen', x: 'geperst' },
+    { n: 'gember', q: 25, u: 'g', x: 'geraspt' },
+    { n: 'madras-kerriepoeder', q: 3, u: 'el', x: 'of: 2 tl komijn, 2 tl koriander, 1 tl kurkuma, 1 tl garam masala' },
+    { n: 'chilipoeder', q: 1.5, u: 'tl', x: 'Kashmiri voor de kleur; minder voor milder' },
+    { n: 'gedroogde rode pepers', q: 2, u: 'st', opt: true },
+    { n: 'tomatenpuree', q: 2, u: 'el' },
+    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'kippenbouillon', q: 200, u: 'ml' },
+    { n: 'kokosmelk', q: 100, u: 'ml', opt: true, x: 'maakt hem iets ronder' },
+    { n: 'garam masala', q: 1, u: 'tl' },
+    { n: 'zonnebloemolie', q: 3, u: 'el' },
+    { n: 'verse koriander', q: 1, u: 'handje' },
+    { n: 'basmatirijst', q: 300, u: 'g' }
+  ],
+  stappen: [
+    { t: 'Meng de kip met de kurkuma, een halve theelepel zout en het sap van een halve citroen. Laat 15 minuten staan.', min: 15 },
+    { t: 'Kook de rijst volgens de verpakking.', min: 12 },
+    { t: 'Verhit 1 el olie in de Dutch oven op hoog vuur. Bak de kip in 2 porties 2 à 3 minuten tot hij rondom wit en lichtbruin is. Hij hoeft nog niet gaar. Schep uit de pan.', min: 5 },
+    { t: 'Zet het vuur op middelhoog. Bak de ui in de rest van de olie 10 minuten tot hij goudbruin is. Schraap de aanbaksels van de bodem los: daar zit de smaak.', min: 10 },
+    { t: 'Bak knoflook, gember, kerriepoeder, chilipoeder en de gedroogde pepers 1 minuut tot het geurt. Roer de tomatenpuree erdoor en bak nog 1 minuut.', min: 2 },
+    { t: 'Voeg de tomaten en de bouillon toe. Laat zonder deksel 10 minuten pruttelen tot een dikke saus.', min: 10 },
+    { t: 'Doe de kip met het vocht van het bord terug in de saus. Laat 8 à 10 minuten zachtjes garen, tot het grootste stuk vanbinnen niet meer roze is. Niet langer: kipfilet wordt snel droog.', min: 9 },
+    { t: 'Roer garam masala, eventueel de kokosmelk en de rest van het citroensap erdoor. Breng op smaak met zout en bestrooi met koriander. Serveer met de rijst.' }
+  ],
+  tips: ['De kip gaart in de warme saus nog even na. Haal de pan dus van het vuur zodra het grootste stukje net gaar is.', 'Liever nog sappiger? Kippendijfilet mag 15 minuten in de saus garen.'],
+  alt: ['Geen madras-kerrie? Gebruik gewone kerrie en verdubbel de chilipoeder.', 'Zonder Dutch oven: een hapjespan of grote koekenpan met hoge rand werkt ook.']
 },
 {
   id: 'chicken-tikka-masala', naam: 'Chicken tikka masala', keuken: 'Indiaas', soort: 'Hoofdgerecht',

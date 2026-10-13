@@ -198,6 +198,12 @@ window.FOTOS = {
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chicken_Korma.JPG"
  },
+ "kip-madras": {
+  "src": "img/kip-madras.jpg",
+  "auteur": "Guilhem Vellut",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Madras_chicken_curry_@_New_Delhi_@_Annecy_(31691503017).jpg"
+ },
  "kip-shoarma": {
   "src": "img/kip-shoarma.jpg",
   "auteur": "Vis M",
