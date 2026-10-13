@@ -58,8 +58,11 @@ ARTIKELEN = {
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)
 
 
-def haal(url, pogingen=6):
-    """GET met nette User-Agent; wacht en probeert opnieuw bij 429/503 of een haperende verbinding."""
+def haal(url, pogingen=25):
+    """GET met nette User-Agent; wacht en probeert opnieuw bij 429/503 of een haperende verbinding.
+
+    Vanaf een gedeeld IP-adres (zoals een cloudomgeving) geeft Wikimedia vaak 429; dan volgen we
+    Retry-After en proberen we het rustig opnieuw."""
     for poging in range(pogingen):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=60) as r:
@@ -67,13 +70,13 @@ def haal(url, pogingen=6):
         except urllib.error.HTTPError as fout:
             if fout.code not in (429, 500, 502, 503, 504) or poging == pogingen - 1:
                 raise
-            wacht = int(fout.headers.get('Retry-After') or 0) or 10 * 2 ** poging
+            wacht = min(int(fout.headers.get('Retry-After') or 20), 60)
         except urllib.error.URLError:
             if poging == pogingen - 1:
                 raise
-            wacht = 5 * (poging + 1)
-        print(f'   … even wachten ({wacht}s)')
-        time.sleep(min(wacht, 120))
+            wacht = 10
+        print(f'   … even wachten ({wacht}s)', flush=True)
+        time.sleep(wacht)
 
 
 def api(host, **params):
@@ -199,7 +202,7 @@ def main():
             bewaar_foto(haal(meta['url']), pad)
             fotos[rid] = {'src': f'img/{rid}.jpg', 'auteur': meta['auteur'], 'licentie': meta['licentie'], 'bron': meta['bron']}
             schrijf(fotos)
-            print(f'ok {rid}: {bestand} ({meta["licentie"]})')
+            print(f'ok {rid}: {bestand} ({meta["licentie"]})', flush=True)
         except Exception as fout:  # één mislukte foto mag de rest niet tegenhouden
             print(f'!  {rid}: {fout}')
         time.sleep(PAUZE)
