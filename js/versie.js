@@ -1,2 +1,2 @@
-/* Versie van het receptenboek. Verhoog dit bij elke wijziging die live gaat (zie README > Versies). */
-window.VERSIE = '1.2.0';
+/* Versie van het receptenboek. Pas aan met: python3 tools/nieuwe-versie.py x.y.z */
+window.VERSIE = '1.3.1';

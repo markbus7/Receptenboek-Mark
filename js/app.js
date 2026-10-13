@@ -3,8 +3,23 @@ const App = (() => {
   const $ = (s) => document.querySelector(s);
   const { opslag, esc } = Hulp;
 
-  const KEUKENS = [...new Set(RECEPTEN.map((r) => r.keuken))].sort((a, b) => a.localeCompare(b, 'nl'));
+  // Hoofdstukken in boekvolgorde; een keuken die (nog) niet in HOOFDSTUKKEN staat komt achteraan.
+  const KEUKENS = [...HOOFDSTUKKEN.map((h) => h.keuken), ...new Set(RECEPTEN.map((r) => r.keuken))]
+    .filter((k, i, a) => a.indexOf(k) === i && RECEPTEN.some((r) => r.keuken === k));
+  const HK = new Map(KEUKENS.map((k, i) => [k, { nr: i + 1, kleur: (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).kleur || '#5A5048' }]));
   const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
+  // Paginanummers: elk hoofdstuk opent met één pagina, elk recept beslaat een dubbele pagina.
+  const BLZ = new Map();
+  (() => {
+    let p = 9;
+    KEUKENS.forEach((k) => {
+      p += 1;
+      RECEPTEN.filter((r) => r.keuken === k)
+        .sort((a, b) => (SOORTEN.indexOf(a.soort) - SOORTEN.indexOf(b.soort)) || a.naam.localeCompare(b.naam, 'nl'))
+        .forEach((r) => { BLZ.set(r.id, p); p += 2; });
+    });
+  })();
+  const hk = (keuken) => HK.get(keuken) || { nr: 0, kleur: '#5A5048' };
   const TIJDEN = [20, 30, 45, 60];
   const APPARATEN = Object.entries(GEREEDSCHAP).filter(([, g]) => g.apparaat);
   const standaardKeuken = APPARATEN.filter(([, g]) => g.standaard).map(([k]) => k);
@@ -28,7 +43,7 @@ const App = (() => {
     pannen: opslag.lees('pannen', standaardPannen),
     bereid: new Set(),
     maakbaar: false,
-    sorteer: 'match',
+    sorteer: 'keuken',
     favs: new Set(opslag.lees('favorieten', []))
   };
 
@@ -52,7 +67,6 @@ const App = (() => {
 
   function renderFilters() {
     const aantalPer = (veld, w) => RECEPTEN.filter((r) => r[veld] === w).length;
-    $('#f-keuken').innerHTML = KEUKENS.map((k) => chip('keuken', k, `${k} ${aantalPer('keuken', k)}`, state.keukens.has(k))).join('');
     $('#f-soort').innerHTML = SOORTEN.map((s) => chip('soort', s, s, state.soorten.has(s))).join('');
     $('#f-tijd').innerHTML = TIJDEN.map((t) => chip('tijd', t, `≤ ${t} min`, state.tijd === t)).join('');
     $('#f-bereid').innerHTML = BEREID.map(([k, l]) => chip('bereid', k, l, state.bereid.has(k))).join('');
@@ -113,11 +127,12 @@ const App = (() => {
       (!metVoorraad || !state.compleet || m.mist.length === 0)
     );
     const opNaam = (a, b) => a.r.naam.localeCompare(b.r.naam, 'nl');
+    const opBlz = (a, b) => BLZ.get(a.r.id) - BLZ.get(b.r.id);
     const sorteer = {
-      match: (a, b) => metVoorraad ? (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opNaam(a, b) : opNaam(a, b),
+      match: (a, b) => metVoorraad ? (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
       naam: opNaam,
-      tijd: (a, b) => (a.r.tijd - b.r.tijd) || opNaam(a, b),
-      keuken: (a, b) => a.r.keuken.localeCompare(b.r.keuken, 'nl') || opNaam(a, b)
+      tijd: (a, b) => (a.r.tijd - b.r.tijd) || opBlz(a, b),
+      keuken: opBlz
     }[state.sorteer];
     return lijst.sort(sorteer);
   }
@@ -141,29 +156,30 @@ const App = (() => {
     return namen.map((n) => `<span>${esc(n)}</span>`).join('<span class="punt" aria-hidden="true">·</span>');
   }
 
+  /* Bord-illustratie in de kleur van het hoofdstuk, voor recepten zonder foto. */
+  const bord = (r, extra = '') => `<span class="bord${extra}" aria-hidden="true">${icoon((GEREEDSCHAP[hoofdTool(r)] || {}).icoon || 'koekenpan')}</span>`;
+
   function kaart({ r, m, maakbaar }) {
     const fav = state.favs.has(r.id);
     const foto = window.FOTOS && FOTOS[r.id];
-    const tegelIcoon = icoon((GEREEDSCHAP[hoofdTool(r)] || {}).icoon || 'koekenpan');
+    const h = hk(r.keuken);
     const matchHtml = m ? `
       <div class="match${m.mist.length === 0 ? ' is-compleet' : ''}">
         <div class="match-balk" aria-hidden="true"><span style="width:${Math.round(m.pct * 100)}%"></span></div>
         <span class="match-tekst">${m.mist.length === 0 ? 'Alles in huis' : `${m.heb.length} van ${m.totaal} in huis`}</span>
       </div>
-      ${m.mist.length ? `<p class="mist-tekst"><span>Mist:</span> ${esc(m.mist.slice(0, 4).join(', '))}${m.mist.length > 4 ? ` en nog ${m.mist.length - 4}` : ''}</p>` : ''}` : '';
+      ${m.mist.length ? `<p class="mist-tekst"><span>Nog halen:</span> ${esc(m.mist.slice(0, 4).join(', '))}${m.mist.length > 4 ? ` en nog ${m.mist.length - 4}` : ''}</p>` : ''}` : '';
     return `
-      <article class="kaart${maakbaar ? '' : ' niet-maakbaar'}${foto ? ' met-foto' : ''}">
+      <article class="kaart hk${maakbaar ? '' : ' niet-maakbaar'}" style="--k:${h.kleur}">
         <a class="kaart-link" href="#${r.id}" data-open="${r.id}">
-          ${foto
-            ? `<span class="kaart-foto"><img src="${esc(foto.src)}" alt="" loading="lazy" decoding="async"><span class="tegel tegel-mini kaart-foto-tegel" aria-hidden="true">${tegelIcoon}</span></span>`
-            : `<span class="tegel kaart-tegel" aria-hidden="true">${tegelIcoon}</span>`}
-          <span class="kaart-body">
-            <span class="eyebrow">${esc(r.keuken)} · ${esc(r.soort)}</span>
+          <span class="kaart-beeld">${foto ? `<img src="${esc(foto.src)}" alt="" loading="lazy" decoding="async">` : bord(r)}</span>
+          <span class="kaart-tekst">
+            <span class="kaart-kop"><span class="kaart-keuken">${esc(r.keuken)} · ${esc(r.soort)}</span><span class="kaart-blz">blz. ${BLZ.get(r.id)}</span></span>
             <span class="kaart-titel">${esc(r.naam)}</span>
             <span class="kaart-meta">
-              <span>${icoon('klok')} ${Hulp.tijdTekst(r.tijd)}${r.wacht ? '<span class="plus">+</span>' : ''}</span>
-              <span>${icoon('personen')} ${r.pers}</span>
-              ${r.vega ? `<span class="vega">${icoon('blad')} Vega</span>` : ''}
+              <span>${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="plus">+ ${esc(r.wacht)}</span>` : ''}</span>
+              <span>${r.pers} pers.</span>
+              ${r.vega ? `<span class="vega">${icoon('blad')} vega</span>` : ''}
             </span>
             <span class="kaart-gerei">${gereiRegel(r)}</span>
             ${maakbaar ? '' : '<span class="label-mist">Je mist apparatuur</span>'}
@@ -172,6 +188,22 @@ const App = (() => {
         ${matchHtml ? `<div class="kaart-voet">${matchHtml}</div>` : ''}
         <button type="button" class="ikoon-knop fav-knop kaart-fav" data-fav="${r.id}" aria-pressed="${fav}" aria-label="${fav ? 'Verwijder' : 'Bewaar'} ${esc(r.naam)} ${fav ? 'uit' : 'bij'} favorieten">${icoon('hart')}</button>
       </article>`;
+  }
+
+  function hoofdstukKop(keuken, aantal) {
+    const h = hk(keuken);
+    return `<header class="hoofdstuk-kop hk" style="--k:${h.kleur}">
+      <span class="hoofdstuk-nr">Hoofdstuk ${h.nr}</span>
+      <h2>${esc(keuken)}</h2>
+      <span class="hoofdstuk-aantal">${aantal} ${aantal === 1 ? 'recept' : 'recepten'}</span>
+    </header>`;
+  }
+
+  function renderTabbladen() {
+    const alleen = state.keukens.size === 1 ? [...state.keukens][0] : null;
+    $('#tabbladen').innerHTML =
+      `<button type="button" class="tabblad tabblad-alle" data-tab="" aria-pressed="${!state.keukens.size}">Alle</button>` +
+      KEUKENS.map((k) => `<button type="button" class="tabblad hk" style="--k:${hk(k).kleur}" data-tab="${esc(k)}" aria-pressed="${alleen === k}">${esc(k)}</button>`).join('');
   }
 
   function actieveFilters() {
@@ -188,7 +220,17 @@ const App = (() => {
 
   function render() {
     const lijst = resultaten();
-    $('#raster').innerHTML = lijst.map(kaart).join('');
+    const perHoofdstuk = state.sorteer === 'keuken' || (state.sorteer === 'match' && !state.voorraad.length);
+    let html = '', vorige = null;
+    lijst.forEach((item) => {
+      if (perHoofdstuk && item.r.keuken !== vorige) {
+        vorige = item.r.keuken;
+        html += hoofdstukKop(vorige, lijst.filter((x) => x.r.keuken === vorige).length);
+      }
+      html += kaart(item);
+    });
+    $('#raster').innerHTML = html;
+    renderTabbladen();
     const leeg = !lijst.length;
     $('#leeg').hidden = !leeg;
     if (leeg && state.view === 'fav' && !state.favs.size) {
@@ -238,6 +280,8 @@ const App = (() => {
   /* ---------- Recept openen en sluiten ---------- */
   const context = {
     get keuken() { return mijnKeuken(); },
+    blz: (id) => BLZ.get(id),
+    hoofdstuk: (keuken) => hk(keuken),
     isFav: (id) => state.favs.has(id),
     wisselFav: (id) => wisselFav(id),
     sluit: () => sluitRecept()
@@ -342,6 +386,15 @@ const App = (() => {
 
     $('#sorteer').addEventListener('change', (e) => { state.sorteer = e.target.value; render(); });
 
+    $('#tabbladen').addEventListener('click', (e) => {
+      const t = e.target.closest('[data-tab]');
+      if (!t) return;
+      const k = t.dataset.tab;
+      state.keukens = new Set(k && !(state.keukens.size === 1 && state.keukens.has(k)) ? [k] : []);
+      if (state.view === 'lijst') zetView('alle'); else render();
+      t.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    });
+
     $('#actieve-filters').addEventListener('click', (e) => {
       const c = e.target.closest('[data-wis-groep]');
       if (!c) return;
@@ -400,7 +453,7 @@ const App = (() => {
   }
 
   function start() {
-    $('#teller').textContent = `${RECEPTEN.length} recepten uit ${KEUKENS.length} keukens · versie ${window.VERSIE || '?'}`;
+    $('#teller').textContent = `${RECEPTEN.length} recepten · ${KEUKENS.length} hoofdstukken · versie ${window.VERSIE || '?'}`;
     vulDatalist();
     renderFilters();
     koppel();
