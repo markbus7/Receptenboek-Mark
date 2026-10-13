@@ -187,8 +187,8 @@ def main():
 
     nodig = [rid for rid in ARTIKELEN if rid not in fotos]
     cache = json.loads(CACHE.read_text(encoding='utf-8')) if CACHE.exists() and not opnieuw else {}
-    if all(rid in cache.get('bestanden', {}) for rid in nodig) and cache.get('info'):
-        bestanden, info = {r: cache['bestanden'][r] for r in nodig}, cache['info']
+    if all(rid in cache.get('gezocht', []) for rid in nodig) and cache.get('info'):
+        bestanden, info = {r: cache['bestanden'][r] for r in nodig if r in cache['bestanden']}, cache['info']
         print(f'{len(nodig)} recepten zonder foto (zoekresultaten uit de cache).', flush=True)
     else:
         print(f'{len(nodig)} recepten zonder foto. Bestanden zoeken…', flush=True)
@@ -197,7 +197,7 @@ def main():
             if rid not in bestanden:
                 print(f'-  {rid}: geen afbeelding bij "{ARTIKELEN[rid]}"')
         info = info_per_bestand(bestanden.values())
-        CACHE.write_text(json.dumps({'bestanden': bestanden, 'info': info}, ensure_ascii=False), encoding='utf-8')
+        CACHE.write_text(json.dumps({'gezocht': nodig, 'bestanden': bestanden, 'info': info}, ensure_ascii=False), encoding='utf-8')
 
     thumbs_bereikbaar = True
     for rid, bestand in bestanden.items():
