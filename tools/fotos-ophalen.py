@@ -23,6 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 IMG = ROOT / 'img'
 UIT = ROOT / 'js' / 'data' / 'fotos.js'
+CACHE = ROOT / 'tools' / '.fotos-cache.json'   # zoekresultaten, zodat een herstart de API niet opnieuw belast
 UA = 'ReceptenboekMark/1.0 (https://github.com/markbus7/Receptenboek-Mark; persoonlijk receptenboek)'
 THUMB = 960      # een van de standaardformaten van Wikimedia (https://w.wiki/GHai)
 BREEDTE = 800    # opgeslagen breedte
@@ -133,7 +134,7 @@ def info_per_bestand(bestanden):
     """Bestandsnaam -> thumbnail-url, licentie, auteur en bronpagina."""
     resultaat = {}
     for groep in groepen(sorted(set(bestanden))):
-        data = api('commons.wikimedia.org', action='query', prop='imageinfo', iiprop='url|extmetadata|mime',
+        data = api('commons.wikimedia.org', action='query', prop='imageinfo', iiprop='url|extmetadata|mime|size',
                    iiurlwidth=THUMB, titles='|'.join('File:' + b for b in groep))['query']
         for pagina in data.get('pages', []):
             ii = (pagina.get('imageinfo') or [None])[0]
@@ -143,7 +144,9 @@ def info_per_bestand(bestanden):
             waarde = lambda k: unescape(re.sub(r'<[^>]+>', '', meta.get(k, {}).get('value', ''))).strip()
             naam = pagina['title'].split(':', 1)[1]
             resultaat[naam.replace(' ', '_')] = {
-                'url': ii.get('thumburl') or ii['url'],
+                'thumb': ii.get('thumburl') or ii['url'],
+                'origineel': ii['url'],
+                'grootte': ii.get('size', 0),
                 'mime': ii.get('mime', ''),
                 'licentie': waarde('LicenseShortName'),
                 'auteur': re.sub(r'\s+', ' ', waarde('Artist'))[:80] or 'Onbekend',
@@ -157,6 +160,7 @@ def bewaar_foto(data, pad):
     """Schaal naar BREEDTE en sla op als compacte JPEG (valt terug op het origineel zonder Pillow)."""
     try:
         from PIL import Image
+        Image.MAX_IMAGE_PIXELS = 200_000_000
         beeld = Image.open(io.BytesIO(data)).convert('RGB')
         if beeld.width > BREEDTE:
             beeld = beeld.resize((BREEDTE, round(beeld.height * BREEDTE / beeld.width)), Image.LANCZOS)
@@ -182,13 +186,20 @@ def main():
             fotos = {k: v for k, v in json.loads(m.group(1)).items() if (ROOT / v['src']).exists()}
 
     nodig = [rid for rid in ARTIKELEN if rid not in fotos]
-    print(f'{len(nodig)} recepten zonder foto. Bestanden zoeken…')
-    bestanden = zoek_bestanden(nodig)
-    for rid in nodig:
-        if rid not in bestanden:
-            print(f'-  {rid}: geen afbeelding bij "{ARTIKELEN[rid]}"')
-    info = info_per_bestand(bestanden.values())
+    cache = json.loads(CACHE.read_text(encoding='utf-8')) if CACHE.exists() and not opnieuw else {}
+    if all(rid in cache.get('bestanden', {}) for rid in nodig) and cache.get('info'):
+        bestanden, info = {r: cache['bestanden'][r] for r in nodig}, cache['info']
+        print(f'{len(nodig)} recepten zonder foto (zoekresultaten uit de cache).', flush=True)
+    else:
+        print(f'{len(nodig)} recepten zonder foto. Bestanden zoeken…', flush=True)
+        bestanden = zoek_bestanden(nodig)
+        for rid in nodig:
+            if rid not in bestanden:
+                print(f'-  {rid}: geen afbeelding bij "{ARTIKELEN[rid]}"')
+        info = info_per_bestand(bestanden.values())
+        CACHE.write_text(json.dumps({'bestanden': bestanden, 'info': info}, ensure_ascii=False), encoding='utf-8')
 
+    thumbs_bereikbaar = True
     for rid, bestand in bestanden.items():
         meta = info.get(bestand.replace(' ', '_'))
         if not meta or not meta['mime'].startswith('image/') or meta['mime'] == 'image/svg+xml':
@@ -199,7 +210,20 @@ def main():
             continue
         try:
             pad = IMG / f'{rid}.jpg'
-            bewaar_foto(haal(meta['url']), pad)
+            # Verkleinde versies komen van thumb.wikimedia.org; is dat niet bereikbaar, dan
+            # halen we het origineel van upload.wikimedia.org en verkleinen we het zelf.
+            data = None
+            if thumbs_bereikbaar:
+                try:
+                    data = haal(meta['thumb'], pogingen=2)
+                except urllib.error.URLError:
+                    thumbs_bereikbaar = False
+                    print('   verkleinde versies niet bereikbaar; originelen worden gebruikt', flush=True)
+            if data is None:
+                if meta['grootte'] > 25_000_000:
+                    raise ValueError('origineel groter dan 25 MB')
+                data = haal(meta['origineel'], pogingen=8)
+            bewaar_foto(data, pad)
             fotos[rid] = {'src': f'img/{rid}.jpg', 'auteur': meta['auteur'], 'licentie': meta['licentie'], 'bron': meta['bron']}
             schrijf(fotos)
             print(f'ok {rid}: {bestand} ({meta["licentie"]})', flush=True)
