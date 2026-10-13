@@ -35,8 +35,9 @@ RECEPTEN.push(
   id: 'sate-ajam', naam: 'Saté ajam met pindasaus', keuken: 'Indonesisch', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Gemarineerde kippendijen met romige pindasaus, gebakken op de grill, in de airfryer of de oven.',
-  methodes: [ { id: 'grillpan', naam: 'Grillpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
+  methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'grillpan', naam: 'Grillpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
   gerei: [
+    { tool: 'contactgrill', tekst: 'Contactgrill, spiesen passend afgeknipt', m: 'contactgrill' },
     { tool: 'grillpan', tekst: 'Grillpan, goed heet', m: 'grillpan' },
     { tool: 'airfryer', tekst: 'Airfryer, spiesen passend afgeknipt', m: 'airfryer' },
     { tool: 'bakplaat', tekst: 'Bakplaat met rooster en bakpapier', m: 'oven' },
@@ -60,6 +61,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Meng de marinade, schep de kip erdoor en laat minimaal 30 minuten marineren. Rijg de kip aan de geweekte prikkers.', min: 30 },
+    { t: 'Leg de spiesen naast elkaar op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 8 minuten tot de kip gaar en licht geblakerd is.', m: 'contactgrill', min: 7 },
     { t: 'Verhit de grillpan op hoog vuur tot hij rookt. Grill de spiesen 8 à 10 minuten en draai ze regelmatig.', m: 'grillpan', min: 9 },
     { t: 'Verwarm de airfryer voor op 200 °C. Bak de spiesen in één laag 10 à 12 minuten. Keer ze halverwege.', m: 'airfryer', min: 11 },
     { t: 'Zet de oven op de grillstand (of 230 °C). Leg de spiesen op het rooster boven de bakplaat, 10 cm onder de grill. Grill 12 à 15 minuten en keer halverwege.', m: 'oven', min: 13 },
@@ -202,9 +204,10 @@ RECEPTEN.push(
   id: 'teriyaki-zalm', naam: 'Teriyaki zalm', keuken: 'Japans', soort: 'Hoofdgerecht',
   tijd: 25, pers: 2, niveau: 'Makkelijk', vega: false,
   intro: 'Zalm met een glanzende, zoet-zoute laklaag, met rijst en broccoli.',
-  methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' } ],
+  methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' } ],
   gerei: [
     { tool: 'koekenpan', tekst: 'Antiaanbak koekenpan (24 à 28 cm)', m: 'koekenpan' },
+    { tool: 'contactgrill', tekst: 'Contactgrill, met een velletje bakpapier voor de saus', m: 'contactgrill' },
     { tool: 'airfryer', tekst: 'Airfryer, mand bekleed met bakpapier', m: 'airfryer' },
     { tool: 'ovenschaal', tekst: 'Kleine ovenschaal of bakplaat met bakpapier', m: 'oven' },
     { tool: 'kookpan', tekst: 'Steelpan voor de teriyakisaus en een pan voor de rijst' }
@@ -225,6 +228,7 @@ RECEPTEN.push(
     { t: 'Kook de rijst volgens de verpakking. Stoom of kook de broccoli 4 minuten beetgaar.', min: 15 },
     { t: 'Breng sojasaus, mirin, honing en gember aan de kook in de steelpan. Roer de maïzena erdoor en laat 1 minuut binden tot een stroperige saus.', min: 2 },
     { t: 'Bak de zalm met de velkant naar beneden 4 minuten in een scheutje olie op middelhoog vuur. Keer om en bak 2 minuten. Giet de helft van de saus erover en laat 1 minuut glaceren.', m: 'koekenpan', min: 7 },
+    { t: 'Leg de zalm met de velkant naar beneden op de voorverwarmde contactgrill en sluit de deksel. Grill 4 à 5 minuten. Leg hem op een bord en bestrijk met de helft van de saus.', m: 'contactgrill', min: 5 },
     { t: 'Bestrijk de zalm met de helft van de saus. Bak in de airfryer 8 à 10 minuten op 180 °C.', m: 'airfryer', min: 9 },
     { t: 'Bestrijk de zalm met de helft van de saus. Bak 12 à 15 minuten in de voorverwarmde oven op 200 °C.', m: 'oven', min: 13 },
     { t: 'Serveer de zalm op de rijst met broccoli, de rest van de saus en sesamzaad.' }

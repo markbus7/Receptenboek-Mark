@@ -1,5 +1,7 @@
 /* Gedeelde hulpfuncties: opslag, getallen, omrekenen en ingrediënten matchen. */
 const Hulp = (() => {
+  /* Opslag in deze browser. Elke wijziging krijgt een tijdstempel, zodat synchroniseren (js/sync.js)
+     per onderdeel de nieuwste versie kan kiezen. */
   const opslag = {
     lees(sleutel, standaard) {
       try {
@@ -7,8 +9,23 @@ const Hulp = (() => {
         return waarde == null ? standaard : JSON.parse(waarde);
       } catch (e) { return standaard; }
     },
-    schrijf(sleutel, waarde) {
-      try { localStorage.setItem('receptenboek:' + sleutel, JSON.stringify(waarde)); } catch (e) { /* opslag niet beschikbaar */ }
+    schrijf(sleutel, waarde, { tijd, stil } = {}) {
+      try {
+        const nieuw = JSON.stringify(waarde);
+        if (localStorage.getItem('receptenboek:' + sleutel) === nieuw && !tijd) return;
+        localStorage.setItem('receptenboek:' + sleutel, nieuw);
+        localStorage.setItem('receptenboek:tijd:' + sleutel, String(tijd || Date.now()));
+      } catch (e) { return; /* opslag niet beschikbaar */ }
+      if (!stil) document.dispatchEvent(new CustomEvent('opslag-gewijzigd', { detail: sleutel }));
+    },
+    tijd(sleutel) {
+      try { return Number(localStorage.getItem('receptenboek:tijd:' + sleutel)) || 0; } catch (e) { return 0; }
+    },
+    heeft(sleutel) {
+      try { return localStorage.getItem('receptenboek:' + sleutel) != null; } catch (e) { return false; }
+    },
+    wis(sleutel) {
+      try { localStorage.removeItem('receptenboek:' + sleutel); } catch (e) { /* genegeerd */ }
     }
   };
 
@@ -133,6 +150,38 @@ const Hulp = (() => {
     return u + ' uur' + (m ? ' ' + m + ' min' : '');
   }
 
+  /* Aantal tikfouten tussen twee woorden (letter erbij, eraf, anders of omgedraaid). */
+  function afstand(a, b) {
+    const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+    for (let j = 1; j <= b.length; j++) d[0][j] = j;
+    for (let i = 1; i <= a.length; i++) {
+      for (let j = 1; j <= b.length; j++) {
+        const kost = a[i - 1] === b[j - 1] ? 0 : 1;
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + kost);
+        if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+      }
+    }
+    return d[a.length][b.length];
+  }
+
+  /* Lijkt een (genormaliseerde) zoekterm op een woord, ook met een tikfout? "ommelet" ≈ "omelet". */
+  function lijktOp(term, woord) {
+    if (term.length < 3) return false;
+    const max = term.length <= 4 ? 1 : 2;
+    if (Math.abs(woord.length - term.length) <= max && afstand(term, woord) <= max) return true;
+    // Nog aan het typen: begin van een lang woord, met hooguit één tikfout.
+    if (term.length >= 4 && woord.length > term.length && afstand(term, woord.slice(0, term.length)) <= (term.length >= 8 ? 2 : 1)) return true;
+    // Samenstellingen: "ommelet" in "boerenomelet", "spagetti" in "spaghettisaus".
+    if (term.length >= 5 && woord.length > term.length) {
+      for (let lengte = term.length - 1; lengte <= term.length + 1; lengte++) {
+        for (let i = 1; i + lengte <= woord.length; i++) {
+          if (afstand(term, woord.slice(i, i + lengte)) <= 1) return true;
+        }
+      }
+    }
+    return false;
+  }
+
   /* Welke pannen en apparaten een recept gebruikt, voor het filter "Bereid in". */
   function bereidIn(recept) {
     const tools = new Set(recept.gerei.map((g) => g.tool));
@@ -180,7 +229,7 @@ const Hulp = (() => {
         return null;
       }
       // Recepten die makkelijk aanplakken: ei, beslag, vis.
-      const teer = /antiaanbak/.test(tekst) || /pannenkoe|pancake|spiegelei|omelet|vis|zalm/.test(norm(recept.naam + ' ' + g.tekst));
+      const teer = /antiaanbak/.test(tekst) || /pannenkoe|pancake|spiegelei|omelet|roerei|tortilla de|frittata|tamagoyaki|uitsmijter|menemen|huevos|vis|zalm/.test(norm(recept.naam + ' ' + g.tekst));
       if (teer && anti) return null;
       if (rvs && !anti) {
         if (teer) return eenmalig('koekenpan-teer', { soort: 'tip', tekst: 'Met je RVS-pan: verhit hem 2 minuten droog op middelhoog vuur tot een druppel water als een balletje rondrolt. Doe dan royaal boter of olie erin en zet het vuur een stand lager. Keer pas als het vanzelf loslaat.' });
@@ -189,11 +238,19 @@ const Hulp = (() => {
       if (gij && !anti && teer) return eenmalig('koekenpan-teer', { soort: 'tip', tekst: 'Met je gietijzeren pan: goed voorverwarmen en wat extra vet gebruiken, dan plakt er niets.' });
     }
 
+    if (g.tool === 'contactgrill' && heb('contactgrill')) {
+      return { soort: 'ok', tekst: 'Met je OptiGrill: kies het passende programma, leg het eten er pas op als hij aangeeft dat hij is voorverwarmd, en houd de gaarheidsaanduiding in de gaten. Omdraaien is niet nodig.' };
+    }
+
+    if (g.tool === 'kookpan' && heb('rijstkoker') && /rijst/.test(tekst)) {
+      return eenmalig('rijst', { soort: 'vervang', tekst: 'Gebruik je rijstkoker: spoel de rijst, vul water bij tot het streepje voor het aantal maatbekers en zet hem aan. Hij houdt de rijst daarna warm.' });
+    }
+
     if (g.tool === 'kookpan' && heb('rvs-kookpan') && /bechamel|saus|melk|room/.test(tekst)) {
       return eenmalig('steelpan', { soort: 'tip', tekst: 'In je RVS-steelpan brandt melk of saus snel aan: houd het vuur middelhoog en blijf roeren met een garde.' });
     }
     return null;
   }
 
-  return { opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies };
+  return { afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies };
 })();

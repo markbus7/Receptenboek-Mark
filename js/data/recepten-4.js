@@ -184,8 +184,9 @@ RECEPTEN.push(
   id: 'quesadillas', naam: 'Quesadilla\'s met bonen en kaas', keuken: 'Mexicaans', soort: 'Ontbijt & lunch',
   tijd: 20, pers: 2, niveau: 'Makkelijk', vega: true,
   intro: 'Knapperige gevulde tortilla\'s met gesmolten kaas, bonen en mais. Binnen 20 minuten op tafel.',
-  methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' } ],
+  methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' } ],
   gerei: [
+    { tool: 'contactgrill', tekst: 'Contactgrill, werkt hier als tosti-ijzer', m: 'contactgrill' },
     { tool: 'koekenpan', tekst: 'Koekenpan (28 cm), zonder olie', m: 'koekenpan' },
     { tool: 'airfryer', tekst: 'Airfryer, quesadilla dichtgeklapt', m: 'airfryer' },
     { tool: 'bakplaat', tekst: 'Bakplaat met bakpapier', m: 'oven' }
@@ -202,6 +203,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Prak de bonen grof met wat zout. Meng met mais, lente-ui en jalapeño.' },
     { t: 'Besmeer de helft van elke tortilla met bonen, strooi er kaas over en klap dicht.' },
+    { t: 'Leg de dichtgeklapte quesadilla\'s op de voorverwarmde contactgrill en sluit de deksel voorzichtig. Grill 3 à 4 minuten tot ze goudbruin zijn, met grillstrepen, en de kaas gesmolten is.', m: 'contactgrill', min: 4 },
     { t: 'Bak de quesadilla\'s in de droge koekenpan op middelhoog vuur 2 à 3 minuten per kant tot ze goudbruin zijn en de kaas gesmolten is.', m: 'koekenpan', min: 5 },
     { t: 'Bak de quesadilla\'s in de airfryer 6 minuten op 190 °C. Leg er eventueel een metalen rekje op, zodat ze niet openwaaien.', m: 'airfryer', min: 6 },
     { t: 'Bak 10 minuten in een voorverwarmde oven op 220 °C. Keer halverwege.', m: 'oven', min: 10 },

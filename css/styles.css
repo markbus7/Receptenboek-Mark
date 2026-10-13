@@ -175,6 +175,19 @@ svg { flex-shrink: 0; }
 .zoek input { flex: 1; min-width: 0; border: 0; background: transparent; outline: none; font-size: 16px; padding: 12px 0; font-family: var(--font-lees); }
 .zoek input::placeholder { color: var(--potlood); font-style: italic; }
 .filter-knop { display: none; }
+.zoek-wrap { position: relative; flex: 1; min-width: 0; display: flex; }
+.zoek-wrap .zoek { width: 100%; }
+.suggesties {
+  position: absolute; z-index: 30; top: calc(100% + 8px); left: 0; right: 0;
+  list-style: none; margin: 0; padding: 6px; max-height: min(60vh, 460px); overflow-y: auto;
+  background: var(--papier); border: 1px solid var(--lijn); border-radius: 16px; box-shadow: var(--schaduw);
+}
+.sug { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; align-items: baseline; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; }
+.sug:hover, .sug[aria-selected="true"] { background: var(--papier-2); }
+.sug-type { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--potlood); }
+.sug-label { font-family: var(--font-lees); font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sug-label mark { background: none; color: inherit; font-weight: 700; }
+.sug-extra { font-size: 13px; color: var(--inkt-zacht); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .filter-knop .badge { min-width: 20px; padding: 0 6px; line-height: 20px; border-radius: 999px; background: var(--papier); color: var(--inkt); }
 
 /* ---------- Indeling ---------- */
@@ -218,6 +231,17 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .gerei-optie-tekst { display: flex; flex-direction: column; min-width: 0; overflow-wrap: break-word; }
 .gerei-optie-tekst small { font-size: 12px; color: var(--inkt-zacht); }
 .gerei-optie:not(:has(input:checked)) .tegel { opacity: .45; }
+.blok-sync { padding-top: 18px; border-top: 1px solid var(--lijn); }
+.blok-sync a { color: var(--inkt); text-decoration-color: var(--potlood); text-underline-offset: 3px; }
+.sync-status { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+.sync-status::before { content: ''; width: 9px; height: 9px; border-radius: 999px; background: var(--potlood); flex: none; }
+.sync-ok::before { background: var(--ok); }
+.sync-bezig::before { background: var(--pen); animation: pols 1s ease-in-out infinite; }
+.sync-fout::before, .sync-status.sync-fout::before { background: var(--warn); }
+p.sync-fout { font-size: 14px; line-height: 1.45; color: var(--warn); }
+p.sync-fout::before { display: none; }
+.sync-knoppen { display: flex; flex-wrap: wrap; gap: 8px; }
+.sync-knoppen .knop:disabled { opacity: .5; cursor: default; transform: none; box-shadow: none; }
 
 /* ---------- Tabbladen en boekpagina ---------- */
 .tabbladen {
@@ -466,6 +490,7 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .stap-methode .stap-tekst p::before { content: ''; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 999px; background: var(--k); vertical-align: 2px; }
 .stap.is-klaar .stap-tekst p { color: var(--potlood); text-decoration: line-through; text-decoration-color: var(--lijn); }
 .stap.is-klaar .stap-nr { color: var(--ok); }
+.stap-notitie { font-family: var(--font-hand); font-size: 21px; line-height: 1; color: var(--pen); transform: rotate(-1deg); margin-top: -4px; }
 .timer-knop {
   display: inline-flex; align-items: center; gap: 6px;
   min-height: 32px; padding: 0 12px; border-radius: 999px;
@@ -535,6 +560,12 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
   .tabs { width: 100%; }
   .tab { flex: 1; justify-content: center; padding: 0 10px; font-size: 15px; }
   .zoekrij { margin-top: 16px; }
+  /* Suggesties over de volle breedte, ook onder de Filters-knop */
+  .zoekrij { position: relative; }
+  .zoek-wrap { position: static; }
+  .sug { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; }
+  .sug-type { grid-column: 1 / -1; }
+  .sug-label { white-space: normal; }
   .filter-knop { padding: 0 14px; }
   .tabbladen { padding-inline: 4px; margin-inline: calc(-1 * var(--gutter)); padding-left: var(--gutter); }
   .raster { gap: 28px 16px; }

@@ -24,9 +24,33 @@ const App = (() => {
   const APPARATEN = Object.entries(GEREEDSCHAP).filter(([, g]) => g.apparaat);
   const standaardKeuken = APPARATEN.filter(([, g]) => g.standaard).map(([k]) => k);
   const standaardPannen = Object.entries(PANNEN).filter(([, p]) => p.standaard).map(([k]) => k);
-  const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
+  // Nieuwe apparaten met standaard: true worden ook aangevinkt bij wie "Mijn keuken" al eerder had ingesteld.
+  const OUDE_APPARATEN = ['oven', 'airfryer', 'wok', 'grillpan', 'staafmixer', 'mixer', 'slowcooker', 'magnetron'];
+  function laadKeuken() {
+    const keuken = opslag.lees('keuken', standaardKeuken);
+    const bekend = opslag.lees('apparaten-bekend', OUDE_APPARATEN);
+    APPARATEN.forEach(([k, g]) => { if (!bekend.includes(k) && g.standaard && !keuken.includes(k)) keuken.push(k); });
+    opslag.schrijf('apparaten-bekend', APPARATEN.map(([k]) => k), { stil: true });
+    // Automatische aanpassingen houden de oude tijd, zodat ze bij synchroniseren niet winnen van een ander apparaat.
+    opslag.schrijf('keuken', keuken, { tijd: opslag.tijd('keuken') || 1, stil: true });
+    return keuken;
+  }
+  const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['contactgrill', 'Contactgrill'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
   const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
   const ALIASSEN = { indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'] };
+  const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
+  // Woorden per recept voor korte zoektermen en tikfouten: naam, keuken, soort, ingrediënten en gerei.
+  const WOORDEN = new Map(RECEPTEN.map((r) => [r.id, new Set(splits([
+    r.naam, r.keuken, r.soort, ...r.ingr.flatMap((i) => [i.n || '', i.p || '']),
+    ...r.gerei.map((g) => (GEREEDSCHAP[g.tool] || {}).naam || ''), ...(r.methodes || []).map((m) => m.naam)
+  ].join(' ')))]));
+  const INGR_AANTAL = new Map();
+  RECEPTEN.forEach((r) => Hulp.ingrediënten(r).forEach((i) => {
+    if (Hulp.isBasis(i)) return;
+    const n = i.n.toLowerCase();
+    INGR_AANTAL.set(n, (INGR_AANTAL.get(n) || 0) + 1);
+  }));
+  const INGR_NAMEN = [...INGR_AANTAL.keys()].sort((a, b) => a.localeCompare(b, 'nl'));
   const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
   const state = {
@@ -39,7 +63,7 @@ const App = (() => {
     voorraad: opslag.lees('voorraad', []),
     basis: opslag.lees('basis', true),
     compleet: false,
-    keuken: opslag.lees('keuken', standaardKeuken),
+    keuken: laadKeuken(),
     pannen: opslag.lees('pannen', standaardPannen),
     bereid: new Set(),
     maakbaar: false,
@@ -94,17 +118,21 @@ const App = (() => {
   }
 
   function vulDatalist() {
-    const namen = new Set();
-    RECEPTEN.forEach((r) => Hulp.ingrediënten(r).forEach((i) => { if (!Hulp.isBasis(i)) namen.add(i.n.toLowerCase()); }));
-    $('#ingr-lijst').innerHTML = [...namen].sort((a, b) => a.localeCompare(b, 'nl')).map((n) => `<option value="${esc(n)}"></option>`).join('');
+    $('#ingr-lijst').innerHTML = INGR_NAMEN.map((n) => `<option value="${esc(n)}"></option>`).join('');
   }
 
   /* ---------- Filteren en sorteren ---------- */
-  function zoektermPast(r, q) {
-    const t = Hulp.norm(q);
-    if (!t) return true;
-    const tekst = ZOEKTEKST.get(r.id);
-    return [t, ...(ALIASSEN[t] || [])].some((x) => tekst.includes(x));
+  /* Elk woord uit de zoekopdracht moet passen. Korte woorden ("ei", "ui") alleen aan het begin van een woord,
+     anders zou "ei" ook "geitenkaas" vinden. Met vaag = true tellen tikfouten ook mee. */
+  function zoektermPast(r, q, vaag = false) {
+    const heel = Hulp.norm(q).trim();
+    if (!heel) return true;
+    const tekst = ZOEKTEKST.get(r.id), woorden = WOORDEN.get(r.id);
+    if (ALIASSEN[heel] && ALIASSEN[heel].some((x) => tekst.includes(x))) return true;
+    return heel.split(/\s+/).every((t) => {
+      if ([t, ...(ALIASSEN[t] || [])].some((x) => (x.length < 4 ? [...woorden].some((w) => w.startsWith(x)) : tekst.includes(x)))) return true;
+      return vaag && [...woorden].some((w) => Hulp.lijktOp(t, w));
+    });
   }
 
   function resultaten() {
@@ -114,9 +142,9 @@ const App = (() => {
       m: metVoorraad ? Hulp.match(r, state.voorraad, state.basis) : null,
       maakbaar: Hulp.maakbaar(r, mijnKeuken())
     }));
-    lijst = lijst.filter(({ r, m, maakbaar }) =>
+    const filter = (vaag) => lijst.filter(({ r, m, maakbaar }) =>
       (state.view !== 'fav' || state.favs.has(r.id)) &&
-      zoektermPast(r, state.zoek) &&
+      zoektermPast(r, state.zoek, vaag) &&
       (!state.keukens.size || state.keukens.has(r.keuken)) &&
       (!state.soorten.size || state.soorten.has(r.soort)) &&
       (!state.tijd || r.tijd <= state.tijd) &&
@@ -126,6 +154,14 @@ const App = (() => {
       (!metVoorraad || m.heb.length > 0) &&
       (!metVoorraad || !state.compleet || m.mist.length === 0)
     );
+    // Niets gevonden? Probeer het opnieuw met tikfouten, zodat "ommelet" toch omelet vindt.
+    state.vaag = false;
+    let gevonden = filter(false);
+    if (!gevonden.length && Hulp.norm(state.zoek).trim().length >= 3) {
+      gevonden = filter(true);
+      state.vaag = gevonden.length > 0;
+    }
+    lijst = gevonden;
     const opNaam = (a, b) => a.r.naam.localeCompare(b.r.naam, 'nl');
     const opBlz = (a, b) => BLZ.get(a.r.id) - BLZ.get(b.r.id);
     const sorteer = {
@@ -247,6 +283,7 @@ const App = (() => {
 
     const n = lijst.length;
     let tekst = `${n} ${n === 1 ? 'recept' : 'recepten'}`;
+    if (state.vaag) tekst = `Niets gevonden voor “${state.zoek.trim()}”. Wel ${n} ${n === 1 ? 'recept dat erop lijkt' : 'recepten die erop lijken'}:`;
     if (state.view === 'fav') tekst += ' in je favorieten';
     if (state.voorraad.length) tekst += `, gesorteerd op wat je in huis hebt`;
     $('#resultaat-tekst').textContent = tekst;
@@ -328,14 +365,119 @@ const App = (() => {
     renderFilters(); render();
   }
 
+  /* ---------- Zoeksuggesties ---------- */
+  let sugLijst = [], sugActief = -1;
+
+  function maakSuggesties(q) {
+    const t = Hulp.norm(q).trim();
+    if (t.length < 2) return [];
+    const uit = [];
+    const woordenVan = (s) => Hulp.norm(s).split(/[^a-z0-9]+/).filter(Boolean);
+    const score = (naam) => {
+      const n = Hulp.norm(naam), w = woordenVan(naam);
+      if (n.startsWith(t)) return 0;
+      if (w.some((x) => x.startsWith(t))) return 1;
+      if (t.length >= 3 && n.includes(t)) return 2;
+      if (w.some((x) => Hulp.lijktOp(t, x))) return 3;
+      return -1;
+    };
+    const recepten = RECEPTEN.map((r) => [r, score(r.naam)]).filter(([, s]) => s >= 0);
+    const hoofdstukken = KEUKENS.map((k) => [k, (ALIASSEN[t] || []).includes(Hulp.norm(k)) ? 1 : score(k)]).filter(([, s]) => s >= 0);
+    const ingredienten = INGR_NAMEN.map((n) => [n, score(n)]).filter(([, s]) => s >= 0);
+    // Tikfout-treffers (score 3) alleen tonen als er niets echts gevonden is.
+    const alleenVaag = ![...recepten, ...hoofdstukken, ...ingredienten].some(([, s]) => s < 3);
+    const houd = ([, s]) => alleenVaag || s < 3;
+    recepten.filter(houd).sort((a, b) => (a[1] - b[1]) || a[0].naam.localeCompare(b[0].naam, 'nl')).slice(0, 6)
+      .forEach(([r]) => uit.push({ type: 'recept', id: r.id, label: r.naam, extra: `${r.keuken} · blz. ${BLZ.get(r.id)}` }));
+    hoofdstukken.filter(houd).sort((a, b) => a[1] - b[1]).slice(0, 3)
+      .forEach(([k]) => uit.push({ type: 'hoofdstuk', waarde: k, label: k, extra: `Hoofdstuk ${hk(k).nr}` }));
+    ingredienten.filter(houd).sort((a, b) => (a[1] - b[1]) || (INGR_AANTAL.get(b[0]) - INGR_AANTAL.get(a[0]))).slice(0, 3)
+      .forEach(([n]) => uit.push({ type: 'ingredient', waarde: n, label: n, extra: `${INGR_AANTAL.get(n)} ${INGR_AANTAL.get(n) === 1 ? 'recept' : 'recepten'}` }));
+    return uit;
+  }
+
+  function markeer(label, q) {
+    const i = label.toLowerCase().indexOf(q.trim().toLowerCase());
+    if (!q.trim() || i < 0) return esc(label);
+    const j = i + q.trim().length;
+    return esc(label.slice(0, i)) + '<mark>' + esc(label.slice(i, j)) + '</mark>' + esc(label.slice(j));
+  }
+
+  function toonSuggesties() {
+    const veld = $('#zoek'), el = $('#suggesties');
+    sugLijst = document.activeElement === veld ? maakSuggesties(veld.value) : [];
+    sugActief = -1;
+    const SOORT = { recept: 'Recept', hoofdstuk: 'Hoofdstuk', ingredient: 'Ingrediënt' };
+    el.innerHTML = sugLijst.map((s, i) => `
+      <li class="sug" role="option" id="sug-${i}" data-i="${i}" aria-selected="false">
+        <span class="sug-type">${SOORT[s.type]}</span>
+        <span class="sug-label">${markeer(s.label, veld.value)}</span>
+        <span class="sug-extra">${esc(s.extra)}</span>
+      </li>`).join('');
+    el.hidden = !sugLijst.length;
+    veld.setAttribute('aria-expanded', String(!!sugLijst.length));
+    veld.removeAttribute('aria-activedescendant');
+  }
+
+  function sluitSuggesties() {
+    $('#suggesties').hidden = true;
+    $('#zoek').setAttribute('aria-expanded', 'false');
+    sugLijst = []; sugActief = -1;
+  }
+
+  function kiesSuggestie(i) {
+    const s = sugLijst[i];
+    if (!s) return;
+    const veld = $('#zoek');
+    sluitSuggesties();
+    if (s.type === 'recept') {
+      openRecept(s.id);
+    } else if (s.type === 'hoofdstuk') {
+      veld.value = ''; state.zoek = '';
+      state.keukens = new Set([s.waarde]);
+      if (state.view === 'lijst') zetView('alle'); else render();
+      veld.blur();
+    } else {
+      veld.value = s.waarde; state.zoek = s.waarde;
+      if (state.view === 'lijst') zetView('alle'); else render();
+      veld.blur();
+    }
+  }
+
+  function zetActief(i) {
+    const items = $('#suggesties').querySelectorAll('.sug');
+    if (!items.length) return;
+    sugActief = (i + items.length) % items.length;
+    items.forEach((li, n) => li.setAttribute('aria-selected', String(n === sugActief)));
+    items[sugActief].scrollIntoView({ block: 'nearest' });
+    $('#zoek').setAttribute('aria-activedescendant', 'sug-' + sugActief);
+  }
+
   function koppel() {
     let zoekTimer;
     $('#zoek').addEventListener('input', (e) => {
+      toonSuggesties();
       clearTimeout(zoekTimer);
       zoekTimer = setTimeout(() => {
         state.zoek = e.target.value;
         if (state.view === 'lijst') zetView('alle'); else render();
       }, 120);
+    });
+    $('#zoek').addEventListener('focus', toonSuggesties);
+    $('#zoek').addEventListener('blur', () => setTimeout(sluitSuggesties, 150));
+    $('#zoek').addEventListener('keydown', (e) => {
+      if ($('#suggesties').hidden) return;
+      if (e.key === 'ArrowDown') { e.preventDefault(); zetActief(sugActief + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); zetActief(sugActief - 1); }
+      else if (e.key === 'Enter') { if (sugActief >= 0) { e.preventDefault(); kiesSuggestie(sugActief); } else sluitSuggesties(); }
+      else if (e.key === 'Escape') { e.stopPropagation(); sluitSuggesties(); }
+    });
+    // mousedown in plaats van click: anders sluit de lijst door de blur voordat de klik aankomt.
+    $('#suggesties').addEventListener('mousedown', (e) => {
+      const li = e.target.closest('.sug');
+      if (!li) return;
+      e.preventDefault();
+      kiesSuggestie(+li.dataset.i);
     });
 
     document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.view)));
@@ -452,12 +594,26 @@ const App = (() => {
     document.addEventListener('lijst-gewijzigd', () => { if (state.view === 'lijst') renderLijst(); else $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || ''; });
   }
 
+  /* Na ontvangst van nieuwere gegevens van een ander apparaat: alles opnieuw inlezen en tonen. */
+  function herlaadOpslag() {
+    state.voorraad = opslag.lees('voorraad', []);
+    state.basis = opslag.lees('basis', true);
+    state.keuken = opslag.lees('keuken', standaardKeuken);
+    state.pannen = opslag.lees('pannen', standaardPannen);
+    state.favs = new Set(opslag.lees('favorieten', []));
+    Boodschappen.herlaad();
+    renderFilters();
+    if (state.view === 'lijst') renderLijst(); else render();
+    toast('Bijgewerkt met je andere apparaten');
+  }
+
   function start() {
     $('#teller').textContent = `${RECEPTEN.length} recepten · ${KEUKENS.length} hoofdstukken · versie ${window.VERSIE || '?'}`;
     vulDatalist();
     renderFilters();
     koppel();
     render();
+    Sync.start(herlaadOpslag);
     const id = location.hash.slice(1);
     if (id && RECEPTEN.some((r) => r.id === id)) openRecept(id, true);
   }

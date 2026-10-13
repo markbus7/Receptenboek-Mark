@@ -48,6 +48,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Boerenkool_met_worst.jpg"
  },
+ "boerenomelet": {
+  "src": "img/boerenomelet.jpg",
+  "auteur": "Kobako",
+  "licentie": "CC BY-SA 2.5",
+  "bron": "https://commons.wikimedia.org/wiki/File:Omelett.jpg"
+ },
  "boeuf-bourguignon": {
   "src": "img/boeuf-bourguignon.jpg",
   "auteur": "Slayschips",
@@ -114,6 +120,18 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Dal_Tadka-Delhi.jpg"
  },
+ "eggs-benedict": {
+  "src": "img/eggs-benedict.jpg",
+  "auteur": "Mark Miller",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Traditional_Eggs_Benedict.jpg"
+ },
+ "eieren-koken": {
+  "src": "img/eieren-koken.jpg",
+  "auteur": "Amin",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Soft-boiled-egg.jpg"
+ },
  "erwtensoep": {
   "src": "img/erwtensoep.jpg",
   "auteur": "Eric Polk",
@@ -126,11 +144,23 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Falafels_2.jpg"
  },
+ "franse-omelet": {
+  "src": "img/franse-omelet.jpg",
+  "auteur": "Guilhem Vellut",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Gorgonzola_%2B_Bacon_Omelette_@_Omelegg_@_Amsterdam_(16600947041).jpg"
+ },
  "franse-uiensoep": {
   "src": "img/franse-uiensoep.jpg",
   "auteur": "Ludovic Péron",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Soupe_%C3%A0_l%27oignon.jpg"
+ },
+ "frittata": {
+  "src": "img/frittata.jpg",
+  "auteur": "Andy Li",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Frittata_-_Bam%27s_Kitchen_2024-04-02.jpg"
  },
  "gado-gado": {
   "src": "img/gado-gado.jpg",
@@ -168,6 +198,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Gulyas080.jpg"
  },
+ "huevos-rancheros": {
+  "src": "img/huevos-rancheros.jpg",
+  "auteur": "jeffreyw",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Mmm...huevos_rancheros.jpg"
+ },
  "hutspot-rookworst": {
   "src": "img/hutspot-rookworst.jpg",
   "auteur": "Ellywa",
@@ -197,6 +233,12 @@ window.FOTOS = {
   "auteur": "Miansari66",
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chicken_Korma.JPG"
+ },
+ "kip-madras": {
+  "src": "img/kip-madras.jpg",
+  "auteur": "Guilhem Vellut",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Madras_chicken_curry_@_New_Delhi_@_Annecy_(31691503017).jpg"
  },
  "kip-shoarma": {
   "src": "img/kip-shoarma.jpg",
@@ -239,6 +281,12 @@ window.FOTOS = {
   "auteur": "Texasfoodgawker",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Original_Mac_n_Cheese_.jpg"
+ },
+ "menemen": {
+  "src": "img/menemen.jpg",
+  "auteur": "E4024",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Menemen_in_a_sahan.jpg"
  },
  "moussaka": {
   "src": "img/moussaka.jpg",
@@ -360,6 +408,12 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Risotto_with_speck_and_goat_cheese_(6101067436).jpg"
  },
+ "roerei-toast": {
+  "src": "img/roerei-toast.jpg",
+  "auteur": "Takeaway",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Scrambed_eggs.jpg"
+ },
  "roti-kip": {
   "src": "img/roti-kip.jpg",
   "auteur": "Zeel Patel",
@@ -414,6 +468,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Espaguetis_carbonara.jpg"
  },
+ "tamagoyaki": {
+  "src": "img/tamagoyaki.jpg",
+  "auteur": "極地狐",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:%E9%B3%A5%E7%84%BC%E3%81%8D%E5%B1%85%E9%85%92%E5%B1%8B_(39394233682).jpg"
+ },
  "tandoori-kip": {
   "src": "img/tandoori-kip.jpg",
   "auteur": "kspoddar",
@@ -437,6 +497,18 @@ window.FOTOS = {
   "auteur": "Evan Joshua Swigart (TheCulinaryGeek)",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Flickr_preppybyday_4711943668--Tom_kha_gai.jpg"
+ },
+ "tortilla-patatas": {
+  "src": "img/tortilla-patatas.jpg",
+  "auteur": "Kent Wang",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Tortilla_de_patata_-_San_Sebasti%C3%A1n.jpg"
+ },
+ "uitsmijter": {
+  "src": "img/uitsmijter.jpg",
+  "auteur": "Hortensja Bukietowa",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Uitsmijter2.JPG"
  },
  "vlaamse-stoverij": {
   "src": "img/vlaamse-stoverij.jpg",

@@ -74,6 +74,8 @@ const Boodschappen = (() => {
   function wisAlles() { items = []; bewaar(); }
   const alsTekst = () => items.filter((x) => !x.klaar).map((x) => '- ' + tekstVan(x)).join('\n');
   const aantalOpen = () => items.filter((x) => !x.klaar).length;
+  /* Opnieuw inlezen, bijvoorbeeld nadat een ander apparaat de lijst heeft gewijzigd. */
+  const herlaad = () => { items = Hulp.opslag.lees('boodschappen', []); };
 
-  return { voegReceptToe, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
+  return { herlaad, voegReceptToe, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
 })();

@@ -109,8 +109,9 @@ RECEPTEN.push(
   id: 'kofte', naam: 'Köfte met yoghurtsaus', keuken: 'Turks', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Gekruide gehaktrolletjes met peterselie en komijn, met knoflookyoghurt en geroosterde paprika.',
-  methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],
+  methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],
   gerei: [
+    { tool: 'contactgrill', tekst: 'Contactgrill', m: 'contactgrill' },
     { tool: 'koekenpan', tekst: 'Grote koekenpan (28 cm)', m: 'koekenpan' },
     { tool: 'airfryer', tekst: 'Airfryer', m: 'airfryer' },
     { tool: 'grillpan', tekst: 'Grillpan of barbecue', m: 'grillpan' }
@@ -134,6 +135,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kneed gehakt, ui, knoflook, peterselie, specerijen, paneermeel en een theelepel zout 2 minuten tot het plakt. Vorm 12 langwerpige rolletjes. Laat 10 minuten opstijven in de koelkast.', min: 10 },
+    { t: 'Leg de köfte en de paprika\'s op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 7 minuten tot de köfte gaar zijn.', m: 'contactgrill', min: 7 },
     { t: 'Bak de köfte in een scheut olie op middelhoog vuur 8 à 10 minuten rondom bruin en gaar. Bak de paprika\'s ernaast mee tot ze zwarte vlekken hebben.', m: 'koekenpan', min: 9 },
     { t: 'Bak de köfte en paprika\'s 10 à 12 minuten in de airfryer op 200 °C. Schud halverwege.', m: 'airfryer', min: 11 },
     { t: 'Gril de köfte en paprika\'s op een gloeiend hete grillpan 8 à 10 minuten. Keer regelmatig.', m: 'grillpan', min: 9 },
@@ -190,8 +192,9 @@ RECEPTEN.push(
   id: 'bun-cha-gio', naam: 'Vietnamese noedelsalade met citroengraskip', keuken: 'Vietnamees', soort: 'Salade & bijgerecht',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Koude rijstnoedels met gegrilde citroengraskip, verse kruiden, komkommer en een frisse nuoc cham-dressing.',
-  methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],
+  methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],
   gerei: [
+    { tool: 'contactgrill', tekst: 'Contactgrill', m: 'contactgrill' },
     { tool: 'koekenpan', tekst: 'Grote koekenpan', m: 'koekenpan' },
     { tool: 'airfryer', tekst: 'Airfryer', m: 'airfryer' },
     { tool: 'grillpan', tekst: 'Grillpan', m: 'grillpan' },
@@ -221,6 +224,7 @@ RECEPTEN.push(
     { t: 'Meng de kip met citroengras, knoflook, vissaus, suiker en 1 el olie. Laat minimaal 30 minuten marineren.', min: 30 },
     { t: 'Roer de ingrediënten voor de nuoc cham door elkaar tot de suiker is opgelost.' },
     { t: 'Kook de vermicelli volgens de verpakking, spoel koud af en laat uitlekken.', min: 4 },
+    { t: 'Leg de kippendijen plat op de voorverwarmde contactgrill en sluit de deksel. Grill 7 à 9 minuten tot ze gaar zijn en mooi karamelliseren.', m: 'contactgrill', min: 8 },
     { t: 'Bak de kip in de koekenpan op middelhoog vuur 5 à 6 minuten per kant tot hij gaar is en karamelliseert.', m: 'koekenpan', min: 11 },
     { t: 'Bak de kip 14 à 16 minuten in de airfryer op 200 °C. Keer halverwege.', m: 'airfryer', min: 15 },
     { t: 'Gril de kip 5 minuten per kant op een hete grillpan.', m: 'grillpan', min: 10 },

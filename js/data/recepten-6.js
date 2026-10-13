@@ -195,7 +195,7 @@ RECEPTEN.push(
     { t: 'Herhaal met de rest. Stapel 2 burgers per broodje met saus, sla, ui en augurk.' }
   ],
   tips: ['Druk alleen in de eerste 30 seconden; daarna verlies je sap.'],
-  alt: ['Geen gietijzeren pan? Gebruik een grillplaat of bak de burgers in de airfryer: 8 minuten op 200 °C als dikkere burger (niet geplet).']
+  alt: ['Geen gietijzeren pan? Gebruik een grillplaat of bak de burgers in de airfryer: 8 minuten op 200 °C als dikkere burger (niet geplet).', 'Met een contactgrill zoals de OptiGrill: maak 4 burgers van 150 g en grill ze 5 à 6 minuten op het burgerprogramma. Ze worden sappig, maar zonder het knapperige smash-randje.']
 },
 {
   id: 'mac-and-cheese', naam: 'Mac and cheese', keuken: 'Amerikaans', soort: 'Hoofdgerecht',

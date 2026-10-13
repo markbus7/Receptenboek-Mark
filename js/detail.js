@@ -242,6 +242,7 @@ const Detail = (() => {
         <button type="button" class="stap-nr" data-stap aria-label="Markeer stap ${n + 1} als klaar">${n + 1}</button>
         <div class="stap-tekst">
           <p>${Hulp.esc(s.t)}</p>
+          ${ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? '<span class="stap-notitie">of: in je rijstkoker</span>' : ''}
           ${s.min ? `<button type="button" class="timer-knop" data-min="${s.min}" data-label="Stap ${n + 1}">${icoon('klok')} Timer ${Hulp.tijdTekst(s.min)}</button>` : ''}
         </div>
       </li>`).join('');
