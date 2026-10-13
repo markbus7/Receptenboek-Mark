@@ -6,6 +6,7 @@ Een receptenboek in de browser met 88 recepten uit 21 keukens. Je opent het door
 
 - **Zoeken** met suggesties terwijl je typt (recepten, hoofdstukken en ingrediënten). Een tikfout is geen probleem: "ommelet" of "spagetti" vindt toch het juiste gerecht.
 - **Filteren** op keuken (Italiaans, Indiaas, Indonesisch, Surinaams, Thais, Nederlands, …), soort gerecht, pan of apparaat (*Bereid in*: Dutch oven, koekenpan, oven, airfryer, …), maximale bereidingstijd en vegetarisch.
+- **Sauzen en basissauzen** hebben een eigen soort (*Saus*): pepersaus, champignonroomsaus, bearnaise, hollandaise, bechamel, kaassaus, jus, mayonaise, tomatensaus, pesto, pindasaus, knoflooksaus, salsa en barbecuesaus. Onder *Lekker met* zie je welke saus bij welk gerecht past, en andersom.
 - **Wat heb ik in huis?** Typ de ingrediënten die je hebt. Recepten waarvoor je het minst hoeft te kopen komen bovenaan, met per recept wat je nog mist.
 - **Omrekenen.** Pas het aantal personen aan, of vul in hoeveel je van één ingrediënt hebt (bijvoorbeeld *300 g kipfilet*). Alle andere hoeveelheden schalen mee.
 - **Pannen en apparatuur** staan per recept bovenaan: welke pan, welk formaat, en wat je kunt gebruiken als je hem niet hebt.
@@ -35,7 +36,7 @@ Recepten staan in `js/data/recepten-*.js`. Een recept ziet er zo uit:
 
 ```js
 {
-  id: 'uniek-id', naam: 'Naam', keuken: 'Italiaans', soort: 'Hoofdgerecht',
+  id: 'uniek-id', naam: 'Naam', ook: ['andere naam'], keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '1 uur rijzen', pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Korte omschrijving.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ], // optioneel
@@ -49,11 +50,12 @@ Recepten staan in `js/data/recepten-*.js`. Een recept ziet er zo uit:
     { n: 'zout' }                                                               // zonder hoeveelheid = naar smaak
   ],
   stappen: [ { t: 'Stap voor alle methodes.', min: 10 }, { t: 'Alleen voor de airfryer.', m: 'airfryer' } ],
-  tips: ['…'], alt: ['…']
+  tips: ['…'], alt: ['…'],
+  bij: ['steak-frites']                                                         // optioneel: "Lekker met"
 }
 ```
 
-Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`.
+Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. Met `ook` vind je een recept ook onder een andere naam (*french toast* → wentelteefjes). `bij` koppelt een saus of bijgerecht aan gerechten; de link verschijnt in beide recepten. Controleer je werk met `node tools/controleer-recepten.js`.
 
 ## Foto's
 

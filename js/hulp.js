@@ -271,7 +271,7 @@ const Hulp = (() => {
         return null;
       }
       // Recepten die makkelijk aanplakken: ei, beslag, vis.
-      const teer = /antiaanbak/.test(tekst) || /pannenkoe|pancake|spiegelei|omelet|roerei|tortilla de|frittata|tamagoyaki|uitsmijter|menemen|huevos|vis|zalm/.test(norm(recept.naam + ' ' + g.tekst));
+      const teer = /antiaanbak/.test(tekst) || /pannenkoe|pancake|spiegelei|omelet|roerei|tortilla de|frittata|tamagoyaki|uitsmijter|menemen|huevos|vis|zalm|wentelteef|french toast|crepe|poffert|kaiserschmarrn|foe yong|gyoza/.test(norm(recept.naam + ' ' + g.tekst));
       if (teer && anti) return null;
       if (rvs && !anti) {
         if (teer) return eenmalig('koekenpan-teer', { soort: 'tip', tekst: 'Met je RVS-pan: verhit hem 2 minuten droog op middelhoog vuur tot een druppel water als een balletje rondrolt. Doe dan royaal boter of olie erin en zet het vuur een stand lager. Keer pas als het vanzelf loslaat.' });

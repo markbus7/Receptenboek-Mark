@@ -7,7 +7,7 @@ const App = (() => {
   const KEUKENS = [...HOOFDSTUKKEN.map((h) => h.keuken), ...new Set(RECEPTEN.map((r) => r.keuken))]
     .filter((k, i, a) => a.indexOf(k) === i && RECEPTEN.some((r) => r.keuken === k));
   const HK = new Map(KEUKENS.map((k, i) => [k, { nr: i + 1, kleur: (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).kleur || '#5A5048' }]));
-  const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
+  const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Saus', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
   // Paginanummers: elk hoofdstuk opent met één pagina, elk recept beslaat een dubbele pagina.
   const BLZ = new Map();
   (() => {
@@ -37,11 +37,14 @@ const App = (() => {
   }
   const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['contactgrill', 'Contactgrill'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
   const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
-  const ALIASSEN = { indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'] };
+  const ALIASSEN = {
+    indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'],
+    sauzen: ['saus'], basissaus: ['saus'], basissauzen: ['saus'], duitsland: ['duits'], oostenrijk: ['oostenrijks'], toetje: ['dessert'], toetjes: ['dessert']
+  };
   const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
   // Woorden per recept voor korte zoektermen en tikfouten: naam, keuken, soort, ingrediënten en gerei.
   const WOORDEN = new Map(RECEPTEN.map((r) => [r.id, new Set(splits([
-    r.naam, r.keuken, r.soort, ...r.ingr.flatMap((i) => [i.n || '', i.p || '']),
+    r.naam, ...(r.ook || []), r.keuken, r.soort, ...r.ingr.flatMap((i) => [i.n || '', i.p || '']),
     ...r.gerei.map((g) => (GEREEDSCHAP[g.tool] || {}).naam || ''), ...(r.methodes || []).map((m) => m.naam)
   ].join(' ')))]));
   const INGR_AANTAL = new Map();
@@ -51,7 +54,7 @@ const App = (() => {
     INGR_AANTAL.set(n, (INGR_AANTAL.get(n) || 0) + 1);
   }));
   const INGR_NAMEN = [...INGR_AANTAL.keys()].sort((a, b) => a.localeCompare(b, 'nl'));
-  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
+  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, ...(r.ook || []), r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
   const state = {
     view: 'alle',
@@ -346,7 +349,11 @@ const App = (() => {
     hoofdstuk: (keuken) => hk(keuken),
     isFav: (id) => state.favs.has(id),
     wisselFav: (id) => wisselFav(id),
-    sluit: () => sluitRecept()
+    sluit: () => sluitRecept(),
+    open: (id) => openRecept(id),
+    recept: (id) => RECEPTEN.find((r) => r.id === id),
+    /* Gerechten en sauzen die bij elkaar passen, in beide richtingen. */
+    lekkerMet: (r) => RECEPTEN.filter((x) => x.id !== r.id && ((r.bij || []).includes(x.id) || (x.bij || []).includes(r.id)))
   };
 
   function openRecept(id, viaHistorie) {
@@ -406,14 +413,18 @@ const App = (() => {
       if (w.some((x) => Hulp.lijktOp(t, x))) return 3;
       return -1;
     };
-    const recepten = RECEPTEN.map((r) => [r, score(r.naam)]).filter(([, s]) => s >= 0);
-    const hoofdstukken = KEUKENS.map((k) => [k, (ALIASSEN[t] || []).includes(Hulp.norm(k)) ? 1 : score(k)]).filter(([, s]) => s >= 0);
+    // Een recept telt ook mee via zijn andere namen ("french toast" → wentelteefjes); de beste naam wint.
+    const recepten = RECEPTEN.map((r) => {
+      const namen = [r.naam, ...(r.ook || [])].map((n) => [n, score(n)]).filter(([, s]) => s >= 0).sort((x, y) => x[1] - y[1]);
+      return namen.length ? [r, namen[0][1], namen[0][0] === r.naam ? null : namen[0][0]] : null;
+    }).filter(Boolean);
+    const hoofdstukken = KEUKENS.map((k) => [k, (ALIASSEN[t] || []).some((x) => Hulp.norm(k).startsWith(x) || Hulp.norm(k).includes(' ' + x)) ? 1 : score(k)]).filter(([, s]) => s >= 0);
     const ingredienten = INGR_NAMEN.map((n) => [n, score(n)]).filter(([, s]) => s >= 0);
     // Tikfout-treffers (score 3) alleen tonen als er niets echts gevonden is.
     const alleenVaag = ![...recepten, ...hoofdstukken, ...ingredienten].some(([, s]) => s < 3);
     const houd = ([, s]) => alleenVaag || s < 3;
     recepten.filter(houd).sort((a, b) => (a[1] - b[1]) || a[0].naam.localeCompare(b[0].naam, 'nl')).slice(0, 6)
-      .forEach(([r]) => uit.push({ type: 'recept', id: r.id, label: r.naam, extra: `${r.keuken} · blz. ${BLZ.get(r.id)}` }));
+      .forEach(([r, , via]) => uit.push({ type: 'recept', id: r.id, label: r.naam, extra: `${via ? `ook: ${via} · ` : ''}${r.keuken} · blz. ${BLZ.get(r.id)}` }));
     hoofdstukken.filter(houd).sort((a, b) => a[1] - b[1]).slice(0, 3)
       .forEach(([k]) => uit.push({ type: 'hoofdstuk', waarde: k, label: k, extra: `Hoofdstuk ${hk(k).nr}` }));
     ingredienten.filter(houd).sort((a, b) => (a[1] - b[1]) || (INGR_AANTAL.get(b[0]) - INGR_AANTAL.get(a[0]))).slice(0, 3)

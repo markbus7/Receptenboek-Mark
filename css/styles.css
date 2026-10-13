@@ -529,6 +529,9 @@ p.sync-fout::before { display: none; }
   transform: rotate(-1deg);
 }
 .notitie-tip { transform: rotate(0.8deg); margin-left: 8%; }
+.notitie-bij { transform: rotate(0.4deg); background: color-mix(in srgb, var(--ok-zacht) 70%, var(--notitie)); }
+.notitie-bij a { color: var(--pen); font-weight: 700; text-underline-offset: 3px; }
+.notitie-bij .zacht { font-size: 17px; }
 .notitie::before { content: ''; position: absolute; left: 50%; top: -11px; width: 90px; height: 22px; transform: translateX(-50%) rotate(2deg); background: var(--tape); }
 .notitie h3 { font-family: var(--font-hand); font-weight: 700; font-size: 26px; margin-bottom: 6px; color: var(--pen); }
 .notitie ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }

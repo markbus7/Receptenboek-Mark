@@ -70,7 +70,7 @@ const Detail = (() => {
 
   function open(recept, context) {
     r = recept; ctx = context; factor = 1; ikHeb = null;
-    terugFocus = document.activeElement;
+    if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
     methode = ms.length ? (ms.find((m) => m.heb) || ms[0]).id : null;
     render();
@@ -176,6 +176,7 @@ const Detail = (() => {
             <ol class="stappen" id="d-stappen"></ol>
           </section>
           <div class="d-notities">
+            ${(() => { const lm = ctx.lekkerMet(r); return lm.length ? `<aside class="notitie notitie-bij"><h3>Lekker met</h3><ul>${lm.map((x) => `<li><a href="#${x.id}" data-bij="${x.id}">${Hulp.esc(x.naam)}</a> <span class="zacht">blz. ${ctx.blz(x.id)}</span></li>`).join('')}</ul></aside>` : ''; })()}
             ${r.alt && r.alt.length ? `<aside class="notitie notitie-alt"><h3>Alternatieven</h3><ul>${r.alt.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
             ${r.tips && r.tips.length ? `<aside class="notitie notitie-tip"><h3>Tip</h3><ul>${r.tips.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
           </div>
@@ -331,6 +332,8 @@ const Detail = (() => {
       return App.toast(aan ? 'Bewaard bij je favorieten' : 'Verwijderd uit je favorieten');
     }
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
+    const bij = t.closest('[data-bij]');
+    if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }
     if (t.closest('#d-lijst')) {
       const n = Boodschappen.voegReceptToe(r, factor);
       return App.toast(`${n} ingrediënten op je boodschappenlijst gezet`);
