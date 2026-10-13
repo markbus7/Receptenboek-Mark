@@ -101,6 +101,16 @@ const Detail = (() => {
       r.vega ? `<li class="vega">${icoon('blad')} Vegetarisch</li>` : ''
     ].join('');
 
+    const h = ctx.hoofdstuk(r.keuken);
+    const blz = ctx.blz(r.id);
+    blad.style.setProperty('--k', h.kleur);
+    const beeld = foto
+      ? `<figure class="d-foto">
+          <img src="${Hulp.esc(foto.src)}" alt="${Hulp.esc(r.naam)}">
+          <figcaption>Foto: ${foto.bron ? `<a href="${Hulp.esc(foto.bron)}" target="_blank" rel="noopener">${Hulp.esc(foto.auteur)}</a>` : Hulp.esc(foto.auteur)}, ${Hulp.esc(foto.licentie)}, via Wikimedia Commons</figcaption>
+        </figure>`
+      : `<figure class="d-foto d-foto-bord"><span class="bord bord-groot" aria-hidden="true">${toolIcoon(r.methodes && r.methodes.length ? r.methodes[0].id : (r.gerei[0] || {}).tool)}</span></figure>`;
+
     blad.innerHTML = `
       <header class="d-balk">
         <button type="button" class="ikoon-knop" data-sluit aria-label="Sluit recept">${icoon('sluit')}</button>
@@ -109,64 +119,67 @@ const Detail = (() => {
           <button type="button" class="ikoon-knop fav-knop" id="d-fav" aria-pressed="${fav}" aria-label="${fav ? 'Verwijder uit favorieten' : 'Voeg toe aan favorieten'}">${icoon('hart')}</button>
         </div>
       </header>
-      <div class="d-kop${foto ? ' met-foto' : ''}">
-        <div class="d-kop-tekst">
-          <p class="eyebrow">${Hulp.esc(r.keuken)} · ${Hulp.esc(r.soort)}</p>
-          <h2 id="d-titel">${Hulp.esc(r.naam)}</h2>
-          <p class="d-intro">${Hulp.esc(r.intro)}</p>
-          <ul class="d-meta">${meta}</ul>
-        </div>
-        ${foto ? `<figure class="d-foto">
-          <img src="${Hulp.esc(foto.src)}" alt="${Hulp.esc(r.naam)}">
-          <figcaption>Foto: ${foto.bron ? `<a href="${Hulp.esc(foto.bron)}" target="_blank" rel="noopener">${Hulp.esc(foto.auteur)}</a>` : Hulp.esc(foto.auteur)}, ${Hulp.esc(foto.licentie)}, via Wikimedia Commons</figcaption>
-        </figure>` : ''}
-      </div>
-      <section class="d-gerei" aria-labelledby="d-gerei-titel">
-        <h3 id="d-gerei-titel">Pannen en apparatuur</h3>
-        ${ms.length ? `
-          <div class="methode" role="group" aria-label="Bereidingswijze">
-            <span class="methode-label">Bereiden met</span>
-            <div class="segment">
-              ${ms.map((m) => `<button type="button" data-methode="${m.id}" aria-pressed="${m.id === methode}" class="${m.heb ? '' : 'mist'}">${toolIcoon(m.id)} ${Hulp.esc(m.naam === 'Braadpan' && ctx.keuken.includes('dutchoven') ? 'Dutch oven' : m.naam)}${m.heb ? '' : '<span class="sr"> (niet in jouw keuken)</span>'}</button>`).join('')}
-            </div>
-          </div>` : ''}
-        <ul class="gerei-lijst" id="d-gerei-lijst"></ul>
-      </section>
-      <div class="d-kolommen">
-        <section class="d-ingr" aria-labelledby="d-ingr-titel">
-          <h3 id="d-ingr-titel">Ingrediënten</h3>
-          <div class="schaal">
-            <div class="schaal-rij">
-              <span class="schaal-label">Personen</span>
-              <div class="stepper">
-                <button type="button" class="ikoon-knop" id="d-min" aria-label="Minder personen">−</button>
-                <output id="d-pers" aria-live="polite"></output>
-                <button type="button" class="ikoon-knop" id="d-plus" aria-label="Meer personen">+</button>
-              </div>
-            </div>
-            <div class="schaal-rij schaal-heb">
-              <label class="schaal-label" for="d-heb-ingr">Ik heb</label>
-              <div class="heb-velden">
-                <input id="d-heb-aantal" type="number" inputmode="decimal" min="0" step="any" placeholder="300" aria-label="Hoeveelheid die je hebt">
-                <span class="heb-eenheid" id="d-heb-eenheid"></span>
-                <select id="d-heb-ingr">
-                  ${schaalbaar().map(({ i, idx }) => `<option value="${idx}">${Hulp.esc(i.n)}</option>`).join('')}
-                </select>
-              </div>
-            </div>
-            <p class="schaal-info" id="d-schaal-info"></p>
+      <div class="d-spread hk">
+        <section class="d-pagina d-links">
+          <p class="d-loopkop">Hoofdstuk ${h.nr} · ${Hulp.esc(r.keuken)}</p>
+          <div class="d-titelblok">
+            <p class="d-soort">${Hulp.esc(r.soort)}</p>
+            <h2 id="d-titel">${Hulp.esc(r.naam)}</h2>
+            <p class="d-intro">${Hulp.esc(r.intro)}</p>
+            <ul class="d-meta">${meta}</ul>
           </div>
-          <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
-          <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
+          ${beeld}
+          <section class="d-gerei" aria-labelledby="d-gerei-titel">
+            <h3 id="d-gerei-titel">Pannen en apparatuur</h3>
+            ${ms.length ? `
+              <div class="methode" role="group" aria-label="Bereidingswijze">
+                <span class="methode-label">Bereiden met</span>
+                <div class="segment">
+                  ${ms.map((m) => `<button type="button" data-methode="${m.id}" aria-pressed="${m.id === methode}" class="${m.heb ? '' : 'mist'}">${toolIcoon(m.id)} ${Hulp.esc(m.naam === 'Braadpan' && ctx.keuken.includes('dutchoven') ? 'Dutch oven' : m.naam)}${m.heb ? '' : '<span class="sr"> (niet in jouw keuken)</span>'}</button>`).join('')}
+                </div>
+              </div>` : ''}
+            <ul class="gerei-lijst" id="d-gerei-lijst"></ul>
+          </section>
+          <section class="d-ingr" aria-labelledby="d-ingr-titel">
+            <h3 id="d-ingr-titel">Ingrediënten</h3>
+            <div class="schaal">
+              <div class="schaal-rij">
+                <span class="schaal-label">Personen</span>
+                <div class="stepper">
+                  <button type="button" class="ikoon-knop" id="d-min" aria-label="Minder personen">−</button>
+                  <output id="d-pers" aria-live="polite"></output>
+                  <button type="button" class="ikoon-knop" id="d-plus" aria-label="Meer personen">+</button>
+                </div>
+              </div>
+              <div class="schaal-rij schaal-heb">
+                <label class="schaal-label" for="d-heb-ingr">Ik heb</label>
+                <div class="heb-velden">
+                  <input id="d-heb-aantal" type="number" inputmode="decimal" min="0" step="any" placeholder="300" aria-label="Hoeveelheid die je hebt">
+                  <span class="heb-eenheid" id="d-heb-eenheid"></span>
+                  <select id="d-heb-ingr">
+                    ${schaalbaar().map(({ i, idx }) => `<option value="${idx}">${Hulp.esc(i.n)}</option>`).join('')}
+                  </select>
+                </div>
+              </div>
+              <p class="schaal-info" id="d-schaal-info"></p>
+            </div>
+            <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
+            <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
+          </section>
+          <p class="d-blz">${blz}</p>
         </section>
-        <section class="d-stappen" aria-labelledby="d-stap-titel">
-          <h3 id="d-stap-titel">Bereiding</h3>
-          <ol class="stappen" id="d-stappen"></ol>
+        <section class="d-pagina d-rechts">
+          <p class="d-loopkop">${Hulp.esc(r.naam)}</p>
+          <section class="d-stappen" aria-labelledby="d-stap-titel">
+            <h3 id="d-stap-titel">Bereiding</h3>
+            <ol class="stappen" id="d-stappen"></ol>
+          </section>
+          <div class="d-notities">
+            ${r.alt && r.alt.length ? `<aside class="notitie notitie-alt"><h3>Alternatieven</h3><ul>${r.alt.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
+            ${r.tips && r.tips.length ? `<aside class="notitie notitie-tip"><h3>Tip</h3><ul>${r.tips.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
+          </div>
+          <p class="d-blz">${blz + 1}</p>
         </section>
-      </div>
-      <div class="d-extra">
-        ${r.alt && r.alt.length ? `<section class="kader kader-alt"><h3>Alternatieven</h3><ul>${r.alt.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></section>` : ''}
-        ${r.tips && r.tips.length ? `<section class="kader"><h3>Tip</h3><ul>${r.tips.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></section>` : ''}
       </div>`;
 
     renderGerei();
