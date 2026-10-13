@@ -12,6 +12,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Tajine-marocain-un-plat-varie-et-sain_(cropped).jpg"
  },
+ "kung-pao-kip": {
+  "src": "img/kung-pao-kip.jpg",
+  "auteur": "Steven G. Johnson",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Kung-pao-shanghai.jpg"
+ },
  "lasagne-bolognese": {
   "src": "img/lasagne-bolognese.jpg",
   "auteur": "jules / stonesoup",
