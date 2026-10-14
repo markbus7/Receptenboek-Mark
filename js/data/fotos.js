@@ -504,6 +504,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Potato_salad_(1).jpg"
  },
+ "kefta-tajine": {
+  "src": "img/kefta-tajine.jpg",
+  "auteur": "Fatima zahra Charif Khalifi",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Tajine_de_boulettes_de_viande_hach%C3%A9e_aux_oeufs.jpg"
+ },
  "kimchi-fried-rice": {
   "src": "img/kimchi-fried-rice.jpg",
   "auteur": "Sharon Ang",
