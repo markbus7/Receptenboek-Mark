@@ -65,7 +65,8 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
-- **1.9.3**: foto's bij draadjesvlees en ajam pedis; nu heeft elk recept een foto.
+- **1.10.1**: foto's bij draadjesvlees en ajam pedis; nu heeft elk recept een foto.
+- **1.10.0**: bij *Wat heb ik in huis?* staan klikbare suggesties onder het invoerveld: eerst de ingrediënten die het vaakst in de recepten voorkomen, en tijdens het typen de namen die passen. De diepvries groentemix kies je nu door te typen (bijv. *wok*, *soep* of *spinazie*), waarna de passende mixen als suggestie verschijnen.
 - **1.9.2**: zoeken kent meer Nederlandse namen: *pasteitje* of *ragout* vindt de vol-au-vent, *stoofvlees* het draadjesvlees en de stoverij, *snert* de erwtensoep, *herderspastei* de shepherd's pie en *boterkip* de butter chicken. Ruim 40 recepten kregen zo extra zoeknamen.
 - **1.9.1**: de hoofdstuktabbladen vullen op een breed scherm elke volle rij tot de rand van de pagina, in plaats van er net voor te stoppen.
 - **1.9.0**: 96 nieuwe recepten (184 in totaal) en elke keuken minstens 5 gerechten, met bekende klassiekers als spaghetti bolognese, taco's, burrito's, guisado con carne molida, wentelteefjes, stoofpeertjes, appelflappen, apfelstrudel, steak frites, mosselen en sushi; 11 nieuwe wokgerechten (15 in totaal); nieuw hoofdstuk Duits & Oostenrijks; sauzen en basissauzen als eigen soort met *Lekker met*-links tussen saus en gerecht; zoeken op andere namen en op soort.
