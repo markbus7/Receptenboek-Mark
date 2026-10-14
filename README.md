@@ -1,6 +1,6 @@
 # Receptenboek Mark
 
-Een receptenboek in de browser met 184 recepten uit 22 keukens. Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
+Een receptenboek in de browser met 185 recepten uit 22 keukens. Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
 
 ## Wat kan het
 
@@ -64,6 +64,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.12.0**: nieuw recept *Gehaktballen in tomatensaus* (polpette al sugo), met foto; in de pan of met de ballen uit de airfryer. Je vindt het ook als *polpette*, *italiaanse gehaktballen*, *balletjes in tomatensaus* of *meatballs*.
 - **1.11.4**: bij *Op al je apparaten* staat een link die het GitHub-tokenformulier al invult (naam, een jaar geldig, alleen *Gists: Read and write*), met een korte stap-voor-stap uitleg.
 - **1.11.3**: bij recepten met slagroom staat erbij dat het vloeibare slagroom uit een pak is (geen spuitbus), met kookroom of crème fraîche als alternatief waar dat kan. Pepersaus en champignonroomsaus hebben een tip over welke room je pakt en wat je met een restje doet.
 - **1.11.2**: elke receptkaart in het overzicht toont de moeilijkheidsgraad (Makkelijk, Gemiddeld of Moeilijk, met één tot drie stipjes).

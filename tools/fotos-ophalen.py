@@ -92,6 +92,8 @@ ARTIKELEN = {
     'burritos': 'Burrito', 'tacos': 'Taco', 'enchiladas': 'Enchilada', 'guisado-carne-molida': 'Picadillo',
     'nachos': 'Nachos', 'salsa-fresca': 'Pico de gallo', 'brownies': 'Chocolate brownie', 'ny-cheesecake': 'Cheesecake',
     'fried-chicken': 'Fried chicken', 'chocolate-chip-cookies': 'Chocolate chip cookie', 'barbecuesaus': 'File:Ribs with Asian Barbecue Sauce 3of3 (8735180329).jpg',
+    # 1.12.0
+    'gehaktballen-tomatensaus': 'File:Polpette Al Sugo - Nanninella.jpg',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)
