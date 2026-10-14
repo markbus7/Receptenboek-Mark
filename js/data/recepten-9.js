@@ -245,7 +245,7 @@ RECEPTEN.push(
 },
 {
   id: 'ossobuco', naam: 'Ossobuco', ook: ['kalfsschenkel', 'osso buco'], keuken: 'Italiaans', soort: 'Hoofdgerecht',
-  tijd: 30, wacht: '2 uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 30, wacht: '2 uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Kalfsschenkel met merg, gestoofd in witte wijn en tomaat, met frisse gremolata erover.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'braadpan', naam: 'Op het vuur' } ],
   gerei: [

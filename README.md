@@ -65,7 +65,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
-- **1.11.0**: meer sorteerkeuzes: *Minste ingrediënten* (zout, peper, olie en water tellen niet mee), *Makkelijkste eerst*, *Per soort gerecht* en *Favorieten eerst*; nieuw filter *Moeilijkheidsgraad* (Makkelijk of Gemiddeld).
+- **1.11.0**: meer sorteerkeuzes: *Minste ingrediënten* (zout, peper, olie en water tellen niet mee), *Makkelijkste eerst*, *Per soort gerecht* en *Favorieten eerst*; nieuw filter *Moeilijkheidsgraad*. Het niveau van alle recepten is opnieuw beoordeeld: er is nu ook *Moeilijk* (sushi, gyoza, eggs Benedict, tamagoyaki en béarnaise); naan en mayonaise werden Gemiddeld, Franse uiensoep en ossobuco Makkelijk.
 - **1.10.1**: foto's bij draadjesvlees en ajam pedis; nu heeft elk recept een foto.
 - **1.10.0**: bij *Wat heb ik in huis?* staan klikbare suggesties onder het invoerveld: eerst de ingrediënten die het vaakst in de recepten voorkomen, en tijdens het typen de namen die passen. De diepvries groentemix kies je nu door te typen (bijv. *wok*, *soep* of *spinazie*), waarna de passende mixen als suggestie verschijnen.
 - **1.9.2**: zoeken kent meer Nederlandse namen: *pasteitje* of *ragout* vindt de vol-au-vent, *stoofvlees* het draadjesvlees en de stoverij, *snert* de erwtensoep, *herderspastei* de shepherd's pie en *boterkip* de butter chicken. Ruim 40 recepten kregen zo extra zoeknamen.

@@ -275,7 +275,7 @@ RECEPTEN.push(
 },
 {
   id: 'naan', naam: 'Naanbrood', keuken: 'Indiaas', soort: 'Salade & bijgerecht',
-  tijd: 30, wacht: '1 uur rijzen', pers: 6, niveau: 'Makkelijk', vega: true,
+  tijd: 30, wacht: '1 uur rijzen', pers: 6, niveau: 'Gemiddeld', vega: true,
   intro: 'Zachte, luchtige platte broden met knoflookboter. Bakt het best in een gloeiend hete pan.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
