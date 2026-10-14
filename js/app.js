@@ -19,6 +19,9 @@ const App = (() => {
         .forEach((r) => { BLZ.set(r.id, p); p += 2; });
     });
   })();
+  // Voor "Minste ingrediënten": zout, peper, olie en water tellen niet mee, optionele ingrediënten ook niet.
+  const AANTAL_INGR = new Map(RECEPTEN.map((r) => [r.id, Hulp.ingrediënten(r).filter((i) => !i.opt && !Hulp.isBasis(i)).length]));
+  const NIVEAUS = ['Makkelijk', 'Gemiddeld', 'Moeilijk'];
   const hk = (keuken) => HK.get(keuken) || { nr: 0, kleur: '#5A5048' };
   const TIJDEN = [20, 30, 45, 60];
   const APPARATEN = Object.entries(GEREEDSCHAP).filter(([, g]) => g.apparaat);
@@ -236,10 +239,15 @@ const App = (() => {
     const opNaam = (a, b) => a.r.naam.localeCompare(b.r.naam, 'nl');
     const aanrader = (x) => (isAanrader(x.r) ? 0 : 1);
     const opBlz = (a, b) => BLZ.get(a.r.id) - BLZ.get(b.r.id);
+    const fav = (x) => (state.favs.has(x.r.id) ? 0 : 1);
     const sorteer = {
       match: (a, b) => metVoorraad ? (aanrader(a) - aanrader(b)) || (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
       naam: opNaam,
       tijd: (a, b) => (a.r.tijd - b.r.tijd) || opBlz(a, b),
+      ingr: (a, b) => (AANTAL_INGR.get(a.r.id) - AANTAL_INGR.get(b.r.id)) || (a.r.tijd - b.r.tijd) || opNaam(a, b),
+      niveau: (a, b) => (NIVEAUS.indexOf(a.r.niveau) - NIVEAUS.indexOf(b.r.niveau)) || (a.r.tijd - b.r.tijd) || opBlz(a, b),
+      soort: (a, b) => (SOORTEN.indexOf(a.r.soort) - SOORTEN.indexOf(b.r.soort)) || opNaam(a, b),
+      fav: (a, b) => (fav(a) - fav(b)) || opBlz(a, b),
       keuken: opBlz
     }[state.sorteer];
     return lijst.sort(sorteer);
