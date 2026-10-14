@@ -1,4 +1,4 @@
-/* Frans: crêpes, croque monsieur, crème brûlée en de klassieke sauzen. Italiaans: bolognese, minestrone, panna cotta, aglio olio, sugo en pesto */
+/* Frans: crêpes, croque monsieur, crème brûlée en de klassieke sauzen. Italiaans: bolognese, gehaktballen in tomatensaus, minestrone, panna cotta, aglio olio, sugo en pesto */
 RECEPTEN.push(
 {
   id: 'crepes', naam: 'Crêpes', ook: ['flensjes', 'crepes suzette'],
@@ -494,6 +494,62 @@ RECEPTEN.push(
     'Pittig: bak ½ tl chilivlokken of een gedroogd rood pepertje mee met de knoflook.'
   ],
   bij: ['pizza-margherita', 'penne-arrabbiata']
+},
+{
+  id: 'gehaktballen-tomatensaus', naam: 'Gehaktballen in tomatensaus', ook: ['polpette al sugo', 'polpette', 'italiaanse gehaktballen', 'gehaktballetjes in tomatensaus', 'balletjes in tomatensaus', 'meatballs'],
+  keuken: 'Italiaans', soort: 'Hoofdgerecht',
+  tijd: 55, pers: 4, niveau: 'Makkelijk', vega: false,
+  intro: 'Zachte gehaktballen met Parmezaanse kaas en peterselie die zachtjes garen in een dikke tomatensaus. Lekker met spaghetti, of met brood om de saus op te deppen.',
+  methodes: [ { id: 'braadpan', naam: 'In de pan' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven, braadpan of hapjespan (ca. 26 cm) met deksel', of: 'Een diepe koekenpan met deksel werkt ook.' },
+    { tool: 'airfryer', tekst: 'Airfryer om de ballen vetarm bruin te bakken', m: 'airfryer' },
+    { tool: 'kookpan', tekst: 'Grote kookpan voor de spaghetti' }
+  ],
+  ingr: [
+    { kop: 'Gehaktballen' },
+    { n: 'half-om-half gehakt', q: 500, u: 'g', x: 'of alleen rundergehakt' },
+    { n: 'paneermeel', q: 4, u: 'el' },
+    { n: 'melk', q: 4, u: 'el' },
+    { n: 'ei', p: 'eieren', q: 1, u: 'st' },
+    { n: 'Parmezaanse kaas', q: 40, u: 'g', x: 'fijngeraspt' },
+    { n: 'knoflook', q: 1, u: 'teen', x: 'geperst' },
+    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { n: 'peper' },
+    { kop: 'Tomatensaus' },
+    { n: 'olijfolie', q: 3, u: 'el' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
+    { n: 'tomatenpuree', q: 1, u: 'el' },
+    { n: 'tomatenblokjes', q: 2, u: 'blik', x: 'à 400 g; of 800 ml passata' },
+    { n: 'gedroogde oregano', q: 1, u: 'tl' },
+    { n: 'suiker', q: 1, u: 'snuf', opt: true },
+    { n: 'verse basilicum', q: 1, u: 'handje', opt: true },
+    { kop: 'Erbij' },
+    { n: 'spaghetti', q: 400, u: 'g', x: 'of brood', opt: true },
+    { n: 'Parmezaanse kaas', q: 30, u: 'g', x: 'geraspt, om erover te strooien', opt: true }
+  ],
+  stappen: [
+    { t: 'Week het paneermeel 5 minuten in de melk. Voeg gehakt, ei, Parmezaanse kaas, knoflook, peterselie, zout en peper toe en meng kort met je handen; te lang kneden maakt de ballen taai. Draai er met natte handen ca. 16 ballen van zo\'n 4 cm van.', min: 5 },
+    { t: 'Verhit 2 el olijfolie in de braadpan op middelhoog vuur. Bak de ballen in 6 à 8 minuten rondom bruin, in twee porties als de pan te vol wordt. Haal ze eruit; ze hoeven nog niet gaar te zijn.', m: 'braadpan', min: 7 },
+    { t: 'Bak de ballen 8 minuten in de airfryer op 200 °C tot ze rondom bruin zijn. Ze hoeven nog niet gaar te zijn. Verhit intussen 2 el olijfolie in de braadpan.', m: 'airfryer', min: 8 },
+    { t: 'Doe de rest van de olie in de pan en fruit de ui 4 minuten op middelhoog vuur. Bak knoflook en tomatenpuree 1 minuut mee.', min: 5 },
+    { t: 'Voeg tomaten, oregano en een snuf zout toe en breng aan de kook. Leg de gehaktballen in de saus.' },
+    { t: 'Zet het vuur laag en laat 20 à 25 minuten zachtjes garen met de deksel op een kier. Keer de ballen halverwege voorzichtig. De saus is klaar als hij is ingedikt.', min: 22 },
+    { t: 'Kook intussen de spaghetti beetgaar in ruim water met zout.', min: 10 },
+    { t: 'Proef de saus: is hij wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
+  ],
+  tips: [
+    'Steek een thermometer in een bal: bij 70 °C in het midden is hij gaar. Zonder thermometer: snijd er één doormidden, hij mag niet meer roze zijn.',
+    'De ballen en de saus zijn de volgende dag nog lekkerder en blijven in porties 3 maanden goed in de vriezer.'
+  ],
+  alt: [
+    'Geen paneermeel? Week 1 snee oud brood zonder korst in de melk en prak het fijn.',
+    'Romig: roer er op het laatst 100 ml kookroom door (vloeibaar uit een pak).',
+    'Pittig: bak ½ tl chilivlokken mee met de knoflook.'
+  ],
+  bij: ['tomatensaus']
 },
 {
   id: 'pesto', naam: 'Pesto genovese', ook: ['pesto', 'basilicumpesto'],

@@ -562,7 +562,7 @@ RECEPTEN.push(
   alt: ['Met kip: braad 600 g kippendijen in stukken bruin voordat je de ui bakt, laat ze vanaf het begin meetrekken en gebruik kippenbouillon.', 'Andere groenten mogen ook: zoete aardappel, aubergine, raap of een handje tuinbonen.']
 },
 {
-  id: 'kefta-tajine', naam: 'Kefta tajine met ei', ook: ['kefta', 'gehaktballetjes in tomatensaus'],
+  id: 'kefta-tajine', naam: 'Kefta tajine met ei', ook: ['kefta', 'marokkaanse gehaktballetjes'],
   keuken: 'Marokkaans', soort: 'Hoofdgerecht',
   tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Kleine gekruide gehaktballetjes die garen in een pittige tomatensaus, met eieren die je er op het laatst in pocheert. Breek er stukken brood bij en eet uit de pan, zoals in Marokko.',

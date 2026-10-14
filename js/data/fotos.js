@@ -366,6 +366,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Gehaktbal_met_andijviestamppot.jpg"
  },
+ "gehaktballen-tomatensaus": {
+  "src": "img/gehaktballen-tomatensaus.jpg",
+  "auteur": "Andy Li",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Polpette_Al_Sugo_-_Nanninella.jpg"
+ },
  "gentse-waterzooi": {
   "src": "img/gentse-waterzooi.jpg",
   "auteur": "ayustety",
