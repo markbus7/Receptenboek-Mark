@@ -1085,5 +1085,11 @@ window.FOTOS = {
   "auteur": "Judgefloro",
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:9681KIng%27s_Special_and_Sweet_%26_Sour_Chicken_08.jpg"
+ },
+ "zuurkoolstamppot": {
+  "src": "img/zuurkoolstamppot.jpg",
+  "auteur": "Ellywa",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Zuurkool_op_bord.jpg"
  }
 };
