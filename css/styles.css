@@ -316,6 +316,8 @@ p.sync-fout::before { display: none; }
 .resultaat-kop { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 14px; }
 #resultaat-tekst { font-family: var(--font-lees); font-style: italic; font-size: 15px; color: var(--inkt-zacht); }
 .sorteer { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--inkt-zacht); }
+.sorteer-groep { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.sorteer-om { min-height: 36px; }
 .sorteer select { min-height: 36px; padding: 0 12px; border: 1px solid var(--lijn); border-radius: 999px; background: var(--papier); color: var(--inkt); font-size: 14px; }
 .actieve-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
 .actieve-filters:empty { display: none; }

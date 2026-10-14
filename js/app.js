@@ -84,6 +84,7 @@ const App = (() => {
     bereid: new Set(),
     maakbaar: false,
     sorteer: 'keuken',
+    omgekeerd: false,
     favs: new Set(opslag.lees('favorieten', []))
   };
 
@@ -253,7 +254,8 @@ const App = (() => {
       fav: (a, b) => (fav(a) - fav(b)) || opBlz(a, b),
       keuken: opBlz
     }[state.sorteer];
-    return lijst.sort(sorteer);
+    lijst.sort(sorteer);
+    return state.omgekeerd ? lijst.reverse() : lijst;
   }
 
   /* ---------- Groentemixen ---------- */
@@ -663,6 +665,11 @@ const App = (() => {
     $('#voorraad-input').addEventListener('input', renderIngrSuggesties);
 
     $('#sorteer').addEventListener('change', (e) => { state.sorteer = e.target.value; render(); });
+    $('#sorteer-om').addEventListener('click', (e) => {
+      state.omgekeerd = !state.omgekeerd;
+      e.currentTarget.setAttribute('aria-pressed', state.omgekeerd);
+      render();
+    });
 
     $('#mix-input').addEventListener('input', renderMixSuggesties);
     $('#mix-form').addEventListener('submit', (e) => {
