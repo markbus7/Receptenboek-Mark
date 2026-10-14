@@ -1,5 +1,11 @@
 /* Foto's per recept. Wordt gevuld door tools/fotos-ophalen.py; zonder foto toont een recept het tegeltje. */
 window.FOTOS = {
+ "ajam-pedis": {
+  "src": "img/ajam-pedis.jpg",
+  "auteur": "Gunawan Kartapranata",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Ayam_Rica-rica.JPG"
+ },
  "aloo-gobi": {
   "src": "img/aloo-gobi.jpg",
   "auteur": "Sapanabehl",
@@ -251,6 +257,12 @@ window.FOTOS = {
   "auteur": "AugustineKajur",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Dal_Tadka-Delhi.jpg"
+ },
+ "draadjesvlees": {
+  "src": "img/draadjesvlees.jpg",
+  "auteur": "E4024",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Stewed_beef.jpg"
  },
  "egg-fried-rice": {
   "src": "img/egg-fried-rice.jpg",
