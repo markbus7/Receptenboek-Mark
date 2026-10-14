@@ -355,6 +355,9 @@ p.sync-fout::before { display: none; }
 .kaart-meta > span { display: inline-flex; align-items: center; gap: 4px; }
 .kaart-meta svg { width: 14px; height: 14px; }
 .kaart-meta .plus { color: var(--potlood); font-style: italic; font-family: var(--font-lees); font-size: 13px; }
+.niveau-stip { display: inline-flex; gap: 2px; }
+.niveau-stip i { width: 6px; height: 6px; border-radius: 50%; border: 1px solid currentColor; }
+.niveau[data-niveau="1"] i:nth-child(-n+1), .niveau[data-niveau="2"] i:nth-child(-n+2), .niveau[data-niveau="3"] i { background: currentColor; }
 .vega { color: var(--ok) !important; }
 .kaart-gerei { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; font-family: var(--font-lees); font-style: italic; font-size: 14px; color: var(--inkt); }
 .kaart-gerei .punt { color: var(--potlood); font-style: normal; }
