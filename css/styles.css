@@ -281,9 +281,13 @@ p.sync-fout::before { display: none; }
 .tabblad:hover { opacity: 1; transform: translateY(2px); }
 .tabblad[aria-pressed="true"] { opacity: 1; transform: none; padding-top: 9px; box-shadow: none; }
 .tabblad-alle { background: var(--inkt); color: var(--papier); }
-/* Breed scherm: alle hoofdstukken zichtbaar, desnoods in twee rijen tabbladen zoals in een echt boek. */
+/* Breed scherm: alle hoofdstukken zichtbaar, desnoods in twee rijen tabbladen zoals in een echt boek.
+   Volle rijen lopen precies tot de rand van de pagina; de onderste rij houdt zijn eigen breedte
+   doordat ::after daar de overgebleven ruimte opvult. */
 @media (min-width: 761px) {
   .tabbladen { flex-wrap: wrap; row-gap: 7px; overflow: visible; }
+  .tabblad { flex: 1 0 auto; text-align: center; }
+  .tabbladen::after { content: ''; flex: 1000 0 0; margin-left: -3px; }
 }
 /* Smal scherm: één rij om door te vegen; de rand vervaagt zodat je ziet dat er meer is. */
 @media (max-width: 760px) {
