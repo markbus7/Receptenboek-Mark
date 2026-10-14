@@ -214,6 +214,8 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .blok-voorraad { padding-bottom: 20px; border-bottom: 1px solid var(--lijn); }
 .blok-voorraad h3 { font-family: var(--font-titel); font-size: 22px; text-transform: none; letter-spacing: 0; color: var(--inkt); font-weight: 400; }
 .hint { font-size: 14px; color: var(--inkt-zacht); line-height: 1.45; }
+.sync-stappen { margin: 4px 0 8px; padding-left: 20px; }
+.sync-stappen li { margin-bottom: 4px; }
 .voorraad-invoer, .lijst-toevoegen { display: flex; gap: 8px; }
 .voorraad-invoer input, .lijst-toevoegen input {
   flex: 1; min-width: 0; min-height: 40px; padding: 0 14px;
