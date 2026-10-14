@@ -14,7 +14,7 @@ RECEPTEN.push(
     { n: 'bladerdeeg', q: 6, u: 'plak', x: 'uit de diepvries, ontdooid' },
     { n: 'spekblokjes', q: 200, u: 'g' },
     { n: 'ei', p: 'eieren', q: 4, u: 'st' },
-    { n: 'slagroom', q: 200, u: 'ml' },
+    { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom' },
     { n: 'melk', q: 100, u: 'ml' },
     { n: 'Gruyère', q: 100, u: 'g', x: 'geraspt, of belegen kaas' },
     { n: 'nootmuskaat', q: 1, u: 'snuf' },

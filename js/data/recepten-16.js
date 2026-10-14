@@ -633,7 +633,7 @@ RECEPTEN.push(
     { kop: 'Toffeesaus' },
     { n: 'boter', q: 75, u: 'g' },
     { n: 'bruine suiker', q: 150, u: 'g' },
-    { n: 'slagroom', q: 250, u: 'ml' },
+    { n: 'slagroom', q: 250, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus)' },
     { n: 'zout', q: 1, u: 'snuf' },
     { kop: 'Erbij' },
     { n: 'vanille-ijs', q: 500, u: 'ml', x: 'of warme custard' }
