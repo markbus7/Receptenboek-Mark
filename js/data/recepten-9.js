@@ -1,7 +1,7 @@
 /* Dutch oven-klassiekers */
 RECEPTEN.push(
 {
-  id: 'no-knead-brood', naam: 'Brood uit de Dutch oven', keuken: 'Amerikaans', soort: 'Ontbijt & lunch',
+  id: 'no-knead-brood', naam: 'Brood uit de Dutch oven', ook: ['no knead brood', 'brood bakken'], keuken: 'Amerikaans', soort: 'Ontbijt & lunch',
   tijd: 20, wacht: '12 uur rijzen + 45 min bakken', pers: 8, niveau: 'Makkelijk', vega: true,
   intro: 'Een knapperig, open brood zonder kneden. De hete Dutch oven werkt als een bakkersoven met stoom.',
   gerei: [
@@ -27,7 +27,7 @@ RECEPTEN.push(
   alt: ['Geen Dutch oven? Bak op een hete bakplaat en zet een bakje heet water onderin de oven voor stoom. De korst wordt minder dik.']
 },
 {
-  id: 'vlaamse-stoverij', naam: 'Vlaamse stoverij', keuken: 'Belgisch', soort: 'Hoofdgerecht',
+  id: 'vlaamse-stoverij', naam: 'Vlaamse stoverij', ook: ['stoofvlees', 'stoofvlees met friet', 'carbonade flamande', 'stoofkarbonade'], keuken: 'Belgisch', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '3 uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Rundvlees gestoofd in donker bier met ui, tijm en een boterham met mosterd. Met frietjes erbij.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
@@ -62,7 +62,7 @@ RECEPTEN.push(
   alt: ['Geen bier? Gebruik runderbouillon met 1 el stroop en 1 el extra azijn.']
 },
 {
-  id: 'boeuf-bourguignon', naam: 'Boeuf bourguignon', keuken: 'Frans', soort: 'Hoofdgerecht',
+  id: 'boeuf-bourguignon', naam: 'Boeuf bourguignon', ook: ['stoofvlees in rode wijn', 'franse stoofpot'], keuken: 'Frans', soort: 'Hoofdgerecht',
   tijd: 45, wacht: '3 uur stoven', pers: 6, niveau: 'Gemiddeld', vega: false,
   intro: 'Rundvlees gestoofd in rode wijn met spek, champignons en zilveruitjes. Het Bourgondische feestmaal.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'braadpan', naam: 'Op het vuur' } ],
@@ -138,7 +138,7 @@ RECEPTEN.push(
   alt: ['Liever zonder aardappel? Laat ze weg en serveer de goulash met pasta of rijst.']
 },
 {
-  id: 'coq-au-vin', naam: 'Coq au vin', keuken: 'Frans', soort: 'Hoofdgerecht',
+  id: 'coq-au-vin', naam: 'Coq au vin', ook: ['kip in rode wijn'], keuken: 'Frans', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '1 uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Kippenpoten gestoofd in rode wijn met spek, champignons en tijm. Franse huiskeuken op zijn best.',
   methodes: [ { id: 'braadpan', naam: 'Op het vuur' }, { id: 'oven', naam: 'Oven' } ],
@@ -211,7 +211,7 @@ RECEPTEN.push(
   alt: ['Geen varkensschouder? Kippendijen werken ook; gaar ze 2 uur in de oven of 5 uur in de slowcooker.']
 },
 {
-  id: 'kip-dutch-oven', naam: 'Hele kip uit de Dutch oven', keuken: 'Frans', soort: 'Hoofdgerecht',
+  id: 'kip-dutch-oven', naam: 'Hele kip uit de Dutch oven', ook: ['gebraden kip', 'braadkip'], keuken: 'Frans', soort: 'Hoofdgerecht',
   tijd: 20, wacht: '1½ uur in de oven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Een hele kip op een bedje van groenten, met citroen en knoflook. Sappig vlees en een eigen jus.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
@@ -244,7 +244,7 @@ RECEPTEN.push(
   alt: ['Geen Dutch oven? Gebruik een ovenschaal en dek hem de eerste 50 minuten af met aluminiumfolie.']
 },
 {
-  id: 'ossobuco', naam: 'Ossobuco', keuken: 'Italiaans', soort: 'Hoofdgerecht',
+  id: 'ossobuco', naam: 'Ossobuco', ook: ['kalfsschenkel', 'osso buco'], keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '2 uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Kalfsschenkel met merg, gestoofd in witte wijn en tomaat, met frisse gremolata erover.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'braadpan', naam: 'Op het vuur' } ],

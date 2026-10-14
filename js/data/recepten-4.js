@@ -1,7 +1,7 @@
 /* Indiaas, Mexicaans, Japans, Koreaans */
 RECEPTEN.push(
 {
-  id: 'butter-chicken', naam: 'Butter chicken', keuken: 'Indiaas', soort: 'Hoofdgerecht',
+  id: 'butter-chicken', naam: 'Butter chicken', ook: ['boterkip', 'murgh makhani'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
   tijd: 45, wacht: '30 min marineren', pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Gemarineerde kip in een fluweelzachte tomaten-roomsaus met garam masala.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' } ],
@@ -46,7 +46,7 @@ RECEPTEN.push(
   alt: ['Geen room? Gebruik kokosmelk; dan is het gerecht ook lactosevrij als je olie gebruikt in plaats van boter.']
 },
 {
-  id: 'chana-masala', naam: 'Chana masala', keuken: 'Indiaas', soort: 'Hoofdgerecht',
+  id: 'chana-masala', naam: 'Chana masala', ook: ['kikkererwtencurry'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Kruidige kikkererwtencurry uit Noord-India. Volledig plantaardig en goedkoop.',
   gerei: [ { tool: 'hapjespan', tekst: 'Hapjespan of braadpan (26 cm) met deksel' } ],
@@ -77,7 +77,7 @@ RECEPTEN.push(
   alt: ['Geen verse peper? Gebruik ½ tl chilivlokken of cayennepeper.']
 },
 {
-  id: 'dal', naam: 'Rode linzen dal', keuken: 'Indiaas', soort: 'Hoofdgerecht',
+  id: 'dal', naam: 'Rode linzen dal', ook: ['dahl', 'daal', 'linzencurry'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Troostrijke linzenstoof met kokosmelk en een knetterende kruidenolie (tadka).',
   gerei: [
@@ -213,7 +213,7 @@ RECEPTEN.push(
   alt: ['Geen zwarte bonen? Kidneybonen of bruine bonen werken ook.']
 },
 {
-  id: 'chicken-katsu', naam: 'Chicken katsu curry', keuken: 'Japans', soort: 'Hoofdgerecht',
+  id: 'chicken-katsu', naam: 'Chicken katsu curry', ook: ['japanse curry', 'katsu curry'], keuken: 'Japans', soort: 'Hoofdgerecht',
   tijd: 45, pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Krokant gepaneerde kip met een milde, zoete Japanse currysaus en rijst.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' } ],

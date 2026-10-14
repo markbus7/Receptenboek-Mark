@@ -1,7 +1,7 @@
 /* Frans, Spaans, Amerikaans */
 RECEPTEN.push(
 {
-  id: 'quiche-lorraine', naam: 'Quiche lorraine', keuken: 'Frans', soort: 'Ontbijt & lunch',
+  id: 'quiche-lorraine', naam: 'Quiche lorraine', ook: ['hartige taart', 'spekquiche'], keuken: 'Frans', soort: 'Ontbijt & lunch',
   tijd: 20, wacht: '35 min bakken', pers: 6, niveau: 'Makkelijk', vega: false,
   intro: 'Romige eiervulling met spekjes en Gruyère in een knapperige bodem van bladerdeeg.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
@@ -167,7 +167,7 @@ RECEPTEN.push(
   alt: ['Weinig tijd? Gebruik voorgekookte aardappelblokjes uit de koeling; sla dan stap 1 over.']
 },
 {
-  id: 'smash-burgers', naam: 'Smash burgers', keuken: 'Amerikaans', soort: 'Hoofdgerecht',
+  id: 'smash-burgers', naam: 'Smash burgers', ook: ['hamburger', 'hamburgers'], keuken: 'Amerikaans', soort: 'Hoofdgerecht',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Dunne, platgedrukte burgers met knapperige randjes, gesmolten cheddar en burgersaus.',
   gerei: [
@@ -198,7 +198,7 @@ RECEPTEN.push(
   alt: ['Geen gietijzeren pan? Gebruik een grillplaat of bak de burgers in de airfryer: 8 minuten op 200 °C als dikkere burger (niet geplet).', 'Met een contactgrill zoals de OptiGrill: maak 4 burgers van 150 g en grill ze 5 à 6 minuten op het burgerprogramma. Ze worden sappig, maar zonder het knapperige smash-randje.']
 },
 {
-  id: 'mac-and-cheese', naam: 'Mac and cheese', keuken: 'Amerikaans', soort: 'Hoofdgerecht',
+  id: 'mac-and-cheese', naam: 'Mac and cheese', ook: ['macaroni met kaas', 'macaroni kaas'], keuken: 'Amerikaans', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Macaroni in een smeuïge cheddarsaus met een krokant korstje van paneermeel.',
   methodes: [ { id: 'kookpan', naam: 'Alleen pan' }, { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
@@ -231,7 +231,7 @@ RECEPTEN.push(
   alt: ['Extra: roer gebakken spekjes of gegrilde broccoli erdoor.']
 },
 {
-  id: 'american-pancakes', naam: 'American pancakes', keuken: 'Amerikaans', soort: 'Ontbijt & lunch',
+  id: 'american-pancakes', naam: 'American pancakes', ook: ['amerikaanse pannenkoeken'], keuken: 'Amerikaans', soort: 'Ontbijt & lunch',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Dikke, luchtige pannenkoekjes met blauwe bessen en ahornsiroop.',
   gerei: [
@@ -260,7 +260,7 @@ RECEPTEN.push(
   alt: ['Geen karnemelk? Gebruik gewone melk met een eetlepel citroensap of azijn, en laat 5 minuten staan.']
 },
 {
-  id: 'chocolade-lavacake', naam: 'Chocolade lavacake', keuken: 'Frans', soort: 'Dessert',
+  id: 'chocolade-lavacake', naam: 'Chocolade lavacake', ook: ['moelleux', 'chocoladefondant', 'lava cake'], keuken: 'Frans', soort: 'Dessert',
   tijd: 25, pers: 4, niveau: 'Gemiddeld', vega: true,
   intro: 'Warme chocoladetaartjes met een vloeibare kern. Indrukwekkend en toch eenvoudig.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'magnetron', naam: 'Magnetron' } ],

@@ -36,7 +36,7 @@ RECEPTEN.push(
   alt: ['Geen roti? Eet de kip kerrie met rijst; dat heet dan rijst met kip.']
 },
 {
-  id: 'bakabana', naam: 'Bakabana met pindasaus', keuken: 'Surinaams', soort: 'Salade & bijgerecht',
+  id: 'bakabana', naam: 'Bakabana met pindasaus', ook: ['gebakken banaan', 'bananenbeignets'], keuken: 'Surinaams', soort: 'Salade & bijgerecht',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Plakken rijpe bakbanaan in een krokant beslag, met warme pindasaus. De favoriete Surinaamse snack.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' } ],
@@ -71,7 +71,7 @@ RECEPTEN.push(
   alt: ['Geen bakbanaan? Gewone, stevige bananen werken ook, maar zijn zachter.']
 },
 {
-  id: 'linzensoep-mercimek', naam: 'Turkse linzensoep', keuken: 'Turks', soort: 'Soep',
+  id: 'linzensoep-mercimek', naam: 'Turkse linzensoep', ook: ['mercimek', 'mercimek çorbası'], keuken: 'Turks', soort: 'Soep',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Fluweelzachte soep van rode linzen (mercimek çorbası) met paprikaboter en citroen.',
   gerei: [
@@ -106,7 +106,7 @@ RECEPTEN.push(
   alt: ['Vegan? Gebruik olijfolie in plaats van boter voor de paprikaolie.']
 },
 {
-  id: 'kofte', naam: 'Köfte met yoghurtsaus', keuken: 'Turks', soort: 'Hoofdgerecht',
+  id: 'kofte', naam: 'Köfte met yoghurtsaus', ook: ['turkse gehaktballetjes'], keuken: 'Turks', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Gekruide gehaktrolletjes met peterselie en komijn, met knoflookyoghurt en geroosterde paprika.',
   methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],
@@ -146,7 +146,7 @@ RECEPTEN.push(
   alt: ['Geen lamsgehakt? Rundergehakt werkt prima; voeg dan 1 el olijfolie toe aan het gehakt.']
 },
 {
-  id: 'pho-bo', naam: 'Pho bo', keuken: 'Vietnamees', soort: 'Soep',
+  id: 'pho-bo', naam: 'Pho bo', ook: ['vietnamese noedelsoep'], keuken: 'Vietnamees', soort: 'Soep',
   tijd: 30, wacht: '2 uur trekken', pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Vietnamese noedelsoep met een heldere, kruidige bouillon van steranijs en kaneel, rijstnoedels en dun rundvlees.',
   gerei: [
@@ -189,7 +189,7 @@ RECEPTEN.push(
   alt: ['Pho ga (kip): gebruik een hele kip of 1 kg kippenpoten en laat 1 uur trekken.']
 },
 {
-  id: 'bun-cha-gio', naam: 'Vietnamese noedelsalade met citroengraskip', keuken: 'Vietnamees', soort: 'Salade & bijgerecht',
+  id: 'bun-cha-gio', naam: 'Vietnamese noedelsalade met citroengraskip', ook: ['bun cha gio', 'bun'], keuken: 'Vietnamees', soort: 'Salade & bijgerecht',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Koude rijstnoedels met gegrilde citroengraskip, verse kruiden, komkommer en een frisse nuoc cham-dressing.',
   methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],
@@ -234,7 +234,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Gebruik stevige tofu en sojasaus in plaats van vissaus.']
 },
 {
-  id: 'harira', naam: 'Harira', keuken: 'Marokkaans', soort: 'Soep',
+  id: 'harira', naam: 'Harira', ook: ['marokkaanse soep'], keuken: 'Marokkaans', soort: 'Soep',
   tijd: 30, wacht: '1 uur trekken', pers: 6, niveau: 'Makkelijk', vega: false,
   intro: 'Vullende Marokkaanse soep met lamsvlees, kikkererwten, linzen, tomaat en veel verse kruiden.',
   gerei: [ { tool: 'braadpan', tekst: 'Dutch oven of soeppan (minimaal 4 liter)' } ],
@@ -269,7 +269,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Laat het vlees weg en gebruik groentebouillon in plaats van water.']
 },
 {
-  id: 'shepherds-pie', naam: 'Shepherd\'s pie', keuken: 'Brits', soort: 'Hoofdgerecht',
+  id: 'shepherds-pie', naam: 'Shepherd\'s pie', ook: ['herderspastei'], keuken: 'Brits', soort: 'Hoofdgerecht',
   tijd: 45, wacht: '30 min bakken', pers: 6, niveau: 'Makkelijk', vega: false,
   intro: 'Gestoofd lamsgehakt met groenten onder een dikke laag romige aardappelpuree, goudbruin gebakken.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],

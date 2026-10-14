@@ -4,7 +4,7 @@ Een receptenboek in de browser met 184 recepten uit 22 keukens. Je opent het doo
 
 ## Wat kan het
 
-- **Zoeken** met suggesties terwijl je typt (recepten, hoofdstukken, soorten en ingrediënten). Een tikfout is geen probleem: "ommelet" of "spagetti" vindt toch het juiste gerecht. Andere namen werken ook: *french toast* vindt wentelteefjes, *pasta bolognese* de spaghetti bolognese, en *sauzen* of *toetje* geeft alle sauzen of desserts.
+- **Zoeken** met suggesties terwijl je typt (recepten, hoofdstukken, soorten en ingrediënten). Een tikfout is geen probleem: "ommelet" of "spagetti" vindt toch het juiste gerecht. Andere namen werken ook: *french toast* vindt wentelteefjes, *pasteitje* of *ragout* de vol-au-vent, *pasta bolognese* de spaghetti bolognese, en *sauzen* of *toetje* geeft alle sauzen of desserts.
 - **Filteren** op keuken (Italiaans, Indiaas, Indonesisch, Surinaams, Thais, Nederlands, …), soort gerecht, pan of apparaat (*Bereid in*: Dutch oven, koekenpan, oven, airfryer, …), maximale bereidingstijd en vegetarisch.
 - **Sauzen en basissauzen** hebben een eigen soort (*Saus*): pepersaus, champignonroomsaus, bearnaise, hollandaise, bechamel, kaassaus, jus, mayonaise, tomatensaus, pesto, pindasaus, knoflooksaus, salsa en barbecuesaus. Onder *Lekker met* zie je welke saus bij welk gerecht past, en andersom.
 - **Wat heb ik in huis?** Typ de ingrediënten die je hebt. Recepten waarvoor je het minst hoeft te kopen komen bovenaan, met per recept wat je nog mist.
@@ -65,6 +65,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.9.2**: zoeken kent meer Nederlandse namen: *pasteitje* of *ragout* vindt de vol-au-vent, *stoofvlees* het draadjesvlees en de stoverij, *snert* de erwtensoep, *herderspastei* de shepherd's pie en *boterkip* de butter chicken. Ruim 40 recepten kregen zo extra zoeknamen.
 - **1.9.1**: de hoofdstuktabbladen vullen op een breed scherm elke volle rij tot de rand van de pagina, in plaats van er net voor te stoppen.
 - **1.9.0**: 96 nieuwe recepten (184 in totaal) en elke keuken minstens 5 gerechten, met bekende klassiekers als spaghetti bolognese, taco's, burrito's, guisado con carne molida, wentelteefjes, stoofpeertjes, appelflappen, apfelstrudel, steak frites, mosselen en sushi; 11 nieuwe wokgerechten (15 in totaal); nieuw hoofdstuk Duits & Oostenrijks; sauzen en basissauzen als eigen soort met *Lekker met*-links tussen saus en gerecht; zoeken op andere namen en op soort.
 - **1.8.0**: groentemixen uit de diepvries (13 soorten) met bereidingstips, aanraders en hoeveelheden per recept; strengere ingrediëntmatch (paprika ≠ paprikapoeder, ui ≠ gebakken uitjes, bloemkool ≠ bloem).
