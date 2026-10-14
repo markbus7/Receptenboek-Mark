@@ -65,6 +65,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.11.2**: elke receptkaart in het overzicht toont de moeilijkheidsgraad (Makkelijk, Gemiddeld of Moeilijk, met één tot drie stipjes).
 - **1.11.1**: met de knop *Andersom* naast Sorteer draai je elke sortering om, bijvoorbeeld moeilijkste eerst, meeste ingrediënten eerst, langste bereidingstijd eerst of Z–A.
 - **1.11.0**: meer sorteerkeuzes: *Minste ingrediënten* (zout, peper, olie en water tellen niet mee), *Makkelijkste eerst*, *Per soort gerecht* en *Favorieten eerst*; nieuw filter *Moeilijkheidsgraad*. Het niveau van alle recepten is opnieuw beoordeeld: er is nu ook *Moeilijk* (sushi, gyoza, eggs Benedict, tamagoyaki en béarnaise); naan en mayonaise werden Gemiddeld, Franse uiensoep en ossobuco Makkelijk.
 - **1.10.1**: foto's bij draadjesvlees en ajam pedis; nu heeft elk recept een foto.

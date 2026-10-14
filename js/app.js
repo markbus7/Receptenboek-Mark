@@ -317,6 +317,7 @@ const App = (() => {
             <span class="kaart-meta">
               <span>${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="plus">+ ${esc(r.wacht)}</span>` : ''}</span>
               <span>${r.pers} ${esc(r.stuks || 'pers.')}</span>
+              <span class="niveau" data-niveau="${NIVEAUS.indexOf(r.niveau) + 1}"><span class="niveau-stip" aria-hidden="true"><i></i><i></i><i></i></span>${esc(r.niveau)}</span>
               ${r.vega ? `<span class="vega">${icoon('blad')} vega</span>` : ''}
             </span>
             <span class="kaart-gerei">${gereiRegel(r)}</span>
