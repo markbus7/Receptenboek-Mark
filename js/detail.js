@@ -70,7 +70,7 @@ const Detail = (() => {
 
   function open(recept, context) {
     r = recept; ctx = context; factor = 1; ikHeb = null;
-    terugFocus = document.activeElement;
+    if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
     methode = ms.length ? (ms.find((m) => m.heb) || ms[0]).id : null;
     render();
@@ -96,7 +96,7 @@ const Detail = (() => {
     const ms = Hulp.methodes(r, ctx.keuken);
     const meta = [
       `<li>${icoon('klok')} ${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="zacht">+ ${Hulp.esc(r.wacht)}</span>` : ''}</li>`,
-      `<li>${icoon('personen')} ${r.pers} ${r.pers === 1 ? 'persoon' : 'personen'}</li>`,
+      `<li>${icoon('personen')} ${r.pers} ${r.stuks || (r.pers === 1 ? 'persoon' : 'personen')}</li>`,
       `<li>${Hulp.esc(r.niveau)}</li>`,
       r.vega ? `<li class="vega">${icoon('blad')} Vegetarisch</li>` : ''
     ].join('');
@@ -144,11 +144,11 @@ const Detail = (() => {
             <h3 id="d-ingr-titel">Ingrediënten</h3>
             <div class="schaal">
               <div class="schaal-rij">
-                <span class="schaal-label">Personen</span>
+                <span class="schaal-label">${r.stuks ? 'Aantal' : 'Personen'}</span>
                 <div class="stepper">
-                  <button type="button" class="ikoon-knop" id="d-min" aria-label="Minder personen">−</button>
+                  <button type="button" class="ikoon-knop" id="d-min" aria-label="Minder ${r.stuks || 'personen'}">−</button>
                   <output id="d-pers" aria-live="polite"></output>
-                  <button type="button" class="ikoon-knop" id="d-plus" aria-label="Meer personen">+</button>
+                  <button type="button" class="ikoon-knop" id="d-plus" aria-label="Meer ${r.stuks || 'personen'}">+</button>
                 </div>
               </div>
               <div class="schaal-rij schaal-heb">
@@ -163,7 +163,8 @@ const Detail = (() => {
               </div>
               <p class="schaal-info" id="d-schaal-info"></p>
             </div>
-            <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
+            <div class="mix-notitie" id="d-mix" hidden></div>
+          <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
             <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
           </section>
           <p class="d-blz">${blz}</p>
@@ -175,6 +176,7 @@ const Detail = (() => {
             <ol class="stappen" id="d-stappen"></ol>
           </section>
           <div class="d-notities">
+            ${(() => { const lm = ctx.lekkerMet(r); return lm.length ? `<aside class="notitie notitie-bij"><h3>Lekker met</h3><ul>${lm.map((x) => `<li><a href="#${x.id}" data-bij="${x.id}">${Hulp.esc(x.naam)}</a> <span class="zacht">blz. ${ctx.blz(x.id)}</span></li>`).join('')}</ul></aside>` : ''; })()}
             ${r.alt && r.alt.length ? `<aside class="notitie notitie-alt"><h3>Alternatieven</h3><ul>${r.alt.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
             ${r.tips && r.tips.length ? `<aside class="notitie notitie-tip"><h3>Tip</h3><ul>${r.tips.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
           </div>
@@ -213,7 +215,7 @@ const Detail = (() => {
 
     const info = blad.querySelector('#d-schaal-info');
     if (factor === 1) {
-      info.innerHTML = 'Origineel recept. Pas het aantal personen aan, of vul in hoeveel je van één ingrediënt hebt.';
+      info.innerHTML = `Origineel recept. Pas het aantal ${r.stuks || 'personen'} aan, of vul in hoeveel je van één ingrediënt hebt.`;
     } else {
       let advies = '';
       if (factor >= 1.6) advies = ' Grotere hoeveelheid: gebruik een grotere pan of bak in delen. Stooftijden blijven ongeveer gelijk.';
@@ -221,15 +223,27 @@ const Detail = (() => {
       info.innerHTML = `<strong>Aangepast ×${Hulp.getal(factor, 2)}</strong>${ikHeb ? ` op ${Hulp.esc(ikHeb)}` : ''}.${advies} <button type="button" class="knop-tekst" id="d-reset">Terug naar origineel</button>`;
     }
 
+    // Groentemix uit "Wat heb ik in huis?": wat vervangt hij hier en hoeveel gebruik je?
+    const mixen = Hulp.mixenVoor(r, ctx.voorraad || [], factor);
+    const mixEl = blad.querySelector('#d-mix');
+    mixEl.hidden = !mixen.length;
+    mixEl.innerHTML = mixen.map(({ mix, gedekt, gram, erbij }) => `<p>${gedekt.length
+      ? `<b>Met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> die vervangt hier ${Hulp.esc(gedekt.map((i) => i.n).join(', '))}. Gebruik ± ${gram} g van je mix.`
+      : `<b>Lekker met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> voeg ± ${erbij} g toe.`} ${Hulp.esc(mix.bereiding)}</p>`).join('');
+
+    const uitMix = new Map();
+    mixen.forEach(({ mix, gedekt }) => gedekt.forEach((i) => uitMix.set(i.n, mix.naam.toLowerCase())));
+
     blad.querySelector('#d-ingr-lijst').innerHTML = r.ingr.map((i, idx) => {
       if (i.kop) return `<li class="ingr-kop">${Hulp.esc(i.kop)}</li>`;
+      const mixNaam = uitMix.get(i.n);
       const h = Hulp.hoeveelheid(i, factor);
       const extra = i.x || (i.q == null ? 'naar smaak' : '');
       return `<li class="ingr${i.opt ? ' is-opt' : ''}">
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${Hulp.esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}</span>
+          <span class="ingr-naam">${Hulp.esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}</span>
         </label>
       </li>`;
     }).join('');
@@ -318,6 +332,8 @@ const Detail = (() => {
       return App.toast(aan ? 'Bewaard bij je favorieten' : 'Verwijderd uit je favorieten');
     }
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
+    const bij = t.closest('[data-bij]');
+    if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }
     if (t.closest('#d-lijst')) {
       const n = Boodschappen.voegReceptToe(r, factor);
       return App.toast(`${n} ingrediënten op je boodschappenlijst gezet`);

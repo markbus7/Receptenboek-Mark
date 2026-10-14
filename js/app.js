@@ -7,7 +7,7 @@ const App = (() => {
   const KEUKENS = [...HOOFDSTUKKEN.map((h) => h.keuken), ...new Set(RECEPTEN.map((r) => r.keuken))]
     .filter((k, i, a) => a.indexOf(k) === i && RECEPTEN.some((r) => r.keuken === k));
   const HK = new Map(KEUKENS.map((k, i) => [k, { nr: i + 1, kleur: (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).kleur || '#5A5048' }]));
-  const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
+  const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Saus', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
   // Paginanummers: elk hoofdstuk opent met één pagina, elk recept beslaat een dubbele pagina.
   const BLZ = new Map();
   (() => {
@@ -37,11 +37,23 @@ const App = (() => {
   }
   const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['contactgrill', 'Contactgrill'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
   const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
-  const ALIASSEN = { indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'] };
+  const ALIASSEN = {
+    indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'],
+    duitsland: ['duits'], oostenrijk: ['oostenrijks']
+  };
+  /* Zoek je op een soort gerecht ("sauzen", "toetje"), dan krijg je precies die soort,
+     niet alles waar toevallig sojasaus in zit. */
+  const SOORT_WOORDEN = {
+    saus: 'Saus', sauzen: 'Saus', sausje: 'Saus', basissaus: 'Saus', basissauzen: 'Saus',
+    dessert: 'Dessert', desserts: 'Dessert', toetje: 'Dessert', toetjes: 'Dessert', nagerecht: 'Dessert', nagerechten: 'Dessert',
+    soep: 'Soep', soepen: 'Soep', hoofdgerecht: 'Hoofdgerecht', hoofdgerechten: 'Hoofdgerecht',
+    ontbijt: 'Ontbijt & lunch', lunch: 'Ontbijt & lunch', bijgerecht: 'Salade & bijgerecht', bijgerechten: 'Salade & bijgerecht',
+    salade: 'Salade & bijgerecht', salades: 'Salade & bijgerecht'
+  };
   const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
   // Woorden per recept voor korte zoektermen en tikfouten: naam, keuken, soort, ingrediënten en gerei.
   const WOORDEN = new Map(RECEPTEN.map((r) => [r.id, new Set(splits([
-    r.naam, r.keuken, r.soort, ...r.ingr.flatMap((i) => [i.n || '', i.p || '']),
+    r.naam, ...(r.ook || []), r.keuken, r.soort, ...r.ingr.flatMap((i) => [i.n || '', i.p || '']),
     ...r.gerei.map((g) => (GEREEDSCHAP[g.tool] || {}).naam || ''), ...(r.methodes || []).map((m) => m.naam)
   ].join(' ')))]));
   const INGR_AANTAL = new Map();
@@ -51,7 +63,7 @@ const App = (() => {
     INGR_AANTAL.set(n, (INGR_AANTAL.get(n) || 0) + 1);
   }));
   const INGR_NAMEN = [...INGR_AANTAL.keys()].sort((a, b) => a.localeCompare(b, 'nl'));
-  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
+  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, ...(r.ook || []), r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
   const state = {
     view: 'alle',
@@ -113,12 +125,17 @@ const App = (() => {
   }
 
   function renderVoorraad() {
-    $('#voorraad-chips').innerHTML = state.voorraad.map((v) =>
-      `<button type="button" class="chip chip-voorraad" data-weg-voorraad="${esc(v)}" aria-label="Verwijder ${esc(v)}">${esc(v)} ${icoon('sluit')}</button>`).join('');
+    $('#voorraad-chips').innerHTML = state.voorraad.map((v) => {
+      const mix = Hulp.isMix(v) ? Hulp.mixVan(v) : null;
+      const label = mix ? `${mix.naam} (mix)` : v;
+      return `<button type="button" class="chip chip-voorraad${mix ? ' chip-mix' : ''}" data-weg-voorraad="${esc(v)}" aria-label="Verwijder ${esc(label)}">${esc(label)} ${icoon('sluit')}</button>`;
+    }).join('');
   }
 
   function vulDatalist() {
     $('#ingr-lijst').innerHTML = INGR_NAMEN.map((n) => `<option value="${esc(n)}"></option>`).join('');
+    $('#mix-kiezer').innerHTML = '<option value="">Kies je groentemix…</option>' +
+      GROENTEMIXEN.map((m) => `<option value="mix:${m.id}">${esc(m.naam)} (${esc(m.voorbeeld)})</option>`).join('');
   }
 
   /* ---------- Filteren en sorteren ---------- */
@@ -128,6 +145,7 @@ const App = (() => {
     const heel = Hulp.norm(q).trim();
     if (!heel) return true;
     const tekst = ZOEKTEKST.get(r.id), woorden = WOORDEN.get(r.id);
+    if (SOORT_WOORDEN[heel]) return r.soort === SOORT_WOORDEN[heel];
     if (ALIASSEN[heel] && ALIASSEN[heel].some((x) => tekst.includes(x))) return true;
     return heel.split(/\s+/).every((t) => {
       if ([t, ...(ALIASSEN[t] || [])].some((x) => (x.length < 4 ? [...woorden].some((w) => w.startsWith(x)) : tekst.includes(x)))) return true;
@@ -151,7 +169,7 @@ const App = (() => {
       (!state.bereid.size || [...state.bereid].some((t) => BEREID_PER_RECEPT.get(r.id).has(t))) &&
       (!state.vega || r.vega) &&
       (!state.maakbaar || maakbaar) &&
-      (!metVoorraad || m.heb.length > 0) &&
+      (!metVoorraad || m.heb.length > 0 || isAanrader(r)) &&
       (!metVoorraad || !state.compleet || m.mist.length === 0)
     );
     // Niets gevonden? Probeer het opnieuw met tikfouten, zodat "ommelet" toch omelet vindt.
@@ -163,14 +181,32 @@ const App = (() => {
     }
     lijst = gevonden;
     const opNaam = (a, b) => a.r.naam.localeCompare(b.r.naam, 'nl');
+    const aanrader = (x) => (isAanrader(x.r) ? 0 : 1);
     const opBlz = (a, b) => BLZ.get(a.r.id) - BLZ.get(b.r.id);
     const sorteer = {
-      match: (a, b) => metVoorraad ? (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
+      match: (a, b) => metVoorraad ? (aanrader(a) - aanrader(b)) || (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
       naam: opNaam,
       tijd: (a, b) => (a.r.tijd - b.r.tijd) || opBlz(a, b),
       keuken: opBlz
     }[state.sorteer];
     return lijst.sort(sorteer);
+  }
+
+  /* ---------- Groentemixen ---------- */
+  const mixenInVoorraad = () => state.voorraad.filter(Hulp.isMix).map(Hulp.mixVan).filter(Boolean);
+  const isAanrader = (r) => mixenInVoorraad().some((m) => (m.aanraders || []).includes(r.id));
+
+  function renderMixInfo() {
+    const mixen = mixenInVoorraad();
+    $('#mix-info').innerHTML = mixen.map((m) => `
+      <aside class="mix-kaart">
+        <h3>Je ${esc(m.naam.toLowerCase())}</h3>
+        <p class="mix-bevat">Zit er meestal in: ${esc(m.bevat.slice(0, 8).join(', '))}.</p>
+        <p><b>Zo gebruik je hem:</b> ${esc(m.bereiding)}</p>
+        <p><b>Snel idee:</b> ${esc(m.snel)}</p>
+        <p class="mix-aanraders"><b>Past het best in:</b> ${(m.aanraders || []).map((id) => RECEPTEN.find((r) => r.id === id)).filter(Boolean)
+          .map((r) => `<a href="#${r.id}" data-open="${r.id}">${esc(r.naam)}</a>`).join(', ')}</p>
+      </aside>`).join('');
   }
 
   /* ---------- Kaarten ---------- */
@@ -214,7 +250,7 @@ const App = (() => {
             <span class="kaart-titel">${esc(r.naam)}</span>
             <span class="kaart-meta">
               <span>${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="plus">+ ${esc(r.wacht)}</span>` : ''}</span>
-              <span>${r.pers} pers.</span>
+              <span>${r.pers} ${esc(r.stuks || 'pers.')}</span>
               ${r.vega ? `<span class="vega">${icoon('blad')} vega</span>` : ''}
             </span>
             <span class="kaart-gerei">${gereiRegel(r)}</span>
@@ -267,6 +303,7 @@ const App = (() => {
     });
     $('#raster').innerHTML = html;
     renderTabbladen();
+    renderMixInfo();
     const leeg = !lijst.length;
     $('#leeg').hidden = !leeg;
     if (leeg && state.view === 'fav' && !state.favs.size) {
@@ -318,10 +355,15 @@ const App = (() => {
   const context = {
     get keuken() { return mijnKeuken(); },
     blz: (id) => BLZ.get(id),
+    get voorraad() { return state.voorraad; },
     hoofdstuk: (keuken) => hk(keuken),
     isFav: (id) => state.favs.has(id),
     wisselFav: (id) => wisselFav(id),
-    sluit: () => sluitRecept()
+    sluit: () => sluitRecept(),
+    open: (id) => openRecept(id),
+    recept: (id) => RECEPTEN.find((r) => r.id === id),
+    /* Gerechten en sauzen die bij elkaar passen, in beide richtingen. */
+    lekkerMet: (r) => RECEPTEN.filter((x) => x.id !== r.id && ((r.bij || []).includes(x.id) || (x.bij || []).includes(r.id)))
   };
 
   function openRecept(id, viaHistorie) {
@@ -381,14 +423,23 @@ const App = (() => {
       if (w.some((x) => Hulp.lijktOp(t, x))) return 3;
       return -1;
     };
-    const recepten = RECEPTEN.map((r) => [r, score(r.naam)]).filter(([, s]) => s >= 0);
-    const hoofdstukken = KEUKENS.map((k) => [k, (ALIASSEN[t] || []).includes(Hulp.norm(k)) ? 1 : score(k)]).filter(([, s]) => s >= 0);
+    // Een recept telt ook mee via zijn andere namen ("french toast" → wentelteefjes); de beste naam wint.
+    const recepten = RECEPTEN.map((r) => {
+      const namen = [r.naam, ...(r.ook || [])].map((n) => [n, score(n)]).filter(([, s]) => s >= 0).sort((x, y) => x[1] - y[1]);
+      return namen.length ? [r, namen[0][1], namen[0][0] === r.naam ? null : namen[0][0]] : null;
+    }).filter(Boolean);
+    const hoofdstukken = KEUKENS.map((k) => [k, (ALIASSEN[t] || []).some((x) => Hulp.norm(k).startsWith(x) || Hulp.norm(k).includes(' ' + x)) ? 1 : score(k)]).filter(([, s]) => s >= 0);
     const ingredienten = INGR_NAMEN.map((n) => [n, score(n)]).filter(([, s]) => s >= 0);
+    const soort = SOORT_WOORDEN[t] || (t.length >= 3 && SOORTEN.find((s) => Hulp.norm(s).startsWith(t)));
     // Tikfout-treffers (score 3) alleen tonen als er niets echts gevonden is.
     const alleenVaag = ![...recepten, ...hoofdstukken, ...ingredienten].some(([, s]) => s < 3);
     const houd = ([, s]) => alleenVaag || s < 3;
     recepten.filter(houd).sort((a, b) => (a[1] - b[1]) || a[0].naam.localeCompare(b[0].naam, 'nl')).slice(0, 6)
-      .forEach(([r]) => uit.push({ type: 'recept', id: r.id, label: r.naam, extra: `${r.keuken} · blz. ${BLZ.get(r.id)}` }));
+      .forEach(([r, , via]) => uit.push({ type: 'recept', id: r.id, label: r.naam, extra: `${via ? `ook: ${via} · ` : ''}${r.keuken} · blz. ${BLZ.get(r.id)}` }));
+    if (soort) {
+      const n = RECEPTEN.filter((r) => r.soort === soort).length;
+      uit.unshift({ type: 'soort', waarde: soort, label: soort === 'Saus' ? 'Sauzen' : soort, extra: `${n} recepten` });
+    }
     hoofdstukken.filter(houd).sort((a, b) => a[1] - b[1]).slice(0, 3)
       .forEach(([k]) => uit.push({ type: 'hoofdstuk', waarde: k, label: k, extra: `Hoofdstuk ${hk(k).nr}` }));
     ingredienten.filter(houd).sort((a, b) => (a[1] - b[1]) || (INGR_AANTAL.get(b[0]) - INGR_AANTAL.get(a[0]))).slice(0, 3)
@@ -407,7 +458,7 @@ const App = (() => {
     const veld = $('#zoek'), el = $('#suggesties');
     sugLijst = document.activeElement === veld ? maakSuggesties(veld.value) : [];
     sugActief = -1;
-    const SOORT = { recept: 'Recept', hoofdstuk: 'Hoofdstuk', ingredient: 'Ingrediënt' };
+    const SOORT = { recept: 'Recept', hoofdstuk: 'Hoofdstuk', ingredient: 'Ingrediënt', soort: 'Soort' };
     el.innerHTML = sugLijst.map((s, i) => `
       <li class="sug" role="option" id="sug-${i}" data-i="${i}" aria-selected="false">
         <span class="sug-type">${SOORT[s.type]}</span>
@@ -435,6 +486,12 @@ const App = (() => {
     } else if (s.type === 'hoofdstuk') {
       veld.value = ''; state.zoek = '';
       state.keukens = new Set([s.waarde]);
+      if (state.view === 'lijst') zetView('alle'); else render();
+      veld.blur();
+    } else if (s.type === 'soort') {
+      veld.value = ''; state.zoek = '';
+      state.soorten = new Set([s.waarde]);
+      renderFilters();
       if (state.view === 'lijst') zetView('alle'); else render();
       veld.blur();
     } else {
@@ -527,6 +584,20 @@ const App = (() => {
     });
 
     $('#sorteer').addEventListener('change', (e) => { state.sorteer = e.target.value; render(); });
+
+    $('#mix-kiezer').addEventListener('change', (e) => {
+      const v = e.target.value;
+      e.target.value = '';
+      if (!v || state.voorraad.includes(v)) return;
+      state.voorraad.push(v);
+      state.sorteer = 'match'; $('#sorteer').value = 'match';
+      bewaarVoorraad();
+      toast(`${Hulp.mixVan(v).naam} toegevoegd: de recepten waar hij in past staan bovenaan`);
+    });
+    $('#mix-info').addEventListener('click', (e) => {
+      const a = e.target.closest('[data-open]');
+      if (a && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openRecept(a.dataset.open); }
+    });
 
     $('#tabbladen').addEventListener('click', (e) => {
       const t = e.target.closest('[data-tab]');

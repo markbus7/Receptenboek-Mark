@@ -231,6 +231,25 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .gerei-optie-tekst { display: flex; flex-direction: column; min-width: 0; overflow-wrap: break-word; }
 .gerei-optie-tekst small { font-size: 12px; color: var(--inkt-zacht); }
 .gerei-optie:not(:has(input:checked)) .tegel { opacity: .45; }
+.mix-kies { display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--inkt-zacht); }
+.mix-kies select { min-height: 40px; padding: 0 12px; border: 1px solid var(--lijn); border-radius: 999px; background: var(--papier-2); color: var(--inkt); font-size: 15px; }
+.chip-mix { background: color-mix(in srgb, var(--ok-zacht) 60%, var(--notitie)); }
+.mix-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 22px; margin-bottom: 22px; }
+.mix-info:empty { display: none; }
+.mix-kaart {
+  position: relative; padding: 22px 22px 18px;
+  background: var(--notitie); border: 1px solid var(--notitie-rand); border-radius: 2px; box-shadow: var(--schaduw-klein);
+  font-family: var(--font-lees); font-size: 15px; line-height: 1.55; color: var(--inkt); transform: rotate(-0.6deg);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.mix-kaart::before { content: ''; position: absolute; left: 50%; top: -11px; width: 90px; height: 22px; transform: translateX(-50%) rotate(2deg); background: var(--tape); }
+.mix-kaart h3 { font-family: var(--font-hand); font-weight: 700; font-size: 28px; color: var(--pen); }
+.mix-kaart b { font-family: var(--font-ui); font-weight: 700; font-size: 14px; }
+.mix-bevat { font-style: italic; color: var(--inkt-zacht); }
+.mix-aanraders a { color: var(--pen); font-weight: 600; text-underline-offset: 3px; }
+.mix-notitie { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-hand); font-size: 20px; line-height: 1.2; color: var(--pen); transform: rotate(-0.5deg); }
+.mix-notitie b { font-weight: 700; }
+.ingr-mix { display: block; font-family: var(--font-hand); font-size: 18px; line-height: 1.1; color: var(--pen); }
 .blok-sync { padding-top: 18px; border-top: 1px solid var(--lijn); }
 .blok-sync a { color: var(--inkt); text-decoration-color: var(--potlood); text-underline-offset: 3px; }
 .sync-status { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
@@ -262,6 +281,18 @@ p.sync-fout::before { display: none; }
 .tabblad:hover { opacity: 1; transform: translateY(2px); }
 .tabblad[aria-pressed="true"] { opacity: 1; transform: none; padding-top: 9px; box-shadow: none; }
 .tabblad-alle { background: var(--inkt); color: var(--papier); }
+/* Breed scherm: alle hoofdstukken zichtbaar, desnoods in twee rijen tabbladen zoals in een echt boek. */
+@media (min-width: 761px) {
+  .tabbladen { flex-wrap: wrap; row-gap: 7px; overflow: visible; }
+}
+/* Smal scherm: één rij om door te vegen; de rand vervaagt zodat je ziet dat er meer is. */
+@media (max-width: 760px) {
+  .tabbladen {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+            mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+    padding-right: 36px;
+  }
+}
 
 .boekpagina {
   position: relative;
@@ -510,6 +541,9 @@ p.sync-fout::before { display: none; }
   transform: rotate(-1deg);
 }
 .notitie-tip { transform: rotate(0.8deg); margin-left: 8%; }
+.notitie-bij { transform: rotate(0.4deg); background: color-mix(in srgb, var(--ok-zacht) 70%, var(--notitie)); }
+.notitie-bij a { color: var(--pen); font-weight: 700; text-underline-offset: 3px; }
+.notitie-bij .zacht { font-size: 17px; }
 .notitie::before { content: ''; position: absolute; left: 50%; top: -11px; width: 90px; height: 22px; transform: translateX(-50%) rotate(2deg); background: var(--tape); }
 .notitie h3 { font-family: var(--font-hand); font-weight: 700; font-size: 26px; margin-bottom: 6px; color: var(--pen); }
 .notitie ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
@@ -567,7 +601,7 @@ p.sync-fout::before { display: none; }
   .sug-type { grid-column: 1 / -1; }
   .sug-label { white-space: normal; }
   .filter-knop { padding: 0 14px; }
-  .tabbladen { padding-inline: 4px; margin-inline: calc(-1 * var(--gutter)); padding-left: var(--gutter); }
+  .tabbladen { margin-inline: calc(-1 * var(--gutter)); padding-left: var(--gutter); padding-right: 36px; }
   .raster { gap: 28px 16px; }
   .sheet-blad { inset: 0; width: 100%; }
   .d-balk { padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px; background: color-mix(in srgb, var(--tafel) 85%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }

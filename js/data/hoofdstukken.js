@@ -3,6 +3,7 @@
 window.HOOFDSTUKKEN = [
   { keuken: 'Nederlands',     kleur: '#2B4C9B' }, // Delfts blauw
   { keuken: 'Belgisch',       kleur: '#8A5A12' }, // donker bier
+  { keuken: 'Duits & Oostenrijks', kleur: '#4E5D6C' }, // leisteen van de Alpen
   { keuken: 'Frans',          kleur: '#6B2D4A' }, // bordeaux
   { keuken: 'Italiaans',      kleur: '#C1311B' }, // tomaat
   { keuken: 'Spaans',         kleur: '#C2491A' }, // paprika
