@@ -89,7 +89,7 @@ RECEPTEN.push(
     { tool: 'oven', tekst: 'Oven, met grillstand voor de karamellaag', of: 'Een keukenbrander (crème-brûléebrander) maakt de karamel sneller en gelijkmatiger dan de grill.' }
   ],
   ingr: [
-    { n: 'slagroom', q: 500, u: 'ml' },
+    { n: 'slagroom', q: 500, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus)' },
     { n: 'eidooier', p: 'eidooiers', q: 6, u: 'st' },
     { n: 'suiker', q: 80, u: 'g' },
     { n: 'vanillestokje', p: 'vanillestokjes', q: 1, u: 'st', x: 'of 1 tl vanille-extract' },
@@ -127,7 +127,7 @@ RECEPTEN.push(
     { n: 'boter', q: 20, u: 'g' },
     { n: 'cognac', q: 3, u: 'el', x: 'of brandy', opt: true },
     { n: 'runderbouillon', q: 150, u: 'ml', x: 'of kalfsfond' },
-    { n: 'slagroom', q: 150, u: 'ml' },
+    { n: 'slagroom', q: 150, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom of crème fraîche' },
     { n: 'zout' }
   ],
   stappen: [
@@ -138,7 +138,10 @@ RECEPTEN.push(
     { t: 'Giet de bouillon erbij en schraap de aanbaksels los met een houten spatel. Laat op hoog vuur in 3 à 4 minuten tot de helft inkoken.', min: 4 },
     { t: 'Roer de room erdoor en laat 2 à 3 minuten pruttelen, tot de saus de achterkant van een lepel bedekt. Giet het vleessap dat uit de rustende biefstuk is gelopen erbij en breng op smaak met zout.', min: 3 }
   ],
-  tips: ['Voor echte steak au poivre druk je de gekneusde peper vóór het bakken aan beide kanten in de biefstuk. Bak dan op middelhoog in plaats van hoog vuur, anders verbrandt de peper.'],
+  tips: [
+    'Welke room? Gebruik vloeibare slagroom uit een pak, niet de slagroom uit een spuitbus. Kookroom is het makkelijkst omdat die niet schift, en crème fraîche werkt ook. Room over? Vries hem in voor een volgende saus of soep, of roer hem door pasta, stamppot of soep.',
+    'Voor echte steak au poivre druk je de gekneusde peper vóór het bakken aan beide kanten in de biefstuk. Bak dan op middelhoog in plaats van hoog vuur, anders verbrandt de peper.'
+  ],
   alt: [
     'Geen bakresten, bijvoorbeeld omdat je het vlees op de contactgrill bereidde? Maak de saus in een steelpan: fruit sjalot en peper in 30 g boter en gebruik geconcentreerde bouillon (½ bouillonblokje op 150 ml water) voor een diepe smaak.',
     'Zonder alcohol: laat de cognac weg en blus af met een scheutje extra bouillon en 1 tl worcestershiresaus.'
@@ -160,7 +163,7 @@ RECEPTEN.push(
     { n: 'boter', q: 25, u: 'g' },
     { n: 'witte wijn', q: 75, u: 'ml', opt: true },
     { n: 'runderbouillon', q: 150, u: 'ml', x: 'of kalfsfond' },
-    { n: 'slagroom', q: 200, u: 'ml' },
+    { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom of crème fraîche' },
     { n: 'verse peterselie', q: 1, u: 'el', x: 'fijngehakt' },
     { n: 'zout' }, { n: 'peper' }
   ],
@@ -173,6 +176,7 @@ RECEPTEN.push(
   ],
   tips: [
     'Was champignons niet onder de kraan: ze zuigen water op en gaan dan koken in plaats van bakken. Veeg ze schoon met keukenpapier of een borsteltje.',
+    'Welke room? Gebruik vloeibare slagroom uit een pak, niet de slagroom uit een spuitbus. Kookroom is het makkelijkst omdat die niet schift, en crème fraîche werkt ook. Room over? Vries hem in voor een volgende saus of soep, of roer hem door pasta, stamppot of soep.',
     'Bak je er vlees bij? Maak de saus in dezelfde pan zodra het vlees eruit is: de aanbaksels geven extra smaak.'
   ],
   alt: [
@@ -395,7 +399,7 @@ RECEPTEN.push(
   ingr: [
     { kop: 'Panna cotta' },
     { n: 'gelatineblaadje', p: 'gelatineblaadjes', q: 3, u: 'st', x: 'of 4 als je de panna cotta wilt storten' },
-    { n: 'slagroom', q: 400, u: 'ml' },
+    { n: 'slagroom', q: 400, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus)' },
     { n: 'melk', q: 100, u: 'ml' },
     { n: 'suiker', q: 50, u: 'g' },
     { n: 'vanillestokje', p: 'vanillestokjes', q: 1, u: 'st', x: 'of 1 tl vanille-extract' },
