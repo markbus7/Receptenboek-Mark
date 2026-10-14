@@ -725,6 +725,12 @@ const App = (() => {
     };
     $('#filter-knop').addEventListener('click', () => zetPaneel(!document.body.classList.contains('paneel-open')));
     $('#paneel-sluit').addEventListener('click', () => zetPaneel(false));
+    // Snelkoppeling naar de GitHub-koppeling, die onderaan het paneel staat.
+    $('#sync-open').addEventListener('click', () => {
+      if (state.view === 'lijst') zetView('alle');
+      zetPaneel(true);
+      requestAnimationFrame(() => $('.blok-sync').scrollIntoView({ block: 'start', behavior: 'smooth' }));
+    });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && document.body.classList.contains('paneel-open')) zetPaneel(false); });
 
     // Boodschappenlijst

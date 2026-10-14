@@ -130,6 +130,8 @@ const Sync = (() => {
   function render() {
     const el = document.getElementById('sync');
     if (!el) return;
+    const open = document.getElementById('sync-open');
+    if (open) open.textContent = token ? 'Gekoppeld met GitHub' : 'Koppel je apparaten via GitHub';
     const tijd = laatst ? new Date(laatst).toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' }) : null;
     const foutHtml = toestand === 'fout' ? `<p class="sync-fout" role="alert">${esc(fout)}</p>` : '';
     if (!token) {

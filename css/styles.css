@@ -153,6 +153,7 @@ svg { flex-shrink: 0; }
   transform: rotate(-6deg) translateY(-6px); white-space: nowrap;
 }
 .merk-sub { grid-column: 1 / -1; margin-top: 8px; font-size: 13px; color: var(--inkt-zacht); letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+.merk-sync { grid-column: 1 / -1; justify-self: start; margin-top: 2px; font-size: 13px; font-weight: 600; color: var(--inkt-zacht); }
 .tabs { display: flex; gap: 2px; padding: 4px; background: var(--papier); border-radius: 999px; box-shadow: var(--schaduw-klein); overflow-x: auto; max-width: 100%; }
 .tab {
   display: inline-flex; align-items: center; gap: 6px;

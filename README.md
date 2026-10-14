@@ -24,7 +24,7 @@ De app kan je favorieten, boodschappenlijst, voorraad en keukeninstellingen bewa
    - *Repository access*: laat op **Public repositories** staan (alleen lezen).
    - *Permissions → Gists*: controleer dat dit op **Read and write** staat. Verder niets.
 2. Kopieer het token (het begint met `github_pat_`).
-3. Open het receptenboek, ga naar het paneel (op telefoon/iPad: **Filters**) en plak het token helemaal onderaan bij **Op al je apparaten**. Tik op **Koppel**.
+3. Open het receptenboek, ga naar het paneel (op telefoon/iPad: **Filters**) en plak het token helemaal onderaan bij **Op al je apparaten**. Sneller: tik onder de titel op **Koppel je apparaten via GitHub**. Tik op **Koppel**.
 4. Doe stap 3 op je andere apparaten met hetzelfde token.
 
 Het token wordt alleen in de browser van dat apparaat bewaard en komt nooit in deze repository. Zet een token nooit in de code: deze repository is openbaar. Synchroniseren werkt op de GitHub-site, niet in de Claude-versie van de app.
@@ -64,6 +64,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.11.5**: onder de titel staat een link *Koppel je apparaten via GitHub* (of *Gekoppeld met GitHub*). Die opent het paneel meteen bij de GitHub-koppeling, ook op telefoon en vanuit de boodschappenlijst.
 - **1.11.4**: bij *Op al je apparaten* staat een link die het GitHub-tokenformulier al invult (naam, een jaar geldig, alleen *Gists: Read and write*), met een korte stap-voor-stap uitleg.
 - **1.11.3**: bij recepten met slagroom staat erbij dat het vloeibare slagroom uit een pak is (geen spuitbus), met kookroom of crème fraîche als alternatief waar dat kan. Pepersaus en champignonroomsaus hebben een tip over welke room je pakt en wat je met een restje doet.
 - **1.11.2**: elke receptkaart in het overzicht toont de moeilijkheidsgraad (Makkelijk, Gemiddeld of Moeilijk, met één tot drie stipjes).
