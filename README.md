@@ -20,10 +20,9 @@ Favorieten, je boodschappenlijst, je voorraad en je keukeninstellingen worden in
 
 De app kan je favorieten, boodschappenlijst, voorraad en keukeninstellingen bewaren in een **geheime gist** in je eigen GitHub-account. Elk apparaat dat je koppelt, haalt ze daar op en werkt ze bij. Per onderdeel wint de nieuwste wijziging.
 
-1. Maak op GitHub een token: [Settings → Developer settings → Fine-grained tokens → Generate new token](https://github.com/settings/personal-access-tokens/new).
-   - Geef het een naam, bijvoorbeeld *Receptenboek*, en kies een vervaldatum.
+1. Maak op GitHub een token via [deze link](https://github.com/settings/personal-access-tokens/new?name=Receptenboek&description=Synchroniseren%20van%20het%20receptenboek%20tussen%20apparaten&expires_in=365&gists=write). Naam, vervaldatum (een jaar) en rechten staan dan al ingevuld; de app heeft dezelfde link.
    - *Repository access*: laat op **Public repositories** staan (alleen lezen).
-   - *Account permissions → Gists*: zet op **Read and write**. Verder niets.
+   - *Permissions → Gists*: controleer dat dit op **Read and write** staat. Verder niets.
 2. Kopieer het token (het begint met `github_pat_`).
 3. Open het receptenboek, ga naar het paneel (op telefoon/iPad: **Filters**) en plak het token helemaal onderaan bij **Op al je apparaten**. Tik op **Koppel**.
 4. Doe stap 3 op je andere apparaten met hetzelfde token.
@@ -65,6 +64,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.11.4**: bij *Op al je apparaten* staat een link die het GitHub-tokenformulier al invult (naam, een jaar geldig, alleen *Gists: Read and write*), met een korte stap-voor-stap uitleg.
 - **1.11.3**: bij recepten met slagroom staat erbij dat het vloeibare slagroom uit een pak is (geen spuitbus), met kookroom of crème fraîche als alternatief waar dat kan. Pepersaus en champignonroomsaus hebben een tip over welke room je pakt en wat je met een restje doet.
 - **1.11.2**: elke receptkaart in het overzicht toont de moeilijkheidsgraad (Makkelijk, Gemiddeld of Moeilijk, met één tot drie stipjes).
 - **1.11.1**: met de knop *Andersom* naast Sorteer draai je elke sortering om, bijvoorbeeld moeilijkste eerst, meeste ingrediënten eerst, langste bereidingstijd eerst of Z–A.

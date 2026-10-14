@@ -6,7 +6,10 @@ const Sync = (() => {
   const ONDERDELEN = ['favorieten', 'boodschappen', 'voorraad', 'basis', 'keuken', 'pannen'];
   const BESTAND = 'receptenboek-mark.json';
   const API = 'https://api.github.com';
-  const TOKEN_LINK = 'https://github.com/settings/personal-access-tokens/new';
+  /* Opent het GitHub-formulier al ingevuld: naam, omschrijving, een jaar geldig en alleen Gists: Read and write. */
+  const TOKEN_LINK = 'https://github.com/settings/personal-access-tokens/new'
+    + '?name=Receptenboek&description=' + encodeURIComponent('Synchroniseren van het receptenboek tussen apparaten')
+    + '&expires_in=365&gists=write';
 
   let token = opslag.lees('sync-token', null);
   let gistId = opslag.lees('sync-gist', null);
@@ -138,7 +141,15 @@ const Sync = (() => {
           <button type="submit" class="knop knop-klein">Koppel</button>
         </form>
         ${foutHtml}
-        <p class="hint"><a href="${TOKEN_LINK}" target="_blank" rel="noopener">Maak een token op GitHub</a> met alleen <em>Gists: Read and write</em>. Het token blijft in deze browser en geeft geen toegang tot je repositories.</p>`;
+        <p class="hint"><strong>Zo maak je een token:</strong></p>
+        <ol class="hint sync-stappen">
+          <li><a href="${TOKEN_LINK}" target="_blank" rel="noopener">Open het tokenformulier op GitHub</a>. Naam en rechten staan al ingevuld.</li>
+          <li>Laat <em>Repository access</em> op <em>Public repositories</em> staan.</li>
+          <li>Controleer bij <em>Permissions</em> dat alleen <em>Gists: Read and write</em> aan staat. Zet het zelf aan als dat niet zo is.</li>
+          <li>Tik onderaan op <em>Generate token</em> en kopieer het token (begint met <code>github_pat_</code>).</li>
+          <li>Plak het hierboven en tik op <em>Koppel</em>. Doe dat op elk apparaat met hetzelfde token.</li>
+        </ol>
+        <p class="hint">Het token blijft in deze browser en geeft geen toegang tot je repositories.</p>`;
       return;
     }
     el.innerHTML = `
