@@ -62,7 +62,7 @@ ARTIKELEN = {
     'bun-cha-gio': 'Bún thịt nướng', 'harira': 'Harira', 'shepherds-pie': 'Shepherd\'s pie',
     # 1.9.0
     'wentelteefjes': 'French toast', 'stoofpeertjes': 'nl:Stoofpeer', 'appelflappen': 'nl:Appelflap',
-    'poffertjes': 'Poffertjes', 'oliebollen': 'Oliebol', 'zuurkoolstamppot': 'File:Zuurkool op bord (cropped).jpg',
+    'poffertjes': 'Poffertjes', 'oliebollen': 'Oliebol', 'zuurkoolstamppot': 'File:Zuurkool op bord.jpg',
     'andijviestamppot': 'nl:Andijviestamppot', 'hachee': 'Hachee', 'hollandse-macaroni': 'File:Pasta al Forno 01.jpg',
     'groentesoep-balletjes': 'nl:Groentesoep', 'kapsalon': 'Kapsalon', 'kaassaus': 'File:Cauliflower-cheese.jpg', 'jus': 'Gravy',
     'mosselen': 'Moules-frites', 'gentse-waterzooi': 'Waterzooi', 'vol-au-vent': 'Vol-au-vent', 'stoemp': 'Stoemp',
