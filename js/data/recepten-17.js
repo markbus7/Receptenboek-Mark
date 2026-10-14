@@ -510,7 +510,7 @@ RECEPTEN.push(
 {
   id: 'gyoza', naam: 'Gyoza', ook: ['japanse dumplings', 'potstickers', 'dumplings'],
   keuken: 'Japans', soort: 'Hoofdgerecht',
-  tijd: 60, pers: 3, niveau: 'Gemiddeld', vega: false,
+  tijd: 60, pers: 3, niveau: 'Moeilijk', vega: false,
   intro: 'Ongeveer 30 sappige dumplings met varkensgehakt en Chinese kool, met een knapperig bodempje en een zacht gestoomd velletje. Vouwen is even oefenen, maar daarna gaat het vanzelf.',
   gerei: [
     { tool: 'koekenpan', tekst: 'Koekenpan van 26 à 28 cm met passende deksel, liefst antiaanbak', of: 'Met een RVS-pan: verwarm hem 2 minuten goed voor, neem 2 el olie en maak de gyoza pas los als de bodempjes na het afbakken vanzelf loslaten.' }
@@ -550,7 +550,7 @@ RECEPTEN.push(
 {
   id: 'sushi-maki', naam: 'Sushi: maki en uramaki', ook: ['sushi', 'maki', 'california roll', 'sushirijst'],
   keuken: 'Japans', soort: 'Hoofdgerecht',
-  tijd: 60, wacht: '30 min afkoelen', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 60, wacht: '30 min afkoelen', pers: 4, niveau: 'Moeilijk', vega: false,
   intro: 'Zelf sushi rollen: dunne maki met zalm of komkommer en uramaki met de rijst aan de buitenkant, zoals de california roll. Je hebt alleen een bamboe matje nodig.',
   gerei: [
     { tool: 'kookpan', tekst: 'Pan met deksel voor de sushirijst' }

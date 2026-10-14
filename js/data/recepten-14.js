@@ -184,7 +184,7 @@ RECEPTEN.push(
 {
   id: 'bearnaise', naam: 'Saus bearnaise', ook: ['bearnaisesaus', 'béarnaise'],
   keuken: 'Frans', soort: 'Saus',
-  tijd: 25, pers: 4, niveau: 'Gemiddeld', vega: true,
+  tijd: 25, pers: 4, niveau: 'Moeilijk', vega: true,
   intro: 'De koningin van de biefstuksauzen: een warme botersaus met eidooier, frisgezuurd met een reductie van azijn, sjalot en dragon.',
   gerei: [
     { tool: 'kookpan', tekst: 'Klein steelpannetje voor de reductie en een tweede voor de boter' },

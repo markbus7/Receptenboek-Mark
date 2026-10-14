@@ -67,7 +67,7 @@ RECEPTEN.push(
 },
 {
   id: 'franse-uiensoep', naam: 'Franse uiensoep', keuken: 'Frans', soort: 'Soep',
-  tijd: 20, wacht: '50 min karamelliseren', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 20, wacht: '50 min karamelliseren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Diep gekaramelliseerde uien in bouillon, met een korst van gegratineerde kaas.',
   methodes: [ { id: 'oven', naam: 'Oven (grill)' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [

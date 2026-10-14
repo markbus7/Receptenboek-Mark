@@ -257,7 +257,7 @@ RECEPTEN.push(
 {
   id: 'mayonaise', naam: 'Mayonaise (zelfgemaakt)', ook: ['mayo', 'frietsaus'],
   keuken: 'Belgisch', soort: 'Saus',
-  tijd: 10, pers: 8, niveau: 'Makkelijk', vega: true,
+  tijd: 10, pers: 8, niveau: 'Gemiddeld', vega: true,
   intro: 'Zelfgemaakte mayonaise is dik, romig en lekker mosterdig: niet te vergelijken met die uit de pot. Met de staafmixer heb je hem in een halve minuut.',
   methodes: [ { id: 'staafmixer', naam: 'Staafmixer' }, { id: 'mixer', naam: 'Garde of handmixer' } ],
   gerei: [

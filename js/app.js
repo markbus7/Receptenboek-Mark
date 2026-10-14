@@ -19,6 +19,9 @@ const App = (() => {
         .forEach((r) => { BLZ.set(r.id, p); p += 2; });
     });
   })();
+  // Voor "Minste ingrediënten": zout, peper, olie en water tellen niet mee, optionele ingrediënten ook niet.
+  const AANTAL_INGR = new Map(RECEPTEN.map((r) => [r.id, Hulp.ingrediënten(r).filter((i) => !i.opt && !Hulp.isBasis(i)).length]));
+  const NIVEAUS = ['Makkelijk', 'Gemiddeld', 'Moeilijk'];
   const hk = (keuken) => HK.get(keuken) || { nr: 0, kleur: '#5A5048' };
   const TIJDEN = [20, 30, 45, 60];
   const APPARATEN = Object.entries(GEREEDSCHAP).filter(([, g]) => g.apparaat);
@@ -70,6 +73,7 @@ const App = (() => {
     zoek: '',
     keukens: new Set(),
     soorten: new Set(),
+    niveaus: new Set(),
     tijd: null,
     vega: false,
     voorraad: opslag.lees('voorraad', []),
@@ -104,6 +108,7 @@ const App = (() => {
   function renderFilters() {
     const aantalPer = (veld, w) => RECEPTEN.filter((r) => r[veld] === w).length;
     $('#f-soort').innerHTML = SOORTEN.map((s) => chip('soort', s, s, state.soorten.has(s))).join('');
+    $('#f-niveau').innerHTML = NIVEAUS.filter((n) => RECEPTEN.some((r) => r.niveau === n)).map((n) => chip('niveau', n, n, state.niveaus.has(n))).join('');
     $('#f-tijd').innerHTML = TIJDEN.map((t) => chip('tijd', t, `≤ ${t} min`, state.tijd === t)).join('');
     $('#f-bereid').innerHTML = BEREID.map(([k, l]) => chip('bereid', k, l, state.bereid.has(k))).join('');
     $('#f-vega').checked = state.vega;
@@ -218,6 +223,7 @@ const App = (() => {
       zoektermPast(r, state.zoek, vaag) &&
       (!state.keukens.size || state.keukens.has(r.keuken)) &&
       (!state.soorten.size || state.soorten.has(r.soort)) &&
+      (!state.niveaus.size || state.niveaus.has(r.niveau)) &&
       (!state.tijd || r.tijd <= state.tijd) &&
       (!state.bereid.size || [...state.bereid].some((t) => BEREID_PER_RECEPT.get(r.id).has(t))) &&
       (!state.vega || r.vega) &&
@@ -236,10 +242,15 @@ const App = (() => {
     const opNaam = (a, b) => a.r.naam.localeCompare(b.r.naam, 'nl');
     const aanrader = (x) => (isAanrader(x.r) ? 0 : 1);
     const opBlz = (a, b) => BLZ.get(a.r.id) - BLZ.get(b.r.id);
+    const fav = (x) => (state.favs.has(x.r.id) ? 0 : 1);
     const sorteer = {
       match: (a, b) => metVoorraad ? (aanrader(a) - aanrader(b)) || (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
       naam: opNaam,
       tijd: (a, b) => (a.r.tijd - b.r.tijd) || opBlz(a, b),
+      ingr: (a, b) => (AANTAL_INGR.get(a.r.id) - AANTAL_INGR.get(b.r.id)) || (a.r.tijd - b.r.tijd) || opNaam(a, b),
+      niveau: (a, b) => (NIVEAUS.indexOf(a.r.niveau) - NIVEAUS.indexOf(b.r.niveau)) || (a.r.tijd - b.r.tijd) || opBlz(a, b),
+      soort: (a, b) => (SOORTEN.indexOf(a.r.soort) - SOORTEN.indexOf(b.r.soort)) || opNaam(a, b),
+      fav: (a, b) => (fav(a) - fav(b)) || opBlz(a, b),
       keuken: opBlz
     }[state.sorteer];
     return lijst.sort(sorteer);
@@ -335,6 +346,7 @@ const App = (() => {
     const items = [];
     state.keukens.forEach((k) => items.push(['keuken', k, k]));
     state.soorten.forEach((s) => items.push(['soort', s, s]));
+    state.niveaus.forEach((n) => items.push(['niveau', n, n]));
     if (state.tijd) items.push(['tijd', state.tijd, `≤ ${state.tijd} min`]);
     state.bereid.forEach((b) => items.push(['bereid', b, BEREID.find(([k]) => k === b)[1]]));
     if (state.vega) items.push(['vega', '1', 'Vegetarisch']);
@@ -453,7 +465,7 @@ const App = (() => {
   function bewaarVoorraad() { opslag.schrijf('voorraad', state.voorraad); renderVoorraad(); render(); }
 
   function wisAlles() {
-    state.keukens.clear(); state.soorten.clear(); state.bereid.clear(); state.tijd = null; state.vega = false;
+    state.keukens.clear(); state.soorten.clear(); state.niveaus.clear(); state.bereid.clear(); state.tijd = null; state.vega = false;
     state.maakbaar = false; state.compleet = false; state.voorraad = []; state.zoek = '';
     $('#zoek').value = '';
     opslag.schrijf('voorraad', []);
@@ -598,6 +610,7 @@ const App = (() => {
         const { groep, waarde } = c.dataset;
         if (groep === 'keuken') state.keukens.has(waarde) ? state.keukens.delete(waarde) : state.keukens.add(waarde);
         if (groep === 'soort') state.soorten.has(waarde) ? state.soorten.delete(waarde) : state.soorten.add(waarde);
+        if (groep === 'niveau') state.niveaus.has(waarde) ? state.niveaus.delete(waarde) : state.niveaus.add(waarde);
         if (groep === 'tijd') state.tijd = state.tijd === +waarde ? null : +waarde;
         if (groep === 'bereid') state.bereid.has(waarde) ? state.bereid.delete(waarde) : state.bereid.add(waarde);
         renderFilters(); render();
@@ -677,6 +690,7 @@ const App = (() => {
       const { wisGroep: g, wisWaarde: w } = c.dataset;
       if (g === 'keuken') state.keukens.delete(w);
       if (g === 'soort') state.soorten.delete(w);
+      if (g === 'niveau') state.niveaus.delete(w);
       if (g === 'tijd') state.tijd = null;
       if (g === 'bereid') state.bereid.delete(w);
       if (g === 'vega') state.vega = false;

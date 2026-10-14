@@ -185,7 +185,7 @@ RECEPTEN.push(
 },
 {
   id: 'tamagoyaki', naam: 'Tamagoyaki', ook: ['japanse omelet'], keuken: 'Japans', soort: 'Ontbijt & lunch',
-  tijd: 15, pers: 2, niveau: 'Gemiddeld', vega: true,
+  tijd: 15, pers: 2, niveau: 'Moeilijk', vega: true,
   intro: 'Japanse opgerolde omelet, licht zoet en hartig, in dunne laagjes gebakken. Lekker in een bento.',
   gerei: [
     { tool: 'koekenpan', tekst: 'Rechthoekige tamagoyakipan', of: 'Een ronde koekenpan van 20 cm kan ook: vouw elk laagje eerst aan twee kanten naar binnen tot een rechthoek.' },
@@ -211,7 +211,7 @@ RECEPTEN.push(
 },
 {
   id: 'eggs-benedict', naam: 'Eggs Benedict', keuken: 'Amerikaans', soort: 'Ontbijt & lunch',
-  tijd: 25, pers: 2, niveau: 'Gemiddeld', vega: false,
+  tijd: 25, pers: 2, niveau: 'Moeilijk', vega: false,
   intro: 'Gepocheerde eieren met ham op een geroosterde muffin, met romige hollandaisesaus. Een feestelijke brunch.',
   gerei: [
     { tool: 'kookpan', tekst: 'Brede kookpan om te pocheren, en een schuimspaan' },
