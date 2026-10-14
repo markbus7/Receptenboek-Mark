@@ -39,7 +39,16 @@ const App = (() => {
   const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
   const ALIASSEN = {
     indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'],
-    sauzen: ['saus'], basissaus: ['saus'], basissauzen: ['saus'], duitsland: ['duits'], oostenrijk: ['oostenrijks'], toetje: ['dessert'], toetjes: ['dessert']
+    duitsland: ['duits'], oostenrijk: ['oostenrijks']
+  };
+  /* Zoek je op een soort gerecht ("sauzen", "toetje"), dan krijg je precies die soort,
+     niet alles waar toevallig sojasaus in zit. */
+  const SOORT_WOORDEN = {
+    saus: 'Saus', sauzen: 'Saus', sausje: 'Saus', basissaus: 'Saus', basissauzen: 'Saus',
+    dessert: 'Dessert', desserts: 'Dessert', toetje: 'Dessert', toetjes: 'Dessert', nagerecht: 'Dessert', nagerechten: 'Dessert',
+    soep: 'Soep', soepen: 'Soep', hoofdgerecht: 'Hoofdgerecht', hoofdgerechten: 'Hoofdgerecht',
+    ontbijt: 'Ontbijt & lunch', lunch: 'Ontbijt & lunch', bijgerecht: 'Salade & bijgerecht', bijgerechten: 'Salade & bijgerecht',
+    salade: 'Salade & bijgerecht', salades: 'Salade & bijgerecht'
   };
   const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
   // Woorden per recept voor korte zoektermen en tikfouten: naam, keuken, soort, ingrediënten en gerei.
@@ -136,6 +145,7 @@ const App = (() => {
     const heel = Hulp.norm(q).trim();
     if (!heel) return true;
     const tekst = ZOEKTEKST.get(r.id), woorden = WOORDEN.get(r.id);
+    if (SOORT_WOORDEN[heel]) return r.soort === SOORT_WOORDEN[heel];
     if (ALIASSEN[heel] && ALIASSEN[heel].some((x) => tekst.includes(x))) return true;
     return heel.split(/\s+/).every((t) => {
       if ([t, ...(ALIASSEN[t] || [])].some((x) => (x.length < 4 ? [...woorden].some((w) => w.startsWith(x)) : tekst.includes(x)))) return true;
@@ -240,7 +250,7 @@ const App = (() => {
             <span class="kaart-titel">${esc(r.naam)}</span>
             <span class="kaart-meta">
               <span>${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="plus">+ ${esc(r.wacht)}</span>` : ''}</span>
-              <span>${r.pers} pers.</span>
+              <span>${r.pers} ${esc(r.stuks || 'pers.')}</span>
               ${r.vega ? `<span class="vega">${icoon('blad')} vega</span>` : ''}
             </span>
             <span class="kaart-gerei">${gereiRegel(r)}</span>
@@ -420,11 +430,16 @@ const App = (() => {
     }).filter(Boolean);
     const hoofdstukken = KEUKENS.map((k) => [k, (ALIASSEN[t] || []).some((x) => Hulp.norm(k).startsWith(x) || Hulp.norm(k).includes(' ' + x)) ? 1 : score(k)]).filter(([, s]) => s >= 0);
     const ingredienten = INGR_NAMEN.map((n) => [n, score(n)]).filter(([, s]) => s >= 0);
+    const soort = SOORT_WOORDEN[t] || (t.length >= 3 && SOORTEN.find((s) => Hulp.norm(s).startsWith(t)));
     // Tikfout-treffers (score 3) alleen tonen als er niets echts gevonden is.
     const alleenVaag = ![...recepten, ...hoofdstukken, ...ingredienten].some(([, s]) => s < 3);
     const houd = ([, s]) => alleenVaag || s < 3;
     recepten.filter(houd).sort((a, b) => (a[1] - b[1]) || a[0].naam.localeCompare(b[0].naam, 'nl')).slice(0, 6)
       .forEach(([r, , via]) => uit.push({ type: 'recept', id: r.id, label: r.naam, extra: `${via ? `ook: ${via} · ` : ''}${r.keuken} · blz. ${BLZ.get(r.id)}` }));
+    if (soort) {
+      const n = RECEPTEN.filter((r) => r.soort === soort).length;
+      uit.unshift({ type: 'soort', waarde: soort, label: soort === 'Saus' ? 'Sauzen' : soort, extra: `${n} recepten` });
+    }
     hoofdstukken.filter(houd).sort((a, b) => a[1] - b[1]).slice(0, 3)
       .forEach(([k]) => uit.push({ type: 'hoofdstuk', waarde: k, label: k, extra: `Hoofdstuk ${hk(k).nr}` }));
     ingredienten.filter(houd).sort((a, b) => (a[1] - b[1]) || (INGR_AANTAL.get(b[0]) - INGR_AANTAL.get(a[0]))).slice(0, 3)
@@ -443,7 +458,7 @@ const App = (() => {
     const veld = $('#zoek'), el = $('#suggesties');
     sugLijst = document.activeElement === veld ? maakSuggesties(veld.value) : [];
     sugActief = -1;
-    const SOORT = { recept: 'Recept', hoofdstuk: 'Hoofdstuk', ingredient: 'Ingrediënt' };
+    const SOORT = { recept: 'Recept', hoofdstuk: 'Hoofdstuk', ingredient: 'Ingrediënt', soort: 'Soort' };
     el.innerHTML = sugLijst.map((s, i) => `
       <li class="sug" role="option" id="sug-${i}" data-i="${i}" aria-selected="false">
         <span class="sug-type">${SOORT[s.type]}</span>
@@ -471,6 +486,12 @@ const App = (() => {
     } else if (s.type === 'hoofdstuk') {
       veld.value = ''; state.zoek = '';
       state.keukens = new Set([s.waarde]);
+      if (state.view === 'lijst') zetView('alle'); else render();
+      veld.blur();
+    } else if (s.type === 'soort') {
+      veld.value = ''; state.zoek = '';
+      state.soorten = new Set([s.waarde]);
+      renderFilters();
       if (state.view === 'lijst') zetView('alle'); else render();
       veld.blur();
     } else {

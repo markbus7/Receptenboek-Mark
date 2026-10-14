@@ -96,7 +96,7 @@ const Detail = (() => {
     const ms = Hulp.methodes(r, ctx.keuken);
     const meta = [
       `<li>${icoon('klok')} ${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="zacht">+ ${Hulp.esc(r.wacht)}</span>` : ''}</li>`,
-      `<li>${icoon('personen')} ${r.pers} ${r.pers === 1 ? 'persoon' : 'personen'}</li>`,
+      `<li>${icoon('personen')} ${r.pers} ${r.stuks || (r.pers === 1 ? 'persoon' : 'personen')}</li>`,
       `<li>${Hulp.esc(r.niveau)}</li>`,
       r.vega ? `<li class="vega">${icoon('blad')} Vegetarisch</li>` : ''
     ].join('');
@@ -144,11 +144,11 @@ const Detail = (() => {
             <h3 id="d-ingr-titel">Ingrediënten</h3>
             <div class="schaal">
               <div class="schaal-rij">
-                <span class="schaal-label">Personen</span>
+                <span class="schaal-label">${r.stuks ? 'Aantal' : 'Personen'}</span>
                 <div class="stepper">
-                  <button type="button" class="ikoon-knop" id="d-min" aria-label="Minder personen">−</button>
+                  <button type="button" class="ikoon-knop" id="d-min" aria-label="Minder ${r.stuks || 'personen'}">−</button>
                   <output id="d-pers" aria-live="polite"></output>
-                  <button type="button" class="ikoon-knop" id="d-plus" aria-label="Meer personen">+</button>
+                  <button type="button" class="ikoon-knop" id="d-plus" aria-label="Meer ${r.stuks || 'personen'}">+</button>
                 </div>
               </div>
               <div class="schaal-rij schaal-heb">
@@ -215,7 +215,7 @@ const Detail = (() => {
 
     const info = blad.querySelector('#d-schaal-info');
     if (factor === 1) {
-      info.innerHTML = 'Origineel recept. Pas het aantal personen aan, of vul in hoeveel je van één ingrediënt hebt.';
+      info.innerHTML = `Origineel recept. Pas het aantal ${r.stuks || 'personen'} aan, of vul in hoeveel je van één ingrediënt hebt.`;
     } else {
       let advies = '';
       if (factor >= 1.6) advies = ' Grotere hoeveelheid: gebruik een grotere pan of bak in delen. Stooftijden blijven ongeveer gelijk.';

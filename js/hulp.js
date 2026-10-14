@@ -187,7 +187,7 @@ const Hulp = (() => {
   }
 
   function tijdTekst(min) {
-    if (min < 60) return min + ' min';
+    if (min < 60) return String(min).replace('.', ',') + ' min';
     const u = Math.floor(min / 60), m = min % 60;
     return u + ' uur' + (m ? ' ' + m + ' min' : '');
   }
