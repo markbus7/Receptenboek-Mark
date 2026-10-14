@@ -32,7 +32,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Vervang de kip door tempeh of tofu en gebruik vegetarische nasikruiden.']
 },
 {
-  id: 'sate-ajam', naam: 'Saté ajam met pindasaus', keuken: 'Indonesisch', soort: 'Hoofdgerecht',
+  id: 'sate-ajam', naam: 'Saté ajam met pindasaus', ook: ['kipsaté', 'satéstokjes'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Gemarineerde kippendijen met romige pindasaus, gebakken op de grill, in de airfryer of de oven.',
   methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'grillpan', naam: 'Grillpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
@@ -138,7 +138,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Gebruik tofu of kikkererwten en sojasaus in plaats van vissaus. Controleer de currypasta: veel soorten bevatten garnalenpasta.']
 },
 {
-  id: 'tom-kha-kai', naam: 'Tom kha kai', keuken: 'Thais', soort: 'Soep',
+  id: 'tom-kha-kai', naam: 'Tom kha kai', ook: ['thaise kokossoep'], keuken: 'Thais', soort: 'Soep',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Romige kokossoep met kip, citroengras en limoen. Fris, zuur en licht pittig.',
   gerei: [ { tool: 'kookpan', tekst: 'Soeppan van 3 liter' } ],
@@ -164,7 +164,7 @@ RECEPTEN.push(
   alt: ['Geen citroengras? Gebruik de geraspte schil van 1 citroen.']
 },
 {
-  id: 'kung-pao-kip', naam: 'Kung pao kip', keuken: 'Chinees', soort: 'Hoofdgerecht',
+  id: 'kung-pao-kip', naam: 'Kung pao kip', ook: ['kung pao chicken'], keuken: 'Chinees', soort: 'Hoofdgerecht',
   tijd: 25, pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Sichuan-klassieker: krokante kip met pinda\'s, gedroogde pepers en een zoetzure, glanzende saus.',
   gerei: [

@@ -98,7 +98,7 @@ RECEPTEN.push(
   alt: ['Geen crème fraîche? Een scheutje room of een extra klontje boter werkt ook.']
 },
 {
-  id: 'tortilla-patatas', naam: 'Tortilla de patatas', keuken: 'Spaans', soort: 'Ontbijt & lunch',
+  id: 'tortilla-patatas', naam: 'Tortilla de patatas', ook: ['spaanse tortilla', 'spaanse omelet'], keuken: 'Spaans', soort: 'Ontbijt & lunch',
   tijd: 45, pers: 4, niveau: 'Gemiddeld', vega: true,
   intro: 'De dikke Spaanse aardappelomelet: zachte aardappel en ui, langzaam gegaard in olijfolie.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan (omkeren)' }, { id: 'oven', naam: 'Oven (afmaken)' } ],
@@ -126,7 +126,7 @@ RECEPTEN.push(
   alt: ['Met chorizo: bak 75 g chorizo in blokjes mee in stap 4.']
 },
 {
-  id: 'frittata', naam: 'Frittata met courgette en feta', keuken: 'Italiaans', soort: 'Ontbijt & lunch',
+  id: 'frittata', naam: 'Frittata met courgette en feta', ook: ['italiaanse omelet'], keuken: 'Italiaans', soort: 'Ontbijt & lunch',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Italiaanse ovenomelet vol groente en feta. Warm als lunch, koud in je lunchtrommel.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Alleen pan' } ],
@@ -160,7 +160,7 @@ RECEPTEN.push(
   alt: ['Geen feta? Geitenkaas of mozzarella werkt ook.']
 },
 {
-  id: 'menemen', naam: 'Menemen', keuken: 'Turks', soort: 'Ontbijt & lunch',
+  id: 'menemen', naam: 'Menemen', ook: ['turks roerei', 'turkse eieren'], keuken: 'Turks', soort: 'Ontbijt & lunch',
   tijd: 20, pers: 2, niveau: 'Makkelijk', vega: true,
   intro: 'Turks ontbijt van zacht gestold ei in een saus van tomaat en groene peper. Met veel brood.',
   gerei: [ { tool: 'koekenpan', tekst: 'Koekenpan of kleine hapjespan (24 cm); in Turkije een sahan' } ],
@@ -184,7 +184,7 @@ RECEPTEN.push(
   alt: ['Met kaas: brokkel er op het eind 50 g feta of beyaz peynir over.']
 },
 {
-  id: 'tamagoyaki', naam: 'Tamagoyaki', keuken: 'Japans', soort: 'Ontbijt & lunch',
+  id: 'tamagoyaki', naam: 'Tamagoyaki', ook: ['japanse omelet'], keuken: 'Japans', soort: 'Ontbijt & lunch',
   tijd: 15, pers: 2, niveau: 'Gemiddeld', vega: true,
   intro: 'Japanse opgerolde omelet, licht zoet en hartig, in dunne laagjes gebakken. Lekker in een bento.',
   gerei: [
@@ -275,7 +275,7 @@ RECEPTEN.push(
   alt: ['Geen jalapeño? Gebruik een halve rode peper of een theelepel sambal.']
 },
 {
-  id: 'eieren-koken', naam: 'Eieren koken: zacht, medium of hard', keuken: 'Nederlands', soort: 'Ontbijt & lunch',
+  id: 'eieren-koken', naam: 'Eieren koken: zacht, medium of hard', ook: ['gekookt ei', 'gekookte eieren', 'eitje koken', 'zacht ei', 'hardgekookt ei'], keuken: 'Nederlands', soort: 'Ontbijt & lunch',
   tijd: 12, pers: 2, niveau: 'Makkelijk', vega: true,
   intro: 'Het perfecte gekookte ei, precies zoals jij hem wilt. Met timers voor zacht, medium en hard.',
   methodes: [ { id: 'kookpan', naam: 'Kookpan' }, { id: 'airfryer', naam: 'Airfryer' } ],

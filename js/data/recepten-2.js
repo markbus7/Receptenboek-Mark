@@ -1,7 +1,7 @@
 /* Nederlands */
 RECEPTEN.push(
 {
-  id: 'hutspot-rookworst', naam: 'Hutspot met rookworst', keuken: 'Nederlands', soort: 'Hoofdgerecht',
+  id: 'hutspot-rookworst', naam: 'Hutspot met rookworst', ook: ['stamppot'], keuken: 'Nederlands', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'De klassieker van aardappel, wortel en ui, met een kuiltje jus en een flinke rookworst.',
   gerei: [
@@ -65,7 +65,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Laat het vlees weg, gebruik groentebouillon en een vegetarische rookworst. Een snufje gerookt paprikapoeder geeft de rooksmaak terug.']
 },
 {
-  id: 'boerenkool-stamppot', naam: 'Boerenkoolstamppot', keuken: 'Nederlands', soort: 'Hoofdgerecht',
+  id: 'boerenkool-stamppot', naam: 'Boerenkoolstamppot', ook: ['boerenkool met worst'], keuken: 'Nederlands', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Winterkost met krokante spekjes en een kuiltje jus. Gezellig én simpel.',
   gerei: [
@@ -119,7 +119,7 @@ RECEPTEN.push(
   alt: ['Geen melk in huis? Gebruik half water, half bruisend water. Ook havermelk werkt goed.']
 },
 {
-  id: 'draadjesvlees', naam: 'Draadjesvlees', keuken: 'Nederlands', soort: 'Hoofdgerecht',
+  id: 'draadjesvlees', naam: 'Draadjesvlees', ook: ['stoofvlees', 'sudderlapjes'], keuken: 'Nederlands', soort: 'Hoofdgerecht',
   tijd: 25, wacht: '3 uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Zo mals dat het uit elkaar valt, in een rijke jus met laurier en kruidnagel.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
@@ -151,7 +151,7 @@ RECEPTEN.push(
   alt: ['Geen braadpan? Een dikke kookpan met goed sluitende deksel werkt ook; zet het vuur dan op de kleinste brander.']
 },
 {
-  id: 'appeltaart', naam: 'Oma\'s appeltaart', keuken: 'Nederlands', soort: 'Dessert',
+  id: 'appeltaart', naam: 'Oma\'s appeltaart', ook: ['appelgebak'], keuken: 'Nederlands', soort: 'Dessert',
   tijd: 30, wacht: '1 uur bakken', pers: 10, niveau: 'Gemiddeld', vega: true,
   intro: 'Hoge Hollandse appeltaart met kaneel, rozijnen en een roosterbovenkant.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
@@ -188,7 +188,7 @@ RECEPTEN.push(
   alt: ['Geen springvorm? Gebruik een ovenschaal en serveer de taart in scheppen, met slagroom of ijs.']
 },
 {
-  id: 'gehaktballen-jus', naam: 'Gehaktballen in jus', keuken: 'Nederlands', soort: 'Hoofdgerecht',
+  id: 'gehaktballen-jus', naam: 'Gehaktballen in jus', ook: ['bal gehakt', 'balletje gehakt'], keuken: 'Nederlands', soort: 'Hoofdgerecht',
   tijd: 50, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Zachte, sappige ballen die langzaam garen in hun eigen jus. Zoals vroeger op zondag.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'airfryer', naam: 'Airfryer' } ],

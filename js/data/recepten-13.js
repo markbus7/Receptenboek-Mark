@@ -86,7 +86,7 @@ RECEPTEN.push(
   ]
 },
 {
-  id: 'vol-au-vent', naam: 'Vol-au-vent', ook: ['koninginnenhapje', 'pasteitjes'],
+  id: 'vol-au-vent', naam: 'Vol-au-vent', ook: ['koninginnenhapje', 'pasteitjes', 'pasteitje met ragout', 'pasteitjes met ragout', 'ragout', 'ragoutpasteitje', 'kippenragout'],
   keuken: 'Belgisch', soort: 'Hoofdgerecht',
   tijd: 50, pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Kip, kleine gehaktballetjes en champignons in een fluweelzachte roomsaus, in een krokant pasteitje van bladerdeeg. In België eet je het met friet.',
