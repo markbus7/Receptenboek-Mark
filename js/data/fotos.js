@@ -1073,5 +1073,11 @@ window.FOTOS = {
   "auteur": "Tamorlan",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Zaalouk-01.JPG"
+ },
+ "zoetzure-kip": {
+  "src": "img/zoetzure-kip.jpg",
+  "auteur": "Judgefloro",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:9681KIng%27s_Special_and_Sweet_%26_Sour_Chicken_08.jpg"
  }
 };
