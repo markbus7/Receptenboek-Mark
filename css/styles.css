@@ -281,6 +281,18 @@ p.sync-fout::before { display: none; }
 .tabblad:hover { opacity: 1; transform: translateY(2px); }
 .tabblad[aria-pressed="true"] { opacity: 1; transform: none; padding-top: 9px; box-shadow: none; }
 .tabblad-alle { background: var(--inkt); color: var(--papier); }
+/* Breed scherm: alle hoofdstukken zichtbaar, desnoods in twee rijen tabbladen zoals in een echt boek. */
+@media (min-width: 761px) {
+  .tabbladen { flex-wrap: wrap; row-gap: 7px; overflow: visible; }
+}
+/* Smal scherm: één rij om door te vegen; de rand vervaagt zodat je ziet dat er meer is. */
+@media (max-width: 760px) {
+  .tabbladen {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+            mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
+    padding-right: 36px;
+  }
+}
 
 .boekpagina {
   position: relative;
@@ -589,7 +601,7 @@ p.sync-fout::before { display: none; }
   .sug-type { grid-column: 1 / -1; }
   .sug-label { white-space: normal; }
   .filter-knop { padding: 0 14px; }
-  .tabbladen { padding-inline: 4px; margin-inline: calc(-1 * var(--gutter)); padding-left: var(--gutter); }
+  .tabbladen { margin-inline: calc(-1 * var(--gutter)); padding-left: var(--gutter); padding-right: 36px; }
   .raster { gap: 28px 16px; }
   .sheet-blad { inset: 0; width: 100%; }
   .d-balk { padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px; background: color-mix(in srgb, var(--tafel) 85%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
