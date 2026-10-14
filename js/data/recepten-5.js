@@ -1,7 +1,7 @@
 /* Midden-Oosters, Grieks, Marokkaans */
 RECEPTEN.push(
 {
-  id: 'shakshuka', naam: 'Shakshuka', keuken: 'Midden-Oosters', soort: 'Ontbijt & lunch',
+  id: 'shakshuka', naam: 'Shakshuka', ook: ['shakshouka', 'eieren in tomatensaus'], keuken: 'Midden-Oosters', soort: 'Ontbijt & lunch',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Eieren gepocheerd in een kruidige saus van tomaat en paprika. Met brood om te dippen.',
   gerei: [
@@ -75,7 +75,7 @@ RECEPTEN.push(
   alt: ['Geen keukenmachine? Gebruik een vleesmolen of maak de falafel van 2 blikken kikkererwten met 3 el bloem (wel minder krokant).']
 },
 {
-  id: 'kip-shoarma', naam: 'Kip shoarma met knoflooksaus', keuken: 'Midden-Oosters', soort: 'Hoofdgerecht',
+  id: 'kip-shoarma', naam: 'Kip shoarma met knoflooksaus', ook: ['shawarma'], keuken: 'Midden-Oosters', soort: 'Hoofdgerecht',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Kruidige reepjes kip met een romige knoflooksaus en frisse salade in pitabrood.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' } ],
@@ -151,7 +151,7 @@ RECEPTEN.push(
   alt: ['Geen varkenshaas? Kippendij werkt net zo goed, bak dan 2 minuten langer.']
 },
 {
-  id: 'moussaka', naam: 'Moussaka', keuken: 'Grieks', soort: 'Hoofdgerecht',
+  id: 'moussaka', naam: 'Moussaka', ook: ['griekse ovenschotel'], keuken: 'Grieks', soort: 'Hoofdgerecht',
   tijd: 60, wacht: '45 min bakken', pers: 6, niveau: 'Gemiddeld', vega: false,
   intro: 'Laagjes aubergine, gekruid lamsgehakt met kaneel en een dikke kaaskorst.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],

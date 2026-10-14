@@ -45,7 +45,7 @@ RECEPTEN.push(
   alt: ['Minder tijd? Gebruik 800 g kippendijen en stoof 45 minuten. Dat heet rendang ajam.']
 },
 {
-  id: 'babi-ketjap', naam: 'Babi ketjap', keuken: 'Indonesisch', soort: 'Hoofdgerecht',
+  id: 'babi-ketjap', naam: 'Babi ketjap', ook: ['babi kecap'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
   tijd: 20, wacht: '1½ uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Zoet-zout gestoofd varkensvlees in ketjap, gember en knoflook. Indisch comfort food.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
@@ -150,7 +150,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Vervang de kip door tempeh of extra groenten en gebruik vegetarische bamikruiden.']
 },
 {
-  id: 'sajoer-lodeh', naam: 'Sajoer lodeh', keuken: 'Indonesisch', soort: 'Soep',
+  id: 'sajoer-lodeh', naam: 'Sajoer lodeh', ook: ['sayur lodeh'], keuken: 'Indonesisch', soort: 'Soep',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Milde groentestoof in gekruide kokosbouillon. Lekker als soep of met rijst.',
   gerei: [ { tool: 'kookpan', tekst: 'Soeppan of Dutch oven (3 à 4 liter)' } ],
@@ -182,7 +182,7 @@ RECEPTEN.push(
   alt: ['Liever met vlees? Kook 300 g kipfilet in reepjes mee.']
 },
 {
-  id: 'ajam-pedis', naam: 'Ajam pedis', keuken: 'Indonesisch', soort: 'Hoofdgerecht',
+  id: 'ajam-pedis', naam: 'Ajam pedis', ook: ['pittige kip'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
   tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Pittige kip in een rode saus van tomaat, sambal en ketjap. "Pedis" betekent scherp.',
   gerei: [
@@ -213,7 +213,7 @@ RECEPTEN.push(
   alt: ['Geen djeroekbladeren? Gebruik de geraspte schil van een halve limoen.']
 },
 {
-  id: 'perkedel-djagung', naam: 'Perkedel djagung', keuken: 'Indonesisch', soort: 'Salade & bijgerecht',
+  id: 'perkedel-djagung', naam: 'Perkedel djagung', ook: ['maiskoekjes', 'bakwan jagung'], keuken: 'Indonesisch', soort: 'Salade & bijgerecht',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Krokante maïskoekjes met lente-ui en selderij. Een heerlijke snack of bijgerecht bij de rijsttafel.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' } ],

@@ -209,7 +209,7 @@ RECEPTEN.push(
   alt: ['Geen saffraan? Een snuf kurkuma in de melk geeft ook mooie gele strepen.']
 },
 {
-  id: 'saag-paneer', naam: 'Saag paneer', keuken: 'Indiaas', soort: 'Hoofdgerecht',
+  id: 'saag-paneer', naam: 'Saag paneer', ook: ['palak paneer', 'spinaziecurry'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Romige, gekruide spinazie met goudbruin gebakken blokjes paneer.',
   gerei: [
