@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=1.9.2">
+<link rel="stylesheet" href="css/styles.css?v=1.10.0">
 </head>
 <body>
 <div class="app">
@@ -53,14 +53,15 @@
         <p class="hint">Voeg ingrediënten toe die je hebt. De recepten met de beste match komen bovenaan.</p>
         <form id="voorraad-form" class="voorraad-invoer" autocomplete="off">
           <label for="voorraad-input" class="sr">Ingrediënt</label>
-          <input id="voorraad-input" list="ingr-lijst" placeholder="bijv. kip, paprika, rijst">
+          <input id="voorraad-input" placeholder="bijv. kip, paprika, rijst">
           <button type="submit" class="knop knop-klein">Voeg toe</button>
         </form>
-        <datalist id="ingr-lijst"></datalist>
-        <label class="mix-kies" for="mix-kiezer">
-          <span>Een diepvries groentemix?</span>
-          <select id="mix-kiezer"><option value="">Kies je groentemix…</option></select>
-        </label>
+        <div class="tip-chips" id="voorraad-sugg" aria-label="Suggesties: tik om toe te voegen"></div>
+        <form id="mix-form" class="mix-kies" autocomplete="off">
+          <label for="mix-input">Een diepvries groentemix?</label>
+          <input id="mix-input" placeholder="Typ bijv. wok, soep of spinazie">
+          <div class="tip-chips" id="mix-sugg" aria-label="Groentemixen: tik om toe te voegen"></div>
+        </form>
         <div class="chips" id="voorraad-chips"></div>
         <label class="schakel"><input type="checkbox" id="basis" checked> <span>Zout, peper, olie en water heb ik altijd</span></label>
         <label class="schakel"><input type="checkbox" id="alleen-compleet"> <span>Alleen recepten waarvoor ik alles heb</span></label>
@@ -196,33 +197,33 @@
   </defs>
 </svg>
 
-<script src="js/versie.js?v=1.9.2"></script>
-<script src="js/data/gereedschap.js?v=1.9.2"></script>
-<script src="js/data/hoofdstukken.js?v=1.9.2"></script>
-<script src="js/data/recepten-1.js?v=1.9.2"></script>
-<script src="js/data/recepten-2.js?v=1.9.2"></script>
-<script src="js/data/recepten-3.js?v=1.9.2"></script>
-<script src="js/data/recepten-4.js?v=1.9.2"></script>
-<script src="js/data/recepten-5.js?v=1.9.2"></script>
-<script src="js/data/recepten-6.js?v=1.9.2"></script>
-<script src="js/data/recepten-7.js?v=1.9.2"></script>
-<script src="js/data/recepten-8.js?v=1.9.2"></script>
-<script src="js/data/recepten-9.js?v=1.9.2"></script>
-<script src="js/data/recepten-10.js?v=1.9.2"></script>
-<script src="js/data/recepten-11.js?v=1.9.2"></script>
-<script src="js/data/recepten-12.js?v=1.9.2"></script>
-<script src="js/data/recepten-13.js?v=1.9.2"></script>
-<script src="js/data/recepten-14.js?v=1.9.2"></script>
-<script src="js/data/recepten-15.js?v=1.9.2"></script>
-<script src="js/data/recepten-16.js?v=1.9.2"></script>
-<script src="js/data/recepten-17.js?v=1.9.2"></script>
-<script src="js/data/recepten-18.js?v=1.9.2"></script>
-<script src="js/data/fotos.js?v=1.9.2"></script>
-<script src="js/data/groentemixen.js?v=1.9.2"></script>
-<script src="js/hulp.js?v=1.9.2"></script>
-<script src="js/boodschappen.js?v=1.9.2"></script>
-<script src="js/detail.js?v=1.9.2"></script>
-<script src="js/sync.js?v=1.9.2"></script>
-<script src="js/app.js?v=1.9.2"></script>
+<script src="js/versie.js?v=1.10.0"></script>
+<script src="js/data/gereedschap.js?v=1.10.0"></script>
+<script src="js/data/hoofdstukken.js?v=1.10.0"></script>
+<script src="js/data/recepten-1.js?v=1.10.0"></script>
+<script src="js/data/recepten-2.js?v=1.10.0"></script>
+<script src="js/data/recepten-3.js?v=1.10.0"></script>
+<script src="js/data/recepten-4.js?v=1.10.0"></script>
+<script src="js/data/recepten-5.js?v=1.10.0"></script>
+<script src="js/data/recepten-6.js?v=1.10.0"></script>
+<script src="js/data/recepten-7.js?v=1.10.0"></script>
+<script src="js/data/recepten-8.js?v=1.10.0"></script>
+<script src="js/data/recepten-9.js?v=1.10.0"></script>
+<script src="js/data/recepten-10.js?v=1.10.0"></script>
+<script src="js/data/recepten-11.js?v=1.10.0"></script>
+<script src="js/data/recepten-12.js?v=1.10.0"></script>
+<script src="js/data/recepten-13.js?v=1.10.0"></script>
+<script src="js/data/recepten-14.js?v=1.10.0"></script>
+<script src="js/data/recepten-15.js?v=1.10.0"></script>
+<script src="js/data/recepten-16.js?v=1.10.0"></script>
+<script src="js/data/recepten-17.js?v=1.10.0"></script>
+<script src="js/data/recepten-18.js?v=1.10.0"></script>
+<script src="js/data/fotos.js?v=1.10.0"></script>
+<script src="js/data/groentemixen.js?v=1.10.0"></script>
+<script src="js/hulp.js?v=1.10.0"></script>
+<script src="js/boodschappen.js?v=1.10.0"></script>
+<script src="js/detail.js?v=1.10.0"></script>
+<script src="js/sync.js?v=1.10.0"></script>
+<script src="js/app.js?v=1.10.0"></script>
 </body>
 </html>

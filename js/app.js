@@ -130,12 +130,65 @@ const App = (() => {
       const label = mix ? `${mix.naam} (mix)` : v;
       return `<button type="button" class="chip chip-voorraad${mix ? ' chip-mix' : ''}" data-weg-voorraad="${esc(v)}" aria-label="Verwijder ${esc(label)}">${esc(label)} ${icoon('sluit')}</button>`;
     }).join('');
+    renderIngrSuggesties();
+    renderMixSuggesties();
   }
 
-  function vulDatalist() {
-    $('#ingr-lijst').innerHTML = INGR_NAMEN.map((n) => `<option value="${esc(n)}"></option>`).join('');
-    $('#mix-kiezer').innerHTML = '<option value="">Kies je groentemix…</option>' +
-      GROENTEMIXEN.map((m) => `<option value="mix:${m.id}">${esc(m.naam)} (${esc(m.voorbeeld)})</option>`).join('');
+  /* Klikbare suggesties onder het invoerveld. Leeg veld: de ingrediënten die het vaakst in de recepten
+     staan. Tijdens het typen: namen die beginnen met wat je typt, daarna namen waar het in zit. */
+  const INGR_POPULAIR = [...INGR_AANTAL.entries()].sort((a, b) => b[1] - a[1]).map(([n]) => n);
+  function ingrSuggesties(tekst) {
+    const t = Hulp.norm(tekst.split(',').pop());
+    const vrij = (n) => !state.voorraad.includes(n);
+    if (!t) return INGR_POPULAIR.filter(vrij).slice(0, 12);
+    const begin = [], erin = [];
+    INGR_POPULAIR.filter(vrij).forEach((n) => {
+      const g = Hulp.norm(n);
+      if (g === t) begin.unshift(n);
+      else if (g.startsWith(t) || g.includes(' ' + t)) begin.push(n);
+      else if (t.length >= 3 && g.includes(t)) erin.push(n);
+    });
+    return [...begin, ...erin].slice(0, 10);
+  }
+  function renderIngrSuggesties() {
+    $('#voorraad-sugg').innerHTML = ingrSuggesties($('#voorraad-input').value)
+      .map((n) => `<button type="button" class="chip chip-sugg" data-sugg-ingr="${esc(n)}">+ ${esc(n)}</button>`).join('');
+  }
+
+  /* Groentemixen zoeken op naam, voorbeeld en wat erin zit; pas tonen als je typt. */
+  function mixSuggesties(tekst) {
+    const t = Hulp.norm(tekst);
+    if (!t) return [];
+    return GROENTEMIXEN.filter((m) => !state.voorraad.includes('mix:' + m.id)).map((m) => {
+      const naam = Hulp.norm(m.naam + ' ' + m.voorbeeld);
+      const score = naam.startsWith(t) ? 0 : naam.includes(t) ? 1 : m.bevat.some((b) => Hulp.norm(b).includes(t)) ? 2 : -1;
+      return [m, score];
+    }).filter(([, s]) => s >= 0).sort((a, b) => a[1] - b[1]).map(([m]) => m).slice(0, 6);
+  }
+  function renderMixSuggesties() {
+    const tekst = $('#mix-input').value;
+    const mixen = mixSuggesties(tekst);
+    $('#mix-sugg').innerHTML = mixen.length
+      ? mixen.map((m) => `<button type="button" class="chip chip-sugg chip-mix" data-sugg-mix="mix:${m.id}"><span>+ ${esc(m.naam)} <small>${esc(m.voorbeeld)}</small></span></button>`).join('')
+      : (Hulp.norm(tekst) ? '<p class="hint">Geen groentemix gevonden.</p>' : '');
+  }
+
+  function voegToe(namen) {
+    const nieuw = namen.map((s) => s.trim().toLowerCase()).filter((n) => n && !state.voorraad.includes(n));
+    if (!nieuw.length) return;
+    state.voorraad.push(...nieuw);
+    state.sorteer = 'match'; $('#sorteer').value = 'match';
+    bewaarVoorraad();
+  }
+
+  function voegMixToe(v) {
+    const mix = Hulp.mixVan(v);
+    $('#mix-input').value = '';
+    if (!mix || state.voorraad.includes(v)) { renderMixSuggesties(); return; }
+    state.voorraad.push(v);
+    state.sorteer = 'match'; $('#sorteer').value = 'match';
+    bewaarVoorraad();
+    toast(`${mix.naam} toegevoegd: de recepten waar hij in past staan bovenaan`);
   }
 
   /* ---------- Filteren en sorteren ---------- */
@@ -550,6 +603,18 @@ const App = (() => {
         renderFilters(); render();
         return;
       }
+      const si = e.target.closest('[data-sugg-ingr]');
+      if (si) {
+        // Wat je al getypt had vóór de laatste komma telt ook mee; het laatste stuk wordt de suggestie.
+        const veld = $('#voorraad-input');
+        const eerder = veld.value.split(',').slice(0, -1);
+        veld.value = '';
+        voegToe([...eerder, si.dataset.suggIngr]);
+        renderIngrSuggesties();
+        return;
+      }
+      const sm = e.target.closest('[data-sugg-mix]');
+      if (sm) { voegMixToe(sm.dataset.suggMix); return; }
       const v = e.target.closest('[data-weg-voorraad]');
       if (v) {
         state.voorraad = state.voorraad.filter((x) => x !== v.dataset.wegVoorraad);
@@ -577,22 +642,20 @@ const App = (() => {
     $('#voorraad-form').addEventListener('submit', (e) => {
       e.preventDefault();
       const veld = $('#voorraad-input');
-      const nieuw = veld.value.split(',').map((s) => s.trim().toLowerCase()).filter(Boolean);
-      nieuw.forEach((n) => { if (!state.voorraad.includes(n)) state.voorraad.push(n); });
+      const namen = veld.value.split(',');
       veld.value = '';
-      if (nieuw.length) { state.sorteer = 'match'; $('#sorteer').value = 'match'; bewaarVoorraad(); }
+      voegToe(namen);
+      renderIngrSuggesties();
     });
+    $('#voorraad-input').addEventListener('input', renderIngrSuggesties);
 
     $('#sorteer').addEventListener('change', (e) => { state.sorteer = e.target.value; render(); });
 
-    $('#mix-kiezer').addEventListener('change', (e) => {
-      const v = e.target.value;
-      e.target.value = '';
-      if (!v || state.voorraad.includes(v)) return;
-      state.voorraad.push(v);
-      state.sorteer = 'match'; $('#sorteer').value = 'match';
-      bewaarVoorraad();
-      toast(`${Hulp.mixVan(v).naam} toegevoegd: de recepten waar hij in past staan bovenaan`);
+    $('#mix-input').addEventListener('input', renderMixSuggesties);
+    $('#mix-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const eerste = mixSuggesties($('#mix-input').value)[0];
+      if (eerste) voegMixToe('mix:' + eerste.id);
     });
     $('#mix-info').addEventListener('click', (e) => {
       const a = e.target.closest('[data-open]');
@@ -680,7 +743,6 @@ const App = (() => {
 
   function start() {
     $('#teller').textContent = `${RECEPTEN.length} recepten · ${KEUKENS.length} hoofdstukken · versie ${window.VERSIE || '?'}`;
-    vulDatalist();
     renderFilters();
     koppel();
     render();
