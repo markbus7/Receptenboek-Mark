@@ -146,7 +146,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Vervang het gehakt door 1 extra blik zwarte bonen en 150 g rode linzen met 200 ml extra water.']
 },
 {
-  id: 'kip-fajitas', naam: 'Kip fajitas', keuken: 'Mexicaans', soort: 'Hoofdgerecht',
+  id: 'kip-fajitas', naam: 'Kip fajitas', gerecht: 'Fajitas', variant: 'Kip', ook: ['fajitas', 'fajita', 'chicken fajitas'], keuken: 'Mexicaans', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Sissende reepjes kip met paprika en ui in warme tortilla\'s, met guacamole.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'oven', naam: 'Oven (plaatgerecht)' }, { id: 'airfryer', naam: 'Airfryer' } ],
@@ -179,6 +179,24 @@ RECEPTEN.push(
   ],
   tips: ['Zet alles op tafel en laat iedereen zijn eigen fajita vullen.'],
   alt: ['Vegetarisch? Vervang de kip door 2 blikken zwarte bonen of reepjes portobello.']
+},
+{
+  id: 'fajitas-biefstuk', variantVan: 'kip-fajitas', variant: 'Biefstuk', naam: 'Fajitas met biefstuk', ook: ['beef fajitas', 'steak fajitas', 'rundvlees fajitas'],
+  intro: 'Reepjes biefstuk, kort en heet geschroeid zodat ze vanbinnen rosé blijven, met paprika en ui in warme tortilla\'s en guacamole.',
+  vervang: {
+    kipfilet: { n: 'biefstuk', q: 500, u: 'g', x: 'of bavette (flank steak), tegen de draad in in reepjes van ½ cm' }
+  },
+  stappen: [
+    { t: 'Meng het vlees met 1 el olie en de helft van de kruiden. Meng paprika en ui in een andere kom met de rest van de olie en de kruiden.' },
+    { t: 'Verhit de koekenpan op hoog vuur tot hij rookt. Bak eerst de groenten 4 minuten zodat ze nog knapperig zijn en schep ze uit. Schroei het vlees in 2 porties 1½ à 2 minuten, tot het bruin is maar vanbinnen nog rosé. Meng alles.', m: 'koekenpan', min: 8 },
+    { t: 'Spreid de groenten uit op de bakplaat en rooster ze 15 minuten in een voorverwarmde oven op 220 °C. Leg het vlees erbij en rooster nog 4 à 5 minuten.', m: 'oven', min: 20 },
+    { t: 'Bak de groenten 8 minuten in de airfryer op 200 °C. Doe het vlees erbij, schud de mand en bak nog 4 minuten.', m: 'airfryer', min: 12 },
+    { t: 'Prak de avocado met limoensap en zout. Roer tomaat en koriander erdoor.' },
+    { t: 'Verwarm de tortilla\'s 20 seconden per kant in een droge koekenpan, of 30 seconden in de magnetron onder een vochtige theedoek.' },
+    { t: 'Vul de tortilla\'s met vlees, groenten en guacamole.' }
+  ],
+  tips: ['Snijd het vlees altijd tegen de draad in: dan blijft het mals, ook als het iets te lang in de pan heeft gezeten.'],
+  alt: ['Goedkoper: neem riblap of sukade in hele dunne reepjes en marineer 30 minuten met het sap van een limoen.']
 },
 {
   id: 'quesadillas', naam: 'Quesadilla\'s met bonen en kaas', keuken: 'Mexicaans', soort: 'Ontbijt & lunch',

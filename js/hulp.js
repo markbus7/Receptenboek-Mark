@@ -294,5 +294,8 @@ const Hulp = (() => {
     return null;
   }
 
-  return { isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies };
+  /* Foto van het recept; een variant zonder eigen foto laat die van het basisrecept zien. */
+  const foto = (r) => (window.FOTOS && (FOTOS[r.id] || (r.groep && FOTOS[r.groep]))) || null;
+
+  return { foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies };
 })();

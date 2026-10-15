@@ -99,7 +99,7 @@ RECEPTEN.push(
   alt: ['Airfryer: spuit de churros op bakpapier en leg ze 20 minuten in de vriezer, zodat ze stevig worden. Bestrijk ze rondom met olie, leg ze in een goed ingevette mand en bak 10 à 12 minuten op 200 °C; keer halverwege. Bestrijk ze met gesmolten boter en rol ze door de kaneelsuiker. Lekker, maar minder krokant dan gefrituurd.', 'Snelle chocoladesaus: verwarm 150 ml slagroom tot net tegen de kook en smelt er 150 g pure chocolade in.']
 },
 {
-  id: 'gyros', naam: 'Gyros', ook: ['pita gyros', 'gyros met tzatziki'],
+  id: 'gyros', naam: 'Gyros', gerecht: 'Gyros', variant: 'Varkensvlees', ook: ['pita gyros', 'gyros met tzatziki'],
   keuken: 'Grieks', soort: 'Hoofdgerecht',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Kruidig gemarineerd varkensvlees met krokante randjes, in een warme pita met tzatziki, tomaat en ui. Zoals bij de Griek op de hoek, maar dan uit je eigen keuken.',
@@ -110,7 +110,7 @@ RECEPTEN.push(
     { tool: 'koekenpan', tekst: 'Koekenpan om de pita\'s op te warmen', m: 'contactgrill' }
   ],
   ingr: [
-    { n: 'varkensschouder', q: 600, u: 'g', x: 'in lapjes van 1 cm dik (schouderlappen of procureur); of kippendijfilet' },
+    { n: 'varkensschouder', q: 600, u: 'g', x: 'in lapjes van 1 cm dik (schouderlappen of procureur)' },
     { kop: 'Marinade' },
     { n: 'olijfolie', q: 3, u: 'el' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
@@ -142,7 +142,24 @@ RECEPTEN.push(
     { t: 'Beleg elke pita met vlees, tomaat, ui, een flinke schep tzatziki en eventueel een handje friet. Rol op en wikkel de onderkant in bakpapier.' }
   ],
   tips: ['Schouder blijft sappiger dan filet en is ook het vlees dat in Griekenland aan het spit gaat. Het vetrandje hoort erbij.', 'De krokante, donkere randjes maken het gyros: bak dus op hoog vuur en in kleine porties.'],
-  alt: ['Gyros van kip: gebruik 600 g kippendijfilet met dezelfde marinade en bak of grill hem 1 à 2 minuten langer.', 'Gyrosschotel: serveer het vlees met friet, Griekse salade en tzatziki op een bord in plaats van in een pita.']
+  alt: ['Gyrosschotel: serveer het vlees met friet, Griekse salade en tzatziki op een bord in plaats van in een pita.']
+},
+{
+  id: 'gyros-kip', variantVan: 'gyros', variant: 'Kip', naam: 'Gyros van kip', ook: ['kipgyros', 'kip gyros', 'gyros kip'],
+  intro: 'Kruidig gemarineerde kippendij met krokante randjes, in een warme pita met tzatziki, tomaat en ui. Net zo Grieks als de varkensversie, en wat lichter.',
+  vervang: {
+    varkensschouder: { n: 'kippendijfilet', q: 600, u: 'g', x: 'heel, of opengevouwen tot lapjes van 1 cm dik' }
+  },
+  stappen: [
+    { t: 'Meng olie, citroensap, knoflook, oregano, paprikapoeder, komijn, zout en peper in een kom. Schep de kip erdoor en laat minstens 30 minuten marineren, of afgedekt een nacht in de koelkast.', min: 30 },
+    { t: 'Tzatziki: rasp de komkommer grof en knijp hem in een schone theedoek zo droog mogelijk. Meng met yoghurt, knoflook, olijfolie, dille en een snuf zout. Zet koud.' },
+    { t: 'Neem je friet? Bak die nu volgens de verpakking in de oven of airfryer.' },
+    { t: 'Snijd de kip in reepjes. Verhit de koekenpan op hoog vuur, zonder extra olie. Bak de kip in 2 porties 6 à 8 minuten, tot hij gaar is en er donkere, krokante randjes aan zitten. Doe niet te veel tegelijk in de pan, anders gaat hij koken in plaats van bakken.', m: 'koekenpan', min: 7 },
+    { t: 'Leg de hele kippendijen op de voorverwarmde contactgrill, sluit de deksel en grill 7 à 8 minuten, tot ze gaar zijn en mooie bruine strepen hebben. Laat ze 2 minuten rusten en snijd ze in reepjes.', m: 'contactgrill', min: 8 },
+    { t: 'Warm de pita\'s 1 minuut per kant op in de hete koekenpan, met een paar druppels olie.' },
+    { t: 'Beleg elke pita met kip, tomaat, ui, een flinke schep tzatziki en eventueel een handje friet. Rol op en wikkel de onderkant in bakpapier.' }
+  ],
+  tips: ['Kippendij blijft bij hoge hitte sappig; kipfilet wordt snel droog. Neem je toch filet, snijd hem dan in dunne plakken en bak hem 2 minuten korter.', 'De krokante, donkere randjes maken het gyros: bak dus op hoog vuur en in kleine porties.']
 },
 {
   id: 'spanakopita', naam: 'Spanakopita', ook: ['griekse spinaziepastei', 'spinazietaart'],

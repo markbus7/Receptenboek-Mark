@@ -44,7 +44,7 @@ RECEPTEN.push(
   ]
 },
 {
-  id: 'gentse-waterzooi', naam: 'Gentse waterzooi met kip', ook: ['waterzooi'],
+  id: 'gentse-waterzooi', naam: 'Gentse waterzooi met kip', gerecht: 'Gentse waterzooi', variant: 'Kip', ook: ['waterzooi'],
   keuken: 'Belgisch', soort: 'Hoofdgerecht',
   tijd: 35, wacht: '35 min trekken', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Een romige soep-stoof uit Gent met kip, reepjes groente en aardappel, gebonden met room en eidooier. Je eet hem uit een diep bord, met een lepel én een vork.',
@@ -81,9 +81,41 @@ RECEPTEN.push(
     'Maak je hem vooruit? Bewaar de soep zonder binding en voeg room en eidooier pas toe als je hem opwarmt.'
   ],
   alt: [
-    'Sneller: gebruik 600 g kippendijfilet in blokken en laat die 15 minuten in de bouillon trekken. Dan hoef je niets te plukken.',
-    'Waterzooi met vis: gebruik visbouillon en gaar 600 g kabeljauw of zalm in grote stukken de laatste 5 minuten mee.'
+    'Sneller: gebruik 600 g kippendijfilet in blokken en laat die 15 minuten in de bouillon trekken. Dan hoef je niets te plukken.'
   ]
+},
+{
+  id: 'waterzooi-vis', variantVan: 'gentse-waterzooi', variant: 'Vis', naam: 'Gentse waterzooi met vis', ook: ['viswaterzooi', 'waterzooi met vis'],
+  tijd: 40, wacht: null,
+  intro: 'De oorspronkelijke waterzooi: grote stukken vis die zachtjes garen in een romige bouillon met reepjes groente en aardappel, gebonden met room en eidooier.',
+  ingr: [
+    { n: 'kabeljauwfilet', q: 400, u: 'g', x: 'in grote stukken; of een andere stevige witte vis' },
+    { n: 'zalmfilet', q: 200, u: 'g', x: 'zonder vel, in grote stukken' },
+    { n: 'visbouillon', q: 1200, u: 'ml', x: 'of groentebouillon' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gehalveerd' },
+    { n: 'laurierblad', p: 'laurierbladeren', q: 2, u: 'st' },
+    { n: 'verse tijm', q: 3, u: 'takje' },
+    { n: 'prei', p: 'preien', q: 2, u: 'st', x: 'het wit en lichtgroen in dunne reepjes' },
+    { n: 'wortel', p: 'wortels', q: 3, u: 'st', x: 'in luciferdunne reepjes' },
+    { n: 'bleekselderij', q: 3, u: 'stengel', x: 'in dunne reepjes' },
+    { n: 'vastkokende aardappelen', q: 600, u: 'g', x: 'in blokjes van 1½ cm' },
+    { kop: 'Binding' },
+    { n: 'slagroom', q: 150, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom' },
+    { n: 'eidooier', p: 'eidooiers', q: 2, u: 'st' },
+    { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
+    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'zout' }, { n: 'peper' }
+  ],
+  stappen: [
+    { t: 'Breng de bouillon met de ui, laurier en tijm aan de kook in de Dutch oven. Laat 10 minuten zachtjes trekken en haal ui en kruiden eruit.', min: 10 },
+    { t: 'Doe de aardappelblokjes in de bouillon en kook 5 minuten. Voeg dan prei, wortel en selderij toe en kook nog 8 à 10 minuten, tot alles gaar is.', min: 14 },
+    { t: 'Bestrooi de vis met zout. Zet het vuur laag, leg de vis in de bouillon en laat hem 4 à 5 minuten garen zonder dat de soep kookt, tot hij net uit elkaar valt. Schep de vis voorzichtig uit de pan en houd hem warm.', min: 5 },
+    { t: 'Klop in een kom de room, de eidooiers en het citroensap los. Klop er 2 soeplepels hete bouillon door en giet het mengsel dan al roerend terug in de pan.' },
+    { t: 'Warm 2 à 3 minuten door tot de soep licht gebonden is. Laat hem niet meer koken, anders schift de eidooier. Breng op smaak met zout en peper.', min: 3 },
+    { t: 'Verdeel de vis over diepe borden, schep de soep met de groente erover en strooi de peterselie erop.' }
+  ],
+  tips: ['Waterzooi werd in Gent oorspronkelijk met riviervis gemaakt; kip werd pas later de standaard.', 'Vis valt snel uit elkaar: roer niet meer zodra hij in de pan ligt en schep hem met een schuimspaan uit.'],
+  alt: ['Feestelijker: laat de laatste 2 minuten 200 g gepelde garnalen meewarmen in de soep.']
 },
 {
   id: 'vol-au-vent', naam: 'Vol-au-vent', ook: ['koninginnenhapje', 'pasteitjes', 'pasteitje met ragout', 'pasteitjes met ragout', 'ragout', 'ragoutpasteitje', 'kippenragout'],
@@ -290,7 +322,7 @@ RECEPTEN.push(
   bij: ['steak-frites', 'mosselen', 'kapsalon', 'fish-and-chips']
 },
 {
-  id: 'wiener-schnitzel', naam: 'Wiener schnitzel', ook: ['schnitzel', 'paneerschnitzel'],
+  id: 'wiener-schnitzel', naam: 'Wiener schnitzel', gerecht: 'Schnitzel', variant: 'Kalf of varken', ook: ['schnitzel', 'paneerschnitzel'],
   keuken: 'Duits & Oostenrijks', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Flinterdun geslagen vlees in een krokant, golvend jasje van paneermeel, gebakken in ruim boter. Een partje citroen erbij en meer heb je niet nodig.',
@@ -324,9 +356,24 @@ RECEPTEN.push(
     'Een echte Wiener schnitzel is van kalfsvlees. Van varkensvlees heet hij officieel Schnitzel Wiener Art, en zo eten de meeste Oostenrijkers hem thuis ook.'
   ],
   alt: [
-    'Met kip: snijd een kipfilet horizontaal doormidden, sla de helften plat en paneer en bak ze op dezelfde manier.',
     'Jägerschnitzel: laat de citroen weg en schep er champignonsaus over.'
   ]
+},
+{
+  id: 'kipschnitzel', variantVan: 'wiener-schnitzel', variant: 'Kip', naam: 'Kipschnitzel', ook: ['schnitzel van kip', 'kip schnitzel', 'gepaneerde kip'],
+  intro: 'Platgeslagen kipfilet in een krokant, golvend jasje van paneermeel, gebakken in boter en olie. Met een partje citroen, zoals de Wiener schnitzel.',
+  vervang: {
+    schnitzel: { n: 'kipfilet', p: 'kipfilets', q: 2, u: 'st', x: 'grote, ca. 300 g per stuk' }
+  },
+  stappen: [
+    { t: 'Snijd elke kipfilet horizontaal door tot twee dunne lapjes. Leg ze een voor een tussen twee vellen bakpapier of in een opengeknipte diepvrieszak en sla ze gelijkmatig plat tot 5 mm dik. Bestrooi ze met zout en peper.' },
+    { t: 'Zet drie diepe borden klaar: één met bloem, één met de eieren losgeklopt met de melk en één met paneermeel. Haal elke schnitzel door de bloem (klop het teveel eraf), dan door het ei en dan door het paneermeel. Druk het paneermeel niet aan: zo krijg je dat golvende korstje. Paneer pas vlak voor het bakken.' },
+    { t: 'Verhit olie en boter in de koekenpan op middelhoog vuur, tot het schuim van de boter wegtrekt en een broodkruimel meteen sist. Er moet ongeveer 1 cm vet in de pan staan.', m: 'koekenpan' },
+    { t: 'Bak de schnitzels één of twee tegelijk 3 minuten per kant goudbruin en gaar. Schep het hete vet met een lepel over de bovenkant, dan gaat het korstje bollen. Laat ze kort uitlekken op keukenpapier.', m: 'koekenpan', min: 6 },
+    { t: 'Verwarm de airfryer voor op 200 °C. Bestrijk of besproei de schnitzels aan beide kanten met 2 el olie en leg ze naast elkaar in de mand. Bak 10 à 12 minuten tot ze goudbruin en gaar zijn en keer ze halverwege. Smelt de boter en sprenkel die er na het bakken over.', m: 'airfryer', min: 11 },
+    { t: 'Serveer de schnitzels meteen met citroenpartjes en eventueel wat peterselie. Lekker met kartoffelsalat, friet of gebakken aardappeltjes.' }
+  ],
+  tips: ['Kip moet helemaal gaar zijn: snijd de dikste in, hij mag vanbinnen niet meer roze zijn. Door het platslaan gaat dat snel en blijft hij sappig.', 'In Oostenrijk heet gepaneerde kip Backhendl; daar is het meestal kip met bot uit de frituur.']
 },
 {
   id: 'apfelstrudel', naam: 'Apfelstrudel', ook: ['strudel', 'appelstrudel'],

@@ -68,16 +68,24 @@ const Detail = (() => {
     return def.m;
   }
 
-  function open(recept, context) {
+  /* Met { houd: true } (een andere variant kiezen) blijven het aantal personen, de bereidingswijze
+     en de scrollpositie staan. */
+  function open(recept, context, { houd = false } = {}) {
+    const vorige = houd && r ? { personen: r.pers * factor, methode, scroll: blad.scrollTop } : null;
     r = recept; ctx = context; factor = 1; ikHeb = null;
     if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
     methode = ms.length ? (ms.find((m) => m.heb) || ms[0]).id : null;
+    if (vorige) {
+      factor = Math.max(1, Math.round(vorige.personen)) / r.pers;
+      if (ms.some((m) => m.id === vorige.methode)) methode = vorige.methode;
+    }
     render();
     sheet.hidden = false;
     document.body.classList.add('sheet-open');
-    blad.scrollTop = 0;
-    blad.focus({ preventScroll: true });
+    blad.scrollTop = vorige ? vorige.scroll : 0;
+    if (vorige) { const knop = blad.querySelector(`[data-variant="${r.id}"]`); if (knop) knop.focus({ preventScroll: true }); }
+    else blad.focus({ preventScroll: true });
   }
 
   function sluit() {
@@ -92,7 +100,7 @@ const Detail = (() => {
 
   function render() {
     const fav = ctx.isFav(r.id);
-    const foto = window.FOTOS && FOTOS[r.id];
+    const foto = Hulp.foto(r);
     const ms = Hulp.methodes(r, ctx.keuken);
     const meta = [
       `<li>${icoon('klok')} ${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="zacht">+ ${Hulp.esc(r.wacht)}</span>` : ''}</li>`,
@@ -125,6 +133,16 @@ const Detail = (() => {
           <div class="d-titelblok">
             <p class="d-soort">${Hulp.esc(r.soort)}</p>
             <h2 id="d-titel">${Hulp.esc(r.naam)}</h2>
+            ${(() => {
+              const vs = ctx.varianten(r);
+              return vs.length > 1 ? `
+              <div class="varianten" role="group" aria-label="Kies je variant">
+                <span class="methode-label">Kies je variant</span>
+                <div class="segment segment-variant">
+                  ${vs.map((v) => `<button type="button" data-variant="${v.id}" aria-pressed="${v.id === r.id}" title="${Hulp.esc(v.naam)}">${Hulp.esc(v.variant || v.naam)}</button>`).join('')}
+                </div>
+              </div>` : '';
+            })()}
             <p class="d-intro">${Hulp.esc(r.intro)}</p>
             <ul class="d-meta">${meta}</ul>
           </div>
@@ -314,6 +332,8 @@ const Detail = (() => {
   blad.addEventListener('click', (e) => {
     const t = e.target;
     if (t.closest('[data-sluit]')) return ctx.sluit();
+    const v = t.closest('[data-variant]');
+    if (v) { if (v.dataset.variant !== r.id) ctx.kiesVariant(v.dataset.variant); return; }
     const m = t.closest('[data-methode]');
     if (m) {
       methode = m.dataset.methode;

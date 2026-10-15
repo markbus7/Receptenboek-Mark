@@ -32,7 +32,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Vervang de kip door tempeh of tofu en gebruik vegetarische nasikruiden.']
 },
 {
-  id: 'sate-ajam', naam: 'Saté ajam met pindasaus', ook: ['kipsaté', 'satéstokjes'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
+  id: 'sate-ajam', naam: 'Saté ajam met pindasaus', gerecht: 'Saté met pindasaus', variant: 'Kip', ook: ['kipsaté', 'satéstokjes', 'saté'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Gemarineerde kippendijen met romige pindasaus, gebakken op de grill, in de airfryer of de oven.',
   methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'grillpan', naam: 'Grillpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
@@ -41,7 +41,7 @@ RECEPTEN.push(
     { tool: 'grillpan', tekst: 'Grillpan, goed heet', m: 'grillpan' },
     { tool: 'airfryer', tekst: 'Airfryer, spiesen passend afgeknipt', m: 'airfryer' },
     { tool: 'bakplaat', tekst: 'Bakplaat met rooster en bakpapier', m: 'oven' },
-    { tool: 'koekenpan', tekst: 'Grote koekenpan (28 cm); stukjes kip zonder spies bakken', m: 'koekenpan' },
+    { tool: 'koekenpan', tekst: 'Grote koekenpan (28 cm); stukjes vlees zonder spies bakken', m: 'koekenpan' },
     { tool: 'kookpan', tekst: 'Steelpan voor de pindasaus' }
   ],
   ingr: [
@@ -72,7 +72,25 @@ RECEPTEN.push(
   alt: ['Geen satéprikkers? Bak de kip los en schep de saus erover; net zo lekker met rijst en atjar.']
 },
 {
-  id: 'pad-thai', naam: 'Pad thai met garnalen', keuken: 'Thais', soort: 'Hoofdgerecht',
+  id: 'sate-babi', variantVan: 'sate-ajam', variant: 'Varkensvlees', naam: 'Saté babi met pindasaus', ook: ['varkenssaté', 'babi saté'],
+  intro: 'Gemarineerde blokjes varkensvlees met romige pindasaus, gebakken op de grill, in de airfryer of de oven. De klassieker van de Nederlandse snackbar en barbecue.',
+  vervang: {
+    kippendijfilet: { n: 'varkenshaas', q: 600, u: 'g', x: 'of procureur (schouder), in blokjes van 2 cm' }
+  },
+  stappen: [
+    { t: 'Meng de marinade, schep het vlees erdoor en laat minimaal 30 minuten marineren. Rijg het vlees aan de geweekte prikkers.', min: 30 },
+    { t: 'Leg de spiesen naast elkaar op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 8 minuten tot het vlees gaar en licht geblakerd is.', m: 'contactgrill', min: 7 },
+    { t: 'Verhit de grillpan op hoog vuur tot hij rookt. Grill de spiesen 8 à 10 minuten en draai ze regelmatig.', m: 'grillpan', min: 9 },
+    { t: 'Verwarm de airfryer voor op 200 °C. Bak de spiesen in één laag 10 à 12 minuten. Keer ze halverwege.', m: 'airfryer', min: 11 },
+    { t: 'Zet de oven op de grillstand (of 230 °C). Leg de spiesen op het rooster boven de bakplaat, 10 cm onder de grill. Grill 12 à 15 minuten en keer halverwege.', m: 'oven', min: 13 },
+    { t: 'Bak de blokjes vlees in een scheut olie in de koekenpan op hoog vuur 6 à 8 minuten rondom bruin en gaar. Steek ze daarna aan de prikkers.', m: 'koekenpan', min: 7 },
+    { t: 'Pindasaus: verwarm alle ingrediënten in de steelpan op laag vuur en roer tot een gladde saus. Te dik? Voeg wat water toe.', min: 5 }
+  ],
+  tips: ['Varkenshaas is het malst maar droogt snel uit: haal hem van het vuur zodra hij vanbinnen net niet meer roze is. Procureur is vetter, blijft sappiger en mag iets langer.'],
+  alt: ['Geen satéprikkers? Bak het vlees los en schep de saus erover; net zo lekker met rijst en atjar.']
+},
+{
+  id: 'pad-thai', naam: 'Pad thai met garnalen', gerecht: 'Pad thai', variant: 'Garnalen', ook: ['pad thai', 'padthai'], keuken: 'Thais', soort: 'Hoofdgerecht',
   tijd: 30, pers: 2, niveau: 'Gemiddeld', vega: false,
   intro: 'Zoetzure rijstnoedels met garnalen, ei, taugé en geroosterde pinda\'s.',
   gerei: [
@@ -105,6 +123,22 @@ RECEPTEN.push(
   ],
   tips: ['Heb alles klaarstaan voordat je begint: in de wok gaat het heel snel.'],
   alt: ['Vegetarisch? Gebruik tofu in plaats van garnalen en sojasaus in plaats van vissaus.']
+},
+{
+  id: 'pad-thai-kip', variantVan: 'pad-thai', variant: 'Kip', naam: 'Pad thai met kip', ook: ['pad thai kip', 'chicken pad thai'],
+  intro: 'Zoetzure rijstnoedels met reepjes kip, ei, taugé en geroosterde pinda\'s.',
+  vervang: {
+    garnalen: { n: 'kippendijfilet', q: 250, u: 'g', x: 'in dunne reepjes' }
+  },
+  stappen: [
+    { t: 'Week de noedels 10 minuten in heet (niet kokend) water tot ze buigzaam maar nog stevig zijn. Giet af.', min: 10 },
+    { t: 'Roer de ingrediënten voor de saus door elkaar tot de suiker is opgelost.' },
+    { t: 'Verhit de olie in de wok op hoog vuur. Bak knoflook en kip 3 à 4 minuten tot de kip gaar en licht gebruind is.', min: 4 },
+    { t: 'Schuif alles naar de rand. Breek de eieren in het midden en roer ze 30 seconden tot ze net gestold zijn.' },
+    { t: 'Voeg de noedels en de saus toe. Roerbak 2 minuten tot de saus is opgenomen.', min: 2 },
+    { t: 'Schep de taugé en lente-ui erdoor en bak nog 30 seconden. Serveer met pinda\'s en limoenpartjes.' }
+  ],
+  alt: ['Vegetarisch? Gebruik tofu in plaats van kip en sojasaus in plaats van vissaus.']
 },
 {
   id: 'groene-curry', naam: 'Thaise groene curry met kip', keuken: 'Thais', soort: 'Hoofdgerecht',

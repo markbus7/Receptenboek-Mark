@@ -1,12 +1,13 @@
 # Receptenboek Mark
 
-Een receptenboek in de browser met 185 recepten uit 22 keukens. Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
+Een receptenboek in de browser met 184 gerechten uit 22 keukens, waarvan 21 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
 
 ## Wat kan het
 
 - **Zoeken** met suggesties terwijl je typt (recepten, hoofdstukken, soorten en ingrediënten). Een tikfout is geen probleem: "ommelet" of "spagetti" vindt toch het juiste gerecht. Andere namen werken ook: *french toast* vindt wentelteefjes, *pasteitje* of *ragout* de vol-au-vent, *pasta bolognese* de spaghetti bolognese, en *sauzen* of *toetje* geeft alle sauzen of desserts.
 - **Filteren** op keuken (Italiaans, Indiaas, Indonesisch, Surinaams, Thais, Nederlands, …), soort gerecht, pan of apparaat (*Bereid in*: Dutch oven, koekenpan, oven, airfryer, …), maximale bereidingstijd en vegetarisch.
 - **Sauzen en basissauzen** hebben een eigen soort (*Saus*): pepersaus, champignonroomsaus, bearnaise, hollandaise, bechamel, kaassaus, jus, mayonaise, tomatensaus, pesto, pindasaus, knoflooksaus, salsa en barbecuesaus. Onder *Lekker met* zie je welke saus bij welk gerecht past, en andersom.
+- **Varianten.** Gerechten die je met verschillend vlees of vis maakt, staan maar één keer in het boek: taco's met gehakt of kip, curry madras met rundvlees, kip of lam, saté van kip of varkensvlees, fajitas met kip of biefstuk, enzovoort. Onder de kaart en bovenaan het recept tik je de variant aan die je wilt maken; ingrediënten, bereiding en tips wisselen mee, het aantal personen blijft staan.
 - **Wat heb ik in huis?** Typ de ingrediënten die je hebt. Recepten waarvoor je het minst hoeft te kopen komen bovenaan, met per recept wat je nog mist.
 - **Omrekenen.** Pas het aantal personen aan, of vul in hoeveel je van één ingrediënt hebt (bijvoorbeeld *300 g kipfilet*). Alle andere hoeveelheden schalen mee.
 - **Pannen en apparatuur** staan per recept bovenaan: welke pan, welk formaat, en wat je kunt gebruiken als je hem niet hebt.
@@ -54,6 +55,24 @@ Recepten staan in `js/data/recepten-*.js`. Een recept ziet er zo uit:
 }
 ```
 
+### Een variant toevoegen
+
+Maak je een gerecht ook met ander vlees of vis, voeg het dan toe als variant in plaats van als los recept. Geef het basisrecept een `variant` (de naam op de knop) en eventueel een `gerecht` (de naam van het gerecht als geheel, op de kaart). De variant is een recept met `variantVan` en neemt alles over wat hij zelf niet invult:
+
+```js
+// basisrecept
+{ id: 'tacos', naam: 'Taco\'s met gekruid gehakt', gerecht: 'Taco\'s', variant: 'Gehakt', ... },
+// variant
+{
+  id: 'tacos-kip', variantVan: 'tacos', variant: 'Kip', naam: 'Taco\'s met kip',
+  intro: '…',
+  vervang: { rundergehakt: { n: 'kippendijfilet', q: 500, u: 'g' }, Gehakt: { kop: 'Kip' } },  // eerste regel met die naam
+  stappen: [ … ]                                                                                // als de bereiding anders is
+}
+```
+
+Met `vervang` ruil je een ingrediënt (of tussenkopje) om; `null` haalt het weg. Een veld op `null` zetten (bijv. `methodes: null`) betekent dat de variant het níet overneemt. Een variant zonder eigen foto toont die van het basisrecept.
+
 Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. Met `ook` vind je een recept ook onder een andere naam (*french toast* → wentelteefjes). `bij` koppelt een saus of bijgerecht aan gerechten; de link verschijnt in beide recepten. Controleer je werk met `node tools/controleer-recepten.js`.
 
 ## Foto's
@@ -64,6 +83,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.13.0**: varianten. Gerechten met ander vlees of vis staan nu één keer in het boek, met klikbare varianten op de kaart en bovenaan het recept. *Curry madras met rundvlees* en *kip madras* zijn samengevoegd (met een nieuwe lamsversie), en 20 gerechten kregen een nieuwe variant: taco's met kip, burrito's met gehakt, fajitas met biefstuk, pad thai met kip, saté babi, gyros van kip, cottage pie, massaman met kip, kipschnitzel, pad kra pao moo, pad see ew met rundvlees, banh mi met kip, gà lúc lắc, foe yong hai met garnalen, tjap tjoy met varkensvlees, koe lo yuk, kip met broccoli, dwaeji bulgogi, ajam ketjap en waterzooi met vis.
 - **1.12.0**: nieuw recept *Gehaktballen in tomatensaus* (polpette al sugo), met foto; in de pan of met de ballen uit de airfryer. Je vindt het ook als *polpette*, *italiaanse gehaktballen*, *balletjes in tomatensaus* of *meatballs*.
 - **1.11.4**: bij *Op al je apparaten* staat een link die het GitHub-tokenformulier al invult (naam, een jaar geldig, alleen *Gists: Read and write*), met een korte stap-voor-stap uitleg.
 - **1.11.3**: bij recepten met slagroom staat erbij dat het vloeibare slagroom uit een pak is (geen spuitbus), met kookroom of crème fraîche als alternatief waar dat kan. Pepersaus en champignonroomsaus hebben een tip over welke room je pakt en wat je met een restje doet.

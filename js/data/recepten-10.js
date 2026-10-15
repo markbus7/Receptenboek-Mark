@@ -269,7 +269,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Laat het vlees weg en gebruik groentebouillon in plaats van water.']
 },
 {
-  id: 'shepherds-pie', naam: 'Shepherd\'s pie', ook: ['herderspastei'], keuken: 'Brits', soort: 'Hoofdgerecht',
+  id: 'shepherds-pie', naam: 'Shepherd\'s pie', gerecht: 'Shepherd\'s pie', variant: 'Lam', ook: ['herderspastei'], keuken: 'Brits', soort: 'Hoofdgerecht',
   tijd: 45, wacht: '30 min bakken', pers: 6, niveau: 'Makkelijk', vega: false,
   intro: 'Gestoofd lamsgehakt met groenten onder een dikke laag romige aardappelpuree, goudbruin gebakken.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
@@ -280,7 +280,7 @@ RECEPTEN.push(
     { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past', m: 'airfryer' }
   ],
   ingr: [
-    { n: 'lamsgehakt', q: 600, u: 'g', x: 'of rundergehakt (dan heet het cottage pie)' },
+    { n: 'lamsgehakt', q: 600, u: 'g', x: 'met rundergehakt heet hij cottage pie' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in blokjes' },
     { n: 'bleekselderij', q: 1, u: 'stengel' },
@@ -307,5 +307,13 @@ RECEPTEN.push(
   ],
   tips: ['De vorkstrepen in de puree worden de krokantste randjes.'],
   alt: ['Vegetarisch? Vervang het gehakt door 400 g gekookte linzen en 200 g champignons.']
+},
+{
+  id: 'cottage-pie', variantVan: 'shepherds-pie', variant: 'Rundergehakt', naam: 'Cottage pie', ook: ['cottage pie met rundergehakt', 'herderspastei met rundergehakt'],
+  intro: 'Het broertje van de shepherd\'s pie: gestoofd rundergehakt met groenten onder een dikke laag romige aardappelpuree, goudbruin gebakken.',
+  vervang: {
+    lamsgehakt: { n: 'rundergehakt', q: 600, u: 'g' }
+  },
+  tips: ['Shepherd\'s pie is met lam (de herder hoedt schapen), cottage pie met rundvlees. Verder is het hetzelfde recept.', 'De vorkstrepen in de puree worden de krokantste randjes.']
 }
 );

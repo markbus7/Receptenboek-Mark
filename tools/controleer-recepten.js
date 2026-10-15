@@ -20,7 +20,33 @@ const herkomst = new Map();
 for (const f of bestanden) {
   const voor = ctx.RECEPTEN.length;
   try { laad(f); } catch (e) { console.log(`${f}: kan niet laden: ${e.message}`); process.exitCode = 1; continue; }
-  ctx.RECEPTEN.slice(voor).forEach((r) => herkomst.set(r, f));
+  ctx.RECEPTEN.slice(voor).forEach((r) => herkomst.set(r.id, f));
+}
+
+// Varianten: controleer de ruwe gegevens, en vul ze daarna aan met het basisrecept (zoals de app doet).
+const ruw = new Map(ctx.RECEPTEN.map((r) => [r.id, r]));
+const variantFouten = [];
+for (const r of ctx.RECEPTEN) {
+  const fout = (m) => variantFouten.push({ f: herkomst.get(r.id), id: r.id, m });
+  if (r.gerecht !== undefined && (typeof r.gerecht !== 'string' || !r.gerecht.trim())) fout('gerecht moet tekst zijn');
+  if (r.variant !== undefined && (typeof r.variant !== 'string' || !r.variant.trim())) fout('variant moet een korte naam zijn (bijv. \'Kip\')');
+  if (r.vervang !== undefined && !r.variantVan) fout('vervang werkt alleen bij een variant (variantVan)');
+  if (!r.variantVan) continue;
+  const basis = ruw.get(r.variantVan);
+  if (!basis) { fout(`variantVan: onbekend recept "${r.variantVan}"`); continue; }
+  if (basis.variantVan) fout(`variantVan: "${r.variantVan}" is zelf een variant; verwijs naar het basisrecept`);
+  if (!r.variant) fout('variant ontbreekt (de naam op de knop, bijv. \'Kip\')');
+  if (!basis.variant) fout(`basisrecept "${basis.id}" heeft geen variant-naam`);
+  for (const n of Object.keys(r.vervang || {})) {
+    if (!(r.ingr || basis.ingr).some((i) => i.n === n || i.kop === n)) fout(`vervang: "${n}" staat niet in de ingrediënten`);
+  }
+}
+vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'js', 'varianten.js'), 'utf8'), ctx, { filename: 'varianten.js' });
+const labels = new Map();
+for (const r of ctx.RECEPTEN) {
+  const sleutel = `${r.groep}|${r.variant}`;
+  if (r.variant && labels.has(sleutel)) variantFouten.push({ f: herkomst.get(r.id), id: r.id, m: `variant "${r.variant}" komt twee keer voor bij hetzelfde gerecht` });
+  labels.set(sleutel, r.id);
 }
 
 const alleen = process.argv.slice(2).map((n) => `recepten-${n}.js`);
@@ -28,10 +54,10 @@ const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch
 const NIVEAUS = ['Makkelijk', 'Gemiddeld', 'Moeilijk'];
 const KEUKENS = ctx.HOOFDSTUKKEN.map((h) => h.keuken);
 const ids = new Map();
-const fouten = [];
+const fouten = [...variantFouten];
 
 for (const r of ctx.RECEPTEN) {
-  const f = herkomst.get(r);
+  const f = herkomst.get(r.id);
   const fout = (m) => fouten.push({ f, id: r.id, m });
   if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(r.id || '')) fout('id moet kleine letters, cijfers en streepjes zijn');
   if (ids.has(r.id)) fout(`dubbel id (ook in ${ids.get(r.id)})`);
@@ -83,19 +109,19 @@ for (const r of ctx.RECEPTEN) {
     if (s.min !== undefined && !(typeof s.min === 'number' && s.min > 0)) fout(`stap "${(s.t || '').slice(0, 30)}": min moet positief zijn`);
     if (s.m && !mids.includes(s.m)) fout(`stap "${(s.t || '').slice(0, 30)}": onbekende methode "${s.m}"`);
   }
-  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij']);
+  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'groep']);
   const vreemd = Object.keys(r).filter((k) => !bekend.has(k));
   if (vreemd.length) fout(`onbekende velden: ${vreemd.join(', ')}`);
 }
 for (const r of ctx.RECEPTEN) {
-  for (const b of r.bij || []) if (!ids.has(b)) fouten.push({ f: herkomst.get(r), id: r.id, m: `bij: onbekend recept "${b}"` });
-  if (r.bij !== undefined && !Array.isArray(r.bij)) fouten.push({ f: herkomst.get(r), id: r.id, m: 'bij moet een lijst met ids zijn' });
+  for (const b of r.bij || []) if (!ids.has(b)) fouten.push({ f: herkomst.get(r.id), id: r.id, m: `bij: onbekend recept "${b}"` });
+  if (r.bij !== undefined && !Array.isArray(r.bij)) fouten.push({ f: herkomst.get(r.id), id: r.id, m: 'bij moet een lijst met ids zijn' });
 }
 
 const toon = fouten.filter((x) => !alleen.length || alleen.includes(x.f));
 toon.forEach((x) => console.log(`${x.f} · ${x.id}: ${x.m}`));
 const telling = {};
 ctx.RECEPTEN.forEach((r) => { telling[r.keuken] = (telling[r.keuken] || 0) + 1; });
-console.log(`\n${ctx.RECEPTEN.length} recepten, ${toon.length} fouten${alleen.length ? ` in ${alleen.join(', ')}` : ''}.`);
+console.log(`\n${ctx.VARIANTEN.aantalGerechten()} gerechten (${ctx.RECEPTEN.length} recepten met varianten), ${toon.length} fouten${alleen.length ? ` in ${alleen.join(', ')}` : ''}.`);
 console.log(KEUKENS.map((k) => `${k} ${telling[k] || 0}`).join(' · '));
 if (toon.length) process.exitCode = 1;
