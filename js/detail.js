@@ -69,8 +69,8 @@ const Detail = (() => {
   }
 
   /* Met { houd: true } (een andere variant kiezen) blijven het aantal personen, de bereidingswijze
-     en de scrollpositie staan. */
-  function open(recept, context, { houd = false } = {}) {
+     en de scrollpositie staan. Met { personen } opent het recept meteen omgerekend (uit een gedeelde link). */
+  function open(recept, context, { houd = false, personen = null } = {}) {
     const vorige = houd && r ? { personen: r.pers * factor, methode, scroll: blad.scrollTop } : null;
     r = recept; ctx = context; factor = 1; ikHeb = null;
     if (sheet.hidden) terugFocus = document.activeElement;
@@ -79,7 +79,7 @@ const Detail = (() => {
     if (vorige) {
       factor = Math.max(1, Math.round(vorige.personen)) / r.pers;
       if (ms.some((m) => m.id === vorige.methode)) methode = vorige.methode;
-    }
+    } else if (personen > 0) factor = Math.round(personen) / r.pers;
     render();
     sheet.hidden = false;
     document.body.classList.add('sheet-open');
@@ -123,6 +123,7 @@ const Detail = (() => {
       <header class="d-balk">
         <button type="button" class="ikoon-knop" data-sluit aria-label="Sluit recept">${icoon('sluit')}</button>
         <div class="d-balk-acties">
+          <button type="button" class="knop knop-klein knop-zacht" id="d-deel" aria-label="Deel recept">${icoon('deel')} <span class="d-deel-tekst">Deel</span></button>
           <button type="button" class="knop knop-klein knop-zacht" id="d-scherm" aria-pressed="${wilScherm}">${icoon('scherm')} Scherm aan</button>
           <button type="button" class="ikoon-knop fav-knop" id="d-fav" aria-pressed="${fav}" aria-label="${fav ? 'Verwijder uit favorieten' : 'Voeg toe aan favorieten'}">${icoon('hart')}</button>
         </div>
@@ -310,6 +311,58 @@ const Detail = (() => {
     renderIngr();
   }
 
+  /* Het recept als platte tekst, precies zoals het nu op je scherm staat: gekozen variant,
+     bereidingswijze en aantal personen. Onderaan een link die het recept zo weer opent. */
+  function alsTekst() {
+    const pers = Math.round(r.pers * factor);
+    const ms = Hulp.methodes(r, ctx.keuken);
+    const m = ms.find((x) => x.id === methode);
+    const regels = [r.naam, ''];
+    regels.push(`${pers} ${r.stuks || (pers === 1 ? 'persoon' : 'personen')} · ${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` + ${r.wacht}` : ''} · ${r.niveau}${r.vega ? ' · vegetarisch' : ''}`);
+    if (m && ms.length > 1) regels.push(`Bereiden met: ${m.naam}`);
+    regels.push('', 'Ingrediënten');
+    r.ingr.forEach((i) => {
+      if (i.kop) return regels.push('', i.kop);
+      const extra = i.x || (i.q == null ? 'naar smaak' : '');
+      regels.push(`- ${Hulp.hoeveelheidTekst(i, factor)}${extra ? `, ${extra}` : ''}${i.opt ? ' (optioneel)' : ''}`);
+    });
+    regels.push('', 'Bereiding');
+    r.stappen.filter((s) => !s.m || s.m === methode).forEach((s, n) => regels.push(`${n + 1}. ${s.t}`));
+    if (r.tips && r.tips.length) regels.push('', 'Tip', ...r.tips.map((t) => `- ${t}`));
+    regels.push('', link());
+    return regels.join('\n');
+  }
+
+  function link() {
+    const pers = Math.round(r.pers * factor);
+    return `${location.href.split('#')[0]}#${r.id}${pers !== r.pers ? `?personen=${pers}` : ''}`;
+  }
+
+  function kopieer(tekst) {
+    const terugval = () => {
+      const ta = document.createElement('textarea');
+      ta.value = tekst; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      let gelukt = false;
+      try { gelukt = document.execCommand('copy'); } catch (e) { /* genegeerd */ }
+      ta.remove();
+      App.toast(gelukt ? 'Recept gekopieerd: plak het in een bericht of mail' : 'Kopiëren lukt hier niet');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(tekst).then(() => App.toast('Recept gekopieerd: plak het in een bericht of mail'), terugval);
+    } else terugval();
+  }
+
+  /* Op telefoon en tablet opent het deelmenu (WhatsApp, Berichten, mail, …); anders gaat het recept naar het klembord. */
+  async function deel() {
+    const tekst = alsTekst();
+    if (navigator.share) {
+      try { await navigator.share({ title: r.naam, text: tekst }); return; }
+      catch (e) { if (e && e.name === 'AbortError') return; }
+    }
+    kopieer(tekst);
+  }
+
   async function wisselScherm(knop) {
     if (wilScherm) {
       wilScherm = false;
@@ -351,6 +404,7 @@ const Detail = (() => {
       b.setAttribute('aria-label', aan ? 'Verwijder uit favorieten' : 'Voeg toe aan favorieten');
       return App.toast(aan ? 'Bewaard bij je favorieten' : 'Verwijderd uit je favorieten');
     }
+    if (t.closest('#d-deel')) return deel();
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
     const bij = t.closest('[data-bij]');
     if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }

@@ -459,6 +459,7 @@ p.sync-fout::before { display: none; }
 .d-balk .ikoon-knop, .d-balk .knop-zacht { background: var(--papier); border-color: transparent; box-shadow: var(--schaduw-klein); }
 .d-balk .knop-zacht[aria-pressed="true"] { background: var(--inkt); color: var(--papier); }
 .d-balk-acties { display: flex; gap: 8px; align-items: center; }
+@media (max-width: 380px) { .d-deel-tekst { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
 
 .d-spread {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
