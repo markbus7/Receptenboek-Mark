@@ -178,7 +178,7 @@ RECEPTEN.push(
   bij: ['saoto-soep']
 },
 {
-  id: 'pad-kra-pao', naam: 'Pad kra pao (kip met Thaise basilicum)', ook: ['pad krapow', 'kra pao', 'pad kaprao'],
+  id: 'pad-kra-pao', naam: 'Pad kra pao (kip met Thaise basilicum)', gerecht: 'Pad kra pao', variant: 'Kip', ook: ['pad krapow', 'kra pao', 'pad kaprao'],
   keuken: 'Thais', soort: 'Hoofdgerecht',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Het Thaise straatgerecht bij uitstek: fijngehakte kip, gebakken met knoflook, pepers en basilicum in een zoute, glanzende saus. Met rijst en een krokant gebakken ei erop.',
@@ -219,12 +219,34 @@ RECEPTEN.push(
     'Gehakte kippendij blijft sappiger en krijgt meer bite dan kant-en-klaar kipgehakt.'
   ],
   alt: [
-    'Met varkens- of rundergehakt is het net zo klassiek (pad kra pao moo of neua).',
     'Vegetarisch: verkruimelde stevige tofu met vegetarische oestersaus, en extra sojasaus in plaats van vissaus.'
   ]
 },
 {
-  id: 'pad-see-ew', naam: 'Pad see ew', ook: ['pad si ew'],
+  id: 'pad-kra-pao-moo', variantVan: 'pad-kra-pao', variant: 'Varkensgehakt', naam: 'Pad kra pao moo (varkensgehakt met Thaise basilicum)', ook: ['pad kra pao moo', 'pad krapow moo', 'kra pao varken'],
+  intro: 'Het Thaise straatgerecht met varkensgehakt, gebakken met knoflook, pepers en basilicum in een zoute, glanzende saus. Met rijst en een krokant gebakken ei erop.',
+  gerei: [
+    { tool: 'wok', tekst: 'Wok voor hoog vuur', of: 'Geen wok? Gebruik een grote RVS-koekenpan op hoog vuur en bak het gehakt in delen.' },
+    { tool: 'koekenpan', tekst: 'Koekenpan voor de krokante spiegeleieren' },
+    { tool: 'kookpan', tekst: 'Pan met deksel voor de rijst' }
+  ],
+  vervang: {
+    kippendijfilet: { n: 'varkensgehakt', q: 500, u: 'g', x: 'of rundergehakt (dan heet het pad kra pao neua)' },
+    zonnebloemolie: { n: 'zonnebloemolie', q: 6, u: 'el', x: '2 el voor het gehakt, de rest voor de eieren' }
+  },
+  stappen: [
+    { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
+    { t: 'Hak knoflook en pepers samen grof, of stamp ze in een vijzel. Roer oestersaus, sojasaus, vissaus, suiker, ketjap en water door elkaar.' },
+    { t: 'Verhit 4 el olie in de koekenpan op middelhoog tot hoog vuur. Bak de eieren twee tegelijk en schep de hete olie over het eiwit, tot de randen bruin en krokant zijn en de dooier nog zacht is. Laat uitlekken op keukenpapier.', min: 3 },
+    { t: 'Verhit 2 el olie in de wok op hoog vuur. Roerbak knoflook en pepers 20 seconden tot ze geuren; ze mogen niet bruin worden.' },
+    { t: 'Voeg het gehakt (en de sperziebonen) toe, druk het plat in de wok en laat 1 minuut ongestoord bakken. Roerbak het dan in 3 à 4 minuten rul, gaar en hier en daar bruin.', min: 5 },
+    { t: 'Giet de saus erbij en roerbak 1 minuut tot het gehakt glanst. Zet het vuur uit en schep de basilicum erdoor tot hij net slinkt.', min: 1 },
+    { t: 'Schep rijst en gehakt op de borden en leg er een krokant ei op. Prik de dooier door en meng hem door de rijst.' }
+  ],
+  tips: ['Zet prik nam pla op tafel zoals in Thailand: vissaus met fijngesneden pepers en een kneepje limoen.', 'Varkensgehakt met een beetje vet geeft de meeste smaak; heel mager gehakt wordt droog en kruimelig.']
+},
+{
+  id: 'pad-see-ew', naam: 'Pad see ew', gerecht: 'Pad see ew', variant: 'Kip', ook: ['pad si ew'],
   keuken: 'Thais', soort: 'Hoofdgerecht',
   tijd: 30, pers: 2, niveau: 'Gemiddeld', vega: false,
   intro: 'Brede rijstnoedels die in een gloeiend hete wok schroeien met kip, broccoli, ei en donkere sojasaus. Zoet, zout en licht rokerig.',
@@ -262,12 +284,28 @@ RECEPTEN.push(
     'Voor 4 personen bak je twee keer na elkaar. Een overvolle wok geeft natte, plakkerige noedels.'
   ],
   alt: [
-    'Met rundvlees: 250 g biefstuk in dunne plakjes, net zo gemarineerd. Bak het maar 1 à 2 minuten.',
     'Vegetarisch: stevige tofu in plaats van kip en vegetarische oestersaus van paddenstoelen.'
   ]
 },
 {
-  id: 'massaman-curry', naam: 'Massaman curry', keuken: 'Thais', soort: 'Hoofdgerecht',
+  id: 'pad-see-ew-rund', variantVan: 'pad-see-ew', variant: 'Rundvlees', naam: 'Pad see ew met rundvlees', ook: ['pad see ew neua', 'pad see ew rund', 'beef pad see ew'],
+  intro: 'Brede rijstnoedels die in een gloeiend hete wok schroeien met reepjes biefstuk, broccoli, ei en donkere sojasaus. Zoet, zout en licht rokerig.',
+  vervang: {
+    kippendijfilet: { n: 'biefstuk', q: 250, u: 'g', x: 'of bavette, tegen de draad in in dunne plakjes' },
+    sojasaus: { n: 'sojasaus', q: 1, u: 'el', x: 'plus 1 tl voor het vlees' }
+  },
+  stappen: [
+    { t: 'Week de noedels 10 à 15 minuten in heet kraanwater tot ze buigzaam maar nog stevig zijn. Giet af en schep er 1 tl olie door, dan plakken ze niet. Verse noedels trek je alleen voorzichtig los.', min: 12 },
+    { t: 'Meng het vlees met 1 tl sojasaus en de maïzena. Roer de ingrediënten voor de saus door elkaar. Snijd dikke broccolistelen in dunne plakjes.' },
+    { t: 'Verhit 1 el olie in de wok op hoog vuur tot hij begint te roken. Bak de knoflook 10 seconden, voeg het vlees toe en roerbak 1 à 2 minuten tot het bruin is maar vanbinnen nog rosé. Schep het uit de wok. Roerbak de broccoli met 1 el water 2 minuten en schep hem erbij.', min: 4 },
+    { t: 'Verhit de rest van de olie. Doe de noedels en de saus erin en schep om tot ze egaal bruin zijn. Laat ze dan 30 à 45 seconden ongestoord liggen, zodat ze schroeien en hier en daar karamelliseren. Schep om en herhaal dat twee keer.', min: 3 },
+    { t: 'Schuif de noedels naar de rand, breek de eieren in het midden, laat ze 20 seconden stollen en roer ze grof los. Schep ze door de noedels.' },
+    { t: 'Doe vlees en broccoli terug en schep 30 seconden om. Proef: meer sojasaus voor zout, een snuf suiker voor zoet. Serveer met de pepers in azijn.' }
+  ],
+  alt: ['Vegetarisch: stevige tofu in plaats van vlees en vegetarische oestersaus van paddenstoelen.']
+},
+{
+  id: 'massaman-curry', naam: 'Massaman curry', gerecht: 'Massaman curry', variant: 'Rundvlees', keuken: 'Thais', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '1½ uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Milde, zoete Thaise curry met zacht gestoofd rundvlees, aardappel en pinda\'s. Kaneel en steranijs verraden de Perzische en Indiase invloed.',
   methodes: [ { id: 'braadpan', naam: 'Op het vuur' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
@@ -311,9 +349,26 @@ RECEPTEN.push(
     'Zoals elke stoofschotel is hij de volgende dag nog lekkerder. Invriezen kan ook, de aardappel wordt dan wel iets zachter.'
   ],
   alt: [
-    'Met kip: gebruik 800 g kippendijfilet in grote stukken en stoof alles samen 30 minuten, met de aardappel er meteen bij.',
     'Vegetarisch: kikkererwten en zoete aardappel in plaats van vlees, vegetarische currypasta en sojasaus in plaats van vissaus.'
   ]
+},
+{
+  id: 'massaman-kip', variantVan: 'massaman-curry', variant: 'Kip', naam: 'Massaman curry met kip', ook: ['massaman kip', 'chicken massaman'],
+  tijd: 30, wacht: '30 min stoven',
+  intro: 'Milde, zoete Thaise curry met sappige kippendij, aardappel en pinda\'s. Sneller klaar dan met rundvlees: een half uur stoven is genoeg.',
+  vervang: {
+    runderlappen: { n: 'kippendijfilet', q: 800, u: 'g', x: 'in grote stukken' }
+  },
+  stappen: [
+    { t: 'Bestrooi de kip met zout. Verhit de olie in de Dutch oven op hoog vuur en bak de kip in 2 delen rondom lichtbruin, elke keer ca. 3 minuten. Hij hoeft nog niet gaar. Schep hem uit de pan.', min: 6 },
+    { t: 'Zet het vuur middelhoog. Schep de dikke room van één blik kokosmelk in de pan en laat 2 à 3 minuten pruttelen tot er olieoogjes op komen. Bak de currypasta er 2 minuten in tot hij sterk geurt.', min: 5 },
+    { t: 'Doe de kip terug met de rest van de kokosmelk, het water, kaneel, steranijs, kardemom, laurier, vissaus, palmsuiker, tamarinde, aardappel, ui en pinda\'s. Breng aan de kook.' },
+    { t: 'Leg de deksel op een kier en laat 30 minuten zachtjes stoven, tot de aardappel gaar is en de kip mals. Roer af en toe.', m: 'braadpan', min: 30 },
+    { t: 'Doe alles over in de slowcooker. Gaar 4 uur op LOW (of 2½ uur op HIGH), tot de aardappel gaar is.', m: 'slowcooker', min: 240 },
+    { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
+    { t: 'Proef de curry: hij moet zoet, zout en een beetje zuur zijn. Breng op smaak met vissaus, palmsuiker of tamarinde. Vis kaneel, steranijs en laurier eruit en serveer met de rijst.' }
+  ],
+  tips: ['Massaman is de mildste Thaise curry: een goede keus voor wie niet van heel pittig houdt.', 'Kippendij blijft ook na een half uur stoven sappig. Kipfilet wordt in een stoof snel droog.']
 },
 {
   id: 'kip-cashew', naam: 'Kip met cashewnoten', ook: ['gai pad med mamuang', 'cashew chicken'],
@@ -359,7 +414,7 @@ RECEPTEN.push(
   ]
 },
 {
-  id: 'banh-mi', naam: 'Banh mi', ook: ['bánh mì', 'vietnamees broodje'],
+  id: 'banh-mi', naam: 'Banh mi', gerecht: 'Banh mi', variant: 'Varkensvlees', ook: ['bánh mì', 'vietnamees broodje'],
   keuken: 'Vietnamees', soort: 'Ontbijt & lunch',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Een krokant stokbroodje vol gegrild citroengrasvlees, zoetzure wortel en rettich, komkommer en verse koriander. Frans brood met een Vietnamese vulling: het beste broodje van Azië.',
@@ -371,7 +426,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { kop: 'Vlees' },
-    { n: 'varkensvlees', q: 500, u: 'g', x: 'varkensnek of -haas, in plakjes van ½ cm; of kippendijfilet' },
+    { n: 'varkensvlees', q: 500, u: 'g', x: 'varkensnek of -haas, in plakjes van ½ cm' },
     { n: 'citroengras', q: 2, u: 'stengel', x: 'alleen het zachte binnenste, heel fijn gehakt' },
     { n: 'knoflook', q: 3, u: 'teen', x: 'geperst' },
     { n: 'vissaus', q: 2, u: 'el' },
@@ -408,9 +463,25 @@ RECEPTEN.push(
     'De pickles blijven in een afgesloten pot een week goed in de koelkast.'
   ],
   alt: [
-    'Met kip: maak kippendijfilet plat en marineer hem net zo. Grill hem 6 à 7 minuten op de contactgrill of bak hem 4 à 5 minuten per kant in de pan.',
     'Vegetarisch: plakken stevige tofu, gemarineerd met sojasaus in plaats van vissaus.'
   ]
+},
+{
+  id: 'banh-mi-kip', variantVan: 'banh-mi', variant: 'Kip', naam: 'Banh mi met kip', ook: ['banh mi ga', 'bánh mì gà', 'vietnamees broodje kip'],
+  intro: 'Een krokant stokbroodje vol gegrilde citroengraskip, zoetzure wortel en rettich, komkommer en verse koriander.',
+  vervang: {
+    Vlees: { kop: 'Kip' },
+    varkensvlees: { n: 'kippendijfilet', q: 500, u: 'g', x: 'platgeslagen tot 1 cm dik' }
+  },
+  stappen: [
+    { t: 'Pickles: los suiker en zout op in het warme water en roer de azijn erdoor. Leg wortel en daikon erin en laat minimaal 30 minuten staan.' },
+    { t: 'Meng citroengras, knoflook, vissaus, sojasaus, suiker, 1 el olie en de peper. Schep de kip erdoor en laat 30 minuten marineren, of een nacht in de koelkast.', min: 30 },
+    { t: 'Verhit de rest van de olie in de koekenpan op middelhoog tot hoog vuur. Bak de kip 4 à 5 minuten per kant, tot hij gaar is en de randjes karamelliseren. Laat hem even rusten en snijd hem in reepjes.', m: 'koekenpan', min: 10 },
+    { t: 'Leg de kip op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 7 minuten tot hij gaar is en mooie grillstrepen heeft. Snijd hem in reepjes.', m: 'contactgrill', min: 7 },
+    { t: 'Warm het brood 4 à 5 minuten op in de voorverwarmde oven op 200 °C tot de korst knapperig is. Snijd het aan één kant open, niet helemaal door, en haal wat van het zachte binnenste weg.', min: 5 },
+    { t: 'Besmeer het brood met mayonaise (en paté). Vul met kip, uitgelekte pickles, komkommer, flink wat koriander en rode peper. Sprenkel er wat Maggi over en eet meteen.' }
+  ],
+  alt: ['Vegetarisch: plakken stevige tofu, gemarineerd met sojasaus in plaats van vissaus.']
 },
 {
   id: 'goi-cuon', naam: 'Goi cuon (verse loempia\'s)', ook: ['verse loempia', 'summer rolls', 'rijstvelloempia'],
@@ -459,7 +530,7 @@ RECEPTEN.push(
   ]
 },
 {
-  id: 'bo-luc-lac', naam: 'Bò lúc lắc (shaking beef)', ook: ['shaking beef', 'bo luc lac'],
+  id: 'bo-luc-lac', naam: 'Bò lúc lắc (shaking beef)', gerecht: 'Lúc lắc', variant: 'Biefstuk', ook: ['shaking beef', 'bo luc lac'],
   keuken: 'Vietnamees', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '30 min marineren', pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Sappige blokjes biefstuk, razendsnel geschroeid en door de pan geschud, op een frisse salade van waterkers, ui en tomaat. Met een dip van limoen, peper en zout.',
@@ -504,9 +575,25 @@ RECEPTEN.push(
     'In veel Vietnamese restaurants eet je het met frietjes in plaats van rijst. Probeer het eens met frietjes uit de airfryer.'
   ],
   alt: [
-    'Goedkoper: gebruik bavette of riblap in kleinere blokjes van 2 cm en bak ze iets korter.',
-    'Met kip: kippendijfilet in blokjes, 5 à 6 minuten bakken tot hij gaar is.'
+    'Goedkoper: gebruik bavette of riblap in kleinere blokjes van 2 cm en bak ze iets korter.'
   ]
+},
+{
+  id: 'ga-luc-lac', variantVan: 'bo-luc-lac', variant: 'Kip', naam: 'Gà lúc lắc (shaking chicken)', ook: ['shaking chicken', 'luc lac kip', 'ga luc lac'],
+  intro: 'Blokjes kippendij, heet geschroeid en door de pan geschud, op een frisse salade van waterkers, ui en tomaat. Met een dip van limoen, peper en zout.',
+  vervang: {
+    biefstuk: { n: 'kippendijfilet', q: 600, u: 'g', x: 'in blokjes van 2,5 cm' }
+  },
+  stappen: [
+    { t: 'Meng oestersaus, sojasaus, vissaus, suiker, de helft van de knoflook, 1 el olie en de peper. Schep de kip erdoor en laat 30 minuten marineren in de koelkast.', min: 30 },
+    { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
+    { t: 'Salade: meng de rode ui met azijn, suiker en een snuf zout en laat 10 minuten staan. Leg waterkers en tomaat op een schaal en schep de ui met het zuur erover.' },
+    { t: 'Dip: verdeel zout en peper over kleine schaaltjes en zet ze met limoenpartjes op tafel. Iedereen knijpt er zelf limoen over en roert.' },
+    { t: 'Verhit de wok op het hoogste vuur tot hij rookt en doe er dan pas 1 el olie in. Leg de helft van de kip in één laag in de pan en laat 2 minuten ongestoord bakken tot er een bruine korst op zit.', min: 2 },
+    { t: 'Schud de pan flink heen en weer (lúc lắc betekent schudden) en bak nog 3 à 4 minuten, tot de kip rondom bruin en helemaal gaar is. Schep uit en bak de rest net zo.', min: 4 },
+    { t: 'Doe alle kip terug, zet het vuur uit, voeg de boter en de rest van de knoflook toe en schud 30 seconden tot alles glanst. Schep de kip met het jus over de salade en serveer met rijst en de dip.' }
+  ],
+  alt: []
 },
 {
   id: 'fish-and-chips', naam: 'Fish and chips', ook: ['fish & chips', 'kibbeling'],

@@ -368,6 +368,17 @@ p.sync-fout::before { display: none; }
 .kaart.niet-maakbaar .kaart-beeld { filter: grayscale(.85); opacity: .75; }
 .kaart-fav { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; border: 0; box-shadow: var(--schaduw-klein); }
 .kaart-voet { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--lijn); }
+/* Varianten van één gerecht (met kip, met gehakt, …) als klikbare labels onder de kaart. */
+.kaart-varianten { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; }
+.kaart-varianten-label { font-family: var(--font-lees); font-style: italic; font-size: 13.5px; color: var(--inkt-zacht); margin-right: 2px; }
+.variant-chip {
+  display: inline-flex; align-items: center; min-height: 30px; padding: 0 11px;
+  border: 1px solid var(--lijn); border-radius: 999px; background: var(--papier);
+  color: var(--inkt); font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.variant-chip:hover { border-color: var(--k); color: var(--k-inkt); }
+.variant-chip[aria-current="true"] { background: var(--k-vlak); border-color: var(--k); color: var(--k-inkt); }
+.varianten { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 10px 12px; border: 1px dashed var(--k); border-radius: var(--r); background: var(--k-vlak); }
 .match { display: flex; align-items: center; gap: 10px; }
 .match-balk { flex: 1; height: 6px; border-radius: 999px; background: var(--papier-2); overflow: hidden; }
 .match-balk span { display: block; height: 100%; background: var(--k); border-radius: inherit; }
@@ -654,6 +665,7 @@ p.sync-fout::before { display: none; }
   .kaart-fav { top: 4px; left: 4px; right: auto; width: 30px; height: 30px; }
   .kaart-fav svg { width: 15px; height: 15px; }
   .kaart-voet { margin-left: 126px; }
+  .kaart-varianten { margin-left: 126px; margin-top: 6px; }
   .bord svg { width: 30%; height: 30%; }
   .hoofdstuk-kop:not(:first-child) { margin-top: 18px; }
   .boekpagina { padding-inline: 14px; }

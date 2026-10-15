@@ -45,7 +45,7 @@ RECEPTEN.push(
   alt: ['Minder tijd? Gebruik 800 g kippendijen en stoof 45 minuten. Dat heet rendang ajam.']
 },
 {
-  id: 'babi-ketjap', naam: 'Babi ketjap', ook: ['babi kecap'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
+  id: 'babi-ketjap', naam: 'Babi ketjap', gerecht: 'Babi of ajam ketjap', variant: 'Varkensvlees', ook: ['babi kecap', 'ketjapvlees'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
   tijd: 20, wacht: '1½ uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Zoet-zout gestoofd varkensvlees in ketjap, gember en knoflook. Indisch comfort food.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
@@ -76,7 +76,24 @@ RECEPTEN.push(
     { t: 'Breng op smaak met extra ketjap of sambal. Serveer met rijst en kroepoek.' }
   ],
   tips: ['Een paar hardgekookte eieren de laatste 20 minuten meestoven: dat is telor ketjap.'],
-  alt: ['Liever kip? Gebruik kippendijen en stoof 40 minuten: ajam ketjap.']
+  alt: []
+},
+{
+  id: 'ajam-ketjap', variantVan: 'babi-ketjap', variant: 'Kip', naam: 'Ajam ketjap', ook: ['ajam kecap', 'kip ketjap', 'kip in ketjap'],
+  wacht: '40 min stoven',
+  intro: 'Zoet-zout gestoofde kippendijen in ketjap, gember en knoflook. Sneller klaar dan babi ketjap en net zo Indisch.',
+  vervang: {
+    varkensvlees: { n: 'kippendijen', q: 1000, u: 'g', x: 'met bot en vel; of 700 g kippendijfilet in grote stukken' }
+  },
+  stappen: [
+    { t: 'Bestrooi de kip met zout. Bak hem in de olie in de Dutch oven op middelhoog vuur, met het vel naar beneden, in 2 porties 5 minuten tot het vel goudbruin is. Schep uit de pan.', min: 10 },
+    { t: 'Bak ui, knoflook en gember 5 minuten op middelhoog vuur. Bak tomatenpuree en sambal 1 minuut mee.', min: 6 },
+    { t: 'Doe de kip terug met ketjap, sojasaus, gula djawa en water. Breng aan de kook.' },
+    { t: 'Deksel erop en laat 30 minuten zachtjes stoven. Haal dan de deksel eraf en laat de saus in 10 minuten indikken. Kippendijfilet is na 20 minuten al gaar.', m: 'braadpan', min: 40 },
+    { t: 'Zet de pan met deksel 40 minuten in een voorverwarmde oven op 180 °C. De laatste 15 minuten zonder deksel.', m: 'oven', min: 40 },
+    { t: 'Doe alles in de slowcooker met 150 ml water. Gaar 4 uur op LOW. Kook de saus daarna eventueel in de pan in.', m: 'slowcooker', min: 240 },
+    { t: 'Breng op smaak met extra ketjap of sambal. Serveer met rijst en kroepoek.' }
+  ]
 },
 {
   id: 'gado-gado', naam: 'Gado-gado', keuken: 'Indonesisch', soort: 'Salade & bijgerecht',

@@ -1,7 +1,7 @@
 /* Chinees (inclusief de Chinees-Indische afhaalklassiekers), Koreaans en Japans */
 RECEPTEN.push(
 {
-  id: 'foe-yong-hai', naam: 'Foe yong hai', ook: ['fu yong hai', 'foo young', 'egg foo young'],
+  id: 'foe-yong-hai', naam: 'Foe yong hai', gerecht: 'Foe yong hai', variant: 'Kip', ook: ['fu yong hai', 'foo young', 'egg foo young'],
   keuken: 'Chinees', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'De dikke omelet van de Chinees-Indische afhaal: vol prei, taugé en kip, met zoetzure tomatensaus en doperwten. Makkelijker zelf te maken dan je denkt.',
@@ -40,10 +40,27 @@ RECEPTEN.push(
     { t: 'Leg de foe yong hai op de rijst en schep er royaal saus met doperwten over.' }
   ],
   tips: ['De zoetzure saus met doperwten kwam via Indonesië naar Nederland; in Kanton eet je fu yung dan als luchtige omelet zonder saus.', 'Zo dik als bij de afhaal krijg je hem in een kleine pan van 20 cm. In een grotere pan bak je twee omeletten en snijd je ze in punten.'],
-  alt: ['Vegetarisch: laat de kip weg en bak 150 g champignons in plakjes mee met de prei.', 'Met garnalen: bak 150 g gepelde garnalen 1 minuut in plaats van de kip.']
+  alt: ['Vegetarisch: laat de kip weg en bak 150 g champignons in plakjes mee met de prei.']
 },
 {
-  id: 'tjap-tjoy', naam: 'Tjap tjoy', ook: ['tjaptjoi', 'chop suey', 'tjap tjoi'],
+  id: 'foe-yong-hai-garnalen', variantVan: 'foe-yong-hai', variant: 'Garnalen', naam: 'Foe yong hai met garnalen', ook: ['foe yong hai garnalen', 'egg foo young garnalen'],
+  intro: 'De dikke omelet van de Chinees-Indische afhaal, met garnalen, prei en taugé, en zoetzure tomatensaus met doperwten.',
+  vervang: {
+    kipfilet: { n: 'garnalen', q: 200, u: 'g', x: 'gepeld, rauw of gekookt; grote in stukjes' }
+  },
+  stappen: [
+    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
+    { t: 'Saus: breng water, tomatenpuree, ketchup, suiker, azijn en een snuf zout aan de kook in de steelpan. Roer de aangelengde maïzena erdoor en laat 1 minuut binden tot een glanzende saus. Voeg de doperwten toe en houd de saus warm op het laagste vuur.', min: 4 },
+    { t: 'Bak ui en prei in 1 el olie in de koekenpan 2 minuten op middelhoog vuur tot ze net zacht zijn. Bak rauwe garnalen 1 minuut mee tot ze roze zijn; gekookte garnalen hoeven alleen even mee te warmen. Schep alles in een kom en laat even afkoelen.', min: 3 },
+    { t: 'Klop de eieren los met de sojasaus en de witte peper. Meng de garnalen met de groente en de taugé erdoor.' },
+    { t: 'Verhit 1 el olie in de koekenpan op middelhoog vuur. Schep een kwart van het mengsel erin en duw het tot een dikke ronde omelet. Bak 3 à 4 minuten tot de onderkant goudbruin is en de bovenkant bijna gestold.', min: 4 },
+    { t: 'Laat de omelet op een bord glijden, leg de pan er omgekeerd op en draai alles in één beweging om. Bak de andere kant 2 minuten. Houd hem warm onder aluminiumfolie en bak zo de andere drie.', min: 2 },
+    { t: 'Leg de foe yong hai op de rijst en schep er royaal saus met doperwten over.' }
+  ],
+  alt: ['Vegetarisch: laat de garnalen weg en bak 150 g champignons in plakjes mee met de prei.']
+},
+{
+  id: 'tjap-tjoy', naam: 'Tjap tjoy', gerecht: 'Tjap tjoy', variant: 'Kip', ook: ['tjaptjoi', 'chop suey', 'tjap tjoi'],
   keuken: 'Chinees', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Een wok vol knapperige groente met kip in een glanzende bindsaus van oestersaus en soja. De afhaalklassieker, maar dan verser.',
@@ -52,7 +69,7 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'Pan met deksel voor de rijst' }
   ],
   ingr: [
-    { n: 'kipfilet', q: 400, u: 'g', x: 'in dunne plakjes; of varkenshaas' },
+    { n: 'kipfilet', q: 400, u: 'g', x: 'in dunne plakjes' },
     { n: 'sojasaus', q: 1, u: 'el', x: 'voor de kip' },
     { n: 'maïzena', q: 1, u: 'tl', x: 'voor de kip' },
     { n: 'Chinese kool', q: 300, u: 'g', x: 'in repen; of paksoi' },
@@ -84,7 +101,26 @@ RECEPTEN.push(
     { t: 'Proef, breng eventueel op smaak met een scheutje sojasaus en serveer met de rijst.' }
   ],
   tips: ['Chop suey betekent zoiets als "allerlei stukjes": in Kanton een restjesgerecht, en nog steeds de ideale manier om de groentela leeg te maken.'],
-  alt: ['Vegetarisch: vervang de kip door stevige tofu, gebruik groentebouillon en vegetarische oestersaus (op basis van paddenstoelen).', 'Met varkensvlees: neem varkenshaas of varkensreepjes, de baktijd blijft gelijk.']
+  alt: ['Vegetarisch: vervang de kip door stevige tofu, gebruik groentebouillon en vegetarische oestersaus (op basis van paddenstoelen).']
+},
+{
+  id: 'tjap-tjoy-varken', variantVan: 'tjap-tjoy', variant: 'Varkensvlees', naam: 'Tjap tjoy met varkensvlees', ook: ['tjap tjoy varken', 'chop suey varkensvlees'],
+  intro: 'Een wok vol knapperige groente met reepjes varkenshaas in een glanzende bindsaus van oestersaus en soja.',
+  vervang: {
+    kipfilet: { n: 'varkenshaas', q: 400, u: 'g', x: 'in dunne plakjes; of varkensreepjes' },
+    sojasaus: { n: 'sojasaus', q: 1, u: 'el', x: 'voor het vlees' },
+    'maïzena': { n: 'maïzena', q: 1, u: 'tl', x: 'voor het vlees' }
+  },
+  stappen: [
+    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
+    { t: 'Zet alles klaar vóór je de wok aanzet, want het bakken gaat snel. Meng het vlees met 1 el sojasaus en 1 tl maïzena. Leg de harde groente (ui, wortel, paprika) en de zachte groente (kool, taugé) in aparte schalen. Roer de bindsaus aan.' },
+    { t: 'Verhit 1 el olie in de wok op het hoogste vuur tot hij net begint te walmen. Bak het vlees in 2 delen, elk 3 à 4 minuten, tot het goudbruin en gaar is. Doe niet alles tegelijk, anders gaat het vlees koken in plaats van bakken. Schep het uit de wok.', min: 4 },
+    { t: 'Verhit nog 1 el olie. Roerbak ui, wortel en paprika 2 minuten. Voeg champignons en bamboescheuten toe en roerbak nog 2 minuten.', min: 4 },
+    { t: 'Bak knoflook, gember en de stelen van de kool 1 minuut mee. Voeg de bladeren en de taugé toe en roerbak 1 minuut, tot de kool net slinkt.', min: 2 },
+    { t: 'Doe het vlees terug. Roer de bindsaus nog even door (de maïzena zakt naar de bodem) en giet hem in de wok. Roerbak 1 à 2 minuten tot de saus bindt en glanst. De groente moet nog knapperig zijn.', min: 2 },
+    { t: 'Proef, breng eventueel op smaak met een scheutje sojasaus en serveer met de rijst.' }
+  ],
+  alt: ['Vegetarisch: vervang het vlees door stevige tofu, gebruik groentebouillon en vegetarische oestersaus (op basis van paddenstoelen).']
 },
 {
   id: 'babi-pangang', naam: 'Babi pangang', ook: ['babi pangang saus'],
@@ -134,7 +170,7 @@ RECEPTEN.push(
   alt: ['Minder vet: neem 600 g procureur (varkensnek) in plakken van 2 cm, ingewreven met ketjap en vijfkruidenpoeder. Bak ze 20 à 25 minuten in de oven op 220 °C of 12 à 15 minuten in de airfryer op 200 °C; keer halverwege.']
 },
 {
-  id: 'zoetzure-kip', naam: 'Zoetzure kip', ook: ['koe lo kai', 'kip zoetzuur', 'sweet and sour chicken'],
+  id: 'zoetzure-kip', naam: 'Zoetzure kip', gerecht: 'Zoetzuur (koe lo)', variant: 'Kip', ook: ['koe lo kai', 'kip zoetzuur', 'sweet and sour chicken'],
   keuken: 'Chinees', soort: 'Hoofdgerecht',
   tijd: 40, pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Knapperige stukjes kip in een glanzende zoetzure saus met paprika, ui en ananas. Ondiep gefrituurd of uit de airfryer.',
@@ -179,7 +215,26 @@ RECEPTEN.push(
     { t: 'Schep de kip er pas vlak voor het opdienen door, dan blijft hij knapperig. Serveer meteen met de rijst.' }
   ],
   tips: ['Koe lo kai is de Nederlands-Indische naam voor het Kantonese gu lou: daar is het origineel met varkensvlees (koe lo yuk).'],
-  alt: ['Met varkensvlees: gebruik 500 g varkenshaas of procureur in blokjes en bak 1 minuut langer.', 'Liever de saus apart? Serveer hem in een kommetje ernaast, zo blijven ook de restjes knapperig.']
+  alt: ['Liever de saus apart? Serveer hem in een kommetje ernaast, zo blijven ook de restjes knapperig.']
+},
+{
+  id: 'koe-lo-yuk', variantVan: 'zoetzure-kip', variant: 'Varkensvlees', naam: 'Zoetzuur varkensvlees (koe lo yuk)', ook: ['koe lo yuk', 'babi zoetzuur', 'varkensvlees zoetzuur', 'sweet and sour pork'],
+  intro: 'Knapperige stukjes varkensvlees in een glanzende zoetzure saus met paprika, ui en ananas: het Kantonese origineel. Ondiep gefrituurd of uit de airfryer.',
+  vervang: {
+    kippendijfilet: { n: 'varkenshaas', q: 500, u: 'g', x: 'of procureur, in blokjes van 3 cm' },
+    sojasaus: { n: 'sojasaus', q: 1, u: 'el' }
+  },
+  stappen: [
+    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
+    { t: 'Meng het vlees met 1 el sojasaus, een snuf zout en de witte peper. Roer voor de saus het ananassap (aangevuld met water tot 125 ml) met ketchup, azijn, suiker, sojasaus en maïzena. Snijd alle groente klaar, want straks gaat het snel.' },
+    { t: 'Klop het ei los en schep het door het vlees. Meng maïzena en bloem in een kom, schep het vlees erdoor tot elk stukje bedekt is en klop het overtollige meel eraf.' },
+    { t: 'Verhit de olie in de koekenpan of wok tot 175 °C (een houten lepelsteel in de olie geeft meteen een krans van belletjes). Bak het vlees in 2 à 3 porties 5 à 6 minuten, tot het goudbruin en gaar is. Laat uitlekken op een rooster of keukenpapier.', m: 'koekenpan', min: 6 },
+    { t: 'Verwarm de airfryer voor op 200 °C. Leg het vlees in één laag in de mand en besproei of bestrijk het ruim met olie. Bak 13 à 15 minuten tot het goudbruin en gaar is; schud halverwege. Bak bij een kleine mand in 2 delen.', m: 'airfryer', min: 14 },
+    { t: 'Verhit 1 el olie in de wok op hoog vuur. Roerbak ui en paprika 2 minuten, voeg knoflook en gember toe en roerbak 30 seconden. Doe de ananas erbij en bak 1 minuut mee.', min: 3 },
+    { t: 'Roer de saus nog even door, giet hem in de wok en laat al roerend 1 minuut binden tot hij dik en glanzend is.', min: 1 },
+    { t: 'Schep het vlees er pas vlak voor het opdienen door, dan blijft het knapperig. Serveer meteen met de rijst.' }
+  ],
+  tips: ['In Kanton heet dit gu lou yuk. De zoetzure kip (koe lo kai) is de latere, Nederlands-Indische favoriet.']
 },
 {
   id: 'egg-fried-rice', naam: 'Gebakken rijst met ei (egg fried rice)', ook: ['egg fried rice', 'chinese gebakken rijst', 'yangzhou fried rice'],
@@ -215,7 +270,7 @@ RECEPTEN.push(
   alt: ['Yangzhou-stijl (niet vegetarisch): bak eerst 150 g gepelde garnalen 1 minuut en schep ze uit. Doe ze aan het eind terug met 100 g ham in blokjes.']
 },
 {
-  id: 'beef-broccoli', naam: 'Biefstuk met broccoli in oestersaus', ook: ['beef and broccoli', 'rundvlees met broccoli'],
+  id: 'beef-broccoli', naam: 'Biefstuk met broccoli in oestersaus', gerecht: 'Broccoli in oestersaus', variant: 'Biefstuk', ook: ['beef and broccoli', 'rundvlees met broccoli'],
   keuken: 'Chinees', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Botermalse reepjes biefstuk met knapperige broccoli in een glanzende saus van oestersaus, gember en knoflook. Het geheim zit in een snufje zuiveringszout.',
@@ -253,10 +308,28 @@ RECEPTEN.push(
     { t: 'Doe het vlees terug, roer de saus nog even door en giet hem erbij. Roerbak 1 minuut tot de saus bindt en alles glanst. Bestrooi met sesamzaad en serveer met de rijst.', min: 1 }
   ],
   tips: ['Neem niet meer dan ¼ tl zuiveringszout per 500 g vlees, anders proef je het.', 'Een Chinees-Amerikaanse klassieker; in Kanton maken ze het met Chinese broccoli (gai lan), die je soms bij de toko vindt.'],
-  alt: ['Met kip: gebruik kippendijfilet in plakjes en bak hem 1 à 2 minuten langer tot hij gaar is.']
+  alt: []
 },
 {
-  id: 'bulgogi', naam: 'Bulgogi', ook: ['koreaanse bbq', 'koreaans rundvlees'],
+  id: 'kip-broccoli', variantVan: 'beef-broccoli', variant: 'Kip', naam: 'Kip met broccoli in oestersaus', ook: ['chicken and broccoli', 'kip broccoli', 'kip met broccoli'],
+  intro: 'Sappige plakjes kippendij met knapperige broccoli in een glanzende saus van oestersaus, gember en knoflook.',
+  vervang: {
+    biefstuk: { n: 'kippendijfilet', q: 500, u: 'g', x: 'in dunne plakjes' },
+    zuiveringszout: null
+  },
+  stappen: [
+    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
+    { t: 'Meng de kip met de maïzena, 1 el sojasaus, 1 el water en 1 tl olie. Laat 10 minuten staan.', min: 10 },
+    { t: 'Breng water met zout aan de kook in de kookpan. Blancheer de broccoli 1 minuut, giet af en laat goed uitlekken.', min: 1 },
+    { t: 'Roer de ingrediënten voor de saus door elkaar en zet alles klaar naast de wok.' },
+    { t: 'Verhit 1 el olie in de wok op het hoogste vuur tot hij walmt. Leg de helft van de kip in één laag, laat 1 minuut liggen en roerbak nog 2 minuten, tot hij bruin en gaar is. Schep uit en bak de tweede helft net zo.', min: 3 },
+    { t: 'Verhit de laatste el olie. Roerbak knoflook en gember 30 seconden tot ze geuren. Voeg de broccoli toe en roerbak 1 minuut.', min: 1 },
+    { t: 'Doe de kip terug, roer de saus nog even door en giet hem erbij. Roerbak 1 minuut tot de saus bindt en alles glanst. Bestrooi met sesamzaad en serveer met de rijst.', min: 1 }
+  ],
+  tips: ['Kippendij blijft in de hete wok sappiger dan kipfilet. Neem je toch filet, bak hem dan een halve minuut korter.']
+},
+{
+  id: 'bulgogi', naam: 'Bulgogi', gerecht: 'Bulgogi', variant: 'Rundvlees', ook: ['koreaanse bbq', 'koreaans rundvlees'],
   keuken: 'Koreaans', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Flinterdun rundvlees in een zoete marinade van peer, soja en knoflook, snel heet gebakken. Je wikkelt het met rijst en kimchi in een slablad.',
@@ -294,7 +367,26 @@ RECEPTEN.push(
     { t: 'Bestrooi het vlees met sesamzaad en het groen van de lente-ui. Leg een slablad in je hand, schep er wat rijst, vlees en kimchi op, eventueel een likje gochujang, vouw dicht en eet in één hap.' }
   ],
   tips: ['De peer bevat een enzym dat het vlees mals maakt. Marineer niet langer dan een nacht, anders wordt het melig.', 'Bulgogi betekent letterlijk "vuurvlees": in Korea grill je het aan tafel boven houtskool.'],
-  alt: ['Geen peer? Neem een halve geraspte appel of 1 el honing.', 'Pittig met varkensvlees (dwaeji bulgogi): gebruik dunne plakjes procureur en roer 2 el gochujang door de marinade.']
+  alt: ['Geen peer? Neem een halve geraspte appel of 1 el honing.']
+},
+{
+  id: 'dwaeji-bulgogi', variantVan: 'bulgogi', variant: 'Varkensvlees', naam: 'Dwaeji bulgogi (pittig varkensvlees)', ook: ['dwaeji bulgogi', 'pittige bulgogi', 'spicy pork bulgogi', 'jeyuk bokkeum'],
+  intro: 'Flinterdun varkensvlees in een rode, pittig-zoete marinade van gochujang, soja en knoflook, heet gebakken. Net als bulgogi wikkel je het met rijst en kimchi in een slablad.',
+  vervang: {
+    entrecote: { n: 'procureur', q: 600, u: 'g', x: 'varkensschouder, of varkensbuik; half bevroren in flinterdunne plakjes' },
+    sojasaus: [{ n: 'sojasaus', q: 3, u: 'el' }, { n: 'gochujang', q: 3, u: 'el', x: 'Koreaanse chilipasta' }, { n: 'gember', q: 10, u: 'g', x: 'geraspt' }],
+    gochujang: null
+  },
+  stappen: [
+    { t: 'Leg het vlees 30 minuten in de vriezer tot het stevig maar niet hard is. Snijd het met een scherp mes in plakjes van 2 à 3 mm.', min: 30 },
+    { t: 'Meng peer, sojasaus, gochujang, gember, suiker, knoflook, sesamolie, peper en het wit van de lente-ui. Schep het vlees en de ui erdoor en laat 30 minuten marineren (of tot een nacht in de koelkast).', min: 30 },
+    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
+    { t: 'Verhit de olie in de koekenpan (of wok) op hoog vuur. Bak het vlees met de marinade in 3 porties 3 à 4 minuten, tot het gaar is en de randjes karamelliseren. Door de suiker en gochujang brandt het snel aan: blijf erbij en schep om.', m: 'koekenpan', min: 4 },
+    { t: 'Verwarm de contactgrill voor op de hoogste stand. Leg het vlees met de ui in een dunne laag op de grill en grill 3 à 4 minuten met de deksel dicht, tot het gaar is. Werk in porties.', m: 'contactgrill', min: 4 },
+    { t: 'Bestrooi het vlees met sesamzaad en het groen van de lente-ui. Leg een slablad in je hand, schep er wat rijst, vlees en kimchi op, vouw dicht en eet in één hap.' }
+  ],
+  tips: ['Varkensvlees moet helemaal gaar zijn: bak tot er geen roze meer te zien is. Schouder of buik blijft daarbij sappig, haas niet.'],
+  alt: ['Minder pittig? Gebruik 1 el gochujang en 1 el extra sojasaus.', 'Geen peer? Neem een halve geraspte appel of 1 el honing.']
 },
 {
   id: 'kimchi-fried-rice', naam: 'Kimchi fried rice (kimchi bokkeumbap)', ook: ['kimchi bokkeumbap', 'gebakken rijst met kimchi'],

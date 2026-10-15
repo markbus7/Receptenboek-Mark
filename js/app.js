@@ -14,9 +14,12 @@ const App = (() => {
     let p = 9;
     KEUKENS.forEach((k) => {
       p += 1;
-      RECEPTEN.filter((r) => r.keuken === k)
-        .sort((a, b) => (SOORTEN.indexOf(a.soort) - SOORTEN.indexOf(b.soort)) || a.naam.localeCompare(b.naam, 'nl'))
-        .forEach((r) => { BLZ.set(r.id, p); p += 2; });
+      // Varianten van één gerecht delen een dubbele pagina.
+      RECEPTEN.filter((r) => r.keuken === k && r.groep === r.id)
+        .sort((a, b) => (SOORTEN.indexOf(a.soort) - SOORTEN.indexOf(b.soort)) || VARIANTEN.gerecht(a).localeCompare(VARIANTEN.gerecht(b), 'nl'))
+        .forEach((r) => { VARIANTEN.leden(r).forEach((v) => BLZ.set(v.id, p)); p += 2; });
+      // Een variant in een ander hoofdstuk dan zijn basisrecept krijgt toch een eigen pagina.
+      RECEPTEN.filter((r) => r.keuken === k && !BLZ.has(r.id)).forEach((r) => { BLZ.set(r.id, p); p += 2; });
     });
   })();
   // Voor "Minste ingrediënten": zout, peper, olie en water tellen niet mee, optionele ingrediënten ook niet.
@@ -56,7 +59,7 @@ const App = (() => {
   const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
   // Woorden per recept voor korte zoektermen en tikfouten: naam, keuken, soort, ingrediënten en gerei.
   const WOORDEN = new Map(RECEPTEN.map((r) => [r.id, new Set(splits([
-    r.naam, ...(r.ook || []), r.keuken, r.soort, ...r.ingr.flatMap((i) => [i.n || '', i.p || '']),
+    r.naam, VARIANTEN.gerecht(r), ...(r.ook || []), r.keuken, r.soort, ...r.ingr.flatMap((i) => [i.n || '', i.p || '']),
     ...r.gerei.map((g) => (GEREEDSCHAP[g.tool] || {}).naam || ''), ...(r.methodes || []).map((m) => m.naam)
   ].join(' ')))]));
   const INGR_AANTAL = new Map();
@@ -66,7 +69,7 @@ const App = (() => {
     INGR_AANTAL.set(n, (INGR_AANTAL.get(n) || 0) + 1);
   }));
   const INGR_NAMEN = [...INGR_AANTAL.keys()].sort((a, b) => a.localeCompare(b, 'nl'));
-  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, ...(r.ook || []), r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
+  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, VARIANTEN.gerecht(r), ...(r.ook || []), r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
   const state = {
     view: 'alle',
@@ -255,12 +258,27 @@ const App = (() => {
       keuken: opBlz
     }[state.sorteer];
     lijst.sort(sorteer);
-    return state.omgekeerd ? lijst.reverse() : lijst;
+    if (state.omgekeerd) lijst.reverse();
+    return perGerecht(lijst);
+  }
+
+  /* Elk gerecht één keer in het overzicht. Past het basisrecept, dan staat dat op de kaart;
+     anders de variant die het best past (bijvoorbeeld de kipversie als je op "kip" zoekt).
+     Met voorraad wint de variant waarvoor je het minst hoeft te halen. */
+  function perGerecht(lijst) {
+    const opPlek = new Map();
+    const uit = [];
+    lijst.forEach((x) => {
+      const g = x.r.groep;
+      if (!opPlek.has(g)) { opPlek.set(g, uit.length); uit.push(x); return; }
+      if (x.r.id === g && !state.voorraad.length) uit[opPlek.get(g)] = x;
+    });
+    return uit;
   }
 
   /* ---------- Groentemixen ---------- */
   const mixenInVoorraad = () => state.voorraad.filter(Hulp.isMix).map(Hulp.mixVan).filter(Boolean);
-  const isAanrader = (r) => mixenInVoorraad().some((m) => (m.aanraders || []).includes(r.id));
+  const isAanrader = (r) => mixenInVoorraad().some((m) => (m.aanraders || []).some((id) => id === r.id || id === r.groep));
 
   function renderMixInfo() {
     const mixen = mixenInVoorraad();
@@ -299,7 +317,7 @@ const App = (() => {
 
   function kaart({ r, m, maakbaar }) {
     const fav = state.favs.has(r.id);
-    const foto = window.FOTOS && FOTOS[r.id];
+    const foto = Hulp.foto(r);
     const h = hk(r.keuken);
     const matchHtml = m ? `
       <div class="match${m.mist.length === 0 ? ' is-compleet' : ''}">
@@ -313,7 +331,7 @@ const App = (() => {
           <span class="kaart-beeld">${foto ? `<img src="${esc(foto.src)}" alt="" loading="lazy" decoding="async">` : bord(r)}</span>
           <span class="kaart-tekst">
             <span class="kaart-kop"><span class="kaart-keuken">${esc(r.keuken)} · ${esc(r.soort)}</span><span class="kaart-blz">blz. ${BLZ.get(r.id)}</span></span>
-            <span class="kaart-titel">${esc(r.naam)}</span>
+            <span class="kaart-titel">${esc(VARIANTEN.heeft(r) ? VARIANTEN.gerecht(r) : r.naam)}</span>
             <span class="kaart-meta">
               <span>${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="plus">+ ${esc(r.wacht)}</span>` : ''}</span>
               <span>${r.pers} ${esc(r.stuks || 'pers.')}</span>
@@ -324,6 +342,11 @@ const App = (() => {
             ${maakbaar ? '' : '<span class="label-mist">Je mist apparatuur</span>'}
           </span>
         </a>
+        ${VARIANTEN.heeft(r) ? `
+        <div class="kaart-varianten" role="group" aria-label="Varianten van ${esc(VARIANTEN.gerecht(r))}">
+          <span class="kaart-varianten-label">Varianten:</span>
+          ${VARIANTEN.leden(r).map((v) => `<a class="variant-chip" href="#${v.id}" data-open="${v.id}"${v.id === r.id ? ' aria-current="true"' : ''} title="${esc(v.naam)}">${esc(VARIANTEN.label(v))}</a>`).join('')}
+        </div>` : ''}
         ${matchHtml ? `<div class="kaart-voet">${matchHtml}</div>` : ''}
         <button type="button" class="ikoon-knop fav-knop kaart-fav" data-fav="${r.id}" aria-pressed="${fav}" aria-label="${fav ? 'Verwijder' : 'Bewaar'} ${esc(r.naam)} ${fav ? 'uit' : 'bij'} favorieten">${icoon('hart')}</button>
       </article>`;
@@ -430,8 +453,22 @@ const App = (() => {
     sluit: () => sluitRecept(),
     open: (id) => openRecept(id),
     recept: (id) => RECEPTEN.find((r) => r.id === id),
-    /* Gerechten en sauzen die bij elkaar passen, in beide richtingen. */
-    lekkerMet: (r) => RECEPTEN.filter((x) => x.id !== r.id && ((r.bij || []).includes(x.id) || (x.bij || []).includes(r.id)))
+    varianten: (r) => VARIANTEN.leden(r),
+    /* Andere variant van hetzelfde gerecht kiezen: vervangt het recept in de geschiedenis, zodat Terug naar het overzicht gaat. */
+    kiesVariant: (id) => {
+      const v = RECEPTEN.find((x) => x.id === id);
+      if (!v) return;
+      Detail.open(v, context, { houd: true });
+      try { history.replaceState({ recept: id }, '', '#' + id); } catch (e) { /* geen historie beschikbaar */ }
+    },
+    /* Gerechten en sauzen die bij elkaar passen, in beide richtingen; bij varianten telt het hele gerecht. */
+    lekkerMet: (r) => {
+      const eigen = VARIANTEN.leden(r).map((x) => x.id);
+      const gezien = new Set();
+      return RECEPTEN.filter((x) => !eigen.includes(x.id) && ((r.bij || []).includes(x.id) || (x.bij || []).some((b) => eigen.includes(b))))
+        .filter((x) => !gezien.has(x.groep) && gezien.add(x.groep))
+        .map((x) => (VARIANTEN.heeft(x) ? { id: x.id, naam: VARIANTEN.gerecht(x) } : x));
+    }
   };
 
   function openRecept(id, viaHistorie) {
@@ -764,7 +801,8 @@ const App = (() => {
   }
 
   function start() {
-    $('#teller').textContent = `${RECEPTEN.length} recepten · ${KEUKENS.length} hoofdstukken · versie ${window.VERSIE || '?'}`;
+    const metVarianten = new Set(RECEPTEN.filter((r) => VARIANTEN.heeft(r)).map((r) => r.groep)).size;
+    $('#teller').textContent = `${VARIANTEN.aantalGerechten()} recepten · ${metVarianten} met varianten · ${KEUKENS.length} hoofdstukken · versie ${window.VERSIE || '?'}`;
     renderFilters();
     koppel();
     render();

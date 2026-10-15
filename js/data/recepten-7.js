@@ -1,7 +1,8 @@
 /* Indiaas (extra) */
 RECEPTEN.push(
 {
-  id: 'curry-madras', naam: 'Curry madras met rundvlees', keuken: 'Indiaas', soort: 'Hoofdgerecht',
+  id: 'curry-madras', naam: 'Curry madras met rundvlees', gerecht: 'Curry madras', variant: 'Rundvlees',
+  ook: ['madras', 'beef madras', 'rundvlees madras'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '1½ uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Pittige, diep-rode curry met mals gestoofd rundvlees, chili en tomaat. Een klassieker uit het Indiase restaurant.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
@@ -38,11 +39,12 @@ RECEPTEN.push(
     { t: 'Kook de rijst volgens de verpakking.', min: 12 },
     { t: 'Roer garam masala, citroensap en eventueel de kokosmelk door de curry. Laat 5 minuten zonder deksel inkoken tot de saus dik is. Breng op smaak met zout en bestrooi met koriander.', min: 5 }
   ],
-  tips: ['Liever met kip? Kijk bij kip madras met kipfilet, een paar bladzijden verder.', 'Lekker met naan en een schepje yoghurt om de scherpte te temperen.'],
+  tips: ['Lekker met naan en een schepje yoghurt om de scherpte te temperen.'],
   alt: ['Geen madras-kerrie? Gebruik gewone kerrie en verdubbel de chilipoeder.']
 },
 {
-  id: 'kip-madras', naam: 'Kip madras met kipfilet', keuken: 'Indiaas', soort: 'Hoofdgerecht',
+  id: 'kip-madras', naam: 'Curry madras met kip', variantVan: 'curry-madras', variant: 'Kip',
+  ook: ['kip madras', 'kip madras met kipfilet', 'chicken madras'], methodes: null, keuken: 'Indiaas', soort: 'Hoofdgerecht',
   tijd: 45, wacht: '15 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Pittige, diep-rode madras met sappige stukjes kipfilet in een saus van tomaat, chili en geroosterde specerijen.',
   gerei: [
@@ -81,6 +83,14 @@ RECEPTEN.push(
   ],
   tips: ['De kip gaart in de warme saus nog even na. Haal de pan dus van het vuur zodra het grootste stukje net gaar is.', 'Liever nog sappiger? Kippendijfilet mag 15 minuten in de saus garen.'],
   alt: ['Geen madras-kerrie? Gebruik gewone kerrie en verdubbel de chilipoeder.', 'Zonder Dutch oven: een hapjespan of grote koekenpan met hoge rand werkt ook.']
+},
+{
+  id: 'curry-madras-lam', variantVan: 'curry-madras', variant: 'Lam', naam: 'Curry madras met lamsvlees', ook: ['lam madras', 'lamb madras', 'lamsmadras'],
+  intro: 'Dezelfde pittige, diep-rode madras, maar met lamsschouder: voller van smaak en na het stoven heel mals. In het Indiase restaurant een vaste keuze naast kip en rund.',
+  vervang: {
+    runderstoofvlees: { n: 'lamsschouder', q: 700, u: 'g', x: 'zonder bot, in blokjes van 3 cm; of lamsstoofvlees' }
+  },
+  tips: ['Lamsschouder is vetter dan rundvlees. Schep na het stoven het vet dat bovenop drijft er met een lepel af.', 'Lekker met naan en een schepje yoghurt om de scherpte te temperen.']
 },
 {
   id: 'chicken-tikka-masala', naam: 'Chicken tikka masala', keuken: 'Indiaas', soort: 'Hoofdgerecht',

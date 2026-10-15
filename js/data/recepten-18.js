@@ -1,14 +1,14 @@
 /* Mexicaans (burrito's, taco's, enchiladas, guisado, nacho's, salsa fresca) en Amerikaans (brownies, cheesecake, fried chicken, cookies, barbecuesaus) */
 RECEPTEN.push(
 {
-  id: 'burritos', naam: 'Burrito\'s met kip, rijst en zwarte bonen', ook: ['burrito', 'burritos'],
+  id: 'burritos', naam: 'Burrito\'s met kip, rijst en zwarte bonen', gerecht: 'Burrito\'s', variant: 'Kip', ook: ['burrito', 'burritos'],
   keuken: 'Mexicaans', soort: 'Hoofdgerecht',
   tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Een grote tortilla, strak opgerold rond kruidige kip, limoen-korianderrijst, zwarte bonen en kaas, en daarna knapperig dichtgebakken. Een complete maaltijd die je uit de hand eet.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'contactgrill', naam: 'Contactgrill' } ],
   gerei: [
     { tool: 'kookpan', tekst: 'Pan met deksel voor de rijst' },
-    { tool: 'koekenpan', tekst: 'Grote koekenpan (28 cm) voor de kip en de bonen' },
+    { tool: 'koekenpan', tekst: 'Grote koekenpan (28 cm) voor het vlees en de bonen' },
     { tool: 'koekenpan', tekst: 'Dezelfde koekenpan, schoongeveegd, om de burrito\'s dicht te bakken', m: 'koekenpan' },
     { tool: 'contactgrill', tekst: 'Contactgrill, voorverwarmd; werkt hier als paninigrill', m: 'contactgrill' }
   ],
@@ -47,16 +47,38 @@ RECEPTEN.push(
     { t: 'Snijd de burrito\'s schuin doormidden en serveer met extra salsa.' }
   ],
   tips: ['Burrito\'s zijn goed in te vriezen, zonder sla en zure room. Pak ze strak in folie, ontdooi ze 2 à 3 minuten in de magnetron en bak ze daarna dicht.'],
-  alt: ['Burrito bowl: sla de tortilla over en schep rijst, bonen, kip en de toppings naast elkaar in een kom.', 'Met gehakt: bak 500 g rundergehakt met dezelfde kruiden rul en bruin in plaats van de kip.']
+  alt: ['Burrito bowl: sla de tortilla over en schep rijst, bonen, kip en de toppings naast elkaar in een kom.']
 },
 {
-  id: 'tacos', naam: 'Taco\'s met gekruid gehakt', ook: ['taco', 'tacos', 'taco\'s', 'tex-mex taco\'s'],
+  id: 'burritos-gehakt', variantVan: 'burritos', variant: 'Gehakt', naam: 'Burrito\'s met gehakt, rijst en zwarte bonen', ook: ['burrito gehakt', 'beef burrito'],
+  intro: 'Een grote tortilla, strak opgerold rond gekruid rundergehakt, limoen-korianderrijst, zwarte bonen en kaas, en daarna knapperig dichtgebakken. Stevig en lekker smeuïg.',
+  vervang: {
+    Kip: { kop: 'Gehakt' },
+    kippendijfilet: { n: 'rundergehakt', q: 500, u: 'g' },
+    zonnebloemolie: { n: 'zonnebloemolie', q: 1, u: 'el' }
+  },
+  stappen: [
+    { t: 'Kook de rijst volgens de verpakking met een snuf zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
+    { t: 'Verhit de olie in de koekenpan op hoog vuur. Bak het gehakt in 5 à 6 minuten rul en bruin en schep overtollig vet weg.', min: 6 },
+    { t: 'Bak knoflook, komijn, paprikapoeder, chilipoeder, oregano en een halve theelepel zout 1 minuut mee. Voeg 3 el water toe en laat inkoken tot het gehakt smeuïg is. Knijp de rest van de limoen erover en schep het gehakt in een kom.', min: 2 },
+    { t: 'Doe de bonen met een scheutje water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
+    { t: 'Verwarm de tortilla\'s 20 seconden per kant in een droge koekenpan, of 30 seconden in de magnetron onder een vochtige theedoek. Warme tortilla\'s scheuren niet bij het oprollen.' },
+    { t: 'Leg op het onderste derde van elke tortilla een strook rijst, bonen, gehakt, kaas, zure room, salsa en sla. Laat aan de zijkanten 5 cm vrij en doe er niet te veel op.' },
+    { t: 'Vouw de onderkant over de vulling en trek hem met je vingers strak naar je toe. Vouw de zijkanten naar binnen en rol verder op tot een stevige rol.' },
+    { t: 'Leg de burrito\'s met de naad naar onderen in de droge koekenpan op middelhoog vuur. Bak ze 2 minuten per kant tot ze goudbruin en dicht zijn.', m: 'koekenpan', min: 4 },
+    { t: 'Leg de burrito\'s met de naad naar onderen op de voorverwarmde contactgrill en sluit de deksel zonder te drukken. Grill 3 à 4 minuten tot ze goudbruin zijn, met grillstrepen.', m: 'contactgrill', min: 4 },
+    { t: 'Snijd de burrito\'s schuin doormidden en serveer met extra salsa.' }
+  ],
+  alt: ['Burrito bowl: sla de tortilla over en schep rijst, bonen, gehakt en de toppings naast elkaar in een kom.', 'Half-om-half gehakt kan ook; schep dan wat meer vet uit de pan.']
+},
+{
+  id: 'tacos', naam: 'Taco\'s met gekruid gehakt', gerecht: 'Taco\'s', variant: 'Gehakt', ook: ['taco', 'tacos', 'taco\'s', 'tex-mex taco\'s'],
   keuken: 'Mexicaans', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'De taco zoals we hem thuis kennen: gehakt met zelfgemaakte tacokruiden in een knapperige schelp, met sla, tomaat, kaas en guacamole. Iedereen vult zijn eigen.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Zachte tortilla\'s' } ],
   gerei: [
-    { tool: 'koekenpan', tekst: 'Koekenpan van 28 cm voor het gehakt' },
+    { tool: 'koekenpan', tekst: 'Koekenpan van 28 cm voor de vulling' },
     { tool: 'bakplaat', tekst: 'Ovenrooster of bakplaat voor de tacoschelpen', m: 'oven' },
     { tool: 'airfryer', tekst: 'Airfryer; de schelpen mogen tegen elkaar staan', m: 'airfryer' },
     { tool: 'koekenpan', tekst: 'Tweede droge koekenpan voor de tortilla\'s, en een schone theedoek om ze warm te houden', m: 'koekenpan' }
@@ -99,6 +121,25 @@ RECEPTEN.push(
   ],
   tips: ['In Mexico eet je taco\'s op zachte maistortilla\'s, met bijvoorbeeld al pastor (gemarineerd varkensvlees) of carnitas, en alleen wat fijngesneden ui, koriander, salsa en limoen erop. Harde schelpen met geraspte kaas zijn Tex-Mex.', 'Restje pulled pork? Bak het krokant in een hete pan en je hebt bijna carnitas.'],
   alt: ['Vegetarisch: vervang het gehakt door 2 blikken zwarte bonen (uitgelekt en grof geprakt) en bak ze 5 minuten met de kruiden en het water.']
+},
+{
+  id: 'tacos-kip', variantVan: 'tacos', variant: 'Kip', naam: 'Taco\'s met kip', ook: ['kiptaco\'s', 'chicken tacos', 'taco kip'],
+  intro: 'Reepjes kippendij, gebakken met dezelfde zelfgemaakte tacokruiden, in een knapperige schelp of een zachte tortilla. Met sla, tomaat, kaas en guacamole. Lichter dan gehakt en net zo makkelijk.',
+  vervang: {
+    Gehakt: { kop: 'Kip' },
+    rundergehakt: { n: 'kippendijfilet', q: 500, u: 'g', x: 'in dunne reepjes of kleine blokjes; of kipfilet' }
+  },
+  stappen: [
+    { t: 'Meng alle tacokruiden in een schaaltje en schep de helft door de kip.' },
+    { t: 'Verhit de olie in de koekenpan op middelhoog vuur en fruit de ui 3 minuten. Zet het vuur hoog, doe de kip erbij en bak hem in 6 à 7 minuten rondom goudbruin en gaar.', min: 9 },
+    { t: 'Bak knoflook, tomatenpuree en de rest van de tacokruiden 1 minuut mee. Voeg het water toe en laat 2 à 3 minuten inkoken, tot de kip glanst en er bijna geen vocht meer in de pan staat.', min: 3 },
+    { t: 'Prak de avocado\'s met het sap van de limoen en een snuf zout tot een grove guacamole. Zet sla, tomaat, kaas, zure room en salsa in schaaltjes klaar.' },
+    { t: 'Zet de tacoschelpen met de opening naar beneden op het rooster en warm ze 3 à 4 minuten op in een voorverwarmde oven op 180 °C, tot ze geurig en knapperig zijn.', m: 'oven', min: 4 },
+    { t: 'Warm de tacoschelpen 2 à 3 minuten op in de airfryer op 180 °C.', m: 'airfryer', min: 3 },
+    { t: 'Verwarm de maistortilla\'s één voor één 30 seconden per kant in de hete, droge koekenpan, tot ze soepel zijn en hier en daar bruine vlekjes hebben. Stapel ze in de theedoek, dan blijven ze warm en zacht.', m: 'koekenpan' },
+    { t: 'Vul elke taco met 2 eetlepels kip, daarop de kaas en dan sla, tomaat, guacamole, zure room en salsa.' }
+  ],
+  alt: ['Met restjes: pluk een gegrilde kip of restjes kip uit de oven en warm ze 3 minuten op met de kruiden en het water.', 'Kipfilet in plaats van dij: bak hem 1 à 2 minuten korter, dan blijft hij sappig.']
 },
 {
   id: 'enchiladas', naam: 'Enchiladas met kip',
