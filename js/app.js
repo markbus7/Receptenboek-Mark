@@ -471,10 +471,17 @@ const App = (() => {
     }
   };
 
-  function openRecept(id, viaHistorie) {
+  /* Een receptlink is #id, eventueel met een aantal personen: #tacos-kip?personen=6 (zo deelt de Deel-knop hem). */
+  function uitLink() {
+    const [id, query] = location.hash.slice(1).split('?');
+    const personen = parseInt(new URLSearchParams(query || '').get('personen'), 10);
+    return { id: decodeURIComponent(id), personen: personen > 0 && personen < 100 ? personen : null };
+  }
+
+  function openRecept(id, viaHistorie, personen = null) {
     const r = RECEPTEN.find((x) => x.id === id);
     if (!r) return;
-    Detail.open(r, context);
+    Detail.open(r, context, { personen });
     if (!viaHistorie) {
       try { history.pushState({ recept: id }, '', '#' + id); } catch (e) { /* geen historie beschikbaar */ }
     }
@@ -489,8 +496,8 @@ const App = (() => {
   }
 
   window.addEventListener('popstate', () => {
-    const id = location.hash.slice(1);
-    if (id && RECEPTEN.some((r) => r.id === id)) openRecept(id, true);
+    const { id, personen } = uitLink();
+    if (id && RECEPTEN.some((r) => r.id === id)) openRecept(id, true, personen);
     else Detail.sluit();
   });
 
@@ -807,8 +814,8 @@ const App = (() => {
     koppel();
     render();
     Sync.start(herlaadOpslag);
-    const id = location.hash.slice(1);
-    if (id && RECEPTEN.some((r) => r.id === id)) openRecept(id, true);
+    const { id, personen } = uitLink();
+    if (id && RECEPTEN.some((r) => r.id === id)) openRecept(id, true, personen);
   }
 
   return { start, toast };
