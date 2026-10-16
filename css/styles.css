@@ -677,3 +677,51 @@ p.sync-fout::before { display: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- Deelkaart: het recept als pdf (zie js/deelkaart.js) ----------
+   Vaste lichte kleuren en geen color-mix, want html2canvas fotografeert deze pagina. */
+.deelkaart {
+  position: absolute; left: -10000px; top: 0; width: 794px; padding: 48px 56px 40px;
+  background: #FFFDF8; color: #231F1A; font-family: var(--font-ui); font-size: 15px; line-height: 1.5;
+  display: flex; flex-direction: column; gap: 28px;
+}
+.deelkaart h1, .deelkaart h2, .deelkaart h3 { font-family: var(--font-titel); font-weight: 400; margin: 0; }
+.deelkaart ul, .deelkaart ol { list-style: none; margin: 0; padding: 0; }
+.dk-kop { display: flex; flex-direction: column; gap: 10px; }
+.dk-loopkop { display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #E3DBCC; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--k); }
+.dk-loopkop span:first-child { color: #8C8274; }
+.dk-soort { margin-top: 8px; font-family: var(--font-lees); font-style: italic; font-size: 17px; color: var(--k); }
+.deelkaart h1 { font-size: 46px; line-height: 1.08; }
+.dk-varianten { display: flex; flex-wrap: wrap; gap: 8px; }
+.dk-varianten span { padding: 4px 14px; border: 1px solid #E3DBCC; border-radius: 999px; font-size: 14px; font-weight: 600; color: #8C8274; }
+.dk-varianten .is-gekozen { background: var(--k); border-color: var(--k); color: #FFFDF8; }
+.dk-intro { font-family: var(--font-lees); font-size: 17px; line-height: 1.6; color: #6B6257; }
+.dk-meta { display: flex; flex-wrap: wrap; gap: 4px 24px; padding-top: 12px; border-top: 1px solid #E3DBCC; font-size: 14px; font-weight: 600; }
+.dk-meta span::before { content: '•'; margin-right: 8px; color: var(--k); }
+.dk-midden { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.deelkaart h2 { font-size: 24px; margin-bottom: 12px; }
+.dk-ingr li { display: grid; grid-template-columns: 76px 1fr; gap: 12px; padding: 4px 0; line-height: 1.4; border-bottom: 1px dotted #E3DBCC; }
+.dk-ingr li b { text-align: right; font-variant-numeric: tabular-nums; }
+.dk-ingr li span { font-family: var(--font-lees); }
+.dk-ingr li em { color: #6B6257; font-size: 13px; }
+.dk-ingr small, .dk-gerei small { font-size: 13px; font-style: italic; color: #6B6257; }
+.dk-gerei small { display: block; }
+.dk-ingr .dk-ingr-kop { display: block; padding: 14px 0 4px; border: 0; font-family: var(--font-lees); font-style: italic; font-size: 16px; color: var(--k); }
+.dk-rechts { display: flex; flex-direction: column; gap: 22px; }
+.dk-rechts figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.dk-rechts img { display: block; width: 100%; height: 240px; object-fit: cover; border-radius: 3px; }
+.dk-rechts figcaption { font-family: var(--font-lees); font-style: italic; font-size: 11px; color: #8C8274; }
+.dk-gerei li { padding: 8px 12px; margin-bottom: 8px; border-radius: 6px; background: var(--k-vlak); font-weight: 600; font-size: 14px; }
+.dk-gerei small { font-weight: 400; }
+.dk-stappen li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid #E3DBCC; }
+.dk-stappen li:last-child { border-bottom: 0; }
+.dk-nr { font-family: var(--font-titel); font-size: 30px; line-height: 1; color: var(--k); }
+.dk-stappen p { font-family: var(--font-lees); font-size: 16px; line-height: 1.6; }
+.dk-notities { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+.dk-notities:empty { display: none; }
+.dk-notitie { padding: 16px 20px 14px; background: #FFF1B0; border: 1px solid #EBD98A; border-radius: 2px; font-family: var(--font-lees); color: #231F1A; font-size: 14px; line-height: 1.5; }
+.dk-notitie h3 { font-family: var(--font-hand); font-weight: 700; font-size: 25px; margin-bottom: 6px; color: #2A4C9A; }
+.dk-notitie ul { display: flex; flex-direction: column; gap: 8px; padding-left: 16px; list-style: disc; }
+.dk-notitie b { font-weight: 600; }
+.dk-notitie:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.dk-voet { padding-top: 12px; border-top: 1px solid #E3DBCC; font-size: 12px; color: #8C8274; overflow-wrap: anywhere; }
