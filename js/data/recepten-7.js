@@ -121,7 +121,7 @@ RECEPTEN.push(
     { n: 'gember', q: 20, u: 'g' },
     { n: 'garam masala', q: 2, u: 'tl' },
     { n: 'chilipoeder', q: 1, u: 'tl' },
-    { n: 'passata', q: 400, u: 'ml' },
+    { n: 'passata', q: 500, u: 'ml' },
     { n: 'kookroom', q: 150, u: 'ml' },
     { n: 'suiker', q: 1, u: 'tl' },
     { n: 'basmatirijst', q: 300, u: 'g' }

@@ -47,7 +47,7 @@ RECEPTEN.push(
     { n: 'wortel', p: 'wortels', q: 1, u: 'st' },
     { n: 'bleekselderij', q: 1, u: 'stengel' },
     { n: 'knoflook', q: 2, u: 'teen' },
-    { n: 'tomatenpuree', q: 2, u: 'el' },
+    { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'passata', q: 500, u: 'ml', x: 'gezeefde tomaten' },
     { n: 'rode wijn', q: 100, u: 'ml', opt: true },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },

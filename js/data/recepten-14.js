@@ -127,7 +127,7 @@ RECEPTEN.push(
     { n: 'boter', q: 20, u: 'g' },
     { n: 'cognac', q: 3, u: 'el', x: 'of brandy', opt: true },
     { n: 'runderbouillon', q: 150, u: 'ml', x: 'of kalfsfond' },
-    { n: 'slagroom', q: 150, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom of crème fraîche' },
+    { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom of crème fraîche' },
     { n: 'zout' }
   ],
   stappen: [
@@ -139,7 +139,7 @@ RECEPTEN.push(
     { t: 'Roer de room erdoor en laat 2 à 3 minuten pruttelen, tot de saus de achterkant van een lepel bedekt. Giet het vleessap dat uit de rustende biefstuk is gelopen erbij en breng op smaak met zout.', min: 3 }
   ],
   tips: [
-    'Welke room? Gebruik vloeibare slagroom uit een pak, niet de slagroom uit een spuitbus. Kookroom is het makkelijkst omdat die niet schift, en crème fraîche werkt ook. Room over? Vries hem in voor een volgende saus of soep, of roer hem door pasta, stamppot of soep.',
+    'Welke room? Gebruik vloeibare slagroom uit een pak, niet de slagroom uit een spuitbus. Kookroom is het makkelijkst omdat die niet schift, en crème fraîche werkt ook.',
     'Voor echte steak au poivre druk je de gekneusde peper vóór het bakken aan beide kanten in de biefstuk. Bak dan op middelhoog in plaats van hoog vuur, anders verbrandt de peper.'
   ],
   alt: [
@@ -176,7 +176,7 @@ RECEPTEN.push(
   ],
   tips: [
     'Was champignons niet onder de kraan: ze zuigen water op en gaan dan koken in plaats van bakken. Veeg ze schoon met keukenpapier of een borsteltje.',
-    'Welke room? Gebruik vloeibare slagroom uit een pak, niet de slagroom uit een spuitbus. Kookroom is het makkelijkst omdat die niet schift, en crème fraîche werkt ook. Room over? Vries hem in voor een volgende saus of soep, of roer hem door pasta, stamppot of soep.',
+    'Welke room? Gebruik vloeibare slagroom uit een pak, niet de slagroom uit een spuitbus. Kookroom is het makkelijkst omdat die niet schift, en crème fraîche werkt ook.',
     'Bak je er vlees bij? Maak de saus in dezelfde pan zodra het vlees eruit is: de aanbaksels geven extra smaak.'
   ],
   alt: [
@@ -314,7 +314,7 @@ RECEPTEN.push(
     { n: 'bleekselderij', q: 2, u: 'stengel', x: 'in heel kleine blokjes' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
     { n: 'olijfolie', q: 2, u: 'el' },
-    { n: 'tomatenpuree', q: 2, u: 'el' },
+    { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'rode wijn', q: 150, u: 'ml', x: 'of droge witte wijn', opt: true },
     { n: 'melk', q: 150, u: 'ml' },
     { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },

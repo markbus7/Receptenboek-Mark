@@ -118,6 +118,15 @@ for (const r of ctx.RECEPTEN) {
   if (r.bij !== undefined && !Array.isArray(r.bij)) fouten.push({ f: herkomst.get(r.id), id: r.id, m: 'bij moet een lijst met ids zijn' });
 }
 
+// Verpakkingen: elke naam moet in minstens één recept voorkomen, anders is het waarschijnlijk een tikfout.
+vm.runInContext(fs.readFileSync(path.join(map, 'verpakkingen.js'), 'utf8'), ctx, { filename: 'verpakkingen.js' });
+const namen = new Set(ctx.RECEPTEN.flatMap((r) => [...(r.ingr || []), ...Object.values(r.vervang || {}).filter(Boolean)]).map((i) => (i.n || '').toLowerCase()));
+for (const v of ctx.VERPAKKINGEN) {
+  for (const n of v.n) if (!namen.has(n)) fouten.push({ f: 'verpakkingen.js', id: n, m: 'komt in geen enkel recept voor' });
+  if (!v.tip) fouten.push({ f: 'verpakkingen.js', id: v.n[0], m: 'tip ontbreekt' });
+  if (!v.vaag && !v.eiwit && !(Array.isArray(v.pak) && v.pak.length && ['g', 'ml', 'st'].includes(v.maat) && v.wat)) fouten.push({ f: 'verpakkingen.js', id: v.n[0], m: 'maat (g, ml of st), pak en wat zijn nodig' });
+}
+
 const toon = fouten.filter((x) => !alleen.length || alleen.includes(x.f));
 toon.forEach((x) => console.log(`${x.f} · ${x.id}: ${x.m}`));
 const telling = {};

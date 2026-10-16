@@ -182,7 +182,7 @@ RECEPTEN.push(
     { n: 'kippenbouillon', q: 400, u: 'ml' },
     { n: 'citroengras', q: 2, u: 'stengel', x: 'gekneusd, in stukken' },
     { n: 'gember', q: 30, u: 'g', x: 'of galangal, in plakjes' },
-    { n: 'champignons', q: 200, u: 'g', x: 'in plakjes' },
+    { n: 'champignons', q: 250, u: 'g', x: 'in plakjes' },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st' },
     { n: 'vissaus', q: 3, u: 'el' },
     { n: 'limoen', p: 'limoenen', q: 2, u: 'st', x: 'sap' },
