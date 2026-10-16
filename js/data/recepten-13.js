@@ -253,7 +253,7 @@ RECEPTEN.push(
     { kop: 'Steak' },
     { n: 'biefstuk', q: 700, u: 'g', x: '4 biefstukken of entrecotes van ca. 175 g, 2 à 3 cm dik' },
     { n: 'boter', q: 30, u: 'g' },
-    { n: 'knoflook', q: 1, u: 'teen', x: 'gekneusd', opt: true },
+    { n: 'knoflook', q: 1, u: 'teen', x: 'gekneusd', opt: true, vers: 'gaat heel mee in de boter' },
     { n: 'verse tijm', q: 2, u: 'takje', opt: true },
     { kop: 'Friet' },
     { n: 'kruimige aardappelen', q: 1000, u: 'g', x: 'bijv. bintje of frietaardappelen' },

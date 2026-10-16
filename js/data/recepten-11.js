@@ -166,7 +166,7 @@ RECEPTEN.push(
   gerei: [ { tool: 'koekenpan', tekst: 'Koekenpan of kleine hapjespan (24 cm); in Turkije een sahan' } ],
   ingr: [
     { n: 'ei', p: 'eieren', q: 4, u: 'st' },
-    { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'rijp, in blokjes' },
+    { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'rijp, in blokjes', of: { q: 400, u: 'g', n: 'tomatenblokjes uit blik' } },
     { n: 'puntpaprika', p: 'puntpaprika\'s', q: 2, u: 'st', x: 'groen, of 3 Turkse sivri-pepers' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', opt: true },
     { n: 'boter', q: 20, u: 'g', x: 'of olijfolie' },

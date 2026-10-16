@@ -299,11 +299,12 @@ const Detail = (() => {
       const mixNaam = uitMix.get(i.n);
       const h = Hulp.hoeveelheid(i, factor);
       const extra = i.x || (i.q == null ? 'naar smaak' : '');
+      const ofTekst = mixNaam ? '' : Hulp.vervangerTekst(i, factor);
       return `<li class="ingr${i.opt ? ' is-opt' : ''}">
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${Hulp.esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}</span>
+          <span class="ingr-naam">${Hulp.esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}</span>
         </label>
       </li>`;
     }).join('');
@@ -386,7 +387,8 @@ const Detail = (() => {
     r.ingr.forEach((i) => {
       if (i.kop) return regels.push('', i.kop);
       const extra = i.x || (i.q == null ? 'naar smaak' : '');
-      regels.push(`- ${Hulp.hoeveelheidTekst(i, factor)}${extra ? `, ${extra}` : ''}${i.opt ? ' (optioneel)' : ''}`);
+      const ofTekst = Hulp.vervangerTekst(i, factor);
+      regels.push(`- ${Hulp.hoeveelheidTekst(i, factor)}${extra ? `, ${extra}` : ''}${ofTekst ? ` (${ofTekst})` : ''}${i.opt ? ' (optioneel)' : ''}`);
     });
     regels.push('', 'Bereiding');
     r.stappen.filter((s) => !s.m || s.m === methode).forEach((s, n) => regels.push(`${n + 1}. ${s.t}`));

@@ -128,7 +128,7 @@ RECEPTEN.push(
     { kop: 'Beleg' },
     { n: 'passata', q: 150, u: 'ml' },
     { n: 'mozzarella', q: 2, u: 'bol', x: 'à 125 g, uitgelekt' },
-    { n: 'verse basilicum', q: 1, u: 'handje' },
+    { n: 'verse basilicum', q: 1, u: 'handje', vers: 'gaat er rauw op' },
     { n: 'gedroogde oregano', q: 0.5, u: 'tl' }
   ],
   stappen: [
@@ -188,7 +188,7 @@ RECEPTEN.push(
     { n: 'kipfilet', q: 400, u: 'g', x: 'in reepjes' },
     { n: 'zongedroogde tomaten', q: 80, u: 'g', x: 'in reepjes' },
     { kop: 'Pesto' },
-    { n: 'verse basilicum', q: 2, u: 'bos', x: 'ca. 50 g' },
+    { n: 'verse basilicum', q: 2, u: 'bos', x: 'ca. 50 g', vers: 'de basilicum is de saus' },
     { n: 'pijnboompitten', q: 40, u: 'g' },
     { n: 'Parmezaanse kaas', q: 40, u: 'g', x: 'geraspt' },
     { n: 'knoflook', q: 1, u: 'teen' },

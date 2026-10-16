@@ -37,13 +37,22 @@ const Boodschappen = (() => {
       const { q, u } = basis(i, factor);
       const k = Hulp.norm(i.n) + '|' + u;
       const bestaand = items.find((x) => x.k === k);
+      // Een eigen vervanger in het recept bewaren we per eenheid, zodat hij meetelt met de hoeveelheid.
+      const ofPer = i.of && typeof i.of === 'object' ? { ...i.of, q: i.of.q * factor / q } : null;
       if (bestaand) {
         bestaand.q += q;
         bestaand.klaar = false;
         if (!bestaand.recepten.includes(recept.naam)) bestaand.recepten.push(recept.naam);
         if (i.x && !bestaand.x) bestaand.x = i.x;
+        if (i.vers) bestaand.vers = true;
+        if (typeof i.of === 'string' && !bestaand.of) bestaand.of = i.of;
+        if (ofPer && !bestaand.ofPer) bestaand.ofPer = ofPer;
       } else {
-        items.push({ k, n: i.n, p: i.p, q, u, x: i.x, recepten: [recept.naam], klaar: false });
+        const nieuw = { k, n: i.n, p: i.p, q, u, x: i.x, recepten: [recept.naam], klaar: false };
+        if (i.vers) nieuw.vers = true;
+        if (typeof i.of === 'string') nieuw.of = i.of;
+        if (ofPer) nieuw.ofPer = ofPer;
+        items.push(nieuw);
       }
       aantal++;
     });
@@ -65,6 +74,8 @@ const Boodschappen = (() => {
   }
 
   const tekstVan = (it) => it.eigen ? it.n : Hulp.hoeveelheidTekst(it, 1);
+  /* "of ½ tl gemberpoeder" of "vers nodig", voor de hele hoeveelheid op de lijst. */
+  const ofVan = (it) => it.eigen ? '' : Hulp.vervangerTekst(it, 1);
 
   function render(lijstEl, subEl) {
     const open = items.filter((x) => !x.klaar);
@@ -83,6 +94,7 @@ const Boodschappen = (() => {
           <span class="item-woorden">
             <span class="item-tekst">${Hulp.esc(tekstVan(it))}</span>
             ${it.x ? `<span class="item-x">${Hulp.esc(it.x)}</span>` : ''}
+            ${ofVan(it) ? `<span class="item-x item-of">${Hulp.esc(ofVan(it))}</span>` : ''}
           </span>
         </label>
         ${it.recepten.length ? `<span class="item-bron">${it.recepten.map(bronLink).join(', ')}</span>` : ''}
@@ -97,7 +109,7 @@ const Boodschappen = (() => {
   function verwijder(k) { items = items.filter((x) => x.k !== k); bewaar(); }
   function wisAfgevinkt() { items = items.filter((x) => !x.klaar); bewaar(); }
   function wisAlles() { items = []; bewaar(); }
-  const alsTekst = () => items.filter((x) => !x.klaar).map((x) => '- ' + tekstVan(x) + (x.x ? ` (${x.x})` : '')).join('\n');
+  const alsTekst = () => items.filter((x) => !x.klaar).map((x) => '- ' + tekstVan(x) + (x.x ? ` (${x.x})` : '') + (ofVan(x) ? ` (${ofVan(x)})` : '')).join('\n');
   const aantalOpen = () => items.filter((x) => !x.klaar).length;
   /* Opnieuw inlezen, bijvoorbeeld nadat een ander apparaat de lijst heeft gewijzigd. */
   const herlaad = () => { items = vulAlternatievenAan(Hulp.opslag.lees('boodschappen', [])); };

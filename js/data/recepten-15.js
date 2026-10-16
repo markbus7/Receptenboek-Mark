@@ -11,7 +11,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'garnalen', q: 400, u: 'g', x: 'rauw en gepeld; diepvries eerst ontdooien' },
     { n: 'olijfolie', q: 150, u: 'ml', x: 'extra vierge' },
-    { n: 'knoflook', q: 6, u: 'teen', x: 'in dunne plakjes' },
+    { n: 'knoflook', q: 6, u: 'teen', x: 'in dunne plakjes', vers: 'de knoflook is hier de smaak' },
     { n: 'gedroogde rode pepers', q: 2, u: 'st', x: 'guindilla\'s, gebroken; of ¼ tl cayennepeper' },
     { n: 'verse peterselie', q: 2, u: 'el', x: 'fijngehakt' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', opt: true },
@@ -36,7 +36,7 @@ RECEPTEN.push(
     { tool: 'staafmixer', tekst: 'Blender, of een staafmixer en een grote kom', of: 'Met een staafmixer wordt de soep iets minder glad. Wrijf hem daarna door een zeef voor een fluweelzachte gazpacho.' }
   ],
   ingr: [
-    { n: 'tomaat', q: 1, u: 'kg', x: 'heel rijp, bijvoorbeeld trostomaten' },
+    { n: 'tomaat', q: 1, u: 'kg', x: 'heel rijp, bijvoorbeeld trostomaten', vers: 'gaat rauw de blender in' },
     { n: 'komkommer', p: 'komkommers', q: 0.5, u: 'st', x: 'geschild' },
     { n: 'groene paprika', p: 'groene paprika\'s', q: 1, u: 'st', x: 'of een rode, voor een zoetere soep' },
     { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'klein, of 1 sjalot' },
@@ -212,7 +212,7 @@ RECEPTEN.push(
     { n: 'kippendijfilet', q: 700, u: 'g', x: 'in grote stukken; of 8 kippendijen met bot' },
     { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'fijngesnipperd' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in reepjes; of een lichtgroene Hongaarse paprika' },
-    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes' },
+    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes', of: { q: 200, u: 'g', n: 'tomatenblokjes uit blik' } },
     { n: 'knoflook', q: 2, u: 'teen' },
     { n: 'paprikapoeder', q: 2, u: 'el', x: 'edelzoet' },
     { n: 'kippenbouillon', q: 250, u: 'ml' },
@@ -260,7 +260,7 @@ RECEPTEN.push(
     { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'in blokjes van 1,5 cm' },
     { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in plakjes' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in blokjes' },
-    { n: 'tomaat', p: 'tomaten', q: 1, u: 'st', x: 'in blokjes' },
+    { n: 'tomaat', p: 'tomaten', q: 1, u: 'st', x: 'in blokjes', of: { q: 100, u: 'g', n: 'tomatenblokjes uit blik' } },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'of 1 tl scherp paprikapoeder', opt: true },
     { n: 'zout' }, { n: 'peper' }
   ],
@@ -486,10 +486,10 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'Kom of pannetje om de bulgur te laten wellen, en een scherp koksmes' }
   ],
   ingr: [
-    { n: 'verse peterselie', q: 3, u: 'bos', x: 'platte, ca. 120 g' },
-    { n: 'verse munt', q: 1, u: 'handje', x: 'alleen de blaadjes' },
+    { n: 'verse peterselie', q: 3, u: 'bos', x: 'platte, ca. 120 g', vers: 'de peterselie is de salade' },
+    { n: 'verse munt', q: 1, u: 'handje', x: 'alleen de blaadjes', vers: 'gaat er rauw in' },
     { n: 'bulgur', q: 50, u: 'g', x: 'fijn' },
-    { n: 'tomaat', p: 'tomaten', q: 3, u: 'st', x: 'stevig' },
+    { n: 'tomaat', p: 'tomaten', q: 3, u: 'st', x: 'stevig', vers: true },
     { n: 'lente-ui', p: 'lente-uien', q: 4, u: 'st' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'sap' },
     { n: 'olijfolie', q: 4, u: 'el', x: 'extra vierge' },
@@ -518,7 +518,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'Turkse yoghurt', q: 150, u: 'g', x: 'of Griekse yoghurt' },
     { n: 'mayonaise', q: 100, u: 'g', x: 'ca. 6 el' },
-    { n: 'knoflook', q: 3, u: 'teen', x: 'geperst of fijngeraspt' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'geperst of fijngeraspt', vers: 'gaat er rauw in' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
     { n: 'verse dille', q: 1, u: 'el', x: 'fijngehakt, of peterselie' },
     { n: 'suiker', q: 1, u: 'snuf' },
