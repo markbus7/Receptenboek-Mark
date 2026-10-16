@@ -2,6 +2,21 @@
 const Boodschappen = (() => {
   let items = Hulp.opslag.lees('boodschappen', []);
 
+  /* Oudere lijsten bewaarden het alternatief ("of: ...") niet: zoek het op in het recept. */
+  function vulAlternatievenAan(lijst) {
+    lijst.forEach((it) => {
+      if (it.eigen || it.x) return;
+      const naam = it.k.split('|')[0];
+      for (const r of RECEPTEN) {
+        if (!it.recepten.includes(r.naam) || !r.ingr) continue;
+        const i = r.ingr.find((g) => g.x && Hulp.norm(g.n || '') === naam);
+        if (i) { it.x = i.x; break; }
+      }
+    });
+    return lijst;
+  }
+  vulAlternatievenAan(items);
+
   const bewaar = () => {
     Hulp.opslag.schrijf('boodschappen', items);
     document.dispatchEvent(new CustomEvent('lijst-gewijzigd'));
@@ -26,8 +41,9 @@ const Boodschappen = (() => {
         bestaand.q += q;
         bestaand.klaar = false;
         if (!bestaand.recepten.includes(recept.naam)) bestaand.recepten.push(recept.naam);
+        if (i.x && !bestaand.x) bestaand.x = i.x;
       } else {
-        items.push({ k, n: i.n, p: i.p, q, u, recepten: [recept.naam], klaar: false });
+        items.push({ k, n: i.n, p: i.p, q, u, x: i.x, recepten: [recept.naam], klaar: false });
       }
       aantal++;
     });
@@ -58,7 +74,10 @@ const Boodschappen = (() => {
       <li class="item${it.klaar ? ' is-klaar' : ''}">
         <label>
           <input type="checkbox" data-k="${Hulp.esc(it.k)}" ${it.klaar ? 'checked' : ''}>
-          <span class="item-tekst">${Hulp.esc(tekstVan(it))}</span>
+          <span class="item-woorden">
+            <span class="item-tekst">${Hulp.esc(tekstVan(it))}</span>
+            ${it.x ? `<span class="item-x">${Hulp.esc(it.x)}</span>` : ''}
+          </span>
         </label>
         ${it.recepten.length ? `<span class="item-bron">${Hulp.esc(it.recepten.join(', '))}</span>` : ''}
         <button type="button" class="ikoon-knop" data-weg="${Hulp.esc(it.k)}" aria-label="Verwijder ${Hulp.esc(it.n)}"><svg viewBox="0 0 24 24"><use href="#i-sluit"/></svg></button>
@@ -72,10 +91,10 @@ const Boodschappen = (() => {
   function verwijder(k) { items = items.filter((x) => x.k !== k); bewaar(); }
   function wisAfgevinkt() { items = items.filter((x) => !x.klaar); bewaar(); }
   function wisAlles() { items = []; bewaar(); }
-  const alsTekst = () => items.filter((x) => !x.klaar).map((x) => '- ' + tekstVan(x)).join('\n');
+  const alsTekst = () => items.filter((x) => !x.klaar).map((x) => '- ' + tekstVan(x) + (x.x ? ` (${x.x})` : '')).join('\n');
   const aantalOpen = () => items.filter((x) => !x.klaar).length;
   /* Opnieuw inlezen, bijvoorbeeld nadat een ander apparaat de lijst heeft gewijzigd. */
-  const herlaad = () => { items = Hulp.opslag.lees('boodschappen', []); };
+  const herlaad = () => { items = vulAlternatievenAan(Hulp.opslag.lees('boodschappen', [])); };
 
   return { herlaad, voegReceptToe, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
 })();
