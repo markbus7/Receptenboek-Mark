@@ -313,11 +313,12 @@ const Detail = (() => {
   /* Restjes: wat je overhoudt van pakken, blikken en bosjes, voor het aantal personen dat je nu kookt. */
   function restRegels() {
     const hoofd = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+    const naam = (x) => x.naam + (x.opt ? ' (als je het gebruikt)' : '');
     return Hulp.restjes(r, factor).map(({ regels, tip }) => {
       const vaag = regels.every((x) => !x.zin);
       const kop = vaag
-        ? `<b>${Hulp.esc(hoofd(regels.map((x) => x.naam).join(', ').replace(/, ([^,]*)$/, ' en $1')))}:</b>`
-        : regels.map((x) => `<b>${Hulp.esc(hoofd(x.naam))}:</b> ${Hulp.esc(x.zin)}`).join(' ');
+        ? `<b>${Hulp.esc(hoofd(regels.map(naam).join(', ').replace(/, ([^,]*)$/, ' en $1')))}:</b>`
+        : regels.map((x) => `<b>${Hulp.esc(hoofd(naam(x)))}:</b> ${Hulp.esc(x.zin)}`).join(' ');
       return `${kop} ${Hulp.esc(tip)}`;
     });
   }

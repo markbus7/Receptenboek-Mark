@@ -295,7 +295,8 @@ const Hulp = (() => {
   }
 
   /* Restjes: per ingrediënt met een vaste verpakking (js/data/verpakkingen.js) wat je koopt en wat je
-     overhoudt, voor het aantal personen dat je nu kookt. Geeft per verpakkingssoort { regels: [{ naam, zin }], tip }. */
+     overhoudt, voor het aantal personen dat je nu kookt. Optionele ingrediënten tellen mee (opt), want als je ze gebruikt, koop je ze ook.
+     Geeft per verpakkingssoort { regels: [{ naam, zin, opt }], tip }. */
   const MEERVOUD = { pak: 'pakken', blik: 'blikken', blikje: 'blikjes', beker: 'bekers', bak: 'bakken', bakje: 'bakjes', blok: 'blokken', fles: 'flessen', zak: 'zakken', stuk: 'stuks' };
   const OMREKEN = { g: 1, ml: 1, kg: 1000, l: 1000, el: 15, tl: 5 };
 
@@ -314,26 +315,29 @@ const Hulp = (() => {
   function restjes(recept, factor = 1) {
     const nodig = new Map();   // verpakking → Map(naam → hoeveelheid in de maat van de verpakking)
     for (const i of recept.ingr || []) {
-      if (i.kop || i.opt || i.q == null) continue;
+      if (i.kop || i.q == null) continue;
       const v = verpakkingVoor(i);
       if (!v) continue;
       const per = v.vaag || v.eiwit ? (['kg'].includes(i.u) ? 1000 : 1) : inBasis(i, v);
       if (!nodig.has(v)) nodig.set(v, new Map());
       const m = nodig.get(v);
-      m.set(i.n, (m.get(i.n) || 0) + i.q * factor * per);
+      if (!m.has(i.n)) m.set(i.n, { hv: 0, opt: true });
+      const x = m.get(i.n);
+      x.hv += i.q * factor * per;
+      x.opt = x.opt && !!i.opt;   // alleen optioneel als elke regel met deze naam optioneel is
     }
     const uit = [];
     for (const [v, m] of nodig) {
       const regels = [];
-      for (const [naam, hv] of m) {
+      for (const [naam, { hv, opt }] of m) {
         if (v.eiwit) {
           const n = Math.round(hv);
-          regels.push({ naam: 'eiwit', zin: `je houdt ${n} ${n === 1 ? 'eiwit' : 'eiwitten'} over.` });
+          regels.push({ naam: 'eiwit', opt, zin: `je houdt ${n} ${n === 1 ? 'eiwit' : 'eiwitten'} over.` });
           continue;
         }
         if (v.vaag) {
           if (v.tot && hv >= v.tot) continue;
-          regels.push({ naam, zin: '' });
+          regels.push({ naam, opt, zin: '' });
           continue;
         }
         if (v.vanaf && hv < v.vanaf) continue;
@@ -360,7 +364,7 @@ const Hulp = (() => {
           const maat = (x) => (x >= 1000 ? `${getal(x / 1000, 1)}\u00a0${v.maat === 'g' ? 'kg' : 'liter'}` : `${getal(x)}\u00a0${v.maat}`);
           zin = `koop ${k === 1 ? `een ${v.wat}` : `${k} ${MEERVOUD[v.wat] || v.wat}`} van ${maat(s)}${t ? ` en een ${v.wat} van ${maat(t)}` : ''}, dan houd je ± ${maat(rondAf(Math.max(5, Math.round(rest / 5) * 5)))} over.`;
         }
-        regels.push({ naam, zin });
+        regels.push({ naam, opt, zin });
       }
       if (regels.length) uit.push({ regels, tip: v.tip });
     }

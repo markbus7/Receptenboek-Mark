@@ -21,7 +21,6 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 2, u: 'el' },
     { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
     { n: 'runderbouillon', q: 300, u: 'ml' },
-    { n: 'kokosmelk', q: 100, u: 'ml', opt: true, x: 'maakt hem iets ronder' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
@@ -37,7 +36,7 @@ RECEPTEN.push(
     { t: 'Zet de pan met deksel 2 uur in een voorverwarmde oven op 160 °C. Kijk na 1½ uur of er genoeg vocht in zit.', m: 'oven', min: 120 },
     { t: 'Doe alles over in de slowcooker en gaar 7 à 8 uur op LOW of 4 uur op HIGH. Gebruik 200 ml bouillon.', m: 'slowcooker', min: 240 },
     { t: 'Kook de rijst volgens de verpakking.', min: 12 },
-    { t: 'Roer garam masala, citroensap en eventueel de kokosmelk door de curry. Laat 5 minuten zonder deksel inkoken tot de saus dik is. Breng op smaak met zout en bestrooi met koriander.', min: 5 }
+    { t: 'Roer garam masala en citroensap door de curry (milder en romiger? Roer er nu ook een klein blikje kokosmelk van 200 ml door). Laat 5 minuten zonder deksel inkoken tot de saus dik is. Breng op smaak met zout en bestrooi met koriander.', min: 5 }
   ],
   tips: ['Lekker met naan en een schepje yoghurt om de scherpte te temperen.'],
   alt: ['Geen madras-kerrie? Gebruik gewone kerrie en verdubbel de chilipoeder.']
@@ -65,7 +64,6 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 2, u: 'el' },
     { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
     { n: 'kippenbouillon', q: 200, u: 'ml' },
-    { n: 'kokosmelk', q: 100, u: 'ml', opt: true, x: 'maakt hem iets ronder' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
     { n: 'verse koriander', q: 1, u: 'handje' },
@@ -79,7 +77,7 @@ RECEPTEN.push(
     { t: 'Bak knoflook, gember, kerriepoeder, chilipoeder en de gedroogde pepers 1 minuut tot het geurt. Roer de tomatenpuree erdoor en bak nog 1 minuut.', min: 2 },
     { t: 'Voeg de tomaten en de bouillon toe. Laat zonder deksel 10 minuten pruttelen tot een dikke saus.', min: 10 },
     { t: 'Doe de kip met het vocht van het bord terug in de saus. Laat 8 à 10 minuten zachtjes garen, tot het grootste stuk vanbinnen niet meer roze is. Niet langer: kipfilet wordt snel droog.', min: 9 },
-    { t: 'Roer garam masala, eventueel de kokosmelk en de rest van het citroensap erdoor. Breng op smaak met zout en bestrooi met koriander. Serveer met de rijst.' }
+    { t: 'Roer garam masala en de rest van het citroensap erdoor (milder en romiger? Roer er nu ook een klein blikje kokosmelk van 200 ml door en laat 3 minuten zonder deksel inkoken). Breng op smaak met zout en bestrooi met koriander. Serveer met de rijst.' }
   ],
   tips: ['De kip gaart in de warme saus nog even na. Haal de pan dus van het vuur zodra het grootste stukje net gaar is.', 'Liever nog sappiger? Kippendijfilet mag 15 minuten in de saus garen.'],
   alt: ['Geen madras-kerrie? Gebruik gewone kerrie en verdubbel de chilipoeder.', 'Zonder Dutch oven: een hapjespan of grote koekenpan met hoge rand werkt ook.']
