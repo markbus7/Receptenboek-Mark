@@ -775,7 +775,11 @@ const App = (() => {
 
     // Boodschappenlijst
     $('#boodschappen').addEventListener('change', (e) => { if (e.target.dataset.k) Boodschappen.wissel(e.target.dataset.k, e.target.checked); });
-    $('#boodschappen').addEventListener('click', (e) => { const b = e.target.closest('[data-weg]'); if (b) Boodschappen.verwijder(b.dataset.weg); });
+    $('#boodschappen').addEventListener('click', (e) => {
+      const a = e.target.closest('[data-open]');
+      if (a && !e.metaKey && !e.ctrlKey) { e.preventDefault(); return openRecept(a.dataset.open); }
+      const b = e.target.closest('[data-weg]'); if (b) Boodschappen.verwijder(b.dataset.weg);
+    });
     $('#lijst-form').addEventListener('submit', (e) => { e.preventDefault(); Boodschappen.voegEigenToe($('#lijst-input').value); $('#lijst-input').value = ''; });
     $('#lijst-afgevinkt').addEventListener('click', () => Boodschappen.wisAfgevinkt());
     $('#lijst-wis').addEventListener('click', () => { $('#lijst-bevestig').hidden = false; });

@@ -67,6 +67,12 @@ const Boodschappen = (() => {
     bewaar();
   }
 
+  /* Receptnaam als link, zodat je vanaf het lijstje meteen terug bent in het recept. */
+  function bronLink(naam) {
+    const r = RECEPTEN.find((x) => x.naam === naam);
+    return r ? `<a href="#${Hulp.esc(r.id)}" data-open="${Hulp.esc(r.id)}">${Hulp.esc(naam)}</a>` : Hulp.esc(naam);
+  }
+
   const tekstVan = (it) => it.eigen ? it.n : Hulp.hoeveelheidTekst(it, 1);
   /* "of ½ tl gemberpoeder" of "vers nodig", voor de hele hoeveelheid op de lijst. */
   const ofVan = (it) => it.eigen ? '' : Hulp.vervangerTekst(it, 1);
@@ -91,7 +97,7 @@ const Boodschappen = (() => {
             ${ofVan(it) ? `<span class="item-x item-of">${Hulp.esc(ofVan(it))}</span>` : ''}
           </span>
         </label>
-        ${it.recepten.length ? `<span class="item-bron">${Hulp.esc(it.recepten.join(', '))}</span>` : ''}
+        ${it.recepten.length ? `<span class="item-bron">${it.recepten.map(bronLink).join(', ')}</span>` : ''}
         <button type="button" class="ikoon-knop" data-weg="${Hulp.esc(it.k)}" aria-label="Verwijder ${Hulp.esc(it.n)}"><svg viewBox="0 0 24 24"><use href="#i-sluit"/></svg></button>
       </li>`).join('');
   }
