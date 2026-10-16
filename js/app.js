@@ -429,7 +429,7 @@ const App = (() => {
   }
 
   function renderLijst() {
-    Boodschappen.render($('#boodschappen'), $('#lijst-sub'));
+    Boodschappen.render($('#boodschappen'), $('#lijst-sub'), $('#lijst-prijs'));
     $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || '';
   }
 
