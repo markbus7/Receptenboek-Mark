@@ -259,8 +259,8 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .mix-kaart b { font-family: var(--font-ui); font-weight: 700; font-size: 14px; }
 .mix-bevat { font-style: italic; color: var(--inkt-zacht); }
 .mix-aanraders a { color: var(--pen); font-weight: 600; text-underline-offset: 3px; }
-.mix-notitie { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-hand); font-size: 20px; line-height: 1.2; color: var(--pen); transform: rotate(-0.5deg); }
-.mix-notitie b { font-weight: 700; }
+.mix-notitie { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-lees); font-size: 15px; line-height: 1.5; color: var(--inkt); transform: rotate(-0.5deg); }
+.mix-notitie b { font-weight: 600; }
 .ingr-mix { display: block; font-family: var(--font-hand); font-size: 18px; line-height: 1.1; color: var(--pen); }
 .blok-sync { padding-top: 18px; border-top: 1px solid var(--lijn); }
 .blok-sync a { color: var(--inkt); text-decoration-color: var(--potlood); text-underline-offset: 3px; }
@@ -570,18 +570,18 @@ p.sync-fout::before { display: none; }
   position: relative; padding: 22px 22px 18px;
   background: var(--notitie); border: 1px solid var(--notitie-rand); border-radius: 2px;
   box-shadow: var(--schaduw-klein);
-  font-family: var(--font-hand); color: var(--pen); font-size: 21px; line-height: 1.25;
+  font-family: var(--font-lees); color: var(--inkt); font-size: 16px; line-height: 1.55;
   transform: rotate(-1deg);
 }
 .notitie-tip { transform: rotate(0.8deg); margin-left: 8%; }
 .notitie-bij { transform: rotate(0.4deg); background: color-mix(in srgb, var(--ok-zacht) 70%, var(--notitie)); }
-.notitie-rest { transform: rotate(-0.6deg); margin-right: 6%; font-size: 19px; }
-.notitie-rest b { font-weight: 700; }
-.notitie-bij a { color: var(--pen); font-weight: 700; text-underline-offset: 3px; }
-.notitie-bij .zacht { font-size: 17px; }
+.notitie-rest { transform: rotate(-0.6deg); margin-right: 6%; }
+.notitie-rest b { font-weight: 600; }
+.notitie-bij a { color: var(--pen); font-weight: 600; text-underline-offset: 3px; }
+.notitie-bij .zacht { font-size: 14px; }
 .notitie::before { content: ''; position: absolute; left: 50%; top: -11px; width: 90px; height: 22px; transform: translateX(-50%) rotate(2deg); background: var(--tape); }
 .notitie h3 { font-family: var(--font-hand); font-weight: 700; font-size: 26px; margin-bottom: 6px; color: var(--pen); }
-.notitie ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+.notitie ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 10px; }
 
 /* ---------- Timers en melding ---------- */
 .timers { position: fixed; z-index: 60; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 8px; width: min(440px, 100% - 32px); }

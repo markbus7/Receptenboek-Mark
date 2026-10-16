@@ -351,7 +351,7 @@ const Hulp = (() => {
         } else if (v.maat === 'st') {
           zin = `een ${v.wat} heeft er meestal ${s}, dan houd je er ${getal(Math.round(rest))} over.`;
         } else {
-          const maat = (x) => (x >= 1000 ? `${getal(x / 1000, 1)} ${v.maat === 'g' ? 'kg' : 'liter'}` : `${getal(x)} ${v.maat}`);
+          const maat = (x) => (x >= 1000 ? `${getal(x / 1000, 1)}\u00a0${v.maat === 'g' ? 'kg' : 'liter'}` : `${getal(x)}\u00a0${v.maat}`);
           zin = `koop ${k === 1 ? `een ${v.wat}` : `${k} ${MEERVOUD[v.wat] || v.wat}`} van ${maat(s)}, dan houd je ± ${maat(rondAf(Math.max(5, Math.round(rest / 5) * 5)))} over.`;
         }
         regels.push({ naam, zin });
