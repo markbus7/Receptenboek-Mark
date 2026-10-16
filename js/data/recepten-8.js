@@ -212,7 +212,7 @@ RECEPTEN.push(
     { n: 'gember', q: 15, u: 'g' },
     { n: 'sambal oelek', q: 2, u: 'el', x: 'minder voor milder' },
     { n: 'tomatenpuree', q: 2, u: 'el' },
-    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes' },
+    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes', of: { q: 200, u: 'g', n: 'tomatenblokjes uit blik' } },
     { n: 'ketjap manis', q: 3, u: 'el' },
     { n: 'laos', q: 1, u: 'tl' },
     { n: 'djeroekbladeren', q: 2, u: 'st' },

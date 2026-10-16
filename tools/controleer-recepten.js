@@ -100,7 +100,11 @@ for (const r of ctx.RECEPTEN) {
     if (i.u !== undefined && !ctx.EENHEDEN[i.u]) fout(`"${i.n}": onbekende eenheid "${i.u}"`);
     if (i.u !== undefined && i.q === undefined) fout(`"${i.n}": eenheid zonder hoeveelheid`);
     if (i.p !== undefined && typeof i.p !== 'string') fout(`"${i.n}": p (meervoud) moet tekst zijn`);
-    const onbekend = Object.keys(i).filter((k) => !['n', 'p', 'q', 'u', 'x', 'opt'].includes(k));
+    if (i.vers !== undefined && i.vers !== true && !(typeof i.vers === 'string' && i.vers.trim())) fout(`"${i.n}": vers moet true of een reden zijn`);
+    if (i.of !== undefined && !(typeof i.of === 'string' && i.of.trim())
+      && !(i.of && typeof i.of.n === 'string' && typeof i.of.q === 'number' && i.of.q > 0 && ctx.EENHEDEN[i.of.u])) fout(`"${i.n}": of moet tekst zijn of { q, u, n } met een bekende eenheid`);
+    if (i.of !== undefined && i.vers !== undefined) fout(`"${i.n}": vers en of gaan niet samen`);
+    const onbekend = Object.keys(i).filter((k) => !['n', 'p', 'q', 'u', 'x', 'opt', 'vers', 'of'].includes(k));
     if (onbekend.length) fout(`"${i.n}": onbekende velden ${onbekend.join(', ')}`);
   }
   if (!Array.isArray(r.stappen) || r.stappen.length < 2) fout('stappen ontbreken');
@@ -125,6 +129,13 @@ for (const v of ctx.VERPAKKINGEN) {
   for (const n of v.n) if (!namen.has(n)) fouten.push({ f: 'verpakkingen.js', id: n, m: 'komt in geen enkel recept voor' });
   if (!v.tip) fouten.push({ f: 'verpakkingen.js', id: v.n[0], m: 'tip ontbreekt' });
   if (!v.vaag && !v.eiwit && !(Array.isArray(v.pak) && v.pak.length && ['g', 'ml', 'st'].includes(v.maat) && v.wat)) fouten.push({ f: 'verpakkingen.js', id: v.n[0], m: 'maat (g, ml of st), pak en wat zijn nodig' });
+}
+
+// Vervangers voor verse ingrediënten: elke naam moet in een recept voorkomen, en elke eenheid bestaan.
+vm.runInContext(fs.readFileSync(path.join(map, 'vervangers.js'), 'utf8'), ctx, { filename: 'vervangers.js' });
+for (const v of ctx.VERVANGERS) {
+  for (const n of v.n) if (!namen.has(n)) fouten.push({ f: 'vervangers.js', id: n, m: 'komt in geen enkel recept voor' });
+  if (!v.tekst && !(v.per && v.wat && ctx.EENHEDEN[v.u] && Object.keys(v.per).every((u) => ctx.EENHEDEN[u]))) fouten.push({ f: 'vervangers.js', id: v.n[0], m: 'tekst, of per, u en wat met bekende eenheden, zijn nodig' });
 }
 
 const toon = fouten.filter((x) => !alleen.length || alleen.includes(x.f));

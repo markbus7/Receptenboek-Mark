@@ -151,7 +151,7 @@ RECEPTEN.push(
     { n: 'rode wijn', q: 500, u: 'ml' },
     { n: 'kippenbouillon', q: 200, u: 'ml' },
     { n: 'champignons', q: 250, u: 'g' },
-    { n: 'sjalot', p: 'sjalotten', q: 8, u: 'st', x: 'gepeld, heel' },
+    { n: 'sjalot', p: 'sjalotten', q: 8, u: 'st', x: 'gepeld, heel', of: { q: 2, u: 'st', n: 'ui in parten', p: 'uien in parten' } },
     { n: 'wortel', p: 'wortels', q: 2, u: 'st' },
     { n: 'knoflook', q: 3, u: 'teen' },
     { n: 'bloem', q: 1, u: 'el' },
@@ -222,7 +222,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'hele kip', p: 'hele kippen', q: 1, u: 'st', x: 'ca. 1,6 kg' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st' },
-    { n: 'knoflook', q: 1, u: 'bol' },
+    { n: 'knoflook', q: 1, u: 'bol', vers: 'de halve bol gaart mee in de kip' },
     { n: 'verse tijm', q: 6, u: 'takje', x: 'of rozemarijn' },
     { n: 'roomboter', q: 50, u: 'g', x: 'zacht' },
     { n: 'krieltjes', q: 600, u: 'g', x: 'gehalveerd' },

@@ -210,7 +210,7 @@ RECEPTEN.push(
     { n: 'komkommer', p: 'komkommers', q: 1, u: 'st', x: 'in reepjes' },
     { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'julienne' },
     { n: 'ijsbergsla', q: 0.5, u: 'st', x: 'krop' },
-    { n: 'verse munt', q: 1, u: 'handje' },
+    { n: 'verse munt', q: 1, u: 'handje', vers: 'gaat rauw door de salade' },
     { n: 'verse koriander', q: 1, u: 'handje' },
     { n: 'ongezouten pinda\'s', q: 40, u: 'g', x: 'geroosterd en gehakt' },
     { kop: 'Nuoc cham' },

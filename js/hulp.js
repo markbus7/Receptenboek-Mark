@@ -94,6 +94,31 @@ const Hulp = (() => {
     return [h.aantal, h.eenheid, h.naam].filter(Boolean).join(' ');
   }
 
+  /* Vervanger voor een vers ingrediënt (js/data/vervangers.js): { tekst } of { vers }, of null.
+     ofPer is de vervanger per eenheid, zoals het boodschappenlijstje hem bewaart. */
+  function vervanger(i, factor = 1) {
+    if (i.vers) return { vers: i.vers === true ? 'vers nodig' : 'vers nodig: ' + i.vers };
+    if (typeof i.of === 'string') return { tekst: i.of };
+    const metQ = (q, u, n, p) => {
+      if (u === 'tl' && q >= 3) { q /= 3; u = 'el'; } else if (u === 'el' && q < 1) { q *= 3; u = 'tl'; }
+      return { tekst: 'of ' + hoeveelheidTekst({ q, u, n, p }, 1) };
+    };
+    if (i.of) return metQ(i.of.q * factor, i.of.u, i.of.n, i.of.p);
+    if (i.ofPer) return i.q == null ? null : metQ(i.q * i.ofPer.q * factor, i.ofPer.u, i.ofPer.n, i.ofPer.p);
+    const v = (window.VERVANGERS || []).find((v) => v.n.some((n) => norm(n) === norm(i.n)));
+    if (!v) return null;
+    const x = norm(i.x || '');
+    if ((v.tenzij || []).some((w) => x.includes(norm(w)))) return null;
+    if (v.versAls && v.versAls.test(x)) return { vers: v.versTekst || 'vers nodig' };
+    if (v.alleenAls && !v.alleenAls.test(x)) return null;
+    if (v.tekst) return { tekst: v.tekst };
+    const u = i.u === 'kg' ? 'g' : i.u === 'l' ? 'ml' : (i.u || 'st');
+    const per = v.per[u];
+    if (i.q == null || !per) return null;
+    return metQ(i.q * (u === i.u || !i.u ? 1 : 1000) * per * factor, v.u, v.wat, v.mv);
+  }
+  const vervangerTekst = (i, factor) => { const v = vervanger(i, factor); return v ? (v.tekst || v.vers) : ''; };
+
   /* Basisvoorraad die vrijwel iedereen heeft. */
   const BASIS = ['zout', 'peper', 'zwarte peper', 'water', 'lauw water', 'olijfolie', 'zonnebloemolie', 'olie'];
   const isBasis = (ingr) => BASIS.includes(norm(ingr.n));
@@ -374,5 +399,5 @@ const Hulp = (() => {
   /* Foto van het recept; een variant zonder eigen foto laat die van het basisrecept zien. */
   const foto = (r) => (window.FOTOS && (FOTOS[r.id] || (r.groep && FOTOS[r.groep]))) || null;
 
-  return { foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies, restjes };
+  return { foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies, restjes };
 })();

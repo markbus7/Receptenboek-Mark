@@ -438,7 +438,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'spaghetti', q: 400, u: 'g' },
     { n: 'olijfolie', q: 100, u: 'ml', x: 'extra vierge' },
-    { n: 'knoflook', q: 6, u: 'teen', x: 'in dunne plakjes' },
+    { n: 'knoflook', q: 6, u: 'teen', x: 'in dunne plakjes', vers: 'de knoflook is hier de smaak' },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'in ringetjes; of 1 tl chilivlokken' },
     { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
     { n: 'zout' }
@@ -561,7 +561,7 @@ RECEPTEN.push(
     { tool: 'staafmixer', tekst: 'Staafmixer met hakmolen of hoge beker', of: 'Geen staafmixer? Gebruik een vijzel (zie de alternatieven) of hak alles heel fijn met een groot mes.' }
   ],
   ingr: [
-    { n: 'verse basilicum', q: 2, u: 'bos', x: 'ca. 50 g blaadjes' },
+    { n: 'verse basilicum', q: 2, u: 'bos', x: 'ca. 50 g blaadjes', vers: 'de basilicum is de saus' },
     { n: 'pijnboompitten', q: 30, u: 'g' },
     { n: 'knoflook', q: 1, u: 'teen' },
     { n: 'Parmezaanse kaas', q: 50, u: 'g', x: 'fijn geraspt; of een vegetarische Italiaanse harde kaas' },

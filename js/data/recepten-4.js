@@ -92,7 +92,7 @@ RECEPTEN.push(
     { n: 'knoflook', q: 3, u: 'teen' },
     { n: 'gember', q: 15, u: 'g' },
     { n: 'kurkuma', q: 1, u: 'tl' },
-    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes' },
+    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes', of: { q: 200, u: 'g', n: 'tomatenblokjes uit blik' } },
     { n: 'spinazie', q: 100, u: 'g', opt: true },
     { kop: 'Tadka' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },

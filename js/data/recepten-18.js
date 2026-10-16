@@ -275,10 +275,10 @@ RECEPTEN.push(
   intro: 'Frisse, rauwe salsa van tomaat, ui, peper, koriander en limoen. Snel gemaakt en onmisbaar bij taco\'s, nacho\'s en alles van de grill.',
   gerei: [ { tool: 'ovenschaal', tekst: 'Kom, een zeef en een scherp mes; geen pannen nodig' } ],
   ingr: [
-    { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'rijp en stevig, ca. 400 g' },
+    { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'rijp en stevig, ca. 400 g', vers: 'het is een rauwe salsa' },
     { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'of rode ui' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st', x: 'of groene peper' },
-    { n: 'verse koriander', q: 1, u: 'handje' },
+    { n: 'verse koriander', q: 1, u: 'handje', vers: 'het is een rauwe salsa' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'sap' },
     { n: 'zout', q: 0.5, u: 'tl' }
   ],
