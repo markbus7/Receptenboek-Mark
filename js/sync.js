@@ -3,7 +3,7 @@
    Per onderdeel wint de nieuwste versie (tijdstempel uit Hulp.opslag). */
 const Sync = (() => {
   const { opslag, esc } = Hulp;
-  const ONDERDELEN = ['favorieten', 'boodschappen', 'voorraad', 'basis', 'keuken', 'pannen'];
+  const ONDERDELEN = ['favorieten', 'boodschappen', 'voorraad', 'basis', 'keuken', 'pannen', 'logboek'];
   const BESTAND = 'receptenboek-mark.json';
   const API = 'https://api.github.com';
   /* Opent het GitHub-formulier al ingevuld: naam, omschrijving, een jaar geldig en alleen Gists: Read and write. */
@@ -86,7 +86,7 @@ const Sync = (() => {
       let gist = await zoekGist();
       if (!gist) {
         gist = await api('/gists', { method: 'POST', body: JSON.stringify({
-          description: 'Receptenboek Mark: favorieten, boodschappen en keukeninstellingen',
+          description: 'Receptenboek Mark: favorieten, boodschappen, keukeninstellingen en logboek',
           public: false,
           files: { [BESTAND]: { content: inhoud() } }
         }) });
@@ -134,7 +134,7 @@ const Sync = (() => {
     const foutHtml = toestand === 'fout' ? `<p class="sync-fout" role="alert">${esc(fout)}</p>` : '';
     if (!token) {
       el.innerHTML = `
-        <p class="hint">Bewaar je favorieten, boodschappenlijst, voorraad en keuken in je eigen GitHub-account. Dan heb je ze op al je apparaten.</p>
+        <p class="hint">Bewaar je favorieten, boodschappenlijst, voorraad, keuken en logboek in je eigen GitHub-account. Dan heb je ze op al je apparaten.</p>
         <form id="sync-form" class="voorraad-invoer" autocomplete="off">
           <label for="sync-token" class="sr">GitHub-token</label>
           <input id="sync-token" type="password" placeholder="Plak je GitHub-token" spellcheck="false">
