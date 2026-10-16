@@ -94,6 +94,8 @@ ARTIKELEN = {
     'fried-chicken': 'Fried chicken', 'chocolate-chip-cookies': 'Chocolate chip cookie', 'barbecuesaus': 'File:Ribs with Asian Barbecue Sauce 3of3 (8735180329).jpg',
     # 1.12.0
     'gehaktballen-tomatensaus': 'File:Polpette Al Sugo - Nanninella.jpg',
+    # 1.19.0: er is geen vrije foto van kip kerrie met perzik; deze kip kerrie met rijst lijkt er het meest op
+    'kip-kerrie-perzik': 'File:Chicken curry rice.jpg',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

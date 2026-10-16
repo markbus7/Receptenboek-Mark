@@ -558,6 +558,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chicken_fajita_platter,_Lone_Star_Texas_Grill,_Windsor,_Ontario,_2025-06-14_03.jpg"
  },
+ "kip-kerrie-perzik": {
+  "src": "img/kip-kerrie-perzik.jpg",
+  "auteur": "Masserie",
+  "licentie": "CC BY 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Chicken_curry_rice.jpg"
+ },
  "kip-korma": {
   "src": "img/kip-korma.jpg",
   "auteur": "Miansari66",
