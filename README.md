@@ -16,6 +16,7 @@ Een receptenboek in de browser met 184 gerechten uit 22 keukens, waarvan 21 in m
 - **Delen als pdf.** Met de knop *Deel* bovenaan een recept maak je een pdf in de stijl van het boek: met hoofdstukkleur, foto, ingrediënten, bereiding en de tips als geeltje. Op telefoon en tablet stuur je hem meteen via WhatsApp, Berichten of mail; op de computer wordt hij gedownload. De pdf toont het recept zoals je het ziet (gekozen variant, bereidingswijze en aantal personen), met onderaan een link die het recept precies zo opent.
 - **Restjes.** Bij elk recept staat op een briefje wat je overhoudt van pakken, blikken en bosjes (een blikje tomatenpuree, een pak room, een halve komkommer, eiwitten), met een tip wat je ermee doet. Het rekent mee als je het aantal personen aanpast.
 - **Mijn logboek.** Onder elk recept vink je af dat je het gemaakt hebt, zo vaak als je wilt: je ziet hoe vaak (bijv. *5× gemaakt*) en wanneer de laatste keer was, en op de receptkaart in het overzicht staat het ook. Geef met sterren aan hoe lekker je het vindt en hoe leuk het is om te maken, en schrijf er een eigen notitie bij. Elke variant heeft een eigen logboek; de kaart telt alle varianten samen.
+- **Wat kost het?** Bij elk recept staat een kassabonnetje met de geschatte prijs bij de goedkoopste supermarkt, per persoon, en wat je bij andere supermarkten betaalt. Klap *Per ingrediënt* open om te zien waar elk ingrediënt het goedkoopst is, met een link naar het product. Op het boodschappenlijstje staat bij elk item waar het het goedkoopst is, met onderaan het totaal per supermarkt. Het rekent met wat je gebruikt, niet met hele verpakkingen, en past zich aan als je het aantal personen verandert. De prijzen worden elke week bijgewerkt (zie *Prijzen* hieronder).
 - **Timers** bij stappen, **favorieten**, een **boodschappenlijst** die hoeveelheden samenvoegt, en een knop die je scherm aan houdt tijdens het koken.
 
 Favorieten, je boodschappenlijst, je voorraad, je keukeninstellingen en je logboek worden in je eigen browser bewaard. Wil je ze op al je apparaten hebben, koppel dan je GitHub-account (zie hieronder).
@@ -78,6 +79,18 @@ Met `vervang` ruil je een ingrediënt (of tussenkopje) om; `null` haalt het weg.
 
 Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. Gangbare verpakkingsgroottes en de tips voor restjes staan in `js/data/verpakkingen.js`; wat je pakt als je een vers ingrediënt niet hebt (gemberpoeder voor verse gember) staat in `js/data/vervangers.js`. Moet een ingrediënt in een recept echt vers, zet er dan `vers: 'reden'` bij; een eigen vervanger voor één recept geef je met `of: { q: 200, u: 'g', n: 'tomatenblokjes uit blik' }`. kies hoeveelheden die op een hele verpakking uitkomen als het gerecht daar niet slechter van wordt. Met `ook` vind je een recept ook onder een andere naam (*french toast* → wentelteefjes). `bij` koppelt een saus of bijgerecht aan gerechten; de link verschijnt in beide recepten. Controleer je werk met `node tools/controleer-recepten.js`.
 
+## Prijzen
+
+De prijzen komen van [Checkjebon](https://github.com/supermarkt/checkjebon) (MIT-licentie), dat de webshopprijzen van Nederlandse supermarkten verzamelt: AH, Jumbo, Lidl, Plus, Dirk, DekaMarkt, Hoogvliet, Spar, Vomar en Poiesz. Elke maandagochtend haalt een GitHub Action (`.github/workflows/prijzen.yml`) de nieuwste prijzen op en zet per ingrediënt het goedkoopste passende product per supermarkt in `js/data/prijzen.js`. Dat kost niets en er is geen server of sleutel voor nodig. Wil je tussendoor nieuwe prijzen, ga dan op GitHub naar *Actions → Prijzen bijwerken → Run workflow*.
+
+Welk product bij welk ingrediënt hoort, staat in `tools/prijskoppeling.js`. Zonder regel daar zoekt het script op de naam van het ingrediënt. Kiest het een verkeerd product (bijvoorbeeld appelsap bij appel), voeg dan een regel toe met `zoek` of `niet`, en controleer met:
+
+```
+node tools/prijzen-ophalen.js --controle
+```
+
+Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingrediënt in een recept, dan krijgt het bij de volgende update vanzelf een prijs als het script een passend product vindt. Aanbiedingen staan er niet altijd in, en Aldi en Ekoplaza ontbreken op dit moment in de bron.
+
 ## Foto's
 
 `python3 tools/fotos-ophalen.py` haalt per recept een foto van Wikimedia Commons op (alleen vrije licenties: CC0, publiek domein, CC BY, CC BY-SA). De foto's komen in `img/` en de bronvermelding in `js/data/fotos.js`; de app toont de maker en licentie onder elke foto. Recepten zonder foto tonen een Delfts-blauw tegeltje. Welk Wikipedia-artikel bij welk recept hoort, staat bovenin het script.
@@ -86,6 +99,7 @@ Beschikbare `tool`-waarden en eenheden (`u`) staan in `js/data/gereedschap.js`. 
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.19.0**: wat kost het? Bij elk recept staat een kassabonnetje met de geschatte prijs bij de goedkoopste supermarkt en per persoon, met de andere supermarkten eronder. Per ingrediënt zie je waar het het goedkoopst is, met een link naar het product. Op het boodschappenlijstje staat bij elk item waar het het goedkoopst is en onderaan het totaal per supermarkt. De prijzen komen van Checkjebon en worden elke maandag bijgewerkt door een GitHub Action; zie *Prijzen*.
 - **1.18.0**: alternatieven voor verse ingrediënten. Onder verse gember, knoflook, citroengras, pepers, verse kruiden, citroen- en limoensap, spinazie en sjalotten staat nu wat je in plaats daarvan pakt, met de hoeveelheid erbij (bijv. 25 g gember *of 1 tl gemberpoeder*, een teen knoflook *of ⅛ tl knoflookpoeder*). Het rekent mee met het aantal personen, staat op het boodschappenlijstje en gaat mee bij *Kopieer lijst* en *Deel*. Waar het echt vers moet, staat dat erbij met de reden (pesto, tabouleh, salsa, aglio olio, de rasp van een citroen); verse koriander heeft geen goede gedroogde vervanger, dus daar staat wat je dan doet. De omrekeningen staan in `js/data/vervangers.js`.
 - **1.17.3**: op het boodschappenlijstje kun je op de receptnaam onder een ingrediënt tikken om meteen terug te gaan naar dat recept.
 - **1.17.2**: curry madras (rund, kip en lam) is nu de restaurantversie zonder kokosmelk; wie hem milder wil, ziet in de laatste stap tussen haakjes wanneer je er een heel klein blikje (200 ml) doorheen roert. Het briefje *Restjes* telt nu ook optionele ingrediënten mee, met "(als je het gebruikt)".

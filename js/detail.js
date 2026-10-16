@@ -200,6 +200,7 @@ const Detail = (() => {
             ${r.alt && r.alt.length ? `<aside class="notitie notitie-alt"><h3>Alternatieven</h3><ul>${r.alt.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
             ${r.tips && r.tips.length ? `<aside class="notitie notitie-tip"><h3>Tip</h3><ul>${r.tips.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
             <aside class="notitie notitie-rest" id="d-rest" aria-labelledby="d-rest-titel" hidden></aside>
+            <aside class="bon" id="d-prijs" aria-labelledby="d-prijs-titel" hidden></aside>
             <aside class="notitie notitie-log" id="d-log" aria-labelledby="d-log-titel"></aside>
           </div>
           <p class="d-blz">${blz + 1}</p>
@@ -309,6 +310,7 @@ const Detail = (() => {
       </li>`;
     }).join('');
     renderRest();
+    renderPrijs();
   }
 
   /* Restjes: wat je overhoudt van pakken, blikken en bosjes, voor het aantal personen dat je nu kookt. */
@@ -329,6 +331,35 @@ const Detail = (() => {
     const rest = restRegels();
     el.hidden = !rest.length;
     el.innerHTML = rest.length ? `<h3 id="d-rest-titel">Restjes</h3><ul>${rest.map((x) => `<li>${x}</li>`).join('')}</ul>` : '';
+  }
+
+  /* Wat kost het? Geschatte prijs per supermarkt als kassabonnetje, voor het aantal personen dat je nu kookt. */
+  function renderPrijs() {
+    const el = blad.querySelector('#d-prijs');
+    const uitkomst = Prijzen.actief && Prijzen.lijst(r.ingr.filter((i) => !i.kop && !i.opt).map((i) => ({ i, factor })));
+    el.hidden = !uitkomst;
+    if (el.hidden) { el.innerHTML = ''; return; }
+    const { winkels, regels, zonder } = uitkomst;
+    const e = Prijzen.euro;
+    const pers = r.pers * factor;
+    // Geen winkel heeft (bijna) alles? Dan het totaal als je alles haalt waar het het goedkoopst is.
+    const totaal = winkels.length ? winkels[0].totaal : uitkomst.goedkoopst;
+    const wie = r.stuks ? `${Hulp.getal(pers, 1)} ${r.stuks}` : `${Hulp.getal(pers, 1)} ${pers === 1 ? 'persoon' : 'personen'}`;
+    el.innerHTML = `
+      <h3 id="d-prijs-titel">Wat kost het?</h3>
+      <p class="bon-totaal"><b>± ${e(totaal)}</b> voor ${Hulp.esc(wie)}${r.stuks || pers <= 1 ? '' : `, ${e(totaal / pers)} per persoon`}</p>
+      ${Prijzen.winkelLijst(winkels)}
+      <details class="bon-details">
+        <summary>Per ingrediënt, waar het het goedkoopst is</summary>
+        <ul class="bon-regels">
+          ${regels.map(({ i, beste }) => `<li>
+            <span>${Hulp.esc(Hulp.hoeveelheidTekst(i, factor))}<small>${beste.link ? `<a href="${Hulp.esc(beste.link)}" target="_blank" rel="noopener">${Hulp.esc(beste.naam)}</a>` : Hulp.esc(beste.naam)}${beste.maat ? ` · ${Hulp.esc(beste.maat)}` : ''} · ${e(beste.pak)}</small></span>
+            <span>${Hulp.esc(Prijzen.winkelNaam(beste.id))}</span><span>${e(beste.bedrag)}</span>
+          </li>`).join('')}
+        </ul>
+        <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)}.</p>
+      </details>
+      <p class="bon-voet">Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via Checkjebon), voor wat je gebruikt, niet voor hele verpakkingen. Aanbiedingen tellen niet altijd mee.${zonder.length ? ` Zonder prijs: ${Hulp.esc(zonder.join(', '))}.` : ''}</p>`;
   }
 
   function renderStappen() {

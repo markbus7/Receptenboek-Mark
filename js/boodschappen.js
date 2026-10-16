@@ -77,9 +77,29 @@ const Boodschappen = (() => {
   /* "of ½ tl gemberpoeder" of "vers nodig", voor de hele hoeveelheid op de lijst. */
   const ofVan = (it) => it.eigen ? '' : Hulp.vervangerTekst(it, 1);
 
-  function render(lijstEl, subEl) {
+  /* Geschatte prijs van wat nog op de lijst staat, per supermarkt (js/prijzen.js). */
+  function renderPrijs(el, open) {
+    const uitkomst = el && Prijzen.actief && Prijzen.lijst(open.filter((x) => !x.eigen).map((it) => ({ i: it, factor: 1 })));
+    if (!el) return;
+    el.hidden = !uitkomst;
+    if (el.hidden) { el.innerHTML = ''; return; }
+    const e = Prijzen.euro;
+    el.innerHTML = `
+      <h3 id="lijst-prijs-titel">Wat kost het?</h3>
+      ${Prijzen.winkelLijst(uitkomst.winkels)}
+      <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)}. Per product zie je hierboven waar dat is.</p>
+      <p class="bon-voet">Voor wat je gebruikt, niet voor hele verpakkingen. Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via Checkjebon); aanbiedingen tellen niet altijd mee.${uitkomst.zonder.length ? ` Zonder prijs: ${Hulp.esc(uitkomst.zonder.join(', '))}.` : ''}</p>`;
+  }
+
+  function prijsVan(it) {
+    const r = !it.eigen && Prijzen.actief ? Prijzen.regel(it, 1) : null;
+    return r ? `± ${Prijzen.euro(r.beste.bedrag)} bij ${Prijzen.winkelNaam(r.beste.id)}` : '';
+  }
+
+  function render(lijstEl, subEl, prijsEl) {
     const open = items.filter((x) => !x.klaar);
     const klaar = items.filter((x) => x.klaar);
+    renderPrijs(prijsEl, open);
     subEl.textContent = items.length
       ? `${open.length} nog te halen, ${klaar.length} afgevinkt.`
       : 'Voeg ingrediënten toe vanuit een recept. Hoeveelheden worden samengevoegd.';
@@ -95,6 +115,7 @@ const Boodschappen = (() => {
             <span class="item-tekst">${Hulp.esc(tekstVan(it))}</span>
             ${it.x ? `<span class="item-x">${Hulp.esc(it.x)}</span>` : ''}
             ${ofVan(it) ? `<span class="item-x item-of">${Hulp.esc(ofVan(it))}</span>` : ''}
+            ${!it.klaar && prijsVan(it) ? `<span class="item-x item-prijs">${Hulp.esc(prijsVan(it))}</span>` : ''}
           </span>
         </label>
         ${it.recepten.length ? `<span class="item-bron">${it.recepten.map(bronLink).join(', ')}</span>` : ''}

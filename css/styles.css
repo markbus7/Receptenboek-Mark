@@ -587,6 +587,41 @@ p.sync-fout::before { display: none; }
 .notitie h3 { font-family: var(--font-hand); font-weight: 700; font-size: 26px; margin-bottom: 6px; color: var(--pen); }
 .notitie ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 10px; }
 
+/* Wat kost het? Kassabonnetje met de geschatte prijs per supermarkt */
+.bon {
+  --bon-rand: 8px;
+  position: relative; padding: 18px 20px 22px; margin: 0 4% 0 2%;
+  background: var(--papier); color: var(--inkt); border: 1px solid var(--lijn); border-bottom: 0;
+  box-shadow: var(--schaduw-klein); transform: rotate(0.6deg);
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 14px; line-height: 1.5;
+}
+/* Afgescheurde onderrand */
+.bon::after {
+  content: ''; position: absolute; left: -1px; right: -1px; bottom: calc(-1 * var(--bon-rand)); height: var(--bon-rand);
+  background: linear-gradient(-45deg, transparent 50%, var(--papier) 50%) 0 0 / calc(2 * var(--bon-rand)) 100% repeat-x,
+              linear-gradient(45deg, transparent 50%, var(--papier) 50%) 0 0 / calc(2 * var(--bon-rand)) 100% repeat-x;
+}
+.bon h3 { font-family: var(--font-hand); font-weight: 700; font-size: 26px; line-height: 1.1; color: var(--pen); margin: 0 0 6px; text-align: center; }
+.bon-totaal { margin: 0 0 10px; text-align: center; }
+.bon-totaal b { display: block; font-size: 24px; letter-spacing: 0.02em; }
+.bon-winkels { list-style: none; margin: 0; padding: 8px 0; border-top: 1px dashed var(--potlood); border-bottom: 1px dashed var(--potlood); display: flex; flex-direction: column; gap: 2px; }
+.bon-winkels li { display: flex; justify-content: space-between; gap: 12px; }
+.bon-winkels li > span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bon-winkels .is-goedkoopst { font-weight: 700; }
+.bon-winkels em { font-style: normal; font-weight: 400; font-size: 12px; color: var(--ok); text-transform: uppercase; letter-spacing: 0.04em; }
+.bon-puntjes { justify-content: center !important; color: var(--potlood); line-height: 1; }
+.bon-details { margin-top: 10px; }
+.bon-details summary { cursor: pointer; color: var(--pen); font-family: var(--font-ui); font-size: 14px; font-weight: 600; padding: 4px 0; }
+.bon-regels { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.bon-regels li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 2px 10px; align-items: baseline; }
+.bon-regels li > span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bon-regels small { display: block; font-size: 11px; color: var(--potlood); overflow-wrap: anywhere; }
+.bon-regels a { color: inherit; text-underline-offset: 2px; }
+.bon-mix { margin: 10px 0 0; font-size: 13px; }
+.bon-voet { margin: 10px 0 0; font-family: var(--font-lees); font-size: 12px; line-height: 1.4; color: var(--potlood); }
+.bon-lijst { margin: 34px auto 18px; max-width: 420px; transform: rotate(-0.5deg); }
+.item-prijs { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; }
+
 /* Mijn logboek: gemaakt-teller, beoordelingen en eigen notitie, als kaartje uit een receptenbak */
 .notitie-log {
   transform: rotate(0.5deg);
