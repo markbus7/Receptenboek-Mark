@@ -337,14 +337,20 @@ const Hulp = (() => {
           continue;
         }
         if (v.vanaf && hv < v.vanaf) continue;
-        let beste = null;
-        for (const s of v.pak) {
-          const k = Math.max(1, Math.ceil(hv / s - 1e-9));
-          const rest = k * s - hv;
-          if (!beste || rest < beste.rest - 1e-9 || (Math.abs(rest - beste.rest) < 1e-9 && k < beste.k)) beste = { s, k, rest };
+        // Kies de minste rest; bij gelijke rest de minste verpakkingen. Ook een grote plus een kleine (1 liter + 250 ml).
+        const opties = v.pak.map((s) => ({ s, k: Math.max(1, Math.ceil(hv / s - 1e-9)), t: 0 }));
+        for (const s of v.pak) for (const t of v.pak) {
+          const k = Math.floor(hv / s + 1e-9);
+          if (t < s && k >= 1 && k * s < hv - 1e-9 && k * s + t >= hv - 1e-9) opties.push({ s, k, t });
         }
-        const { s, k, rest } = beste;
-        if (v.maat === 'st' ? rest < 0.25 : rest / (k * s) < 0.2) continue;
+        let beste = null;
+        for (const o of opties) {
+          o.rest = o.k * o.s + o.t - hv;
+          o.aantal = o.k + (o.t ? 1 : 0);
+          if (!beste || o.rest < beste.rest - 1e-9 || (Math.abs(o.rest - beste.rest) < 1e-9 && o.aantal < beste.aantal)) beste = o;
+        }
+        const { s, k, t, rest } = beste;
+        if (v.maat === 'st' ? rest < 0.25 : rest / (k * s + t) < 0.2) continue;
         let zin;
         if (v.maat === 'st' && s === 1) {
           zin = `je houdt ${breuk(rest)} ${naam} over.`;
@@ -352,7 +358,7 @@ const Hulp = (() => {
           zin = `een ${v.wat} heeft er meestal ${s}, dan houd je er ${getal(Math.round(rest))} over.`;
         } else {
           const maat = (x) => (x >= 1000 ? `${getal(x / 1000, 1)}\u00a0${v.maat === 'g' ? 'kg' : 'liter'}` : `${getal(x)}\u00a0${v.maat}`);
-          zin = `koop ${k === 1 ? `een ${v.wat}` : `${k} ${MEERVOUD[v.wat] || v.wat}`} van ${maat(s)}, dan houd je ± ${maat(rondAf(Math.max(5, Math.round(rest / 5) * 5)))} over.`;
+          zin = `koop ${k === 1 ? `een ${v.wat}` : `${k} ${MEERVOUD[v.wat] || v.wat}`} van ${maat(s)}${t ? ` en een ${v.wat} van ${maat(t)}` : ''}, dan houd je ± ${maat(rondAf(Math.max(5, Math.round(rest / 5) * 5)))} over.`;
         }
         regels.push({ naam, zin });
       }
