@@ -88,7 +88,7 @@ const NIET = ['saus', 'soep', 'chips', 'snack', 'spread', 'salade', 'dressing', 
   'zalf', 'capsules', 'koffie', 'cappuccino', 'frisdrank', 'likeur', 'wijn', 'bier', 'gin', 'wodka', 'rum',
   'vruchtenhagel', 'hagelslag', 'pindakaas', 'stroop', 'sorbet', 'gebak', 'wafels', 'biscuits', 'repen', 'mueslireep',
   'kaarsen', 'tabletten', 'vitamine', 'supplement', 'thee', 'infusion', 'gel', 'olie', 'azijn', 'poeder', 'gedroogd',
-  'gedroogde', 'tablet'];
+  'gedroogde', 'tablet', 'radler', 'dextro', 'energy', 'sweet', 'beleg', 'broodbeleg'];
 
 /* Woorden die niets zeggen over wat het product is: huismerken, maten en "vers". */
 const GEWOON = ['ah', 'jumbo', 'plus', 'dirk', 'lidl', 'spar', 'vomar', 'poiesz', 'hoogvliet', 'dekamarkt', 'dekavers', 'gwoon',
@@ -146,6 +146,9 @@ async function main() {
     for (const w of producten) {
       for (const p of w.d) {
         if (!termen.some((t) => past(t, p.w))) continue;
+        // "Wortel erwt met kipfilet" is geen kipfilet: staat het ingrediënt pas na "met", dan is het een bijzaak.
+        const na = p.w.indexOf('met');
+        if (na >= 0 && !termen.some((t) => past(t, p.w.slice(0, na)))) continue;
         const naam = ' ' + p.w.join(' ');
         if (niet.some((x) => naam.includes(' ' + x))) continue;
         if (p.w.some((x) => !ook.has(x) && NIET.some((y) => x === y || (y.length >= 4 && x.endsWith(y))))) continue;
