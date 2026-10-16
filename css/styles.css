@@ -583,6 +583,38 @@ p.sync-fout::before { display: none; }
 .notitie h3 { font-family: var(--font-hand); font-weight: 700; font-size: 26px; margin-bottom: 6px; color: var(--pen); }
 .notitie ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 10px; }
 
+/* Mijn logboek: gemaakt-teller, beoordelingen en eigen notitie, als kaartje uit een receptenbak */
+.notitie-log {
+  transform: rotate(0.5deg);
+  background: repeating-linear-gradient(var(--papier) 0 29px, color-mix(in srgb, var(--pen) 22%, var(--papier)) 29px 30px);
+  border-color: var(--lijn); border-top: 3px solid var(--k);
+  display: flex; flex-direction: column; gap: 12px;
+}
+.log-gemaakt { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.log-teller { margin: 0; font-family: var(--font-hand); font-size: 26px; line-height: 1.1; color: var(--pen); }
+.log-teller b { font-size: 34px; }
+.log-laatst { font-size: 21px; }
+.log-knoppen { display: flex; align-items: center; gap: 8px; }
+.log-knoppen .knop svg { width: 16px; height: 16px; }
+.log-terug { width: 36px; height: 36px; font-size: 20px; }
+.log-rij { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; }
+.log-vraag { min-width: 9.5em; font-family: var(--font-ui); font-size: 14px; font-weight: 600; color: var(--inkt); }
+.sterren { display: inline-flex; }
+.ster { display: inline-grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 0; background: none; color: var(--potlood); }
+.ster svg { width: 24px; height: 24px; fill: transparent; transition: fill .12s, transform .12s; }
+.ster:hover svg { transform: scale(1.12); }
+.ster[aria-pressed="true"] { color: #D9A21B; }
+.ster[aria-pressed="true"] svg { fill: currentColor; }
+.log-label { font-family: var(--font-hand); font-size: 22px; line-height: 1; color: var(--pen); }
+.log-notitie {
+  width: 100%; resize: vertical; min-height: 90px; padding: 4px 2px; border: 0; border-bottom: 1px dashed var(--potlood);
+  background: transparent; font-family: var(--font-hand); font-size: 24px; line-height: 30px; color: var(--pen);
+}
+.log-notitie:focus { outline: 2px solid var(--k); outline-offset: 2px; }
+.log-notitie::placeholder { color: var(--potlood); opacity: .8; }
+.d-meta-log[hidden] { display: none !important; }
+.gemaakt { color: var(--pen) !important; font-weight: 600; }
+
 /* ---------- Timers en melding ---------- */
 .timers { position: fixed; z-index: 60; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 8px; width: min(440px, 100% - 32px); }
 .timer { display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 14px; border-radius: 14px; background: var(--inkt); color: var(--papier); box-shadow: var(--schaduw); }

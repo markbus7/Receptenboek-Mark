@@ -106,7 +106,8 @@ const Detail = (() => {
       `<li>${icoon('klok')} ${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="zacht">+ ${Hulp.esc(r.wacht)}</span>` : ''}</li>`,
       `<li>${icoon('personen')} ${r.pers} ${r.stuks || (r.pers === 1 ? 'persoon' : 'personen')}</li>`,
       `<li>${Hulp.esc(r.niveau)}</li>`,
-      r.vega ? `<li class="vega">${icoon('blad')} Vegetarisch</li>` : ''
+      r.vega ? `<li class="vega">${icoon('blad')} Vegetarisch</li>` : '',
+      `<li class="d-meta-log" id="d-meta-log"></li>`
     ].join('');
 
     const h = ctx.hoofdstuk(r.keuken);
@@ -199,6 +200,7 @@ const Detail = (() => {
             ${r.alt && r.alt.length ? `<aside class="notitie notitie-alt"><h3>Alternatieven</h3><ul>${r.alt.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
             ${r.tips && r.tips.length ? `<aside class="notitie notitie-tip"><h3>Tip</h3><ul>${r.tips.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
             <aside class="notitie notitie-rest" id="d-rest" aria-labelledby="d-rest-titel" hidden></aside>
+            <aside class="notitie notitie-log" id="d-log" aria-labelledby="d-log-titel"></aside>
           </div>
           <p class="d-blz">${blz + 1}</p>
         </section>
@@ -208,6 +210,44 @@ const Detail = (() => {
     renderIngr();
     renderStappen();
     zetHebEenheid();
+    renderLog();
+  }
+
+  /* Mijn logboek: hoe vaak gemaakt, hoe lekker, hoe leuk om te maken en een eigen notitie. */
+  const datum = (t) => new Date(t).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: new Date(t).getFullYear() === new Date().getFullYear() ? undefined : 'numeric' });
+
+  function sterren(soort, waarde, labels, vraag) {
+    return `<div class="log-rij" role="group" aria-labelledby="d-log-${soort}">
+      <span class="log-vraag" id="d-log-${soort}">${vraag}</span>
+      <span class="sterren">
+        ${[1, 2, 3, 4, 5].map((n) => `<button type="button" class="ster" data-beoordeel="${soort}" data-waarde="${n}" aria-pressed="${n <= waarde}" aria-label="${n} van 5: ${labels[n]}" title="${labels[n]}">${icoon('ster')}</button>`).join('')}
+      </span>
+      <span class="log-label">${waarde ? labels[waarde] : ''}</span>
+    </div>`;
+  }
+
+  function renderLog() {
+    const log = Logboek.van(r.id);
+    const n = log.keren.length;
+    const meta = blad.querySelector('#d-meta-log');
+    meta.hidden = !n;
+    meta.innerHTML = n ? `${icoon('vink')} ${n}× gemaakt` : '';
+    const el = blad.querySelector('#d-log');
+    const veld = el.querySelector('#d-log-notitie');
+    const tekst = veld ? veld.value : log.notitie;
+    el.innerHTML = `
+      <h3 id="d-log-titel">Mijn logboek</h3>
+      <div class="log-gemaakt">
+        <p class="log-teller" aria-live="polite">${n ? `<b>${n}×</b> gemaakt<span class="log-laatst">, laatst op ${datum(log.keren[n - 1])}</span>` : 'Nog niet gemaakt'}</p>
+        <div class="log-knoppen">
+          ${n ? `<button type="button" class="ikoon-knop log-terug" id="d-log-terug" aria-label="Haal de laatste keer weg" title="Haal de laatste keer weg">−</button>` : ''}
+          <button type="button" class="knop knop-klein" id="d-log-gemaakt">${icoon('vink')} ${n ? 'Weer gemaakt' : 'Gemaakt'}</button>
+        </div>
+      </div>
+      ${sterren('smaak', log.smaak, Logboek.SMAAK, 'Hoe lekker?')}
+      ${sterren('maken', log.maken, Logboek.MAKEN, 'Leuk om te maken?')}
+      <label class="log-vraag" for="d-log-notitie">Notitie</label>
+      <textarea id="d-log-notitie" class="log-notitie" rows="3" placeholder="Bijv. volgende keer minder sambal">${Hulp.esc(tekst)}</textarea>`;
   }
 
   function renderGerei() {
@@ -471,6 +511,14 @@ const Detail = (() => {
       b.setAttribute('aria-label', aan ? 'Verwijder uit favorieten' : 'Voeg toe aan favorieten');
       return App.toast(aan ? 'Bewaard bij je favorieten' : 'Verwijderd uit je favorieten');
     }
+    if (t.closest('#d-log-gemaakt')) {
+      const n = Logboek.gemaakt(r.id);
+      renderLog();
+      return App.toast(n === 1 ? 'Afgevinkt: je hebt dit recept gemaakt' : `Afgevinkt: nu ${n}× gemaakt`);
+    }
+    if (t.closest('#d-log-terug')) { Logboek.terug(r.id); renderLog(); return App.toast('Laatste keer weggehaald'); }
+    const st = t.closest('[data-beoordeel]');
+    if (st) { Logboek.beoordeel(r.id, st.dataset.beoordeel, +st.dataset.waarde); return renderLog(); }
     if (t.closest('#d-deel')) return deel(t.closest('#d-deel'));
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
     const bij = t.closest('[data-bij]');
@@ -492,11 +540,18 @@ const Detail = (() => {
     }
   });
 
+  let notitieTimer = null;
   blad.addEventListener('input', (e) => {
     if (e.target.id === 'd-heb-aantal') hebIngevuld();
+    if (e.target.id === 'd-log-notitie') {
+      const id = r.id, tekst = e.target.value;
+      clearTimeout(notitieTimer);
+      notitieTimer = setTimeout(() => Logboek.notitie(id, tekst), 500);
+    }
   });
   blad.addEventListener('change', (e) => {
     if (e.target.id === 'd-heb-ingr') hebIngevuld();
+    if (e.target.id === 'd-log-notitie') { clearTimeout(notitieTimer); Logboek.notitie(r.id, e.target.value); }
     if (e.target.matches('[data-ingr]')) e.target.closest('.ingr').classList.toggle('is-klaar', e.target.checked);
   });
 
@@ -509,5 +564,13 @@ const Detail = (() => {
     }
   });
 
-  return { open, sluit, isOpen: () => !sheet.hidden, huidig: () => r && r.id };
+  /* Na ontvangst van een ander apparaat; een notitie waar je nu in typt blijft staan. */
+  function herlaadLog() {
+    if (!r) return;
+    const veld = blad.querySelector('#d-log-notitie');
+    if (veld && document.activeElement !== veld) veld.value = Logboek.van(r.id).notitie;
+    renderLog();
+  }
+
+  return { open, sluit, herlaadLog, isOpen: () => !sheet.hidden, huidig: () => r && r.id };
 })();

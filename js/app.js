@@ -319,6 +319,7 @@ const App = (() => {
     const fav = state.favs.has(r.id);
     const foto = Hulp.foto(r);
     const h = hk(r.keuken);
+    const gemaakt = VARIANTEN.leden(r).reduce((som, v) => som + Logboek.keer(v.id), 0);
     const matchHtml = m ? `
       <div class="match${m.mist.length === 0 ? ' is-compleet' : ''}">
         <div class="match-balk" aria-hidden="true"><span style="width:${Math.round(m.pct * 100)}%"></span></div>
@@ -337,6 +338,7 @@ const App = (() => {
               <span>${r.pers} ${esc(r.stuks || 'pers.')}</span>
               <span class="niveau" data-niveau="${NIVEAUS.indexOf(r.niveau) + 1}"><span class="niveau-stip" aria-hidden="true"><i></i><i></i><i></i></span>${esc(r.niveau)}</span>
               ${r.vega ? `<span class="vega">${icoon('blad')} vega</span>` : ''}
+              ${gemaakt ? `<span class="gemaakt" title="Zo vaak heb je dit gemaakt">${icoon('vink')} ${gemaakt}× gemaakt</span>` : ''}
             </span>
             <span class="kaart-gerei">${gereiRegel(r)}</span>
             ${maakbaar ? '' : '<span class="label-mist">Je mist apparatuur</span>'}
@@ -802,6 +804,8 @@ const App = (() => {
     state.pannen = opslag.lees('pannen', standaardPannen);
     state.favs = new Set(opslag.lees('favorieten', []));
     Boodschappen.herlaad();
+    Logboek.herlaad();
+    Detail.herlaadLog();
     renderFilters();
     if (state.view === 'lijst') renderLijst(); else render();
     toast('Bijgewerkt met je andere apparaten');
