@@ -21,7 +21,7 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 2, u: 'el' },
     { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
     { n: 'runderbouillon', q: 300, u: 'ml' },
-    { n: 'kokosmelk', q: 100, u: 'ml', opt: true, x: 'maakt hem iets ronder' },
+    { n: 'kokosmelk', q: 200, u: 'ml', opt: true, x: 'een klein blikje; maakt hem ronder en iets milder' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
@@ -65,7 +65,7 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 2, u: 'el' },
     { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
     { n: 'kippenbouillon', q: 200, u: 'ml' },
-    { n: 'kokosmelk', q: 100, u: 'ml', opt: true, x: 'maakt hem iets ronder' },
+    { n: 'kokosmelk', q: 200, u: 'ml', opt: true, x: 'een klein blikje; maakt hem ronder en iets milder' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
     { n: 'verse koriander', q: 1, u: 'handje' },
@@ -79,7 +79,7 @@ RECEPTEN.push(
     { t: 'Bak knoflook, gember, kerriepoeder, chilipoeder en de gedroogde pepers 1 minuut tot het geurt. Roer de tomatenpuree erdoor en bak nog 1 minuut.', min: 2 },
     { t: 'Voeg de tomaten en de bouillon toe. Laat zonder deksel 10 minuten pruttelen tot een dikke saus.', min: 10 },
     { t: 'Doe de kip met het vocht van het bord terug in de saus. Laat 8 à 10 minuten zachtjes garen, tot het grootste stuk vanbinnen niet meer roze is. Niet langer: kipfilet wordt snel droog.', min: 9 },
-    { t: 'Roer garam masala, eventueel de kokosmelk en de rest van het citroensap erdoor. Breng op smaak met zout en bestrooi met koriander. Serveer met de rijst.' }
+    { t: 'Roer garam masala, eventueel de kokosmelk en de rest van het citroensap erdoor. Met kokosmelk: laat 3 minuten zonder deksel inkoken tot de saus weer dik is. Breng op smaak met zout en bestrooi met koriander. Serveer met de rijst.', min: 3 }
   ],
   tips: ['De kip gaart in de warme saus nog even na. Haal de pan dus van het vuur zodra het grootste stukje net gaar is.', 'Liever nog sappiger? Kippendijfilet mag 15 minuten in de saus garen.'],
   alt: ['Geen madras-kerrie? Gebruik gewone kerrie en verdubbel de chilipoeder.', 'Zonder Dutch oven: een hapjespan of grote koekenpan met hoge rand werkt ook.']

@@ -8,7 +8,7 @@
    wat:  hoe de verpakking heet (pak, blik, beker, ...)
    vanaf: laat niets zien als je minder dan dit gebruikt (bijv. een scheutje melk)
    vaag: geen vaste verpakking; toon alleen de tip, en alleen als je minder dan 'tot' gebruikt
-   Optionele ingrediënten tellen niet mee. */
+   Optionele ingrediënten tellen ook mee, met "(als je het gebruikt)". */
 window.VERPAKKINGEN = [
   /* Zuivel */
   { n: ['slagroom'], maat: 'ml', pak: [200, 250, 500], wat: 'pak',
