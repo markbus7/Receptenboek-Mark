@@ -1,6 +1,7 @@
 /* Wat kost het? Geschatte prijs van een recept of boodschappenlijst per supermarkt, met de prijzen
    uit js/data/prijzen.js (wekelijks bijgewerkt door tools/prijzen-ophalen.js, bron: Checkjebon).
-   Er wordt gerekend met wat je gebruikt, niet met hele verpakkingen. */
+   Twee bedragen: wat je gebruikt (het deel van de verpakking dat in het recept gaat) en wat je
+   aan de kassa betaalt (hele verpakkingen, de goedkoopste manier om genoeg te kopen). */
 const Prijzen = (() => {
   const P = window.PRIJZEN && PRIJZEN.p ? PRIJZEN : null;
 
@@ -31,21 +32,38 @@ const Prijzen = (() => {
     return null;
   }
 
-  /* Prijs van één ingrediëntregel: { per: { winkel: bedrag }, beste: { id, bedrag, naam, link, maat } } of null. */
+  /* Hele verpakkingen voor hoeveelheid hv: { bedrag, aantal, pak, naam, link, maat } voor de goedkoopste keuze
+     tussen het product met de laagste kiloprijs en de kleinste verpakking. Inhoud 0 is los (per kilo): dan
+     betaal je wat je gebruikt. */
+  function kassa(hv, gebruikt, [, pak, naam, link, maat, inhoud, klein]) {
+    if (inhoud === 0) return { bedrag: gebruikt, aantal: 1, pak: gebruikt, naam, link, maat };
+    const opties = [[pak, naam, link, maat, inhoud], ...(klein ? [klein] : [])];
+    let beste = null;
+    for (const [pk, nm, ln, mt, inh] of opties) {
+      const aantal = inh > 0 ? Math.max(1, Math.ceil(hv / inh - 1e-6)) : 1;
+      if (!beste || aantal * pk < beste.bedrag) beste = { bedrag: aantal * pk, aantal, pak: pk, naam: nm, link: ln, maat: mt };
+    }
+    return beste;
+  }
+
+  /* Prijs van één ingrediëntregel: { per, kassa: { winkel: bedrag }, beste: { id, bedrag, kassa, naam, link, maat } } of null. */
   function regel(i, factor = 1) {
     if (!P || i.kop || i.q == null || !i.n) return null;
     const p = P.p[sleutel(i.n)];
     if (!p) return null;
     const hv = hoeveelheid(p, i.q * factor, i.u || 'st');
     if (hv == null || !(hv > 0)) return null;
-    const per = {};
+    const per = {}, kas = {};
     let beste = null;
-    for (const [id, [prijs, pak, naam, link, maat]] of Object.entries(p.w)) {
+    for (const [id, w] of Object.entries(p.w)) {
+      const [prijs, pak, naam, link, maat] = w;
       const bedrag = p.e === 'g' ? hv / 1000 * prijs : hv * prijs;
+      const k = kassa(hv, bedrag, w);
       per[id] = bedrag;
-      if (!beste || bedrag < beste.bedrag) beste = { id, bedrag, naam, link: winkelLink(id, link), maat, pak };
+      kas[id] = k.bedrag;
+      if (!beste || bedrag < beste.bedrag) beste = { id, bedrag, naam, link: winkelLink(id, link), maat, pak, kassa: { ...k, link: winkelLink(id, k.link) } };
     }
-    return { per, beste };
+    return { per, kassa: kas, beste };
   }
 
   /* Totaal per supermarkt voor een lijst ingrediënten. Heeft een winkel een ingrediënt niet,
@@ -60,17 +78,19 @@ const Prijzen = (() => {
     }
     if (!metPrijs.length) return null;
     const ids = Object.keys(P.winkels);
+    const middelste = (o) => { const rest = Object.values(o).sort((a, b) => a - b); return rest[Math.floor(rest.length / 2)]; };
     const winkels = ids.map((id) => {
-      let totaal = 0, eigen = 0;
+      let totaal = 0, eigen = 0, kas = 0;
       for (const r of metPrijs) {
-        if (r.per[id] != null) { totaal += r.per[id]; eigen += r.per[id]; continue; }
-        const rest = Object.values(r.per).sort((a, b) => a - b);
-        totaal += rest[Math.floor(rest.length / 2)];
+        if (r.per[id] != null) { totaal += r.per[id]; eigen += r.per[id]; kas += r.kassa[id]; continue; }
+        totaal += middelste(r.per);
+        kas += middelste(r.kassa);
       }
-      return { id, naam: winkelNaam(id), totaal, dekking: totaal ? eigen / totaal : 0 };
+      return { id, naam: winkelNaam(id), totaal, kassa: kas, dekking: totaal ? eigen / totaal : 0 };
     }).filter((w) => w.dekking >= 0.75).sort((a, b) => a.totaal - b.totaal);
     const goedkoopst = metPrijs.reduce((s, r) => s + r.beste.bedrag, 0);
-    return { regels: metPrijs, zonder, winkels, goedkoopst };
+    const goedkoopstKassa = metPrijs.reduce((s, r) => s + Math.min(...Object.values(r.kassa)), 0);
+    return { regels: metPrijs, zonder, winkels, goedkoopst, goedkoopstKassa };
   }
 
   /* De goedkoopste vier winkels en de duurste, als regels op het bonnetje. */
@@ -79,7 +99,7 @@ const Prijzen = (() => {
     const veel = winkels.length > 5;
     const getoond = veel ? [...winkels.slice(0, 4), winkels[winkels.length - 1]] : winkels;
     const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    return `<ol class="bon-winkels">${getoond.map((w, n) => `${veel && n === 4 ? '<li class="bon-puntjes" aria-hidden="true">…</li>' : ''}<li${n === 0 ? ' class="is-goedkoopst"' : ''}><span>${esc(w.naam)}${n === 0 ? ' <em>goedkoopst</em>' : ''}</span><span>${euro(w.totaal)}</span></li>`).join('')}</ol>`;
+    return `<ol class="bon-winkels"><li class="bon-kop"><span></span><span>gebruikt</span><span>kassa</span></li>${getoond.map((w, n) => `${veel && n === 4 ? '<li class="bon-puntjes" aria-hidden="true">…</li>' : ''}<li${n === 0 ? ' class="is-goedkoopst"' : ''}><span>${esc(w.naam)}${n === 0 ? ' <em>goedkoopst</em>' : ''}</span><span>${euro(w.totaal)}</span><span>${euro(w.kassa)}</span></li>`).join('')}</ol>`;
   }
 
   const datum = () => P ? new Date(P.bijgewerkt).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long' }) : '';

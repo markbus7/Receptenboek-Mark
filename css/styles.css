@@ -605,8 +605,11 @@ p.sync-fout::before { display: none; }
 .bon-totaal { margin: 0 0 10px; text-align: center; }
 .bon-totaal b { display: block; font-size: 24px; letter-spacing: 0.02em; }
 .bon-winkels { list-style: none; margin: 0; padding: 8px 0; border-top: 1px dashed var(--potlood); border-bottom: 1px dashed var(--potlood); display: flex; flex-direction: column; gap: 2px; }
-.bon-winkels li { display: flex; justify-content: space-between; gap: 12px; }
-.bon-winkels li > span:last-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bon-winkels li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; }
+.bon-winkels li > span + span { font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; min-width: 5.5em; }
+.bon-winkels .bon-kop { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--potlood); font-weight: 400; }
+.bon-winkels .bon-puntjes { display: block; text-align: center; }
+.bon-kassa { margin: -4px 0 10px; text-align: center; font-size: 13px; }
 .bon-winkels .is-goedkoopst { font-weight: 700; }
 .bon-winkels em { font-style: normal; font-weight: 400; font-size: 12px; color: var(--ok); text-transform: uppercase; letter-spacing: 0.04em; }
 .bon-puntjes { justify-content: center !important; color: var(--potlood); line-height: 1; }

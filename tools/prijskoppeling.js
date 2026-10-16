@@ -222,7 +222,7 @@ window.PRIJSKOPPELING = {
   'paellarijst': { zoek: ['paella rijst', 'rijst paella'] },
   'jasmijnrijst': { niet: ['pandan', 'zilvervlies'] },
   'risottorijst': {},
-  'basmatirijst': { niet: ['zilvervlies', 'volkoren', 'kook'] },
+  'basmatirijst': { zoek: ['basmatirijst', 'basmati rijst'], niet: ['zilvervlies', 'volkoren', 'kook'] },
   'spaghetti': { niet: ['saus', 'volkoren', 'courgette', 'maaltijd', 'bolognese'] },
   'penne': { niet: ['saus', 'volkoren', 'maaltijd'] },
   'fusilli': { niet: ['volkoren', 'saus'] },
