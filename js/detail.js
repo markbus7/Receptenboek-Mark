@@ -271,18 +271,22 @@ const Detail = (() => {
   }
 
   /* Restjes: wat je overhoudt van pakken, blikken en bosjes, voor het aantal personen dat je nu kookt. */
-  function renderRest() {
-    const el = blad.querySelector('#d-rest');
-    const rest = Hulp.restjes(r, factor);
-    el.hidden = !rest.length;
+  function restRegels() {
     const hoofd = (s) => s.charAt(0).toUpperCase() + s.slice(1);
-    el.innerHTML = rest.length ? `<h3 id="d-rest-titel">Restjes</h3><ul>${rest.map(({ regels, tip }) => {
+    return Hulp.restjes(r, factor).map(({ regels, tip }) => {
       const vaag = regels.every((x) => !x.zin);
       const kop = vaag
         ? `<b>${Hulp.esc(hoofd(regels.map((x) => x.naam).join(', ').replace(/, ([^,]*)$/, ' en $1')))}:</b>`
         : regels.map((x) => `<b>${Hulp.esc(hoofd(x.naam))}:</b> ${Hulp.esc(x.zin)}`).join(' ');
-      return `<li>${kop} ${Hulp.esc(tip)}</li>`;
-    }).join('')}</ul>` : '';
+      return `${kop} ${Hulp.esc(tip)}`;
+    });
+  }
+
+  function renderRest() {
+    const el = blad.querySelector('#d-rest');
+    const rest = restRegels();
+    el.hidden = !rest.length;
+    el.innerHTML = rest.length ? `<h3 id="d-rest-titel">Restjes</h3><ul>${rest.map((x) => `<li>${x}</li>`).join('')}</ul>` : '';
   }
 
   function renderStappen() {
@@ -370,14 +374,60 @@ const Detail = (() => {
     } else terugval();
   }
 
-  /* Op telefoon en tablet opent het deelmenu (WhatsApp, Berichten, mail, …); anders gaat het recept naar het klembord. */
-  async function deel() {
+  /* Het recept als tekst delen: alleen als de pdf niet lukt (bijv. een heel oude browser). */
+  async function deelTekst() {
     const tekst = alsTekst();
     if (navigator.share) {
       try { await navigator.share({ title: r.naam, text: tekst }); return; }
       catch (e) { if (e && e.name === 'AbortError') return; }
     }
     kopieer(tekst);
+  }
+
+  function bewaar(bestand) {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(bestand); a.download = bestand.name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+    App.toast('Pdf opgeslagen bij je downloads');
+  }
+
+  /* Het recept als pdf in de stijl van het boek. Op telefoon en tablet opent het deelmenu (WhatsApp,
+     Berichten, mail, …); kan dat niet, dan wordt de pdf gedownload. Sommige browsers (Safari) staan
+     delen alleen direct na een tik toe; is de pdf daarvoor te laat klaar, dan deelt de volgende tik hem meteen. */
+  let pdf = null, bezig = false;
+  async function deel(knop) {
+    if (bezig) return;
+    const sleutel = `${r.id}|${Math.round(r.pers * factor)}|${methode}`;
+    if (!pdf || pdf.sleutel !== sleutel) {
+      bezig = true;
+      knop.setAttribute('aria-busy', 'true');
+      const label = knop.querySelector('.d-deel-tekst');
+      label.textContent = 'Pdf maken…';
+      try {
+        const bestand = await DeelKaart.maak(r, {
+          factor, methode, methodes: Hulp.methodes(r, ctx.keuken), varianten: ctx.varianten(r),
+          hoofdstuk: ctx.hoofdstuk(r.keuken), restjes: restRegels(), link: link()
+        });
+        pdf = { sleutel, bestand };
+      } catch (e) {
+        console.error(e);
+        return deelTekst();
+      } finally {
+        bezig = false;
+        knop.removeAttribute('aria-busy');
+        label.textContent = 'Deel';
+      }
+    }
+    const data = { files: [pdf.bestand], title: r.naam, text: `${r.naam} uit het Receptenboek van Mark: ${link()}` };
+    if (navigator.canShare && navigator.canShare({ files: data.files })) {
+      try { await navigator.share(data); return; }
+      catch (e) {
+        if (e && e.name === 'AbortError') return;
+        if (e && e.name === 'NotAllowedError') return App.toast('De pdf is klaar: tik nog een keer op Deel');
+      }
+    }
+    bewaar(pdf.bestand);
   }
 
   async function wisselScherm(knop) {
@@ -421,7 +471,7 @@ const Detail = (() => {
       b.setAttribute('aria-label', aan ? 'Verwijder uit favorieten' : 'Voeg toe aan favorieten');
       return App.toast(aan ? 'Bewaard bij je favorieten' : 'Verwijderd uit je favorieten');
     }
-    if (t.closest('#d-deel')) return deel();
+    if (t.closest('#d-deel')) return deel(t.closest('#d-deel'));
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
     const bij = t.closest('[data-bij]');
     if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }
