@@ -1,4 +1,4 @@
-/* Nederlands: zoetigheid, stamppotten, stoofvlees, soep, snackbar en sauzen */
+/* Nederlands: zoetigheid, stamppotten, stoofvlees, soep, snackbar, kip kerrie met perzik en sauzen */
 RECEPTEN.push(
 {
   id: 'wentelteefjes', naam: 'Wentelteefjes', ook: ['french toast', 'pain perdu', 'verloren brood'],
@@ -402,6 +402,51 @@ RECEPTEN.push(
   alt: [
     'Liever döner of lamsshoarma? Bak 500 g kant-en-klaar shoarma- of dönervlees kort op hoog vuur.',
     'Vegetarisch? Vervang de kip door uitgelekte kikkererwten, gemengd met de shoarmakruiden en 10 minuten krokant geroosterd, of door verkruimelde falafel.'
+  ]
+},
+{
+  id: 'kip-kerrie-perzik', naam: 'Pittige kip kerrie met perzik', ook: ['kip kerrie met perzik', 'kipkerrie', 'kip kerrie', 'kip met perzik', 'kerriekip met perzik', 'perzikkip'],
+  keuken: 'Nederlands', soort: 'Hoofdgerecht',
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
+  intro: 'De Hollandse huiskamerklassieker: kip in een romige kerriesaus met sambal en zoete perzikpartjes uit blik. Pittig en zoet tegelijk, en altijd met een berg rijst.',
+  gerei: [
+    { tool: 'hapjespan', tekst: 'Hapjespan of grote koekenpan (28 cm) met deksel', of: 'Een wok of Dutch oven werkt ook.' },
+    { tool: 'kookpan', tekst: 'Kookpan of rijstkoker voor de rijst' }
+  ],
+  ingr: [
+    { n: 'rijst', q: 300, u: 'g', x: 'pandan- of basmatirijst' },
+    { n: 'kippendijfilet', q: 600, u: 'g', x: 'in stukjes van 3 cm; of kipfilet' },
+    { n: 'kerriepoeder', q: 2, u: 'el' },
+    { n: 'zonnebloemolie', q: 2, u: 'el' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
+    { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'fijngesneden, met de zaadjes voor extra pit' },
+    { n: 'sambal oelek', q: 2, u: 'tl', x: 'of meer als je het heel pittig wilt' },
+    { n: 'bloem', q: 1, u: 'el' },
+    { n: 'perziken op siroop', q: 1, u: 'blik', x: 'ca. 410 g; laat ze uitlekken en bewaar 100 ml siroop' },
+    { n: 'kippenbouillon', q: 150, u: 'ml' },
+    { n: 'kookroom', q: 250, u: 'ml', x: 'of 200 ml kokosmelk' },
+    { n: 'zout' },
+    { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in ringetjes', opt: true }
+  ],
+  stappen: [
+    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
+    { t: 'Meng de kip met 1 el kerriepoeder en een snuf zout. Snijd de perziken in partjes.' },
+    { t: 'Verhit de olie in de hapjespan op middelhoog vuur en bak de kip in 5 minuten rondom goudbruin. Hij hoeft nog niet gaar te zijn. Haal hem uit de pan.', min: 5 },
+    { t: 'Fruit de ui 3 minuten in het achtergebleven vet. Bak knoflook, rode peper, sambal en de rest van de kerriepoeder 1 minuut mee, tot het geurt.', min: 4 },
+    { t: 'Strooi de bloem erover en roer 1 minuut. Giet er al roerend de bouillon, de perzikensiroop en de kookroom bij en breng aan de kook.', min: 1 },
+    { t: 'Doe de kip terug in de pan en laat met de deksel op een kier 10 minuten zachtjes pruttelen, tot de kip gaar is en de saus gebonden.', min: 10 },
+    { t: 'Schep de perzikpartjes erdoor en warm ze 2 minuten mee; langer maakt ze slap. Proef en maak op smaak met zout en eventueel extra sambal.', min: 2 },
+    { t: 'Serveer met de rijst en strooi de lente-ui erover.' }
+  ],
+  tips: [
+    'Pittig en zoet maken elkaar goed: de siroop tempert de sambal. Wil je het minder pittig, laat dan de rode peper weg en neem 1 tl sambal.',
+    'Neem perziken op siroop of op sap; verse perziken zijn vaak te hard en minder zoet. In de zomer kan het wel met 3 rijpe perziken in partjes en een el honing in de saus.'
+  ],
+  alt: [
+    'Met ananas: neem een blik ananasstukjes in plaats van perziken, met het sap voor de saus.',
+    'Met kokosmelk in plaats van kookroom wordt hij wat Indischer van smaak.',
+    'Groente erbij: bak een rode paprika in reepjes mee met de ui.'
   ]
 },
 {
