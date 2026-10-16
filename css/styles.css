@@ -686,6 +686,20 @@ p.sync-fout::before { display: none; }
   .notitie-tip { margin-left: 0; }
   .notitie-rest { margin-right: 0; }
   .boodschappen { padding-left: 58px; }
+  /* Boodschappen: tekst loopt door op meerdere regels, receptnaam eronder.
+     De lijntjes zitten nu onder elk item, zodat ze meegroeien met de tekst. */
+  .boodschappen {
+    background:
+      linear-gradient(90deg, transparent 50px, color-mix(in srgb, var(--warn) 45%, transparent) 50px 52px, transparent 52px),
+      var(--papier);
+  }
+  .boodschappen .item { position: relative; grid-template-columns: minmax(0, 1fr) auto; height: auto; min-height: var(--regel); padding: 8px 0 7px; row-gap: 2px; }
+  .boodschappen .item::after { content: ''; position: absolute; left: -58px; right: -18px; bottom: 0; height: 1px; background: color-mix(in srgb, var(--pen) 22%, transparent); }
+  .boodschappen label { grid-column: 1; grid-row: 1; align-items: flex-start; }
+  .boodschappen input { margin-top: 4px; }
+  .item-tekst { white-space: normal; overflow-wrap: anywhere; overflow: visible; font-size: 24px; }
+  .item-bron { grid-column: 1; grid-row: 2; max-width: none; white-space: normal; }
+  .boodschappen .ikoon-knop { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
   /* Kop: "van Mark" onder de titel */
   .merk { grid-template-columns: auto; }
   .merk h1 { font-size: 44px; }
