@@ -117,7 +117,7 @@ RECEPTEN.push(
     { n: 'paprikapoeder', q: 3, u: 'el', x: 'edelzoet' },
     { n: 'gerookt paprikapoeder', q: 1, u: 'tl' },
     { n: 'karwijzaad', q: 1, u: 'tl', opt: true },
-    { n: 'tomatenpuree', q: 2, u: 'el' },
+    { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
     { n: 'runderbouillon', q: 500, u: 'ml' },
     { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'in blokjes' },

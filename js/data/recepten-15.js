@@ -173,7 +173,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'spinazie', q: 750, u: 'g', x: 'diepvries bladspinazie, ontdooid; of 1,2 kg verse, kort geslonken' },
-    { n: 'feta', q: 300, u: 'g', x: 'verkruimeld' },
+    { n: 'feta', q: 400, u: 'g', x: 'verkruimeld' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'lente-ui', p: 'lente-uien', q: 6, u: 'st', x: 'in ringetjes' },
     { n: 'verse dille', q: 1, u: 'handje', x: 'ca. 20 g, fijngehakt' },
@@ -216,7 +216,7 @@ RECEPTEN.push(
     { n: 'knoflook', q: 2, u: 'teen' },
     { n: 'paprikapoeder', q: 2, u: 'el', x: 'edelzoet' },
     { n: 'kippenbouillon', q: 250, u: 'ml' },
-    { n: 'zure room', q: 200, u: 'ml' },
+    { n: 'zure room', q: 250, u: 'ml' },
     { n: 'bloem', q: 1, u: 'el' },
     { n: 'zonnebloemolie', q: 2, u: 'el' },
     { n: 'zout' }, { n: 'peper' },
@@ -295,7 +295,7 @@ RECEPTEN.push(
     { n: 'zonnebloemolie', q: 2, u: 'l', x: 'om te frituren (5 à 6 cm in de pan), plus 4 el voor deeg en knoflookolie' },
     { kop: 'Topping' },
     { n: 'knoflook', q: 4, u: 'teen', x: 'geperst' },
-    { n: 'zure room', q: 200, u: 'ml' },
+    { n: 'zure room', q: 250, u: 'ml' },
     { n: 'geraspte kaas', q: 150, u: 'g', x: 'Goudse, Emmentaler of Hongaarse trappista' }
   ],
   stappen: [
@@ -418,7 +418,7 @@ RECEPTEN.push(
     { n: 'aubergine', p: 'aubergines', q: 4, u: 'st', x: 'middelgroot, ca. 250 g per stuk' },
     { n: 'zonnebloemolie', q: 150, u: 'ml', x: 'om te bakken; 2 el voor de airfryer' },
     { kop: 'Vulling' },
-    { n: 'rundergehakt', q: 400, u: 'g', x: 'of lamsgehakt' },
+    { n: 'rundergehakt', q: 500, u: 'g', x: 'of lamsgehakt' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 3, u: 'teen' },
     { n: 'puntpaprika', p: 'puntpaprika\'s', q: 2, u: 'st', x: 'groen, of 3 Turkse sivri-pepers' },

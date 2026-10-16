@@ -345,7 +345,7 @@ RECEPTEN.push(
     { n: 'bloem', q: 2, u: 'el' },
     { n: 'zout', q: 1, u: 'snuf' },
     { n: 'ei', p: 'eieren', q: 4, u: 'st', x: 'op kamertemperatuur' },
-    { n: 'zure room', q: 150, u: 'ml', x: 'of crème fraîche' },
+    { n: 'zure room', q: 125, u: 'ml', x: 'of crème fraîche' },
     { n: 'vanille-extract', q: 1, u: 'tl', x: 'of 1 zakje vanillesuiker' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'rasp en 1 el sap' }
   ],

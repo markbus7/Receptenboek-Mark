@@ -198,6 +198,7 @@ const Detail = (() => {
             ${(() => { const lm = ctx.lekkerMet(r); return lm.length ? `<aside class="notitie notitie-bij"><h3>Lekker met</h3><ul>${lm.map((x) => `<li><a href="#${x.id}" data-bij="${x.id}">${Hulp.esc(x.naam)}</a> <span class="zacht">blz. ${ctx.blz(x.id)}</span></li>`).join('')}</ul></aside>` : ''; })()}
             ${r.alt && r.alt.length ? `<aside class="notitie notitie-alt"><h3>Alternatieven</h3><ul>${r.alt.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
             ${r.tips && r.tips.length ? `<aside class="notitie notitie-tip"><h3>Tip</h3><ul>${r.tips.map((a) => `<li>${Hulp.esc(a)}</li>`).join('')}</ul></aside>` : ''}
+            <aside class="notitie notitie-rest" id="d-rest" aria-labelledby="d-rest-titel" hidden></aside>
           </div>
           <p class="d-blz">${blz + 1}</p>
         </section>
@@ -266,6 +267,22 @@ const Detail = (() => {
         </label>
       </li>`;
     }).join('');
+    renderRest();
+  }
+
+  /* Restjes: wat je overhoudt van pakken, blikken en bosjes, voor het aantal personen dat je nu kookt. */
+  function renderRest() {
+    const el = blad.querySelector('#d-rest');
+    const rest = Hulp.restjes(r, factor);
+    el.hidden = !rest.length;
+    const hoofd = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+    el.innerHTML = rest.length ? `<h3 id="d-rest-titel">Restjes</h3><ul>${rest.map(({ regels, tip }) => {
+      const vaag = regels.every((x) => !x.zin);
+      const kop = vaag
+        ? `<b>${Hulp.esc(hoofd(regels.map((x) => x.naam).join(', ').replace(/, ([^,]*)$/, ' en $1')))}:</b>`
+        : regels.map((x) => `<b>${Hulp.esc(hoofd(x.naam))}:</b> ${Hulp.esc(x.zin)}`).join(' ');
+      return `<li>${kop} ${Hulp.esc(tip)}</li>`;
+    }).join('')}</ul>` : '';
   }
 
   function renderStappen() {

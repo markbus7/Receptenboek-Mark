@@ -294,8 +294,75 @@ const Hulp = (() => {
     return null;
   }
 
+  /* Restjes: per ingrediënt met een vaste verpakking (js/data/verpakkingen.js) wat je koopt en wat je
+     overhoudt, voor het aantal personen dat je nu kookt. Geeft per verpakkingssoort { regels: [{ naam, zin }], tip }. */
+  const MEERVOUD = { pak: 'pakken', blik: 'blikken', blikje: 'blikjes', beker: 'bekers', bak: 'bakken', bakje: 'bakjes', blok: 'blokken', fles: 'flessen', zak: 'zakken', stuk: 'stuks' };
+  const OMREKEN = { g: 1, ml: 1, kg: 1000, l: 1000, el: 15, tl: 5 };
+
+  function inBasis(i, v) {
+    const u = i.u || 'st';
+    if (v.maat === 'st') return u === 'st' ? 1 : null;
+    return (v.per && v.per[u]) || OMREKEN[u] || null;
+  }
+
+  function verpakkingVoor(i) {
+    const naam = norm(i.n);
+    return (window.VERPAKKINGEN || []).find((v) => v.n.some((n) => norm(n) === naam) && (
+      v.eiwit || (v.vaag ? (v.tot ? ['g', 'kg'].includes(i.u) : i.u !== 'bos') : inBasis(i, v) != null)));
+  }
+
+  function restjes(recept, factor = 1) {
+    const nodig = new Map();   // verpakking → Map(naam → hoeveelheid in de maat van de verpakking)
+    for (const i of recept.ingr || []) {
+      if (i.kop || i.opt || i.q == null) continue;
+      const v = verpakkingVoor(i);
+      if (!v) continue;
+      const per = v.vaag || v.eiwit ? (['kg'].includes(i.u) ? 1000 : 1) : inBasis(i, v);
+      if (!nodig.has(v)) nodig.set(v, new Map());
+      const m = nodig.get(v);
+      m.set(i.n, (m.get(i.n) || 0) + i.q * factor * per);
+    }
+    const uit = [];
+    for (const [v, m] of nodig) {
+      const regels = [];
+      for (const [naam, hv] of m) {
+        if (v.eiwit) {
+          const n = Math.round(hv);
+          regels.push({ naam: 'eiwit', zin: `je houdt ${n} ${n === 1 ? 'eiwit' : 'eiwitten'} over.` });
+          continue;
+        }
+        if (v.vaag) {
+          if (v.tot && hv >= v.tot) continue;
+          regels.push({ naam, zin: '' });
+          continue;
+        }
+        if (v.vanaf && hv < v.vanaf) continue;
+        let beste = null;
+        for (const s of v.pak) {
+          const k = Math.max(1, Math.ceil(hv / s - 1e-9));
+          const rest = k * s - hv;
+          if (!beste || rest < beste.rest - 1e-9 || (Math.abs(rest - beste.rest) < 1e-9 && k < beste.k)) beste = { s, k, rest };
+        }
+        const { s, k, rest } = beste;
+        if (v.maat === 'st' ? rest < 0.25 : rest / (k * s) < 0.2) continue;
+        let zin;
+        if (v.maat === 'st' && s === 1) {
+          zin = `je houdt ${breuk(rest)} ${naam} over.`;
+        } else if (v.maat === 'st') {
+          zin = `een ${v.wat} heeft er meestal ${s}, dan houd je er ${getal(Math.round(rest))} over.`;
+        } else {
+          const maat = (x) => (x >= 1000 ? `${getal(x / 1000, 1)} ${v.maat === 'g' ? 'kg' : 'liter'}` : `${getal(x)} ${v.maat}`);
+          zin = `koop ${k === 1 ? `een ${v.wat}` : `${k} ${MEERVOUD[v.wat] || v.wat}`} van ${maat(s)}, dan houd je ± ${maat(rondAf(Math.max(5, Math.round(rest / 5) * 5)))} over.`;
+        }
+        regels.push({ naam, zin });
+      }
+      if (regels.length) uit.push({ regels, tip: v.tip });
+    }
+    return uit;
+  }
+
   /* Foto van het recept; een variant zonder eigen foto laat die van het basisrecept zien. */
   const foto = (r) => (window.FOTOS && (FOTOS[r.id] || (r.groep && FOTOS[r.groep]))) || null;
 
-  return { foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies };
+  return { foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies, restjes };
 })();
