@@ -438,7 +438,6 @@ const App = (() => {
     const aantal = af.length + state.voorraad.length;
     $('#filter-aantal').textContent = aantal || '';
 
-    $('#fav-aantal').textContent = state.favs.size || '';
     $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || '';
   }
 
