@@ -362,11 +362,11 @@ p.sync-fout::before { display: none; }
 .niveau[data-niveau="1"] i:nth-child(-n+1), .niveau[data-niveau="2"] i:nth-child(-n+2), .niveau[data-niveau="3"] i { background: currentColor; }
 .vega { color: var(--ok) !important; }
 /* Pittigheid: 1 tot 3 rode pepertjes, zoals op een restaurantmenu. */
-.pit { color: var(--warn); display: inline-flex; align-items: center; }
+.pit { color: #C8341F; display: inline-flex; align-items: center; }
 .pit svg + svg { margin-left: -3px; }
-.kaart-meta .pit svg { width: 16px; height: 16px; }
+.kaart-meta .pit svg { width: 19px; height: 19px; }
 .d-meta .pit { color: var(--warn); }
-.d-meta .pit svg { width: 18px; height: 18px; color: var(--warn); }
+.d-meta .pit svg { width: 22px; height: 22px; color: #C8341F; }
 .pit-pepers { display: inline-flex; }
 .kaart-gerei { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; font-family: var(--font-lees); font-style: italic; font-size: 14px; color: var(--inkt); }
 .kaart-gerei .punt { color: var(--potlood); font-style: normal; }
