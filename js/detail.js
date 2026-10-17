@@ -344,6 +344,14 @@ const Detail = (() => {
     el.innerHTML = rest.length ? `<h3 id="d-rest-titel">Restjes</h3><ul>${rest.map((x) => `<li>${x}</li>`).join('')}</ul>` : '';
   }
 
+  /* "· aan de kassa 2× € 0,72" als je voor dit ingrediënt meer of iets anders koopt dan het product hierboven. */
+  function kassaTekst({ pak, naam, kassa }) {
+    if (!kassa || (kassa.aantal === 1 && kassa.naam === naam && kassa.pak === pak)) return '';
+    const e = Prijzen.euro;
+    const wat = kassa.naam === naam && kassa.pak === pak ? '' : ` ${kassa.naam === naam ? '' : Hulp.esc(kassa.naam)}${kassa.maat ? ` (${Hulp.esc(kassa.maat)})` : ''}`;
+    return `<br>aan de kassa:${wat} ${kassa.aantal > 1 ? `${kassa.aantal}× ${e(kassa.pak)} = ` : ''}${e(kassa.bedrag)}`;
+  }
+
   /* Wat kost het? Geschatte prijs per supermarkt als kassabonnetje, voor het aantal personen dat je nu kookt. */
   function renderPrijs() {
     const el = blad.querySelector('#d-prijs');
@@ -355,22 +363,26 @@ const Detail = (() => {
     const pers = r.pers * factor;
     // Geen winkel heeft (bijna) alles? Dan het totaal als je alles haalt waar het het goedkoopst is.
     const totaal = winkels.length ? winkels[0].totaal : uitkomst.goedkoopst;
+    // Aan de kassa kan een andere winkel het goedkoopst zijn (kleinere verpakkingen).
+    const kassaWinkel = winkels.reduce((a, w) => (!a || w.kassa < a.kassa ? w : a), null);
+    const kassa = kassaWinkel ? kassaWinkel.kassa : uitkomst.goedkoopstKassa;
     const wie = r.stuks ? `${Hulp.getal(pers, 1)} ${r.stuks}` : `${Hulp.getal(pers, 1)} ${pers === 1 ? 'persoon' : 'personen'}`;
     el.innerHTML = `
       <h3 id="d-prijs-titel">Wat kost het?</h3>
       <p class="bon-totaal"><b>± ${e(totaal)}</b> voor ${Hulp.esc(wie)}${r.stuks || pers <= 1 ? '' : `, ${e(totaal / pers)} per persoon`}</p>
+      <p class="bon-kassa">Aan de kassa ± ${e(kassa)}, met hele verpakkingen${kassaWinkel ? ` bij ${Hulp.esc(kassaWinkel.naam)}` : ''}</p>
       ${Prijzen.winkelLijst(winkels)}
       <details class="bon-details">
         <summary>Per ingrediënt, waar het het goedkoopst is</summary>
         <ul class="bon-regels">
           ${regels.map(({ i, beste }) => `<li>
-            <span>${Hulp.esc(Hulp.hoeveelheidTekst(i, factor))}<small>${beste.link ? `<a href="${Hulp.esc(beste.link)}" target="_blank" rel="noopener">${Hulp.esc(beste.naam)}</a>` : Hulp.esc(beste.naam)}${beste.maat ? ` · ${Hulp.esc(beste.maat)}` : ''} · ${e(beste.pak)}</small></span>
+            <span>${Hulp.esc(Hulp.hoeveelheidTekst(i, factor))}<small>${beste.link ? `<a href="${Hulp.esc(beste.link)}" target="_blank" rel="noopener">${Hulp.esc(beste.naam)}</a>` : Hulp.esc(beste.naam)}${beste.maat ? ` · ${Hulp.esc(beste.maat)}` : ''} · ${e(beste.pak)}${kassaTekst(beste)}</small></span>
             <span>${Hulp.esc(Prijzen.winkelNaam(beste.id))}</span><span>${e(beste.bedrag)}</span>
           </li>`).join('')}
         </ul>
-        <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)}.</p>
+        <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)} gebruikt, ± ${e(uitkomst.goedkoopstKassa)} aan de kassa.</p>
       </details>
-      <p class="bon-voet">Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via Checkjebon), voor wat je gebruikt, niet voor hele verpakkingen. Aanbiedingen tellen niet altijd mee.${zonder.length ? ` Zonder prijs: ${Hulp.esc(zonder.join(', '))}.` : ''}</p>`;
+      <p class="bon-voet">Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via Checkjebon). <i>Gebruikt</i> is het deel van de verpakkingen dat in dit recept gaat, <i>kassa</i> wat je afrekent als je alles nieuw koopt. Aanbiedingen tellen niet altijd mee.${zonder.length ? ` Zonder prijs: ${Hulp.esc(zonder.join(', '))}.` : ''}</p>`;
   }
 
   function renderStappen() {

@@ -88,7 +88,7 @@ const NIET = ['saus', 'soep', 'chips', 'snack', 'spread', 'salade', 'dressing', 
   'zalf', 'capsules', 'koffie', 'cappuccino', 'frisdrank', 'likeur', 'wijn', 'bier', 'gin', 'wodka', 'rum',
   'vruchtenhagel', 'hagelslag', 'pindakaas', 'stroop', 'sorbet', 'gebak', 'wafels', 'biscuits', 'repen', 'mueslireep',
   'kaarsen', 'tabletten', 'vitamine', 'supplement', 'thee', 'infusion', 'gel', 'olie', 'azijn', 'poeder', 'gedroogd',
-  'gedroogde', 'tablet'];
+  'gedroogde', 'tablet', 'radler', 'dextro', 'energy', 'sweet', 'beleg', 'broodbeleg'];
 
 /* Woorden die niets zeggen over wat het product is: huismerken, maten en "vers". */
 const GEWOON = ['ah', 'jumbo', 'plus', 'dirk', 'lidl', 'spar', 'vomar', 'poiesz', 'hoogvliet', 'dekamarkt', 'dekavers', 'gwoon',
@@ -146,6 +146,9 @@ async function main() {
     for (const w of producten) {
       for (const p of w.d) {
         if (!termen.some((t) => past(t, p.w))) continue;
+        // "Wortel erwt met kipfilet" is geen kipfilet: staat het ingrediënt pas na "met", dan is het een bijzaak.
+        const na = p.w.indexOf('met');
+        if (na >= 0 && !termen.some((t) => past(t, p.w.slice(0, na)))) continue;
         const naam = ' ' + p.w.join(' ');
         if (niet.some((x) => naam.includes(' ' + x))) continue;
         if (p.w.some((x) => !ook.has(x) && NIET.some((y) => x === y || (y.length >= 4 && x.endsWith(y))))) continue;
@@ -173,11 +176,19 @@ async function main() {
     const lijst = kandidaten.map((x) => x.per).sort((a, b) => a - b);
     const mediaan = lijst[Math.floor(lijst.length / 2)];
     const onder = mediaan / (kop.marge || 3), boven = mediaan * (kop.marge || 3);
-    const perWinkel = {};
+    // Per winkel het product met de laagste prijs per kilo/stuk, en de goedkoopste verpakking (voor het kassabedrag:
+    // voor 300 g rijst koop je liever een pak van 1 kg dan de zak van 4,5 kg die per kilo goedkoper is).
+    const perWinkel = {}, klein = {};
     for (const x of kandidaten) {
       if (x.per < onder || x.per > boven) continue;
       const nu = perWinkel[x.w.id];
       if (!nu || x.per < nu.per) perWinkel[x.w.id] = x;
+    }
+    // De kleinere verpakking moet net zo gewoon zijn (niet meer woorden extra) en per kilo niet veel duurder.
+    for (const x of kandidaten) {
+      const best = perWinkel[x.w.id];
+      if (!best || x.per < onder || x.per > boven || x.extra > best.extra || x.per > best.per * 2) continue;
+      if (!klein[x.w.id] || x.p.p < klein[x.w.id].p.p) klein[x.w.id] = x;
     }
     const ids = Object.keys(perWinkel);
     if (!ids.length) { verslag.push(`${k}: geen bruikbaar product`); continue; }
@@ -185,8 +196,14 @@ async function main() {
     if (kop.st) regel.st = kop.st;
     if (kop.om) regel.om = kop.om;
     for (const id of ids) {
-      const { w, p, per } = perWinkel[id];
-      regel.w[id] = [Math.round(per * 100) / 100, p.p, p.n, p.l, p.s || ''];
+      const { p, per } = perWinkel[id];
+      // Inhoud van de verpakking in gram of stuks, voor hoeveel verpakkingen je moet kopen.
+      // Losse producten (gember los, per kilo) koop je in de hoeveelheid die je nodig hebt: inhoud 0.
+      const los = (x) => x.p.w.includes('los') || /^per (kg|kilo|100 ?g)/i.test(x.p.s || '');
+      const inhoud = (x) => los(x) ? 0 : Math.round(x.p.p / x.per * (e === 'g' ? 1000 : 1) * 10) / 10;
+      regel.w[id] = [Math.round(per * 100) / 100, p.p, p.n, p.l, p.s || '', inhoud(perWinkel[id])];
+      const k2 = klein[id];
+      if (k2 !== perWinkel[id]) regel.w[id].push([k2.p.p, k2.p.n, k2.p.l, k2.p.s || '', inhoud(k2)]);
     }
     uit[k] = regel;
     if (controle) {
