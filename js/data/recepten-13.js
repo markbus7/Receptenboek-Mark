@@ -122,9 +122,11 @@ RECEPTEN.push(
   keuken: 'Belgisch', soort: 'Hoofdgerecht',
   tijd: 50, pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Kip, kleine gehaktballetjes en champignons in een fluweelzachte roomsaus, in een krokant pasteitje van bladerdeeg. In België eet je het met friet.',
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of braadpan met deksel, en een garde voor de saus' },
-    { tool: 'oven', tekst: 'Oven of airfryer om de pasteitjes op te warmen' }
+    { tool: 'oven', tekst: 'Oven om de pasteitjes op te warmen', m: 'oven' },
+    { tool: 'airfryer', tekst: 'Airfryer om de pasteitjes op te warmen', m: 'airfryer' }
   ],
   ingr: [
     { kop: 'Kip en balletjes' },
@@ -153,7 +155,8 @@ RECEPTEN.push(
     { t: 'Smelt de boter in de lege pan op middelhoog vuur. Roer de bloem erdoor en laat 1 minuut garen. Klop de warme bouillon er scheutje voor scheutje door met de garde, tot een gladde, dikke saus. Laat 5 minuten zachtjes koken en roer af en toe.', min: 5 },
     { t: 'Klop de room met de eidooier en het citroensap los. Zet het vuur laag en roer het mengsel door de saus. Breng op smaak met zout, peper en nootmuskaat.' },
     { t: 'Snijd of trek de kip in blokjes. Schep kip, balletjes en champignons door de saus en warm 3 minuten door zonder te laten koken.', min: 3 },
-    { t: 'Warm de pasteibakjes 5 minuten op in de oven op 180 °C, of 3 minuten in de airfryer op 160 °C.', min: 5 },
+    { t: 'Warm de pasteibakjes 5 minuten op in de oven op 180 °C.', m: 'oven', min: 5 },
+    { t: 'Warm de pasteibakjes 3 minuten op in de airfryer op 160 °C.', m: 'airfryer', min: 3 },
     { t: 'Vul de pasteibakjes met de ragout en schep de rest ernaast. Lekker met friet en mayonaise, of met rijst.' }
   ],
   tips: [

@@ -315,8 +315,10 @@ const App = (() => {
         return `<span class="${heb ? '' : 'doorgestreept'}">${esc(naam)}</span>`;
       }).join('<span class="punt" aria-hidden="true">·</span>');
     }
-    const namen = [...new Set(r.gerei.filter((g) => !g.m).map((g) => (GEREEDSCHAP[g.tool] || {}).naam).filter(Boolean))];
-    return namen.map((n) => `<span>${esc(n)}</span>`).join('<span class="punt" aria-hidden="true">·</span>');
+    // Apparatuur die je niet hebt, staat doorgestreept: zo zie je waarom een kaart 'Je mist apparatuur' heeft.
+    const tools = [...new Set(r.gerei.filter((g) => !g.m && GEREEDSCHAP[g.tool]).map((g) => g.tool))];
+    return tools.map((t) => `<span class="${Hulp.heeftTool(t, mijnKeuken()) || !r.gerei.some((g) => g.tool === t && !g.m && !g.of) ? '' : 'doorgestreept'}">${esc(GEREEDSCHAP[t].naam)}</span>`)
+      .join('<span class="punt" aria-hidden="true">·</span>');
   }
 
   /* Bord-illustratie in de kleur van het hoofdstuk, voor recepten zonder foto. */

@@ -156,7 +156,7 @@ RECEPTEN.push(
   intro: 'Laagjes aubergine, gekruid lamsgehakt met kaneel en een dikke kaaskorst.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
-    { tool: 'airfryer', tekst: 'Airfryer of oven om de aubergine voor te garen' },
+    { tool: 'airfryer', tekst: 'Airfryer of oven om de aubergine voor te garen', of: 'Geen airfryer? Gaar de aubergine dan in de oven.' },
     { tool: 'hapjespan', tekst: 'Hapjespan voor de gehaktsaus' },
     { tool: 'kookpan', tekst: 'Steelpan en garde voor de bechamel' },
     { tool: 'ovenschaal', tekst: 'Ovenschaal van 20 × 30 cm', m: 'oven' },
