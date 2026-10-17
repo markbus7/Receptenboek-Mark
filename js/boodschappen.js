@@ -30,34 +30,67 @@ const Boodschappen = (() => {
     return { q, u };
   }
 
+  /* Water uit de kraan hoeft niet op het lijstje. */
+  const isWater = (i) => /^(lauw )?water$/.test(Hulp.norm(i.n));
+
+  function voegIngrToe(recept, i, factor) {
+    // Zonder hoeveelheid (zout, peper naar smaak) gaat het als los item mee, met het recept erbij.
+    if (i.q == null) {
+      const k = 'smaak-' + Hulp.norm(i.n);
+      const bestaand = items.find((x) => x.k === k);
+      if (bestaand) {
+        bestaand.klaar = false;
+        if (!bestaand.recepten.includes(recept.naam)) bestaand.recepten.push(recept.naam);
+      } else {
+        items.push({ k, n: i.n, eigen: true, recepten: [recept.naam], klaar: false });
+      }
+      return;
+    }
+    const { q, u } = basis(i, factor);
+    const k = Hulp.norm(i.n) + '|' + u;
+    const bestaand = items.find((x) => x.k === k);
+    // Een eigen vervanger in het recept bewaren we per eenheid, zodat hij meetelt met de hoeveelheid.
+    const ofPer = i.of && typeof i.of === 'object' ? { ...i.of, q: i.of.q * factor / q } : null;
+    if (bestaand) {
+      bestaand.q += q;
+      bestaand.klaar = false;
+      if (!bestaand.recepten.includes(recept.naam)) bestaand.recepten.push(recept.naam);
+      if (i.x && !bestaand.x) bestaand.x = i.x;
+      if (i.vers) bestaand.vers = true;
+      if (typeof i.of === 'string' && !bestaand.of) bestaand.of = i.of;
+      if (ofPer && !bestaand.ofPer) bestaand.ofPer = ofPer;
+    } else {
+      const nieuw = { k, n: i.n, p: i.p, q, u, x: i.x, recepten: [recept.naam], klaar: false };
+      if (i.vers) nieuw.vers = true;
+      if (typeof i.of === 'string') nieuw.of = i.of;
+      if (ofPer) nieuw.ofPer = ofPer;
+      items.push(nieuw);
+    }
+  }
+
   function voegReceptToe(recept, factor) {
     let aantal = 0;
     recept.ingr.forEach((i) => {
-      if (i.kop || i.q == null || /^(lauw )?water$/.test(Hulp.norm(i.n))) return;
-      const { q, u } = basis(i, factor);
-      const k = Hulp.norm(i.n) + '|' + u;
-      const bestaand = items.find((x) => x.k === k);
-      // Een eigen vervanger in het recept bewaren we per eenheid, zodat hij meetelt met de hoeveelheid.
-      const ofPer = i.of && typeof i.of === 'object' ? { ...i.of, q: i.of.q * factor / q } : null;
-      if (bestaand) {
-        bestaand.q += q;
-        bestaand.klaar = false;
-        if (!bestaand.recepten.includes(recept.naam)) bestaand.recepten.push(recept.naam);
-        if (i.x && !bestaand.x) bestaand.x = i.x;
-        if (i.vers) bestaand.vers = true;
-        if (typeof i.of === 'string' && !bestaand.of) bestaand.of = i.of;
-        if (ofPer && !bestaand.ofPer) bestaand.ofPer = ofPer;
-      } else {
-        const nieuw = { k, n: i.n, p: i.p, q, u, x: i.x, recepten: [recept.naam], klaar: false };
-        if (i.vers) nieuw.vers = true;
-        if (typeof i.of === 'string') nieuw.of = i.of;
-        if (ofPer) nieuw.ofPer = ofPer;
-        items.push(nieuw);
-      }
+      if (i.kop || i.q == null || isWater(i)) return;
+      voegIngrToe(recept, i, factor);
       aantal++;
     });
     bewaar();
     return aantal;
+  }
+
+  /* Eén ingrediënt uit een recept, zoals je het nu ziet (met het gekozen aantal personen). */
+  function voegEenToe(recept, i, factor) {
+    if (i.kop) return;
+    voegIngrToe(recept, i, factor);
+    bewaar();
+  }
+
+  /* Staat dit ingrediënt al op de lijst (nog niet afgevinkt) voor dit recept? */
+  function staatErop(recept, i) {
+    const naam = Hulp.norm(i.n);
+    return items.some((x) => !x.klaar && x.recepten.includes(recept.naam)
+      && (x.k === 'smaak-' + naam || x.k.split('|')[0] === naam && !x.eigen));
   }
 
   function voegEigenToe(tekst) {
@@ -104,7 +137,7 @@ const Boodschappen = (() => {
       ? `${open.length} nog te halen, ${klaar.length} afgevinkt.`
       : 'Voeg ingrediënten toe vanuit een recept. Hoeveelheden worden samengevoegd.';
     if (!items.length) {
-      lijstEl.innerHTML = '<li class="lijst-leeg">Je lijst is nog leeg. Open een recept en kies <strong>Op boodschappenlijst</strong>.</li>';
+      lijstEl.innerHTML = '<li class="lijst-leeg">Je lijst is nog leeg. Open een recept en kies <strong>Op boodschappenlijst</strong>, of tik op het mandje naast één ingrediënt.</li>';
       return;
     }
     lijstEl.innerHTML = [...open, ...klaar].map((it) => `
@@ -135,5 +168,5 @@ const Boodschappen = (() => {
   /* Opnieuw inlezen, bijvoorbeeld nadat een ander apparaat de lijst heeft gewijzigd. */
   const herlaad = () => { items = vulAlternatievenAan(Hulp.opslag.lees('boodschappen', [])); };
 
-  return { herlaad, voegReceptToe, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
+  return { herlaad, voegReceptToe, voegEenToe, staatErop, isWater, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
 })();
