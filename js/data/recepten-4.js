@@ -2,7 +2,7 @@
 RECEPTEN.push(
 {
   id: 'butter-chicken', naam: 'Butter chicken', ook: ['boterkip', 'murgh makhani'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 45, wacht: '30 min marineren', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 45, wacht: '30 min marineren', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Gemarineerde kip in een fluweelzachte tomaten-roomsaus met garam masala.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' } ],
   gerei: [
@@ -47,7 +47,7 @@ RECEPTEN.push(
 },
 {
   id: 'chana-masala', naam: 'Chana masala', ook: ['kikkererwtencurry'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Kruidige kikkererwtencurry uit Noord-India. Volledig plantaardig en goedkoop.',
   gerei: [ { tool: 'hapjespan', tekst: 'Hapjespan of braadpan (26 cm) met deksel' } ],
   ingr: [
@@ -78,7 +78,7 @@ RECEPTEN.push(
 },
 {
   id: 'dal', naam: 'Rode linzen dal', ook: ['dahl', 'daal', 'linzencurry'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Troostrijke linzenstoof met kokosmelk en een knetterende kruidenolie (tadka).',
   gerei: [
     { tool: 'kookpan', tekst: 'Kookpan van 3 liter met dikke bodem' },
@@ -113,7 +113,7 @@ RECEPTEN.push(
 },
 {
   id: 'chili-con-carne', naam: 'Chili con carne', keuken: 'Mexicaans', soort: 'Hoofdgerecht',
-  tijd: 50, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 50, pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
   intro: 'Stevige chili met bonen, mais en een vleugje chocolade voor diepte.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
   gerei: [
@@ -147,7 +147,7 @@ RECEPTEN.push(
 },
 {
   id: 'kip-fajitas', naam: 'Kip fajitas', gerecht: 'Fajitas', variant: 'Kip', ook: ['fajitas', 'fajita', 'chicken fajitas'], keuken: 'Mexicaans', soort: 'Hoofdgerecht',
-  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Sissende reepjes kip met paprika en ui in warme tortilla\'s, met guacamole.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'oven', naam: 'Oven (plaatgerecht)' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
@@ -200,7 +200,7 @@ RECEPTEN.push(
 },
 {
   id: 'quesadillas', naam: 'Quesadilla\'s met bonen en kaas', keuken: 'Mexicaans', soort: 'Ontbijt & lunch',
-  tijd: 20, pers: 2, niveau: 'Makkelijk', vega: true,
+  tijd: 20, pers: 2, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Knapperige gevulde tortilla\'s met gesmolten kaas, bonen en mais. Binnen 20 minuten op tafel.',
   methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' } ],
   gerei: [
@@ -273,7 +273,7 @@ RECEPTEN.push(
 },
 {
   id: 'bibimbap', naam: 'Bibimbap', keuken: 'Koreaans', soort: 'Hoofdgerecht',
-  tijd: 40, pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 40, pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
   intro: 'Rijstkom met gemarineerd rundvlees, groenten, een gebakken ei en pittige gochujangsaus.',
   gerei: [
     { tool: 'koekenpan', tekst: 'Grote koekenpan voor het vlees en de groenten' },

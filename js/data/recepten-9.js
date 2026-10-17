@@ -174,7 +174,7 @@ RECEPTEN.push(
 },
 {
   id: 'pulled-pork', naam: 'Pulled pork', keuken: 'Amerikaans', soort: 'Hoofdgerecht',
-  tijd: 20, wacht: '5 uur garen', pers: 8, niveau: 'Makkelijk', vega: false,
+  tijd: 20, wacht: '5 uur garen', pers: 8, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Varkensschouder met een rokerige kruidenrub, zo lang gegaard dat je het met twee vorken uit elkaar trekt.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
   gerei: [

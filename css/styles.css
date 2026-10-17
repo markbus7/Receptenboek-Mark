@@ -361,6 +361,13 @@ p.sync-fout::before { display: none; }
 .niveau-stip i { width: 6px; height: 6px; border-radius: 50%; border: 1px solid currentColor; }
 .niveau[data-niveau="1"] i:nth-child(-n+1), .niveau[data-niveau="2"] i:nth-child(-n+2), .niveau[data-niveau="3"] i { background: currentColor; }
 .vega { color: var(--ok) !important; }
+/* Pittigheid: 1 tot 3 rode pepertjes, zoals op een restaurantmenu. */
+.pit { color: var(--warn); display: inline-flex; align-items: center; }
+.pit svg + svg { margin-left: -3px; }
+.kaart-meta .pit svg { width: 16px; height: 16px; }
+.d-meta .pit { color: var(--warn); }
+.d-meta .pit svg { width: 18px; height: 18px; color: var(--warn); }
+.pit-pepers { display: inline-flex; }
 .kaart-gerei { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; font-family: var(--font-lees); font-style: italic; font-size: 14px; color: var(--inkt); }
 .kaart-gerei .punt { color: var(--potlood); font-style: normal; }
 .doorgestreept { text-decoration: line-through; color: var(--potlood); }
@@ -788,6 +795,9 @@ p.sync-fout::before { display: none; }
 .dk-intro { font-family: var(--font-lees); font-size: 17px; line-height: 1.6; color: #6B6257; }
 .dk-meta { display: flex; flex-wrap: wrap; gap: 4px 24px; padding-top: 12px; border-top: 1px solid #E3DBCC; font-size: 14px; font-weight: 600; }
 .dk-meta span::before { content: '•'; margin-right: 8px; color: var(--k); }
+.dk-pit { display: inline-flex; align-items: center; gap: 0; color: #B03A22; }
+.dk-pit svg + svg { margin-left: -3px; }
+.dk-pit svg:last-of-type { margin-right: 6px; }
 .dk-midden { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
 .deelkaart h2 { font-size: 24px; margin-bottom: 12px; }
 .dk-ingr li { display: grid; grid-template-columns: 76px 1fr; gap: 12px; padding: 4px 0; line-height: 1.4; border-bottom: 1px dotted #E3DBCC; }

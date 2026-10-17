@@ -14,6 +14,7 @@ Een receptenboek in de browser met 185 gerechten uit 22 keukens, waarvan 21 in m
 - **Groentemixen.** Kies bij *Wat heb ik in huis?* je diepvries groentemix (wokgroente, nasi/bamigroente, mediterrane of Mexicaanse mix, soepgroente, spinazie, …). Je krijgt een kaartje met hoe je hem bereidt, een snel idee en de recepten waar hij het best in past. In een recept zie je welke groenten de mix vervangt en hoeveel gram je ervan gebruikt.
 - **Mijn keuken.** Vink aan welke pannen (Dutch oven, RVS-koekenpan, antiaanbak, gietijzer, …) en apparaten (oven, airfryer, contactgrill, rijstkoker, wok, …) je hebt. Recepten met meerdere bereidingswijzen kiezen dan automatisch de juiste, en bij elk recept staat advies voor jouw pannen, zoals hoe je een RVS-pan voorverwarmt of wanneer je Dutch oven een hapjespan vervangt.
 - **Delen als pdf.** Met de knop *Deel* bovenaan een recept maak je een pdf in de stijl van het boek: met hoofdstukkleur, foto, ingrediënten, bereiding en de tips als geeltje. Op telefoon en tablet stuur je hem meteen via WhatsApp, Berichten of mail; op de computer wordt hij gedownload. De pdf toont het recept zoals je het ziet (gekozen variant, bereidingswijze en aantal personen), met onderaan een link die het recept precies zo opent.
+- **Pepertjes.** Pittige gerechten hebben rode pepertjes, zoals op een restaurantmenu: 1 is een beetje pittig, 2 pittig en 3 heel pittig. Je ziet ze op de receptkaart, bovenaan het recept en in de gedeelde pdf. Een variant neemt de pepertjes van het basisrecept over, tenzij hij een eigen `pit` heeft.
 - **Restjes.** Bij elk recept staat op een briefje wat je overhoudt van pakken, blikken en bosjes (een blikje tomatenpuree, een pak room, een halve komkommer, eiwitten), met een tip wat je ermee doet. Het rekent mee als je het aantal personen aanpast.
 - **Mijn logboek.** Onder elk recept vink je af dat je het gemaakt hebt, zo vaak als je wilt: je ziet hoe vaak (bijv. *5× gemaakt*) en wanneer de laatste keer was, en op de receptkaart in het overzicht staat het ook. Geef met sterren aan hoe lekker je het vindt en hoe leuk het is om te maken, en schrijf er een eigen notitie bij. Elke variant heeft een eigen logboek; de kaart telt alle varianten samen.
 - **Nieuw en Gemaakt.** De tab *Nieuw* toont de 3 recepten die het laatst zijn toegevoegd, nieuwste eerst. Zolang een recept daar staat, heeft het in elke tab een label NIEUW. De tab *Gemaakt* toont alle recepten die je in je logboek hebt afgevinkt.
@@ -43,6 +44,7 @@ Recepten staan in `js/data/recepten-*.js`. Een recept ziet er zo uit:
 {
   id: 'uniek-id', naam: 'Naam', ook: ['andere naam'], keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '1 uur rijzen', pers: 4, niveau: 'Makkelijk', vega: true,
+  pit: 2,                                                                       // optioneel: 1 tot 3 pepertjes
   intro: 'Korte omschrijving.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ], // optioneel
   gerei: [
@@ -100,6 +102,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.25.0**: rode pepertjes bij pittige gerechten (1 tot 3), op de receptkaart, in het recept en in de pdf. Heel pittig zijn ajam pedis en pad kra pao.
 - **1.24.1**: op een kaart met *Je mist apparatuur* staat het apparaat dat je mist nu doorgestreept (bijvoorbeeld de oven bij Vol-au-vent), zodat je ziet waarom de foto grijs is. Vol-au-vent kan nu ook met alleen een airfryer (de pasteitjes opwarmen), en moussaka telt de airfryer niet meer als verplicht als je een oven hebt.
 - **1.24.0**: recepten uit de tab *Nieuw* hebben in elke tab een rood label NIEUW op de foto en naast de soort in het recept. Is alleen één variant nieuw, dan staat de naam erbij (*Nieuw: Lam*). Zodra een recept uit de 3 nieuwste valt, verdwijnt het label vanzelf.
 - **1.23.0**: twee nieuwe tabs. *Nieuw* toont de 3 laatst toegevoegde recepten (nu kip kerrie met perzik, curry madras met lam en gehaktballen in tomatensaus). *Gemaakt* toont alles wat je in je logboek hebt afgevinkt, en werkt meteen bij als je iets afvinkt. Op de telefoon staan de vijf tabs op twee rijen.

@@ -2,7 +2,7 @@
 RECEPTEN.push(
 {
   id: 'shakshuka', naam: 'Shakshuka', ook: ['shakshouka', 'eieren in tomatensaus'], keuken: 'Midden-Oosters', soort: 'Ontbijt & lunch',
-  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Eieren gepocheerd in een kruidige saus van tomaat en paprika. Met brood om te dippen.',
   gerei: [
     { tool: 'koekenpan', tekst: 'Koekenpan of hapjespan (28 cm) mét deksel', of: 'Geen passende deksel? Gebruik een bakplaat of een groot bord.' }

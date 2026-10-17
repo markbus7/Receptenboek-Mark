@@ -350,6 +350,7 @@ const App = (() => {
               <span>${r.pers} ${esc(r.stuks || 'pers.')}</span>
               <span class="niveau" data-niveau="${NIVEAUS.indexOf(r.niveau) + 1}"><span class="niveau-stip" aria-hidden="true"><i></i><i></i><i></i></span>${esc(r.niveau)}</span>
               ${r.vega ? `<span class="vega">${icoon('blad')} vega</span>` : ''}
+              ${r.pit ? `<span class="pit" role="img" aria-label="${Hulp.pitTekst(r)}" title="${Hulp.pitTekst(r)}">${icoon('peper').repeat(r.pit)}</span>` : ''}
               ${gemaakt ? `<span class="gemaakt" title="Zo vaak heb je dit gemaakt">${icoon('vink')} ${gemaakt}× gemaakt</span>` : ''}
             </span>
             <span class="kaart-gerei">${gereiRegel(r)}</span>

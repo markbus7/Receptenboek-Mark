@@ -132,7 +132,7 @@ RECEPTEN.push(
 },
 {
   id: 'patatas-bravas', naam: 'Patatas bravas', keuken: 'Spaans', soort: 'Salade & bijgerecht',
-  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: true, pit: 2,
   intro: 'Krokante aardappelblokjes met pittige tomatensaus en knoflookmayonaise. Tapas-favoriet.',
   methodes: [ { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
   gerei: [

@@ -3,7 +3,7 @@ RECEPTEN.push(
 {
   id: 'burritos', naam: 'Burrito\'s met kip, rijst en zwarte bonen', gerecht: 'Burrito\'s', variant: 'Kip', ook: ['burrito', 'burritos'],
   keuken: 'Mexicaans', soort: 'Hoofdgerecht',
-  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Een grote tortilla, strak opgerold rond kruidige kip, limoen-korianderrijst, zwarte bonen en kaas, en daarna knapperig dichtgebakken. Een complete maaltijd die je uit de hand eet.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'contactgrill', naam: 'Contactgrill' } ],
   gerei: [
@@ -74,7 +74,7 @@ RECEPTEN.push(
 {
   id: 'tacos', naam: 'Taco\'s met gekruid gehakt', gerecht: 'Taco\'s', variant: 'Gehakt', ook: ['taco', 'tacos', 'taco\'s', 'tex-mex taco\'s'],
   keuken: 'Mexicaans', soort: 'Hoofdgerecht',
-  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'De taco zoals we hem thuis kennen: gehakt met zelfgemaakte tacokruiden in een knapperige schelp, met sla, tomaat, kaas en guacamole. Iedereen vult zijn eigen.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Zachte tortilla\'s' } ],
   gerei: [
@@ -144,7 +144,7 @@ RECEPTEN.push(
 {
   id: 'enchiladas', naam: 'Enchiladas met kip',
   keuken: 'Mexicaans', soort: 'Hoofdgerecht',
-  tijd: 55, pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 55, pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Opgerolde tortilla\'s met pulled kip, overgoten met een zelfgemaakte rode chilisaus en gegratineerd met kaas. Troostvoer uit de oven.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
@@ -192,7 +192,7 @@ RECEPTEN.push(
 {
   id: 'guisado-carne-molida', naam: 'Guisado con carne molida', ook: ['picadillo', 'mexicaans gehaktstoofje', 'carne molida', 'guisado'],
   keuken: 'Mexicaans', soort: 'Hoofdgerecht',
-  tijd: 45, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 45, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Het Mexicaanse gehaktstoofje van alledag: gehakt met aardappel en wortel in een kruidige tomatensaus. Gewoon thuiskost, en juist daarom zo lekker met rijst en warme tortilla\'s.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of braadpan (24 à 26 cm) met deksel' },
@@ -235,7 +235,7 @@ RECEPTEN.push(
 {
   id: 'nachos', naam: 'Nacho\'s uit de oven', ook: ['nachos', 'nacho schotel', 'loaded nachos'],
   keuken: 'Mexicaans', soort: 'Salade & bijgerecht',
-  tijd: 20, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 20, pers: 4, niveau: 'Makkelijk', vega: true, pit: 2,
   intro: 'Een bakplaat vol tortillachips met gesmolten kaas, zwarte bonen en jalapeño, met guacamole, zure room en salsa erbij. Om samen uit het midden van de tafel te eten.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
@@ -271,7 +271,7 @@ RECEPTEN.push(
 {
   id: 'salsa-fresca', naam: 'Salsa fresca (pico de gallo)', ook: ['pico de gallo', 'salsa', 'tomatensalsa', 'salsa mexicana'],
   keuken: 'Mexicaans', soort: 'Saus',
-  tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Frisse, rauwe salsa van tomaat, ui, peper, koriander en limoen. Snel gemaakt en onmisbaar bij taco\'s, nacho\'s en alles van de grill.',
   gerei: [ { tool: 'ovenschaal', tekst: 'Kom, een zeef en een scherp mes; geen pannen nodig' } ],
   ingr: [
@@ -364,7 +364,7 @@ RECEPTEN.push(
 {
   id: 'fried-chicken', naam: 'Southern fried chicken', ook: ['fried chicken', 'gefrituurde kip', 'kfc', 'buttermilk chicken'],
   keuken: 'Amerikaans', soort: 'Hoofdgerecht',
-  tijd: 50, wacht: '4 uur marineren', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 50, wacht: '4 uur marineren', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
   intro: 'Kip met bot, eerst in gekruide karnemelk en dan door een bloemlaag die heel knapperig frituurt. Sappig vanbinnen, krokant vanbuiten, en ook goed te doen in de airfryer.',
   methodes: [ { id: 'braadpan', naam: 'Frituren' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
@@ -440,7 +440,7 @@ RECEPTEN.push(
 {
   id: 'barbecuesaus', naam: 'Barbecuesaus', ook: ['bbq saus', 'bbq-saus', 'barbecue saus'],
   keuken: 'Amerikaans', soort: 'Saus',
-  tijd: 25, pers: 8, niveau: 'Makkelijk', vega: true,
+  tijd: 25, pers: 8, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Zoete, rokerige en licht zure saus van ketchup, appelazijn en gerookte paprika. Zelfgemaakt in een kwartier en veel lekkerder dan uit de fles.',
   gerei: [ { tool: 'kookpan', tekst: 'Steelpan met dikke bodem, en een schone glazen pot om hem te bewaren' } ],
   ingr: [

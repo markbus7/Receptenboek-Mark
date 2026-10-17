@@ -2,7 +2,7 @@
 RECEPTEN.push(
 {
   id: 'rendang', naam: 'Rendang', keuken: 'Indonesisch', soort: 'Hoofdgerecht',
-  tijd: 30, wacht: '3 uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 30, wacht: '3 uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
   intro: 'Rundvlees dat uren stooft in kokosmelk en kruiden tot het donker, droog en ongelooflijk mals is.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
   gerei: [
@@ -46,7 +46,7 @@ RECEPTEN.push(
 },
 {
   id: 'babi-ketjap', naam: 'Babi ketjap', gerecht: 'Babi of ajam ketjap', variant: 'Varkensvlees', ook: ['babi kecap', 'ketjapvlees'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
-  tijd: 20, wacht: '1½ uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 20, wacht: '1½ uur stoven', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Zoet-zout gestoofd varkensvlees in ketjap, gember en knoflook. Indisch comfort food.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
   gerei: [
@@ -97,7 +97,7 @@ RECEPTEN.push(
 },
 {
   id: 'gado-gado', naam: 'Gado-gado', keuken: 'Indonesisch', soort: 'Salade & bijgerecht',
-  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Kleurrijke schotel van gekookte groenten, ei, tahoe en een warme, romige pindasaus.',
   gerei: [
     { tool: 'kookpan', tekst: 'Kookpan om de groenten te blancheren' },
@@ -134,7 +134,7 @@ RECEPTEN.push(
 },
 {
   id: 'bami-goreng', naam: 'Bami goreng', keuken: 'Indonesisch', soort: 'Hoofdgerecht',
-  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Gebakken mie met kip, groenten en ketjap. Snel klaar en een favoriet van jong en oud.',
   gerei: [
     { tool: 'wok', tekst: 'Wok (32 cm) voor hoog vuur', of: 'Geen wok? Gebruik de grootste pan die je hebt en bak in 2 porties.' },
@@ -168,7 +168,7 @@ RECEPTEN.push(
 },
 {
   id: 'sajoer-lodeh', naam: 'Sajoer lodeh', ook: ['sayur lodeh'], keuken: 'Indonesisch', soort: 'Soep',
-  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Milde groentestoof in gekruide kokosbouillon. Lekker als soep of met rijst.',
   gerei: [ { tool: 'kookpan', tekst: 'Soeppan of Dutch oven (3 à 4 liter)' } ],
   ingr: [
@@ -200,7 +200,7 @@ RECEPTEN.push(
 },
 {
   id: 'ajam-pedis', naam: 'Ajam pedis', ook: ['pittige kip'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
-  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false, pit: 3,
   intro: 'Pittige kip in een rode saus van tomaat, sambal en ketjap. "Pedis" betekent scherp.',
   gerei: [
     { tool: 'hapjespan', tekst: 'Hapjespan of braadpan met deksel' }

@@ -217,6 +217,10 @@ const Hulp = (() => {
     return u + ' uur' + (m ? ' ' + m + ' min' : '');
   }
 
+  /* Pittigheid zoals op een restaurantmenu: 1 tot 3 pepertjes (pit in het recept). Zonder pit: lege tekst. */
+  const PIT = ['', 'Een beetje pittig', 'Pittig', 'Heel pittig'];
+  const pitTekst = (r) => PIT[r.pit] || '';
+
   /* Aantal tikfouten tussen twee woorden (letter erbij, eraf, anders of omgedraaid). */
   function afstand(a, b) {
     const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
@@ -399,5 +403,5 @@ const Hulp = (() => {
   /* Foto van het recept; een variant zonder eigen foto laat die van het basisrecept zien. */
   const foto = (r) => (window.FOTOS && (FOTOS[r.id] || (r.groep && FOTOS[r.groep]))) || null;
 
-  return { foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, bereidIn, panAdvies, restjes };
+  return { foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();
