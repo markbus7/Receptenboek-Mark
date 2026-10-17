@@ -100,6 +100,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.24.1**: op een kaart met *Je mist apparatuur* staat het apparaat dat je mist nu doorgestreept (bijvoorbeeld de oven bij Vol-au-vent), zodat je ziet waarom de foto grijs is.
 - **1.24.0**: recepten uit de tab *Nieuw* hebben in elke tab een rood label NIEUW op de foto en naast de soort in het recept. Is alleen één variant nieuw, dan staat de naam erbij (*Nieuw: Lam*). Zodra een recept uit de 3 nieuwste valt, verdwijnt het label vanzelf.
 - **1.23.0**: twee nieuwe tabs. *Nieuw* toont de 3 laatst toegevoegde recepten (nu kip kerrie met perzik, curry madras met lam en gehaktballen in tomatensaus). *Gemaakt* toont alles wat je in je logboek hebt afgevinkt, en werkt meteen bij als je iets afvinkt. Op de telefoon staan de vijf tabs op twee rijen.
 - **1.22.1**: het tabblad *Favorieten* toont geen rood bolletje met het aantal favorieten meer.
