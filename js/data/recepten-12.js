@@ -405,7 +405,7 @@ RECEPTEN.push(
   ]
 },
 {
-  id: 'kip-kerrie-perzik', naam: 'Pittige kip kerrie met perzik', ook: ['kip kerrie met perzik', 'kipkerrie', 'kip kerrie', 'kip met perzik', 'kerriekip met perzik', 'perzikkip'],
+  id: 'kip-kerrie-perzik', toegevoegd: '2026-10-16', naam: 'Pittige kip kerrie met perzik', ook: ['kip kerrie met perzik', 'kipkerrie', 'kip kerrie', 'kip met perzik', 'kerriekip met perzik', 'perzikkip'],
   keuken: 'Nederlands', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'De Hollandse huiskamerklassieker: kip in een romige kerriesaus met sambal en zoete perzikpartjes uit blik. Pittig en zoet tegelijk, en altijd met een berg rijst.',

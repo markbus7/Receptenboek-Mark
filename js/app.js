@@ -71,6 +71,10 @@ const App = (() => {
   const INGR_NAMEN = [...INGR_AANTAL.keys()].sort((a, b) => a.localeCompare(b, 'nl'));
   const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, VARIANTEN.gerecht(r), ...(r.ook || []), r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
+  /* Tab Nieuw: de 3 recepten met de jongste datum bij toegevoegd (nieuwste eerst). */
+  const NIEUW = RECEPTEN.filter((r) => r.toegevoegd)
+    .sort((a, b) => b.toegevoegd.localeCompare(a.toegevoegd)).slice(0, 3).map((r) => r.id);
+
   const state = {
     view: 'alle',
     zoek: '',
@@ -224,6 +228,8 @@ const App = (() => {
     }));
     const filter = (vaag) => lijst.filter(({ r, m, maakbaar }) =>
       (state.view !== 'fav' || state.favs.has(r.id)) &&
+      (state.view !== 'nieuw' || NIEUW.includes(r.id)) &&
+      (state.view !== 'gemaakt' || Logboek.keer(r.id) > 0) &&
       zoektermPast(r, state.zoek, vaag) &&
       (!state.keukens.size || state.keukens.has(r.keuken)) &&
       (!state.soorten.size || state.soorten.has(r.soort)) &&
@@ -255,8 +261,9 @@ const App = (() => {
       niveau: (a, b) => (NIVEAUS.indexOf(a.r.niveau) - NIVEAUS.indexOf(b.r.niveau)) || (a.r.tijd - b.r.tijd) || opBlz(a, b),
       soort: (a, b) => (SOORTEN.indexOf(a.r.soort) - SOORTEN.indexOf(b.r.soort)) || opNaam(a, b),
       fav: (a, b) => (fav(a) - fav(b)) || opBlz(a, b),
-      keuken: opBlz
-    }[state.sorteer];
+      keuken: opBlz,
+      nieuw: (a, b) => NIEUW.indexOf(a.r.id) - NIEUW.indexOf(b.r.id)
+    }[state.view === 'nieuw' ? 'nieuw' : state.sorteer];
     lijst.sort(sorteer);
     if (state.omgekeerd) lijst.reverse();
     return perGerecht(lijst);
@@ -385,7 +392,7 @@ const App = (() => {
 
   function render() {
     const lijst = resultaten();
-    const perHoofdstuk = state.sorteer === 'keuken' || (state.sorteer === 'match' && !state.voorraad.length);
+    const perHoofdstuk = state.view !== 'nieuw' && state.sorteer === 'keuken' || (state.sorteer === 'match' && !state.voorraad.length);
     let html = '', vorige = null;
     lijst.forEach((item) => {
       if (perHoofdstuk && item.r.keuken !== vorige) {
@@ -403,6 +410,10 @@ const App = (() => {
       $('#leeg-titel').textContent = 'Nog geen favorieten';
       $('#leeg-tekst').textContent = 'Tik op het hartje bij een recept om het hier te bewaren.';
       $('#leeg-wis').hidden = true;
+    } else if (leeg && state.view === 'gemaakt' && !RECEPTEN.some((r) => Logboek.keer(r.id))) {
+      $('#leeg-titel').textContent = 'Nog niets gemaakt';
+      $('#leeg-tekst').textContent = 'Open een recept en tik onder Mijn logboek op Gemaakt. Dan staat het hier.';
+      $('#leeg-wis').hidden = true;
     } else {
       $('#leeg-titel').textContent = 'Geen recepten gevonden';
       $('#leeg-tekst').textContent = state.voorraad.length
@@ -415,8 +426,11 @@ const App = (() => {
     let tekst = `${n} ${n === 1 ? 'recept' : 'recepten'}`;
     if (state.vaag) tekst = `Niets gevonden voor “${state.zoek.trim()}”. Wel ${n} ${n === 1 ? 'recept dat erop lijkt' : 'recepten die erop lijken'}:`;
     if (state.view === 'fav') tekst += ' in je favorieten';
+    if (state.view === 'gemaakt') tekst += n === 1 ? ' dat je gemaakt hebt' : ' die je gemaakt hebt';
+    if (state.view === 'nieuw') tekst = n === NIEUW.length ? `De ${n} nieuwste recepten, nieuwste eerst` : `${tekst} van de ${NIEUW.length} nieuwste`;
     if (state.voorraad.length) tekst += `, gesorteerd op wat je in huis hebt`;
     $('#resultaat-tekst').textContent = tekst;
+    $('.sorteer-groep').hidden = state.view === 'nieuw';
 
     const af = actieveFilters();
     $('#actieve-filters').innerHTML = af.map(([g, w, l]) =>
@@ -797,6 +811,8 @@ const App = (() => {
         navigator.clipboard.writeText(tekst).then(() => toast('Lijst gekopieerd'), fallback);
       } else fallback();
     });
+    // Afgevinkt of weggehaald: de teller op de kaart en de tab Gemaakt kloppen meteen weer.
+    document.addEventListener('logboek-gewijzigd', () => { if (state.view !== 'lijst') render(); });
     document.addEventListener('lijst-gewijzigd', () => { if (state.view === 'lijst') renderLijst(); else $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || ''; });
   }
 

@@ -17,6 +17,7 @@ const Logboek = (() => {
     data = { ...data };
     if (ietsOver) data[id] = regel; else delete data[id];
     opslag.schrijf(SLEUTEL, data);
+    document.dispatchEvent(new CustomEvent('logboek-gewijzigd'));
   }
 
   return {

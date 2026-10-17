@@ -496,7 +496,7 @@ RECEPTEN.push(
   bij: ['pizza-margherita', 'penne-arrabbiata']
 },
 {
-  id: 'gehaktballen-tomatensaus', naam: 'Gehaktballen in tomatensaus', ook: ['polpette al sugo', 'polpette', 'italiaanse gehaktballen', 'gehaktballetjes in tomatensaus', 'balletjes in tomatensaus', 'meatballs'],
+  id: 'gehaktballen-tomatensaus', toegevoegd: '2026-10-14', naam: 'Gehaktballen in tomatensaus', ook: ['polpette al sugo', 'polpette', 'italiaanse gehaktballen', 'gehaktballetjes in tomatensaus', 'balletjes in tomatensaus', 'meatballs'],
   keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 55, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Zachte gehaktballen met Parmezaanse kaas en peterselie die zachtjes garen in een dikke tomatensaus. Lekker met spaghetti, of met brood om de saus op te deppen.',
