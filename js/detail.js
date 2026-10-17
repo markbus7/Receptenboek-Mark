@@ -133,7 +133,7 @@ const Detail = (() => {
         <section class="d-pagina d-links">
           <p class="d-loopkop">Hoofdstuk ${h.nr} · ${Hulp.esc(r.keuken)}</p>
           <div class="d-titelblok">
-            <p class="d-soort">${Hulp.esc(r.soort)}</p>
+            <p class="d-soort">${Hulp.esc(r.soort)}${ctx.isNieuw(r.id) ? ' <span class="label-nieuw">Nieuw</span>' : ''}</p>
             <h2 id="d-titel">${Hulp.esc(r.naam)}</h2>
             ${(() => {
               const vs = ctx.varianten(r);

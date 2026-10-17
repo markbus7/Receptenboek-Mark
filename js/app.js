@@ -327,6 +327,9 @@ const App = (() => {
     const foto = Hulp.foto(r);
     const h = hk(r.keuken);
     const gemaakt = VARIANTEN.leden(r).reduce((som, v) => som + Logboek.keer(v.id), 0);
+    // NIEUW zolang het recept in de tab Nieuw staat; is alleen een andere variant nieuw, dan met de naam van die variant.
+    const nieuweVariant = NIEUW.includes(r.id) ? null : VARIANTEN.leden(r).find((v) => NIEUW.includes(v.id));
+    const nieuw = NIEUW.includes(r.id) ? 'Nieuw' : nieuweVariant ? `Nieuw: ${VARIANTEN.label(nieuweVariant)}` : '';
     const matchHtml = m ? `
       <div class="match${m.mist.length === 0 ? ' is-compleet' : ''}">
         <div class="match-balk" aria-hidden="true"><span style="width:${Math.round(m.pct * 100)}%"></span></div>
@@ -336,7 +339,7 @@ const App = (() => {
     return `
       <article class="kaart hk${maakbaar ? '' : ' niet-maakbaar'}" style="--k:${h.kleur}">
         <a class="kaart-link" href="#${r.id}" data-open="${r.id}">
-          <span class="kaart-beeld">${foto ? `<img src="${esc(foto.src)}" alt="" loading="lazy" decoding="async">` : bord(r)}</span>
+          <span class="kaart-beeld">${foto ? `<img src="${esc(foto.src)}" alt="" loading="lazy" decoding="async">` : bord(r)}${nieuw ? `<span class="label-nieuw">${esc(nieuw)}</span>` : ''}</span>
           <span class="kaart-tekst">
             <span class="kaart-kop"><span class="kaart-keuken">${esc(r.keuken)} · ${esc(r.soort)}</span><span class="kaart-blz">blz. ${BLZ.get(r.id)}</span></span>
             <span class="kaart-titel">${esc(VARIANTEN.heeft(r) ? VARIANTEN.gerecht(r) : r.naam)}</span>
@@ -464,6 +467,7 @@ const App = (() => {
     get voorraad() { return state.voorraad; },
     hoofdstuk: (keuken) => hk(keuken),
     isFav: (id) => state.favs.has(id),
+    isNieuw: (id) => NIEUW.includes(id),
     wisselFav: (id) => wisselFav(id),
     sluit: () => sluitRecept(),
     open: (id) => openRecept(id),
