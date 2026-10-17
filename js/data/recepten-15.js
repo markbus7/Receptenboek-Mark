@@ -3,7 +3,7 @@ RECEPTEN.push(
 {
   id: 'gambas-al-ajillo', naam: 'Gambas al ajillo', ook: ['knoflookgarnalen', 'gambas pil pil'],
   keuken: 'Spaans', soort: 'Salade & bijgerecht',
-  tijd: 15, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 15, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Garnalen die nog sissend in een bad van olijfolie, knoflook en pepertjes op tafel komen. Het brood om de olie op te deppen is minstens zo belangrijk.',
   gerei: [
     { tool: 'koekenpan', tekst: 'Koekenpan van 24 cm, of een vuurvast aardewerken schaaltje (cazuela) dat op het vuur mag' }
@@ -242,7 +242,7 @@ RECEPTEN.push(
 {
   id: 'gulyasleves', naam: 'Gulyásleves (goulashsoep)', ook: ['goulashsoep', 'gulasch soep', 'gulyas'],
   keuken: 'Hongaars', soort: 'Soep',
-  tijd: 30, wacht: '1½ uur trekken', pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 30, wacht: '1½ uur trekken', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'De echte Hongaarse goulash is een soep: rundvlees, aardappel en wortel in een dieprode bouillon vol paprika en karwij. Met een stuk brood erbij een complete maaltijd.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of grote soeppan (minstens 4 liter) met deksel' }
@@ -357,7 +357,7 @@ RECEPTEN.push(
 {
   id: 'lahmacun', naam: 'Lahmacun', ook: ['turkse pizza'],
   keuken: 'Turks', soort: 'Hoofdgerecht',
-  tijd: 45, wacht: '1 uur rijzen', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 45, wacht: '1 uur rijzen', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Flinterdun, krokant deeg met een laagje kruidig gehakt, paprika en tomaat. Met citroen, peterselie en rode ui erop rol je hem op en eet je hem uit de hand.',
   gerei: [
     { tool: 'oven', tekst: 'Oven op de hoogste stand (250 °C of hoger)' },
@@ -537,7 +537,7 @@ RECEPTEN.push(
 {
   id: 'groentecouscous', naam: 'Couscous met zeven groenten', ook: ['couscous', 'groentecouscous'],
   keuken: 'Marokkaans', soort: 'Hoofdgerecht',
-  tijd: 35, wacht: '45 min sudderen', pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 35, wacht: '45 min sudderen', pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Het vrijdagse feestmaal van Marokko: een geurige bouillon vol groenten en kikkererwten, geschept over luchtige couscous. Zeven groenten brengen geluk, maar zes of acht mag ook.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of grote soeppan (minstens 5 liter) met deksel' },
@@ -581,7 +581,7 @@ RECEPTEN.push(
 {
   id: 'kefta-tajine', naam: 'Kefta tajine met ei', ook: ['kefta', 'marokkaanse gehaktballetjes'],
   keuken: 'Marokkaans', soort: 'Hoofdgerecht',
-  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Kleine gekruide gehaktballetjes die garen in een pittige tomatensaus, met eieren die je er op het laatst in pocheert. Breek er stukken brood bij en eet uit de pan, zoals in Marokko.',
   gerei: [
     { tool: 'braadpan', tekst: 'Tajine of Dutch oven met deksel', of: 'Een hapjespan of diepe koekenpan van 28 cm met deksel werkt ook.' }

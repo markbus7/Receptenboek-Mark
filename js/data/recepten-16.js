@@ -3,7 +3,7 @@ RECEPTEN.push(
 {
   id: 'pindasaus', naam: 'Pindasaus (satésaus)', ook: ['satesaus', 'satésaus', 'pindasaus zelf maken'],
   keuken: 'Indonesisch', soort: 'Saus',
-  tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Romige, zoet-pittige pindasaus van pindakaas, ketjap en sambal. In een kwartier klaar en veel lekkerder dan uit een zakje.',
   gerei: [ { tool: 'kookpan', tekst: 'Steelpan met dikke bodem en een garde of houten lepel' } ],
   ingr: [
@@ -38,7 +38,7 @@ RECEPTEN.push(
 {
   id: 'saoto-soep', naam: 'Saoto soep', ook: ['saoto', 'soto ajam'],
   keuken: 'Surinaams', soort: 'Soep',
-  tijd: 40, wacht: '1 uur trekken', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 40, wacht: '1 uur trekken', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
   intro: 'Heldere, geurige kippensoep met laos, sereh en djahé, die via Java in Suriname terechtkwam. Aan tafel maak je je eigen kom af met taugé, ei, gebakken uitjes en knapperige aardappelstengels.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of soeppan (minimaal 4 liter) met deksel' },
@@ -85,7 +85,7 @@ RECEPTEN.push(
 },
 {
   id: 'pom', naam: 'Pom', keuken: 'Surinaams', soort: 'Hoofdgerecht',
-  tijd: 45, wacht: '1 uur in de oven', pers: 6, niveau: 'Gemiddeld', vega: false,
+  tijd: 45, wacht: '1 uur in de oven', pers: 6, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'De Surinaamse feestschotel: gestoofde kip tussen twee lagen geraspte pomtajer, met een zoete, citrusachtige korst. Pom hoort bij elke verjaardag.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of hapjespan voor de kip' },
@@ -132,7 +132,7 @@ RECEPTEN.push(
 },
 {
   id: 'bara', naam: 'Bara', keuken: 'Surinaams', soort: 'Ontbijt & lunch',
-  tijd: 40, wacht: '1 uur rijzen', pers: 4, niveau: 'Gemiddeld', vega: true,
+  tijd: 40, wacht: '1 uur rijzen', pers: 4, niveau: 'Gemiddeld', vega: true, pit: 1,
   intro: 'Luchtige, gefrituurde Surinaamse gistbroodjes met kerrie en djeera, van oorsprong gemaakt van gemalen spliterwten. Warm gedoopt in een zoetzure ketjapsaus met augurk zijn ze onweerstaanbaar.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven (24 cm) met 5 cm olie, een schuimspaan en een keukenthermometer' },
@@ -180,7 +180,7 @@ RECEPTEN.push(
 {
   id: 'pad-kra-pao', naam: 'Pad kra pao (kip met Thaise basilicum)', gerecht: 'Pad kra pao', variant: 'Kip', ook: ['pad krapow', 'kra pao', 'pad kaprao'],
   keuken: 'Thais', soort: 'Hoofdgerecht',
-  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false, pit: 3,
   intro: 'Het Thaise straatgerecht bij uitstek: fijngehakte kip, gebakken met knoflook, pepers en basilicum in een zoute, glanzende saus. Met rijst en een krokant gebakken ei erop.',
   gerei: [
     { tool: 'wok', tekst: 'Wok voor hoog vuur', of: 'Geen wok? Gebruik een grote RVS-koekenpan op hoog vuur en bak de kip in delen.' },
@@ -306,7 +306,7 @@ RECEPTEN.push(
 },
 {
   id: 'massaman-curry', naam: 'Massaman curry', gerecht: 'Massaman curry', variant: 'Rundvlees', keuken: 'Thais', soort: 'Hoofdgerecht',
-  tijd: 30, wacht: '1½ uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 30, wacht: '1½ uur stoven', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Milde, zoete Thaise curry met zacht gestoofd rundvlees, aardappel en pinda\'s. Kaneel en steranijs verraden de Perzische en Indiase invloed.',
   methodes: [ { id: 'braadpan', naam: 'Op het vuur' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
   gerei: [
@@ -373,7 +373,7 @@ RECEPTEN.push(
 {
   id: 'kip-cashew', naam: 'Kip met cashewnoten', ook: ['gai pad med mamuang', 'cashew chicken'],
   keuken: 'Thais', soort: 'Hoofdgerecht',
-  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Krokante kip, geroosterde cashewnoten en knapperige groente in een glanzende, zoet-zoute saus. Een Thaise afhaalfavoriet die je thuis net zo snel maakt.',
   gerei: [
     { tool: 'wok', tekst: 'Wok voor hoog vuur', of: 'Geen wok? Gebruik een grote RVS-koekenpan op hoog vuur en bak de kip in delen.' },
@@ -416,7 +416,7 @@ RECEPTEN.push(
 {
   id: 'banh-mi', naam: 'Banh mi', gerecht: 'Banh mi', variant: 'Varkensvlees', ook: ['bánh mì', 'vietnamees broodje'],
   keuken: 'Vietnamees', soort: 'Ontbijt & lunch',
-  tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Een krokant stokbroodje vol gegrild citroengrasvlees, zoetzure wortel en rettich, komkommer en verse koriander. Frans brood met een Vietnamese vulling: het beste broodje van Azië.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'contactgrill', naam: 'Contactgrill' } ],
   gerei: [

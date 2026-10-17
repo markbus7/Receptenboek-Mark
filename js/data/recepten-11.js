@@ -161,7 +161,7 @@ RECEPTEN.push(
 },
 {
   id: 'menemen', naam: 'Menemen', ook: ['turks roerei', 'turkse eieren'], keuken: 'Turks', soort: 'Ontbijt & lunch',
-  tijd: 20, pers: 2, niveau: 'Makkelijk', vega: true,
+  tijd: 20, pers: 2, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Turks ontbijt van zacht gestold ei in een saus van tomaat en groene peper. Met veel brood.',
   gerei: [ { tool: 'koekenpan', tekst: 'Koekenpan of kleine hapjespan (24 cm); in Turkije een sahan' } ],
   ingr: [
@@ -242,7 +242,7 @@ RECEPTEN.push(
 },
 {
   id: 'huevos-rancheros', naam: 'Huevos rancheros', keuken: 'Mexicaans', soort: 'Ontbijt & lunch',
-  tijd: 25, pers: 2, niveau: 'Makkelijk', vega: true,
+  tijd: 25, pers: 2, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Gebakken eieren op een krokante tortilla met bonen, pittige tomatensalsa en avocado.',
   gerei: [
     { tool: 'hapjespan', tekst: 'Hapjespan of steelpan voor de salsa' },

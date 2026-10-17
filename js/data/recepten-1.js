@@ -148,7 +148,7 @@ RECEPTEN.push(
 },
 {
   id: 'penne-arrabbiata', naam: 'Penne all\'arrabbiata', keuken: 'Italiaans', soort: 'Hoofdgerecht',
-  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true, pit: 2,
   intro: 'Pittige tomatensaus met veel knoflook. Klaar in de tijd dat de pasta kookt.',
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de pasta' },

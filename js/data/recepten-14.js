@@ -118,7 +118,7 @@ RECEPTEN.push(
 {
   id: 'pepersaus', naam: 'Pepersaus', ook: ['sauce au poivre', 'peppersaus'],
   keuken: 'Frans', soort: 'Saus',
-  tijd: 10, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 10, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Romige saus met grof gekneusde peper en een scheut cognac, gemaakt in de pan waarin je biefstuk net bakte. Zo gebruik je alle smaak van de aanbaksels.',
   gerei: [ { tool: 'koekenpan', tekst: 'De koekenpan waarin je het vlees bakte; een RVS-pan geeft de meeste aanbaksels' } ],
   ingr: [
@@ -429,7 +429,7 @@ RECEPTEN.push(
 {
   id: 'spaghetti-aglio-olio', naam: 'Spaghetti aglio, olio e peperoncino', ook: ['aglio olio', 'spaghetti aglio olio', 'knoflookpasta'],
   keuken: 'Italiaans', soort: 'Hoofdgerecht',
-  tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true, pit: 2,
   intro: 'De Romeinse middernachtspasta: spaghetti met knoflook, olijfolie en rode peper. Een handvol ingrediënten, klaar in de tijd dat de pasta kookt.',
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de pasta, en een pastatang' },

@@ -2,7 +2,7 @@
 RECEPTEN.push(
 {
   id: 'roti-kip', naam: 'Roti met kip kerrie', keuken: 'Surinaams', soort: 'Hoofdgerecht',
-  tijd: 30, wacht: '45 min stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 30, wacht: '45 min stoven', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
   intro: 'Surinaamse kip kerrie met aardappel, kousenband en een gekookt ei, gewikkeld in een zachte roti.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of braadpan (24 à 26 cm) met deksel voor de kip' },
@@ -37,7 +37,7 @@ RECEPTEN.push(
 },
 {
   id: 'bakabana', naam: 'Bakabana met pindasaus', ook: ['gebakken banaan', 'bananenbeignets'], keuken: 'Surinaams', soort: 'Salade & bijgerecht',
-  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Plakken rijpe bakbanaan in een krokant beslag, met warme pindasaus. De favoriete Surinaamse snack.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
@@ -72,7 +72,7 @@ RECEPTEN.push(
 },
 {
   id: 'linzensoep-mercimek', naam: 'Turkse linzensoep', ook: ['mercimek', 'mercimek çorbası'], keuken: 'Turks', soort: 'Soep',
-  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Fluweelzachte soep van rode linzen (mercimek çorbası) met paprikaboter en citroen.',
   gerei: [
     { tool: 'kookpan', tekst: 'Soeppan of Dutch oven (3 liter)' },
@@ -147,7 +147,7 @@ RECEPTEN.push(
 },
 {
   id: 'pho-bo', naam: 'Pho bo', ook: ['vietnamese noedelsoep'], keuken: 'Vietnamees', soort: 'Soep',
-  tijd: 30, wacht: '2 uur trekken', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 30, wacht: '2 uur trekken', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Vietnamese noedelsoep met een heldere, kruidige bouillon van steranijs en kaneel, rijstnoedels en dun rundvlees.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of grote soeppan (minimaal 4 liter)' },
@@ -190,7 +190,7 @@ RECEPTEN.push(
 },
 {
   id: 'bun-cha-gio', naam: 'Vietnamese noedelsalade met citroengraskip', ook: ['bun cha gio', 'bun'], keuken: 'Vietnamees', soort: 'Salade & bijgerecht',
-  tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Koude rijstnoedels met gegrilde citroengraskip, verse kruiden, komkommer en een frisse nuoc cham-dressing.',
   methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],
   gerei: [

@@ -107,6 +107,7 @@ const Detail = (() => {
       `<li>${icoon('personen')} ${r.pers} ${r.stuks || (r.pers === 1 ? 'persoon' : 'personen')}</li>`,
       `<li>${Hulp.esc(r.niveau)}</li>`,
       r.vega ? `<li class="vega">${icoon('blad')} Vegetarisch</li>` : '',
+      r.pit ? `<li class="pit"><span class="pit-pepers" aria-hidden="true">${icoon('peper').repeat(r.pit)}</span> ${Hulp.pitTekst(r)}</li>` : '',
       `<li class="d-meta-log" id="d-meta-log"></li>`
     ].join('');
 

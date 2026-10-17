@@ -2,7 +2,7 @@
 RECEPTEN.push(
 {
   id: 'nasi-goreng', naam: 'Nasi goreng', keuken: 'Indonesisch', soort: 'Hoofdgerecht',
-  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Gebakken rijst met kip, ketjap en sambal, met een spiegelei erbovenop.',
   gerei: [
     { tool: 'wok', tekst: 'Wok (32 cm) voor hoog vuur', of: 'Geen wok? Gebruik de grootste koekenpan of hapjespan en bak de rijst in 2 delen.' },
@@ -33,7 +33,7 @@ RECEPTEN.push(
 },
 {
   id: 'sate-ajam', naam: 'Saté ajam met pindasaus', gerecht: 'Saté met pindasaus', variant: 'Kip', ook: ['kipsaté', 'satéstokjes', 'saté'], keuken: 'Indonesisch', soort: 'Hoofdgerecht',
-  tijd: 30, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 30, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Gemarineerde kippendijen met romige pindasaus, gebakken op de grill, in de airfryer of de oven.',
   methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'grillpan', naam: 'Grillpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
   gerei: [
@@ -91,7 +91,7 @@ RECEPTEN.push(
 },
 {
   id: 'pad-thai', naam: 'Pad thai met garnalen', gerecht: 'Pad thai', variant: 'Garnalen', ook: ['pad thai', 'padthai'], keuken: 'Thais', soort: 'Hoofdgerecht',
-  tijd: 30, pers: 2, niveau: 'Gemiddeld', vega: false,
+  tijd: 30, pers: 2, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Zoetzure rijstnoedels met garnalen, ei, taugé en geroosterde pinda\'s.',
   gerei: [
     { tool: 'wok', tekst: 'Wok (32 cm) voor hoog vuur', of: 'Geen wok? Gebruik een grote koekenpan en bak per portie.' },
@@ -142,7 +142,7 @@ RECEPTEN.push(
 },
 {
   id: 'groene-curry', naam: 'Thaise groene curry met kip', keuken: 'Thais', soort: 'Hoofdgerecht',
-  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
   intro: 'Geurige curry met kokosmelk, kip, sperziebonen en Thaise basilicum.',
   gerei: [
     { tool: 'hapjespan', tekst: 'Hapjespan of wok (28 à 32 cm)' },
@@ -173,7 +173,7 @@ RECEPTEN.push(
 },
 {
   id: 'tom-kha-kai', naam: 'Tom kha kai', ook: ['thaise kokossoep'], keuken: 'Thais', soort: 'Soep',
-  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Romige kokossoep met kip, citroengras en limoen. Fris, zuur en licht pittig.',
   gerei: [ { tool: 'kookpan', tekst: 'Soeppan van 3 liter' } ],
   ingr: [
@@ -199,7 +199,7 @@ RECEPTEN.push(
 },
 {
   id: 'kung-pao-kip', naam: 'Kung pao kip', ook: ['kung pao chicken'], keuken: 'Chinees', soort: 'Hoofdgerecht',
-  tijd: 25, pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 25, pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
   intro: 'Sichuan-klassieker: krokante kip met pinda\'s, gedroogde pepers en een zoetzure, glanzende saus.',
   gerei: [
     { tool: 'wok', tekst: 'Wok voor hoog vuur', of: 'Geen wok? Gebruik een grote hapjespan en bak de kip in 2 delen.' },

@@ -3,7 +3,7 @@ RECEPTEN.push(
 {
   id: 'curry-madras', naam: 'Curry madras met rundvlees', gerecht: 'Curry madras', variant: 'Rundvlees',
   ook: ['madras', 'beef madras', 'rundvlees madras'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 30, wacht: '1½ uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 30, wacht: '1½ uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
   intro: 'Pittige, diep-rode curry met mals gestoofd rundvlees, chili en tomaat. Een klassieker uit het Indiase restaurant.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
   gerei: [
@@ -44,7 +44,7 @@ RECEPTEN.push(
 {
   id: 'kip-madras', naam: 'Curry madras met kip', variantVan: 'curry-madras', variant: 'Kip',
   ook: ['kip madras', 'kip madras met kipfilet', 'chicken madras'], methodes: null, keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 45, wacht: '15 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 45, wacht: '15 min marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
   intro: 'Pittige, diep-rode madras met sappige stukjes kipfilet in een saus van tomaat, chili en geroosterde specerijen.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of braadpan (24 à 26 cm)' },
@@ -92,7 +92,7 @@ RECEPTEN.push(
 },
 {
   id: 'chicken-tikka-masala', naam: 'Chicken tikka masala', keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 45, wacht: '1 uur marineren', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 45, wacht: '1 uur marineren', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Geroosterde stukjes gemarineerde kip in een romige, licht rokerige tomatensaus.',
   methodes: [ { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven (grill)' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
   gerei: [
@@ -176,7 +176,7 @@ RECEPTEN.push(
 },
 {
   id: 'kip-biryani', naam: 'Kip biryani', keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 60, wacht: '1 uur marineren', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 60, wacht: '1 uur marineren', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Laagjes geurige basmatirijst en gekruide kip, langzaam gegaard onder de deksel. Ideaal voor een Dutch oven.',
   methodes: [ { id: 'braadpan', naam: 'Op het vuur' }, { id: 'oven', naam: 'Oven' } ],
   gerei: [
@@ -218,7 +218,7 @@ RECEPTEN.push(
 },
 {
   id: 'saag-paneer', naam: 'Saag paneer', ook: ['palak paneer', 'spinaziecurry'], keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Romige, gekruide spinazie met goudbruin gebakken blokjes paneer.',
   gerei: [
     { tool: 'koekenpan', tekst: 'Koekenpan voor de paneer' },
@@ -252,7 +252,7 @@ RECEPTEN.push(
 },
 {
   id: 'tandoori-kip', naam: 'Tandoori kip', keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 40, wacht: '4 uur marineren', pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 40, wacht: '4 uur marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Kippenpoten in een felrode yoghurtmarinade, geroosterd tot ze geblakerd en sappig zijn.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],
   gerei: [
@@ -318,7 +318,7 @@ RECEPTEN.push(
 },
 {
   id: 'aloo-gobi', naam: 'Aloo gobi', keuken: 'Indiaas', soort: 'Hoofdgerecht',
-  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: true,
+  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Droge curry van aardappel en bloemkool met kurkuma, komijn en verse koriander. Volledig plantaardig.',
   methodes: [ { id: 'hapjespan', naam: 'Pan' }, { id: 'oven', naam: 'Oven' } ],
   gerei: [

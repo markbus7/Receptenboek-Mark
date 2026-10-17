@@ -364,7 +364,7 @@ RECEPTEN.push(
 {
   id: 'kapsalon', naam: 'Kapsalon',
   keuken: 'Nederlands', soort: 'Hoofdgerecht',
-  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'De Rotterdamse snackbarklassieker: friet met shoarma en gesmolten Goudse kaas, met frisse sla, knoflooksaus en sambal erop. Zelfgemaakt minder vet en minstens zo lekker.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
@@ -407,7 +407,7 @@ RECEPTEN.push(
 {
   id: 'kip-kerrie-perzik', toegevoegd: '2026-10-16', naam: 'Pittige kip kerrie met perzik', ook: ['kip kerrie met perzik', 'kipkerrie', 'kip kerrie', 'kip met perzik', 'kerriekip met perzik', 'perzikkip'],
   keuken: 'Nederlands', soort: 'Hoofdgerecht',
-  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
   intro: 'De Hollandse huiskamerklassieker: kip in een romige kerriesaus met sambal en zoete perzikpartjes uit blik. Pittig en zoet tegelijk, en altijd met een berg rijst.',
   gerei: [
     { tool: 'hapjespan', tekst: 'Hapjespan of grote koekenpan (28 cm) met deksel', of: 'Een wok of Dutch oven werkt ook.' },

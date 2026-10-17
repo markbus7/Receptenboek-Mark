@@ -125,7 +125,7 @@ RECEPTEN.push(
 {
   id: 'babi-pangang', naam: 'Babi pangang', ook: ['babi pangang saus'],
   keuken: 'Chinees', soort: 'Hoofdgerecht',
-  tijd: 30, wacht: '1½ uur in de oven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 30, wacht: '1½ uur in de oven', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Buikspek met een knapperig gepoft zwoerd en de bekende knalrode zoetzure saus met atjar. Een feestmaal van de Chinees-Indische afhaal.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
@@ -370,7 +370,7 @@ RECEPTEN.push(
   alt: ['Geen peer? Neem een halve geraspte appel of 1 el honing.']
 },
 {
-  id: 'dwaeji-bulgogi', variantVan: 'bulgogi', variant: 'Varkensvlees', naam: 'Dwaeji bulgogi (pittig varkensvlees)', ook: ['dwaeji bulgogi', 'pittige bulgogi', 'spicy pork bulgogi', 'jeyuk bokkeum'],
+  id: 'dwaeji-bulgogi', variantVan: 'bulgogi', variant: 'Varkensvlees', pit: 2, naam: 'Dwaeji bulgogi (pittig varkensvlees)', ook: ['dwaeji bulgogi', 'pittige bulgogi', 'spicy pork bulgogi', 'jeyuk bokkeum'],
   intro: 'Flinterdun varkensvlees in een rode, pittig-zoete marinade van gochujang, soja en knoflook, heet gebakken. Net als bulgogi wikkel je het met rijst en kimchi in een slablad.',
   vervang: {
     entrecote: { n: 'procureur', q: 600, u: 'g', x: 'varkensschouder, of varkensbuik; half bevroren in flinterdunne plakjes' },
@@ -391,7 +391,7 @@ RECEPTEN.push(
 {
   id: 'kimchi-fried-rice', naam: 'Kimchi fried rice (kimchi bokkeumbap)', ook: ['kimchi bokkeumbap', 'gebakken rijst met kimchi'],
   keuken: 'Koreaans', soort: 'Hoofdgerecht',
-  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
+  tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
   intro: 'Pittige, zurige gebakken rijst met kimchi en spek, met een spiegelei met lopende dooier erop. Klaar in een kwartier als je rijst over hebt.',
   gerei: [
     { tool: 'wok', tekst: 'Wok voor hoog vuur', of: 'Geen wok? Gebruik een grote RVS-koekenpan op hoog vuur en bak in delen.' },
@@ -468,7 +468,7 @@ RECEPTEN.push(
 {
   id: 'korean-fried-chicken', naam: 'Korean fried chicken', ook: ['koreaanse kip', 'yangnyeom chicken', 'kfc koreaans'],
   keuken: 'Koreaans', soort: 'Hoofdgerecht',
-  tijd: 50, pers: 4, niveau: 'Gemiddeld', vega: false,
+  tijd: 50, pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
   intro: 'Twee keer gefrituurde kip met een glazige, flinterdunne korst en een kleverige, zoet-pittige saus van gochujang en honing.',
   methodes: [ { id: 'braadpan', naam: 'Frituren' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [

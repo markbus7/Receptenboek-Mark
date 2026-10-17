@@ -29,6 +29,9 @@ const DeelKaart = (() => {
     return `rgb(${a.map((x, i) => Math.round(x * deel + b[i] * (1 - deel))).join(',')})`;
   }
 
+  /* Pepertje voluit (geen <use>), zodat html2canvas het zeker tekent. */
+  const PEPER = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M14.6 8.2C11 9.6 7 13 4.6 17.4c-.9 1.7-1.6 3-1.9 4 1.5-.5 3.3-1.5 5.4-2.8 4-2.6 8.4-5.6 10.6-8.1 1.1-1.3 1-2.6-.2-3.2-1.2-.6-2.6-.2-3.9.9Z" fill="#C8341F"/><path d="M12.6 10.6c-2.5 1.7-4.7 4-6.2 6.5" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="1.1" stroke-linecap="round"/><path d="M13.8 8.9c.4-1.6 1.9-2.8 3.6-2.7 1.5.1 2.6 1.1 2.9 2.6-1-.5-2.1-.5-3 .1-1-.6-2.3-.6-3.5 0Z" fill="#4E8A3A"/><path d="M17.3 6.4c.2-1.7 1.1-3 2.7-3.9" fill="none" stroke="#4E8A3A" stroke-width="1.7" stroke-linecap="round"/></svg>';
+
   function html(r, o) {
     const esc = Hulp.esc;
     const pers = Math.round(r.pers * o.factor);
@@ -54,7 +57,7 @@ const DeelKaart = (() => {
         <h1>${esc(r.naam)}</h1>
         ${o.varianten.length > 1 ? `<p class="dk-varianten">${o.varianten.map((v) => `<span class="${v.id === r.id ? 'is-gekozen' : ''}">${esc(v.variant || v.naam)}</span>`).join('')}</p>` : ''}
         <p class="dk-intro">${esc(r.intro)}</p>
-        <p class="dk-meta">${meta.map((x) => `<span>${esc(x)}</span>`).join('')}</p>
+        <p class="dk-meta">${meta.map((x) => `<span>${esc(x)}</span>`).join('')}${r.pit ? `<span class="dk-pit">${PEPER.repeat(r.pit)} ${esc(Hulp.pitTekst(r))}</span>` : ''}</p>
       </header>
       <div class="dk-midden">
         <section class="dk-ingr">
