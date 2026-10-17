@@ -69,6 +69,7 @@ for (const r of ctx.RECEPTEN) {
   if (!Number.isInteger(r.tijd) || r.tijd <= 0) fout('tijd moet een heel aantal minuten zijn');
   if (!Number.isInteger(r.pers) || r.pers <= 0) fout('pers moet een heel getal zijn');
   if (typeof r.vega !== 'boolean') fout('vega moet true of false zijn');
+  if (r.toegevoegd !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(r.toegevoegd)) fout('toegevoegd moet een datum zijn (bijv. \'2026-10-17\')');
   if (r.wacht !== undefined && typeof r.wacht !== 'string') fout('wacht moet tekst zijn');
   if (r.stuks !== undefined && (typeof r.stuks !== 'string' || !r.stuks)) fout('stuks moet tekst zijn (bijv. \'wafels\')');
   if (r.ook !== undefined && !(Array.isArray(r.ook) && r.ook.every((x) => typeof x === 'string'))) fout('ook moet een lijst met namen zijn');
@@ -113,7 +114,7 @@ for (const r of ctx.RECEPTEN) {
     if (s.min !== undefined && !(typeof s.min === 'number' && s.min > 0)) fout(`stap "${(s.t || '').slice(0, 30)}": min moet positief zijn`);
     if (s.m && !mids.includes(s.m)) fout(`stap "${(s.t || '').slice(0, 30)}": onbekende methode "${s.m}"`);
   }
-  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'groep']);
+  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep']);
   const vreemd = Object.keys(r).filter((k) => !bekend.has(k));
   if (vreemd.length) fout(`onbekende velden: ${vreemd.join(', ')}`);
 }

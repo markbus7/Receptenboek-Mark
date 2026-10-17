@@ -6,7 +6,7 @@
    (bijv. methodes: null) betekent: dit van het basisrecept níet overnemen.
    In het overzicht staat elk gerecht één keer, met de varianten om uit te kiezen. */
 window.VARIANTEN = (() => {
-  const NIET_ERVEN = ['id', 'naam', 'ook', 'gerecht', 'variant', 'variantVan', 'vervang'];
+  const NIET_ERVEN = ['id', 'naam', 'ook', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd'];
   const perId = new Map(RECEPTEN.map((r) => [r.id, r]));
 
   RECEPTEN.forEach((r, idx) => {

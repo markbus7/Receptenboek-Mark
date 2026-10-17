@@ -83,7 +83,7 @@ RECEPTEN.push(
   alt: ['Geen madras-kerrie? Gebruik gewone kerrie en verdubbel de chilipoeder.', 'Zonder Dutch oven: een hapjespan of grote koekenpan met hoge rand werkt ook.']
 },
 {
-  id: 'curry-madras-lam', variantVan: 'curry-madras', variant: 'Lam', naam: 'Curry madras met lamsvlees', ook: ['lam madras', 'lamb madras', 'lamsmadras'],
+  id: 'curry-madras-lam', toegevoegd: '2026-10-15', variantVan: 'curry-madras', variant: 'Lam', naam: 'Curry madras met lamsvlees', ook: ['lam madras', 'lamb madras', 'lamsmadras'],
   intro: 'Dezelfde pittige, diep-rode madras, maar met lamsschouder: voller van smaak en na het stoven heel mals. In het Indiase restaurant een vaste keuze naast kip en rund.',
   vervang: {
     runderstoofvlees: { n: 'lamsschouder', q: 700, u: 'g', x: 'zonder bot, in blokjes van 3 cm; of lamsstoofvlees' }
