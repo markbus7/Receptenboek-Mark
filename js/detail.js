@@ -307,10 +307,21 @@ const Detail = (() => {
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
           <span class="ingr-naam">${Hulp.esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}</span>
         </label>
+        ${Boodschappen.isWater(i) ? '' : lijstKnop(i, idx)}
       </li>`;
     }).join('');
     renderRest();
     renderPrijs();
+  }
+
+  /* Losse knop per ingrediënt: alleen dit ingrediënt op het boodschappenlijstje. */
+  function lijstKnop(i, idx) {
+    const erop = Boodschappen.staatErop(r, i);
+    return `<button type="button" class="ingr-mand${erop ? ' is-erop' : ''}" data-mand="${idx}" aria-pressed="${erop}" aria-label="${erop ? 'Staat op je boodschappenlijst' : 'Zet op je boodschappenlijst'}: ${Hulp.esc(i.n)}" title="${erop ? 'Staat op je boodschappenlijst' : 'Op boodschappenlijst'}">${icoon(erop ? 'vink' : 'mand')}</button>`;
+  }
+
+  function renderLijstKnoppen() {
+    blad.querySelectorAll('[data-mand]').forEach((b) => { b.outerHTML = lijstKnop(r.ingr[+b.dataset.mand], +b.dataset.mand); });
   }
 
   /* Restjes: wat je overhoudt van pakken, blikken en bosjes, voor het aantal personen dat je nu kookt. */
@@ -571,7 +582,18 @@ const Detail = (() => {
     if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }
     if (t.closest('#d-lijst')) {
       const n = Boodschappen.voegReceptToe(r, factor);
+      renderLijstKnoppen();
       return App.toast(`${n} ingrediënten op je boodschappenlijst gezet`);
+    }
+    const mand = t.closest('[data-mand]');
+    if (mand) {
+      const i = r.ingr[+mand.dataset.mand];
+      const wat = i.q == null ? i.n : Hulp.hoeveelheidTekst(i, factor);
+      const Wat = wat.charAt(0).toUpperCase() + wat.slice(1);
+      if (Boodschappen.staatErop(r, i)) return App.toast(`${Wat} staat al op je boodschappenlijst`);
+      Boodschappen.voegEenToe(r, i, factor);
+      renderLijstKnoppen();
+      return App.toast(`${Wat} op je boodschappenlijst gezet`);
     }
     const tk = t.closest('.timer-knop');
     if (tk) {

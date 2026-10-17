@@ -537,7 +537,12 @@ p.sync-fout::before { display: none; }
 .ingr-lijst { list-style: none; margin: 0; padding: 0; }
 .ingr-kop { margin-top: 16px; padding-bottom: 4px; font-family: var(--font-lees); font-style: italic; font-size: 17px; color: var(--k-inkt); }
 .ingr-kop:first-child { margin-top: 0; }
-.ingr label { display: grid; grid-template-columns: 20px 96px minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px dotted var(--lijn); cursor: pointer; }
+.ingr { display: flex; align-items: center; gap: 4px; border-bottom: 1px dotted var(--lijn); }
+.ingr label { flex: 1 1 auto; min-width: 0; display: grid; grid-template-columns: 20px 96px minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 8px 0; cursor: pointer; }
+.ingr-mand { flex: 0 0 auto; display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--potlood); cursor: pointer; }
+.ingr-mand svg { width: 18px; height: 18px; }
+@media (hover: hover) { .ingr-mand:hover { color: var(--k-inkt); background: color-mix(in srgb, var(--k) 12%, transparent); } }
+.ingr-mand.is-erop { color: var(--k-inkt); }
 .ingr input { width: 18px; height: 18px; accent-color: var(--k); margin: 0; align-self: center; }
 .hv { font-weight: 700; font-size: 15px; font-variant-numeric: tabular-nums; text-align: right; }
 .ingr-naam { min-width: 0; font-family: var(--font-lees); }
