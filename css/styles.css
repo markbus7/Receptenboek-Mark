@@ -328,6 +328,8 @@ p.sync-fout::before { display: none; }
 .sorteer select { min-height: 36px; padding: 0 12px; border: 1px solid var(--lijn); border-radius: 999px; background: var(--papier); color: var(--inkt); font-size: 14px; }
 .actieve-filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
 .actieve-filters:empty { display: none; }
+.wis-alles { display: inline-flex; align-items: center; gap: 4px; padding: 6px 10px; font-weight: 600; color: var(--warn, var(--pen)); }
+.wis-alles svg { width: 14px; height: 14px; }
 
 .raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 34px 26px; }
 
