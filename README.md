@@ -102,6 +102,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.27.1**: taco's zijn nu echt Mexicaans: zachte maistortilla's met picadillo (gehakt) of tinga de pollo (kip), met ui, koriander, salsa en limoen. De Tex-Mex-versie met harde schelpen staat nog bij de alternatieven.
 - **1.27.0**: in elk recept kun je nu zelf een diepvries groentemix aantikken ("Heb je een groentemix uit de vriezer?"), met hoeveel gram je gebruikt en tips voor bevroren groente (niet ontdooien, vuur hoger, vocht laten verdampen).
 - **1.26.0**: nieuw recept: Hollandse botercake (met variant voor marmercake en citroencake), in de oven of airfryer.
 - **1.25.1**: de bron van de prijzen op het bonnetje (Checkjebon.nl) is een link, zodat je zelf andere producten kunt opzoeken.
