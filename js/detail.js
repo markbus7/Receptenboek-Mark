@@ -55,7 +55,7 @@ const Timers = (() => {
 const Detail = (() => {
   const sheet = document.getElementById('sheet');
   const blad = document.getElementById('detail');
-  let gekozenMixen = new Set();
+  let gekozenMixen = new Set(), mixWeg = new Set();
   let r = null, ctx = null, factor = 1, methode = null, ikHeb = null, wakeLock = null, wilScherm = false, terugFocus = null;
 
   const icoon = (naam) => `<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${naam}"/></svg>`;
@@ -310,8 +310,17 @@ const Detail = (() => {
     const uitMix = new Map();
     mixen.forEach(({ mix, gedekt }) => gedekt.forEach((i) => uitMix.set(i.n, mix.naam.toLowerCase())));
 
+    // Wat de mix vervangt verdwijnt uit de lijst; op de plek van het eerste ingrediënt komt de mix zelf.
+    mixWeg = new Set(uitMix.keys());
+    const mixRegel = new Map();
+    mixen.forEach(({ mix, gedekt, gram }) => { if (gedekt.length && !mixRegel.has(gedekt[0].n)) mixRegel.set(gedekt[0].n, { mix, gedekt, gram }); });
     blad.querySelector('#d-ingr-lijst').innerHTML = r.ingr.map((i, idx) => {
       if (i.kop) return `<li class="ingr-kop">${Hulp.esc(i.kop)}</li>`;
+      if (mixWeg.has(i.n)) {
+        const m = mixRegel.get(i.n);
+        if (!m || r.ingr.findIndex((x) => x.n === i.n) !== idx) return '';
+        return `<li class="ingr ingr-is-mix"><label><input type="checkbox"><span class="hv">± ${m.gram} g</span><span class="ingr-naam">${Hulp.esc(m.mix.naam.toLowerCase())} <em>(diepvries)</em><span class="ingr-x">in plaats van ${Hulp.esc(m.gedekt.map((x) => x.n).join(', '))}</span></span></label></li>`;
+      }
       const mixNaam = uitMix.get(i.n);
       const h = Hulp.hoeveelheid(i, factor);
       const extra = i.x || (i.q == null ? 'naar smaak' : '');
@@ -598,7 +607,7 @@ const Detail = (() => {
     const kies = t.closest('[data-kies-mix]');
     if (kies) { const id = kies.dataset.kiesMix; gekozenMixen.has(id) ? gekozenMixen.delete(id) : gekozenMixen.add(id); return renderIngr(); }
     if (t.closest('#d-lijst')) {
-      const n = Boodschappen.voegReceptToe(r, factor);
+      const n = Boodschappen.voegReceptToe(r, factor, mixWeg);
       renderLijstKnoppen();
       return App.toast(`${n} ingrediënten op je boodschappenlijst gezet`);
     }
