@@ -55,6 +55,7 @@ const Timers = (() => {
 const Detail = (() => {
   const sheet = document.getElementById('sheet');
   const blad = document.getElementById('detail');
+  let gekozenMixen = new Set();
   let r = null, ctx = null, factor = 1, methode = null, ikHeb = null, wakeLock = null, wilScherm = false, terugFocus = null;
 
   const icoon = (naam) => `<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${naam}"/></svg>`;
@@ -72,7 +73,7 @@ const Detail = (() => {
      en de scrollpositie staan. Met { personen } opent het recept meteen omgerekend (uit een gedeelde link). */
   function open(recept, context, { houd = false, personen = null } = {}) {
     const vorige = houd && r ? { personen: r.pers * factor, methode, scroll: blad.scrollTop } : null;
-    r = recept; ctx = context; factor = 1; ikHeb = null;
+    r = recept; ctx = context; factor = 1; ikHeb = null; gekozenMixen = new Set();
     if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
     methode = ms.length ? (ms.find((m) => m.heb) || ms[0]).id : null;
@@ -184,6 +185,7 @@ const Detail = (() => {
               </div>
               <p class="schaal-info" id="d-schaal-info"></p>
             </div>
+            <div class="mix-kies" id="d-mix-kies" hidden></div>
             <div class="mix-notitie" id="d-mix" hidden></div>
           <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
             <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
@@ -286,12 +288,24 @@ const Detail = (() => {
     }
 
     // Groentemix uit "Wat heb ik in huis?": wat vervangt hij hier en hoeveel gebruik je?
-    const mixen = Hulp.mixenVoor(r, ctx.voorraad || [], factor);
+    // Of hier in het recept zelf een mix aangetikt: "Heb je een groentemix?"
+    const uitVoorraad = (ctx.voorraad || []).filter(Hulp.isMix);
+    const mixen = Hulp.mixenVoor(r, [...new Set([...uitVoorraad, ...[...gekozenMixen].map((id) => 'mix:' + id)])], factor);
+    const passend = (window.GROENTEMIXEN || []).map((mix) => ({ mix, ...Hulp.mixDekking(r, mix, factor) }))
+      .filter((d) => d.aanrader || d.gedekt.length >= 2)
+      .sort((a, b) => (b.aanrader - a.aanrader) || (b.gedekt.length - a.gedekt.length)).slice(0, 6);
+    const kiesEl = blad.querySelector('#d-mix-kies');
+    kiesEl.hidden = !passend.length;
+    kiesEl.innerHTML = passend.length ? `<p class="mix-kies-vraag">Heb je een groentemix uit de vriezer?</p><div class="mix-kies-chips">${passend.map(({ mix }) => {
+      const aan = gekozenMixen.has(mix.id) || uitVoorraad.includes('mix:' + mix.id);
+      return `<button type="button" class="chip chip-mix" data-kies-mix="${mix.id}" aria-pressed="${aan}"${uitVoorraad.includes('mix:' + mix.id) ? ' disabled title="Staat al in je voorraad"' : ''}>${Hulp.esc(mix.naam)}</button>`;
+    }).join('')}</div>` : '';
     const mixEl = blad.querySelector('#d-mix');
     mixEl.hidden = !mixen.length;
     mixEl.innerHTML = mixen.map(({ mix, gedekt, gram, erbij }) => `<p>${gedekt.length
       ? `<b>Met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> die vervangt hier ${Hulp.esc(gedekt.map((i) => i.n).join(', '))}. Gebruik ± ${gram} g van je mix.`
-      : `<b>Lekker met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> voeg ± ${erbij} g toe.`} ${Hulp.esc(mix.bereiding)}</p>`).join('');
+      : `<b>Lekker met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> voeg ± ${erbij} g toe.`} ${Hulp.esc(mix.bereiding)}</p>`).join('') +
+      (mixen.length ? `<p class="mix-vriezer"><b>Bevroren?</b> Niet ontdooien: dan wordt de groente slap en waterig. Gebruik hem recht uit de vriezer, zet het vuur een stand hoger en reken op 2 à 3 minuten extra bak- of kooktijd. Bevroren groente geeft vocht af: laat dat in de pan eerst verdampen voor je verder bakt, en doe hem bij een saus of soep er pas in als die al kookt. Weeg hem bevroren, zonder het ijs uit de zak.</p>` : '');
 
     const uitMix = new Map();
     mixen.forEach(({ mix, gedekt }) => gedekt.forEach((i) => uitMix.set(i.n, mix.naam.toLowerCase())));
@@ -581,6 +595,8 @@ const Detail = (() => {
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
     const bij = t.closest('[data-bij]');
     if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }
+    const kies = t.closest('[data-kies-mix]');
+    if (kies) { const id = kies.dataset.kiesMix; gekozenMixen.has(id) ? gekozenMixen.delete(id) : gekozenMixen.add(id); return renderIngr(); }
     if (t.closest('#d-lijst')) {
       const n = Boodschappen.voegReceptToe(r, factor);
       renderLijstKnoppen();

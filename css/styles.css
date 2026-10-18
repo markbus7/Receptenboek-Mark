@@ -261,6 +261,11 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .mix-aanraders a { color: var(--pen); font-weight: 600; text-underline-offset: 3px; }
 .mix-notitie { display: flex; flex-direction: column; gap: 8px; font-family: var(--font-lees); font-size: 15px; line-height: 1.5; color: var(--inkt); transform: rotate(-0.5deg); }
 .mix-notitie b { font-weight: 600; }
+.mix-kies { margin: 4px 0 10px; }
+.mix-kies-vraag { margin: 0 0 6px; font-family: var(--font-hand); font-size: 20px; color: var(--pen); }
+.mix-kies-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.mix-kies .chip:disabled { opacity: .7; cursor: default; }
+.mix-vriezer { font-size: 14px; color: var(--inkt-zacht); }
 .ingr-mix { display: block; font-family: var(--font-hand); font-size: 18px; line-height: 1.1; color: var(--pen); }
 .blok-sync { padding-top: 18px; border-top: 1px solid var(--lijn); }
 .blok-sync a { color: var(--inkt); text-decoration-color: var(--potlood); text-underline-offset: 3px; }
