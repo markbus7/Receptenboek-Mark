@@ -72,74 +72,60 @@ RECEPTEN.push(
   alt: ['Burrito bowl: sla de tortilla over en schep rijst, bonen, gehakt en de toppings naast elkaar in een kom.', 'Half-om-half gehakt kan ook; schep dan wat meer vet uit de pan.']
 },
 {
-  id: 'tacos', naam: 'Taco\'s met gekruid gehakt', gerecht: 'Taco\'s', variant: 'Gehakt', ook: ['taco', 'tacos', 'taco\'s', 'tex-mex taco\'s'],
+  id: 'tacos', naam: 'Taco\'s de picadillo (gehakt)', gerecht: 'Taco\'s', variant: 'Gehakt', ook: ['taco', 'tacos', 'taco\'s', 'taco\'s met gehakt', 'tacos de picadillo', 'zachte taco\'s'],
   keuken: 'Mexicaans', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
-  intro: 'De taco zoals we hem thuis kennen: gehakt met zelfgemaakte tacokruiden in een knapperige schelp, met sla, tomaat, kaas en guacamole. Iedereen vult zijn eigen.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Zachte tortilla\'s' } ],
+  intro: 'Taco\'s zoals in Mexico: kleine, zachte maistortilla\'s, warm uit de droge pan, met kruidig gehakt in tomaat en chili. Erop alleen ui, koriander, salsa en een kneepje limoen.',
   gerei: [
     { tool: 'koekenpan', tekst: 'Koekenpan van 28 cm voor de vulling' },
-    { tool: 'bakplaat', tekst: 'Ovenrooster of bakplaat voor de tacoschelpen', m: 'oven' },
-    { tool: 'airfryer', tekst: 'Airfryer; de schelpen mogen tegen elkaar staan', m: 'airfryer' },
-    { tool: 'koekenpan', tekst: 'Tweede droge koekenpan voor de tortilla\'s, en een schone theedoek om ze warm te houden', m: 'koekenpan' }
+    { tool: 'koekenpan', tekst: 'Tweede droge koekenpan (of comal) voor de tortilla\'s, en een schone theedoek om ze warm en zacht te houden' }
   ],
   ingr: [
-    { kop: 'Gehakt' },
-    { n: 'rundergehakt', q: 500, u: 'g' },
-    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
-    { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
-    { n: 'tomatenpuree', q: 1, u: 'el' },
-    { n: 'water', q: 100, u: 'ml' },
+    { kop: 'Picadillo' },
+    { n: 'rundergehakt', q: 500, u: 'g', x: 'of half-om-half' },
+    { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'fijngesnipperd' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
+    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'fijngehakt, of 200 g tomatenblokjes' },
+    { n: 'jalapeño', q: 1, u: 'st', x: 'fijngehakt; of 1 chipotle in adobo voor een rokerige smaak' },
+    { n: 'komijn', q: 1, u: 'tl' },
+    { n: 'gedroogde oregano', q: 1, u: 'tl', x: 'liefst Mexicaanse' },
     { n: 'zonnebloemolie', q: 1, u: 'el' },
-    { kop: 'Tacokruiden' },
-    { n: 'komijn', q: 2, u: 'tl' },
-    { n: 'paprikapoeder', q: 2, u: 'tl' },
-    { n: 'chilipoeder', q: 1, u: 'tl' },
-    { n: 'gedroogde oregano', q: 1, u: 'tl' },
-    { n: 'knoflookpoeder', q: 0.5, u: 'tl' },
-    { n: 'zout', q: 1, u: 'tl' },
-    { n: 'zwarte peper', q: 0.5, u: 'tl' },
-    { kop: 'Taco\'s en toppings' },
-    { n: 'tacoschelp', p: 'tacoschelpen', q: 12, u: 'st', x: 'of 12 kleine maistortilla\'s voor zachte taco\'s' },
-    { n: 'ijsbergsla', q: 0.25, u: 'st', x: 'krop, in smalle reepjes' },
-    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in kleine blokjes' },
-    { n: 'geraspte kaas', q: 150, u: 'g', x: 'cheddar of belegen' },
-    { n: 'zure room', q: 125, u: 'ml' },
-    { n: 'avocado', p: 'avocado\'s', q: 2, u: 'st', x: 'rijp, voor de guacamole' },
-    { n: 'limoen', p: 'limoenen', q: 1, u: 'st' },
-    { n: 'salsa', q: 4, u: 'el', x: 'of zelfgemaakte salsa fresca' }
+    { n: 'zout' }, { n: 'zwarte peper' },
+    { kop: 'Taco\'s' },
+    { n: 'maistortilla', p: 'maistortilla\'s', q: 16, u: 'st', x: 'klein (ca. 12 cm); je gebruikt er 2 per taco' },
+    { n: 'witte ui', p: 'witte uien', q: 0.5, u: 'st', x: 'heel fijn gesnipperd' },
+    { n: 'verse koriander', q: 1, u: 'bos', x: 'fijngehakt' },
+    { n: 'limoen', p: 'limoenen', q: 2, u: 'st', x: 'in partjes' },
+    { n: 'salsa', q: 6, u: 'el', x: 'salsa roja, salsa verde of zelfgemaakte salsa fresca' },
+    { n: 'avocado', p: 'avocado\'s', q: 1, u: 'st', x: 'in plakjes', opt: true },
+    { n: 'queso fresco', q: 75, u: 'g', x: 'verkruimeld; of feta', opt: true }
   ],
   stappen: [
-    { t: 'Meng alle tacokruiden in een schaaltje.' },
-    { t: 'Verhit de olie in de koekenpan op middelhoog vuur en fruit de ui 3 minuten. Doe het gehakt erbij, zet het vuur hoog en bak het in 5 à 6 minuten rul en bruin. Schep overtollig vet weg.', min: 8 },
-    { t: 'Bak knoflook, tomatenpuree en de tacokruiden 1 minuut mee. Voeg het water toe en laat 5 minuten zachtjes inkoken tot het gehakt smeuïg is en glanst, maar niet droog.', min: 5 },
-    { t: 'Prak de avocado\'s met het sap van de limoen en een snuf zout tot een grove guacamole. Zet sla, tomaat, kaas, zure room en salsa in schaaltjes klaar.' },
-    { t: 'Zet de tacoschelpen met de opening naar beneden op het rooster en warm ze 3 à 4 minuten op in een voorverwarmde oven op 180 °C, tot ze geurig en knapperig zijn.', m: 'oven', min: 4 },
-    { t: 'Warm de tacoschelpen 2 à 3 minuten op in de airfryer op 180 °C.', m: 'airfryer', min: 3 },
-    { t: 'Verwarm de maistortilla\'s één voor één 30 seconden per kant in de hete, droge koekenpan, tot ze soepel zijn en hier en daar bruine vlekjes hebben. Stapel ze in de theedoek, dan blijven ze warm en zacht.', m: 'koekenpan' },
-    { t: 'Vul elke taco met 2 eetlepels gehakt, daarop de kaas en dan sla, tomaat, guacamole, zure room en salsa.' }
+    { t: 'Verhit de olie in de koekenpan op middelhoog vuur en fruit de ui 3 minuten. Zet het vuur hoog en bak het gehakt in 5 à 6 minuten rul en bruin.', min: 8 },
+    { t: 'Bak knoflook, jalapeño, komijn en oregano 1 minuut mee. Voeg de tomaat toe en laat 6 à 8 minuten pruttelen tot het vocht bijna weg is en het gehakt smeuïg is. Breng op smaak met zout en peper.', min: 7 },
+    { t: 'Meng de witte ui met de koriander: dit is de klassieke topping. Zet salsa, limoenpartjes, avocado en queso fresco klaar.' },
+    { t: 'Verhit de droge koekenpan op middelhoog vuur. Verwarm de tortilla\'s één voor één 30 à 45 seconden per kant, tot ze soepel zijn en bruine vlekjes hebben. Stapel ze in de theedoek, dan blijven ze warm en zacht.' },
+    { t: 'Leg steeds 2 tortilla\'s op elkaar (zo scheuren ze niet), schep er 2 eetlepels picadillo op en strooi ui en koriander erover. Salsa en een kneepje limoen erbij en meteen opeten, uit de hand.' }
   ],
-  tips: ['In Mexico eet je taco\'s op zachte maistortilla\'s, met bijvoorbeeld al pastor (gemarineerd varkensvlees) of carnitas, en alleen wat fijngesneden ui, koriander, salsa en limoen erop. Harde schelpen met geraspte kaas zijn Tex-Mex.', 'Restje pulled pork? Bak het krokant in een hete pan en je hebt bijna carnitas.'],
-  alt: ['Vegetarisch: vervang het gehakt door 2 blikken zwarte bonen (uitgelekt en grof geprakt) en bak ze 5 minuten met de kruiden en het water.']
+  tips: ['Echte Mexicaanse taco\'s zijn zacht en klein: maistortilla\'s, weinig vulling en geen geraspte kaas of zure room. Probeer ook eens al pastor (gemarineerd varkensvlees met ananas) of carnitas.', 'Maistortilla\'s vind je bij de toko, de Mexicaanse afdeling of online. Zijn ze droog en breken ze? Besprenkel ze met een paar druppels water voor je ze opwarmt.'],
+  alt: ['Tex-Mex-versie met harde tacoschelpen: warm 12 schelpen 3 à 4 minuten in de oven of airfryer op 180 °C en vul ze met het gehakt, ijsbergsla, tomaat, geraspte cheddar en zure room. Lekker, maar zo eet je ze in de VS, niet in Mexico.', 'Vegetarisch: vervang het gehakt door 2 blikken zwarte bonen (uitgelekt, grof geprakt) en bak ze 5 minuten met de kruiden en de tomaat.']
 },
 {
-  id: 'tacos-kip', variantVan: 'tacos', variant: 'Kip', naam: 'Taco\'s met kip', ook: ['kiptaco\'s', 'chicken tacos', 'taco kip'],
-  intro: 'Reepjes kippendij, gebakken met dezelfde zelfgemaakte tacokruiden, in een knapperige schelp of een zachte tortilla. Met sla, tomaat, kaas en guacamole. Lichter dan gehakt en net zo makkelijk.',
+  id: 'tacos-kip', variantVan: 'tacos', variant: 'Kip', naam: 'Taco\'s met kip (tinga de pollo)', ook: ['kiptaco\'s', 'chicken tacos', 'taco kip', 'tinga de pollo'],
+  intro: 'Zachte maistortilla\'s met tinga: draadjes kip in een rokerige saus van tomaat, ui en chipotle. Een Mexicaanse klassieker, met ui, koriander en limoen erop.',
   vervang: {
-    Gehakt: { kop: 'Kip' },
-    rundergehakt: { n: 'kippendijfilet', q: 500, u: 'g', x: 'in dunne reepjes of kleine blokjes; of kipfilet' }
+    Picadillo: { kop: 'Tinga' },
+    rundergehakt: { n: 'kippendijfilet', q: 500, u: 'g', x: 'of kipfilet' }
   },
   stappen: [
-    { t: 'Meng alle tacokruiden in een schaaltje en schep de helft door de kip.' },
-    { t: 'Verhit de olie in de koekenpan op middelhoog vuur en fruit de ui 3 minuten. Zet het vuur hoog, doe de kip erbij en bak hem in 6 à 7 minuten rondom goudbruin en gaar.', min: 9 },
-    { t: 'Bak knoflook, tomatenpuree en de rest van de tacokruiden 1 minuut mee. Voeg het water toe en laat 2 à 3 minuten inkoken, tot de kip glanst en er bijna geen vocht meer in de pan staat.', min: 3 },
-    { t: 'Prak de avocado\'s met het sap van de limoen en een snuf zout tot een grove guacamole. Zet sla, tomaat, kaas, zure room en salsa in schaaltjes klaar.' },
-    { t: 'Zet de tacoschelpen met de opening naar beneden op het rooster en warm ze 3 à 4 minuten op in een voorverwarmde oven op 180 °C, tot ze geurig en knapperig zijn.', m: 'oven', min: 4 },
-    { t: 'Warm de tacoschelpen 2 à 3 minuten op in de airfryer op 180 °C.', m: 'airfryer', min: 3 },
-    { t: 'Verwarm de maistortilla\'s één voor één 30 seconden per kant in de hete, droge koekenpan, tot ze soepel zijn en hier en daar bruine vlekjes hebben. Stapel ze in de theedoek, dan blijven ze warm en zacht.', m: 'koekenpan' },
-    { t: 'Vul elke taco met 2 eetlepels kip, daarop de kaas en dan sla, tomaat, guacamole, zure room en salsa.' }
+    { t: 'Kook de kip 15 minuten zachtjes in ruim water met zout tot hij gaar is. Haal hem eruit (bewaar een kopje kookvocht) en trek hem met twee vorken in draadjes.', min: 15 },
+    { t: 'Verhit de olie in de koekenpan op middelhoog vuur en bak de ui 5 minuten zacht. Bak knoflook, jalapeño of chipotle, komijn en oregano 1 minuut mee.', min: 6 },
+    { t: 'Voeg de tomaat en een scheut kookvocht toe en laat 5 minuten pruttelen. Schep de kip erdoor en laat nog 3 minuten sudderen tot de saus om de draadjes hangt. Breng op smaak met zout en peper.', min: 8 },
+    { t: 'Meng de witte ui met de koriander. Zet salsa, limoenpartjes, avocado en queso fresco klaar.' },
+    { t: 'Verwarm de tortilla\'s één voor één 30 à 45 seconden per kant in de hete, droge koekenpan tot ze soepel zijn. Stapel ze in de theedoek.' },
+    { t: 'Leg steeds 2 tortilla\'s op elkaar, schep er kip op en maak af met ui, koriander, salsa en limoen.' }
   ],
-  alt: ['Met restjes: pluk een gegrilde kip of restjes kip uit de oven en warm ze 3 minuten op met de kruiden en het water.', 'Kipfilet in plaats van dij: bak hem 1 à 2 minuten korter, dan blijft hij sappig.']
+  alt: ['Met restjes: pluk een gegrilde kip uit elkaar en warm hem 3 minuten op in de saus.', 'Rokeriger: gebruik 1 à 2 chipotles in adobo in plaats van de jalapeño; die horen echt in tinga.']
 },
 {
   id: 'enchiladas', naam: 'Enchiladas met kip',
