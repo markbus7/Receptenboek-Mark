@@ -325,7 +325,7 @@ RECEPTEN.push(
   ]
 },
 {
-  id: 'groentesoep-balletjes', naam: 'Groentesoep met balletjes', ook: ['soep met balletjes'],
+  id: 'groentesoep-balletjes', naam: 'Groentesoep met balletjes', gerecht: 'Groentesoep met balletjes', variant: 'Zelfgedraaide balletjes', ook: ['soep met balletjes'],
   keuken: 'Nederlands', soort: 'Soep',
   tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Heldere bouillon vol soepgroente, vermicelli en zelfgedraaide gehaktballetjes. Zoals de soep bij oma op zondag.',
@@ -360,6 +360,23 @@ RECEPTEN.push(
     'Vries de soep in zonder vermicelli; die wordt papperig bij het opwarmen. Kook hem er vers in.'
   ],
   alt: ['Geen bloemkool of bleekselderij? Een bakje soepgroente uit de supermarkt (ca. 400 g) werkt net zo goed.']
+},
+{
+  id: 'groentesoep-soepballetjes', variantVan: 'groentesoep-balletjes', variant: 'Kant-en-klare soepballetjes', naam: 'Groentesoep met gekochte soepballetjes', ook: ['soepballetjes', 'kant-en-klare soepballetjes', 'soep met soepballetjes'],
+  tijd: 25,
+  intro: 'Dezelfde heldere groentesoep, maar met soepballetjes uit de supermarkt. Geen gedraai: in een kwartier op tafel.',
+  vervang: {
+    rundergehakt: { n: 'soepballetjes', q: 250, u: 'g', x: 'kant-en-klaar uit de koeling of diepvries (ca. 1 bakje)' },
+    paneermeel: null, melk: null, nootmuskaat: null
+  },
+  stappen: [
+    { t: 'Breng de bouillon aan de kook in de Dutch oven. Voeg wortel, bleekselderij en ui toe en laat 5 minuten zachtjes koken.', min: 5 },
+    { t: 'Doe de soepballetjes en de bloemkool erbij. Laat 5 minuten zachtjes koken; diepvriesballetjes 7 à 8 minuten, tot ze door en door heet zijn. Schep het schuim eraf.', min: 6 },
+    { t: 'Voeg de prei en de vermicelli toe en kook nog 4 minuten, tot de vermicelli gaar is.', min: 4 },
+    { t: 'Breng de soep op smaak met zout en peper en roer de selderij erdoor.' }
+  ],
+  tips: ['Gekochte soepballetjes zijn vaak al gegaard: ze hoeven alleen heet te worden. Laat ze niet hard koken, dan blijven ze mals.'],
+  alt: ['Met een soepgroentemix uit de vriezer gaat het nog sneller: kies hem bij de ingrediënten, dan hoef je niets te snijden.']
 },
 {
   id: 'kapsalon', naam: 'Kapsalon',
