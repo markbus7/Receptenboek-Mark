@@ -88,6 +88,7 @@ ARTIKELEN = {
     'zoetzure-kip': "File:9681KIng's Special and Sweet & Sour Chicken 08.jpg", 'egg-fried-rice': 'Fried rice', 'beef-broccoli': 'Beef and broccoli',
     'bulgogi': 'Bulgogi', 'kimchi-fried-rice': 'Kimchi fried rice', 'japchae': 'Japchae',
     'korean-fried-chicken': 'Korean fried chicken', 'ramen': 'Ramen', 'yakisoba': 'Yakisoba', 'gyoza': 'File:Baked gyoza of Gyoza-no-Manshu.jpg',
+    'botercake': 'nl:Cake (gebak)',
     'sushi-maki': 'File:Homemade sushi rolls, 2009.jpg',
     'burritos': 'Burrito', 'tacos': 'Taco', 'enchiladas': 'Enchilada', 'guisado-carne-molida': 'Picadillo',
     'nachos': 'Nachos', 'salsa-fresca': 'Pico de gallo', 'brownies': 'Chocolate brownie', 'ny-cheesecake': 'Cheesecake',
