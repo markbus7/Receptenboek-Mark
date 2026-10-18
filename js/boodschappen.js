@@ -68,10 +68,10 @@ const Boodschappen = (() => {
     }
   }
 
-  function voegReceptToe(recept, factor) {
+  function voegReceptToe(recept, factor, overslaan = new Set()) {
     let aantal = 0;
     recept.ingr.forEach((i) => {
-      if (i.kop || i.q == null || isWater(i)) return;
+      if (i.kop || i.q == null || isWater(i) || overslaan.has(i.n)) return;
       voegIngrToe(recept, i, factor);
       aantal++;
     });
