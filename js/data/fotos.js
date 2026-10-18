@@ -138,6 +138,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Beef_bourguignon_NYT.jpg"
  },
+ "botercake": {
+  "src": "img/botercake.jpg",
+  "auteur": "Kimberly Vardeman",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Almond_pound_cake,_angled_profile.jpg"
+ },
  "brownies": {
   "src": "img/brownies.jpg",
   "auteur": "Ɱ",
