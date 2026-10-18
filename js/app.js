@@ -442,6 +442,7 @@ const App = (() => {
     $('#actieve-filters').innerHTML = af.map(([g, w, l]) =>
       `<button type="button" class="chip chip-actief" data-wis-groep="${g}" data-wis-waarde="${esc(w)}" aria-label="Wis filter ${esc(l)}">${esc(l)} ${icoon('sluit')}</button>`).join('');
     const aantal = af.length + state.voorraad.length;
+    if (aantal) $('#actieve-filters').insertAdjacentHTML('beforeend', `<button type="button" class="knop-tekst wis-alles" data-wis-alles>${icoon('sluit')} Wis ${aantal === 1 ? 'filter' : `alle ${aantal} filters`}</button>`);
     $('#filter-aantal').textContent = aantal || '';
 
     $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || '';
@@ -759,6 +760,7 @@ const App = (() => {
     });
 
     $('#actieve-filters').addEventListener('click', (e) => {
+      if (e.target.closest('[data-wis-alles]')) return wisAlles();
       const c = e.target.closest('[data-wis-groep]');
       if (!c) return;
       const { wisGroep: g, wisWaarde: w } = c.dataset;
