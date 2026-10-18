@@ -637,6 +637,7 @@ p.sync-fout::before { display: none; }
 .bon-regels a { color: inherit; text-underline-offset: 2px; }
 .bon-mix { margin: 10px 0 0; font-size: 13px; }
 .bon-voet { margin: 10px 0 0; font-family: var(--font-lees); font-size: 12px; line-height: 1.4; color: var(--potlood); }
+.bon-voet a { color: var(--pen); font-weight: 600; text-underline-offset: 2px; }
 .bon-lijst { margin: 34px auto 18px; max-width: 420px; transform: rotate(-0.5deg); }
 .item-prijs { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; }
 

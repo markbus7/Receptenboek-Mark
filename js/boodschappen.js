@@ -121,7 +121,7 @@ const Boodschappen = (() => {
       <h3 id="lijst-prijs-titel">Wat kost het?</h3>
       ${Prijzen.winkelLijst(uitkomst.winkels)}
       <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)} gebruikt, ± ${e(uitkomst.goedkoopstKassa)} aan de kassa. Per product zie je hierboven waar dat is.</p>
-      <p class="bon-voet"><i>Gebruikt</i> is het deel van de verpakkingen dat je nodig hebt, <i>kassa</i> wat je afrekent met hele verpakkingen. Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via Checkjebon); aanbiedingen tellen niet altijd mee.${uitkomst.zonder.length ? ` Zonder prijs: ${Hulp.esc(uitkomst.zonder.join(', '))}.` : ''}</p>`;
+      <p class="bon-voet"><i>Gebruikt</i> is het deel van de verpakkingen dat je nodig hebt, <i>kassa</i> wat je afrekent met hele verpakkingen. Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via <a href="https://www.checkjebon.nl" target="_blank" rel="noopener">Checkjebon.nl</a>); aanbiedingen tellen niet altijd mee.${uitkomst.zonder.length ? ` Zonder prijs: ${Hulp.esc(uitkomst.zonder.join(', '))}.` : ''}</p>`;
   }
 
   function prijsVan(it) {

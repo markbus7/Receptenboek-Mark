@@ -383,7 +383,7 @@ const Detail = (() => {
         </ul>
         <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)} gebruikt, ± ${e(uitkomst.goedkoopstKassa)} aan de kassa.</p>
       </details>
-      <p class="bon-voet">Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via Checkjebon). <i>Gebruikt</i> is het deel van de verpakkingen dat in dit recept gaat, <i>kassa</i> wat je afrekent als je alles nieuw koopt. Aanbiedingen tellen niet altijd mee.${zonder.length ? ` Zonder prijs: ${Hulp.esc(zonder.join(', '))}.` : ''}</p>`;
+      <p class="bon-voet">Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via <a href="https://www.checkjebon.nl" target="_blank" rel="noopener">Checkjebon.nl</a>). <i>Gebruikt</i> is het deel van de verpakkingen dat in dit recept gaat, <i>kassa</i> wat je afrekent als je alles nieuw koopt. Aanbiedingen tellen niet altijd mee.${zonder.length ? ` Zonder prijs: ${Hulp.esc(zonder.join(', '))}.` : ''}</p>`;
   }
 
   function renderStappen() {
