@@ -102,6 +102,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.28.0**: hoeveelheden staan nu ook in de stappen zelf ("Strooi de **2 el** bloem erover"), dus je hoeft tijdens het koken niet terug te scrollen. Ze rekenen mee met het aantal personen.
 - **1.27.4**: groentesoep met balletjes heeft een variant met kant-en-klare soepballetjes uit de supermarkt.
 - **1.27.3**: gebruik je een groentemix, dan verdwijnen de groenten die hij vervangt uit de ingrediëntenlijst (en van de boodschappenlijst); de mix staat er als één regel met het aantal gram.
 - **1.27.2**: knop *Wis filter(s)* naast de actieve filters, zodat je met één tik alles weer ziet.

@@ -403,5 +403,42 @@ const Hulp = (() => {
   /* Foto van het recept; een variant zonder eigen foto laat die van het basisrecept zien. */
   const foto = (r) => (window.FOTOS && (FOTOS[r.id] || (r.groep && FOTOS[r.groep]))) || null;
 
-  return { foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+
+  /* Zet de hoeveelheid in de staptekst: "Strooi de bloem erover" → "Strooi de **2 el** bloem erover".
+     Alleen na "de"/"het", de eerste keer dat een ingrediënt genoemd wordt, niet na "rest van" of "helft van",
+     en niet bij één stuk ("de 1 ui"). Ingrediënten die twee keer in de lijst staan slaan we over. */
+  function stapMetHoeveelheden(tekst, recept, factor, gebruikt, overslaan = new Set()) {
+    const lijst = recept.ingr.filter((i) => !i.kop && i.q != null);
+    const telling = new Map();
+    lijst.forEach((i) => telling.set(norm(i.n), (telling.get(norm(i.n)) || 0) + 1));
+    const kandidaten = lijst.filter((i) => telling.get(norm(i.n)) === 1 && !overslaan.has(i.n) && !isBasis(i)
+      && !(i.u === 'st' && i.q * factor < 1.75));
+    const past = (i, w) => {
+      const n = norm(i.n), p = i.p ? norm(i.p) : '';
+      if (n === w || p === w) return true;
+      const laatste = n.split(' ').pop();
+      if (laatste === w || (p && p.split(' ').pop() === w)) return true;
+      return !n.includes(' ') && w.length >= 5 && n.endsWith(w);
+    };
+    let uit = '', vanaf = 0;
+    const re = /(^|[^\p{L}])((?:de|het) )([\p{L}'-]+)/giu;
+    let m;
+    while ((m = re.exec(tekst))) {
+      const woord = norm(m[3]);
+      const ervoor = norm(tekst.slice(Math.max(0, m.index - 12), m.index + m[1].length));
+      if (/(rest|helft|deel|beetje) van\s*$|\bvis $/.test(ervoor + ' ')) continue;
+      const treffers = kandidaten.filter((i) => past(i, woord));
+      if (treffers.length !== 1 || gebruikt.has(treffers[0].n)) continue;
+      const i = treffers[0];
+      gebruikt.add(i.n);
+      const h = hoeveelheid(i, factor);
+      const hv = [h.aantal, h.eenheid].filter(Boolean).join(' ');
+      const plek = m.index + m[1].length + m[2].length;
+      uit += esc(tekst.slice(vanaf, plek)) + `<b class="stap-hv">${esc(hv)}</b> `;
+      vanaf = plek;
+    }
+    return uit + esc(tekst.slice(vanaf));
+  }
+
+  return { stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();
