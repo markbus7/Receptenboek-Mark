@@ -336,6 +336,7 @@ const Detail = (() => {
     }).join('');
     renderRest();
     renderPrijs();
+    if (blad.querySelector('#d-stappen')) renderStappen();
   }
 
   /* Losse knop per ingrediënt: alleen dit ingrediënt op het boodschappenlijstje. */
@@ -411,11 +412,12 @@ const Detail = (() => {
 
   function renderStappen() {
     const stappen = r.stappen.filter((s) => !s.m || s.m === methode);
+    const gebruikt = new Set();
     blad.querySelector('#d-stappen').innerHTML = stappen.map((s, n) => `
       <li class="stap${s.m ? ' stap-methode' : ''}">
         <button type="button" class="stap-nr" data-stap aria-label="Markeer stap ${n + 1} als klaar">${n + 1}</button>
         <div class="stap-tekst">
-          <p>${Hulp.esc(s.t)}</p>
+          <p>${Hulp.stapMetHoeveelheden(s.t, r, factor, gebruikt, mixWeg)}</p>
           ${ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? '<span class="stap-notitie">of: in je rijstkoker</span>' : ''}
           ${s.min ? `<button type="button" class="timer-knop" data-min="${s.min}" data-label="Stap ${n + 1}">${icoon('klok')} Timer ${Hulp.tijdTekst(s.min)}</button>` : ''}
         </div>
