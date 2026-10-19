@@ -461,16 +461,54 @@ const App = (() => {
     return RECEPTEN.filter((r) => past.has(r.id) || (r.ingr || []).some((i) => i.n && namen.includes(Hulp.norm(i.n))))
       .sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
   }
+  /* Recepten waarvoor je alle gedroogde kruiden en specerijen al in je kast hebt.
+     Verse kruiden, verse gember en pepers koop je vers; die tellen hier niet mee. */
+  const VERS = new Set(['gember', 'rode peper', 'groene peper', 'laos', 'citroengras', 'djeroekbladeren', 'thaise basilicum', 'ingelegde gember']);
+  function kastRecepten(inKast) {
+    const perNaam = new Map();
+    (window.KRUIDEN || []).forEach((k) => k.namen.forEach((n) => perNaam.set(Hulp.norm(n), k)));
+    const uit = [];
+    RECEPTEN.forEach((r) => {
+      const nodig = new Map();
+      (r.ingr || []).forEach((i) => {
+        if (!i.n || i.opt) return;
+        const n = Hulp.norm(i.n);
+        if (n.startsWith('verse ') || VERS.has(n)) return;
+        const k = perNaam.get(n);
+        if (k && k.id !== 'zout' && k.id !== 'peper') nodig.set(k.id, k);
+      });
+      if (nodig.size < 2) return;
+      const mist = [...nodig.values()].filter((k) => !inKast.has(k.id));
+      if (mist.length <= 1) uit.push({ r, mist, aantal: nodig.size });
+    });
+    return uit.sort((a, b) => (a.mist.length - b.mist.length) || (b.aantal - a.aantal) || a.r.naam.localeCompare(b.r.naam, 'nl'));
+  }
+  function renderKastRecepten(inKast) {
+    const lijst = kastRecepten(inKast);
+    const rij = ({ r, mist, aantal }) => `<li><a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>
+      <span class="zacht">${esc(r.keuken)} · ${aantal} kruiden${mist.length ? ` · mist: <b>${esc(mist[0].naam)}</b>` : ''}</span></li>`;
+    const alles = lijst.filter((x) => !x.mist.length), bijna = lijst.filter((x) => x.mist.length);
+    return `<section class="kast-recepten">
+      <h3>Alles in je kast (${alles.length})</h3>
+      <p class="hint">Recepten met minstens 2 gedroogde kruiden of specerijen, die je allemaal al hebt. Verse kruiden en pepers koop je er vers bij.</p>
+      <ul>${alles.map(rij).join('') || '<li>Nog niets: vink meer potjes aan bij In mijn kast.</li>'}</ul>
+      ${bijna.length ? `<h3>Mist één potje (${bijna.length})</h3><ul>${bijna.map(rij).join('')}</ul>` : ''}
+    </section>`;
+  }
+
   function renderKruiden() {
     const inKast = kast();
     const lijst = (window.KRUIDEN || []).filter((k) => !kruidSoort || (kruidSoort === 'kast' ? inKast.has(k.id) : k.soort === kruidSoort));
-    const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']];
+    const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['maak', 'Wat kan ik maken?'], ['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']];
     $('#kruiden-filter').innerHTML = soorten.map(([w, l]) => `<button type="button" class="chip" data-kruidsoort="${w}" aria-pressed="${kruidSoort === w}">${l}</button>`).join('');
+    if (kruidSoort === 'maak') { $('#kruiden-lijst').innerHTML = renderKastRecepten(inKast); return; }
     $('#kruiden-lijst').innerHTML = lijst.map((k) => {
+      const foto = window.FOTOS && FOTOS['kruid-' + k.id];
       const rs = receptenMet(k);
       return `<article class="kruid" id="kruid-${k.id}">
         <div class="kruid-kop"><p class="kruid-soort">${esc(k.soort)}</p>
           <label class="kruid-kast"><input type="checkbox" data-kast="${k.id}"${inKast.has(k.id) ? ' checked' : ''}> In mijn kast</label></div>
+        ${foto ? `<figure class="kruid-foto"><img src="${foto.src}" alt="${esc(k.naam)}" loading="lazy"><figcaption>Foto: ${esc(foto.auteur)}, ${esc(foto.licentie)}</figcaption></figure>` : ''}
         <h3>${esc(k.naam)}</h3>
         <p>${esc(k.wat)}</p>
         ${k.bevat ? `<p><b>Wat zit erin:</b> ${esc(k.bevat)}</p>` : ''}
