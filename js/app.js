@@ -498,10 +498,20 @@ const App = (() => {
 
   function renderKruiden() {
     const inKast = kast();
-    const lijst = (window.KRUIDEN || []).filter((k) => !kruidSoort || (kruidSoort === 'kast' ? inKast.has(k.id) : k.soort === kruidSoort));
+    // Zoeken: elk woord moet ergens voorkomen (naam, uitleg, wat erin zit, recepten); tikfouten mogen.
+    const q = Hulp.norm(($('#kruiden-zoek') || {}).value || '').trim();
+    const zoekPast = (k) => {
+      if (!q) return true;
+      const tekst = Hulp.norm([k.naam, k.soort, k.wat, k.bevat, k.gebruik, k.tip, ...k.namen, ...receptenMet(k).map((x) => x.naam)].filter(Boolean).join(' '));
+      const woorden = tekst.split(/[^a-z0-9]+/).filter(Boolean);
+      return q.split(/\s+/).every((t) => tekst.includes(t) || (t.length >= 4 && woorden.some((w) => Hulp.lijktOp(t, w))));
+    };
+    const lijst = (window.KRUIDEN || []).filter((k) => (!kruidSoort || kruidSoort === 'maak' || (kruidSoort === 'kast' ? inKast.has(k.id) : k.soort === kruidSoort)) && zoekPast(k));
+    if (q) lijst.sort((a, b) => Number(!Hulp.norm(a.naam).includes(q)) - Number(!Hulp.norm(b.naam).includes(q)));
     const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['maak', 'Wat kan ik maken?'], ['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']];
     $('#kruiden-filter').innerHTML = soorten.map(([w, l]) => `<button type="button" class="chip" data-kruidsoort="${w}" aria-pressed="${kruidSoort === w}">${l}</button>`).join('');
-    if (kruidSoort === 'maak') { $('#kruiden-lijst').innerHTML = renderKastRecepten(inKast); return; }
+    if (kruidSoort === 'maak' && !q) { $('#kruiden-lijst').innerHTML = renderKastRecepten(inKast); return; }
+    if (!lijst.length) { $('#kruiden-lijst').innerHTML = `<p class="hint">Niets gevonden voor "${esc(q)}". Probeer een ander woord, zoals een gerecht of een smaak.</p>`; return; }
     $('#kruiden-lijst').innerHTML = lijst.map((k) => {
       const foto = window.FOTOS && FOTOS['kruid-' + k.id];
       const rs = receptenMet(k);
@@ -849,6 +859,7 @@ const App = (() => {
     });
 
     $('#wis-filters').addEventListener('click', wisAlles);
+    $('#kruiden-zoek').addEventListener('input', () => renderKruiden());
     $('#view-kruiden').addEventListener('click', (e) => {
       const kb = e.target.closest('[data-kast]');
       if (kb) {

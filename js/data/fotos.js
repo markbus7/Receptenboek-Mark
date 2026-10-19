@@ -612,6 +612,114 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Iksan_City_48_Korean_Style_Fried_chicken.jpg"
  },
+ "kruid-basilicum": {
+  "src": "img/kruid-basilicum.jpg",
+  "auteur": "Photo by David J. Stang",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Ocimum_basilicum_8zz.jpg"
+ },
+ "kruid-bieslook": {
+  "src": "img/kruid-bieslook.jpg",
+  "auteur": "Ivar Leidus",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Allium_schoenoprasum_-_Bombus_lapidarius_-_Tootsi.jpg"
+ },
+ "kruid-citroengras": {
+  "src": "img/kruid-citroengras.jpg",
+  "auteur": "Henna",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:YosriNov04Pokok_Serai.JPG"
+ },
+ "kruid-dille": {
+  "src": "img/kruid-dille.jpg",
+  "auteur": "Illustration_Anethum_graveolens0.jpg: Prof. Dr. Otto Wilhelm",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Illustration_Anethum_graveolens_clean.jpg"
+ },
+ "kruid-djeroek": {
+  "src": "img/kruid-djeroek.jpg",
+  "auteur": "Robyn Jay",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Citrus_hystrix_fruit.jpg"
+ },
+ "kruid-dragon": {
+  "src": "img/kruid-dragon.jpg",
+  "auteur": "No machine-readable author provided. Ies assumed (based on c",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Estragon_1511.jpg"
+ },
+ "kruid-fenegriek": {
+  "src": "img/kruid-fenegriek.jpg",
+  "auteur": "Prof. Dr. Otto Wilhelm Thomé derivative work: Ninjatacoshell",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Illustration_Trigonella_foenum-graecum0_clean.jpg"
+ },
+ "kruid-gember": {
+  "src": "img/kruid-gember.jpg",
+  "auteur": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg"
+ },
+ "kruid-komijn": {
+  "src": "img/kruid-komijn.jpg",
+  "auteur": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Cuminum_cyminum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-198.jpg"
+ },
+ "kruid-koriander": {
+  "src": "img/kruid-koriander.jpg",
+  "auteur": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Coriandrum_sativum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-193.jpg"
+ },
+ "kruid-kurkuma": {
+  "src": "img/kruid-kurkuma.jpg",
+  "auteur": "SKsiddhartthan",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Turmeric_inflorescence.jpg"
+ },
+ "kruid-laurier": {
+  "src": "img/kruid-laurier.jpg",
+  "auteur": "Miansari66",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Bay_Leaves.JPG"
+ },
+ "kruid-munt": {
+  "src": "img/kruid-munt.jpg",
+  "auteur": "C T Johansson",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Mentha_spicata-IMG_6186.jpg"
+ },
+ "kruid-oregano": {
+  "src": "img/kruid-oregano.jpg",
+  "auteur": "Ivar Leidus",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Origanum_vulgare_-_harilik_pune.jpg"
+ },
+ "kruid-paprikapoeder": {
+  "src": "img/kruid-paprikapoeder.jpg",
+  "auteur": "Marcosgarrido88",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Piment%C3%B3n_Tap_de_Cort%C3%AD_(cropped).jpg"
+ },
+ "kruid-peper": {
+  "src": "img/kruid-peper.jpg",
+  "auteur": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Piper_nigrum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-107.jpg"
+ },
+ "kruid-thaise-basilicum": {
+  "src": "img/kruid-thaise-basilicum.jpg",
+  "auteur": "Ies",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Thai_basil.jpg"
+ },
+ "kruid-tijm": {
+  "src": "img/kruid-tijm.jpg",
+  "auteur": "Evan-Amos",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Thyme-Bundle.jpg"
+ },
  "kung-pao-kip": {
   "src": "img/kung-pao-kip.jpg",
   "auteur": "Steven G. Johnson",

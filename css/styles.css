@@ -857,3 +857,5 @@ p.sync-fout::before { display: none; }
 .kast-recepten li { margin-bottom: 6px; break-inside: avoid; }
 .kast-recepten a { color: var(--pen); font-weight: 700; text-underline-offset: 2px; }
 .kast-recepten .zacht { display: block; font-size: 13px; }
+.kruiden-zoek { margin: 6px 0 10px; }
+.kruiden-zoek input { width: 100%; }
