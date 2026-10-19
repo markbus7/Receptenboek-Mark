@@ -612,6 +612,18 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Iksan_City_48_Korean_Style_Fried_chicken.jpg"
  },
+ "kruid-koriander": {
+  "src": "img/kruid-koriander.jpg",
+  "auteur": "Kpsudeep",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Bunches_of_coriander_leaves.jpg"
+ },
+ "kruid-peterselie": {
+  "src": "img/kruid-peterselie.jpg",
+  "auteur": "SarKaLay စာကလေး",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Parsley_leaves_(89358).jpg"
+ },
  "kung-pao-kip": {
   "src": "img/kung-pao-kip.jpg",
   "auteur": "Steven G. Johnson",
