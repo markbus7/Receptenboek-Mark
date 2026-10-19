@@ -35,7 +35,7 @@ window.EENHEDEN = {
   bos:    { e: 'bos',    m: 'bossen',  soort: 'stuk' },
   takje:  { e: 'takje',  m: 'takjes',  soort: 'stuk' },
   plak:   { e: 'plak',   m: 'plakken', soort: 'stuk' },
-  snuf:   { e: 'snuf',   m: 'snufjes', soort: 'lepel' },
+  snuf:   { e: 'snufje', m: 'snufjes', soort: 'lepel' },
   zakje:  { e: 'zakje',  m: 'zakjes',  soort: 'stuk' },
   stengel:{ e: 'stengel',m: 'stengels',soort: 'stuk' },
   blokje: { e: 'blokje', m: 'blokjes', soort: 'stuk' },
