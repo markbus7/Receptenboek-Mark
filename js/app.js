@@ -71,9 +71,10 @@ const App = (() => {
   const INGR_NAMEN = [...INGR_AANTAL.keys()].sort((a, b) => a.localeCompare(b, 'nl'));
   const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, VARIANTEN.gerecht(r), ...(r.ook || []), r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
-  /* Tab Nieuw: de 3 recepten met de jongste datum bij toegevoegd (nieuwste eerst). */
+  /* Tab Nieuw: de 5 recepten met de jongste datum bij toegevoegd (nieuwste eerst). */
+  const AANTAL_NIEUW = 5;
   const NIEUW = RECEPTEN.filter((r) => r.toegevoegd)
-    .sort((a, b) => b.toegevoegd.localeCompare(a.toegevoegd)).slice(0, 3).map((r) => r.id);
+    .sort((a, b) => b.toegevoegd.localeCompare(a.toegevoegd)).slice(0, AANTAL_NIEUW).map((r) => r.id);
 
   const state = {
     view: 'alle',
@@ -330,9 +331,8 @@ const App = (() => {
     const foto = Hulp.foto(r);
     const h = hk(r.keuken);
     const gemaakt = VARIANTEN.leden(r).reduce((som, v) => som + Logboek.keer(v.id), 0);
-    // NIEUW zolang het recept in de tab Nieuw staat; is alleen een andere variant nieuw, dan met de naam van die variant.
-    const nieuweVariant = NIEUW.includes(r.id) ? null : VARIANTEN.leden(r).find((v) => NIEUW.includes(v.id));
-    const nieuw = NIEUW.includes(r.id) ? 'Nieuw' : nieuweVariant ? `Nieuw: ${VARIANTEN.label(nieuweVariant)}` : '';
+    // NIEUW zolang het recept (of een van zijn varianten) in de tab Nieuw staat; de nieuwe variant krijgt het ook op zijn knop.
+    const nieuw = VARIANTEN.leden(r).some((v) => NIEUW.includes(v.id));
     const matchHtml = m ? `
       <div class="match${m.mist.length === 0 ? ' is-compleet' : ''}">
         <div class="match-balk" aria-hidden="true"><span style="width:${Math.round(m.pct * 100)}%"></span></div>
@@ -342,7 +342,7 @@ const App = (() => {
     return `
       <article class="kaart hk${maakbaar ? '' : ' niet-maakbaar'}" style="--k:${h.kleur}">
         <a class="kaart-link" href="#${r.id}" data-open="${r.id}">
-          <span class="kaart-beeld">${foto ? `<img src="${esc(foto.src)}" alt="" loading="lazy" decoding="async">` : bord(r)}${nieuw ? `<span class="label-nieuw">${esc(nieuw)}</span>` : ''}</span>
+          <span class="kaart-beeld">${foto ? `<img src="${esc(foto.src)}" alt="" loading="lazy" decoding="async">` : bord(r)}${nieuw ? '<span class="label-nieuw">Nieuw</span>' : ''}</span>
           <span class="kaart-tekst">
             <span class="kaart-kop"><span class="kaart-keuken">${esc(r.keuken)} · ${esc(r.soort)}</span><span class="kaart-blz">blz. ${BLZ.get(r.id)}</span></span>
             <span class="kaart-titel">${esc(VARIANTEN.heeft(r) ? VARIANTEN.gerecht(r) : r.naam)}</span>
@@ -361,7 +361,7 @@ const App = (() => {
         ${VARIANTEN.heeft(r) ? `
         <div class="kaart-varianten" role="group" aria-label="Varianten van ${esc(VARIANTEN.gerecht(r))}">
           <span class="kaart-varianten-label">Varianten:</span>
-          ${VARIANTEN.leden(r).map((v) => `<a class="variant-chip" href="#${v.id}" data-open="${v.id}"${v.id === r.id ? ' aria-current="true"' : ''} title="${esc(v.naam)}">${esc(VARIANTEN.label(v))}</a>`).join('')}
+          ${VARIANTEN.leden(r).map((v) => `<a class="variant-chip" href="#${v.id}" data-open="${v.id}"${v.id === r.id ? ' aria-current="true"' : ''} title="${esc(v.naam)}">${esc(VARIANTEN.label(v))}${NIEUW.includes(v.id) ? ' <span class="chip-nieuw">nieuw</span>' : ''}</a>`).join('')}
         </div>` : ''}
         ${matchHtml ? `<div class="kaart-voet">${matchHtml}</div>` : ''}
         <button type="button" class="ikoon-knop fav-knop kaart-fav" data-fav="${r.id}" aria-pressed="${fav}" aria-label="${fav ? 'Verwijder' : 'Bewaar'} ${esc(r.naam)} ${fav ? 'uit' : 'bij'} favorieten">${icoon('hart')}</button>

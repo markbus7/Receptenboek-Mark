@@ -362,7 +362,7 @@ RECEPTEN.push(
   alt: ['Geen bloemkool of bleekselderij? Een bakje soepgroente uit de supermarkt (ca. 400 g) werkt net zo goed.']
 },
 {
-  id: 'groentesoep-soepballetjes', variantVan: 'groentesoep-balletjes', variant: 'Kant-en-klare soepballetjes', naam: 'Groentesoep met gekochte soepballetjes', ook: ['soepballetjes', 'kant-en-klare soepballetjes', 'soep met soepballetjes'],
+  id: 'groentesoep-soepballetjes', toegevoegd: '2026-10-18', variantVan: 'groentesoep-balletjes', variant: 'Kant-en-klare soepballetjes', naam: 'Groentesoep met gekochte soepballetjes', ook: ['soepballetjes', 'kant-en-klare soepballetjes', 'soep met soepballetjes'],
   tijd: 25,
   intro: 'Dezelfde heldere groentesoep, maar met soepballetjes uit de supermarkt. Geen gedraai: in een kwartier op tafel.',
   vervang: {
