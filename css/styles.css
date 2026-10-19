@@ -835,3 +835,16 @@ p.sync-fout::before { display: none; }
 .dk-voet { padding-top: 12px; border-top: 1px solid #E3DBCC; font-size: 12px; color: #8C8274; overflow-wrap: anywhere; }
 
 .stap-hv { font-weight: 700; color: var(--pen); white-space: nowrap; }
+
+/* ---------- Kruiden en specerijen ---------- */
+#view-kruiden { max-width: 900px; margin-inline: auto; width: 100%; }
+.kruiden-filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 18px; }
+.kruiden-lijst { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 16px; }
+.kruid { background: var(--papier); border-radius: var(--r); box-shadow: var(--schaduw); padding: 18px 20px; font-family: var(--font-lees); font-size: 15px; line-height: 1.5; }
+.kruid h3 { margin: 0 0 6px; font-size: 22px; }
+.kruid p { margin: 0 0 8px; }
+.kruid-soort { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--potlood); margin-bottom: 2px !important; }
+.kruid-tip { font-family: var(--font-hand); font-size: 20px; line-height: 1.25; color: var(--pen); }
+.kruid-recepten a { color: var(--pen); font-weight: 600; text-underline-offset: 2px; }
+.kruid-kop { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.kruid-kast { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui, inherit); font-size: 13px; font-weight: 600; color: var(--inkt-zacht); cursor: pointer; }

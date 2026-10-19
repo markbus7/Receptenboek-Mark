@@ -3,7 +3,7 @@
    Per onderdeel wint de nieuwste versie (tijdstempel uit Hulp.opslag). */
 const Sync = (() => {
   const { opslag, esc } = Hulp;
-  const ONDERDELEN = ['favorieten', 'boodschappen', 'voorraad', 'basis', 'keuken', 'pannen', 'logboek'];
+  const ONDERDELEN = ['favorieten', 'boodschappen', 'voorraad', 'basis', 'keuken', 'pannen', 'logboek', 'kruidenkast'];
   const BESTAND = 'receptenboek-mark.json';
   const API = 'https://api.github.com';
   /* Opent het GitHub-formulier al ingevuld: naam, omschrijving, een jaar geldig en alleen Gists: Read and write. */

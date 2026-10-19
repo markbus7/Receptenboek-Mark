@@ -448,6 +448,39 @@ const App = (() => {
     $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || '';
   }
 
+  /* ---------- Kruiden en specerijen ---------- */
+  let kruidSoort = '';
+  // Wat er in Marks kruidenkast staat (van zijn foto's); daarna past hij het zelf aan.
+  const KAST_START = ['chili', 'oregano', 'korianderzaad', 'tijm', 'garam-masala', 'kaneel', 'kerriepoeder', 'cajun', 'knoflookpoeder',
+    'kardemom', 'mosterdzaad', 'bieslook', 'nootmuskaat', 'gember', 'paprikapoeder', 'fenegriek', 'italiaanse-kruiden', 'komijn',
+    'kurkuma', 'laurier', 'vanille', 'peper', 'zout', 'zuiveringszout', 'vleesmixen', 'patatkruiden'];
+  const kast = () => new Set(opslag.lees('kruidenkast', KAST_START));
+  function receptenMet(k) {
+    const namen = k.namen.map((n) => Hulp.norm(n));
+    const past = new Set(k.past || []);
+    return RECEPTEN.filter((r) => past.has(r.id) || (r.ingr || []).some((i) => i.n && namen.includes(Hulp.norm(i.n))))
+      .sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
+  }
+  function renderKruiden() {
+    const inKast = kast();
+    const lijst = (window.KRUIDEN || []).filter((k) => !kruidSoort || (kruidSoort === 'kast' ? inKast.has(k.id) : k.soort === kruidSoort));
+    const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']];
+    $('#kruiden-filter').innerHTML = soorten.map(([w, l]) => `<button type="button" class="chip" data-kruidsoort="${w}" aria-pressed="${kruidSoort === w}">${l}</button>`).join('');
+    $('#kruiden-lijst').innerHTML = lijst.map((k) => {
+      const rs = receptenMet(k);
+      return `<article class="kruid" id="kruid-${k.id}">
+        <div class="kruid-kop"><p class="kruid-soort">${esc(k.soort)}</p>
+          <label class="kruid-kast"><input type="checkbox" data-kast="${k.id}"${inKast.has(k.id) ? ' checked' : ''}> In mijn kast</label></div>
+        <h3>${esc(k.naam)}</h3>
+        <p>${esc(k.wat)}</p>
+        ${k.bevat ? `<p><b>Wat zit erin:</b> ${esc(k.bevat)}</p>` : ''}
+        <p><b>Wat je ermee doet:</b> ${esc(k.gebruik)}</p>
+        ${k.tip ? `<p class="kruid-tip">${esc(k.tip)}</p>` : ''}
+        ${rs.length ? `<p class="kruid-recepten"><b>In dit boek (${rs.length}):</b> ${rs.map((r) => `<a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>`).join(', ')}</p>` : ''}
+      </article>`;
+    }).join('');
+  }
+
   function renderLijst() {
     Boodschappen.render($('#boodschappen'), $('#lijst-sub'), $('#lijst-prijs'));
     $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || '';
@@ -457,10 +490,12 @@ const App = (() => {
   function zetView(view) {
     state.view = view;
     document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.view === view)));
-    $('#view-recepten').hidden = view === 'lijst';
+    const apart = view === 'lijst' || view === 'kruiden';
+    $('#view-recepten').hidden = apart;
     $('#view-lijst').hidden = view !== 'lijst';
-    document.body.classList.toggle('view-lijst', view === 'lijst');
-    if (view === 'lijst') renderLijst(); else render();
+    $('#view-kruiden').hidden = view !== 'kruiden';
+    document.body.classList.toggle('view-lijst', apart);
+    if (view === 'lijst') renderLijst(); else if (view === 'kruiden') renderKruiden(); else render();
     window.scrollTo({ top: 0 });
   }
 
@@ -621,17 +656,17 @@ const App = (() => {
     } else if (s.type === 'hoofdstuk') {
       veld.value = ''; state.zoek = '';
       state.keukens = new Set([s.waarde]);
-      if (state.view === 'lijst') zetView('alle'); else render();
+      if (state.view === 'lijst' || state.view === 'kruiden') zetView('alle'); else render();
       veld.blur();
     } else if (s.type === 'soort') {
       veld.value = ''; state.zoek = '';
       state.soorten = new Set([s.waarde]);
       renderFilters();
-      if (state.view === 'lijst') zetView('alle'); else render();
+      if (state.view === 'lijst' || state.view === 'kruiden') zetView('alle'); else render();
       veld.blur();
     } else {
       veld.value = s.waarde; state.zoek = s.waarde;
-      if (state.view === 'lijst') zetView('alle'); else render();
+      if (state.view === 'lijst' || state.view === 'kruiden') zetView('alle'); else render();
       veld.blur();
     }
   }
@@ -652,7 +687,7 @@ const App = (() => {
       clearTimeout(zoekTimer);
       zoekTimer = setTimeout(() => {
         state.zoek = e.target.value;
-        if (state.view === 'lijst') zetView('alle'); else render();
+        if (state.view === 'lijst' || state.view === 'kruiden') zetView('alle'); else render();
       }, 120);
     });
     $('#zoek').addEventListener('focus', toonSuggesties);
@@ -755,7 +790,7 @@ const App = (() => {
       if (!t) return;
       const k = t.dataset.tab;
       state.keukens = new Set(k && !(state.keukens.size === 1 && state.keukens.has(k)) ? [k] : []);
-      if (state.view === 'lijst') zetView('alle'); else render();
+      if (state.view === 'lijst' || state.view === 'kruiden') zetView('alle'); else render();
       t.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
     });
 
@@ -776,6 +811,18 @@ const App = (() => {
     });
 
     $('#wis-filters').addEventListener('click', wisAlles);
+    $('#view-kruiden').addEventListener('click', (e) => {
+      const kb = e.target.closest('[data-kast]');
+      if (kb) {
+        const set = kast(); kb.checked ? set.add(kb.dataset.kast) : set.delete(kb.dataset.kast);
+        opslag.schrijf('kruidenkast', [...set]);
+        return kruidSoort === 'kast' ? renderKruiden() : ($('#kruiden-filter [data-kruidsoort="kast"]').textContent = `In mijn kast (${set.size})`);
+      }
+      const s = e.target.closest('[data-kruidsoort]');
+      if (s) { kruidSoort = s.dataset.kruidsoort; return renderKruiden(); }
+      const a = e.target.closest('[data-open-recept]');
+      if (a) { e.preventDefault(); openRecept(a.dataset.openRecept); }
+    });
     $('#leeg-wis').addEventListener('click', wisAlles);
 
     $('#raster').addEventListener('click', (e) => {
