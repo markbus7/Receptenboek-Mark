@@ -27,7 +27,7 @@ RECEPTEN.push(
   ],
   tips: [
     'Voor de echte Indische diepte bak je een stukje trassi (gefermenteerde garnalenpasta uit de toko) van een halve centimeter mee met de ui. Dan is de saus wel niet meer vegetarisch.',
-    'De saus wordt stijf in de koelkast en blijft 4 dagen goed. Warm hem op met een scheutje water.'
+    'De saus wordt stijf in de koelkast en blijft 4 dagen goed. Warm hem op met 2 el water.'
   ],
   alt: [
     'Van pinda\'s in plaats van pindakaas: rooster 200 g ongezouten pinda\'s 5 à 6 minuten in een droge koekenpan tot ze goudbruin zijn. Laat ze afkoelen en maal ze in de hakmolen of met de staafmixer zo fijn of grof als je wilt. Kook ze daarna 10 minuten zachtjes met de rest van de ingrediënten en 250 ml water.',
@@ -63,7 +63,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 4, u: 'st' },
     { n: 'gebakken uitjes', q: 4, u: 'el' },
     { n: 'aardappelstengels', q: 100, u: 'g', x: 'chipsstengels uit een zak, of verse frietjes' },
-    { n: 'verse selderij', q: 1, u: 'handje', x: 'fijngesneden, of lente-ui' },
+    { n: 'verse selderij', q: 10, u: 'g', x: 'fijngesneden, of lente-ui' },
     { n: 'sambal oelek', q: 4, u: 'tl', x: 'of Surinaamse sambal' },
     { n: 'ketjap manis', q: 4, u: 'el' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'in partjes', opt: true }
@@ -192,7 +192,7 @@ RECEPTEN.push(
     { n: 'knoflook', q: 5, u: 'teen' },
     { n: 'rode peper', p: 'rode pepers', q: 3, u: 'st', x: 'Thaise (rawit), of 1 grote voor minder pit' },
     { n: 'sperziebonen', q: 100, u: 'g', x: 'in stukjes van 1 cm', opt: true },
-    { n: 'Thaise basilicum', q: 2, u: 'handje', x: 'liefst kra pao (heilige basilicum) uit de toko; anders gewone basilicum' },
+    { n: 'Thaise basilicum', q: 20, u: 'g', x: 'liefst kra pao (heilige basilicum) uit de toko; anders gewone basilicum' },
     { n: 'zonnebloemolie', q: 6, u: 'el', x: '2 el voor de kip, de rest voor de eieren' },
     { kop: 'Saus' },
     { n: 'oestersaus', q: 2, u: 'el' },
@@ -446,7 +446,7 @@ RECEPTEN.push(
     { n: 'mayonaise', q: 4, u: 'el' },
     { n: 'leverpaté', q: 100, u: 'g', x: 'klassiek, dun op de onderkant', opt: true },
     { n: 'komkommer', p: 'komkommers', q: 0.5, u: 'st', x: 'in lange reepjes' },
-    { n: 'verse koriander', q: 1, u: 'bos' },
+    { n: 'verse koriander', q: 30, u: 'g' },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'in dunne ringetjes' },
     { n: 'Maggi', q: 2, u: 'tl', x: 'of sojasaus' }
   ],
@@ -499,9 +499,9 @@ RECEPTEN.push(
     { n: 'kropsla', q: 0.5, u: 'st', x: 'of little gem; harde nerven eruit' },
     { n: 'komkommer', p: 'komkommers', q: 0.5, u: 'st', x: 'in lange reepjes' },
     { n: 'wortel', p: 'wortels', q: 1, u: 'st', x: 'in lucifers' },
-    { n: 'verse munt', q: 1, u: 'bos', vers: 'gaat rauw in de rolletjes' },
-    { n: 'verse koriander', q: 1, u: 'bos', vers: 'gaat rauw in de rolletjes' },
-    { n: 'bieslook', q: 1, u: 'bos', x: 'om uit de rolletjes te laten steken', opt: true },
+    { n: 'verse munt', q: 30, u: 'g', vers: 'gaat rauw in de rolletjes' },
+    { n: 'verse koriander', q: 30, u: 'g', vers: 'gaat rauw in de rolletjes' },
+    { n: 'bieslook', q: 25, u: 'g', x: 'om uit de rolletjes te laten steken', opt: true },
     { kop: 'Pinda-hoisindip' },
     { n: 'hoisinsaus', q: 4, u: 'el' },
     { n: 'pindakaas', q: 2, u: 'el' },
@@ -669,7 +669,7 @@ RECEPTEN.push(
     { n: 'black pudding', q: 2, u: 'plak', x: 'of bloedworst', opt: true },
     { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'gehalveerd' },
     { n: 'champignons', q: 150, u: 'g', x: 'in plakjes' },
-    { n: 'baked beans', q: 1, u: 'blik', x: '415 g, in tomatensaus' },
+    { n: 'baked beans', q: 415, u: 'g', x: 'in tomatensaus' },
     { n: 'ei', p: 'eieren', q: 2, u: 'st' },
     { n: 'brood', q: 4, u: 'plak', x: 'wit, om te toasten' },
     { n: 'boter', q: 30, u: 'g' },

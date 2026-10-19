@@ -67,7 +67,7 @@ const DeelKaart = (() => {
             const h = Hulp.hoeveelheid(i, o.factor);
             const extra = i.x || (i.q == null ? 'naar smaak' : '');
             const ofTekst = Hulp.vervangerTekst(i, o.factor);
-            return `<li data-breek><b>${esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</b><span>${esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<small>, ${esc(extra)}</small>` : ''}${ofTekst ? `<small> (${esc(ofTekst)})</small>` : ''}</span></li>`;
+            return `<li data-breek><b>${esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</b><span>${esc(h.naam)}${h.gram ? ` <em>(${esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<small>, ${esc(extra)}</small>` : ''}${ofTekst ? `<small> (${esc(ofTekst)})</small>` : ''}</span></li>`;
           }).join('')}</ul>
         </section>
         <section class="dk-rechts">

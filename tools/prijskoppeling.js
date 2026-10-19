@@ -111,8 +111,8 @@ window.PRIJSKOPPELING = {
   'laos': { niet: ['ketjap', 'kruidenpasta'] },
   'masala': { als: 'garam masala' },
   'madras kerriepoeder': { als: 'kerriepoeder' },
-  'nasikruiden': { zoek: ['nasi kruiden', 'boemboe nasi'], niet: ['goreng', 'bami'], e: 'g', om: { zakje: 45 } },
-  'bamikruiden': { zoek: ['bamikruiden', 'bami kruidenmix', 'bami kruiden', 'boemboe bami'], niet: ['goreng', 'nasi'], e: 'st', st: 30, om: { zakje: 1 } },
+  'nasikruiden': { zoek: ['nasi kruiden', 'boemboe nasi'], niet: ['goreng', 'bami'], e: 'g', om: { el: 6, zakje: 45 } },
+  'bamikruiden': { zoek: ['bamikruiden', 'bami kruidenmix', 'bami kruiden', 'boemboe bami'], niet: ['goreng', 'nasi'], e: 'g', om: { el: 6, zakje: 30 } },
   'fajitakruiden': { zoek: ['fajita kruidenmix', 'kruidenmix fajita', 'fajita kruiden', 'fajita seasoning'], om: { el: 7 } },
   'shoarmakruiden': {},
   'vijfkruidenpoeder': { zoek: ['chinese 5 kruiden', 'five spice powder', 'five spices'], niet: ['woksaus'] },
@@ -124,7 +124,7 @@ window.PRIJSKOPPELING = {
   'witte peper': { niet: ['heel'] },
   'paprikapoeder': { niet: ['gerookt', 'gerookte'] },
   'gerookt paprikapoeder': { zoek: ['paprikapoeder gerookt', 'gerookte paprikapoeder', 'gerookt paprikapoeder'] },
-  'saffraan': { marge: 5, om: { snuf: 0.05 } },
+  'saffraan': { marge: 5, om: { tl: 0.4, snuf: 0.05 } },
   'zeezout': { geen: true },
   'aonori': { geen: true },
   'benishoga': { geen: true },
@@ -255,7 +255,7 @@ window.PRIJSKOPPELING = {
   'pasteibakje': {},
   'filodeeg': { niet: ['banitsa', 'chardonnay'], e: 'g', st: 22, om: { vel: 1 } },
   'bladerdeeg': { niet: ['margarine', 'filo'], om: { plak: 45 } },
-  'kroepoek': { niet: ['zeeuwse', 'cassave', 'mild', 'xxl', 'chips'], e: 'st', st: 100, om: { zakje: 1 } },
+  'kroepoek': { niet: ['zeeuwse', 'cassave', 'mild', 'xxl', 'chips'], e: 'g', om: { zakje: 100 } },
 
   /* Bakken en zoet */
   'bloem': { zoek: ['tarwebloem', 'bloem'], niet: ['allesreiniger', 'wasmiddel', 'honing', 'luchtverfrisser', 'bloemkool', 'thee', 'rode', 'fruit', 'pannenkoek', 'zelfrijzend', 'rijstebloem', 'maisbloem', 'kokos', 'amandel', 'volkoren', 'spelt'] },

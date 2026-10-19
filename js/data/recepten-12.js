@@ -15,7 +15,7 @@ RECEPTEN.push(
     { n: 'melk', q: 250, u: 'ml' },
     { n: 'suiker', q: 3, u: 'el', x: '1 el voor de eiermelk, de rest om te bestrooien' },
     { n: 'kaneel', q: 1.5, u: 'tl', x: '1 tl voor de eiermelk, ½ tl voor de suiker' },
-    { n: 'vanillesuiker', q: 1, u: 'zakje', opt: true },
+    { n: 'vanillesuiker', q: 8, u: 'g', opt: true },
     { n: 'zout', q: 1, u: 'snuf' },
     { n: 'boter', q: 40, u: 'g', x: 'om in te bakken' },
     { n: 'stroop', q: 4, u: 'el', x: 'in plaats van suiker', opt: true }
@@ -103,7 +103,7 @@ RECEPTEN.push(
     { t: 'Laat de appelflappen 10 minuten afkoelen, want de vulling is gloeiend heet. Lekker lauw, eventueel met slagroom.', min: 10 }
   ],
   tips: ['Vooruit maken: vries de ongebakken flappen in op een plaat en bewaar ze daarna in een zak. Bak ze bevroren, met 5 minuten extra.'],
-  alt: ['Geen rozijnen? Laat ze weg of gebruik een handje gehakte walnoten. Ook lekker: een lepel appelmoes of wat geraspte marsepein in de vulling.']
+  alt: ['Geen rozijnen? Laat ze weg of gebruik 30 g gehakte walnoten. Ook lekker: een lepel appelmoes of wat geraspte marsepein in de vulling.']
 },
 {
   id: 'poffertjes', naam: 'Poffertjes',
@@ -208,7 +208,7 @@ RECEPTEN.push(
     { t: 'Schep de zuurkool, spekjes, ui en het uitgebakken vet erdoor. Breng op smaak met peper en eventueel mosterd; zout is meestal niet meer nodig.' },
     { t: 'Serveer met de rookworst in plakken en een kuiltje jus.' }
   ],
-  tips: ['Vind je zuurkool erg zuur? Spoel hem eerst kort af in een vergiet en knijp hem uit. Wil je het juist frisser, roer dan een scheutje zuurkoolvocht door de stamppot.'],
+  tips: ['Vind je zuurkool erg zuur? Spoel hem eerst kort af in een vergiet en knijp hem uit. Wil je het juist frisser, roer dan 2 el zuurkoolvocht door de stamppot.'],
   alt: [
     'Zuurkool met ananas: roer een uitgelekt blikje ananasstukjes en een theelepel kerriepoeder door de stamppot.',
     'Vegetarisch? Neem een vegetarische rookworst en roer 100 g blokjes belegen kaas door de warme stamppot in plaats van de spekjes.'
@@ -243,7 +243,7 @@ RECEPTEN.push(
   ],
   tips: ['Roer de andijvie er pas vlak voor het opscheppen door, dan blijft hij fris. Met een gehaktbal in jus ernaast heb je de echte zondagse versie.'],
   alt: [
-    'Vegetarisch? Laat het spek weg en roer 150 g blokjes belegen kaas en een handje geroosterde walnoten door de stamppot.',
+    'Vegetarisch? Laat het spek weg en roer 150 g blokjes belegen kaas en 30 g geroosterde walnoten door de stamppot.',
     'Liever zachte andijvie? Leg hem de laatste 5 minuten op de kokende aardappelen en stamp hem mee.'
   ]
 },
@@ -277,7 +277,7 @@ RECEPTEN.push(
     { t: 'Breng aan de kook, leg de deksel op de pan en laat 2½ uur heel zachtjes stoven op het kleinste vuur. Roer af en toe en voeg wat water toe als het te droog wordt.', m: 'braadpan', min: 150 },
     { t: 'Schep vlees, uien en vocht over in de slowcooker; 150 ml minder bouillon is genoeg, want er verdampt bijna niets. Gaar 7 à 8 uur op LOW of 4 uur op HIGH.', m: 'slowcooker', min: 240 },
     { t: 'Verkruimel de ontbijtkoek boven de saus en laat 10 minuten zonder deksel meekoken (in de slowcooker op HIGH), tot de saus gebonden en glanzend is.', min: 10 },
-    { t: 'Vis de laurierbladeren en kruidnagels eruit. Breng op smaak met zout, peper en eventueel nog een scheutje azijn: de saus moet zoetzuur zijn.' }
+    { t: 'Vis de laurierbladeren en kruidnagels eruit. Breng op smaak met zout, peper en eventueel nog 1 el azijn: de saus moet zoetzuur zijn.' }
   ],
   tips: ['Hachee is op de tweede dag nog lekkerder. Klassiek met gekookte aardappelen of puree en rode kool, of met stoofpeertjes ernaast.'],
   alt: ['In de oven: zet de Dutch oven met deksel 2½ à 3 uur op 150 °C. Dan brandt er niets aan en hoef je niet te roeren.']
@@ -301,7 +301,7 @@ RECEPTEN.push(
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in blokjes' },
     { n: 'knoflook', q: 1, u: 'teen' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'paprikapoeder', q: 1, u: 'tl' },
     { n: 'gedroogde oregano', q: 1, u: 'tl', x: 'of Italiaanse kruiden' },
     { n: 'ketchup', q: 2, u: 'el', opt: true },
@@ -314,7 +314,7 @@ RECEPTEN.push(
     { t: 'Kook de macaroni in ruim water met zout 1 minuut korter dan op de verpakking staat. Giet af.', min: 9 },
     { t: 'Verhit de olie in de hapjespan op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin. Bak de ui, paprika en knoflook 4 minuten mee.', min: 9 },
     { t: 'Roer de tomatenpuree, het paprikapoeder en de oregano erdoor en bak 1 minuut. Voeg de tomatenblokjes, ketchup en ham toe en laat 5 minuten zachtjes pruttelen. Breng op smaak met zout en peper.', min: 5 },
-    { t: 'Schep de macaroni door de saus. Te droog? Doe er een scheutje water bij.' },
+    { t: 'Schep de macaroni door de saus. Te droog? Doe er 2 el water bij.' },
     { t: 'Strooi de kaas erover, leg de deksel op de pan en laat 3 minuten op laag vuur staan tot de kaas gesmolten is.', m: 'hapjespan', min: 3 },
     { t: 'Schep de macaroni in de ovenschaal en strooi de kaas erover. Bak 15 minuten in het midden van de oven, tot de kaas goudbruin en knapperig is.', m: 'oven', min: 15 }
   ],
@@ -340,7 +340,7 @@ RECEPTEN.push(
     { n: 'bloemkool', q: 200, u: 'g', x: 'in kleine roosjes' },
     { n: 'prei', p: 'preien', q: 1, u: 'st', x: 'in dunne ringen' },
     { n: 'vermicelli', q: 50, u: 'g' },
-    { n: 'verse selderij', q: 1, u: 'handje', x: 'of peterselie, fijngesneden' },
+    { n: 'verse selderij', q: 10, u: 'g', x: 'of peterselie, fijngesneden' },
     { kop: 'Balletjes' },
     { n: 'rundergehakt', q: 300, u: 'g', x: 'of half-om-half' },
     { n: 'paneermeel', q: 2, u: 'el' },
@@ -440,7 +440,7 @@ RECEPTEN.push(
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'fijngesneden, met de zaadjes voor extra pit' },
     { n: 'sambal oelek', q: 2, u: 'tl', x: 'of meer als je het heel pittig wilt' },
     { n: 'bloem', q: 1, u: 'el' },
-    { n: 'perziken op siroop', q: 1, u: 'blik', x: 'ca. 410 g; laat ze uitlekken en bewaar 100 ml siroop' },
+    { n: 'perziken op siroop', q: 410, u: 'g', x: 'laat ze uitlekken en bewaar 100 ml siroop' },
     { n: 'kippenbouillon', q: 150, u: 'ml' },
     { n: 'kookroom', q: 250, u: 'ml', x: 'of 200 ml kokosmelk' },
     { n: 'zout' },
@@ -488,12 +488,12 @@ RECEPTEN.push(
     { t: 'Giet er een scheut melk bij en klop met de garde tot een dikke, gladde pap. Klop de rest van de melk er in 3 à 4 keer door; wacht steeds tot de saus weer glad is.' },
     { t: 'Breng al kloppend aan de kook en laat 3 minuten zachtjes doorkoken, tot de saus gebonden is en niet meer naar bloem smaakt.', min: 3 },
     { t: 'Haal de pan van het vuur en roer de kaas er in delen door tot hij gesmolten is. Laat de saus daarna niet meer koken, anders wordt de kaas draderig.' },
-    { t: 'Breng op smaak met mosterd, nootmuskaat, peper en zout. Te dik? Klop er een scheutje melk door.' }
+    { t: 'Breng op smaak met mosterd, nootmuskaat, peper en zout. Te dik? Klop er 2 el melk door.' }
   ],
   tips: ['Dit is een bechamelsaus met kaas; de Fransen noemen dat een mornaysaus. Klassiek over bloemkool of broccoli, of over witlof met ham: rol gekookte witlofstronken in een plak ham, schenk de saus erover en bak 20 minuten in de oven op 200 °C.'],
   alt: [
     'Meer smaak: neem oude kaas of een stuk Gruyère, met een snuf cayennepeper.',
-    'Glutenvrij: sla de roux over en bind de kokende melk met 2 el maïzena, aangelengd met een scheutje koude melk.'
+    'Glutenvrij: sla de roux over en bind de kokende melk met 2 el maïzena, aangelengd met 2 el koude melk.'
   ]
 },
 {

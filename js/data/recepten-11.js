@@ -95,7 +95,7 @@ RECEPTEN.push(
     { t: 'Rooster het brood en schep het roerei erop. Bestrooi met bieslook en peper.' }
   ],
   tips: ['Roerei gaart na op het bord. Haal het dus van het vuur net vóór het klaar lijkt.'],
-  alt: ['Geen crème fraîche? Een scheutje room of een extra klontje boter werkt ook.']
+  alt: ['Geen crème fraîche? 2 el room of een extra klontje boter werkt ook.']
 },
 {
   id: 'tortilla-patatas', naam: 'Tortilla de patatas', ook: ['spaanse tortilla', 'spaanse omelet'], keuken: 'Spaans', soort: 'Ontbijt & lunch',
@@ -144,7 +144,7 @@ RECEPTEN.push(
     { n: 'cherrytomaten', q: 150, u: 'g', x: 'gehalveerd' },
     { n: 'feta', q: 100, u: 'g' },
     { n: 'Parmezaanse kaas', q: 30, u: 'g', x: 'geraspt' },
-    { n: 'verse basilicum', q: 1, u: 'handje' },
+    { n: 'verse basilicum', q: 10, u: 'g' },
     { n: 'olijfolie', q: 2, u: 'el' }
   ],
   stappen: [
@@ -251,13 +251,13 @@ RECEPTEN.push(
   ingr: [
     { n: 'ei', p: 'eieren', q: 4, u: 'st' },
     { n: 'tortilla\'s', q: 4, u: 'st', x: 'klein, liefst van mais' },
-    { n: 'zwarte bonen', q: 1, u: 'blik', x: '400 g, uitgelekt' },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt' },
     { n: 'avocado', p: 'avocado\'s', q: 1, u: 'st' },
     { n: 'feta', q: 50, u: 'g', x: 'of queso fresco' },
-    { n: 'verse koriander', q: 1, u: 'handje' },
+    { n: 'verse koriander', q: 10, u: 'g' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st' },
     { kop: 'Salsa roja' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'ui', p: 'uien', q: 0.5, u: 'st' },
     { n: 'knoflook', q: 1, u: 'teen' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st' },
@@ -266,7 +266,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Salsa: bak ui, knoflook en jalapeño 3 minuten in 1 el olie. Voeg tomaten, komijn en zout toe en laat 10 minuten inkoken.', min: 13 },
-    { t: 'Warm de bonen op met een scheutje water en prak ze grof. Breng op smaak met zout en limoensap.', min: 3 },
+    { t: 'Warm de bonen op met 2 el water en prak ze grof. Breng op smaak met zout en limoensap.', min: 3 },
     { t: 'Bak de tortilla\'s 1 minuut per kant in de koekenpan met een drupje olie, tot ze licht krokant zijn.', min: 2 },
     { t: 'Bak de eieren als spiegelei in de rest van de olie, 3 minuten met de deksel erop.', min: 3 },
     { t: 'Besmeer de tortilla\'s met bonen, leg er een ei op en schep salsa eromheen. Maak af met avocado, feta, koriander en limoen.' }

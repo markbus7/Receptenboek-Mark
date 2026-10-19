@@ -34,14 +34,14 @@ window.VERVANGERS = [
   { n: ['sjalot'], per: { st: 0.5 }, u: 'st', wat: 'ui', mv: 'uien' },
 
   /* Verse kruiden: gedroogd is sterker, dus minder. Werkt goed in alles wat meekookt;
-     over een gerecht strooien kan ook, maar vers is daar mooier. */
-  { n: ['verse peterselie'], per: { el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde peterselie' },
-  { n: ['verse basilicum'], per: { el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde basilicum' },
-  { n: ['verse dille'], per: { el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde dille', tenzij: ['munt'] },
-  { n: ['verse munt'], per: { el: 1, handje: 2, bos: 3, takje: 0.25 }, u: 'tl', wat: 'gedroogde munt' },
-  { n: ['verse selderij'], per: { el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde selderij' },
-  { n: ['verse dragon'], per: { bos: 3 }, u: 'tl', wat: 'gedroogde dragon' },
-  { n: ['bieslook'], per: { el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde bieslook' },
+     over een gerecht strooien kan ook, maar vers is daar mooier. 10 g vers (een handje) is ± 1½ tl gedroogd. */
+  { n: ['verse peterselie'], per: { g: 0.15, el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde peterselie' },
+  { n: ['verse basilicum'], per: { g: 0.15, el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde basilicum' },
+  { n: ['verse dille'], per: { g: 0.15, el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde dille', tenzij: ['munt'] },
+  { n: ['verse munt'], per: { g: 0.15, el: 1, handje: 2, bos: 3, takje: 0.25 }, u: 'tl', wat: 'gedroogde munt' },
+  { n: ['verse selderij'], per: { g: 0.15, el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde selderij' },
+  { n: ['verse dragon'], per: { g: 0.2, bos: 3 }, u: 'tl', wat: 'gedroogde dragon' },
+  { n: ['bieslook'], per: { g: 0.15, el: 1, handje: 2, bos: 3 }, u: 'tl', wat: 'gedroogde bieslook' },
   { n: ['verse tijm'], per: { takje: 0.25 }, u: 'tl', wat: 'gedroogde tijm', tenzij: ['gedroogd'] },
   { n: ['verse koriander'], tekst: 'gedroogd smaakt naar weinig: laat hem weg of neem verse peterselie' },
   { n: ['thaise basilicum'], tekst: 'of gewone verse basilicum', tenzij: ['basilicum'] }

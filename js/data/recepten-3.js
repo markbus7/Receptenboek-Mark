@@ -14,7 +14,7 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
     { n: 'knoflook', q: 2, u: 'teen' },
     { n: 'prei', p: 'preien', q: 1, u: 'st', x: 'in dunne ringen' },
-    { n: 'nasikruiden', q: 1, u: 'zakje', x: 'of 2 tl ketoembar + 1 tl djinten' },
+    { n: 'nasikruiden', q: 2, u: 'el', x: 'droge kruidenmix; of 2 tl ketoembar + 1 tl djinten' },
     { n: 'sambal oelek', q: 1, u: 'tl' },
     { n: 'ketjap manis', q: 4, u: 'el' },
     { n: 'ei', p: 'eieren', q: 4, u: 'st', x: 'voor spiegeleieren' },
@@ -157,7 +157,7 @@ RECEPTEN.push(
     { n: 'vissaus', q: 1.5, u: 'el' },
     { n: 'bruine suiker', q: 1, u: 'tl' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st' },
-    { n: 'Thaise basilicum', q: 1, u: 'handje', x: 'of gewone basilicum' },
+    { n: 'Thaise basilicum', q: 10, u: 'g', x: 'of gewone basilicum' },
     { n: 'jasmijnrijst', q: 300, u: 'g' }
   ],
   stappen: [
@@ -168,7 +168,7 @@ RECEPTEN.push(
     { t: 'Laat 8 minuten zachtjes koken. Voeg de paprika toe en kook nog 2 minuten.', min: 10 },
     { t: 'Breng op smaak met vissaus, suiker en limoensap. Roer de basilicum erdoor en serveer met de rijst.' }
   ],
-  tips: ['Smaakt het te scherp? Voeg extra kokosmelk of een scheutje room toe.'],
+  tips: ['Smaakt het te scherp? Voeg extra kokosmelk of 2 el room toe.'],
   alt: ['Vegetarisch? Gebruik tofu of kikkererwten en sojasaus in plaats van vissaus. Controleer de currypasta: veel soorten bevatten garnalenpasta.']
 },
 {
@@ -186,7 +186,7 @@ RECEPTEN.push(
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st' },
     { n: 'vissaus', q: 3, u: 'el' },
     { n: 'limoen', p: 'limoenen', q: 2, u: 'st', x: 'sap' },
-    { n: 'verse koriander', q: 1, u: 'handje' }
+    { n: 'verse koriander', q: 10, u: 'g' }
   ],
   stappen: [
     { t: 'Breng kokosmelk, bouillon, citroengras, gember en gehalveerde peper aan de kook. Laat 5 minuten trekken.', min: 5 },
@@ -261,7 +261,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Kook de rijst volgens de verpakking. Stoom of kook de broccoli 4 minuten beetgaar.', min: 15 },
     { t: 'Breng sojasaus, mirin, honing en gember aan de kook in de steelpan. Roer de maïzena erdoor en laat 1 minuut binden tot een stroperige saus.', min: 2 },
-    { t: 'Bak de zalm met de velkant naar beneden 4 minuten in een scheutje olie op middelhoog vuur. Keer om en bak 2 minuten. Giet de helft van de saus erover en laat 1 minuut glaceren.', m: 'koekenpan', min: 7 },
+    { t: 'Bak de zalm met de velkant naar beneden 4 minuten in 1 el olie op middelhoog vuur. Keer om en bak 2 minuten. Giet de helft van de saus erover en laat 1 minuut glaceren.', m: 'koekenpan', min: 7 },
     { t: 'Leg de zalm met de velkant naar beneden op de voorverwarmde contactgrill en sluit de deksel. Grill 4 à 5 minuten. Leg hem op een bord en bestrijk met de helft van de saus.', m: 'contactgrill', min: 5 },
     { t: 'Bestrijk de zalm met de helft van de saus. Bak in de airfryer 8 à 10 minuten op 180 °C.', m: 'airfryer', min: 9 },
     { t: 'Bestrijk de zalm met de helft van de saus. Bak 12 à 15 minuten in de voorverwarmde oven op 200 °C.', m: 'oven', min: 13 },

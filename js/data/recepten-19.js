@@ -14,7 +14,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'boter', q: 200, u: 'g', x: 'op kamertemperatuur, zacht' },
     { n: 'suiker', q: 200, u: 'g', x: 'fijne kristalsuiker' },
-    { n: 'vanillesuiker', q: 1, u: 'zakje' },
+    { n: 'vanillesuiker', q: 8, u: 'g' },
     { n: 'ei', p: 'eieren', q: 4, u: 'st', x: 'op kamertemperatuur' },
     { n: 'zelfrijzend bakmeel', q: 200, u: 'g', x: 'of 200 g bloem met 2 tl bakpoeder' },
     { n: 'zout', q: 1, u: 'snuf' },

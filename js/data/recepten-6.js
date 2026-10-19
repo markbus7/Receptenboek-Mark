@@ -49,10 +49,10 @@ RECEPTEN.push(
     { n: 'rode paprika', p: 'rode paprika\'s', q: 2, u: 'st', x: 'in stukken' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'knoflook', q: 3, u: 'teen' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'verse tijm', q: 4, u: 'takje', x: 'of 1 tl gedroogd' },
     { n: 'olijfolie', q: 5, u: 'el' },
-    { n: 'verse basilicum', q: 1, u: 'handje' }
+    { n: 'verse basilicum', q: 10, u: 'g' }
   ],
   stappen: [
     { t: 'Bak de aubergine in 3 el olie 6 minuten in de braadpan op middelhoog vuur tot hij kleurt. Schep uit de pan.', m: 'braadpan', min: 6 },
@@ -160,7 +160,7 @@ RECEPTEN.push(
     { t: 'Meng met olie en zout. Bak 18 à 20 minuten in de airfryer op 200 °C. Schud elke 5 minuten.', m: 'airfryer', min: 20 },
     { t: 'Meng met olie en zout en spreid uit op de bakplaat. Rooster 30 à 35 minuten in een voorverwarmde oven op 220 °C. Keer halverwege.', m: 'oven', min: 32 },
     { t: 'Bak in 1 cm hete olie in 2 porties 8 à 10 minuten tot ze rondom goudbruin zijn. Laat uitlekken op keukenpapier.', m: 'koekenpan', min: 10 },
-    { t: 'Saus: bak de knoflook kort in een scheutje olie, voeg tomaat, paprikapoeder en cayenne toe en kook 8 minuten. Pureer of prak glad en voeg de azijn toe.', min: 8 },
+    { t: 'Saus: bak de knoflook kort in 1 el olie, voeg tomaat, paprikapoeder en cayenne toe en kook 8 minuten. Pureer of prak glad en voeg de azijn toe.', min: 8 },
     { t: 'Roer mayonaise en knoflook door elkaar. Schep beide sauzen over de warme aardappelen.' }
   ],
   tips: ['Het voorkoken en droog laten stomen zorgt voor de krokante buitenkant.'],

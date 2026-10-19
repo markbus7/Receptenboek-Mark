@@ -25,12 +25,12 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'gember', q: 20, u: 'g', x: 'geraspt' },
     { n: 'knoflook', q: 3, u: 'teen' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'kookroom', q: 150, u: 'ml' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'suiker', q: 1, u: 'tl' },
     { n: 'basmatirijst', q: 300, u: 'g' },
-    { n: 'verse koriander', q: 1, u: 'handje', opt: true }
+    { n: 'verse koriander', q: 10, u: 'g', opt: true }
   ],
   stappen: [
     { t: 'Meng de kip met de marinade en laat minimaal 30 minuten, of een nacht, marineren in de koelkast.', min: 30 },
@@ -51,19 +51,19 @@ RECEPTEN.push(
   intro: 'Kruidige kikkererwtencurry uit Noord-India. Volledig plantaardig en goedkoop.',
   gerei: [ { tool: 'hapjespan', tekst: 'Hapjespan of braadpan (26 cm) met deksel' } ],
   ingr: [
-    { n: 'kikkererwten', q: 2, u: 'blik', x: 'à 400 g, uitgelekt' },
+    { n: 'kikkererwten', q: 480, u: 'g', x: 'uitgelekt' },
     { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 3, u: 'teen' },
     { n: 'gember', q: 20, u: 'g', x: 'geraspt' },
     { n: 'groene peper', p: 'groene pepers', q: 1, u: 'st' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'komijnzaad', q: 1, u: 'tl' },
     { n: 'garam masala', q: 2, u: 'tl' },
     { n: 'kurkuma', q: 1, u: 'tl' },
     { n: 'gemalen koriander', q: 2, u: 'tl' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
-    { n: 'verse koriander', q: 1, u: 'handje' }
+    { n: 'verse koriander', q: 10, u: 'g' }
   ],
   stappen: [
     { t: 'Verhit de olie in de hapjespan. Bak het komijnzaad 30 seconden tot het geurt.' },
@@ -125,9 +125,9 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st' },
     { n: 'knoflook', q: 2, u: 'teen' },
-    { n: 'kidneybonen', q: 1, u: 'blik', x: '400 g, uitgelekt' },
-    { n: 'mais', q: 1, u: 'blik', x: '300 g, uitgelekt' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'kidneybonen', q: 240, u: 'g', x: 'uitgelekt' },
+    { n: 'mais', q: 285, u: 'g', x: 'uitgelekt' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'komijn', q: 2, u: 'tl' },
     { n: 'gerookt paprikapoeder', q: 2, u: 'tl' },
@@ -166,7 +166,7 @@ RECEPTEN.push(
     { n: 'avocado', p: 'avocado\'s', q: 2, u: 'st', x: 'rijp' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st' },
     { n: 'tomaat', p: 'tomaten', q: 1, u: 'st', x: 'in kleine blokjes' },
-    { n: 'verse koriander', q: 1, u: 'handje', opt: true }
+    { n: 'verse koriander', q: 10, u: 'g', opt: true }
   ],
   stappen: [
     { t: 'Meng kip, paprika en ui met de olie en de kruiden.' },
@@ -212,7 +212,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'tortilla\'s', q: 4, u: 'st', x: 'groot' },
     { n: 'geraspte kaas', q: 150, u: 'g', x: 'cheddar of belegen' },
-    { n: 'zwarte bonen', q: 1, u: 'blik', x: '400 g, uitgelekt' },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt' },
     { n: 'mais', q: 100, u: 'g' },
     { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st', opt: true },

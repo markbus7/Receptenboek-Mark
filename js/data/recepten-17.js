@@ -77,7 +77,7 @@ RECEPTEN.push(
     { n: 'champignons', q: 250, u: 'g', x: 'in plakjes' },
     { n: 'wortel', p: 'wortels', q: 1, u: 'st', x: 'in dunne schuine plakjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in partjes' },
-    { n: 'bamboescheuten', q: 1, u: 'blik', x: 'ca. 225 g, uitgelekt' },
+    { n: 'bamboescheuten', q: 225, u: 'g', x: 'uitgelekt' },
     { n: 'taugé', q: 200, u: 'g' },
     { n: 'knoflook', q: 2, u: 'teen' },
     { n: 'gember', q: 10, u: 'g', x: 'geraspt' },
@@ -98,7 +98,7 @@ RECEPTEN.push(
     { t: 'Verhit nog 1 el olie. Roerbak ui, wortel en paprika 2 minuten. Voeg champignons en bamboescheuten toe en roerbak nog 2 minuten.', min: 4 },
     { t: 'Bak knoflook, gember en de stelen van de kool 1 minuut mee. Voeg de bladeren en de taugé toe en roerbak 1 minuut, tot de kool net slinkt.', min: 2 },
     { t: 'Doe de kip terug. Roer de bindsaus nog even door (de maïzena zakt naar de bodem) en giet hem in de wok. Roerbak 1 à 2 minuten tot de saus bindt en glanst. De groente moet nog knapperig zijn.', min: 2 },
-    { t: 'Proef, breng eventueel op smaak met een scheutje sojasaus en serveer met de rijst.' }
+    { t: 'Proef, breng eventueel op smaak met 1 el sojasaus en serveer met de rijst.' }
   ],
   tips: ['Chop suey betekent zoiets als "allerlei stukjes": in Kanton een restjesgerecht, en nog steeds de ideale manier om de groentela leeg te maken.'],
   alt: ['Vegetarisch: vervang de kip door stevige tofu, gebruik groentebouillon en vegetarische oestersaus (op basis van paddenstoelen).']
@@ -118,7 +118,7 @@ RECEPTEN.push(
     { t: 'Verhit nog 1 el olie. Roerbak ui, wortel en paprika 2 minuten. Voeg champignons en bamboescheuten toe en roerbak nog 2 minuten.', min: 4 },
     { t: 'Bak knoflook, gember en de stelen van de kool 1 minuut mee. Voeg de bladeren en de taugé toe en roerbak 1 minuut, tot de kool net slinkt.', min: 2 },
     { t: 'Doe het vlees terug. Roer de bindsaus nog even door (de maïzena zakt naar de bodem) en giet hem in de wok. Roerbak 1 à 2 minuten tot de saus bindt en glanst. De groente moet nog knapperig zijn.', min: 2 },
-    { t: 'Proef, breng eventueel op smaak met een scheutje sojasaus en serveer met de rijst.' }
+    { t: 'Proef, breng eventueel op smaak met 1 el sojasaus en serveer met de rijst.' }
   ],
   alt: ['Vegetarisch: vervang het vlees door stevige tofu, gebruik groentebouillon en vegetarische oestersaus (op basis van paddenstoelen).']
 },
@@ -197,7 +197,7 @@ RECEPTEN.push(
     { n: 'groene paprika', p: 'groene paprika\'s', q: 1, u: 'st', x: 'in stukjes' },
     { n: 'knoflook', q: 1, u: 'teen' },
     { n: 'gember', q: 10, u: 'g', x: 'geraspt' },
-    { n: 'ananas', q: 1, u: 'blik', x: 'stukjes op sap, ca. 225 g; sap apart houden' },
+    { n: 'ananas', q: 225, u: 'g', x: 'stukjes op sap, uitgelekt gewogen; sap apart houden' },
     { n: 'ketchup', q: 3, u: 'el' },
     { n: 'azijn', q: 3, u: 'el', x: 'rijstazijn of witte azijn' },
     { n: 'suiker', q: 2, u: 'el' },
@@ -583,7 +583,7 @@ RECEPTEN.push(
     { n: 'sojasaus', q: 1, u: 'el' },
     { n: 'suiker', q: 1, u: 'el' },
     { kop: 'Erbij (optioneel)' },
-    { n: 'bonitovlokken', q: 1, u: 'handje', x: 'katsuobushi', opt: true },
+    { n: 'bonitovlokken', q: 5, u: 'g', x: 'katsuobushi', opt: true },
     { n: 'aonori', q: 1, u: 'tl', x: 'zeewiervlokken', opt: true },
     { n: 'benishoga', q: 2, u: 'el', x: 'rode ingelegde gember', opt: true }
   ],
@@ -671,7 +671,7 @@ RECEPTEN.push(
     { t: 'Kook de sushirijst: spoel hem in een zeef onder de koude kraan tot het water helder blijft. Breng hem met 480 ml water aan de kook in de pan met deksel, zet het vuur op de laagste stand en laat 12 minuten garen. Niet roeren en de deksel erop houden.', min: 12 },
     { t: 'Haal de pan van het vuur en laat de rijst 10 minuten nastomen met de deksel erop. Verwarm intussen rijstazijn, suiker en zout tot alles is opgelost (30 seconden in de magnetron of in een steelpannetje).', min: 10 },
     { t: 'Schep de rijst in een brede kom van hout, glas of plastic. Giet de sushi-azijn erover en spatel hem er met snijdende bewegingen door, zonder de korrels te pletten. Laat hem afgedekt met een vochtige doek in 30 minuten afkoelen tot kamertemperatuur.', min: 30 },
-    { t: 'Snijd zalm, komkommer (zonder zaadlijst) en avocado in reepjes van 1 cm dik. Halveer de surimi in de lengte en meng met de mayonaise. Wikkel het bamboe matje in vershoudfolie en zet een kommetje water met een scheutje rijstazijn klaar voor je handen.' },
+    { t: 'Snijd zalm, komkommer (zonder zaadlijst) en avocado in reepjes van 1 cm dik. Halveer de surimi in de lengte en meng met de mayonaise. Wikkel het bamboe matje in vershoudfolie en zet een kommetje water met 1 el rijstazijn klaar voor je handen.' },
     { t: 'Maki: leg een half vel nori met de ruwe kant naar boven op het matje. Verdeel met natte handen ca. 80 g rijst in een dunne laag erover en laat bovenaan 1 cm vrij. Leg een reepje zalm of komkommer over de breedte in het midden. Til het matje aan de onderkant op, rol strak over de vulling tot aan de vrije rand, rol verder en knijp de rol voorzichtig aan.' },
     { t: 'Uramaki: bedek een half vel nori helemaal met ca. 130 g rijst en strooi er sesamzaad over. Keer het vel om, zodat de rijst op de folie ligt. Leg surimi, avocado en komkommer op de nori en rol op zoals bij de maki. De folie zorgt dat de rijst niet aan het matje plakt.' },
     { t: 'Snijd met een scherp, nat mes elke maki in 6 en elke uramaki in 8 stukjes; veeg het mes na elke snee schoon met een natte doek. Serveer met sojasaus, wasabi en gember.' }
