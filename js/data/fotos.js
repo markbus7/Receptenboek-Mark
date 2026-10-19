@@ -612,17 +612,245 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Iksan_City_48_Korean_Style_Fried_chicken.jpg"
  },
+ "kruid-basilicum": {
+  "src": "img/kruid-basilicum.jpg",
+  "auteur": "Luwenn",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:L_Basil_1.jpg"
+ },
+ "kruid-bieslook": {
+  "src": "img/kruid-bieslook.jpg",
+  "auteur": "FotoosVanRobin",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Cut_Garlic_Chives.jpg"
+ },
+ "kruid-chili": {
+  "src": "img/kruid-chili.jpg",
+  "auteur": "Ajay Suresh",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Red_Chili_Powder_(Lall_Mirch)_(49695826571).jpg"
+ },
+ "kruid-citroengras": {
+  "src": "img/kruid-citroengras.jpg",
+  "auteur": "M Joko Apriyo Putro",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Foto_Resep_Bumbu_Rawon.jpg"
+ },
+ "kruid-currypasta": {
+  "src": "img/kruid-currypasta.jpg",
+  "auteur": "Helge Høifødt",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Curry_pastes_Thailand_(cropped).JPG"
+ },
+ "kruid-dille": {
+  "src": "img/kruid-dille.jpg",
+  "auteur": "Leecason",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Chopping_Fresh_Herbs.jpg"
+ },
+ "kruid-djeroek": {
+  "src": "img/kruid-djeroek.jpg",
+  "auteur": "Jpbrigand2",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:C_hystrix_kaffir_lime_leaves.jpg"
+ },
+ "kruid-dragon": {
+  "src": "img/kruid-dragon.jpg",
+  "auteur": "KVDP at English Wikipedia",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Dried_Taragon.JPG"
+ },
+ "kruid-fenegriek": {
+  "src": "img/kruid-fenegriek.jpg",
+  "auteur": "Thamizhpparithi Maari",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Dried_leaves_of_Fenugreek-Kasuri_Methi.jpg"
+ },
+ "kruid-garam-masala": {
+  "src": "img/kruid-garam-masala.jpg",
+  "auteur": "Miansari66",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Garam_Masala.JPG"
+ },
+ "kruid-italiaanse-kruiden": {
+  "src": "img/kruid-italiaanse-kruiden.jpg",
+  "auteur": "John Phelan",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Italian_Herb_Mix,_Penzeys_Spices,_Arlington_Heights_MA.jpg"
+ },
+ "kruid-kaneel": {
+  "src": "img/kruid-kaneel.jpg",
+  "auteur": "Luc Viatour",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Canelle_Cinnamomum_burmanni_Luc_Viatour.jpg"
+ },
+ "kruid-kardemom": {
+  "src": "img/kruid-kardemom.jpg",
+  "auteur": "Misterneedlemouse",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Green_Cardamom_Pods.jpg"
+ },
+ "kruid-karwij": {
+  "src": "img/kruid-karwij.jpg",
+  "auteur": "OttawaAC",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Caraway_Seed.jpg"
+ },
+ "kruid-knoflookpoeder": {
+  "src": "img/kruid-knoflookpoeder.jpg",
+  "auteur": "John Phelan",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Garlic_Powder,_Penzeys_Spices,_Arlington_Heights_MA.jpg"
+ },
+ "kruid-komijn": {
+  "src": "img/kruid-komijn.jpg",
+  "auteur": "Sanjay Acharya",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Seeds_of_Cumin.jpg"
+ },
  "kruid-koriander": {
   "src": "img/kruid-koriander.jpg",
   "auteur": "Kpsudeep",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Bunches_of_coriander_leaves.jpg"
  },
+ "kruid-korianderzaad": {
+  "src": "img/kruid-korianderzaad.jpg",
+  "auteur": "Sanjay Acharya",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Coriander_Seeds.jpg"
+ },
+ "kruid-kruidnagel": {
+  "src": "img/kruid-kruidnagel.jpg",
+  "auteur": "Jacek Halicki",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:2023_Go%C5%BAdziki.jpg"
+ },
+ "kruid-kurkuma": {
+  "src": "img/kruid-kurkuma.jpg",
+  "auteur": "Simon A. Eugster",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Curcuma_longa_roots.jpg"
+ },
+ "kruid-laos": {
+  "src": "img/kruid-laos.jpg",
+  "auteur": "Liza Daly (ld31337)",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Galangal.jpg"
+ },
+ "kruid-laurier": {
+  "src": "img/kruid-laurier.jpg",
+  "auteur": "Mauro Cateb",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Dried_bay_leaves.jpg"
+ },
+ "kruid-mosterdzaad": {
+  "src": "img/kruid-mosterdzaad.jpg",
+  "auteur": "Rainer Zenz",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Senf-Variationen.jpg"
+ },
+ "kruid-munt": {
+  "src": "img/kruid-munt.jpg",
+  "auteur": "Aviavlad",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Mint_leaves_raster.jpg"
+ },
+ "kruid-nasikruiden": {
+  "src": "img/kruid-nasikruiden.jpg",
+  "auteur": "Khlshnuramalina",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Bumbu_dan_Rempah-rempah.jpg"
+ },
+ "kruid-nootmuskaat": {
+  "src": "img/kruid-nootmuskaat.jpg",
+  "auteur": "Sajith Erattupetta",
+  "licentie": "CC BY 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Nutmeg_seed_and_skin.JPG"
+ },
+ "kruid-oregano": {
+  "src": "img/kruid-oregano.jpg",
+  "auteur": "Revital Salomon",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Dried_Oregano.JPG"
+ },
+ "kruid-paprikapoeder": {
+  "src": "img/kruid-paprikapoeder.jpg",
+  "auteur": "Ljiljana Sundać",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Aleva_paprika.jpg"
+ },
+ "kruid-patatkruiden": {
+  "src": "img/kruid-patatkruiden.jpg",
+  "auteur": "John Phelan",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Seasoned_Salt,_Penzeys_Spices,_Arlington_Heights_MA.jpg"
+ },
+ "kruid-peper": {
+  "src": "img/kruid-peper.jpg",
+  "auteur": "Misterneedlemouse",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Tellicherry_Black_Peppercorns.jpg"
+ },
  "kruid-peterselie": {
   "src": "img/kruid-peterselie.jpg",
   "auteur": "SarKaLay စာကလေး",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Parsley_leaves_(89358).jpg"
+ },
+ "kruid-ras-el-hanout": {
+  "src": "img/kruid-ras-el-hanout.jpg",
+  "auteur": "Sarefo",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Ras.el.hanout.jpg"
+ },
+ "kruid-saffraan": {
+  "src": "img/kruid-saffraan.jpg",
+  "auteur": "Rainer Zenz",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Iran_saffron_threads.jpg"
+ },
+ "kruid-shoarmakruiden": {
+  "src": "img/kruid-shoarmakruiden.jpg",
+  "auteur": "Qrdaaa",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Types_of_spices_being_shown.jpg"
+ },
+ "kruid-steranijs": {
+  "src": "img/kruid-steranijs.jpg",
+  "auteur": "Sanjay Acharya",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Dried_Star_Anise_Fruit_Seeds.jpg"
+ },
+ "kruid-tandoori": {
+  "src": "img/kruid-tandoori.jpg",
+  "auteur": "Rich Bowen",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Tandoori_Masala_(3594429661).jpg"
+ },
+ "kruid-tijm": {
+  "src": "img/kruid-tijm.jpg",
+  "auteur": "Henna",
+  "licentie": "CC BY-SA 1.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Thyme-spice.jpg"
+ },
+ "kruid-vanille": {
+  "src": "img/kruid-vanille.jpg",
+  "auteur": "Vanilla_6beans.JPG: B.navez derivative work: Andrzej 22 (tal",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Vanilla_6beans_(rot._90_deg.).JPG"
+ },
+ "kruid-vijfkruiden": {
+  "src": "img/kruid-vijfkruiden.jpg",
+  "auteur": "Tim Sackton",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Five_spices_detailed.jpg"
+ },
+ "kruid-zuiveringszout": {
+  "src": "img/kruid-zuiveringszout.jpg",
+  "auteur": "Thavox",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Sodium_bicarbonate.jpg"
  },
  "kung-pao-kip": {
   "src": "img/kung-pao-kip.jpg",
