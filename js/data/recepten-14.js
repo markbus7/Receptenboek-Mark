@@ -15,7 +15,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 3, u: 'st' },
     { n: 'melk', q: 550, u: 'ml' },
     { n: 'boter', q: 50, u: 'g', x: '30 g voor het beslag, de rest om de pan in te vetten' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { kop: 'Vulling' },
     { n: 'suiker', q: 4, u: 'el' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st' },
@@ -56,7 +56,7 @@ RECEPTEN.push(
     { n: 'boter', q: 25, u: 'g', x: 'plus een klontje zachte boter voor de contactgrill' },
     { n: 'bloem', q: 25, u: 'g' },
     { n: 'melk', q: 250, u: 'ml' },
-    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
+    { n: 'nootmuskaat', q: 1, u: 'snuf' },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
@@ -204,7 +204,7 @@ RECEPTEN.push(
     { kop: 'Saus' },
     { n: 'eidooier', p: 'eidooiers', q: 3, u: 'st' },
     { n: 'boter', q: 175, u: 'g' },
-    { n: 'cayennepeper', q: 0.125, u: 'tl', opt: true },
+    { n: 'cayennepeper', q: 1, u: 'snuf', opt: true },
     { n: 'zout' }
   ],
   stappen: [
@@ -241,16 +241,16 @@ RECEPTEN.push(
     { n: 'boter', q: 175, u: 'g' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap, ca. 1 el' },
     { n: 'water', q: 1, u: 'el' },
-    { n: 'cayennepeper', q: 0.125, u: 'tl', opt: true },
+    { n: 'cayennepeper', q: 1, u: 'snuf', opt: true },
     { n: 'zout' }
   ],
   stappen: [
     { t: 'Smelt de boter op laag vuur in het steelpannetje en schep het schuim eraf. Laat hem iets afkoelen: warm, maar niet heet.', m: 'kookpan' },
-    { t: 'Breng in de steelpan 3 cm water aan de kook en zet het vuur laag, zodat het water net niet kookt. Klop in de kom de dooiers los met het water, 1 el citroensap en ⅛ tl zout.', m: 'kookpan' },
+    { t: 'Breng in de steelpan 3 cm water aan de kook en zet het vuur laag, zodat het water net niet kookt. Klop in de kom de dooiers los met het water, 1 el citroensap en een snuf zout.', m: 'kookpan' },
     { t: 'Zet de kom op de pan (de bodem mag het water niet raken) en klop 3 à 4 minuten, tot het mengsel dik en schuimig is en de garde een spoor achterlaat. Til de kom even van de pan als het te heet wordt.', m: 'kookpan', min: 4 },
     { t: 'Haal de kom van de pan. Klop de boter er eerst druppel voor druppel door, daarna in een dun straaltje, tot een dikke, glanzende saus. Laat het melkachtige bezinksel onderin het pannetje achter.', m: 'kookpan' },
     { t: 'Smelt de boter in het steelpannetje en verhit hem tot hij schuimt en net begint te borrelen. Hij moet echt heet zijn: daarmee garen de dooiers.', m: 'staafmixer' },
-    { t: 'Doe dooiers, water, 1 el citroensap en ⅛ tl zout in de hoge beker. Zet de staafmixer op de bodem, zet hem aan en giet de hete boter er in een dun straaltje bij. Beweeg de mixer langzaam omhoog als de saus dik wordt. Na ongeveer een minuut is hij klaar.', m: 'staafmixer' },
+    { t: 'Doe dooiers, water, 1 el citroensap en een snuf zout in de hoge beker. Zet de staafmixer op de bodem, zet hem aan en giet de hete boter er in een dun straaltje bij. Beweeg de mixer langzaam omhoog als de saus dik wordt. Na ongeveer een minuut is hij klaar.', m: 'staafmixer' },
     { t: 'Breng de saus op smaak met zout, citroensap en eventueel cayenne. Te dik? Roer er een theelepel warm water door. Serveer meteen, of houd hem tot een uur warm in een kom boven warm (niet heet) water.' }
   ],
   tips: [
@@ -273,7 +273,7 @@ RECEPTEN.push(
     { n: 'boter', q: 40, u: 'g' },
     { n: 'bloem', q: 40, u: 'g' },
     { n: 'melk', q: 500, u: 'ml' },
-    { n: 'nootmuskaat', q: 0.125, u: 'tl', x: 'versgeraspt' },
+    { n: 'nootmuskaat', q: 1, u: 'snuf', x: 'versgeraspt' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 1, u: 'st', opt: true },
     { n: 'zout' },
     { n: 'peper', x: 'liefst wit' }
@@ -317,7 +317,7 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'rode wijn', q: 150, u: 'ml', x: 'of droge witte wijn', opt: true },
     { n: 'melk', q: 150, u: 'ml' },
-    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'passata', q: 250, u: 'ml' },
     { n: 'runderbouillon', q: 250, u: 'ml', x: 'of water' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 1, u: 'st' },
@@ -358,11 +358,11 @@ RECEPTEN.push(
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
     { n: 'vastkokende aardappelen', q: 250, u: 'g', x: 'in blokjes van 1 cm' },
-    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'groentebouillon', q: 1.5, u: 'l' },
     { n: 'courgette', p: 'courgettes', q: 1, u: 'st', x: 'in blokjes' },
     { n: 'sperziebonen', q: 150, u: 'g', x: 'in stukjes van 2 cm' },
-    { n: 'witte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g; bijvoorbeeld cannellini' },
+    { n: 'witte bonen', q: 240, u: 'g', x: 'uitgelekt; bijvoorbeeld cannellini' },
     { n: 'soeppasta', q: 100, u: 'g', x: 'ditalini, kleine elleboogjes of gebroken spaghetti' },
     { n: 'spinazie', q: 100, u: 'g', x: 'of savooiekool in reepjes' },
     { n: 'verse basilicum', q: 10, u: 'g' },
@@ -470,20 +470,20 @@ RECEPTEN.push(
     { tool: 'staafmixer', tekst: 'Staafmixer, als je een gladde saus wilt', of: 'Geen staafmixer? Gebruik passata in plaats van tomatenblokjes.' }
   ],
   ingr: [
-    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'een blik is 400 g; of 800 ml passata' },
+    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'of 800 ml passata' },
     { n: 'olijfolie', q: 3, u: 'el' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'in plakjes' },
     { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'gepeld, in één stuk; zie tip', opt: true },
     { n: 'verse basilicum', q: 10, u: 'g' },
-    { n: 'suiker', q: 0.125, u: 'tl', opt: true },
+    { n: 'suiker', q: 1, u: 'snuf', opt: true },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
     { t: 'Verwarm de olie in de hapjespan op middellaag vuur. Bak de knoflook 1 à 2 minuten zachtjes, tot hij geurt maar nog niet kleurt.', min: 2 },
-    { t: 'Voeg de tomaten, de halve ui (met de snijkant naar beneden), een paar basilicumsteeltjes en ⅛ tl zout toe. Breng aan de kook.' },
+    { t: 'Voeg de tomaten, de halve ui (met de snijkant naar beneden), een paar basilicumsteeltjes en een snuf zout toe. Breng aan de kook.' },
     { t: 'Zet het vuur laag en laat de saus 20 à 30 minuten zachtjes pruttelen zonder deksel, of met de deksel op een kier tegen spatten. Roer af en toe. De saus is klaar als hij is ingedikt en de olie aan de rand glanst.', min: 25 },
     { t: 'Vis de ui en de steeltjes eruit. Wil je een gladde saus? Pureer hem kort met de staafmixer.' },
-    { t: 'Proef: is de saus wat zuur, voeg dan ⅛ tl suiker toe. Breng op smaak met zout en peper en scheur er vlak voor het serveren de basilicumblaadjes door.' }
+    { t: 'Proef: is de saus wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper en scheur er vlak voor het serveren de basilicumblaadjes door.' }
   ],
   tips: [
     'De beroemde saus van Marcella Hazan: vervang de olijfolie en de knoflook door 70 g boter en laat de 2 blikken tomaten met een gepelde, gehalveerde ui 45 minuten zachtjes sudderen. Vis de ui eruit. Zacht, zoet en fluweelzacht, met verrassend weinig moeite.',
@@ -522,9 +522,9 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
-    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'een blik is 400 g; of 800 ml passata' },
+    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'of 800 ml passata' },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },
-    { n: 'suiker', q: 0.125, u: 'tl', opt: true },
+    { n: 'suiker', q: 1, u: 'snuf', opt: true },
     { n: 'verse basilicum', q: 10, u: 'g', opt: true },
     { kop: 'Erbij' },
     { n: 'spaghetti', q: 400, u: 'g', x: 'of brood', opt: true },
@@ -535,10 +535,10 @@ RECEPTEN.push(
     { t: 'Verhit 2 el olijfolie in de braadpan op middelhoog vuur. Bak de ballen in 6 à 8 minuten rondom bruin, in twee porties als de pan te vol wordt. Haal ze eruit; ze hoeven nog niet gaar te zijn.', m: 'braadpan', min: 7 },
     { t: 'Bak de ballen 8 minuten in de airfryer op 200 °C tot ze rondom bruin zijn. Ze hoeven nog niet gaar te zijn. Verhit intussen 2 el olijfolie in de braadpan.', m: 'airfryer', min: 8 },
     { t: 'Doe de rest van de olie in de pan en fruit de ui 4 minuten op middelhoog vuur. Bak knoflook en tomatenpuree 1 minuut mee.', min: 5 },
-    { t: 'Voeg tomaten, oregano en ⅛ tl zout toe en breng aan de kook. Leg de gehaktballen in de saus.' },
+    { t: 'Voeg tomaten, oregano en een snuf zout toe en breng aan de kook. Leg de gehaktballen in de saus.' },
     { t: 'Zet het vuur laag en laat 20 à 25 minuten zachtjes garen met de deksel op een kier. Keer de ballen halverwege voorzichtig. De saus is klaar als hij is ingedikt.', min: 22 },
     { t: 'Kook intussen de spaghetti beetgaar in ruim water met zout.', min: 10 },
-    { t: 'Proef de saus: is hij wat zuur, voeg dan ⅛ tl suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
+    { t: 'Proef de saus: is hij wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
   ],
   tips: [
     'Steek een thermometer in een bal: bij 70 °C in het midden is hij gaar. Zonder thermometer: snijd er één doormidden, hij mag niet meer roze zijn.',
@@ -567,7 +567,7 @@ RECEPTEN.push(
     { n: 'Parmezaanse kaas', q: 50, u: 'g', x: 'fijn geraspt; of een vegetarische Italiaanse harde kaas' },
     { n: 'pecorino', q: 20, u: 'g', x: 'liefst Pecorino Sardo, fijn geraspt; of extra Parmezaan', opt: true },
     { n: 'olijfolie', q: 100, u: 'ml', x: 'extra vierge, liefst een milde' },
-    { n: 'zout', q: 0.125, u: 'tl', x: 'grof' }
+    { n: 'zout', q: 1, u: 'snuf', x: 'grof' }
   ],
   stappen: [
     { t: 'Rooster de pijnboompitten in de droge koekenpan op middelhoog vuur 2 à 3 minuten goudbruin; schud de pan regelmatig. Laat ze afkoelen op een bord.', min: 3 },

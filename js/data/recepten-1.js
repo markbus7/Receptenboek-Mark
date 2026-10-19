@@ -56,7 +56,7 @@ RECEPTEN.push(
     { n: 'boter', q: 50, u: 'g' },
     { n: 'bloem', q: 50, u: 'g' },
     { n: 'melk', q: 600, u: 'ml' },
-    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
+    { n: 'nootmuskaat', q: 1, u: 'snuf' },
     { kop: 'Verder' },
     { n: 'lasagnebladen', q: 250, u: 'g', x: 'ca. 12 vellen' },
     { n: 'geraspte kaas', q: 150, u: 'g', x: 'mozzarella of belegen' }
@@ -156,11 +156,11 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'penne', q: 400, u: 'g' },
-    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'een blik is 400 g' },
+    { n: 'tomatenblokjes', q: 800, u: 'g' },
     { n: 'knoflook', q: 4, u: 'teen', x: 'in plakjes' },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'of 1 tl chilivlokken' },
     { n: 'olijfolie', q: 4, u: 'el' },
-    { n: 'suiker', q: 0.125, u: 'tl' },
+    { n: 'suiker', q: 1, u: 'snuf' },
     { n: 'verse peterselie', q: 10, u: 'g' },
     { n: 'Parmezaanse kaas', q: 40, u: 'g', opt: true, x: 'om te serveren' }
   ],

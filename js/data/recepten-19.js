@@ -14,10 +14,10 @@ RECEPTEN.push(
   ingr: [
     { n: 'boter', q: 200, u: 'g', x: 'op kamertemperatuur, zacht' },
     { n: 'suiker', q: 200, u: 'g', x: 'fijne kristalsuiker' },
-    { n: 'vanillesuiker', q: 8, u: 'g', x: 'een zakje is 8 g' },
+    { n: 'vanillesuiker', q: 8, u: 'g' },
     { n: 'ei', p: 'eieren', q: 4, u: 'st', x: 'op kamertemperatuur' },
     { n: 'zelfrijzend bakmeel', q: 200, u: 'g', x: 'of 200 g bloem met 2 tl bakpoeder' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'alleen de geraspte schil', opt: true },
     { n: 'melk', q: 2, u: 'el', opt: true },
     { n: 'cacaopoeder', q: 2, u: 'el', x: 'alleen voor marmercake', opt: true }

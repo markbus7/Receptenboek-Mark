@@ -136,7 +136,7 @@ RECEPTEN.push(
     { n: 'verse tijm', q: 2, u: 'takje' },
     { n: 'half-om-half gehakt', q: 300, u: 'g', x: 'of kalfsgehakt' },
     { n: 'paneermeel', q: 2, u: 'el' },
-    { n: 'nootmuskaat', q: 0.25, u: 'tl' },
+    { n: 'nootmuskaat', q: 2, u: 'snuf' },
     { n: 'champignons', q: 250, u: 'g', x: 'in kwarten' },
     { kop: 'Saus' },
     { n: 'boter', q: 60, u: 'g' },
@@ -150,7 +150,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Breng de bouillon met laurier en tijm aan de kook in de Dutch oven. Leg de kipfilet erin, zet het vuur laag en laat de kip met de deksel erop 15 minuten zachtjes trekken.', min: 15 },
-    { t: 'Meng intussen het gehakt met het paneermeel, ⅛ tl nootmuskaat, zout en peper. Draai er met natte handen balletjes van zo groot als een knikker (ca. 30 stuks).' },
+    { t: 'Meng intussen het gehakt met het paneermeel, een snuf nootmuskaat, zout en peper. Draai er met natte handen balletjes van zo groot als een knikker (ca. 30 stuks).' },
     { t: 'Haal de kip uit de pan. Pocheer de balletjes en de champignons 5 minuten in de zacht kokende bouillon. Schep ze eruit en giet de bouillon door een zeef in een maatbeker: je hebt 750 ml nodig.', min: 5 },
     { t: 'Smelt de boter in de lege pan op middelhoog vuur. Roer de bloem erdoor en laat 1 minuut garen. Klop de warme bouillon er scheutje voor scheutje door met de garde, tot een gladde, dikke saus. Laat 5 minuten zachtjes koken en roer af en toe.', min: 5 },
     { t: 'Klop de room met de eidooier en het citroensap los. Zet het vuur laag en roer het mengsel door de saus. Breng op smaak met zout, peper en nootmuskaat.' },
@@ -184,7 +184,7 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
     { n: 'boter', q: 80, u: 'g', x: '30 g voor de prei, 20 g voor de worst, 30 g voor de stoemp' },
     { n: 'melk', q: 100, u: 'ml', x: 'warm' },
-    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
+    { n: 'nootmuskaat', q: 1, u: 'snuf' },
     { n: 'braadworst', p: 'braadworsten', q: 4, u: 'st', x: 'ca. 150 g per stuk, of grove verse worst van de slager' },
     { n: 'mosterd', q: 4, u: 'tl', opt: true, x: 'om erbij te geven' },
     { n: 'zout' }, { n: 'peper' }
@@ -216,7 +216,7 @@ RECEPTEN.push(
     { n: 'bloem', q: 500, u: 'g' },
     { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
     { n: 'suiker', q: 30, u: 'g' },
-    { n: 'vanillesuiker', q: 8, u: 'g', x: 'een zakje is 8 g' },
+    { n: 'vanillesuiker', q: 8, u: 'g' },
     { n: 'zout', q: 0.5, u: 'tl' },
     { n: 'melk', q: 150, u: 'ml', x: 'lauw' },
     { n: 'ei', p: 'eieren', q: 2, u: 'st', x: 'op kamertemperatuur' },
@@ -316,7 +316,7 @@ RECEPTEN.push(
   ],
   tips: [
     'Geschift? Doe een nieuwe eidooier of 1 el mosterd in een schone kom en klop de geschifte mayonaise er druppel voor druppel door. Dan komt hij alsnog goed.',
-    'Belgische frietsauzen: voor andalouse roer je 4 el mayonaise met 1 el tomatenpuree, ⅛ tl paprikapoeder, wat fijngehakte paprika en ui en een paar druppels citroensap. Voor samurai roer je 1 à 2 tl harissa of sambal oelek door 4 el mayonaise.'
+    'Belgische frietsauzen: voor andalouse roer je 4 el mayonaise met 1 el tomatenpuree, een snuf paprikapoeder, wat fijngehakte paprika en ui en een paar druppels citroensap. Voor samurai roer je 1 à 2 tl harissa of sambal oelek door 4 el mayonaise.'
   ],
   alt: [
     'Knoflookmayonaise: roer 1 fijngeperste teen knoflook en 1 el citroensap door de mayonaise.',
@@ -435,8 +435,8 @@ RECEPTEN.push(
     { n: 'bloem', q: 125, u: 'g' },
     { n: 'melk', q: 250, u: 'ml' },
     { n: 'suiker', q: 30, u: 'g' },
-    { n: 'vanillesuiker', q: 8, u: 'g', x: 'een zakje is 8 g' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'vanillesuiker', q: 8, u: 'g' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { n: 'rozijnen', q: 40, u: 'g' },
     { n: 'boter', q: 40, u: 'g' },
     { n: 'poedersuiker', q: 3, u: 'el', x: '1 el om te karamelliseren, de rest om te bestuiven' },
@@ -502,7 +502,7 @@ RECEPTEN.push(
     'In Berlijn eet je currywurst staand, met een plastic prikkertje uit een kartonnen bakje. Neem je er friet met ketchup én mayonaise bij, dan bestel je Pommes rot-weiß.'
   ],
   alt: [
-    'Pittiger: gebruik hete kerriepoeder of roer ⅛ tl cayennepeper of een theelepel sambal door de saus.',
+    'Pittiger: gebruik hete kerriepoeder of roer een snuf cayennepeper of een theelepel sambal door de saus.',
     'Vegetarisch: gebruik vegetarische braadworsten en bak ze volgens de verpakking.'
   ]
 },

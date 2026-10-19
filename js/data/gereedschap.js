@@ -44,6 +44,33 @@ window.EENHEDEN = {
   handje: { e: 'handje', m: 'handjes', soort: 'lepel' }
 };
 
+/* Verpakkingen in gram, om naast het gewicht te tonen: "1 zakje vanillesuiker (8 g)".
+   Recepten staan in gram (dan klopt het ook met een pot of een grote zak); de app rekent het
+   aantal zakjes, bossen of blikken uit voor het aantal personen dat je kookt.
+   Bij bonen en mais is het gewicht uitgelekt. */
+window.PAKMATEN = {
+  vanillesuiker: { zakje: 8 },
+  'verse peterselie': { bos: 30, handje: 10 },
+  'verse koriander': { bos: 30, handje: 10 },
+  'verse basilicum': { bos: 25, handje: 10 },
+  'thaise basilicum': { handje: 10 },
+  'verse munt': { bos: 30, handje: 10 },
+  'verse dille': { bos: 20, handje: 10 },
+  'verse selderij': { bos: 30, handje: 10 },
+  'verse dragon': { bos: 15 },
+  bieslook: { bos: 25 },
+  tomatenblokjes: { blik: 400 },
+  kikkererwten: { blik: 240 },
+  'zwarte bonen': { blik: 240 },
+  'witte bonen': { blik: 240 },
+  kidneybonen: { blik: 240 },
+  mais: { blik: 285 },
+  'perziken op siroop': { blik: 410 },
+  'baked beans': { blik: 415 },
+  bamboescheuten: { blik: 225 },
+  ananas: { blik: 225 }
+};
+
 /* Pannen die je zelf aanvinkt onder "Mijn keuken". Recepten gebruiken de algemene namen
    hierboven (braadpan, koekenpan, hapjespan); deze lijst bepaalt welk advies je krijgt. */
 window.PANNEN = {

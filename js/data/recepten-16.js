@@ -277,7 +277,7 @@ RECEPTEN.push(
     { t: 'Verhit 1 el olie in de wok op hoog vuur tot hij begint te roken. Bak de knoflook 10 seconden, voeg de kip toe en roerbak 3 minuten tot hij net gaar is. Doe de broccoli erbij met 1 el water en roerbak nog 2 minuten. Schep alles uit de wok.', min: 5 },
     { t: 'Verhit de rest van de olie. Doe de noedels en de saus erin en schep om tot ze egaal bruin zijn. Laat ze dan 30 à 45 seconden ongestoord liggen, zodat ze schroeien en hier en daar karamelliseren. Schep om en herhaal dat twee keer.', min: 3 },
     { t: 'Schuif de noedels naar de rand, breek de eieren in het midden, laat ze 20 seconden stollen en roer ze grof los. Schep ze door de noedels.' },
-    { t: 'Doe kip en broccoli terug en schep 30 seconden om. Proef: meer sojasaus voor zout, ⅛ tl suiker voor zoet. Serveer met de pepers in azijn.' }
+    { t: 'Doe kip en broccoli terug en schep 30 seconden om. Proef: meer sojasaus voor zout, een snuf suiker voor zoet. Serveer met de pepers in azijn.' }
   ],
   tips: [
     'Het geheim is niet te veel roeren: de donkere, licht verbrande plekjes op de noedels geven de smaak.',
@@ -300,7 +300,7 @@ RECEPTEN.push(
     { t: 'Verhit 1 el olie in de wok op hoog vuur tot hij begint te roken. Bak de knoflook 10 seconden, voeg het vlees toe en roerbak 1 à 2 minuten tot het bruin is maar vanbinnen nog rosé. Schep het uit de wok. Roerbak de broccoli met 1 el water 2 minuten en schep hem erbij.', min: 4 },
     { t: 'Verhit de rest van de olie. Doe de noedels en de saus erin en schep om tot ze egaal bruin zijn. Laat ze dan 30 à 45 seconden ongestoord liggen, zodat ze schroeien en hier en daar karamelliseren. Schep om en herhaal dat twee keer.', min: 3 },
     { t: 'Schuif de noedels naar de rand, breek de eieren in het midden, laat ze 20 seconden stollen en roer ze grof los. Schep ze door de noedels.' },
-    { t: 'Doe vlees en broccoli terug en schep 30 seconden om. Proef: meer sojasaus voor zout, ⅛ tl suiker voor zoet. Serveer met de pepers in azijn.' }
+    { t: 'Doe vlees en broccoli terug en schep 30 seconden om. Proef: meer sojasaus voor zout, een snuf suiker voor zoet. Serveer met de pepers in azijn.' }
   ],
   alt: ['Vegetarisch: stevige tofu in plaats van vlees en vegetarische oestersaus van paddenstoelen.']
 },
@@ -401,7 +401,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
-    { t: 'Bestrooi de kip met ⅛ tl zout en de maïzena en schep om. Roer de ingrediënten voor de saus door elkaar.' },
+    { t: 'Bestrooi de kip met een snuf zout en de maïzena en schep om. Roer de ingrediënten voor de saus door elkaar.' },
     { t: 'Rooster de cashewnoten in de droge wok op middelhoog vuur 3 à 4 minuten goudbruin; schud regelmatig. Schep ze uit. Bak de gedroogde pepers 30 seconden in 1 el olie tot ze donkerrood zijn, niet zwart. Schep ze uit.', min: 4 },
     { t: 'Verhit de rest van de olie in de wok op hoog vuur. Bak de kip in 2 delen, elke keer 4 minuten, tot hij goudbruin en gaar is. Schep hem uit.', min: 8 },
     { t: 'Roerbak knoflook en ui 1 minuut, voeg de paprika toe en roerbak nog 2 minuten. De groente moet knapperig blijven.', min: 3 },
@@ -564,7 +564,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Meng oestersaus, sojasaus, vissaus, suiker, de helft van de knoflook, 1 el olie en de peper. Schep het vlees erdoor en laat 30 minuten marineren buiten de koelkast.', min: 30 },
     { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
-    { t: 'Salade: meng de rode ui met azijn, suiker en ⅛ tl zout en laat 10 minuten staan. Leg waterkers en tomaat op een schaal en schep de ui met het zuur erover.' },
+    { t: 'Salade: meng de rode ui met azijn, suiker en een snuf zout en laat 10 minuten staan. Leg waterkers en tomaat op een schaal en schep de ui met het zuur erover.' },
     { t: 'Dip: verdeel zout en peper over kleine schaaltjes en zet ze met limoenpartjes op tafel. Iedereen knijpt er zelf limoen over en roert.' },
     { t: 'Verhit de wok op het hoogste vuur tot hij rookt en doe er dan pas 1 el olie in. Leg de helft van het vlees in één laag in de pan en laat 1 minuut ongestoord bakken tot er een bruine korst op zit.', min: 1 },
     { t: 'Schud de pan flink heen en weer (lúc lắc betekent schudden) en bak nog 1 à 2 minuten, tot het vlees rondom bruin maar vanbinnen nog rosé is. Schep uit en bak de rest net zo.', min: 2 },
@@ -587,7 +587,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Meng oestersaus, sojasaus, vissaus, suiker, de helft van de knoflook, 1 el olie en de peper. Schep de kip erdoor en laat 30 minuten marineren in de koelkast.', min: 30 },
     { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
-    { t: 'Salade: meng de rode ui met azijn, suiker en ⅛ tl zout en laat 10 minuten staan. Leg waterkers en tomaat op een schaal en schep de ui met het zuur erover.' },
+    { t: 'Salade: meng de rode ui met azijn, suiker en een snuf zout en laat 10 minuten staan. Leg waterkers en tomaat op een schaal en schep de ui met het zuur erover.' },
     { t: 'Dip: verdeel zout en peper over kleine schaaltjes en zet ze met limoenpartjes op tafel. Iedereen knijpt er zelf limoen over en roert.' },
     { t: 'Verhit de wok op het hoogste vuur tot hij rookt en doe er dan pas 1 el olie in. Leg de helft van de kip in één laag in de pan en laat 2 minuten ongestoord bakken tot er een bruine korst op zit.', min: 2 },
     { t: 'Schud de pan flink heen en weer (lúc lắc betekent schudden) en bak nog 3 à 4 minuten, tot de kip rondom bruin en helemaal gaar is. Schep uit en bak de rest net zo.', min: 4 },
@@ -669,7 +669,7 @@ RECEPTEN.push(
     { n: 'black pudding', q: 2, u: 'plak', x: 'of bloedworst', opt: true },
     { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'gehalveerd' },
     { n: 'champignons', q: 150, u: 'g', x: 'in plakjes' },
-    { n: 'baked beans', q: 415, u: 'g', x: 'in tomatensaus; een blik is 415 g' },
+    { n: 'baked beans', q: 415, u: 'g', x: 'in tomatensaus' },
     { n: 'ei', p: 'eieren', q: 2, u: 'st' },
     { n: 'brood', q: 4, u: 'plak', x: 'wit, om te toasten' },
     { n: 'boter', q: 30, u: 'g' },
@@ -721,7 +721,7 @@ RECEPTEN.push(
     { n: 'boter', q: 75, u: 'g' },
     { n: 'bruine suiker', q: 150, u: 'g' },
     { n: 'slagroom', q: 250, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus)' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { kop: 'Erbij' },
     { n: 'vanille-ijs', q: 500, u: 'ml', x: 'of warme custard' }
   ],
@@ -764,7 +764,7 @@ RECEPTEN.push(
     { n: 'boter', q: 100, u: 'g', x: 'koud, in blokjes' },
     { n: 'bruine suiker', q: 75, u: 'g' },
     { n: 'havermout', q: 40, u: 'g', opt: true },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { kop: 'Erbij' },
     { n: 'custard', q: 500, u: 'ml', x: 'warm; of vanillevla of vanille-ijs' }
   ],

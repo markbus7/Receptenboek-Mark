@@ -7,8 +7,9 @@ const path = require('path');
 const vm = require('vm');
 
 const map = path.join(__dirname, '..', 'js', 'data');
-/* Maten die per verpakking of per hand verschillen. Recepten gebruiken g, ml, el of tl; teen, stuks, takje en plak mogen. */
-const VAAG = ['snuf', 'handje', 'zakje', 'bos', 'blik'];
+/* Maten die per verpakking of per hand verschillen. Recepten gebruiken gram; de app toont zelf het aantal
+   zakjes, bossen of blikken erbij (PAKMATEN in gereedschap.js). Een snuf, teen, takje of plak mag. */
+const VAAG = ['handje', 'zakje', 'bos', 'blik'];
 const ctx = { window: {} };
 ctx.window = ctx;
 vm.createContext(ctx);
@@ -103,7 +104,7 @@ for (const r of ctx.RECEPTEN) {
     if (i.q !== undefined && !(typeof i.q === 'number' && i.q > 0)) fout(`"${i.n}": q moet een positief getal zijn`);
     if (i.u !== undefined && !ctx.EENHEDEN[i.u]) fout(`"${i.n}": onbekende eenheid "${i.u}"`);
     if (i.u !== undefined && i.q === undefined) fout(`"${i.n}": eenheid zonder hoeveelheid`);
-    if (VAAG.includes(i.u)) fout(`"${i.n}": "${i.u}" is geen vaste maat; gebruik g, ml, el of tl (zie README)`);
+    if (VAAG.includes(i.u)) fout(`"${i.n}": "${i.u}" is geen vaste maat; gebruik gram en zet de verpakking in PAKMATEN (zie README)`);
     if (i.p !== undefined && typeof i.p !== 'string') fout(`"${i.n}": p (meervoud) moet tekst zijn`);
     if (i.vers !== undefined && i.vers !== true && !(typeof i.vers === 'string' && i.vers.trim())) fout(`"${i.n}": vers moet true of een reden zijn`);
     if (i.of !== undefined && !(typeof i.of === 'string' && i.of.trim())
@@ -115,7 +116,7 @@ for (const r of ctx.RECEPTEN) {
   for (const v of Object.values(r.vervang || {})) if (v && VAAG.includes(v.u)) fout(`vervang "${v.n}": "${v.u}" is geen vaste maat`);
   const teksten = [...(r.stappen || []).map((s) => s.t), ...(r.tips || []), ...(r.alt || []), ...(r.ingr || []).map((i) => i.x)];
   for (const t of teksten) {
-    const m = typeof t === 'string' && t.match(/\been (snufje?|scheutje|handje)\b/i);
+    const m = typeof t === 'string' && t.match(/\been (scheutje|handje)\b/i);
     if (m) fout(`"${m[0]}" in de tekst is geen vaste maat: "${t.slice(0, 40)}…"`);
   }
   if (!Array.isArray(r.stappen) || r.stappen.length < 2) fout('stappen ontbreken');

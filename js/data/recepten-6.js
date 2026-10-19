@@ -17,7 +17,7 @@ RECEPTEN.push(
     { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom' },
     { n: 'melk', q: 100, u: 'ml' },
     { n: 'Gruyère', q: 100, u: 'g', x: 'geraspt, of belegen kaas' },
-    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
+    { n: 'nootmuskaat', q: 1, u: 'snuf' },
     { n: 'peper' }
   ],
   stappen: [
@@ -49,7 +49,7 @@ RECEPTEN.push(
     { n: 'rode paprika', p: 'rode paprika\'s', q: 2, u: 'st', x: 'in stukken' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'knoflook', q: 3, u: 'teen' },
-    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'verse tijm', q: 4, u: 'takje', x: 'of 1 tl gedroogd' },
     { n: 'olijfolie', q: 5, u: 'el' },
     { n: 'verse basilicum', q: 10, u: 'g' }
@@ -86,7 +86,7 @@ RECEPTEN.push(
     { n: 'Gruyère', q: 150, u: 'g', x: 'geraspt' }
   ],
   stappen: [
-    { t: 'Smelt de boter in de braadpan. Voeg de uien en ⅛ tl zout toe. Bak 10 minuten op middelhoog vuur tot ze slinken.', min: 10 },
+    { t: 'Smelt de boter in de braadpan. Voeg de uien en een snuf zout toe. Bak 10 minuten op middelhoog vuur tot ze slinken.', min: 10 },
     { t: 'Zet het vuur laag, voeg de suiker toe en laat 40 minuten karamelliseren tot de ui diep goudbruin is. Roer elke 5 minuten en schraap de bodem los.', min: 40 },
     { t: 'Strooi de bloem erover en roer 1 minuut. Blus met de wijn en laat 2 minuten inkoken.' },
     { t: 'Voeg bouillon en tijm toe en laat 20 minuten zachtjes koken. Breng op smaak.', min: 20 },
@@ -111,7 +111,7 @@ RECEPTEN.push(
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st' },
     { n: 'knoflook', q: 3, u: 'teen' },
     { n: 'tomatenblokjes', q: 200, u: 'g' },
-    { n: 'saffraan', q: 0.25, u: 'tl', x: 'draadjes; een zakje van 0,1 g is ± ¼ tl; of 1 tl kurkuma' },
+    { n: 'saffraan', q: 1, u: 'snuf', x: 'of 1 tl kurkuma' },
     { n: 'gerookt paprikapoeder', q: 1, u: 'tl' },
     { n: 'kippenbouillon', q: 900, u: 'ml', x: 'heet' },
     { n: 'doperwten', q: 150, u: 'g', x: 'diepvries' },
@@ -241,7 +241,7 @@ RECEPTEN.push(
     { n: 'bloem', q: 200, u: 'g' },
     { n: 'bakpoeder', q: 2, u: 'tl' },
     { n: 'suiker', q: 2, u: 'el' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { n: 'karnemelk', q: 250, u: 'ml', x: 'of melk met 1 el citroensap' },
     { n: 'ei', p: 'eieren', q: 1, u: 'st' },
     { n: 'boter', q: 30, u: 'g', x: 'gesmolten, plus extra om te bakken' },
@@ -276,7 +276,7 @@ RECEPTEN.push(
     { n: 'eidooier', p: 'eidooiers', q: 2, u: 'st' },
     { n: 'suiker', q: 60, u: 'g' },
     { n: 'bloem', q: 30, u: 'g' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { n: 'cacaopoeder', q: 1, u: 'el', x: 'voor de vormpjes' }
   ],
   stappen: [

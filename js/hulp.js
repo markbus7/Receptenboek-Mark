@@ -86,12 +86,29 @@ const Hulp = (() => {
       eenheid = ingr.u === 'st' ? '' : (meervoud ? def.m : def.e);
     }
     const naam = (ingr.u === 'st' && meervoud && ingr.p) ? ingr.p : ingr.n;
+    const pak = verpakt(ingr, waarde);
+    if (pak) return { ...pak, gram: `${aantal} ${eenheid}`, naam, waarde };
     return { aantal, eenheid, naam, waarde };
+  }
+
+  /* Gram omgerekend naar zakjes, bossen of blikken (js/data/gereedschap.js, PAKMATEN): de grootste
+     verpakking die op een hele of halve uitkomt, anders de kleinste in kwarten. Null als het niet past. */
+  function verpakt(ingr, waarde) {
+    const maten = (window.PAKMATEN || {})[norm(ingr.n)];
+    if (!maten || !['g', 'kg'].includes(ingr.u)) return null;
+    const gram = ingr.u === 'kg' ? waarde * 1000 : waarde;
+    const opties = Object.entries(maten).sort((a, b) => b[1] - a[1]);
+    let keus = opties.find(([, g]) => gram / g >= 0.5 && Math.abs(gram / g * 2 - Math.round(gram / g * 2)) < 0.1);
+    if (!keus) { const kleinste = opties[opties.length - 1]; if (gram / kleinste[1] >= 0.25) keus = kleinste; }
+    if (!keus) return null;
+    const [u, g] = keus;
+    const n = Math.round(gram / g * 4) / 4;
+    return { aantal: breuk(n), eenheid: n >= 2 ? EENHEDEN[u].m : EENHEDEN[u].e };
   }
 
   function hoeveelheidTekst(ingr, factor) {
     const h = hoeveelheid(ingr, factor);
-    return [h.aantal, h.eenheid, h.naam].filter(Boolean).join(' ');
+    return [h.aantal, h.eenheid, h.naam].filter(Boolean).join(' ') + (h.gram ? ` (${h.gram})` : '');
   }
 
   /* Vervanger voor een vers ingrediënt (js/data/vervangers.js): { tekst } of { vers }, of null.

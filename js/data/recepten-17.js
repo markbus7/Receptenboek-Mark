@@ -17,7 +17,7 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in dunne halve ringen' },
     { n: 'taugé', q: 200, u: 'g' },
     { n: 'sojasaus', q: 1, u: 'el' },
-    { n: 'witte peper', q: 0.125, u: 'tl' },
+    { n: 'witte peper', q: 1, u: 'snuf' },
     { n: 'zonnebloemolie', q: 5, u: 'el' },
     { n: 'rijst', q: 300, u: 'g' },
     { kop: 'Zoetzure saus' },
@@ -32,7 +32,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kook de rijst volgens de verpakking.', min: 15 },
-    { t: 'Saus: breng water, tomatenpuree, ketchup, suiker, azijn en ⅛ tl zout aan de kook in de steelpan. Roer de aangelengde maïzena erdoor en laat 1 minuut binden tot een glanzende saus. Voeg de doperwten toe en houd de saus warm op het laagste vuur.', min: 4 },
+    { t: 'Saus: breng water, tomatenpuree, ketchup, suiker, azijn en een snuf zout aan de kook in de steelpan. Roer de aangelengde maïzena erdoor en laat 1 minuut binden tot een glanzende saus. Voeg de doperwten toe en houd de saus warm op het laagste vuur.', min: 4 },
     { t: 'Bak de kip in 1 el olie in de koekenpan 3 minuten op middelhoog vuur. Voeg ui en prei toe en bak 2 minuten mee tot ze net zacht zijn. Schep alles in een kom en laat even afkoelen.', min: 5 },
     { t: 'Klop de eieren los met de sojasaus en de witte peper. Meng de kip met de groente en de taugé erdoor.' },
     { t: 'Verhit 1 el olie in de koekenpan op middelhoog vuur. Schep een kwart van het mengsel erin en duw het tot een dikke ronde omelet. Bak 3 à 4 minuten tot de onderkant goudbruin is en de bovenkant bijna gestold.', min: 4 },
@@ -50,7 +50,7 @@ RECEPTEN.push(
   },
   stappen: [
     { t: 'Kook de rijst volgens de verpakking.', min: 15 },
-    { t: 'Saus: breng water, tomatenpuree, ketchup, suiker, azijn en ⅛ tl zout aan de kook in de steelpan. Roer de aangelengde maïzena erdoor en laat 1 minuut binden tot een glanzende saus. Voeg de doperwten toe en houd de saus warm op het laagste vuur.', min: 4 },
+    { t: 'Saus: breng water, tomatenpuree, ketchup, suiker, azijn en een snuf zout aan de kook in de steelpan. Roer de aangelengde maïzena erdoor en laat 1 minuut binden tot een glanzende saus. Voeg de doperwten toe en houd de saus warm op het laagste vuur.', min: 4 },
     { t: 'Bak ui en prei in 1 el olie in de koekenpan 2 minuten op middelhoog vuur tot ze net zacht zijn. Bak rauwe garnalen 1 minuut mee tot ze roze zijn; gekookte garnalen hoeven alleen even mee te warmen. Schep alles in een kom en laat even afkoelen.', min: 3 },
     { t: 'Klop de eieren los met de sojasaus en de witte peper. Meng de garnalen met de groente en de taugé erdoor.' },
     { t: 'Verhit 1 el olie in de koekenpan op middelhoog vuur. Schep een kwart van het mengsel erin en duw het tot een dikke ronde omelet. Bak 3 à 4 minuten tot de onderkant goudbruin is en de bovenkant bijna gestold.', min: 4 },
@@ -184,7 +184,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'kippendijfilet', q: 500, u: 'g', x: 'in blokjes van 3 cm; of kipfilet' },
     { n: 'sojasaus', q: 1, u: 'el', x: 'voor de kip' },
-    { n: 'witte peper', q: 0.125, u: 'tl' },
+    { n: 'witte peper', q: 1, u: 'snuf' },
     { n: 'ei', p: 'eieren', q: 1, u: 'st' },
     { n: 'maïzena', q: 60, u: 'g' },
     { n: 'bloem', q: 30, u: 'g' },
@@ -206,7 +206,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kook de rijst volgens de verpakking.', min: 15 },
-    { t: 'Meng de kip met 1 el sojasaus, ⅛ tl zout en de witte peper. Roer voor de saus het ananassap (aangevuld met water tot 125 ml) met ketchup, azijn, suiker, sojasaus en maïzena. Snijd alle groente klaar, want straks gaat het snel.' },
+    { t: 'Meng de kip met 1 el sojasaus, een snuf zout en de witte peper. Roer voor de saus het ananassap (aangevuld met water tot 125 ml) met ketchup, azijn, suiker, sojasaus en maïzena. Snijd alle groente klaar, want straks gaat het snel.' },
     { t: 'Klop het ei los en schep het door de kip. Meng maïzena en bloem in een kom, schep de kip erdoor tot elk stukje bedekt is en klop het overtollige meel eraf.' },
     { t: 'Verhit de olie in de koekenpan of wok tot 175 °C (een houten lepelsteel in de olie geeft meteen een krans van belletjes). Bak de kip in 2 à 3 porties 4 à 5 minuten, tot hij goudbruin en gaar is. Laat uitlekken op een rooster of keukenpapier.', m: 'koekenpan', min: 5 },
     { t: 'Verwarm de airfryer voor op 200 °C. Leg de kip in één laag in de mand en besproei of bestrijk hem ruim met olie. Bak 12 à 14 minuten tot hij goudbruin en gaar is; schud halverwege. Bak bij een kleine mand in 2 delen.', m: 'airfryer', min: 13 },
@@ -226,7 +226,7 @@ RECEPTEN.push(
   },
   stappen: [
     { t: 'Kook de rijst volgens de verpakking.', min: 15 },
-    { t: 'Meng het vlees met 1 el sojasaus, ⅛ tl zout en de witte peper. Roer voor de saus het ananassap (aangevuld met water tot 125 ml) met ketchup, azijn, suiker, sojasaus en maïzena. Snijd alle groente klaar, want straks gaat het snel.' },
+    { t: 'Meng het vlees met 1 el sojasaus, een snuf zout en de witte peper. Roer voor de saus het ananassap (aangevuld met water tot 125 ml) met ketchup, azijn, suiker, sojasaus en maïzena. Snijd alle groente klaar, want straks gaat het snel.' },
     { t: 'Klop het ei los en schep het door het vlees. Meng maïzena en bloem in een kom, schep het vlees erdoor tot elk stukje bedekt is en klop het overtollige meel eraf.' },
     { t: 'Verhit de olie in de koekenpan of wok tot 175 °C (een houten lepelsteel in de olie geeft meteen een krans van belletjes). Bak het vlees in 2 à 3 porties 5 à 6 minuten, tot het goudbruin en gaar is. Laat uitlekken op een rooster of keukenpapier.', m: 'koekenpan', min: 6 },
     { t: 'Verwarm de airfryer voor op 200 °C. Leg het vlees in één laag in de mand en besproei of bestrijk het ruim met olie. Bak 13 à 15 minuten tot het goudbruin en gaar is; schud halverwege. Bak bij een kleine mand in 2 delen.', m: 'airfryer', min: 14 },
@@ -260,7 +260,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kook de rijst bij voorkeur een dag van tevoren, of in elk geval een paar uur eerder. Spreid hem uit op een bord of bakplaat en laat hem onafgedekt in de koelkast afkoelen en opdrogen.', min: 15 },
-    { t: 'Zet alles klaar naast het fornuis, want straks heb je geen tijd om te snijden. Klop de eieren los met ⅛ tl zout. Wrijf de koude rijst met natte handen los tot er geen klontjes meer zijn. Meng sojasaus, sesamolie en witte peper in een kommetje.' },
+    { t: 'Zet alles klaar naast het fornuis, want straks heb je geen tijd om te snijden. Klop de eieren los met een snuf zout. Wrijf de koude rijst met natte handen los tot er geen klontjes meer zijn. Meng sojasaus, sesamolie en witte peper in een kommetje.' },
     { t: 'Verhit 1 el olie in de wok op het hoogste vuur tot hij walmt. Giet de eieren erin en roer 30 à 45 seconden tot ze net gestold maar nog smeuïg zijn. Schep ze uit de wok.', min: 1 },
     { t: 'Verhit 2 el olie. Roerbak het wit van de lente-ui, de knoflook en de wortel 1 minuut. Voeg de doperwten toe en roerbak nog 1 minuut.', min: 2 },
     { t: 'Doe de rijst erbij. Is je pan kleiner dan 32 cm, bak dan in 2 delen. Druk de rijst plat, laat hem 30 seconden liggen en schep om. Herhaal 3 à 4 minuten op het hoogste vuur, tot de rijst gloeiend heet is en de korrels los rondspringen.', min: 4 },
@@ -273,7 +273,7 @@ RECEPTEN.push(
   id: 'beef-broccoli', naam: 'Biefstuk met broccoli in oestersaus', gerecht: 'Broccoli in oestersaus', variant: 'Biefstuk', ook: ['beef and broccoli', 'rundvlees met broccoli'],
   keuken: 'Chinees', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
-  intro: 'Botermalse reepjes biefstuk met knapperige broccoli in een glanzende saus van oestersaus, gember en knoflook. Het geheim zit in ⅛ tl zuiveringszout.',
+  intro: 'Botermalse reepjes biefstuk met knapperige broccoli in een glanzende saus van oestersaus, gember en knoflook. Het geheim zit in een snufje zuiveringszout.',
   gerei: [
     { tool: 'wok', tekst: 'Wok voor hoog vuur', of: 'Geen wok? Gebruik een grote RVS-koekenpan op hoog vuur en bak in delen.' },
     { tool: 'kookpan', tekst: 'Kookpan om de broccoli te blancheren' },
@@ -456,9 +456,9 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Roer de ingrediënten voor de saus door elkaar. Meng het vlees met 2 el van de saus en zet de rest apart.' },
-    { t: 'Breng een grote pan water aan de kook. Blancheer de spinazie 30 seconden, schep hem uit, spoel koud en knijp hem goed uit. Meng met ⅛ tl zout.' },
+    { t: 'Breng een grote pan water aan de kook. Blancheer de spinazie 30 seconden, schep hem uit, spoel koud en knijp hem goed uit. Meng met een snuf zout.' },
     { t: 'Kook de noedels in hetzelfde water 6 à 7 minuten (kijk op de verpakking) tot ze zacht maar nog veerkrachtig zijn. Giet af, spoel kort koud en knip ze met een schaar een paar keer door. Meng met 1 el saus, dan plakken ze niet.', min: 7 },
-    { t: 'Verhit 1 el olie in de wok op hoog vuur. Roerbak ui en wortel 2 minuten met ⅛ tl zout. Voeg paprika en shiitake toe en roerbak nog 2 minuten. Schep alles in een grote kom.', min: 4 },
+    { t: 'Verhit 1 el olie in de wok op hoog vuur. Roerbak ui en wortel 2 minuten met een snuf zout. Voeg paprika en shiitake toe en roerbak nog 2 minuten. Schep alles in een grote kom.', min: 4 },
     { t: 'Verhit de rest van de olie en roerbak het vlees 2 minuten tot het bruin en gaar is.', min: 2 },
     { t: 'Doe de groente, spinazie, noedels, lente-ui en de rest van de saus in de wok. Schep alles 1 à 2 minuten om op middelhoog vuur, tot het warm is en glanst. Proef: zoet en zout moeten in balans zijn. Bestrooi met sesamzaad.', min: 2 }
   ],
@@ -507,7 +507,7 @@ RECEPTEN.push(
     { t: 'Verwarm alle ingrediënten voor de saus in de steelpan op middelhoog vuur en laat 2 minuten zachtjes borrelen tot hij glanst en stroperig is.', min: 2 },
     { t: 'Schep de kip vlak voor het eten in een grote kom door de warme saus. Bestrooi met sesamzaad en lente-ui en eet direct.' }
   ],
-  tips: ['Houd de helft zonder saus en eet die met ⅛ tl zout en peper: in Korea bestel je vaak half-half.', 'Koreanen eten dit met ingelegde rettich en een biertje: chimaek, van chicken en maekju (bier).'],
+  tips: ['Houd de helft zonder saus en eet die met een snufje zout en peper: in Korea bestel je vaak half-half.', 'Koreanen eten dit met ingelegde rettich en een biertje: chimaek, van chicken en maekju (bier).'],
   alt: ['Minder pittig: neem 2 el gochujang en 1 el extra ketchup.', 'Soja-knoflooksaus (ganjang): vervang de saus door 3 el sojasaus, 3 el honing, 4 tenen knoflook en 2 el water.']
 },
 {
@@ -548,10 +548,10 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Eieren: breng water aan de kook in de steelpan. Laat de eieren er met een schuimspaan in zakken en kook ze precies 6½ minuut. Leg ze direct 5 minuten in ijskoud water en pel ze.', min: 6.5 },
-    { t: 'Optioneel, maar het verschil zit hem hierin: meng sojasaus, mirin en water voor de marinade in een diepvrieszakje, leg de gepelde eieren erin, druk de lucht eruit en laat minstens 2 uur (tot 2 dagen) in de koelkast marineren. Geen tijd? Sla dit over en bestrooi de eieren straks met ⅛ tl zout.', min: 120 },
+    { t: 'Optioneel, maar het verschil zit hem hierin: meng sojasaus, mirin en water voor de marinade in een diepvrieszakje, leg de gepelde eieren erin, druk de lucht eruit en laat minstens 2 uur (tot 2 dagen) in de koelkast marineren. Geen tijd? Sla dit over en bestrooi de eieren straks met een snufje zout.', min: 120 },
     { t: 'Bouillon: breng de kippenbouillon met gember, knoflook, het groen van de lente-ui, kombu en shiitake aan de kook in de soeppan. Vis de kombu eruit zodra de bouillon kookt. Laat 20 minuten zachtjes trekken met de deksel op een kier en zeef hem.', min: 20 },
     { t: 'Roer de sojasaus en mirin voor de tare door elkaar.' },
-    { t: 'Bestrooi de kip met ⅛ tl zout. Bak hem in de olie in de koekenpan op middelhoog vuur 5 minuten per kant tot hij goudbruin en gaar is. Giet er de laatste minuut 1 el van de tare over en laat die karamelliseren. Laat 5 minuten rusten en snijd in plakjes.', min: 10 },
+    { t: 'Bestrooi de kip met een snuf zout. Bak hem in de olie in de koekenpan op middelhoog vuur 5 minuten per kant tot hij goudbruin en gaar is. Giet er de laatste minuut 1 el van de tare over en laat die karamelliseren. Laat 5 minuten rusten en snijd in plakjes.', min: 10 },
     { t: 'Kook de noedels in ruim water zonder zout volgens de verpakking (vers 1 à 2 minuten, gedroogd 3 à 4). Blancheer de paksoi de laatste minuut mee. Giet goed af.', min: 3 },
     { t: 'Doe 1 el tare in elke voorverwarmde kom en schenk er 400 ml gloeiend hete bouillon op. Proef en voeg naar smaak meer tare toe. Leg de noedels erin en maak af met kip, een gehalveerd ei, paksoi, mais, nori, het wit van de lente-ui en sesamzaad. Eet direct, voordat de noedels zacht worden.' }
   ],
@@ -618,7 +618,7 @@ RECEPTEN.push(
     { n: 'sojasaus', q: 1, u: 'el' },
     { n: 'sesamolie', q: 1, u: 'el', x: 'plus 1 el om af te bakken' },
     { n: 'suiker', q: 0.5, u: 'tl' },
-    { n: 'witte peper', q: 0.125, u: 'tl' },
+    { n: 'witte peper', q: 1, u: 'snuf' },
     { n: 'zonnebloemolie', q: 2, u: 'el' },
     { n: 'maïzena', q: 1, u: 'el', x: 'om het bord te bestuiven' },
     { n: 'water', x: 'om te stomen en de randjes nat te maken' },

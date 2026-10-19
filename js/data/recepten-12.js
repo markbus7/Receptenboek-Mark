@@ -15,13 +15,13 @@ RECEPTEN.push(
     { n: 'melk', q: 250, u: 'ml' },
     { n: 'suiker', q: 3, u: 'el', x: '1 el voor de eiermelk, de rest om te bestrooien' },
     { n: 'kaneel', q: 1.5, u: 'tl', x: '1 tl voor de eiermelk, ½ tl voor de suiker' },
-    { n: 'vanillesuiker', q: 8, u: 'g', x: 'een zakje is 8 g', opt: true },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'vanillesuiker', q: 8, u: 'g', opt: true },
+    { n: 'zout', q: 1, u: 'snuf' },
     { n: 'boter', q: 40, u: 'g', x: 'om in te bakken' },
     { n: 'stroop', q: 4, u: 'el', x: 'in plaats van suiker', opt: true }
   ],
   stappen: [
-    { t: 'Klop in het diepe bord de eieren, melk, 1 el suiker, 1 tl kaneel, de vanillesuiker en ⅛ tl zout los tot je geen slierten eiwit meer ziet.' },
+    { t: 'Klop in het diepe bord de eieren, melk, 1 el suiker, 1 tl kaneel, de vanillesuiker en een snuf zout los tot je geen slierten eiwit meer ziet.' },
     { t: 'Leg de sneetjes brood in de eiermelk en laat ze 20 à 30 seconden per kant weken. Oud brood mag goed doortrekken; vers brood maar heel kort, anders valt het uit elkaar.' },
     { t: 'Smelt een klont boter in de koekenpan op middelhoog vuur tot het schuim wegtrekt. Leg er zoveel sneetjes in als er naast elkaar passen.' },
     { t: 'Bak de wentelteefjes 2 à 3 minuten per kant tot ze goudbruin en knapperig zijn. Zet het vuur iets lager als de boter te snel bruin wordt.', min: 5 },
@@ -31,7 +31,7 @@ RECEPTEN.push(
   tips: ['Hoe ouder het brood, hoe beter: het zuigt de eiermelk op zonder te verpappen. Brioche of krentenbrood geeft een extra zachte, feestelijke versie.'],
   alt: [
     'Amerikaanse french toast: bak dikke sneden brioche en serveer ze met ahornsiroop, blauwe bessen of aardbeien en een schep Griekse yoghurt.',
-    'Hartig: laat suiker, kaneel en vanille weg en doe zout, peper en ⅛ tl nootmuskaat in de eiermelk. Leg op het gebakken brood een plak ham en kaas en laat de kaas smelten met een deksel op de pan.'
+    'Hartig: laat suiker, kaneel en vanille weg en doe zout, peper en een snuf nootmuskaat in de eiermelk. Leg op het gebakken brood een plak ham en kaas en laat de kaas smelten met een deksel op de pan.'
   ]
 },
 {
@@ -118,7 +118,7 @@ RECEPTEN.push(
     { n: 'bloem', q: 125, u: 'g' },
     { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
     { n: 'suiker', q: 1, u: 'el' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { n: 'ei', p: 'eieren', q: 1, u: 'st' },
     { n: 'melk', q: 375, u: 'ml', x: 'lauw' },
     { n: 'boter', q: 100, u: 'g', x: 'de helft gesmolten om in te bakken, de rest om te serveren' },
@@ -229,7 +229,7 @@ RECEPTEN.push(
     { n: 'spekblokjes', q: 200, u: 'g' },
     { n: 'melk', q: 150, u: 'ml', x: 'warm' },
     { n: 'boter', q: 30, u: 'g' },
-    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
+    { n: 'nootmuskaat', q: 1, u: 'snuf' },
     { n: 'belegen kaas', q: 100, u: 'g', x: 'in kleine blokjes', opt: true },
     { n: 'zout' }, { n: 'peper' }
   ],
@@ -301,7 +301,7 @@ RECEPTEN.push(
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in blokjes' },
     { n: 'knoflook', q: 1, u: 'teen' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
-    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'paprikapoeder', q: 1, u: 'tl' },
     { n: 'gedroogde oregano', q: 1, u: 'tl', x: 'of Italiaanse kruiden' },
     { n: 'ketchup', q: 2, u: 'el', opt: true },
@@ -345,7 +345,7 @@ RECEPTEN.push(
     { n: 'rundergehakt', q: 300, u: 'g', x: 'of half-om-half' },
     { n: 'paneermeel', q: 2, u: 'el' },
     { n: 'melk', q: 1, u: 'el' },
-    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
+    { n: 'nootmuskaat', q: 1, u: 'snuf' },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
@@ -404,7 +404,7 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Meng de kipreepjes met de shoarmakruiden, de olie en ⅛ tl zout.' },
+    { t: 'Meng de kipreepjes met de shoarmakruiden, de olie en een snuf zout.' },
     { t: 'Verwarm de oven voor op 220 °C. Spreid de friet uit over de bakplaat en bak hem 20 à 25 minuten goudbruin en krokant. Keer halverwege.', m: 'oven', min: 22 },
     { t: 'Bak de friet in 2 porties 15 à 18 minuten in de airfryer op 200 °C, tot hij goudbruin en krokant is. Schud de mand 2 keer.', m: 'airfryer', min: 16 },
     { t: 'Verhit intussen de koekenpan op hoog vuur. Bak de kip in 2 delen 5 à 6 minuten, tot de randjes bruin en krokant zijn.', min: 6 },
@@ -440,7 +440,7 @@ RECEPTEN.push(
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'fijngesneden, met de zaadjes voor extra pit' },
     { n: 'sambal oelek', q: 2, u: 'tl', x: 'of meer als je het heel pittig wilt' },
     { n: 'bloem', q: 1, u: 'el' },
-    { n: 'perziken op siroop', q: 410, u: 'g', x: 'een blik is 410 g; laat ze uitlekken en bewaar 100 ml siroop' },
+    { n: 'perziken op siroop', q: 410, u: 'g', x: 'laat ze uitlekken en bewaar 100 ml siroop' },
     { n: 'kippenbouillon', q: 150, u: 'ml' },
     { n: 'kookroom', q: 250, u: 'ml', x: 'of 200 ml kokosmelk' },
     { n: 'zout' },
@@ -448,7 +448,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kook de rijst volgens de verpakking.', min: 15 },
-    { t: 'Meng de kip met 1 el kerriepoeder en ⅛ tl zout. Snijd de perziken in partjes.' },
+    { t: 'Meng de kip met 1 el kerriepoeder en een snuf zout. Snijd de perziken in partjes.' },
     { t: 'Verhit de olie in de hapjespan op middelhoog vuur en bak de kip in 5 minuten rondom goudbruin. Hij hoeft nog niet gaar te zijn. Haal hem uit de pan.', min: 5 },
     { t: 'Fruit de ui 3 minuten in het achtergebleven vet. Bak knoflook, rode peper, sambal en de rest van de kerriepoeder 1 minuut mee, tot het geurt.', min: 4 },
     { t: 'Strooi de bloem erover en roer 1 minuut. Giet er al roerend de bouillon, de perzikensiroop en de kookroom bij en breng aan de kook.', min: 1 },
@@ -480,7 +480,7 @@ RECEPTEN.push(
     { n: 'melk', q: 500, u: 'ml', x: 'koud' },
     { n: 'belegen kaas', q: 125, u: 'g', x: 'geraspt, of half belegen en half oud' },
     { n: 'mosterd', q: 1, u: 'tl' },
-    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
+    { n: 'nootmuskaat', q: 1, u: 'snuf' },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
@@ -492,7 +492,7 @@ RECEPTEN.push(
   ],
   tips: ['Dit is een bechamelsaus met kaas; de Fransen noemen dat een mornaysaus. Klassiek over bloemkool of broccoli, of over witlof met ham: rol gekookte witlofstronken in een plak ham, schenk de saus erover en bak 20 minuten in de oven op 200 °C.'],
   alt: [
-    'Meer smaak: neem oude kaas of een stuk Gruyère, met ⅛ tl cayennepeper.',
+    'Meer smaak: neem oude kaas of een stuk Gruyère, met een snuf cayennepeper.',
     'Glutenvrij: sla de roux over en bind de kokende melk met 2 el maïzena, aangelengd met 2 el koude melk.'
   ]
 },

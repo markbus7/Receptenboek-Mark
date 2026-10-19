@@ -193,7 +193,7 @@ RECEPTEN.push(
     { t: 'Bak de tempeh 3 minuten mee.', min: 3 },
     { t: 'Voeg bouillon, kokosmelk en djeroekbladeren toe en breng aan de kook.' },
     { t: 'Doe wortel en sperziebonen erin en kook 6 minuten. Voeg kool en courgette toe en kook nog 5 minuten.', min: 11 },
-    { t: 'Breng op smaak met zout en eventueel ⅛ tl suiker. Serveer met rijst en sambal.' }
+    { t: 'Breng op smaak met zout en eventueel een snuf suiker. Serveer met rijst en sambal.' }
   ],
   tips: ['Laat het niet hard koken; de kokosmelk kan dan schiften.'],
   alt: ['Liever met vlees? Kook 300 g kipfilet in reepjes mee.']

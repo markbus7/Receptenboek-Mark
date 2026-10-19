@@ -19,7 +19,7 @@ RECEPTEN.push(
     { n: 'madras-kerriepoeder', q: 3, u: 'el', x: 'of: 2 tl komijn, 2 tl koriander, 1 tl kurkuma, 1 tl garam masala' },
     { n: 'chilipoeder', q: 1.5, u: 'tl', x: 'minder voor milder' },
     { n: 'tomatenpuree', q: 2, u: 'el' },
-    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'runderbouillon', q: 300, u: 'ml' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
@@ -62,7 +62,7 @@ RECEPTEN.push(
     { n: 'chilipoeder', q: 1.5, u: 'tl', x: 'Kashmiri voor de kleur; minder voor milder' },
     { n: 'gedroogde rode pepers', q: 2, u: 'st', opt: true },
     { n: 'tomatenpuree', q: 2, u: 'el' },
-    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'kippenbouillon', q: 200, u: 'ml' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
@@ -171,7 +171,7 @@ RECEPTEN.push(
     { t: 'Laat met de deksel erop 15 minuten zachtjes garen. Kook intussen de rijst.', min: 15 },
     { t: 'Vis het kaneelstokje eruit. Bestrooi met geroosterde amandelen.' }
   ],
-  tips: ['Te dik? 2 el water of melk. Te flauw? Een kneepje citroen en ⅛ tl zout.'],
+  tips: ['Te dik? 2 el water of melk. Te flauw? Een kneepje citroen en een snuf zout.'],
   alt: ['Vegetarisch? Vervang de kip door bloemkoolroosjes en kikkererwten; laat ze 20 minuten garen.']
 },
 {
@@ -199,7 +199,7 @@ RECEPTEN.push(
     { n: 'boter', q: 30, u: 'g', x: 'gesmolten' },
     { n: 'kardemompeulen', q: 4, u: 'st' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 2, u: 'st' },
-    { n: 'saffraan', q: 0.25, u: 'tl', x: 'draadjes; een zakje van 0,1 g is ± ¼ tl; geweekt in 3 el warme melk' },
+    { n: 'saffraan', q: 1, u: 'snuf', x: 'geweekt in 3 el warme melk' },
     { n: 'verse munt', q: 10, u: 'g' },
     { n: 'verse koriander', q: 10, u: 'g' }
   ],
@@ -214,7 +214,7 @@ RECEPTEN.push(
     { t: 'Laat 10 minuten rusten zonder de deksel op te tillen. Schep van onder naar boven op, zodat je rijst én kip krijgt.', min: 10 }
   ],
   tips: ['Een raita van yoghurt, komkommer en munt hoort erbij.'],
-  alt: ['Geen saffraan? ⅛ tl kurkuma in de melk geeft ook mooie gele strepen.']
+  alt: ['Geen saffraan? Een snuf kurkuma in de melk geeft ook mooie gele strepen.']
 },
 {
   id: 'saag-paneer', naam: 'Saag paneer', ook: ['palak paneer', 'spinaziecurry'], keuken: 'Indiaas', soort: 'Hoofdgerecht',

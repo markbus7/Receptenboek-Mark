@@ -27,7 +27,7 @@ RECEPTEN.push(
     { n: 'verse koriander', q: 10, u: 'g', x: 'fijngehakt' },
     { kop: 'Vulling' },
     { n: 'tortilla\'s', q: 4, u: 'st', x: 'groot (25 à 30 cm)' },
-    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g' },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt' },
     { n: 'geraspte kaas', q: 150, u: 'g', x: 'cheddar of belegen' },
     { n: 'zure room', q: 125, u: 'ml' },
     { n: 'salsa', q: 4, u: 'el', x: 'of zelfgemaakte salsa fresca' },
@@ -35,7 +35,7 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Kook de rijst volgens de verpakking met ⅛ tl zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
+    { t: 'Kook de rijst volgens de verpakking met een snuf zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
     { t: 'Meng de kip met knoflook, komijn, paprikapoeder, chilipoeder, oregano, 1 el olie en een halve theelepel zout.' },
     { t: 'Verhit de rest van de olie in de koekenpan op middelhoog tot hoog vuur. Bak de kip in 6 à 8 minuten rondom goudbruin en gaar. Knijp de rest van de limoen erover en schep de kip in een kom.', min: 7 },
     { t: 'Doe de bonen met 2 el water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
@@ -58,7 +58,7 @@ RECEPTEN.push(
     zonnebloemolie: { n: 'zonnebloemolie', q: 1, u: 'el' }
   },
   stappen: [
-    { t: 'Kook de rijst volgens de verpakking met ⅛ tl zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
+    { t: 'Kook de rijst volgens de verpakking met een snuf zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
     { t: 'Verhit de olie in de koekenpan op hoog vuur. Bak het gehakt in 5 à 6 minuten rul en bruin en schep overtollig vet weg.', min: 6 },
     { t: 'Bak knoflook, komijn, paprikapoeder, chilipoeder, oregano en een halve theelepel zout 1 minuut mee. Voeg 3 el water toe en laat inkoken tot het gehakt smeuïg is. Knijp de rest van de limoen erover en schep het gehakt in een kom.', min: 2 },
     { t: 'Doe de bonen met 2 el water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
@@ -151,7 +151,7 @@ RECEPTEN.push(
     { n: 'zonnebloemolie', q: 1, u: 'el' },
     { kop: 'Vulling' },
     { n: 'kipfilet', q: 500, u: 'g', x: 'heel; of 400 g gegaarde kip van gisteren' },
-    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g', opt: true },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt', opt: true },
     { n: 'geraspte kaas', q: 200, u: 'g', x: 'cheddar, belegen of mozzarella' },
     { n: 'tortilla\'s', q: 8, u: 'st', x: 'middelgroot (ca. 20 cm), van tarwe of mais' },
     { kop: 'Erbij' },
@@ -189,7 +189,7 @@ RECEPTEN.push(
     { n: 'rundergehakt', q: 500, u: 'g' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 2, u: 'teen' },
-    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st', x: 'of 1 chipotle in adobo voor een rokerige smaak' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },
@@ -231,7 +231,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'tortillachips', q: 200, u: 'g', x: 'naturel of licht gezouten' },
     { n: 'geraspte kaas', q: 200, u: 'g', x: 'cheddar of belegen' },
-    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g; of een restje gekruid gehakt' },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt; of een restje gekruid gehakt' },
     { n: 'jalapeño', p: 'jalapeños', q: 2, u: 'st', x: 'in ringetjes, vers of uit een pot' },
     { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in kleine blokjes' },
     { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in ringetjes' },
@@ -244,7 +244,7 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Prak de avocado\'s met het limoensap en ⅛ tl zout tot een grove guacamole. Dek af en zet apart.' },
+    { t: 'Prak de avocado\'s met het limoensap en een snuf zout tot een grove guacamole. Dek af en zet apart.' },
     { t: 'Verwarm de oven voor op 200 °C (hetelucht 180 °C). Leg de helft van de chips dicht tegen elkaar op de bakplaat. Strooi de helft van de bonen, de jalapeño en de kaas erover en herhaal met de rest. Zo heeft elke chip wat kaas.', m: 'oven' },
     { t: 'Bak de nacho\'s 6 à 8 minuten in het midden van de oven, tot de kaas gesmolten is en borrelt. Houd ze in de gaten: de randjes van de chips verbranden snel.', m: 'oven', min: 7 },
     { t: 'Verwarm de airfryer voor op 180 °C. Bouw de nacho\'s op dezelfde manier in twee lagen op in het schaaltje of op bakpapier in de mand; de kaas houdt de chips op hun plek.', m: 'airfryer' },
@@ -295,7 +295,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 3, u: 'st', x: 'op kamertemperatuur' },
     { n: 'suiker', q: 150, u: 'g' },
     { n: 'bruine suiker', q: 100, u: 'g' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { n: 'bloem', q: 75, u: 'g' },
     { n: 'cacaopoeder', q: 30, u: 'g' },
     { n: 'witte chocolade', q: 50, u: 'g', x: 'of melkchocolade, in grove stukjes', opt: true }
@@ -329,7 +329,7 @@ RECEPTEN.push(
     { n: 'roomkaas', q: 800, u: 'g', x: 'volvet, zoals Philadelphia, op kamertemperatuur' },
     { n: 'suiker', q: 175, u: 'g' },
     { n: 'bloem', q: 2, u: 'el' },
-    { n: 'zout', q: 0.125, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' },
     { n: 'ei', p: 'eieren', q: 4, u: 'st', x: 'op kamertemperatuur' },
     { n: 'zure room', q: 125, u: 'ml', x: 'of crème fraîche' },
     { n: 'vanille-extract', q: 1, u: 'tl', x: 'of 1 zakje vanillesuiker' },
@@ -385,7 +385,7 @@ RECEPTEN.push(
     { t: 'Laat de kip uitlekken op het rooster en houd hem warm in de oven op 100 °C terwijl je de rest frituurt.', m: 'braadpan' },
     { t: 'Verwarm de airfryer voor op 190 °C. Spuit de kip rondom in met olie tot er geen droge, witte plekken bloem meer te zien zijn. Leg de stukken in één laag in de mand, met ruimte ertussen; bak zo nodig in 2 rondes.', m: 'airfryer' },
     { t: 'Bak 25 à 28 minuten. Keer de stukken na 12 minuten en spuit droge plekken nog eens in. De kip is klaar bij een kerntemperatuur van 75 °C.', m: 'airfryer', min: 26 },
-    { t: 'Laat de kip 5 minuten rusten en bestrooi met ⅛ tl zout.', min: 5 }
+    { t: 'Laat de kip 5 minuten rusten en bestrooi met een snuf zout.', min: 5 }
   ],
   tips: ['Coleslaw erbij: meng 300 g fijngesneden witte kool en 1 geraspte wortel met 4 el mayonaise, 1 el appelazijn, 1 tl suiker en zout, en laat 15 minuten staan.', 'Zeef de afgekoelde olie en bewaar hem afgesloten; je kunt hem nog een of twee keer gebruiken om kip te frituren.'],
   alt: ['Zonder bot: snijd kippendijfilet of kipfilet in repen en frituur ze 5 à 6 minuten, of bak ze 12 à 14 minuten in de airfryer. Dan heb je chicken tenders.']
@@ -442,7 +442,7 @@ RECEPTEN.push(
     { n: 'zwarte peper', q: 0.5, u: 'tl' },
     { n: 'water', q: 75, u: 'ml' },
     { n: 'worcestershiresaus', q: 1, u: 'el', x: 'bevat ansjovis; laat weg voor een vegetarische saus', opt: true },
-    { n: 'chipotle in adobo', p: 'chipotles in adobo', q: 1, u: 'st', x: 'fijngehakt, voor rook en pit; of ⅛ tl cayennepeper', opt: true },
+    { n: 'chipotle in adobo', p: 'chipotles in adobo', q: 1, u: 'st', x: 'fijngehakt, voor rook en pit; of een snuf cayennepeper', opt: true },
     { n: 'zout' }
   ],
   stappen: [
