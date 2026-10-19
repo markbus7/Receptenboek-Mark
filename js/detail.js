@@ -369,14 +369,6 @@ const Detail = (() => {
     el.innerHTML = rest.length ? `<h3 id="d-rest-titel">Restjes</h3><ul>${rest.map((x) => `<li>${x}</li>`).join('')}</ul>` : '';
   }
 
-  /* "· aan de kassa 2× € 0,72" als je voor dit ingrediënt meer of iets anders koopt dan het product hierboven. */
-  function kassaTekst({ pak, naam, kassa }) {
-    if (!kassa || (kassa.aantal === 1 && kassa.naam === naam && kassa.pak === pak)) return '';
-    const e = Prijzen.euro;
-    const wat = kassa.naam === naam && kassa.pak === pak ? '' : ` ${kassa.naam === naam ? '' : Hulp.esc(kassa.naam)}${kassa.maat ? ` (${Hulp.esc(kassa.maat)})` : ''}`;
-    return `<br>aan de kassa:${wat} ${kassa.aantal > 1 ? `${kassa.aantal}× ${e(kassa.pak)} = ` : ''}${e(kassa.bedrag)}`;
-  }
-
   /* Wat kost het? Geschatte prijs per supermarkt als kassabonnetje, voor het aantal personen dat je nu kookt. */
   function renderPrijs() {
     const el = blad.querySelector('#d-prijs');
@@ -399,13 +391,8 @@ const Detail = (() => {
       ${Prijzen.winkelLijst(winkels)}
       <details class="bon-details">
         <summary>Per ingrediënt, waar het het goedkoopst is</summary>
-        <ul class="bon-regels">
-          ${regels.map(({ i, beste }) => `<li>
-            <span>${Hulp.esc(Hulp.hoeveelheidTekst(i, factor))}<small>${beste.link ? `<a href="${Hulp.esc(beste.link)}" target="_blank" rel="noopener">${Hulp.esc(beste.naam)}</a>` : Hulp.esc(beste.naam)}${beste.maat ? ` · ${Hulp.esc(beste.maat)}` : ''} · ${e(beste.pak)}${kassaTekst(beste)}</small></span>
-            <span>${Hulp.esc(Prijzen.winkelNaam(beste.id))}</span><span>${e(beste.bedrag)}</span>
-          </li>`).join('')}
-        </ul>
-        <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)} gebruikt, ± ${e(uitkomst.goedkoopstKassa)} aan de kassa.</p>
+        ${Prijzen.productLijst(regels)}
+        <p class="bon-mix">${Prijzen.mixTekst(uitkomst)}</p>
       </details>
       <p class="bon-voet">Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via <a href="https://www.checkjebon.nl" target="_blank" rel="noopener">Checkjebon.nl</a>). <i>Gebruikt</i> is het deel van de verpakkingen dat in dit recept gaat, <i>kassa</i> wat je afrekent als je alles nieuw koopt. Aanbiedingen tellen niet altijd mee.${zonder.length ? ` Zonder prijs: ${Hulp.esc(zonder.join(', '))}.` : ''}</p>`;
   }

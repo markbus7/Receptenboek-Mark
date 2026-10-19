@@ -116,11 +116,14 @@ const Boodschappen = (() => {
     if (!el) return;
     el.hidden = !uitkomst;
     if (el.hidden) { el.innerHTML = ''; return; }
-    const e = Prijzen.euro;
     el.innerHTML = `
       <h3 id="lijst-prijs-titel">Wat kost het?</h3>
       ${Prijzen.winkelLijst(uitkomst.winkels)}
-      <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)} gebruikt, ± ${e(uitkomst.goedkoopstKassa)} aan de kassa. Per product zie je hierboven waar dat is.</p>
+      <p class="bon-mix">${Prijzen.mixTekst(uitkomst)}</p>
+      <details class="bon-details">
+        <summary>Welke producten zijn dat?</summary>
+        ${Prijzen.productLijst(uitkomst.regels)}
+      </details>
       <p class="bon-voet"><i>Gebruikt</i> is het deel van de verpakkingen dat je nodig hebt, <i>kassa</i> wat je afrekent met hele verpakkingen. Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via <a href="https://www.checkjebon.nl" target="_blank" rel="noopener">Checkjebon.nl</a>); aanbiedingen tellen niet altijd mee.${uitkomst.zonder.length ? ` Zonder prijs: ${Hulp.esc(uitkomst.zonder.join(', '))}.` : ''}</p>`;
   }
 
