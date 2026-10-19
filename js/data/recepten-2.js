@@ -16,7 +16,7 @@ RECEPTEN.push(
     { n: 'rookworst', p: 'rookworsten', q: 1, u: 'st', x: 'ca. 275 g' },
     { n: 'melk', q: 100, u: 'ml', x: 'warm' },
     { n: 'boter', q: 40, u: 'g' },
-    { n: 'nootmuskaat', q: 1, u: 'snuf' },
+    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
@@ -27,7 +27,7 @@ RECEPTEN.push(
     { t: 'Stamp alles grof met boter en warme melk. Een beetje kookvocht maakt het smeuïger. Breng op smaak met nootmuskaat, zout en peper.' },
     { t: 'Serveer met de rookworst in plakken en eventueel een kuiltje jus.' }
   ],
-  tips: ['Lekker met een scheutje azijn of een lepel mosterd door de stamppot.'],
+  tips: ['Lekker met 1 el azijn of een lepel mosterd door de stamppot.'],
   alt: ['Vegetarisch? Gebruik een vegetarische rookworst; de bereiding blijft hetzelfde.']
 },
 {
@@ -50,7 +50,7 @@ RECEPTEN.push(
     { n: 'aardappel', p: 'aardappelen', q: 2, u: 'st', x: 'kruimig, in blokjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'bouillonblokje', p: 'bouillonblokjes', q: 1, u: 'st' },
-    { n: 'verse selderij', q: 1, u: 'bos', x: 'blad, fijngesneden' }
+    { n: 'verse selderij', q: 30, u: 'g', x: 'blad, fijngesneden' }
   ],
   stappen: [
     { t: 'Doe de spliterwten, het water, de krabbetjes en het bouillonblokje in de soeppan. Breng aan de kook en schep het schuim eraf.', m: 'kookpan', min: 10 },
@@ -62,7 +62,7 @@ RECEPTEN.push(
     { t: 'Roer het selderijblad erdoor, breng op smaak met zout en peper. Te dik? Voeg wat heet water toe.' }
   ],
   tips: ['Erwtensoep wordt bij afkoelen erg dik. Verdun bij het opwarmen met een scheut water.'],
-  alt: ['Vegetarisch? Laat het vlees weg, gebruik groentebouillon en een vegetarische rookworst. Een snufje gerookt paprikapoeder geeft de rooksmaak terug.']
+  alt: ['Vegetarisch? Laat het vlees weg, gebruik groentebouillon en een vegetarische rookworst. ⅛ tl gerookt paprikapoeder geeft de rooksmaak terug.']
 },
 {
   id: 'boerenkool-stamppot', naam: 'Boerenkoolstamppot', ook: ['boerenkool met worst'], keuken: 'Nederlands', soort: 'Hoofdgerecht',
@@ -104,7 +104,7 @@ RECEPTEN.push(
     { n: 'bloem', q: 250, u: 'g', x: 'of zelfrijzend bakmeel' },
     { n: 'melk', q: 500, u: 'ml' },
     { n: 'ei', p: 'eieren', q: 2, u: 'st' },
-    { n: 'zout', q: 1, u: 'snuf' },
+    { n: 'zout', q: 0.125, u: 'tl' },
     { n: 'boter', q: 40, u: 'g', x: 'om in te bakken' },
     { n: 'stroop', q: 4, u: 'el', x: 'of poedersuiker', opt: true }
   ],
@@ -166,7 +166,7 @@ RECEPTEN.push(
     { n: 'roomboter', q: 200, u: 'g', x: 'koud, in blokjes' },
     { n: 'lichtbruine basterdsuiker', q: 150, u: 'g' },
     { n: 'ei', p: 'eieren', q: 1, u: 'st', x: 'losgeklopt' },
-    { n: 'zout', q: 1, u: 'snuf' },
+    { n: 'zout', q: 0.125, u: 'tl' },
     { kop: 'Vulling' },
     { n: 'appels', p: 'appels', q: 1200, u: 'g', x: 'goudrenetten of elstar' },
     { n: 'suiker', q: 50, u: 'g' },
@@ -202,7 +202,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 1, u: 'st' },
     { n: 'melk', q: 3, u: 'el' },
     { n: 'mosterd', q: 1, u: 'tl' },
-    { n: 'nootmuskaat', q: 1, u: 'snuf' },
+    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
     { n: 'boter', q: 75, u: 'g' },
     { n: 'water', q: 250, u: 'ml' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 1, u: 'st' },
@@ -215,7 +215,7 @@ RECEPTEN.push(
     { t: 'Voeg het water en het laurierblad toe. Leg de deksel op de pan en laat 30 minuten zachtjes garen. Keer de ballen halverwege.', min: 30 },
     { t: 'Haal de ballen eruit en laat de jus zo nodig 3 minuten inkoken. Breng op smaak met zout.' }
   ],
-  tips: ['Een scheutje sojasaus of een eetlepel ketjap geeft de jus extra kleur en diepte.'],
+  tips: ['1 el sojasaus of een eetlepel ketjap geeft de jus extra kleur en diepte.'],
   alt: ['Geen braadpan? Een koekenpan met hoge rand en deksel werkt ook.']
 }
 );

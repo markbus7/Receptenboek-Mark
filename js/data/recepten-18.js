@@ -24,10 +24,10 @@ RECEPTEN.push(
     { kop: 'Limoen-korianderrijst' },
     { n: 'rijst', q: 200, u: 'g', x: 'langkorrelig' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'rasp en sap' },
-    { n: 'verse koriander', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse koriander', q: 10, u: 'g', x: 'fijngehakt' },
     { kop: 'Vulling' },
     { n: 'tortilla\'s', q: 4, u: 'st', x: 'groot (25 à 30 cm)' },
-    { n: 'zwarte bonen', q: 1, u: 'blik', x: '400 g, uitgelekt' },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g' },
     { n: 'geraspte kaas', q: 150, u: 'g', x: 'cheddar of belegen' },
     { n: 'zure room', q: 125, u: 'ml' },
     { n: 'salsa', q: 4, u: 'el', x: 'of zelfgemaakte salsa fresca' },
@@ -35,10 +35,10 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Kook de rijst volgens de verpakking met een snuf zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
+    { t: 'Kook de rijst volgens de verpakking met ⅛ tl zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
     { t: 'Meng de kip met knoflook, komijn, paprikapoeder, chilipoeder, oregano, 1 el olie en een halve theelepel zout.' },
     { t: 'Verhit de rest van de olie in de koekenpan op middelhoog tot hoog vuur. Bak de kip in 6 à 8 minuten rondom goudbruin en gaar. Knijp de rest van de limoen erover en schep de kip in een kom.', min: 7 },
-    { t: 'Doe de bonen met een scheutje water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
+    { t: 'Doe de bonen met 2 el water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
     { t: 'Verwarm de tortilla\'s 20 seconden per kant in een droge koekenpan, of 30 seconden in de magnetron onder een vochtige theedoek. Warme tortilla\'s scheuren niet bij het oprollen.' },
     { t: 'Leg op het onderste derde van elke tortilla een strook rijst, bonen, kip, kaas, zure room, salsa en sla. Laat aan de zijkanten 5 cm vrij en doe er niet te veel op.' },
     { t: 'Vouw de onderkant over de vulling en trek hem met je vingers strak naar je toe. Vouw de zijkanten naar binnen en rol verder op tot een stevige rol.' },
@@ -58,10 +58,10 @@ RECEPTEN.push(
     zonnebloemolie: { n: 'zonnebloemolie', q: 1, u: 'el' }
   },
   stappen: [
-    { t: 'Kook de rijst volgens de verpakking met een snuf zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
+    { t: 'Kook de rijst volgens de verpakking met ⅛ tl zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
     { t: 'Verhit de olie in de koekenpan op hoog vuur. Bak het gehakt in 5 à 6 minuten rul en bruin en schep overtollig vet weg.', min: 6 },
     { t: 'Bak knoflook, komijn, paprikapoeder, chilipoeder, oregano en een halve theelepel zout 1 minuut mee. Voeg 3 el water toe en laat inkoken tot het gehakt smeuïg is. Knijp de rest van de limoen erover en schep het gehakt in een kom.', min: 2 },
-    { t: 'Doe de bonen met een scheutje water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
+    { t: 'Doe de bonen met 2 el water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
     { t: 'Verwarm de tortilla\'s 20 seconden per kant in een droge koekenpan, of 30 seconden in de magnetron onder een vochtige theedoek. Warme tortilla\'s scheuren niet bij het oprollen.' },
     { t: 'Leg op het onderste derde van elke tortilla een strook rijst, bonen, gehakt, kaas, zure room, salsa en sla. Laat aan de zijkanten 5 cm vrij en doe er niet te veel op.' },
     { t: 'Vouw de onderkant over de vulling en trek hem met je vingers strak naar je toe. Vouw de zijkanten naar binnen en rol verder op tot een stevige rol.' },
@@ -94,7 +94,7 @@ RECEPTEN.push(
     { kop: 'Taco\'s' },
     { n: 'maistortilla', p: 'maistortilla\'s', q: 16, u: 'st', x: 'klein (ca. 12 cm); je gebruikt er 2 per taco' },
     { n: 'witte ui', p: 'witte uien', q: 0.5, u: 'st', x: 'heel fijn gesnipperd' },
-    { n: 'verse koriander', q: 1, u: 'bos', x: 'fijngehakt' },
+    { n: 'verse koriander', q: 30, u: 'g', x: 'fijngehakt' },
     { n: 'limoen', p: 'limoenen', q: 2, u: 'st', x: 'in partjes' },
     { n: 'salsa', q: 6, u: 'el', x: 'salsa roja, salsa verde of zelfgemaakte salsa fresca' },
     { n: 'avocado', p: 'avocado\'s', q: 1, u: 'st', x: 'in plakjes', opt: true },
@@ -151,12 +151,12 @@ RECEPTEN.push(
     { n: 'zonnebloemolie', q: 1, u: 'el' },
     { kop: 'Vulling' },
     { n: 'kipfilet', q: 500, u: 'g', x: 'heel; of 400 g gegaarde kip van gisteren' },
-    { n: 'zwarte bonen', q: 1, u: 'blik', x: '400 g, uitgelekt', opt: true },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g', opt: true },
     { n: 'geraspte kaas', q: 200, u: 'g', x: 'cheddar, belegen of mozzarella' },
     { n: 'tortilla\'s', q: 8, u: 'st', x: 'middelgroot (ca. 20 cm), van tarwe of mais' },
     { kop: 'Erbij' },
     { n: 'zure room', q: 125, u: 'ml' },
-    { n: 'verse koriander', q: 1, u: 'handje' },
+    { n: 'verse koriander', q: 10, u: 'g' },
     { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in ringetjes' },
     { n: 'zout' }
   ],
@@ -189,7 +189,7 @@ RECEPTEN.push(
     { n: 'rundergehakt', q: 500, u: 'g' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 2, u: 'teen' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st', x: 'of 1 chipotle in adobo voor een rokerige smaak' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },
@@ -204,7 +204,7 @@ RECEPTEN.push(
     { n: 'tortilla\'s', q: 8, u: 'st', x: 'klein, liefst van mais', opt: true },
     { n: 'avocado', p: 'avocado\'s', q: 1, u: 'st', x: 'in plakjes' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'in partjes' },
-    { n: 'verse koriander', q: 1, u: 'handje', opt: true }
+    { n: 'verse koriander', q: 10, u: 'g', opt: true }
   ],
   stappen: [
     { t: 'Pureer de tomatenblokjes met de helft van de ui, de knoflook en de jalapeño (zonder zaadjes voor minder pit) met de staafmixer tot een gladde saus.' },
@@ -216,7 +216,7 @@ RECEPTEN.push(
     { t: 'Proef en maak af met een kneepje limoen en zout. Serveer met rijst, warme tortilla\'s, avocado, limoenpartjes en koriander.' }
   ],
   tips: ['Zoals elk stoofje is dit de volgende dag nog lekkerder. Restjes zijn een prima vulling voor taco\'s of burrito\'s.'],
-  alt: ['Picadillo zoals veel Mexicaanse families hem maken: laat de laatste 10 minuten een handje rozijnen en wat gehakte groene olijven meestoven.', 'Minder pittig: laat de jalapeño weg en gebruik ½ tl gerookt paprikapoeder.']
+  alt: ['Picadillo zoals veel Mexicaanse families hem maken: laat de laatste 10 minuten 30 g rozijnen en wat gehakte groene olijven meestoven.', 'Minder pittig: laat de jalapeño weg en gebruik ½ tl gerookt paprikapoeder.']
 },
 {
   id: 'nachos', naam: 'Nacho\'s uit de oven', ook: ['nachos', 'nacho schotel', 'loaded nachos'],
@@ -231,7 +231,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'tortillachips', q: 200, u: 'g', x: 'naturel of licht gezouten' },
     { n: 'geraspte kaas', q: 200, u: 'g', x: 'cheddar of belegen' },
-    { n: 'zwarte bonen', q: 1, u: 'blik', x: '400 g, uitgelekt; of een restje gekruid gehakt' },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g; of een restje gekruid gehakt' },
     { n: 'jalapeño', p: 'jalapeños', q: 2, u: 'st', x: 'in ringetjes, vers of uit een pot' },
     { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in kleine blokjes' },
     { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in ringetjes' },
@@ -240,11 +240,11 @@ RECEPTEN.push(
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st' },
     { n: 'zure room', q: 125, u: 'ml' },
     { n: 'salsa', q: 4, u: 'el', x: 'of zelfgemaakte salsa fresca' },
-    { n: 'verse koriander', q: 1, u: 'handje', opt: true },
+    { n: 'verse koriander', q: 10, u: 'g', opt: true },
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Prak de avocado\'s met het limoensap en een snuf zout tot een grove guacamole. Dek af en zet apart.' },
+    { t: 'Prak de avocado\'s met het limoensap en ⅛ tl zout tot een grove guacamole. Dek af en zet apart.' },
     { t: 'Verwarm de oven voor op 200 °C (hetelucht 180 °C). Leg de helft van de chips dicht tegen elkaar op de bakplaat. Strooi de helft van de bonen, de jalapeño en de kaas erover en herhaal met de rest. Zo heeft elke chip wat kaas.', m: 'oven' },
     { t: 'Bak de nacho\'s 6 à 8 minuten in het midden van de oven, tot de kaas gesmolten is en borrelt. Houd ze in de gaten: de randjes van de chips verbranden snel.', m: 'oven', min: 7 },
     { t: 'Verwarm de airfryer voor op 180 °C. Bouw de nacho\'s op dezelfde manier in twee lagen op in het schaaltje of op bakpapier in de mand; de kaas houdt de chips op hun plek.', m: 'airfryer' },
@@ -264,7 +264,7 @@ RECEPTEN.push(
     { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'rijp en stevig, ca. 400 g', vers: 'het is een rauwe salsa' },
     { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'of rode ui' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st', x: 'of groene peper' },
-    { n: 'verse koriander', q: 1, u: 'handje', vers: 'het is een rauwe salsa' },
+    { n: 'verse koriander', q: 10, u: 'g', vers: 'het is een rauwe salsa' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'sap' },
     { n: 'zout', q: 0.5, u: 'tl' }
   ],
@@ -295,7 +295,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 3, u: 'st', x: 'op kamertemperatuur' },
     { n: 'suiker', q: 150, u: 'g' },
     { n: 'bruine suiker', q: 100, u: 'g' },
-    { n: 'zout', q: 1, u: 'snuf' },
+    { n: 'zout', q: 0.125, u: 'tl' },
     { n: 'bloem', q: 75, u: 'g' },
     { n: 'cacaopoeder', q: 30, u: 'g' },
     { n: 'witte chocolade', q: 50, u: 'g', x: 'of melkchocolade, in grove stukjes', opt: true }
@@ -329,7 +329,7 @@ RECEPTEN.push(
     { n: 'roomkaas', q: 800, u: 'g', x: 'volvet, zoals Philadelphia, op kamertemperatuur' },
     { n: 'suiker', q: 175, u: 'g' },
     { n: 'bloem', q: 2, u: 'el' },
-    { n: 'zout', q: 1, u: 'snuf' },
+    { n: 'zout', q: 0.125, u: 'tl' },
     { n: 'ei', p: 'eieren', q: 4, u: 'st', x: 'op kamertemperatuur' },
     { n: 'zure room', q: 125, u: 'ml', x: 'of crème fraîche' },
     { n: 'vanille-extract', q: 1, u: 'tl', x: 'of 1 zakje vanillesuiker' },
@@ -345,7 +345,7 @@ RECEPTEN.push(
     { t: 'Laat hem op het aanrecht helemaal afkoelen. Dek af en laat een nacht, minimaal 6 uur, opstijven in de koelkast. Snijd met een mes dat je steeds in heet water dompelt en afveegt.', min: 360 }
   ],
   tips: ['Scheurtjes ontstaan door te veel lucht in het beslag, te veel hitte of te snel afkoelen. Klop op de laagste stand, bak boven het water en laat hem rustig in de oven afkoelen. Scheurt hij toch? Fruit erop en niemand ziet het.', 'Cheesecake is goed in te vriezen, in punten en goed verpakt. Laat hem in de koelkast ontdooien.'],
-  alt: ['Met rood fruit: kook 300 g (diepvries)rood fruit 5 minuten met 50 g suiker en 1 tl maïzena, aangelengd met een scheutje water. Laat afkoelen en schep over de cheesecake.']
+  alt: ['Met rood fruit: kook 300 g (diepvries)rood fruit 5 minuten met 50 g suiker en 1 tl maïzena, aangelengd met 2 el water. Laat afkoelen en schep over de cheesecake.']
 },
 {
   id: 'fried-chicken', naam: 'Southern fried chicken', ook: ['fried chicken', 'gefrituurde kip', 'kfc', 'buttermilk chicken'],
@@ -385,7 +385,7 @@ RECEPTEN.push(
     { t: 'Laat de kip uitlekken op het rooster en houd hem warm in de oven op 100 °C terwijl je de rest frituurt.', m: 'braadpan' },
     { t: 'Verwarm de airfryer voor op 190 °C. Spuit de kip rondom in met olie tot er geen droge, witte plekken bloem meer te zien zijn. Leg de stukken in één laag in de mand, met ruimte ertussen; bak zo nodig in 2 rondes.', m: 'airfryer' },
     { t: 'Bak 25 à 28 minuten. Keer de stukken na 12 minuten en spuit droge plekken nog eens in. De kip is klaar bij een kerntemperatuur van 75 °C.', m: 'airfryer', min: 26 },
-    { t: 'Laat de kip 5 minuten rusten en bestrooi met een snuf zout.', min: 5 }
+    { t: 'Laat de kip 5 minuten rusten en bestrooi met ⅛ tl zout.', min: 5 }
   ],
   tips: ['Coleslaw erbij: meng 300 g fijngesneden witte kool en 1 geraspte wortel met 4 el mayonaise, 1 el appelazijn, 1 tl suiker en zout, en laat 15 minuten staan.', 'Zeef de afgekoelde olie en bewaar hem afgesloten; je kunt hem nog een of twee keer gebruiken om kip te frituren.'],
   alt: ['Zonder bot: snijd kippendijfilet of kipfilet in repen en frituur ze 5 à 6 minuten, of bak ze 12 à 14 minuten in de airfryer. Dan heb je chicken tenders.']
@@ -442,7 +442,7 @@ RECEPTEN.push(
     { n: 'zwarte peper', q: 0.5, u: 'tl' },
     { n: 'water', q: 75, u: 'ml' },
     { n: 'worcestershiresaus', q: 1, u: 'el', x: 'bevat ansjovis; laat weg voor een vegetarische saus', opt: true },
-    { n: 'chipotle in adobo', p: 'chipotles in adobo', q: 1, u: 'st', x: 'fijngehakt, voor rook en pit; of een snuf cayennepeper', opt: true },
+    { n: 'chipotle in adobo', p: 'chipotles in adobo', q: 1, u: 'st', x: 'fijngehakt, voor rook en pit; of ⅛ tl cayennepeper', opt: true },
     { n: 'zout' }
   ],
   stappen: [

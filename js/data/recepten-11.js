@@ -14,7 +14,7 @@ RECEPTEN.push(
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
-    { t: 'Klop de eieren met een snuf zout los met een vork, tot je geen slierten eiwit meer ziet.' },
+    { t: 'Klop de eieren met ⅛ tl zout los met een vork, tot je geen slierten eiwit meer ziet.' },
     { t: 'Smelt de boter in de pan op middelhoog vuur, tot het schuim net wegtrekt. De boter mag niet bruin worden.' },
     { t: 'Giet de eieren erin. Roer 20 à 30 seconden met de spatel terwijl je de pan heen en weer schudt, tot er kleine zachte wolkjes ontstaan en de onderkant net stolt.', min: 1 },
     { t: 'Strijk de omelet glad, strooi de kruiden en eventueel de kaas erover en laat nog 30 seconden staan. De bovenkant mag nog een beetje vochtig zijn.' },
@@ -88,14 +88,14 @@ RECEPTEN.push(
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
-    { t: 'Klop de eieren los met een snuf zout.' },
+    { t: 'Klop de eieren los met ⅛ tl zout.' },
     { t: 'Smelt de helft van de boter in de pan op laag vuur. Giet de eieren erin.' },
     { t: 'Roer steeds met de spatel over de bodem en neem de pan af en toe even van het vuur. Na 3 à 4 minuten heb je grote, romige vlokken. Stop als het nog een beetje glanst.', min: 4 },
     { t: 'Haal de pan van het vuur en roer de crème fraîche en de rest van de boter erdoor.' },
     { t: 'Rooster het brood en schep het roerei erop. Bestrooi met bieslook en peper.' }
   ],
   tips: ['Roerei gaart na op het bord. Haal het dus van het vuur net vóór het klaar lijkt.'],
-  alt: ['Geen crème fraîche? Een scheutje room of een extra klontje boter werkt ook.']
+  alt: ['Geen crème fraîche? 2 el room of een extra klontje boter werkt ook.']
 },
 {
   id: 'tortilla-patatas', naam: 'Tortilla de patatas', ook: ['spaanse tortilla', 'spaanse omelet'], keuken: 'Spaans', soort: 'Ontbijt & lunch',
@@ -144,7 +144,7 @@ RECEPTEN.push(
     { n: 'cherrytomaten', q: 150, u: 'g', x: 'gehalveerd' },
     { n: 'feta', q: 100, u: 'g' },
     { n: 'Parmezaanse kaas', q: 30, u: 'g', x: 'geraspt' },
-    { n: 'verse basilicum', q: 1, u: 'handje' },
+    { n: 'verse basilicum', q: 10, u: 'g' },
     { n: 'olijfolie', q: 2, u: 'el' }
   ],
   stappen: [
@@ -176,7 +176,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Smelt de boter in de pan. Bak de paprika (en de ui) 5 minuten op middelhoog vuur tot hij zacht is.', min: 5 },
-    { t: 'Voeg de tomaat en een snuf zout toe en laat 8 à 10 minuten inkoken tot een dikke saus.', min: 9 },
+    { t: 'Voeg de tomaat en ⅛ tl zout toe en laat 8 à 10 minuten inkoken tot een dikke saus.', min: 9 },
     { t: 'Breek de eieren in de pan. Roer ze heel losjes door de saus en laat 2 à 3 minuten zacht stollen. Het mag nog smeuïg zijn.', min: 3 },
     { t: 'Bestrooi met pul biber en zet de pan op tafel met warm brood.' }
   ],
@@ -227,11 +227,11 @@ RECEPTEN.push(
     { n: 'eidooier', p: 'eidooiers', q: 2, u: 'st' },
     { n: 'boter', q: 125, u: 'g', x: 'gesmolten en heet' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
-    { n: 'cayennepeper', q: 1, u: 'snuf' },
+    { n: 'cayennepeper', q: 0.125, u: 'tl' },
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Hollandaise: doe dooiers, citroensap en een snuf zout in de hoge beker. Zet de staafmixer aan en giet de hete boter er in een dun straaltje bij, tot een dikke, glanzende saus. Breng op smaak met cayenne. Zet de beker in een kom warm water.' },
+    { t: 'Hollandaise: doe dooiers, citroensap en ⅛ tl zout in de hoge beker. Zet de staafmixer aan en giet de hete boter er in een dun straaltje bij, tot een dikke, glanzende saus. Breng op smaak met cayenne. Zet de beker in een kom warm water.' },
     { t: 'Breng een brede pan water met de azijn aan de kook en zet het vuur laag, zodat het water net trilt.' },
     { t: 'Breek elk ei in een kopje. Roer een draaikolk in het water en laat een ei in het midden glijden. Pocheer 3 minuten. Schep het uit met de schuimspaan en laat uitlekken op keukenpapier. Pocheer zo alle eieren.', min: 3 },
     { t: 'Rooster de muffins en bak de ham 1 minuut per kant in de koekenpan.', min: 2 },
@@ -251,13 +251,13 @@ RECEPTEN.push(
   ingr: [
     { n: 'ei', p: 'eieren', q: 4, u: 'st' },
     { n: 'tortilla\'s', q: 4, u: 'st', x: 'klein, liefst van mais' },
-    { n: 'zwarte bonen', q: 1, u: 'blik', x: '400 g, uitgelekt' },
+    { n: 'zwarte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g' },
     { n: 'avocado', p: 'avocado\'s', q: 1, u: 'st' },
     { n: 'feta', q: 50, u: 'g', x: 'of queso fresco' },
-    { n: 'verse koriander', q: 1, u: 'handje' },
+    { n: 'verse koriander', q: 10, u: 'g' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st' },
     { kop: 'Salsa roja' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
     { n: 'ui', p: 'uien', q: 0.5, u: 'st' },
     { n: 'knoflook', q: 1, u: 'teen' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st' },
@@ -266,7 +266,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Salsa: bak ui, knoflook en jalapeño 3 minuten in 1 el olie. Voeg tomaten, komijn en zout toe en laat 10 minuten inkoken.', min: 13 },
-    { t: 'Warm de bonen op met een scheutje water en prak ze grof. Breng op smaak met zout en limoensap.', min: 3 },
+    { t: 'Warm de bonen op met 2 el water en prak ze grof. Breng op smaak met zout en limoensap.', min: 3 },
     { t: 'Bak de tortilla\'s 1 minuut per kant in de koekenpan met een drupje olie, tot ze licht krokant zijn.', min: 2 },
     { t: 'Bak de eieren als spiegelei in de rest van de olie, 3 minuten met de deksel erop.', min: 3 },
     { t: 'Besmeer de tortilla\'s met bonen, leg er een ei op en schep salsa eromheen. Maak af met avocado, feta, koriander en limoen.' }

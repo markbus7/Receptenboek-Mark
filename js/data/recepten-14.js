@@ -15,7 +15,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 3, u: 'st' },
     { n: 'melk', q: 550, u: 'ml' },
     { n: 'boter', q: 50, u: 'g', x: '30 g voor het beslag, de rest om de pan in te vetten' },
-    { n: 'zout', q: 1, u: 'snuf' },
+    { n: 'zout', q: 0.125, u: 'tl' },
     { kop: 'Vulling' },
     { n: 'suiker', q: 4, u: 'el' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st' },
@@ -23,7 +23,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Doe de bloem en het zout in een kom, maak een kuiltje en breek de eieren erin. Giet er een derde van de melk bij en klop met de garde vanuit het midden tot een dik, glad beslag. Klop dan de rest van de melk erdoor. Met de staafmixer: doe alles in de hoge beker en mix 30 seconden.' },
-    { t: 'Smelt alle boter. Roer 30 g (ca. 2 el) door het beslag; de rest gebruik je straks om de pan in te vetten. Het beslag is zo dun als ongeklopte slagroom. Is het dikker, voeg dan een scheutje melk toe.' },
+    { t: 'Smelt alle boter. Roer 30 g (ca. 2 el) door het beslag; de rest gebruik je straks om de pan in te vetten. Het beslag is zo dun als ongeklopte slagroom. Is het dikker, voeg dan 2 el melk toe.' },
     { t: 'Laat het beslag afgedekt 30 minuten rusten. Dan worden de crêpes soepeler en scheuren ze minder snel.', min: 30 },
     { t: 'Verhit de koekenpan op middelhoog vuur. Vet hem in met een propje keukenpapier dat je door de gesmolten boter haalt.' },
     { t: 'Giet een kleine soeplepel beslag (ca. 50 ml) in de pan en draai en kantel de pan meteen, zodat de bodem dun bedekt raakt. Bak ca. 1 minuut, tot de rand loskomt en de onderkant goudbruine vlekjes heeft.', min: 1 },
@@ -32,7 +32,7 @@ RECEPTEN.push(
   ],
   tips: [
     'Crêpes Suzette: laat 50 g boter en 50 g suiker in de koekenpan smelten tot een lichte karamel. Blus af met het sap en de geraspte schil van 2 sinaasappels en laat 2 minuten inkoken. Leg de in vieren gevouwen crêpes in de saus en schenk er 3 el Grand Marnier over. Flamberen? Zet de afzuigkap uit, zet de fles ver weg en steek de damp aan met een lange aansteker. Of laat de likeur gewoon 1 minuut meekoken.',
-    'Het beslag blijft een dag goed in de koelkast. Klop het even door; het is dan vaak wat dikker geworden, dus verdun het met een scheutje melk.'
+    'Het beslag blijft een dag goed in de koelkast. Klop het even door; het is dan vaak wat dikker geworden, dus verdun het met 2 el melk.'
   ],
   alt: ['Hartig: de galette uit Bretagne. Maak een beslag van 250 g boekweitmeel, 1 ei, 600 ml water en ½ tl zout. Bak de galette 1 minuut, keer hem en beleg hem meteen met een plak ham en geraspte Gruyère. Breek in het midden een ei, vouw de randen naar binnen en bak met de deksel op de pan tot het eiwit gestold is: een galette complète.']
 },
@@ -56,7 +56,7 @@ RECEPTEN.push(
     { n: 'boter', q: 25, u: 'g', x: 'plus een klontje zachte boter voor de contactgrill' },
     { n: 'bloem', q: 25, u: 'g' },
     { n: 'melk', q: 250, u: 'ml' },
-    { n: 'nootmuskaat', q: 1, u: 'snuf' },
+    { n: 'nootmuskaat', q: 0.125, u: 'tl' },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
@@ -144,7 +144,7 @@ RECEPTEN.push(
   ],
   alt: [
     'Geen bakresten, bijvoorbeeld omdat je het vlees op de contactgrill bereidde? Maak de saus in een steelpan: fruit sjalot en peper in 30 g boter en gebruik geconcentreerde bouillon (½ bouillonblokje op 150 ml water) voor een diepe smaak.',
-    'Zonder alcohol: laat de cognac weg en blus af met een scheutje extra bouillon en 1 tl worcestershiresaus.'
+    'Zonder alcohol: laat de cognac weg en blus af met 2 el extra bouillon en 1 tl worcestershiresaus.'
   ],
   bij: ['steak-frites']
 },
@@ -180,7 +180,7 @@ RECEPTEN.push(
     'Bak je er vlees bij? Maak de saus in dezelfde pan zodra het vlees eruit is: de aanbaksels geven extra smaak.'
   ],
   alt: [
-    'Vegetarisch: gebruik groentebouillon met een scheutje sojasaus voor extra diepte.',
+    'Vegetarisch: gebruik groentebouillon met 1 el sojasaus voor extra diepte.',
     'Met een scheut cognac in plaats van witte wijn wordt de saus voller; lekker bij biefstuk.'
   ],
   bij: ['steak-frites', 'wiener-schnitzel']
@@ -200,11 +200,11 @@ RECEPTEN.push(
     { n: 'witte wijn', q: 4, u: 'el', x: 'of water' },
     { n: 'sjalot', p: 'sjalotten', q: 1, u: 'st', x: 'heel fijngesnipperd' },
     { n: 'zwarte peperkorrels', q: 0.5, u: 'tl', x: 'gekneusd' },
-    { n: 'verse dragon', q: 1, u: 'bos', x: 'ca. 15 g; steeltjes voor de reductie, blaadjes fijngehakt voor de saus' },
+    { n: 'verse dragon', q: 15, u: 'g', x: 'steeltjes voor de reductie, blaadjes fijngehakt voor de saus' },
     { kop: 'Saus' },
     { n: 'eidooier', p: 'eidooiers', q: 3, u: 'st' },
     { n: 'boter', q: 175, u: 'g' },
-    { n: 'cayennepeper', q: 1, u: 'snuf', opt: true },
+    { n: 'cayennepeper', q: 0.125, u: 'tl', opt: true },
     { n: 'zout' }
   ],
   stappen: [
@@ -241,16 +241,16 @@ RECEPTEN.push(
     { n: 'boter', q: 175, u: 'g' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap, ca. 1 el' },
     { n: 'water', q: 1, u: 'el' },
-    { n: 'cayennepeper', q: 1, u: 'snuf', opt: true },
+    { n: 'cayennepeper', q: 0.125, u: 'tl', opt: true },
     { n: 'zout' }
   ],
   stappen: [
     { t: 'Smelt de boter op laag vuur in het steelpannetje en schep het schuim eraf. Laat hem iets afkoelen: warm, maar niet heet.', m: 'kookpan' },
-    { t: 'Breng in de steelpan 3 cm water aan de kook en zet het vuur laag, zodat het water net niet kookt. Klop in de kom de dooiers los met het water, 1 el citroensap en een snuf zout.', m: 'kookpan' },
+    { t: 'Breng in de steelpan 3 cm water aan de kook en zet het vuur laag, zodat het water net niet kookt. Klop in de kom de dooiers los met het water, 1 el citroensap en ⅛ tl zout.', m: 'kookpan' },
     { t: 'Zet de kom op de pan (de bodem mag het water niet raken) en klop 3 à 4 minuten, tot het mengsel dik en schuimig is en de garde een spoor achterlaat. Til de kom even van de pan als het te heet wordt.', m: 'kookpan', min: 4 },
     { t: 'Haal de kom van de pan. Klop de boter er eerst druppel voor druppel door, daarna in een dun straaltje, tot een dikke, glanzende saus. Laat het melkachtige bezinksel onderin het pannetje achter.', m: 'kookpan' },
     { t: 'Smelt de boter in het steelpannetje en verhit hem tot hij schuimt en net begint te borrelen. Hij moet echt heet zijn: daarmee garen de dooiers.', m: 'staafmixer' },
-    { t: 'Doe dooiers, water, 1 el citroensap en een snuf zout in de hoge beker. Zet de staafmixer op de bodem, zet hem aan en giet de hete boter er in een dun straaltje bij. Beweeg de mixer langzaam omhoog als de saus dik wordt. Na ongeveer een minuut is hij klaar.', m: 'staafmixer' },
+    { t: 'Doe dooiers, water, 1 el citroensap en ⅛ tl zout in de hoge beker. Zet de staafmixer op de bodem, zet hem aan en giet de hete boter er in een dun straaltje bij. Beweeg de mixer langzaam omhoog als de saus dik wordt. Na ongeveer een minuut is hij klaar.', m: 'staafmixer' },
     { t: 'Breng de saus op smaak met zout, citroensap en eventueel cayenne. Te dik? Roer er een theelepel warm water door. Serveer meteen, of houd hem tot een uur warm in een kom boven warm (niet heet) water.' }
   ],
   tips: [
@@ -273,7 +273,7 @@ RECEPTEN.push(
     { n: 'boter', q: 40, u: 'g' },
     { n: 'bloem', q: 40, u: 'g' },
     { n: 'melk', q: 500, u: 'ml' },
-    { n: 'nootmuskaat', q: 1, u: 'snuf', x: 'versgeraspt' },
+    { n: 'nootmuskaat', q: 0.125, u: 'tl', x: 'versgeraspt' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 1, u: 'st', opt: true },
     { n: 'zout' },
     { n: 'peper', x: 'liefst wit' }
@@ -292,7 +292,7 @@ RECEPTEN.push(
   ],
   alt: [
     'Toch klontjes? Klop ze weg met de garde of werk de saus even glad met de staafmixer.',
-    'Glutenvrij: breng melk en boter aan de kook en bind met 3 el maïzena, aangelengd met een scheutje koude melk. Laat 1 minuut doorkoken.'
+    'Glutenvrij: breng melk en boter aan de kook en bind met 3 el maïzena, aangelengd met 2 el koude melk. Laat 1 minuut doorkoken.'
   ],
   bij: ['lasagne-bolognese', 'moussaka', 'croque-monsieur']
 },
@@ -317,7 +317,7 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'rode wijn', q: 150, u: 'ml', x: 'of droge witte wijn', opt: true },
     { n: 'melk', q: 150, u: 'ml' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
     { n: 'passata', q: 250, u: 'ml' },
     { n: 'runderbouillon', q: 250, u: 'ml', x: 'of water' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 1, u: 'st' },
@@ -330,10 +330,10 @@ RECEPTEN.push(
     { t: 'Verhit de olie in de Dutch oven op middelhoog vuur. Fruit ui, wortel en bleekselderij (de soffritto) 8 à 10 minuten, tot ze zacht en zoet zijn maar niet bruin.', min: 9 },
     { t: 'Zet het vuur hoog en voeg het gehakt toe. Bak het in ca. 8 minuten rul en bruin; laat het vocht verdampen tot het vlees sist. Bak knoflook en tomatenpuree 1 minuut mee.', min: 8 },
     { t: 'Blus af met de wijn en schraap de aanbaksels los. Laat de wijn bijna helemaal inkoken. Giet de melk erbij en laat 3 à 4 minuten pruttelen tot ook die bijna is opgenomen; dat maakt het vlees mals.', min: 4 },
-    { t: 'Voeg tomatenblokjes, passata, bouillon en laurier toe en breng op smaak met zout en peper. Breng aan de kook, zet het vuur laag en laat minimaal 1 uur (liefst 2) zachtjes sudderen met de deksel op een kier. Roer af en toe en voeg een scheutje water toe als de saus te droog wordt.', m: 'braadpan', min: 60 },
+    { t: 'Voeg tomatenblokjes, passata, bouillon en laurier toe en breng op smaak met zout en peper. Breng aan de kook, zet het vuur laag en laat minimaal 1 uur (liefst 2) zachtjes sudderen met de deksel op een kier. Roer af en toe en voeg 2 el water toe als de saus te droog wordt.', m: 'braadpan', min: 60 },
     { t: 'Schep alles over in de slowcooker en voeg tomatenblokjes, passata, laurier en maar de helft van de bouillon toe; er verdampt bijna niets. Breng op smaak met zout en peper. Gaar 6 à 8 uur op LOW of 3 à 4 uur op HIGH. Leg het laatste halfuur de deksel op een kier, zodat de saus indikt.', m: 'slowcooker', min: 360 },
     { t: 'Kook de spaghetti beetgaar in ruim water met zout. Houd een kopje kookvocht apart.', min: 10 },
-    { t: 'Vis het laurierblad eruit. Schep de spaghetti door de saus met een scheutje kookvocht, zodat de saus zich om de pasta hecht. Serveer met Parmezaanse kaas.' }
+    { t: 'Vis het laurierblad eruit. Schep de spaghetti door de saus met 2 el kookvocht, zodat de saus zich om de pasta hecht. Serveer met Parmezaanse kaas.' }
   ],
   tips: [
     'Maak meteen een dubbele portie: ragù is de volgende dag nog lekkerder en blijft in porties 3 maanden goed in de vriezer.',
@@ -358,14 +358,14 @@ RECEPTEN.push(
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
     { n: 'vastkokende aardappelen', q: 250, u: 'g', x: 'in blokjes van 1 cm' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g', x: 'een blik is 400 g' },
     { n: 'groentebouillon', q: 1.5, u: 'l' },
     { n: 'courgette', p: 'courgettes', q: 1, u: 'st', x: 'in blokjes' },
     { n: 'sperziebonen', q: 150, u: 'g', x: 'in stukjes van 2 cm' },
-    { n: 'witte bonen', q: 1, u: 'blik', x: '400 g, bijvoorbeeld cannellini, uitgelekt' },
+    { n: 'witte bonen', q: 240, u: 'g', x: 'uitgelekt; een blik van 400 g geeft ± 240 g; bijvoorbeeld cannellini' },
     { n: 'soeppasta', q: 100, u: 'g', x: 'ditalini, kleine elleboogjes of gebroken spaghetti' },
     { n: 'spinazie', q: 100, u: 'g', x: 'of savooiekool in reepjes' },
-    { n: 'verse basilicum', q: 1, u: 'handje' },
+    { n: 'verse basilicum', q: 10, u: 'g' },
     { n: 'Parmezaanse kaas', q: 60, u: 'g', x: 'geraspt; of een vegetarische Italiaanse harde kaas' },
     { n: 'zout' }, { n: 'peper' }
   ],
@@ -376,7 +376,7 @@ RECEPTEN.push(
     { t: 'Voeg courgette, sperziebonen en witte bonen toe en laat 10 minuten koken.', min: 10 },
     { t: 'Strooi de pasta erin en kook hem gaar volgens de verpakking, meestal 8 à 10 minuten. Roer af en toe, zodat hij niet aan de bodem plakt. Wordt de soep te dik, voeg dan een scheut water toe.', min: 9 },
     { t: 'Roer de spinazie erdoor en laat 1 minuut slinken. Breng op smaak met zout en peper.', min: 1 },
-    { t: 'Schep de soep in kommen en maak af met gescheurde basilicum, geraspte kaas en een scheutje olijfolie.' }
+    { t: 'Schep de soep in kommen en maak af met gescheurde basilicum, geraspte kaas en 2 el olijfolie.' }
   ],
   tips: [
     'Wil je de soep bewaren of invriezen? Kook de pasta dan apart en doe hem pas bij het opwarmen erbij; anders zuigt hij al het vocht op en wordt hij papperig.',
@@ -423,7 +423,7 @@ RECEPTEN.push(
   ],
   alt: [
     'Vegetarisch met agar-agar: vervang de gelatine door ½ à ¾ tl agar-agarpoeder (1 à 1,5 g). Roer het door de koude room en melk, breng aan de kook en laat 2 minuten zachtjes koken; agar werkt pas na koken. De panna cotta wordt iets steviger.',
-    'Andere toppings: karamelsaus, verse passievrucht of een scheutje espresso met geschaafde chocolade.'
+    'Andere toppings: karamelsaus, verse passievrucht of 1 el espresso met geschaafde chocolade.'
   ]
 },
 {
@@ -440,7 +440,7 @@ RECEPTEN.push(
     { n: 'olijfolie', q: 100, u: 'ml', x: 'extra vierge' },
     { n: 'knoflook', q: 6, u: 'teen', x: 'in dunne plakjes', vers: 'de knoflook is hier de smaak' },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'in ringetjes; of 1 tl chilivlokken' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'zout' }
   ],
   stappen: [
@@ -448,11 +448,11 @@ RECEPTEN.push(
     { t: 'Kook de spaghetti 2 minuten korter dan op de verpakking staat. Schep voor het afgieten een flinke kop kookvocht (250 ml) apart.', min: 8 },
     { t: 'Doe intussen de olie en de knoflook in de koude koekenpan. Verwarm op middellaag vuur en laat de knoflook in 3 à 4 minuten zacht garen tot hij lichtgoud is. Bak de peper de laatste minuut mee. Bruine knoflook wordt bitter, dus let goed op.', min: 4 },
     { t: 'Giet meteen een scheut kookvocht (ca. 100 ml) in de pan; pas op voor spetters. Zo stopt de knoflook met bakken.' },
-    { t: 'Schep de spaghetti met de tang in de pan en zet het vuur hoog. Schep en schud 1 à 2 minuten om, telkens met een scheutje kookvocht, tot olie en water samen een licht romige, glanzende saus vormen die aan de pasta blijft hangen.', min: 2 },
+    { t: 'Schep de spaghetti met de tang in de pan en zet het vuur hoog. Schep en schud 1 à 2 minuten om, telkens met 2 el kookvocht, tot olie en water samen een licht romige, glanzende saus vormen die aan de pasta blijft hangen.', min: 2 },
     { t: 'Roer de peterselie erdoor, proef of er zout bij moet en serveer meteen.' }
   ],
   tips: [
-    'Het geheim is de emulsie: het zetmeel in het kookvocht bindt olie en water. Blijft er olie op de bodem liggen? Nog een scheutje kookvocht erbij en flink schudden.',
+    'Het geheim is de emulsie: het zetmeel in het kookvocht bindt olie en water. Blijft er olie op de bodem liggen? Nog 2 el kookvocht erbij en flink schudden.',
     'Snijd de knoflook in plakjes en pers hem niet: geperste knoflook verbrandt in een paar seconden.'
   ],
   alt: [
@@ -470,20 +470,20 @@ RECEPTEN.push(
     { tool: 'staafmixer', tekst: 'Staafmixer, als je een gladde saus wilt', of: 'Geen staafmixer? Gebruik passata in plaats van tomatenblokjes.' }
   ],
   ingr: [
-    { n: 'tomatenblokjes', q: 2, u: 'blik', x: 'à 400 g; of 800 ml passata' },
+    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'een blik is 400 g; of 800 ml passata' },
     { n: 'olijfolie', q: 3, u: 'el' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'in plakjes' },
     { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'gepeld, in één stuk; zie tip', opt: true },
-    { n: 'verse basilicum', q: 1, u: 'handje' },
-    { n: 'suiker', q: 1, u: 'snuf', opt: true },
+    { n: 'verse basilicum', q: 10, u: 'g' },
+    { n: 'suiker', q: 0.125, u: 'tl', opt: true },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
     { t: 'Verwarm de olie in de hapjespan op middellaag vuur. Bak de knoflook 1 à 2 minuten zachtjes, tot hij geurt maar nog niet kleurt.', min: 2 },
-    { t: 'Voeg de tomaten, de halve ui (met de snijkant naar beneden), een paar basilicumsteeltjes en een snuf zout toe. Breng aan de kook.' },
+    { t: 'Voeg de tomaten, de halve ui (met de snijkant naar beneden), een paar basilicumsteeltjes en ⅛ tl zout toe. Breng aan de kook.' },
     { t: 'Zet het vuur laag en laat de saus 20 à 30 minuten zachtjes pruttelen zonder deksel, of met de deksel op een kier tegen spatten. Roer af en toe. De saus is klaar als hij is ingedikt en de olie aan de rand glanst.', min: 25 },
     { t: 'Vis de ui en de steeltjes eruit. Wil je een gladde saus? Pureer hem kort met de staafmixer.' },
-    { t: 'Proef: is de saus wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper en scheur er vlak voor het serveren de basilicumblaadjes door.' }
+    { t: 'Proef: is de saus wat zuur, voeg dan ⅛ tl suiker toe. Breng op smaak met zout en peper en scheur er vlak voor het serveren de basilicumblaadjes door.' }
   ],
   tips: [
     'De beroemde saus van Marcella Hazan: vervang de olijfolie en de knoflook door 70 g boter en laat de 2 blikken tomaten met een gepelde, gehalveerde ui 45 minuten zachtjes sudderen. Vis de ui eruit. Zacht, zoet en fluweelzacht, met verrassend weinig moeite.',
@@ -514,7 +514,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 1, u: 'st' },
     { n: 'Parmezaanse kaas', q: 40, u: 'g', x: 'fijngeraspt' },
     { n: 'knoflook', q: 1, u: 'teen', x: 'geperst' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'zout', q: 1, u: 'tl' },
     { n: 'peper' },
     { kop: 'Tomatensaus' },
@@ -522,10 +522,10 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
-    { n: 'tomatenblokjes', q: 2, u: 'blik', x: 'à 400 g; of 800 ml passata' },
+    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'een blik is 400 g; of 800 ml passata' },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },
-    { n: 'suiker', q: 1, u: 'snuf', opt: true },
-    { n: 'verse basilicum', q: 1, u: 'handje', opt: true },
+    { n: 'suiker', q: 0.125, u: 'tl', opt: true },
+    { n: 'verse basilicum', q: 10, u: 'g', opt: true },
     { kop: 'Erbij' },
     { n: 'spaghetti', q: 400, u: 'g', x: 'of brood', opt: true },
     { n: 'Parmezaanse kaas', q: 30, u: 'g', x: 'geraspt, om erover te strooien', opt: true }
@@ -535,10 +535,10 @@ RECEPTEN.push(
     { t: 'Verhit 2 el olijfolie in de braadpan op middelhoog vuur. Bak de ballen in 6 à 8 minuten rondom bruin, in twee porties als de pan te vol wordt. Haal ze eruit; ze hoeven nog niet gaar te zijn.', m: 'braadpan', min: 7 },
     { t: 'Bak de ballen 8 minuten in de airfryer op 200 °C tot ze rondom bruin zijn. Ze hoeven nog niet gaar te zijn. Verhit intussen 2 el olijfolie in de braadpan.', m: 'airfryer', min: 8 },
     { t: 'Doe de rest van de olie in de pan en fruit de ui 4 minuten op middelhoog vuur. Bak knoflook en tomatenpuree 1 minuut mee.', min: 5 },
-    { t: 'Voeg tomaten, oregano en een snuf zout toe en breng aan de kook. Leg de gehaktballen in de saus.' },
+    { t: 'Voeg tomaten, oregano en ⅛ tl zout toe en breng aan de kook. Leg de gehaktballen in de saus.' },
     { t: 'Zet het vuur laag en laat 20 à 25 minuten zachtjes garen met de deksel op een kier. Keer de ballen halverwege voorzichtig. De saus is klaar als hij is ingedikt.', min: 22 },
     { t: 'Kook intussen de spaghetti beetgaar in ruim water met zout.', min: 10 },
-    { t: 'Proef de saus: is hij wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
+    { t: 'Proef de saus: is hij wat zuur, voeg dan ⅛ tl suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
   ],
   tips: [
     'Steek een thermometer in een bal: bij 70 °C in het midden is hij gaar. Zonder thermometer: snijd er één doormidden, hij mag niet meer roze zijn.',
@@ -561,13 +561,13 @@ RECEPTEN.push(
     { tool: 'staafmixer', tekst: 'Staafmixer met hakmolen of hoge beker', of: 'Geen staafmixer? Gebruik een vijzel (zie de alternatieven) of hak alles heel fijn met een groot mes.' }
   ],
   ingr: [
-    { n: 'verse basilicum', q: 2, u: 'bos', x: 'ca. 50 g blaadjes', vers: 'de basilicum is de saus' },
+    { n: 'verse basilicum', q: 50, u: 'g', x: 'alleen de blaadjes', vers: 'de basilicum is de saus' },
     { n: 'pijnboompitten', q: 30, u: 'g' },
     { n: 'knoflook', q: 1, u: 'teen' },
     { n: 'Parmezaanse kaas', q: 50, u: 'g', x: 'fijn geraspt; of een vegetarische Italiaanse harde kaas' },
     { n: 'pecorino', q: 20, u: 'g', x: 'liefst Pecorino Sardo, fijn geraspt; of extra Parmezaan', opt: true },
     { n: 'olijfolie', q: 100, u: 'ml', x: 'extra vierge, liefst een milde' },
-    { n: 'zout', q: 1, u: 'snuf', x: 'grof' }
+    { n: 'zout', q: 0.125, u: 'tl', x: 'grof' }
   ],
   stappen: [
     { t: 'Rooster de pijnboompitten in de droge koekenpan op middelhoog vuur 2 à 3 minuten goudbruin; schud de pan regelmatig. Laat ze afkoelen op een bord.', min: 3 },
@@ -575,11 +575,11 @@ RECEPTEN.push(
     { t: 'Maal knoflook, pijnboompitten en zout kort fijn in de hakmolen of de hoge beker.' },
     { t: 'Voeg de basilicum en de helft van de olie toe en pulseer in korte stootjes tot een grove pesto. Mix niet te lang: de warmte van het mes maakt de basilicum donker en bitter.' },
     { t: 'Doe de pesto in een kom en roer de kaas en de rest van de olie erdoor. Proef en voeg zo nodig zout toe.' },
-    { t: 'Meng de pesto met de pasta en een scheutje kookvocht. Verwarm hem niet in de pan, anders verliest hij zijn frisse kleur en smaak.' }
+    { t: 'Meng de pesto met de pasta en 2 el kookvocht. Verwarm hem niet in de pan, anders verliest hij zijn frisse kleur en smaak.' }
   ],
   tips: [
     'Bewaren: schep de pesto in een potje en giet er een laagje olie op. Zo blijft hij 4 dagen groen in de koelkast. Invriezen kan ook, in een ijsblokjesvorm; roer de kaas er dan pas na het ontdooien door.',
-    'Zoals in Ligurië: kook een paar blokjes aardappel en een handje sperziebonen mee met de pasta (liefst trofie of linguine) en meng alles met de pesto.'
+    'Zoals in Ligurië: kook een paar blokjes aardappel en 50 g sperziebonen mee met de pasta (liefst trofie of linguine) en meng alles met de pesto.'
   ],
   alt: [
     'Met de vijzel, zoals in Genua: stamp knoflook en grof zout fijn, dan de pijnboompitten en daarna de basilicum, met draaiende bewegingen langs de wand, tot een groene pasta. Roer de kaas en de olie erdoor. Het kost een kwartier, maar de pesto wordt extra romig en geurig.',

@@ -113,7 +113,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 4, u: 'st', x: 'hardgekookt' },
     { n: 'tahoe', q: 200, u: 'g', x: 'stevig, in blokjes' },
     { n: 'gebakken uitjes', q: 3, u: 'el' },
-    { n: 'kroepoek', q: 1, u: 'zakje', opt: true },
+    { n: 'kroepoek', q: 100, u: 'g', x: 'gebakken, uit een zak', opt: true },
     { kop: 'Pindasaus' },
     { n: 'pindakaas', q: 200, u: 'g' },
     { n: 'kokosmelk', q: 200, u: 'ml' },
@@ -149,7 +149,7 @@ RECEPTEN.push(
     { n: 'taugé', q: 200, u: 'g' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'knoflook', q: 2, u: 'teen' },
-    { n: 'bamikruiden', q: 1, u: 'zakje', x: 'of 1 tl ketoembar, ½ tl djinten, ½ tl laos' },
+    { n: 'bamikruiden', q: 2, u: 'el', x: 'droge kruidenmix; of 1 tl ketoembar, ½ tl djinten, ½ tl laos' },
     { n: 'ketjap manis', q: 4, u: 'el' },
     { n: 'sojasaus', q: 1, u: 'el' },
     { n: 'sambal oelek', q: 1, u: 'tl' },
@@ -193,7 +193,7 @@ RECEPTEN.push(
     { t: 'Bak de tempeh 3 minuten mee.', min: 3 },
     { t: 'Voeg bouillon, kokosmelk en djeroekbladeren toe en breng aan de kook.' },
     { t: 'Doe wortel en sperziebonen erin en kook 6 minuten. Voeg kool en courgette toe en kook nog 5 minuten.', min: 11 },
-    { t: 'Breng op smaak met zout en eventueel een snuf suiker. Serveer met rijst en sambal.' }
+    { t: 'Breng op smaak met zout en eventueel ⅛ tl suiker. Serveer met rijst en sambal.' }
   ],
   tips: ['Laat het niet hard koken; de kokosmelk kan dan schiften.'],
   alt: ['Liever met vlees? Kook 300 g kipfilet in reepjes mee.']
