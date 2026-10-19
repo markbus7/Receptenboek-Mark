@@ -450,19 +450,27 @@ const App = (() => {
 
   /* ---------- Kruiden en specerijen ---------- */
   let kruidSoort = '';
+  // Wat er in Marks kruidenkast staat (van zijn foto's); daarna past hij het zelf aan.
+  const KAST_START = ['chili', 'oregano', 'korianderzaad', 'tijm', 'garam-masala', 'kaneel', 'kerriepoeder', 'cajun', 'knoflookpoeder',
+    'kardemom', 'mosterdzaad', 'bieslook', 'nootmuskaat', 'gember', 'paprikapoeder', 'fenegriek', 'italiaanse-kruiden', 'komijn',
+    'kurkuma', 'laurier', 'vanille', 'peper', 'zout', 'zuiveringszout', 'vleesmixen', 'patatkruiden'];
+  const kast = () => new Set(opslag.lees('kruidenkast', KAST_START));
   function receptenMet(k) {
     const namen = k.namen.map((n) => Hulp.norm(n));
-    return RECEPTEN.filter((r) => (r.ingr || []).some((i) => i.n && namen.includes(Hulp.norm(i.n))))
+    const past = new Set(k.past || []);
+    return RECEPTEN.filter((r) => past.has(r.id) || (r.ingr || []).some((i) => i.n && namen.includes(Hulp.norm(i.n))))
       .sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
   }
   function renderKruiden() {
-    const lijst = (window.KRUIDEN || []).filter((k) => !kruidSoort || k.soort === kruidSoort);
-    const soorten = [['', 'Alles'], ['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']];
+    const inKast = kast();
+    const lijst = (window.KRUIDEN || []).filter((k) => !kruidSoort || (kruidSoort === 'kast' ? inKast.has(k.id) : k.soort === kruidSoort));
+    const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']];
     $('#kruiden-filter').innerHTML = soorten.map(([w, l]) => `<button type="button" class="chip" data-kruidsoort="${w}" aria-pressed="${kruidSoort === w}">${l}</button>`).join('');
     $('#kruiden-lijst').innerHTML = lijst.map((k) => {
       const rs = receptenMet(k);
       return `<article class="kruid" id="kruid-${k.id}">
-        <p class="kruid-soort">${esc(k.soort)}</p>
+        <div class="kruid-kop"><p class="kruid-soort">${esc(k.soort)}</p>
+          <label class="kruid-kast"><input type="checkbox" data-kast="${k.id}"${inKast.has(k.id) ? ' checked' : ''}> In mijn kast</label></div>
         <h3>${esc(k.naam)}</h3>
         <p>${esc(k.wat)}</p>
         ${k.bevat ? `<p><b>Wat zit erin:</b> ${esc(k.bevat)}</p>` : ''}
@@ -804,6 +812,12 @@ const App = (() => {
 
     $('#wis-filters').addEventListener('click', wisAlles);
     $('#view-kruiden').addEventListener('click', (e) => {
+      const kb = e.target.closest('[data-kast]');
+      if (kb) {
+        const set = kast(); kb.checked ? set.add(kb.dataset.kast) : set.delete(kb.dataset.kast);
+        opslag.schrijf('kruidenkast', [...set]);
+        return kruidSoort === 'kast' ? renderKruiden() : ($('#kruiden-filter [data-kruidsoort="kast"]').textContent = `In mijn kast (${set.size})`);
+      }
       const s = e.target.closest('[data-kruidsoort]');
       if (s) { kruidSoort = s.dataset.kruidsoort; return renderKruiden(); }
       const a = e.target.closest('[data-open-recept]');

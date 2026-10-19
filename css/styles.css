@@ -846,3 +846,5 @@ p.sync-fout::before { display: none; }
 .kruid-soort { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--potlood); margin-bottom: 2px !important; }
 .kruid-tip { font-family: var(--font-hand); font-size: 20px; line-height: 1.25; color: var(--pen); }
 .kruid-recepten a { color: var(--pen); font-weight: 600; text-underline-offset: 2px; }
+.kruid-kop { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.kruid-kast { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui, inherit); font-size: 13px; font-weight: 600; color: var(--inkt-zacht); cursor: pointer; }
