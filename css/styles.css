@@ -849,7 +849,7 @@ p.sync-fout::before { display: none; }
 .kruid-kop { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .kruid-kast { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui, inherit); font-size: 13px; font-weight: 600; color: var(--inkt-zacht); cursor: pointer; }
 .kruid-foto { margin: 6px 0 10px; }
-.kruid-foto img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; display: block; }
+.kruid-foto img { width: 100%; height: 190px; object-fit: contain; background: color-mix(in srgb, var(--lijn) 40%, transparent); border-radius: 6px; display: block; }
 .kruid-foto figcaption { font-size: 11px; color: var(--potlood); margin-top: 3px; }
 .kast-recepten { grid-column: 1 / -1; background: var(--papier); border-radius: var(--r); box-shadow: var(--schaduw); padding: 18px 22px; }
 .kast-recepten h3 { margin: 6px 0 6px; font-size: 22px; }

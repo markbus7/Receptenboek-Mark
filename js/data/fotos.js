@@ -620,9 +620,21 @@ window.FOTOS = {
  },
  "kruid-bieslook": {
   "src": "img/kruid-bieslook.jpg",
-  "auteur": "Ivar Leidus",
-  "licentie": "CC BY-SA 4.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Allium_schoenoprasum_-_Bombus_lapidarius_-_Tootsi.jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-cajun": {
+  "src": "img/kruid-cajun.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-chili": {
+  "src": "img/kruid-chili.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-citroengras": {
   "src": "img/kruid-citroengras.jpg",
@@ -650,21 +662,57 @@ window.FOTOS = {
  },
  "kruid-fenegriek": {
   "src": "img/kruid-fenegriek.jpg",
-  "auteur": "Prof. Dr. Otto Wilhelm Thomé derivative work: Ninjatacoshell",
-  "licentie": "Public domain",
-  "bron": "https://commons.wikimedia.org/wiki/File:Illustration_Trigonella_foenum-graecum0_clean.jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-garam-masala": {
+  "src": "img/kruid-garam-masala.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-gember": {
   "src": "img/kruid-gember.jpg",
-  "auteur": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
-  "licentie": "Public domain",
-  "bron": "https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-italiaanse-kruiden": {
+  "src": "img/kruid-italiaanse-kruiden.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-kaneel": {
+  "src": "img/kruid-kaneel.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-kardemom": {
+  "src": "img/kruid-kardemom.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-kerriepoeder": {
+  "src": "img/kruid-kerriepoeder.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-knoflookpoeder": {
+  "src": "img/kruid-knoflookpoeder.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-komijn": {
   "src": "img/kruid-komijn.jpg",
-  "auteur": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
-  "licentie": "Public domain",
-  "bron": "https://commons.wikimedia.org/wiki/File:Cuminum_cyminum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-198.jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-koriander": {
   "src": "img/kruid-koriander.jpg",
@@ -672,17 +720,29 @@ window.FOTOS = {
   "licentie": "Public domain",
   "bron": "https://commons.wikimedia.org/wiki/File:Coriandrum_sativum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-193.jpg"
  },
+ "kruid-korianderzaad": {
+  "src": "img/kruid-korianderzaad.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
  "kruid-kurkuma": {
   "src": "img/kruid-kurkuma.jpg",
-  "auteur": "SKsiddhartthan",
-  "licentie": "CC BY-SA 4.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Turmeric_inflorescence.jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-laurier": {
   "src": "img/kruid-laurier.jpg",
-  "auteur": "Miansari66",
-  "licentie": "Public domain",
-  "bron": "https://commons.wikimedia.org/wiki/File:Bay_Leaves.JPG"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-mosterdzaad": {
+  "src": "img/kruid-mosterdzaad.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-munt": {
   "src": "img/kruid-munt.jpg",
@@ -690,23 +750,35 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Mentha_spicata-IMG_6186.jpg"
  },
+ "kruid-nootmuskaat": {
+  "src": "img/kruid-nootmuskaat.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
  "kruid-oregano": {
   "src": "img/kruid-oregano.jpg",
-  "auteur": "Ivar Leidus",
-  "licentie": "CC BY-SA 3.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Origanum_vulgare_-_harilik_pune.jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-paprikapoeder": {
   "src": "img/kruid-paprikapoeder.jpg",
-  "auteur": "Marcosgarrido88",
-  "licentie": "CC BY-SA 3.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Piment%C3%B3n_Tap_de_Cort%C3%AD_(cropped).jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-patatkruiden": {
+  "src": "img/kruid-patatkruiden.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-peper": {
   "src": "img/kruid-peper.jpg",
-  "auteur": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
-  "licentie": "Public domain",
-  "bron": "https://commons.wikimedia.org/wiki/File:Piper_nigrum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-107.jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kruid-thaise-basilicum": {
   "src": "img/kruid-thaise-basilicum.jpg",
@@ -716,9 +788,33 @@ window.FOTOS = {
  },
  "kruid-tijm": {
   "src": "img/kruid-tijm.jpg",
-  "auteur": "Evan-Amos",
-  "licentie": "CC0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Thyme-Bundle.jpg"
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-vanille": {
+  "src": "img/kruid-vanille.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-vleesmixen": {
+  "src": "img/kruid-vleesmixen.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-zout": {
+  "src": "img/kruid-zout.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
+ },
+ "kruid-zuiveringszout": {
+  "src": "img/kruid-zuiveringszout.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto",
+  "bron": ""
  },
  "kung-pao-kip": {
   "src": "img/kung-pao-kip.jpg",
