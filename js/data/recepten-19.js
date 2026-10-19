@@ -1,7 +1,7 @@
 /* Gebak: cake */
 RECEPTEN.push(
 {
-  id: 'botercake', naam: 'Hollandse botercake', ook: ['cake', 'boter cake', 'marmercake', 'pondcake', 'cake bakken'],
+  id: 'botercake', toegevoegd: '2026-10-18', naam: 'Hollandse botercake', ook: ['cake', 'boter cake', 'marmercake', 'pondcake', 'cake bakken'],
   keuken: 'Nederlands', soort: 'Dessert',
   tijd: 20, wacht: '1 uur bakken', pers: 12, stuks: 'plakken', niveau: 'Makkelijk', vega: true,
   intro: 'Ouderwetse cake met een goudbruine scheur bovenop: luchtig, boterig en precies goed bij de koffie. Met een variant voor marmercake.',
