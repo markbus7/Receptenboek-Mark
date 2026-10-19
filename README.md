@@ -102,6 +102,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.30.0**: Kruiden: *Wat kan ik maken?* toont recepten waarvoor je alle gedroogde kruiden al in je kast hebt (en welke één potje missen), zoeken op trefwoord, en een foto bij elk kruid (je eigen potjes voor wat in je kast staat).
 - **1.29.0**: nieuw tabblad *Kruiden*: 48 kruiden, specerijen en kruidenmengsels, met wat het is, wat erin zit, wat je ermee doet en links naar de recepten in dit boek waarin ze voorkomen. Met *In mijn kast* vink je aan wat je in huis hebt (synchroniseert mee).
 - **1.28.0**: hoeveelheden staan nu ook in de stappen zelf ("Strooi de **2 el** bloem erover"), dus je hoeft tijdens het koken niet terug te scrollen. Ze rekenen mee met het aantal personen.
 - **1.27.4**: groentesoep met balletjes heeft een variant met kant-en-klare soepballetjes uit de supermarkt.

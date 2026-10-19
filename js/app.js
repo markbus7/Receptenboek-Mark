@@ -82,7 +82,7 @@ const App = (() => {
     soorten: new Set(),
     niveaus: new Set(),
     tijd: null,
-    vega: false,
+    vega: false, kruid: null,
     voorraad: opslag.lees('voorraad', []),
     basis: opslag.lees('basis', true),
     compleet: false,
@@ -237,6 +237,7 @@ const App = (() => {
       (!state.tijd || r.tijd <= state.tijd) &&
       (!state.bereid.size || [...state.bereid].some((t) => BEREID_PER_RECEPT.get(r.id).has(t))) &&
       (!state.vega || r.vega) &&
+      (!state.kruid || kruidRecepten().has(r.id)) &&
       (!state.maakbaar || maakbaar) &&
       (!metVoorraad || m.heb.length > 0 || isAanrader(r)) &&
       (!metVoorraad || !state.compleet || m.mist.length === 0)
@@ -391,6 +392,7 @@ const App = (() => {
     if (state.tijd) items.push(['tijd', state.tijd, `≤ ${state.tijd} min`]);
     state.bereid.forEach((b) => items.push(['bereid', b, BEREID.find(([k]) => k === b)[1]]));
     if (state.vega) items.push(['vega', '1', 'Vegetarisch']);
+    if (state.kruid) { const k = (window.KRUIDEN || []).find((x) => x.id === state.kruid); if (k) items.push(['kruid', k.id, `Met ${k.naam.replace(/ \(.*\)$/, '')}`]); }
     if (state.maakbaar) items.push(['maakbaar', '1', 'Past bij mijn keuken']);
     if (state.compleet) items.push(['compleet', '1', 'Alles in huis']);
     return items;
@@ -450,6 +452,7 @@ const App = (() => {
 
   /* ---------- Kruiden en specerijen ---------- */
   let kruidSoort = '';
+  const kruidRecepten = () => { const k = (window.KRUIDEN || []).find((x) => x.id === state.kruid); return new Set(k ? receptenMet(k).map((r) => r.id) : []); };
   // Wat er in Marks kruidenkast staat (van zijn foto's); daarna past hij het zelf aan.
   const KAST_START = ['chili', 'oregano', 'korianderzaad', 'tijm', 'garam-masala', 'kaneel', 'kerriepoeder', 'cajun', 'knoflookpoeder',
     'kardemom', 'mosterdzaad', 'bieslook', 'nootmuskaat', 'gember', 'paprikapoeder', 'fenegriek', 'italiaanse-kruiden', 'komijn',
@@ -461,21 +464,70 @@ const App = (() => {
     return RECEPTEN.filter((r) => past.has(r.id) || (r.ingr || []).some((i) => i.n && namen.includes(Hulp.norm(i.n))))
       .sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
   }
+  /* Recepten waarvoor je alle gedroogde kruiden en specerijen al in je kast hebt.
+     Verse kruiden, verse gember en pepers koop je vers; die tellen hier niet mee. */
+  const VERS = new Set(['gember', 'rode peper', 'groene peper', 'laos', 'citroengras', 'djeroekbladeren', 'thaise basilicum', 'ingelegde gember']);
+  function kastRecepten(inKast) {
+    const perNaam = new Map();
+    (window.KRUIDEN || []).forEach((k) => k.namen.forEach((n) => perNaam.set(Hulp.norm(n), k)));
+    const uit = [];
+    RECEPTEN.forEach((r) => {
+      const nodig = new Map();
+      (r.ingr || []).forEach((i) => {
+        if (!i.n || i.opt) return;
+        const n = Hulp.norm(i.n);
+        if (n.startsWith('verse ') || VERS.has(n)) return;
+        const k = perNaam.get(n);
+        if (k && k.id !== 'zout' && k.id !== 'peper') nodig.set(k.id, k);
+      });
+      if (nodig.size < 2) return;
+      const mist = [...nodig.values()].filter((k) => !inKast.has(k.id));
+      if (mist.length <= 1) uit.push({ r, mist, aantal: nodig.size });
+    });
+    return uit.sort((a, b) => (a.mist.length - b.mist.length) || (b.aantal - a.aantal) || a.r.naam.localeCompare(b.r.naam, 'nl'));
+  }
+  function renderKastRecepten(inKast) {
+    const lijst = kastRecepten(inKast);
+    const rij = ({ r, mist, aantal }) => `<li><a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>
+      <span class="zacht">${esc(r.keuken)} · ${aantal} kruiden${mist.length ? ` · mist: <b>${esc(mist[0].naam)}</b>` : ''}</span></li>`;
+    const alles = lijst.filter((x) => !x.mist.length), bijna = lijst.filter((x) => x.mist.length);
+    return `<section class="kast-recepten">
+      <h3>Alles in je kast (${alles.length})</h3>
+      <p class="hint">Recepten met minstens 2 gedroogde kruiden of specerijen, die je allemaal al hebt. Verse kruiden en pepers koop je er vers bij.</p>
+      <ul>${alles.map(rij).join('') || '<li>Nog niets: vink meer potjes aan bij In mijn kast.</li>'}</ul>
+      ${bijna.length ? `<h3>Mist één potje (${bijna.length})</h3><ul>${bijna.map(rij).join('')}</ul>` : ''}
+    </section>`;
+  }
+
   function renderKruiden() {
     const inKast = kast();
-    const lijst = (window.KRUIDEN || []).filter((k) => !kruidSoort || (kruidSoort === 'kast' ? inKast.has(k.id) : k.soort === kruidSoort));
-    const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']];
+    // Zoeken: elk woord moet ergens voorkomen (naam, uitleg, wat erin zit, recepten); tikfouten mogen.
+    const q = Hulp.norm(($('#kruiden-zoek') || {}).value || '').trim();
+    const zoekPast = (k) => {
+      if (!q) return true;
+      const tekst = Hulp.norm([k.naam, k.soort, k.wat, k.bevat, k.gebruik, k.tip, ...k.namen, ...receptenMet(k).map((x) => x.naam)].filter(Boolean).join(' '));
+      const woorden = tekst.split(/[^a-z0-9]+/).filter(Boolean);
+      return q.split(/\s+/).every((t) => tekst.includes(t) || (t.length >= 4 && woorden.some((w) => Hulp.lijktOp(t, w))));
+    };
+    const lijst = (window.KRUIDEN || []).filter((k) => (!kruidSoort || kruidSoort === 'maak' || (kruidSoort === 'kast' ? inKast.has(k.id) : k.soort === kruidSoort)) && zoekPast(k));
+    if (q) lijst.sort((a, b) => Number(!Hulp.norm(a.naam).includes(q)) - Number(!Hulp.norm(b.naam).includes(q)));
+    const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['maak', 'Wat kan ik maken?'], ['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']];
     $('#kruiden-filter').innerHTML = soorten.map(([w, l]) => `<button type="button" class="chip" data-kruidsoort="${w}" aria-pressed="${kruidSoort === w}">${l}</button>`).join('');
+    if (kruidSoort === 'maak' && !q) { $('#kruiden-lijst').innerHTML = renderKastRecepten(inKast); return; }
+    if (!lijst.length) { $('#kruiden-lijst').innerHTML = `<p class="hint">Niets gevonden voor "${esc(q)}". Probeer een ander woord, zoals een gerecht of een smaak.</p>`; return; }
     $('#kruiden-lijst').innerHTML = lijst.map((k) => {
+      const foto = window.FOTOS && FOTOS['kruid-' + k.id];
       const rs = receptenMet(k);
       return `<article class="kruid" id="kruid-${k.id}">
         <div class="kruid-kop"><p class="kruid-soort">${esc(k.soort)}</p>
           <label class="kruid-kast"><input type="checkbox" data-kast="${k.id}"${inKast.has(k.id) ? ' checked' : ''}> In mijn kast</label></div>
+        ${foto ? `<figure class="kruid-foto"><img src="${foto.src}" alt="${esc(k.naam)}" loading="lazy"><figcaption>Foto: ${esc(foto.auteur)}, ${esc(foto.licentie)}</figcaption></figure>` : ''}
         <h3>${esc(k.naam)}</h3>
         <p>${esc(k.wat)}</p>
         ${k.bevat ? `<p><b>Wat zit erin:</b> ${esc(k.bevat)}</p>` : ''}
         <p><b>Wat je ermee doet:</b> ${esc(k.gebruik)}</p>
         ${k.tip ? `<p class="kruid-tip">${esc(k.tip)}</p>` : ''}
+        ${rs.length ? `<button type="button" class="knop knop-klein kruid-toon" data-kruid-filter="${k.id}">Toon deze recepten</button>` : ''}
         ${rs.length ? `<p class="kruid-recepten"><b>In dit boek (${rs.length}):</b> ${rs.map((r) => `<a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>`).join(', ')}</p>` : ''}
       </article>`;
     }).join('');
@@ -570,7 +622,7 @@ const App = (() => {
   function bewaarVoorraad() { opslag.schrijf('voorraad', state.voorraad); renderVoorraad(); render(); }
 
   function wisAlles() {
-    state.keukens.clear(); state.soorten.clear(); state.niveaus.clear(); state.bereid.clear(); state.tijd = null; state.vega = false;
+    state.keukens.clear(); state.soorten.clear(); state.niveaus.clear(); state.bereid.clear(); state.tijd = null; state.vega = false; state.kruid = null;
     state.maakbaar = false; state.compleet = false; state.voorraad = []; state.zoek = '';
     $('#zoek').value = '';
     opslag.schrijf('voorraad', []);
@@ -805,12 +857,14 @@ const App = (() => {
       if (g === 'tijd') state.tijd = null;
       if (g === 'bereid') state.bereid.delete(w);
       if (g === 'vega') state.vega = false;
+      if (g === 'kruid') state.kruid = null;
       if (g === 'maakbaar') state.maakbaar = false;
       if (g === 'compleet') state.compleet = false;
       renderFilters(); render();
     });
 
     $('#wis-filters').addEventListener('click', wisAlles);
+    $('#kruiden-zoek').addEventListener('input', () => renderKruiden());
     $('#view-kruiden').addEventListener('click', (e) => {
       const kb = e.target.closest('[data-kast]');
       if (kb) {
@@ -818,6 +872,8 @@ const App = (() => {
         opslag.schrijf('kruidenkast', [...set]);
         return kruidSoort === 'kast' ? renderKruiden() : ($('#kruiden-filter [data-kruidsoort="kast"]').textContent = `In mijn kast (${set.size})`);
       }
+      const kf = e.target.closest('[data-kruid-filter]');
+      if (kf) { state.kruid = kf.dataset.kruidFilter; zetView('alle'); return; }
       const s = e.target.closest('[data-kruidsoort]');
       if (s) { kruidSoort = s.dataset.kruidsoort; return renderKruiden(); }
       const a = e.target.closest('[data-open-recept]');
