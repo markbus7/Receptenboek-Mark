@@ -82,7 +82,7 @@ const App = (() => {
     soorten: new Set(),
     niveaus: new Set(),
     tijd: null,
-    vega: false,
+    vega: false, kruid: null,
     voorraad: opslag.lees('voorraad', []),
     basis: opslag.lees('basis', true),
     compleet: false,
@@ -237,6 +237,7 @@ const App = (() => {
       (!state.tijd || r.tijd <= state.tijd) &&
       (!state.bereid.size || [...state.bereid].some((t) => BEREID_PER_RECEPT.get(r.id).has(t))) &&
       (!state.vega || r.vega) &&
+      (!state.kruid || kruidRecepten().has(r.id)) &&
       (!state.maakbaar || maakbaar) &&
       (!metVoorraad || m.heb.length > 0 || isAanrader(r)) &&
       (!metVoorraad || !state.compleet || m.mist.length === 0)
@@ -391,6 +392,7 @@ const App = (() => {
     if (state.tijd) items.push(['tijd', state.tijd, `≤ ${state.tijd} min`]);
     state.bereid.forEach((b) => items.push(['bereid', b, BEREID.find(([k]) => k === b)[1]]));
     if (state.vega) items.push(['vega', '1', 'Vegetarisch']);
+    if (state.kruid) { const k = (window.KRUIDEN || []).find((x) => x.id === state.kruid); if (k) items.push(['kruid', k.id, `Met ${k.naam.replace(/ \(.*\)$/, '')}`]); }
     if (state.maakbaar) items.push(['maakbaar', '1', 'Past bij mijn keuken']);
     if (state.compleet) items.push(['compleet', '1', 'Alles in huis']);
     return items;
@@ -450,6 +452,7 @@ const App = (() => {
 
   /* ---------- Kruiden en specerijen ---------- */
   let kruidSoort = '';
+  const kruidRecepten = () => { const k = (window.KRUIDEN || []).find((x) => x.id === state.kruid); return new Set(k ? receptenMet(k).map((r) => r.id) : []); };
   // Wat er in Marks kruidenkast staat (van zijn foto's); daarna past hij het zelf aan.
   const KAST_START = ['chili', 'oregano', 'korianderzaad', 'tijm', 'garam-masala', 'kaneel', 'kerriepoeder', 'cajun', 'knoflookpoeder',
     'kardemom', 'mosterdzaad', 'bieslook', 'nootmuskaat', 'gember', 'paprikapoeder', 'fenegriek', 'italiaanse-kruiden', 'komijn',
@@ -524,6 +527,7 @@ const App = (() => {
         ${k.bevat ? `<p><b>Wat zit erin:</b> ${esc(k.bevat)}</p>` : ''}
         <p><b>Wat je ermee doet:</b> ${esc(k.gebruik)}</p>
         ${k.tip ? `<p class="kruid-tip">${esc(k.tip)}</p>` : ''}
+        ${rs.length ? `<button type="button" class="knop knop-klein kruid-toon" data-kruid-filter="${k.id}">Toon deze recepten</button>` : ''}
         ${rs.length ? `<p class="kruid-recepten"><b>In dit boek (${rs.length}):</b> ${rs.map((r) => `<a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>`).join(', ')}</p>` : ''}
       </article>`;
     }).join('');
@@ -618,7 +622,7 @@ const App = (() => {
   function bewaarVoorraad() { opslag.schrijf('voorraad', state.voorraad); renderVoorraad(); render(); }
 
   function wisAlles() {
-    state.keukens.clear(); state.soorten.clear(); state.niveaus.clear(); state.bereid.clear(); state.tijd = null; state.vega = false;
+    state.keukens.clear(); state.soorten.clear(); state.niveaus.clear(); state.bereid.clear(); state.tijd = null; state.vega = false; state.kruid = null;
     state.maakbaar = false; state.compleet = false; state.voorraad = []; state.zoek = '';
     $('#zoek').value = '';
     opslag.schrijf('voorraad', []);
@@ -853,6 +857,7 @@ const App = (() => {
       if (g === 'tijd') state.tijd = null;
       if (g === 'bereid') state.bereid.delete(w);
       if (g === 'vega') state.vega = false;
+      if (g === 'kruid') state.kruid = null;
       if (g === 'maakbaar') state.maakbaar = false;
       if (g === 'compleet') state.compleet = false;
       renderFilters(); render();
@@ -867,6 +872,8 @@ const App = (() => {
         opslag.schrijf('kruidenkast', [...set]);
         return kruidSoort === 'kast' ? renderKruiden() : ($('#kruiden-filter [data-kruidsoort="kast"]').textContent = `In mijn kast (${set.size})`);
       }
+      const kf = e.target.closest('[data-kruid-filter]');
+      if (kf) { state.kruid = kf.dataset.kruidFilter; zetView('alle'); return; }
       const s = e.target.closest('[data-kruidsoort]');
       if (s) { kruidSoort = s.dataset.kruidsoort; return renderKruiden(); }
       const a = e.target.closest('[data-open-recept]');
