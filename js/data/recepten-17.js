@@ -271,6 +271,7 @@ RECEPTEN.push(
 },
 {
   id: 'beef-broccoli', naam: 'Biefstuk met broccoli in oestersaus', gerecht: 'Broccoli in oestersaus', variant: 'Biefstuk', ook: ['beef and broccoli', 'rundvlees met broccoli'],
+  vriezer: { biefstuk: { bevroren: 'Half ontdooid is hier juist handig: als je er net een mes in krijgt maar het nog stevig is, snijd je het flinterdun. De 20 minuten in de vriezer sla je dan over.', inStap: 'half ontdooid: vriezer overslaan' } },
   keuken: 'Chinees', soort: 'Hoofdgerecht',
   tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Botermalse reepjes biefstuk met knapperige broccoli in een glanzende saus van oestersaus, gember en knoflook. Het geheim zit in een snufje zuiveringszout.',
@@ -330,6 +331,7 @@ RECEPTEN.push(
 },
 {
   id: 'bulgogi', naam: 'Bulgogi', gerecht: 'Bulgogi', variant: 'Rundvlees', ook: ['koreaanse bbq', 'koreaans rundvlees'],
+  vriezer: { entrecote: { bevroren: 'Half ontdooid is hier juist handig: als je er net een mes in krijgt maar het nog stevig is, snijd je het flinterdun. De 30 minuten in de vriezer uit stap 1 sla je dan over.', inStap: 'half ontdooid: vriezer overslaan' } },
   keuken: 'Koreaans', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Flinterdun rundvlees in een zoete marinade van peer, soja en knoflook, snel heet gebakken. Je wikkelt het met rijst en kimchi in een slablad.',
@@ -371,6 +373,7 @@ RECEPTEN.push(
 },
 {
   id: 'dwaeji-bulgogi', variantVan: 'bulgogi', variant: 'Varkensvlees', pit: 2, naam: 'Dwaeji bulgogi (pittig varkensvlees)', ook: ['dwaeji bulgogi', 'pittige bulgogi', 'spicy pork bulgogi', 'jeyuk bokkeum'],
+  vriezer: { procureur: { bevroren: 'Half ontdooid is hier juist handig: als je er net een mes in krijgt maar het nog stevig is, snijd je het flinterdun. De 30 minuten in de vriezer uit stap 1 sla je dan over.', inStap: 'half ontdooid: vriezer overslaan' } },
   intro: 'Flinterdun varkensvlees in een rode, pittig-zoete marinade van gochujang, soja en knoflook, heet gebakken. Net als bulgogi wikkel je het met rijst en kimchi in een slablad.',
   vervang: {
     entrecote: { n: 'procureur', q: 600, u: 'g', x: 'varkensschouder, of varkensbuik; half bevroren in flinterdunne plakjes' },
@@ -641,6 +644,7 @@ RECEPTEN.push(
 },
 {
   id: 'sushi-maki', naam: 'Sushi: maki en uramaki', ook: ['sushi', 'maki', 'california roll', 'sushirijst'],
+  vriezer: { zalmfilet: { bevroren: 'Voor sushi is zalm uit de vriezer juist goed: invriezen maakt rauwe vis veiliger. Laat hem langzaam in de koelkast ontdooien, niet in water of de magnetron, en snijd hem als hij nog net een beetje stevig is: dan krijg je strakke reepjes.', inStap: 'net nog een beetje stevig snijden', water: null } },
   keuken: 'Japans', soort: 'Hoofdgerecht',
   tijd: 60, wacht: '30 min afkoelen', pers: 4, niveau: 'Moeilijk', vega: false,
   intro: 'Zelf sushi rollen: dunne maki met zalm of komkommer en uramaki met de rijst aan de buitenkant, zoals de california roll. Je hebt alleen een bamboe matje nodig.',

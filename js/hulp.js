@@ -457,5 +457,67 @@ const Hulp = (() => {
     return uit + esc(tekst.slice(vanaf));
   }
 
-  return { stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  /* Vlees en vis uit de vriezer (js/data/vriezer.js): welke ingrediënten van dit recept kunnen eruit komen? */
+  const vriezerVan = (i) => !i.kop && (window.VRIEZER || []).find((v) => v.n.includes(norm(i.n)));
+  const vriezerbaar = (recept) => ingrediënten(recept).filter(vriezerVan);
+
+  function minutenTekst(min) {
+    const kwartier = Math.max(15, Math.round(min / 15) * 15);
+    if (kwartier < 60) return `${kwartier} minuten`;
+    return `${breuk(kwartier / 60, 0.5)} uur`;
+  }
+
+  /* Per gekozen ingrediënt: hoe lang ontdooien, wanneer eruit halen, wat als je het vergeten bent en
+     wat er in dit recept anders gaat. Rekent met de hoeveelheid die je nu kookt. */
+  function vriezer(recept, namen, factor = 1, methode = null) {
+    const stappen = recept.stappen.filter((s) => !s.m || s.m === methode);
+    const alles = stappen.map((s) => s.t).join(' ');
+    const stooft = /stoof|stoven|sudder|smoor/i.test(alles) || recept.tijd >= 120;
+    const frituurt = /frituur|frituren|cm olie|olie[^.]* tot 1[5-9]0 °C/i.test(alles);
+    const kneedt = /\b(balletjes|ballen|burgers?|kneed|kneden|köfte|kofte)\b/i.test(alles);
+    const items = ingrediënten(recept).filter((i) => namen.includes(i.n)).map((i) => {
+      const v = vriezerVan(i);
+      const eigen = (recept.vriezer || {})[i.n];
+      const s = { ...VRIEZER_SOORTEN[v.soort], ...eigen };
+      const per = { g: 1, kg: 1000 }[i.u] || v.stuk || 0;
+      const gram = i.q == null ? 0 : i.q * per * factor;
+      const uur = s.uur && Math.round(Math.max(s.uur[0], (gram / 1000) * s.uur[1]));
+      const stap = stappen.find((x) => s.stap.test(x.t));
+      const inOven = stappen.some((x) => s.stap.test(x.t) && /(?<!dutch )\boven\b|airfryer/i.test(x.t));
+      const situatie = eigen && eigen.bevroren ? 'bevroren' : s.kneden && kneedt ? 'kneden' : s.stoof && stooft ? 'stoof' : s.oven && inOven ? 'oven' : 'bevroren';
+      const regels = [];
+      if (uur) {
+        const wanneer = uur <= 14 ? 'haal het de avond van tevoren uit de vriezer'
+          : uur <= 30 ? 'haal het een dag van tevoren uit de vriezer' : 'haal het 2 dagen van tevoren uit de vriezer';
+        regels.push(`<b>Ontdooien:</b> ± ${uur} uur in de koelkast, dus ${wanneer}. Zet het in een bakje op de onderste plank, dan druppelt er niets op de rest.`);
+        if (s.water) regels.push(`<b>Vergeten?</b> Leg het in de dichte verpakking of een diepvrieszak in een bak koud water en ververs het water elk half uur. Dan is het in ± ${minutenTekst(Math.max(gram, 250) / 500 * s.water)} ontdooid; gebruik het daarna meteen.`);
+      }
+      // Frituren: bevroren in hete olie spat gevaarlijk, wat de soort ook zegt.
+      const tekst = frituurt && s.droog && uur ? `${s.bevroren} Nooit bevroren in hete olie: het ijs laat de olie gevaarlijk spatten.` : s[situatie];
+      regels.push(`<b>${uur ? 'Bevroren?' : 'Zo doe je het:'}</b> ${esc(tekst)}`);
+      if (!eigen && ['kip', 'stoof', 'kortBakken'].includes(v.soort) && /reepjes|repen|plakjes|blokjes|stukjes|\bdun/i.test(i.x || '')) {
+        regels.push('<b>Snijden:</b> doe dat als het nog net een beetje bevroren is. Dan snij je veel makkelijker dunne, gelijke stukjes.');
+      }
+      const hv = hoeveelheidTekst(i, factor);
+      return {
+        i, soort: v.soort, droog: s.droog, uur, stap,
+        titel: i.q == null ? i.n : hv,
+        kort: uur ? `± ${uur} uur ontdooien in de koelkast` : s.inStap,
+        inStap: (!frituurt && s[{ kneden: 'inStapKneden', stoof: 'inStapStoof', oven: 'inStapOven' }[situatie]]) || s.inStap,
+        regels
+      };
+    });
+    // Wat voor het hele recept geldt, één keer onderaan.
+    const algemeen = [];
+    if (!items.length) return { items, algemeen };
+    if (/marine/i.test(alles) && items.some((x) => x.uur)) {
+      const wacht = recept.wacht && /marine/i.test(recept.wacht) ? ` (${esc(recept.wacht)})` : '';
+      algemeen.push(`<b>Marinade:</b> die kan pas op het vlees als het ontdooid is, dus tel de marineertijd${wacht} erbij. Handig: laat het in de koelkast ontdooien tot je het kunt snijden, snijd het en laat het in de marinade verder ontdooien. Dan is het marineren klaar als het ontdooid is.`);
+    }
+    if (items.some((x) => x.droog && x.uur)) algemeen.push('<b>Na het ontdooien:</b> giet het vocht uit de verpakking weg en dep het droog met keukenpapier. Wat nat is, kookt in de pan in plaats van dat het bruin bakt, en het spat.');
+    if (items.some((x) => x.uur)) algemeen.push('Ontdooid vlees of vis gebruik je binnen een dag. Rauw ontdooid vries je niet opnieuw in; als gaar gerecht mag dat wel.');
+    return { items, algemeen };
+  }
+
+  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

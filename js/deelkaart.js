@@ -79,7 +79,7 @@ const DeelKaart = (() => {
         <h2 data-breek>Bereiding</h2>
         <ol>${stappen.map((s, n) => `<li data-breek><span class="dk-nr">${n + 1}</span><p>${esc(s.t)}</p></li>`).join('')}</ol>
       </section>
-      <div class="dk-notities">${notitie('Tip', r.tips)}${notitie('Alternatieven', r.alt)}${notitie('Restjes', o.restjes, true)}</div>
+      <div class="dk-notities">${notitie('Tip', r.tips)}${notitie('Alternatieven', r.alt)}${notitie('Restjes', o.restjes, true)}${notitie('Uit de vriezer', o.vriezer, true)}</div>
       <footer class="dk-voet" data-breek>Uit het Receptenboek van Mark · <span>${esc(o.link)}</span></footer>`;
   }
 

@@ -246,6 +246,7 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .chip-sugg span { padding: 4px 0; text-align: left; line-height: 1.3; }
 .chip-sugg small { font-size: 12px; font-weight: 400; opacity: .75; }
 .chip-mix { background: color-mix(in srgb, var(--ok-zacht) 60%, var(--notitie)); }
+.chip-vries { background: color-mix(in srgb, var(--pen) 12%, var(--notitie)); }
 .mix-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 22px; margin-bottom: 22px; }
 .mix-info:empty { display: none; }
 .mix-kaart {
@@ -266,6 +267,8 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .mix-kies-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .mix-kies .chip:disabled { opacity: .7; cursor: default; }
 .mix-vriezer { font-size: 14px; color: var(--inkt-zacht); }
+.vries-notitie p:has(.vries-kop):not(:first-child) { margin-top: 6px; }
+.vries-notitie .vries-kop { font-family: var(--font-hand); font-weight: 700; font-size: 22px; color: var(--pen); }
 .ingr-mix { display: block; font-family: var(--font-hand); font-size: 18px; line-height: 1.1; color: var(--pen); }
 .blok-sync { padding-top: 18px; border-top: 1px solid var(--lijn); }
 .blok-sync a { color: var(--inkt); text-decoration-color: var(--potlood); text-underline-offset: 3px; }
