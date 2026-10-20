@@ -132,11 +132,12 @@ RECEPTEN.push(
   keuken: 'Mexicaans', soort: 'Hoofdgerecht',
   tijd: 55, pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Opgerolde tortilla\'s met pulled kip, overgoten met een zelfgemaakte rode chilisaus en gegratineerd met kaas. Troostvoer uit de oven.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
     { tool: 'hapjespan', tekst: 'Hapjespan of Dutch oven (24 à 28 cm) met deksel, voor de saus en de kip' },
     { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 30 cm', m: 'oven' },
-    { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past (ca. 18 × 18 cm); bij een kleine airfryer twee schaaltjes na elkaar', m: 'airfryer' }
+    { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past (ca. 18 × 18 cm); bij een kleine airfryer twee schaaltjes na elkaar', m: 'airfryer' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; daar passen 4 à 5 opgerolde tortilla\'s in, dus genoeg voor 2 à 3 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { kop: 'Enchiladasaus' },
@@ -166,10 +167,12 @@ RECEPTEN.push(
     { t: 'Haal de kip uit de pan en trek hem met twee vorken in draadjes. Laat intussen de saus zonder deksel nog 5 minuten inkoken, tot hij de achterkant van een lepel bedekt.', min: 5 },
     { t: 'Verwarm de oven voor op 200 °C (hetelucht 180 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 180 °C.', m: 'airfryer' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen. Rol de tortilla\'s hieronder op een bord op en leg ze daarna in de hete bak, op het laagje saus.', m: 'optigrill-bak' },
     { t: 'Meng de kip met 6 el saus, de bonen en een derde van de kaas. Schep een dun laagje saus in de ovenschaal. Verdeel de vulling over de tortilla\'s, rol ze op en leg ze met de naad naar onderen strak naast elkaar.' },
     { t: 'Giet de rest van de saus erover; zorg dat ook de randen bedekt zijn, anders worden ze hard. Strooi de rest van de kaas erover.' },
     { t: 'Bak de enchiladas 20 minuten in het midden van de oven, tot de kaas goudbruin is en de saus aan de randen borrelt.', m: 'oven', min: 20 },
     { t: 'Bak de enchiladas 12 à 15 minuten, tot de kaas goudbruin is en de saus borrelt.', m: 'airfryer', min: 13 },
+    { t: 'Sluit de deksel en bak de enchiladas 12 à 15 minuten, tot de kaas goudbruin is en de saus aan de randen borrelt.', m: 'optigrill-bak', min: 13 },
     { t: 'Laat 5 minuten rusten. Maak af met zure room, koriander en lente-ui.' }
   ],
   tips: ['Warm de tortilla\'s eerst 30 seconden op in de magnetron onder een vochtige theedoek, dan scheuren ze niet bij het oprollen. Dat geldt vooral voor maistortilla\'s.', 'Je kunt de schaal een dag van tevoren vullen. Giet de saus er pas vlak voor het bakken over, anders worden de tortilla\'s papperig.'],

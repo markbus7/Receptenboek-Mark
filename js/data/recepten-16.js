@@ -182,10 +182,13 @@ RECEPTEN.push(
   keuken: 'Surinaams', soort: 'Hoofdgerecht',
   tijd: 60, wacht: '30 min rusten, 50 min in de oven', pers: 6, niveau: 'Gemiddeld', vega: false,
   intro: 'Een goudbruine taart van licht zoet, kruimelig deeg met een vulling van kip in een rode saus met wortel, doperwten en selderij. Op Surinaamse verjaardagen staat hij altijd op tafel, en hij is koud net zo lekker als warm.',
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
     { tool: 'hapjespan', tekst: 'Hapjespan (28 cm) voor de vulling' },
-    { tool: 'bakvorm', tekst: 'Springvorm (24 cm)', of: 'Een ovenschaal van 20 × 30 cm werkt ook; leg het deeg er dan in een lap in.' },
-    { tool: 'oven', tekst: 'Oven' }
+    { tool: 'bakvorm', tekst: 'Springvorm (24 cm)', of: 'Een ovenschaal van 20 × 30 cm werkt ook; leg het deeg er dan in een lap in.', m: 'oven' },
+    { tool: 'oven', tekst: 'Oven', m: 'oven' },
+    { tool: 'airfryer', tekst: 'Airfryer', m: 'airfryer' },
+    { tool: 'bakvorm', tekst: 'Springvorm of taartvorm van 20 cm die in de mand past. Daar past 2/3 in, dus zet het recept op 4 personen.', m: 'airfryer' }
   ],
   ingr: [
     { kop: 'Deeg' },
@@ -221,9 +224,11 @@ RECEPTEN.push(
     { t: 'Fruit de ui 5 minuten in hetzelfde vet. Bak knoflook, tomaat en tomatenpuree 2 minuten mee.', min: 7 },
     { t: 'Doe de kip terug met de bouillon en de wortel. Laat met de deksel erop 15 minuten zachtjes stoven.', min: 15 },
     { t: 'Roer doperwten, selderij en nootmuskaat erdoor en roer de aangelengde maïzena erbij. Laat 2 minuten koken tot de saus dik is: de vulling moet smeuïg zijn, niet nat. Proef en laat hem helemaal afkoelen, anders smelt de boter in het deeg.', min: 2 },
-    { t: 'Verwarm de oven voor op 180 °C en vet de springvorm in. Rol tweederde van het deeg uit tot een lap van 3 à 4 mm en bekleed er de bodem en de rand mee.' },
+    { t: 'Verwarm de oven voor op 180 °C en vet de springvorm in. Rol tweederde van het deeg uit tot een lap van 3 à 4 mm en bekleed er de bodem en de rand mee.', m: 'oven' },
+    { t: 'Verwarm de airfryer voor op 160 °C en vet de vorm in. Rol tweederde van het deeg uit tot een lap van 3 à 4 mm en bekleed er de bodem en de rand mee.', m: 'airfryer' },
     { t: 'Schep de vulling erin. Rol de rest van het deeg uit, leg het als deksel erop en knijp de randen goed dicht. Maak in het midden een gaatje voor de stoom en versier de bovenkant met reepjes of figuurtjes van de deegresten.' },
-    { t: 'Smeer de bovenkant in met het losgeklopte ei en bak de pastei 45 à 50 minuten onderin de oven tot hij goudbruin is.', min: 50 },
+    { t: 'Smeer de bovenkant in met het losgeklopte ei en bak de pastei 45 à 50 minuten onderin de oven tot hij goudbruin is.', m: 'oven', min: 50 },
+    { t: 'Smeer de bovenkant in met het losgeklopte ei, zet de vorm in de mand en bak de pastei 40 à 45 minuten, tot hij goudbruin is. Kleurt de bovenkant na 25 minuten al flink, dek hem dan af met een stukje aluminiumfolie dat je goed om de rand vouwt.', m: 'airfryer', min: 43 },
     { t: 'Laat de pastei minstens 15 minuten rusten in de vorm voordat je hem aansnijdt, dan blijft de vulling op zijn plek.', min: 15 }
   ],
   tips: ['Maak de vulling een dag van tevoren: dan is hij koud als je de pastei vult en wordt de smaak voller.', 'Scheurt het deeg bij het uitrollen? Plak het gewoon met je vingers weer dicht in de vorm. Dit deeg vergeeft veel.'],
@@ -799,10 +804,11 @@ RECEPTEN.push(
   keuken: 'Brits', soort: 'Dessert',
   tijd: 20, wacht: '35 min in de oven', pers: 6, niveau: 'Makkelijk', vega: true,
   intro: 'Zachte, zoetzure appels met kaneel onder een knapperige laag boterkruimels. Het makkelijkste warme toetje dat er is, met custard of vanille-ijs.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
     { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 25 cm, ingevet met boter', m: 'oven' },
-    { tool: 'airfryer', tekst: 'Airfryer met 4 à 6 kleine ovenvaste schaaltjes', m: 'airfryer' }
+    { tool: 'airfryer', tekst: 'Airfryer met 4 à 6 kleine ovenvaste schaaltjes', m: 'airfryer' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 4 personen, dus zet het recept op 4 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { kop: 'Appels' },
@@ -823,13 +829,16 @@ RECEPTEN.push(
   stappen: [
     { t: 'Verwarm de oven voor op 190 °C (hetelucht 170 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 170 °C.', m: 'airfryer' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 190 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
     { t: 'Schil de appels, verwijder het klokhuis en snijd ze in blokjes van 2 cm. Meng ze met citroensap, 40 g bruine suiker, kaneel en maïzena.' },
     { t: 'Schep de appels in de ingevette ovenschaal.', m: 'oven' },
     { t: 'Verdeel de appels over de ingevette schaaltjes.', m: 'airfryer' },
+    { t: 'Vet de hete bak in met een klontje boter en schep de appels erin.', m: 'optigrill-bak' },
     { t: 'Crumble: wrijf bloem, suiker, zout en koude boter met je vingertoppen tot grove kruimels, met hier en daar een groter klontje. Meng de havermout erdoor. Werk snel, de boter moet koud blijven.' },
     { t: 'Strooi de crumble losjes over de appels; druk hem niet aan.' },
     { t: 'Bak 35 à 40 minuten in het midden van de oven, tot de crumble goudbruin is en het appelsap aan de randen borrelt.', m: 'oven', min: 38 },
     { t: 'Zet de schaaltjes in de mand en bak 18 à 20 minuten, tot de bovenkant goudbruin is en het sap borrelt. Kleurt de bovenkant te snel, leg er dan een stukje aluminiumfolie op.', m: 'airfryer', min: 19 },
+    { t: 'Sluit de deksel en bak 25 à 30 minuten, tot de crumble goudbruin is, de appels zacht zijn en het sap aan de randen borrelt. Kijk na 15 minuten even: kleurt de bovenkant te snel, leg er dan een vel bakpapier op.', m: 'optigrill-bak', min: 28 },
     { t: 'Laat 10 minuten afkoelen en serveer warm met custard of vanille-ijs.', min: 10 }
   ],
   tips: [

@@ -201,12 +201,13 @@ RECEPTEN.push(
   id: 'mac-and-cheese', naam: 'Mac and cheese', ook: ['macaroni met kaas', 'macaroni kaas'], keuken: 'Amerikaans', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Macaroni in een smeuïge cheddarsaus met een krokant korstje van paneermeel.',
-  methodes: [ { id: 'kookpan', naam: 'Alleen pan' }, { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  methodes: [ { id: 'kookpan', naam: 'Alleen pan' }, { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de macaroni' },
     { tool: 'kookpan', tekst: 'Steelpan en garde voor de kaassaus' },
     { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 25 cm', m: 'oven' },
-    { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past', m: 'airfryer' }
+    { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past', m: 'airfryer' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 3 personen, dus zet het recept op 3 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { n: 'macaroni', q: 300, u: 'g' },
@@ -221,11 +222,13 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kook de macaroni 2 minuten korter dan op de verpakking. Giet af.', min: 8 },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
     { t: 'Smelt de boter in de steelpan, roer de bloem erdoor en bak 1 minuut. Klop de melk er in scheutjes door tot een gladde saus. Laat 3 minuten zachtjes koken.', min: 4 },
     { t: 'Haal van het vuur en roer cheddar, mosterd en paprikapoeder erdoor tot de kaas gesmolten is. Breng op smaak met zout.' },
     { t: 'Meng de macaroni door de saus. Klaar! Serveer direct, eventueel met wat extra kaas.', m: 'kookpan' },
     { t: 'Meng de macaroni door de saus en schep in de ovenschaal. Meng paneermeel en Parmezaan en strooi erover. Bak 20 minuten in een voorverwarmde oven op 200 °C.', m: 'oven', min: 20 },
-    { t: 'Meng de macaroni door de saus en schep in de schaal. Strooi paneermeel en Parmezaan erover. Bak 10 à 12 minuten in de airfryer op 180 °C.', m: 'airfryer', min: 11 }
+    { t: 'Meng de macaroni door de saus en schep in de schaal. Strooi paneermeel en Parmezaan erover. Bak 10 à 12 minuten in de airfryer op 180 °C.', m: 'airfryer', min: 11 },
+    { t: 'Meng de macaroni door de saus en schep hem in de hete bak. Meng paneermeel en Parmezaan en strooi erover. Sluit de deksel en bak 12 à 15 minuten, tot de bovenkant goudbruin en knapperig is.', m: 'optigrill-bak', min: 13 }
   ],
   tips: ['Neem kaas die je zelf raspt; geraspte kaas uit een zak bevat zetmeel en smelt korreliger.'],
   alt: ['Extra: roer gebakken spekjes of gegrilde broccoli erdoor.']

@@ -166,10 +166,13 @@ RECEPTEN.push(
   keuken: 'Grieks', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '45 min in de oven', pers: 4, niveau: 'Gemiddeld', vega: true,
   intro: 'Griekse spinaziepastei met feta, dille en lente-ui onder een knapperig dak van boterig filodeeg. Warm als avondeten, koud de volgende dag als lunch.',
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
     { tool: 'koekenpan', tekst: 'Grote koekenpan voor de uien' },
-    { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 30 cm, en een kwastje' },
-    { tool: 'oven', tekst: 'Oven' }
+    { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 30 cm, en een kwastje', m: 'oven' },
+    { tool: 'oven', tekst: 'Oven', m: 'oven' },
+    { tool: 'airfryer', tekst: 'Airfryer', m: 'airfryer' },
+    { tool: 'bakvorm', tekst: 'Ovenvaste vorm van ca. 20 cm die in de mand past, en een kwastje. Daar past 2/3 in, dus zet het recept op 3 personen.', m: 'airfryer' }
   ],
   ingr: [
     { n: 'spinazie', q: 750, u: 'g', x: 'diepvries bladspinazie, ontdooid; of 1,2 kg verse, kort geslonken' },
@@ -190,10 +193,12 @@ RECEPTEN.push(
     { t: 'Laat de spinazie ontdooien in een vergiet en knijp hem met je handen zo droog mogelijk. Hoe droger de spinazie, hoe knapperiger de bodem.' },
     { t: 'Verhit de olijfolie in de koekenpan en fruit ui en lente-ui 5 minuten op middelhoog vuur tot ze zacht zijn. Laat iets afkoelen.', min: 5 },
     { t: 'Meng spinazie, uien, feta, dille, peterselie, de losgeklopte eieren en flink wat peper. Zout is meestal niet nodig: de feta is al zout.' },
-    { t: 'Verwarm de oven voor op 180 °C. Kwast de ovenschaal in met gesmolten boter.' },
+    { t: 'Verwarm de oven voor op 180 °C. Kwast de ovenschaal in met gesmolten boter.', m: 'oven' },
+    { t: 'Verwarm de airfryer voor op 160 °C. Kwast de vorm in met gesmolten boter.', m: 'airfryer' },
     { t: 'Leg een vel filodeeg in de schaal, laat het over de randen hangen en kwast het in met boter. Herhaal tot de helft van de vellen op is. Houd de rest onder een vochtige theedoek, anders droogt het uit.' },
     { t: 'Schep de vulling erop en strijk glad. Vouw de overhangende randen naar binnen. Leg de rest van de vellen er een voor een op en kwast elk vel in met boter. Stop de randen in langs de zijkant van de schaal.' },
-    { t: 'Snijd met een scherp mes ruiten in de bovenste lagen, niet tot op de bodem, en bestrooi met sesamzaad. Bak 40 à 45 minuten in het midden van de oven, tot de pastei diep goudbruin is.', min: 45 },
+    { t: 'Snijd met een scherp mes ruiten in de bovenste lagen, niet tot op de bodem, en bestrooi met sesamzaad. Bak 40 à 45 minuten in het midden van de oven, tot de pastei diep goudbruin is.', m: 'oven', min: 45 },
+    { t: 'Snijd met een scherp mes ruiten in de bovenste lagen, niet tot op de bodem, en bestrooi met sesamzaad. Zet de vorm in de mand en bak 30 à 35 minuten, tot de pastei diep goudbruin is en de vulling gestold. Kleurt de bovenkant te snel, dek hem dan af met een stukje aluminiumfolie dat je goed om de rand vouwt.', m: 'airfryer', min: 33 },
     { t: 'Laat 10 minuten rusten en snijd dan door. Lekker met een Griekse salade.', min: 10 }
   ],
   tips: ['Filodeeg droogt in een paar minuten uit en breekt dan. Werk vlot en houd de vellen afgedekt. Een scheur maakt niets uit: die verdwijnt onder het volgende vel.', 'Je kunt de spanakopita ongebakken invriezen. Bak hem bevroren af op 180 °C en reken 20 minuten extra.'],
@@ -359,11 +364,13 @@ RECEPTEN.push(
   keuken: 'Hongaars', soort: 'Hoofdgerecht',
   tijd: 40, wacht: '45 min in de oven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Laagjes aardappel, hardgekookt ei en paprikaworst onder een deken van zure room, in de oven goudbruin gebakken. Hongaars huiskamereten dat je de avond ervoor al kunt klaarzetten.',
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de aardappelen en een steelpan voor de eieren' },
     { tool: 'koekenpan', tekst: 'Koekenpan voor de worst' },
-    { tool: 'ovenschaal', tekst: 'Ovenschaal 20 × 30 cm' },
-    { tool: 'oven', tekst: 'Oven' }
+    { tool: 'ovenschaal', tekst: 'Ovenschaal 20 × 30 cm', m: 'oven' },
+    { tool: 'oven', tekst: 'Oven', m: 'oven' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 2 personen, dus zet het recept op 2 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { n: 'vastkokende aardappelen', q: 1, u: 'kg', x: 'ongeschild, ongeveer even groot' },
@@ -380,12 +387,14 @@ RECEPTEN.push(
   stappen: [
     { t: 'Kook de aardappelen in de schil in 20 à 25 minuten net gaar in water met zout: een mes moet er met een klein beetje weerstand in gaan. Giet af en laat iets afkoelen.', min: 25 },
     { t: 'Kook intussen de eieren 10 minuten hard. Laat ze schrikken onder koud water en pel ze.', min: 10 },
-    { t: 'Verwarm de oven voor op 180 °C. Vet de ovenschaal in met boter.' },
+    { t: 'Verwarm de oven voor op 180 °C. Vet de ovenschaal in met boter.', m: 'oven' },
     { t: 'Bak de worstplakjes 3 minuten in de droge koekenpan tot ze kleuren en wat vet loslaten. Bak de ui 5 minuten mee in dat vet tot hij zacht is.', min: 8 },
     { t: 'Trek de schil van de nog warme aardappelen en snijd ze in plakjes van een halve centimeter. Snijd de eieren in plakjes.' },
     { t: 'Roer de zure room glad met de helft van het paprikapoeder, een halve theelepel zout en peper.' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 200 °C in en druk op OK. Vet de bak in met boter zodra hij warm is.', m: 'optigrill-bak' },
     { t: 'Leg een derde van de aardappel in de schaal en bestrooi met zout. Verdeel de helft van de eieren en de helft van de worst met ui erover en schep er een derde van de zure room op. Herhaal dit nog een keer en eindig met de rest van de aardappel en de zure room.' },
-    { t: 'Leg de boter in klontjes bovenop en bestrooi met de rest van het paprikapoeder. Bak 40 à 45 minuten in het midden van de oven, tot de bovenkant goudbruin is en de room aan de randen borrelt.', min: 45 },
+    { t: 'Leg de boter in klontjes bovenop en bestrooi met de rest van het paprikapoeder. Bak 40 à 45 minuten in het midden van de oven, tot de bovenkant goudbruin is en de room aan de randen borrelt.', m: 'oven', min: 45 },
+    { t: 'Leg de boter in klontjes bovenop en bestrooi met de rest van het paprikapoeder. Sluit de deksel en bak 25 à 30 minuten, tot de bovenkant goudbruin is en de room aan de randen borrelt. Kijk na 20 minuten even: kleurt hij al te donker, leg er dan een vel bakpapier op.', m: 'optigrill-bak', min: 28 },
     { t: 'Laat 10 minuten rusten, dan snijd je mooiere punten. Serveer met augurken of een frisse komkommersalade.', min: 10 }
   ],
   tips: ['Kook de aardappelen en eieren een dag van tevoren: koude aardappelen snijd je zonder dat ze breken. Haal de schaal dan wel 10 minuten langer door de oven.', 'Vastkokende aardappelen houden hun vorm; met kruimige krijg je eerder een soort puree.'],
@@ -396,9 +405,11 @@ RECEPTEN.push(
   keuken: 'Turks', soort: 'Hoofdgerecht',
   tijd: 45, wacht: '1 uur rijzen', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Flinterdun, krokant deeg met een laagje kruidig gehakt, paprika en tomaat. Met citroen, peterselie en rode ui erop rol je hem op en eet je hem uit de hand.',
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
   gerei: [
-    { tool: 'oven', tekst: 'Oven op de hoogste stand (250 °C of hoger)' },
-    { tool: 'bakplaat', tekst: 'Bakplaat (of pizzasteen) en bakpapier' },
+    { tool: 'oven', tekst: 'Oven op de hoogste stand (250 °C of hoger)', m: 'oven' },
+    { tool: 'bakplaat', tekst: 'Bakplaat (of pizzasteen) en bakpapier', m: 'oven' },
+    { tool: 'koekenpan', tekst: 'Grote koekenpan (28 cm) met deksel, liefst gietijzer of antiaanbak', m: 'koekenpan' },
     { tool: 'staafmixer', tekst: 'Hakmolen of keukenmachine voor de vulling', of: 'Geen hakmolen? Snijd ui, paprika, tomaat en peterselie met een scherp mes heel fijn.' }
   ],
   ingr: [
@@ -429,10 +440,12 @@ RECEPTEN.push(
     { t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 minuten tot een glad, soepel deeg.', min: 8 },
     { t: 'Laat het deeg afgedekt op een warme plek 1 uur rijzen.', min: 60 },
     { t: 'Vulling: maal ui, paprika, tomaat, knoflook en peterselie in de hakmolen tot een grove puree. Kneed het met gehakt, tomatenpuree, specerijen en zout tot een smeuïge pasta. Is het erg nat, giet dan eerst wat groentevocht af.' },
-    { t: 'Zet de bakplaat in de oven en verwarm minstens 20 minuten voor op de hoogste stand.', min: 20 },
-    { t: 'Verdeel het deeg in 8 bolletjes. Rol ze op een met bloem bestoven werkblad uit tot flinterdunne ovalen van ca. 30 × 18 cm.' },
-    { t: 'Leg 2 lappen op een vel bakpapier en smeer er een dunne laag vulling op, tot vlak aan de rand. Druk de vulling met je vingers goed aan.' },
-    { t: 'Schuif ze met bakpapier en al op de hete bakplaat en bak 6 à 8 minuten bovenin de oven, tot de randen goudbruin zijn en de onderkant knapperig. Bak zo de rest.', min: 7 },
+    { t: 'Zet de bakplaat in de oven en verwarm minstens 20 minuten voor op de hoogste stand.', m: 'oven', min: 20 },
+    { t: 'Verdeel het deeg in 8 bolletjes. Rol ze op een met bloem bestoven werkblad uit tot flinterdunne ovalen van ca. 30 × 18 cm.', m: 'oven' },
+    { t: 'Verdeel het deeg in 8 bolletjes. Rol ze op een met bloem bestoven werkblad uit tot flinterdunne rondjes die net in je pan passen (ca. 24 cm).', m: 'koekenpan' },
+    { t: 'Leg 2 lappen op een vel bakpapier en smeer er een dunne laag vulling op, tot vlak aan de rand. Druk de vulling met je vingers goed aan.', m: 'oven' },
+    { t: 'Schuif ze met bakpapier en al op de hete bakplaat en bak 6 à 8 minuten bovenin de oven, tot de randen goudbruin zijn en de onderkant knapperig. Bak zo de rest.', m: 'oven', min: 7 },
+    { t: 'Verhit de droge koekenpan op middelhoog vuur. Leg er een lap in, smeer er snel een dunne laag vulling op tot vlak aan de rand en druk aan. Leg de deksel erop en bak 4 à 5 minuten, tot de onderkant knapperig en gespikkeld is en het vlees gaar. De bovenkant wordt niet bruin; dat hoort zo. Bak zo de rest.', m: 'koekenpan', min: 5 },
     { t: 'Stapel de lahmacun op elkaar, dan blijven ze soepel. Besprenkel met citroensap, beleg met rode ui en peterselie, rol op en eet direct.' }
   ],
   tips: ['Dun is het geheim: dikker deeg wordt gewoon pizza. Een goed voorverwarmde bakplaat geeft de knapperige bodem.', 'Strooi wat sumak over de rode ui, zoals bij de Turkse bakker; dat geeft een frisse, zurige smaak.'],
@@ -449,6 +462,7 @@ RECEPTEN.push(
     { tool: 'airfryer', tekst: 'Airfryer om de aubergines voor te garen', m: 'airfryer' },
     { tool: 'koekenpan', tekst: 'Koekenpan (28 cm) voor de gehaktvulling' },
     { tool: 'ovenschaal', tekst: 'Ovenschaal waar de aubergines naast elkaar in passen (ca. 20 × 30 cm)' },
+    { tool: 'oven', tekst: 'Oven om de gevulde aubergines af te bakken', of: 'Geen oven? Zet de gevulde aubergines met het tomatenwater in een hapjespan of Dutch oven, leg de deksel erop en laat ze 25 minuten zachtjes stoven op laag vuur. In de OptiGrill-bak passen er 2: 25 minuten op 190 °C met de deksel dicht.' },
     { tool: 'kookpan', tekst: 'Kookpan voor de rijst' }
   ],
   ingr: [
@@ -735,9 +749,11 @@ RECEPTEN.push(
   keuken: 'Marokkaans', soort: 'Hoofdgerecht',
   tijd: 20, wacht: '4 uur in de oven', pers: 6, niveau: 'Makkelijk', vega: false,
   intro: 'Een hele lamsschouder, ingewreven met boter, knoflook en komijn en uren langzaam gegaard tot het vlees van het bot valt. Je trekt het met je vingers los en doopt het in komijnzout. Een weekendgerecht dat zichzelf maakt.',
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'braadpan', naam: 'Op het vuur' } ],
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven (28 à 30 cm) met deksel, waar de schouder in past', of: 'Een braadslede of diepe ovenschaal, strak afgedekt met een dubbele laag aluminiumfolie.' },
-    { tool: 'oven', tekst: 'Oven' }
+    { tool: 'oven', tekst: 'Oven', m: 'oven' },
+    { tool: 'koekenpan', tekst: 'Koekenpan om het vlees op het eind rondom bruin te bakken', m: 'braadpan' }
   ],
   ingr: [
     { n: 'lamsschouder', q: 2, u: 'kg', x: 'met bot; vraag de slager om het schouderblad te laten zitten' },
@@ -758,9 +774,12 @@ RECEPTEN.push(
   stappen: [
     { t: 'Haal het vlees een uur van tevoren uit de koelkast. Prak de boter met knoflook, komijn, koriander, paprikapoeder, zout en peper tot een smeuïge pasta.', min: 60 },
     { t: 'Prik met een puntig mes rondom diepe sneetjes van 2 cm in het vlees. Wrijf de kruidenboter over de hele schouder en duw hem goed in de sneetjes.' },
-    { t: 'Verwarm de oven voor op 160 °C. Leg de schouder met de vetkant naar boven in de Dutch oven en schenk het water langs de rand erbij. Leg de deksel erop.' },
-    { t: 'Gaar het vlees 3½ uur in de oven. Haal elk uur de deksel eraf en schep het vocht uit de pan over het vlees.', min: 210 },
-    { t: 'Haal de deksel eraf, zet de oven op 200 °C en rooster nog 30 minuten, tot de buitenkant donker goudbruin is en het vlees met een vork van het bot glijdt. Schep er nog twee keer jus over.', min: 30 },
+    { t: 'Verwarm de oven voor op 160 °C. Leg de schouder met de vetkant naar boven in de Dutch oven en schenk het water langs de rand erbij. Leg de deksel erop.', m: 'oven' },
+    { t: 'Leg de schouder met de vetkant naar boven in de Dutch oven, schenk het water langs de rand erbij en breng het aan de kook. Leg de deksel erop en zet het vuur zo laag als het gaat. Dit werkt alleen met een zware pan met deksel, niet met folie.', m: 'braadpan' },
+    { t: 'Gaar het vlees 3½ uur in de oven. Haal elk uur de deksel eraf en schep het vocht uit de pan over het vlees.', m: 'oven', min: 210 },
+    { t: 'Haal de deksel eraf, zet de oven op 200 °C en rooster nog 30 minuten, tot de buitenkant donker goudbruin is en het vlees met een vork van het bot glijdt. Schep er nog twee keer jus over.', m: 'oven', min: 30 },
+    { t: 'Laat het vlees 3½ à 4 uur heel zachtjes garen: het vocht moet net tikken, niet koken. Keer de schouder elk uur, schep het vocht erover en doe er 100 ml water bij als de bodem droog dreigt te raken. Het is klaar als het vlees met een vork van het bot glijdt.', m: 'braadpan', min: 225 },
+    { t: 'Haal de schouder voorzichtig uit de pan en bak hem in een hete koekenpan met 1 el van het vet uit de pan rondom 1 à 2 minuten bruin. Laat intussen het vocht in de Dutch oven zonder deksel 5 minuten inkoken tot jus.', m: 'braadpan', min: 5 },
     { t: 'Meng voor het komijnzout de komijn met het zeezout en verdeel over een paar schaaltjes.' },
     { t: 'Laat het vlees 10 minuten rusten. Trek het met twee vorken in grove stukken van het bot en schep de jus erover. Iedereen doopt zelf in het komijnzout, met brood en een frisse salade of zaalouk erbij.', min: 10 }
   ],

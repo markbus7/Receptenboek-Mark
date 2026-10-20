@@ -33,12 +33,13 @@ RECEPTEN.push(
   id: 'lasagne-bolognese', naam: 'Lasagne bolognese', keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 90, pers: 6, niveau: 'Gemiddeld', vega: false,
   intro: 'Langzaam gegaarde ragù, een zijdezachte bechamelsaus en een krokant kaaskorstje.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
     { tool: 'hapjespan', tekst: 'Hapjespan of braadpan (26 à 28 cm) met deksel voor de ragù' },
     { tool: 'kookpan', tekst: 'Steelpan voor de bechamelsaus, plus een garde' },
     { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 30 cm', m: 'oven' },
-    { tool: 'ovenschaal', tekst: 'Ovenvaste schaal die in de airfryer-mand past (ca. 18 × 18 cm). Bij een kleine airfryer: maak twee kleinere lasagnes.', m: 'airfryer' }
+    { tool: 'ovenschaal', tekst: 'Ovenvaste schaal die in de airfryer-mand past (ca. 18 × 18 cm). Bij een kleine airfryer: maak twee kleinere lasagnes.', m: 'airfryer' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 3 personen, dus zet het recept op 3 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { kop: 'Ragù' },
@@ -68,9 +69,11 @@ RECEPTEN.push(
     { t: 'Bechamel: smelt de boter in de steelpan, roer de bloem erdoor en laat 1 minuut garen. Klop de melk er in scheutjes door met de garde tot een gladde, dikke saus. Breng op smaak met nootmuskaat en zout.' },
     { t: 'Verwarm de oven voor op 180 °C (hetelucht 160 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 160 °C.', m: 'airfryer' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen en bouw de lasagne dan op in de hete bak, met de deksel open.', m: 'optigrill-bak' },
     { t: 'Bouw op in de schaal: een dun laagje ragù, lasagnebladen, ragù, bechamel. Herhaal tot alles op is en eindig met bechamel en de kaas.' },
     { t: 'Bak de lasagne 35 à 40 minuten in het midden van de oven, tot hij goudbruin is en aan de randen borrelt.', m: 'oven', min: 35 },
     { t: 'Dek de schaal af met aluminiumfolie en bak 20 minuten. Haal de folie weg en bak nog 8 à 10 minuten tot de kaas goudbruin is.', m: 'airfryer', min: 30 },
+    { t: 'Sluit de deksel en bak de lasagne 25 minuten, tot de kaas goudbruin is en de saus aan de randen borrelt. Kijk na 15 minuten even: de bovenplaat zit dichtbij, dus kleurt hij al te donker, leg er dan een vel bakpapier op.', m: 'optigrill-bak', min: 25 },
     { t: 'Laat de lasagne 10 minuten rusten voordat je hem aansnijdt, dan blijven de lagen mooi.', min: 10 }
   ],
   tips: ['De ragù is nog lekkerder als je hem een dag van tevoren maakt.'],

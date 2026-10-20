@@ -11,6 +11,7 @@ window.GEREEDSCHAP = {
   slowcooker: { naam: 'Slowcooker',        icoon: 'slowcooker', apparaat: true, standaard: false },
   magnetron:  { naam: 'Magnetron',         icoon: 'magnetron',  apparaat: true, standaard: true },
   contactgrill: { naam: 'Contactgrill',    sub: 'zoals Tefal OptiGrill', icoon: 'contactgrill', apparaat: true, standaard: true },
+  'optigrill-bak': { naam: 'OptiGrill-bak',  sub: 'Snacking & Baking-accessoire, als kleine oven', icoon: 'optigrill-bak', apparaat: true, standaard: false },
   rijstkoker: { naam: 'Rijstkoker',        icoon: 'rijstkoker', apparaat: true, standaard: true },
   koekenpan:  { naam: 'Koekenpan',         icoon: 'koekenpan' },
   hapjespan:  { naam: 'Hapjespan',         icoon: 'hapjespan' },
