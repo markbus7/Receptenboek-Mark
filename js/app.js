@@ -41,7 +41,7 @@ const App = (() => {
     opslag.schrijf('keuken', keuken, { tijd: opslag.tijd('keuken') || 1, stil: true });
     return keuken;
   }
-  const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['contactgrill', 'Contactgrill'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
+  const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['contactgrill', 'Contactgrill'], ['optigrill-bak', 'OptiGrill-bak'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
   const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
   const ALIASSEN = {
     indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'],

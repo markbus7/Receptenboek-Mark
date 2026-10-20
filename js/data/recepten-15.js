@@ -359,11 +359,13 @@ RECEPTEN.push(
   keuken: 'Hongaars', soort: 'Hoofdgerecht',
   tijd: 40, wacht: '45 min in de oven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Laagjes aardappel, hardgekookt ei en paprikaworst onder een deken van zure room, in de oven goudbruin gebakken. Hongaars huiskamereten dat je de avond ervoor al kunt klaarzetten.',
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de aardappelen en een steelpan voor de eieren' },
     { tool: 'koekenpan', tekst: 'Koekenpan voor de worst' },
-    { tool: 'ovenschaal', tekst: 'Ovenschaal 20 × 30 cm' },
-    { tool: 'oven', tekst: 'Oven' }
+    { tool: 'ovenschaal', tekst: 'Ovenschaal 20 × 30 cm', m: 'oven' },
+    { tool: 'oven', tekst: 'Oven', m: 'oven' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 2 personen, dus zet het recept op 2 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { n: 'vastkokende aardappelen', q: 1, u: 'kg', x: 'ongeschild, ongeveer even groot' },
@@ -380,12 +382,14 @@ RECEPTEN.push(
   stappen: [
     { t: 'Kook de aardappelen in de schil in 20 à 25 minuten net gaar in water met zout: een mes moet er met een klein beetje weerstand in gaan. Giet af en laat iets afkoelen.', min: 25 },
     { t: 'Kook intussen de eieren 10 minuten hard. Laat ze schrikken onder koud water en pel ze.', min: 10 },
-    { t: 'Verwarm de oven voor op 180 °C. Vet de ovenschaal in met boter.' },
+    { t: 'Verwarm de oven voor op 180 °C. Vet de ovenschaal in met boter.', m: 'oven' },
     { t: 'Bak de worstplakjes 3 minuten in de droge koekenpan tot ze kleuren en wat vet loslaten. Bak de ui 5 minuten mee in dat vet tot hij zacht is.', min: 8 },
     { t: 'Trek de schil van de nog warme aardappelen en snijd ze in plakjes van een halve centimeter. Snijd de eieren in plakjes.' },
     { t: 'Roer de zure room glad met de helft van het paprikapoeder, een halve theelepel zout en peper.' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 200 °C in en druk op OK. Vet de bak in met boter zodra hij warm is.', m: 'optigrill-bak' },
     { t: 'Leg een derde van de aardappel in de schaal en bestrooi met zout. Verdeel de helft van de eieren en de helft van de worst met ui erover en schep er een derde van de zure room op. Herhaal dit nog een keer en eindig met de rest van de aardappel en de zure room.' },
-    { t: 'Leg de boter in klontjes bovenop en bestrooi met de rest van het paprikapoeder. Bak 40 à 45 minuten in het midden van de oven, tot de bovenkant goudbruin is en de room aan de randen borrelt.', min: 45 },
+    { t: 'Leg de boter in klontjes bovenop en bestrooi met de rest van het paprikapoeder. Bak 40 à 45 minuten in het midden van de oven, tot de bovenkant goudbruin is en de room aan de randen borrelt.', m: 'oven', min: 45 },
+    { t: 'Leg de boter in klontjes bovenop en bestrooi met de rest van het paprikapoeder. Sluit de deksel en bak 25 à 30 minuten, tot de bovenkant goudbruin is en de room aan de randen borrelt. Kijk na 20 minuten even: kleurt hij al te donker, leg er dan een vel bakpapier op.', m: 'optigrill-bak', min: 28 },
     { t: 'Laat 10 minuten rusten, dan snijd je mooiere punten. Serveer met augurken of een frisse komkommersalade.', min: 10 }
   ],
   tips: ['Kook de aardappelen en eieren een dag van tevoren: koude aardappelen snijd je zonder dat ze breken. Haal de schaal dan wel 10 minuten langer door de oven.', 'Vastkokende aardappelen houden hun vorm; met kruimige krijg je eerder een soort puree.'],

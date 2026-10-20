@@ -287,11 +287,12 @@ RECEPTEN.push(
   keuken: 'Nederlands', soort: 'Hoofdgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Het bekende gezinsrecept: macaroni in tomatensaus met gehakt, hamreepjes en paprika, met een laag gesmolten kaas. Uit de pan of krokant uit de oven.',
-  methodes: [ { id: 'hapjespan', naam: 'Alleen pan' }, { id: 'oven', naam: 'Oven (gegratineerd)' } ],
+  methodes: [ { id: 'hapjespan', naam: 'Alleen pan' }, { id: 'oven', naam: 'Oven (gegratineerd)' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak (gegratineerd)' } ],
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de macaroni' },
     { tool: 'hapjespan', tekst: 'Hapjespan of grote koekenpan (28 cm) met deksel' },
-    { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 30 cm', m: 'oven' }
+    { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 30 cm', m: 'oven' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 3 personen, dus zet het recept op 3 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { n: 'macaroni', q: 350, u: 'g' },
@@ -314,9 +315,11 @@ RECEPTEN.push(
     { t: 'Kook de macaroni in ruim water met zout 1 minuut korter dan op de verpakking staat. Giet af.', min: 9 },
     { t: 'Verhit de olie in de hapjespan op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin. Bak de ui, paprika en knoflook 4 minuten mee.', min: 9 },
     { t: 'Roer de tomatenpuree, het paprikapoeder en de oregano erdoor en bak 1 minuut. Voeg de tomatenblokjes, ketchup en ham toe en laat 5 minuten zachtjes pruttelen. Breng op smaak met zout en peper.', min: 5 },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
     { t: 'Schep de macaroni door de saus. Te droog? Doe er 2 el water bij.' },
     { t: 'Strooi de kaas erover, leg de deksel op de pan en laat 3 minuten op laag vuur staan tot de kaas gesmolten is.', m: 'hapjespan', min: 3 },
-    { t: 'Schep de macaroni in de ovenschaal en strooi de kaas erover. Bak 15 minuten in het midden van de oven, tot de kaas goudbruin en knapperig is.', m: 'oven', min: 15 }
+    { t: 'Schep de macaroni in de ovenschaal en strooi de kaas erover. Bak 15 minuten in het midden van de oven, tot de kaas goudbruin en knapperig is.', m: 'oven', min: 15 },
+    { t: 'Schep de macaroni in de hete bak en strooi de kaas erover. Sluit de deksel en bak 10 à 12 minuten, tot de kaas goudbruin en knapperig is.', m: 'optigrill-bak', min: 11 }
   ],
   tips: ['Zet ketchup en sambal op tafel, zoals thuis. Hollandse macaroni is goed in te vriezen; doe de kaas er dan pas bij het opwarmen op.'],
   alt: [

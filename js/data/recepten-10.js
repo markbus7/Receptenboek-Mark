@@ -273,12 +273,13 @@ RECEPTEN.push(
   id: 'shepherds-pie', naam: 'Shepherd\'s pie', gerecht: 'Shepherd\'s pie', variant: 'Lam', ook: ['herderspastei'], keuken: 'Brits', soort: 'Hoofdgerecht',
   tijd: 45, wacht: '30 min bakken', pers: 6, niveau: 'Makkelijk', vega: false,
   intro: 'Gestoofd lamsgehakt met groenten onder een dikke laag romige aardappelpuree, goudbruin gebakken.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of hapjespan voor de vulling. Een ovenvaste Dutch oven kan meteen de oven in.' },
     { tool: 'kookpan', tekst: 'Kookpan voor de aardappelen' },
     { tool: 'ovenschaal', tekst: 'Ovenschaal van 20 × 30 cm (of je Dutch oven)', m: 'oven' },
-    { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past', m: 'airfryer' }
+    { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past', m: 'airfryer' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 3 personen, dus zet het recept op 3 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { n: 'lamsgehakt', q: 600, u: 'g', x: 'met rundergehakt heet hij cottage pie' },
@@ -301,9 +302,11 @@ RECEPTEN.push(
     { t: 'Kook de aardappelen in 20 minuten gaar. Stamp ze met boter en warme melk tot een smeuïge puree. Breng op smaak.', min: 20 },
     { t: 'Bak het gehakt in de Dutch oven rul en bruin. Bak ui, wortel en selderij 6 minuten mee.', min: 10 },
     { t: 'Roer tomatenpuree en bloem erdoor en bak 1 minuut. Voeg worcestershiresaus, bouillon en tijm toe en laat 15 minuten inkoken tot een dikke saus. Roer de doperwten erdoor.', min: 15 },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
     { t: 'Schep de vulling in de schaal, of laat hem in de Dutch oven. Verdeel de puree erover, trek er strepen in met een vork en strooi de kaas erover.' },
     { t: 'Bak 25 à 30 minuten in een voorverwarmde oven op 200 °C tot de bovenkant goudbruin en knapperig is.', m: 'oven', min: 28 },
     { t: 'Bak 15 à 18 minuten in de airfryer op 180 °C tot de bovenkant goudbruin is.', m: 'airfryer', min: 16 },
+    { t: 'Sluit de deksel en bak 20 minuten, tot de bovenkant goudbruin en knapperig is en de vulling aan de randen borrelt.', m: 'optigrill-bak', min: 20 },
     { t: 'Laat 5 minuten staan voor het opscheppen.', min: 5 }
   ],
   tips: ['De vorkstrepen in de puree worden de krokantste randjes.'],

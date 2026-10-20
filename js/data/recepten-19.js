@@ -46,12 +46,15 @@ RECEPTEN.push(
   keuken: 'Nederlands', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '3 uur in de oven', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Spareribs zoals in het spareribsrestaurant: eerst 3 uur langzaam gegaard in folie, tot het vlees van het bot valt, en dan gelakt met een plakkerige, zoete saus van ketjap, honing en knoflook. Met friet, knoflooksaus en koolsla.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'slowcooker', naam: 'Slowcooker' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
-    { tool: 'bakplaat', tekst: 'Diepe bakplaat met bakpapier, en extra brede aluminiumfolie' },
+    { tool: 'bakplaat', tekst: 'Diepe bakplaat met bakpapier, en extra brede aluminiumfolie', m: 'oven' },
+    { tool: 'bakplaat', tekst: 'Bakplaat met bakpapier om af te lakken', m: 'slowcooker' },
     { tool: 'oven', tekst: 'Oven', m: 'oven' },
     { tool: 'slowcooker', tekst: 'Slowcooker van minimaal 5 liter', m: 'slowcooker' },
     { tool: 'oven', tekst: 'Oven om de spareribs af te lakken', m: 'slowcooker', of: 'Airfryer: lak de stukken 8 à 10 minuten op 200 °C, in twee rondes.' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor ongeveer 1 kg spareribs, dus zet het recept op 2 personen. Voor 4 personen: twee rondes, of de slowcooker', m: 'optigrill-bak' },
+    { tool: 'optigrill-bak', tekst: 'Extra brede aluminiumfolie en bakpapier', m: 'optigrill-bak' },
     { tool: 'kookpan', tekst: 'Steelpan voor de saus' }
   ],
   ingr: [
@@ -82,9 +85,14 @@ RECEPTEN.push(
     { t: 'Gaar de spareribs 2½ à 3 uur in de oven. Ze zijn goed als je een botje er met twee vingers uit kunt draaien. Is dat nog niet zo, geef ze dan nog een half uur.', m: 'oven', min: 165 },
     { t: 'Snijd de spareribs in stukken van 3 à 4 botjes. Zet ze rechtop langs de wand van de slowcooker, met de vlezige kant naar buiten, en schenk de appelsap erbij.', m: 'slowcooker' },
     { t: 'Gaar de spareribs 7 à 8 uur op LOW, tot je een botje er met twee vingers uit kunt draaien.', m: 'slowcooker', min: 450 },
+    { t: 'Snijd de spareribs in stukken van 3 à 4 botjes. Leg ze naast elkaar, met de botkant naar boven, op een dubbele laag aluminiumfolie, verdeel de appelsap erover en vouw de folie strak dicht tot een plat pakketje dat in de bak past. Het moet onder de rand blijven, anders drukt de bovenplaat erop.', m: 'optigrill-bak' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 150 °C in en druk op OK. Leg het pakketje erin zodra hij klaar is met voorverwarmen en sluit de deksel.', m: 'optigrill-bak' },
+    { t: 'Gaar de spareribs 2½ à 3 uur. Ze zijn goed als je een botje er met twee vingers uit kunt draaien. Is dat nog niet zo, geef ze dan nog een half uur. Kijk tussendoor of de grill nog aan staat.', m: 'optigrill-bak', min: 165 },
     { t: 'Haal de spareribs voorzichtig uit de folie of de slowcooker; ze zijn nu zo mals dat ze kunnen breken. Vang 100 ml van het vocht op.' },
     { t: 'Doe ketjap, honing, ketchup, sojasaus, knoflook, gember en appelazijn met het opgevangen vocht in de steelpan. Laat 8 à 10 minuten zachtjes inkoken tot een stroperige saus die aan je lepel blijft plakken.', min: 9 },
-    { t: 'Zet de oven op 220 °C. Leg de spareribs met de vlezige kant naar boven op de bakplaat met bakpapier en smeer ze dik in met de helft van de saus. Lak ze 10 minuten, smeer er nog een laag over en geef ze nog 5 à 10 minuten, tot de saus plakkerig is en de randjes donker karamelliseren. Houd ze in de gaten: door de honing verbranden ze snel.', min: 18 },
+    { t: 'Zet de oven op 220 °C. Leg de spareribs met de vlezige kant naar boven op de bakplaat met bakpapier en smeer ze dik in met de helft van de saus. Lak ze 10 minuten, smeer er nog een laag over en geef ze nog 5 à 10 minuten, tot de saus plakkerig is en de randjes donker karamelliseren. Houd ze in de gaten: door de honing verbranden ze snel.', m: 'oven', min: 18 },
+    { t: 'Zet de oven op 220 °C. Leg de spareribs met de vlezige kant naar boven op de bakplaat met bakpapier en smeer ze dik in met de helft van de saus. Lak ze 10 minuten, smeer er nog een laag over en geef ze nog 5 à 10 minuten, tot de saus plakkerig is en de randjes donker karamelliseren. Houd ze in de gaten: door de honing verbranden ze snel.', m: 'slowcooker', min: 18 },
+    { t: 'Zet de OptiGrill op 220 °C. Leg een vel bakpapier in de bak, leg de spareribs er met de vlezige kant naar boven in en smeer ze dik in met de helft van de saus. Sluit de deksel en lak ze 6 minuten, smeer er nog een laag over en geef ze nog 4 à 6 minuten, tot de saus plakkerig is. De bovenplaat zit vlak boven het vlees: kijk na 4 minuten al even, want door de honing verbranden ze snel.', m: 'optigrill-bak', min: 12 },
     { t: 'Laat 5 minuten rusten en snijd ze tussen de botjes door. Serveer met de rest van de saus, friet, knoflooksaus en koolsla.', min: 5 }
   ],
   tips: [
@@ -118,9 +126,14 @@ RECEPTEN.push(
     { t: 'Gaar de spareribs 2½ à 3 uur in de oven. Ze zijn goed als je een botje er met twee vingers uit kunt draaien. Is dat nog niet zo, geef ze dan nog een half uur.', m: 'oven', min: 165 },
     { t: 'Snijd de spareribs in stukken van 3 à 4 botjes. Zet ze rechtop langs de wand van de slowcooker, met de vlezige kant naar buiten, en schenk de appelsap erbij.', m: 'slowcooker' },
     { t: 'Gaar de spareribs 7 à 8 uur op LOW, tot je een botje er met twee vingers uit kunt draaien.', m: 'slowcooker', min: 450 },
+    { t: 'Snijd de spareribs in stukken van 3 à 4 botjes. Leg ze naast elkaar, met de botkant naar boven, op een dubbele laag aluminiumfolie, verdeel de appelsap erover en vouw de folie strak dicht tot een plat pakketje dat in de bak past. Het moet onder de rand blijven, anders drukt de bovenplaat erop.', m: 'optigrill-bak' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 150 °C in en druk op OK. Leg het pakketje erin zodra hij klaar is met voorverwarmen en sluit de deksel.', m: 'optigrill-bak' },
+    { t: 'Gaar de spareribs 2½ à 3 uur. Ze zijn goed als je een botje er met twee vingers uit kunt draaien. Is dat nog niet zo, geef ze dan nog een half uur. Kijk tussendoor of de grill nog aan staat.', m: 'optigrill-bak', min: 165 },
     { t: 'Haal de spareribs voorzichtig uit de folie of de slowcooker; ze zijn nu zo mals dat ze kunnen breken. Vang 100 ml van het vocht op.' },
     { t: 'Doe ketjap, sambal, honing, ketchup, sojasaus, knoflook, gember en appelazijn met het opgevangen vocht in de steelpan. Laat 8 à 10 minuten zachtjes inkoken tot een stroperige saus die aan je lepel blijft plakken. Proef: wil je hem heter, roer er dan nog 1 el sambal door.', min: 9 },
-    { t: 'Zet de oven op 220 °C. Leg de spareribs met de vlezige kant naar boven op de bakplaat met bakpapier en smeer ze dik in met de helft van de saus. Lak ze 10 minuten, smeer er nog een laag over en geef ze nog 5 à 10 minuten, tot de saus plakkerig is en de randjes donker karamelliseren.', min: 18 },
+    { t: 'Zet de oven op 220 °C. Leg de spareribs met de vlezige kant naar boven op de bakplaat met bakpapier en smeer ze dik in met de helft van de saus. Lak ze 10 minuten, smeer er nog een laag over en geef ze nog 5 à 10 minuten, tot de saus plakkerig is en de randjes donker karamelliseren.', m: 'oven', min: 18 },
+    { t: 'Zet de oven op 220 °C. Leg de spareribs met de vlezige kant naar boven op de bakplaat met bakpapier en smeer ze dik in met de helft van de saus. Lak ze 10 minuten, smeer er nog een laag over en geef ze nog 5 à 10 minuten, tot de saus plakkerig is en de randjes donker karamelliseren.', m: 'slowcooker', min: 18 },
+    { t: 'Zet de OptiGrill op 220 °C. Leg een vel bakpapier in de bak, leg de spareribs er met de vlezige kant naar boven in en smeer ze dik in met de helft van de saus. Sluit de deksel en lak ze 6 minuten, smeer er nog een laag over en geef ze nog 4 à 6 minuten, tot de saus plakkerig is. De bovenplaat zit vlak boven het vlees: kijk na 4 minuten al even, want door de honing verbranden ze snel.', m: 'optigrill-bak', min: 12 },
     { t: 'Laat 5 minuten rusten, strooi de rode peper erover en snijd ze tussen de botjes door. Serveer met de rest van de saus, friet, knoflooksaus en koolsla: de knoflooksaus blust het vuur.', min: 5 }
   ],
   alt: [

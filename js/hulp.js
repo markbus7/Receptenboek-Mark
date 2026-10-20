@@ -374,6 +374,10 @@ const Hulp = (() => {
       return { soort: 'ok', tekst: 'Met je OptiGrill: kies het passende programma, leg het eten er pas op als hij aangeeft dat hij is voorverwarmd, en houd de gaarheidsaanduiding in de gaten. Omdraaien is niet nodig.' };
     }
 
+    if (g.tool === 'optigrill-bak' && heb('optigrill-bak')) {
+      return eenmalig('optigrill-bak', { soort: 'tip', tekst: 'Met je OptiGrill-bak: zet de bak in de plaats van de onderste plaat vóórdat je hem aanzet, kies de handmatige modus, stel de temperatuur in en druk op OK. Doe het eten er pas in als hij klaar is met voorverwarmen. De bovenplaat zit dichtbij, dus alles moet onder de rand blijven en de bovenkant kleurt sneller dan in een oven.' });
+    }
+
     if (g.tool === 'kookpan' && heb('rijstkoker') && /rijst/.test(tekst)) {
       return eenmalig('rijst', { soort: 'vervang', tekst: 'Gebruik je rijstkoker: spoel de rijst, vul water bij tot het streepje voor het aantal maatbekers en zet hem aan. Hij houdt de rijst daarna warm.' });
     }
@@ -527,7 +531,7 @@ const Hulp = (() => {
       const gram = i.q == null ? 0 : i.q * per * factor;
       const uur = s.uur && Math.round(Math.max(s.uur[0], (gram / 1000) * s.uur[1]));
       const stap = stappen.find((x) => s.stap.test(x.t));
-      const inOven = stappen.some((x) => s.stap.test(x.t) && /(?<!dutch )\boven\b|airfryer/i.test(x.t));
+      const inOven = stappen.some((x) => s.stap.test(x.t) && /(?<!dutch )\boven\b|airfryer|optigrill/i.test(x.t));
       const situatie = eigen && eigen.bevroren ? 'bevroren' : s.kneden && kneedt ? 'kneden' : s.stoof && stooft ? 'stoof' : s.oven && inOven ? 'oven' : 'bevroren';
       const regels = [];
       if (uur) {

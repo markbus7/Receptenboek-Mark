@@ -799,10 +799,11 @@ RECEPTEN.push(
   keuken: 'Brits', soort: 'Dessert',
   tijd: 20, wacht: '35 min in de oven', pers: 6, niveau: 'Makkelijk', vega: true,
   intro: 'Zachte, zoetzure appels met kaneel onder een knapperige laag boterkruimels. Het makkelijkste warme toetje dat er is, met custard of vanille-ijs.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
     { tool: 'ovenschaal', tekst: 'Ovenschaal van ca. 20 × 25 cm, ingevet met boter', m: 'oven' },
-    { tool: 'airfryer', tekst: 'Airfryer met 4 à 6 kleine ovenvaste schaaltjes', m: 'airfryer' }
+    { tool: 'airfryer', tekst: 'Airfryer met 4 à 6 kleine ovenvaste schaaltjes', m: 'airfryer' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 4 personen, dus zet het recept op 4 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { kop: 'Appels' },
@@ -823,13 +824,16 @@ RECEPTEN.push(
   stappen: [
     { t: 'Verwarm de oven voor op 190 °C (hetelucht 170 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 170 °C.', m: 'airfryer' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 190 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
     { t: 'Schil de appels, verwijder het klokhuis en snijd ze in blokjes van 2 cm. Meng ze met citroensap, 40 g bruine suiker, kaneel en maïzena.' },
     { t: 'Schep de appels in de ingevette ovenschaal.', m: 'oven' },
     { t: 'Verdeel de appels over de ingevette schaaltjes.', m: 'airfryer' },
+    { t: 'Vet de hete bak in met een klontje boter en schep de appels erin.', m: 'optigrill-bak' },
     { t: 'Crumble: wrijf bloem, suiker, zout en koude boter met je vingertoppen tot grove kruimels, met hier en daar een groter klontje. Meng de havermout erdoor. Werk snel, de boter moet koud blijven.' },
     { t: 'Strooi de crumble losjes over de appels; druk hem niet aan.' },
     { t: 'Bak 35 à 40 minuten in het midden van de oven, tot de crumble goudbruin is en het appelsap aan de randen borrelt.', m: 'oven', min: 38 },
     { t: 'Zet de schaaltjes in de mand en bak 18 à 20 minuten, tot de bovenkant goudbruin is en het sap borrelt. Kleurt de bovenkant te snel, leg er dan een stukje aluminiumfolie op.', m: 'airfryer', min: 19 },
+    { t: 'Sluit de deksel en bak 25 à 30 minuten, tot de crumble goudbruin is, de appels zacht zijn en het sap aan de randen borrelt. Kijk na 15 minuten even: kleurt de bovenkant te snel, leg er dan een vel bakpapier op.', m: 'optigrill-bak', min: 28 },
     { t: 'Laat 10 minuten afkoelen en serveer warm met custard of vanille-ijs.', min: 10 }
   ],
   tips: [

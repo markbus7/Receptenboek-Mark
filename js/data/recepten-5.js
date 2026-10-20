@@ -154,13 +154,14 @@ RECEPTEN.push(
   id: 'moussaka', naam: 'Moussaka', ook: ['griekse ovenschotel'], keuken: 'Grieks', soort: 'Hoofdgerecht',
   tijd: 60, wacht: '45 min bakken', pers: 6, niveau: 'Gemiddeld', vega: false,
   intro: 'Laagjes aubergine, gekruid lamsgehakt met kaneel en een dikke kaaskorst.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
   gerei: [
-    { tool: 'airfryer', tekst: 'Airfryer of oven om de aubergine voor te garen', of: 'Geen airfryer? Gaar de aubergine dan in de oven.' },
+    { tool: 'airfryer', tekst: 'Airfryer of oven om de aubergine voor te garen', of: 'Geen airfryer? Gaar de aubergine dan in de oven, of grill de plakken 5 à 6 minuten op je contactgrill voordat je de bak erop zet.' },
     { tool: 'hapjespan', tekst: 'Hapjespan voor de gehaktsaus' },
     { tool: 'kookpan', tekst: 'Steelpan en garde voor de bechamel' },
     { tool: 'ovenschaal', tekst: 'Ovenschaal van 20 × 30 cm', m: 'oven' },
-    { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past; halveer het recept of bak in 2 delen', m: 'airfryer' }
+    { tool: 'ovenschaal', tekst: 'Ovenschaal die in de mand past; halveer het recept of bak in 2 delen', m: 'airfryer' },
+    { tool: 'optigrill-bak', tekst: 'OptiGrill-bak (Snacking & Baking, 1,6 liter) in plaats van de onderste plaat; genoeg voor 3 personen, dus zet het recept op 3 personen', m: 'optigrill-bak' }
   ],
   ingr: [
     { n: 'aubergine', p: 'aubergines', q: 3, u: 'st', x: 'in plakken van 1 cm' },
@@ -185,9 +186,11 @@ RECEPTEN.push(
     { t: 'Bak gehakt en ui rul in de hapjespan. Voeg knoflook, tomatenpuree, kaneel en oregano toe en bak 1 minuut.', min: 8 },
     { t: 'Voeg de tomaten toe en laat 15 minuten inkoken tot een dikke saus. Breng op smaak.', min: 15 },
     { t: 'Maak de bechamel zoals bij lasagne: boter smelten, bloem erdoor, melk erbij kloppen tot het bindt. Haal van het vuur, klop ei en de helft van de kaas erdoor.' },
+    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 200 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
     { t: 'Leg in de schaal de helft van de aubergine, dan de gehaktsaus, dan de rest van de aubergine. Giet de bechamel erover en bestrooi met de rest van de kaas.' },
     { t: 'Bak 40 à 45 minuten in een voorverwarmde oven op 180 °C tot de bovenkant diep goudbruin is.', m: 'oven', min: 45 },
     { t: 'Dek af met folie en bak 20 minuten op 160 °C. Haal de folie weg en bak nog 10 minuten.', m: 'airfryer', min: 30 },
+    { t: 'Sluit de deksel en bak 30 minuten op 200 °C, tot de bechamel gestold en goudbruin is. Kijk na 20 minuten even: kleurt hij al te donker, leg er dan een vel bakpapier op.', m: 'optigrill-bak', min: 30 },
     { t: 'Laat 15 minuten rusten voor je hem aansnijdt.', min: 15 }
   ],
   tips: ['Een laag dunne aardappelplakjes onderin maakt het extra stevig.'],
