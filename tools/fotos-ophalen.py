@@ -137,6 +137,45 @@ ARTIKELEN = {
     'kruid-vleesmixen': 'File:Applying a spice rub to pork ribs for a barbecue - 20080329.jpg',
     'kruid-kerriepoeder': 'File:Nahrungsmittel 2012-07-08-9517.jpg',
     'kruid-cajun': 'File:Cajunkruiden-spice.jpg',
+    # Sauzen en smaakmakers (tabblad Sauzen), met de hand gekozen foto's van het product
+    'smaak-sojasaus': 'File:Kikkoman soysauce.jpg',
+    'smaak-donkere-sojasaus': 'File:HK Parkn Shop Pearl River Bridge Dark Soy Sauce glass bottles Jan-2013.jpg',
+    'smaak-ketjap-manis': 'File:Kecap.jpg',
+    'smaak-vissaus': 'File:Thaifishsauce0609.jpg',
+    'smaak-oestersaus': 'File:OysterSauce2.jpg',
+    'smaak-hoisinsaus': 'File:Hoisin sauce 1.jpg',
+    'smaak-worcestershiresaus': 'File:Lea & Perrins worcestershire sauce 150ml.jpg',
+    'smaak-sriracha': 'File:Flying goose sriracha th.jpg',
+    'smaak-ketchup': 'File:Ketchup 20160918 181342.jpg',
+    'smaak-mayonaise': 'File:Zaanse mayonaise.jpg',
+    'smaak-barbecuesaus': 'File:Barbecuesauces.jpg',
+    'smaak-maggi': 'File:Maggiflasche.jpg',
+    'smaak-tomatenpuree': 'File:Tomato paste on spoon.jpg',
+    'smaak-sambal-oelek': 'File:Sambal oelek (210379470).jpg',
+    'smaak-gochujang': 'File:Gochujang (chilli paste).jpg',
+    'smaak-harissa': 'File:Harissa in a jar.jpg',
+    'smaak-tamarinde': 'File:Tamarind paste.jpg',
+    'smaak-nam-prik-pao': 'File:Thai chilli paste in oil, Thai roasted chilli jam.jpg',
+    'smaak-chipotle': 'File:Chipotlesenadobo.jpg',
+    'smaak-pindakaas': 'File:Peanut butter glass.jpg',
+    'smaak-tahin': 'File:Tahini with oil.JPG',
+    'smaak-mosterd': 'File:Dijon mustard on a spoon - 20051218.jpg',
+    'smaak-azijn': 'File:Synthetic vinegar bottles.jpg',
+    'smaak-rijstazijn': 'File:Rice vinegar.jpg',
+    'smaak-zwarte-rijstazijn': 'File:Chinkiang vinegar.jpg',
+    'smaak-appelazijn': 'File:Apple Cider Vinegar (4108653248).jpg',
+    'smaak-rode-wijnazijn': 'File:Red wine vinegar.jpg',
+    'smaak-sherry-azijn': 'File:Sherryvinegar.jpg',
+    'smaak-sesamolie': 'File:Sesame oil.jpg',
+    'smaak-chili-olie': 'File:Chili oil.jpg',
+    'smaak-mirin': 'File:Japanese Mirin.JPG',
+    'smaak-shaoxing': 'File:Shaoxing cooking rice wine by renbucholz.jpg',
+    'smaak-kippenbouillon': 'File:Pot of chicken broth.jpg',
+    'smaak-runderbouillon': 'File:Bulion Wolowy - 1.jpg',
+    'smaak-groentebouillon': 'File:Vegan Vegetable Stock (8530528590).jpg',
+    'smaak-visbouillon': 'File:Fumet (Lubina).jpg',
+    'smaak-kalfsbouillon': 'File:Broth.jpg',
+    'smaak-dashi': 'File:JapaneseKatsuobushiAndKombu.jpg',
     'botercake': 'nl:Cake (gebak)',
     'sushi-maki': 'File:Homemade sushi rolls, 2009.jpg',
     'burritos': 'Burrito', 'tacos': 'Taco', 'enchiladas': 'Enchilada', 'guisado-carne-molida': 'Picadillo',
@@ -253,6 +292,15 @@ def info_per_bestand(bestanden):
     return resultaat
 
 
+def kleiner(meta):
+    """Url van de verkleinde versie. Is het origineel smaller dan THUMB, dan geeft de API het origineel
+    terug; dat weigert upload.wikimedia.org vaak (429), dus vragen we een standaardformaat van 500 px."""
+    if 'thumbnail_unscaled' not in meta['thumb']:
+        return meta['thumb']
+    pad = meta['origineel'].split('/wikipedia/commons/', 1)[1].split('?')[0]
+    return f"https://thumb.wikimedia.org/wikipedia/commons/thumb/{pad}/500px-{pad.rsplit('/', 1)[1]}"
+
+
 def bewaar_foto(data, pad):
     """Schaal naar BREEDTE en sla op als compacte JPEG (valt terug op het origineel zonder Pillow)."""
     try:
@@ -323,7 +371,7 @@ def main():
             data = None
             if thumbs_bereikbaar:
                 try:
-                    data = haal(meta['thumb'], pogingen=8)
+                    data = haal(kleiner(meta), pogingen=8)
                 except urllib.error.HTTPError:
                     raise  # server bereikbaar maar weigert: niet terugvallen op het (zwaardere) origineel
                 except urllib.error.URLError:
