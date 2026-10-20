@@ -514,6 +514,43 @@ RECEPTEN.push(
   alt: ['Minder pittig: neem 2 el gochujang en 1 el extra ketchup.', 'Soja-knoflooksaus (ganjang): vervang de saus door 3 el sojasaus, 3 el honing, 4 tenen knoflook en 2 el water.']
 },
 {
+  id: 'kimchi-jjigae', toegevoegd: '2026-10-20', naam: 'Kimchi jjigae (kimchistoof met varkensbuik)', ook: ['kimchi jjigae', 'kimchi chigae', 'kimchi stew', 'kimchisoep', 'koreaanse kimchisoep', 'kimchistoof'],
+  keuken: 'Koreaans', soort: 'Soep',
+  tijd: 15, wacht: '25 min trekken', pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
+  intro: 'Het Koreaanse thuisgerecht bij uitstek: zure kimchi en varkensbuik, samen stevig aangebakken en dan getrokken tot een rode, pittige bouillon met zachte tahoe. Je zet de pan midden op tafel en eet er rijst bij.',
+  vriezer: { varkensbuik: { bevroren: 'Half ontdooid snijd je de varkensbuik makkelijk in dunne plakjes. Helemaal bevroren kun je hem ook in de pan doen: bak hem dan eerst 5 minuten met de deksel erop tot de plakjes loslaten.', inStap: 'half ontdooid snijden' } },
+  gerei: [
+    { tool: 'kookpan', tekst: 'Brede kookpan of braadpan (24 cm) met deksel' },
+    { tool: 'kookpan', tekst: 'Pan met deksel voor de rijst' }
+  ],
+  ingr: [
+    { n: 'kimchi', q: 300, u: 'g', x: '1 pot, goed zuur, met het sap; in stukken geknipt' },
+    { n: 'varkensbuik', q: 300, u: 'g', x: 'zonder zwoerd, in plakjes van ½ cm' },
+    { n: 'sesamolie', q: 1, u: 'el' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in halve ringen' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
+    { n: 'gochujang', q: 1, u: 'el' },
+    { n: 'chilivlokken', q: 2, u: 'tl', x: 'of 1 el gochugaru (Koreaans chilipoeder)' },
+    { n: 'sojasaus', q: 1, u: 'el' },
+    { n: 'suiker', q: 1, u: 'tl' },
+    { n: 'water', q: 750, u: 'ml', x: 'of kippenbouillon' },
+    { n: 'tahoe', q: 400, u: 'g', x: 'stevig of zijden tahoe, in plakken van 1 cm' },
+    { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in schuine ringetjes' },
+    { n: 'rijst', q: 300, u: 'g', x: 'liefst ronde rijst of sushirijst' }
+  ],
+  stappen: [
+    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
+    { t: 'Verhit de sesamolie in de kookpan op middelhoog vuur en bak de varkensbuik 4 minuten, tot het vet uit de plakjes komt en ze licht bruin zijn.', min: 4 },
+    { t: 'Voeg kimchi, ui en knoflook toe en bak 5 minuten mee, tot de kimchi zacht wordt en aan de randen een beetje kleurt. Dat aanbakken geeft de soep zijn diepe smaak.', min: 5 },
+    { t: 'Roer gochujang, chilivlokken, sojasaus en suiker erdoor en bak 1 minuut. Schenk het water en het kimchisap uit de pot erbij en breng aan de kook.', min: 1 },
+    { t: 'Leg de deksel erop en laat 20 minuten zachtjes trekken, tot het vlees mals is.', min: 20 },
+    { t: 'Leg de plakken tahoe in de soep en laat ze 5 minuten meewarmen; roer niet meer, dan blijft de tahoe heel. Proef: te zuur, voeg een snuf suiker toe; te zout, schenk er wat water bij.', min: 5 },
+    { t: 'Strooi de lente-ui erover en zet de pan borrelend op tafel, met een kom rijst voor iedereen.' }
+  ],
+  tips: ['Hoe ouder en zuurder de kimchi, hoe beter de soep. Een pot die al een paar weken open in je koelkast staat is precies goed.', 'Varkensbuik in plakjes snijd je het makkelijkst als hij een half uur in de vriezer heeft gelegen.'],
+  alt: ['Geen varkensbuik? Spekblokjes of dunne reepjes varkensschouder werken ook.', 'Minder pittig: laat de chilivlokken weg en houd het bij de gochujang.']
+},
+{
   id: 'ramen', naam: 'Ramen met kip en zacht ei', ook: ['shoyu ramen', 'ramen soep'],
   keuken: 'Japans', soort: 'Soep',
   tijd: 45, wacht: '2 uur marineren', pers: 4, niveau: 'Gemiddeld', vega: false,

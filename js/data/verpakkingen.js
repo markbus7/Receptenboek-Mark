@@ -43,6 +43,10 @@ window.VERPAKKINGEN = [
     tip: 'Perziken over? Bewaar ze in hun siroop in een afgesloten bakje (niet in het blik); dan blijven ze 3 dagen goed. Lekker bij yoghurt, op een toetje met vanillevla of in een smoothie.' },
   { n: ['mais'], maat: 'g', pak: [150, 300], per: { blik: 300 }, wat: 'blikje',
     tip: 'Mais over? Lekker door een salade, wrap of omelet, of in een soep.' },
+  { n: ['kimchi'], maat: 'g', pak: [300], wat: 'pot',
+    tip: 'Kimchi over? Open blijft hij weken goed in de koelkast en wordt hij steeds zuurder. Dat is juist lekker in kimchi fried rice of kimchi jjigae, of naast een gebakken ei.' },
+  { n: ['tahoe'], maat: 'g', pak: [360, 500], wat: 'blok',
+    tip: 'Tahoe over? Leg hem in een bakje onder water in de koelkast en ververs het water elke dag; zo blijft hij 3 à 4 dagen goed. Bak blokjes knapperig voor een wokgerecht of salade.' },
 
   /* Vlees */
   { n: ['rundergehakt', 'half-om-half gehakt', 'varkensgehakt', 'lamsgehakt'], maat: 'g', pak: [300, 500], wat: 'bak',
