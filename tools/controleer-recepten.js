@@ -16,6 +16,7 @@ vm.createContext(ctx);
 const laad = (f) => vm.runInContext(fs.readFileSync(path.join(map, f), 'utf8'), ctx, { filename: f });
 laad('gereedschap.js');
 laad('hoofdstukken.js');
+laad('vriezer.js');
 
 const bestanden = fs.readdirSync(map).filter((f) => /^recepten-\d+\.js$/.test(f))
   .sort((a, b) => parseInt(a.match(/\d+/)[0], 10) - parseInt(b.match(/\d+/)[0], 10));
@@ -125,9 +126,15 @@ for (const r of ctx.RECEPTEN) {
     if (s.min !== undefined && !(typeof s.min === 'number' && s.min > 0)) fout(`stap "${(s.t || '').slice(0, 30)}": min moet positief zijn`);
     if (s.m && !mids.includes(s.m)) fout(`stap "${(s.t || '').slice(0, 30)}": onbekende methode "${s.m}"`);
   }
-  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'pit', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep']);
+  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'pit', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep', 'vriezer']);
   const vreemd = Object.keys(r).filter((k) => !bekend.has(k));
   if (vreemd.length) fout(`onbekende velden: ${vreemd.join(', ')}`);
+  // vriezer: { <ingrediënt>: { bevroren, inStap, water } } voor een ingrediënt uit js/data/vriezer.js
+  Object.entries(r.vriezer || {}).forEach(([n, v]) => {
+    if (!r.ingr.some((i) => i.n === n) || !ctx.VRIEZER.some((x) => x.n.includes(n))) fout(`vriezer: "${n}" staat niet in het recept of niet in vriezer.js`);
+    const raar = Object.keys(v || {}).filter((k) => !['bevroren', 'inStap', 'water'].includes(k));
+    if (raar.length) fout(`vriezer "${n}": onbekende velden ${raar.join(', ')}`);
+  });
 }
 for (const r of ctx.RECEPTEN) {
   for (const b of r.bij || []) if (!ids.has(b)) fouten.push({ f: herkomst.get(r.id), id: r.id, m: `bij: onbekend recept "${b}"` });

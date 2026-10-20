@@ -147,6 +147,7 @@ RECEPTEN.push(
 },
 {
   id: 'pho-bo', naam: 'Pho bo', ook: ['vietnamese noedelsoep'], keuken: 'Vietnamees', soort: 'Soep',
+  vriezer: { biefstuk: { bevroren: 'Half ontdooid is hier juist handig: als je er net een mes in krijgt maar het nog stevig is, snijd je het flinterdun. Leg de plakjes daarna terug in de koelkast tot je ze nodig hebt; de hete bouillon gaart ze.', inStap: 'half ontdooid flinterdun snijden' } },
   tijd: 30, wacht: '2 uur trekken', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
   intro: 'Vietnamese noedelsoep met een heldere, kruidige bouillon van steranijs en kaneel, rijstnoedels en dun rundvlees.',
   gerei: [
