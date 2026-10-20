@@ -453,6 +453,7 @@ RECEPTEN.push(
     { tool: 'airfryer', tekst: 'Airfryer om de aubergines voor te garen', m: 'airfryer' },
     { tool: 'koekenpan', tekst: 'Koekenpan (28 cm) voor de gehaktvulling' },
     { tool: 'ovenschaal', tekst: 'Ovenschaal waar de aubergines naast elkaar in passen (ca. 20 × 30 cm)' },
+    { tool: 'oven', tekst: 'Oven om de gevulde aubergines af te bakken', of: 'Geen oven? Zet de gevulde aubergines met het tomatenwater in een hapjespan of Dutch oven, leg de deksel erop en laat ze 25 minuten zachtjes stoven op laag vuur. In de OptiGrill-bak passen er 2: 25 minuten op 190 °C met de deksel dicht.' },
     { tool: 'kookpan', tekst: 'Kookpan voor de rijst' }
   ],
   ingr: [
