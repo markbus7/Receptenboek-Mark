@@ -224,9 +224,10 @@ const App = (() => {
 
   function resultaten() {
     const metVoorraad = state.voorraad.length > 0;
+    const inKast = metVoorraad ? kastNamen() : null;
     let lijst = RECEPTEN.map((r) => ({
       r,
-      m: metVoorraad ? Hulp.match(r, state.voorraad, state.basis) : null,
+      m: metVoorraad ? metKast(Hulp.match(r, state.voorraad, state.basis), inKast) : null,
       maakbaar: Hulp.maakbaar(r, mijnKeuken())
     }));
     const filter = (vaag) => lijst.filter(({ r, m, maakbaar }) =>
@@ -242,7 +243,7 @@ const App = (() => {
       (!state.vega || r.vega) &&
       (!state.kruid || kruidRecepten().has(r.id)) &&
       (!state.maakbaar || maakbaar) &&
-      (!metVoorraad || m.heb.length > 0 || isAanrader(r)) &&
+      (!metVoorraad || m.gebruikt.length > 0) &&
       (!metVoorraad || !state.compleet || m.mist.length === 0) &&
       (!metVoorraad || !state.alleGekozen || m.gebruikt.length === state.voorraad.length)
     );
@@ -471,6 +472,19 @@ const App = (() => {
   /* Recepten waarvoor je alle gedroogde kruiden en specerijen al in je kast hebt.
      Verse kruiden, verse gember en pepers koop je vers; die tellen hier niet mee. */
   const VERS = new Set(['gember', 'rode peper', 'groene peper', 'laos', 'citroengras', 'djeroekbladeren', 'thaise basilicum', 'ingelegde gember']);
+  // Genormaliseerde ingrediëntnamen van de gedroogde kruiden in je kast, zonder wat je vers koopt.
+  function kastNamen() {
+    const inKast = kast();
+    return new Set((window.KRUIDEN || []).filter((k) => inKast.has(k.id)).flatMap((k) => k.namen.map((n) => Hulp.norm(n)))
+      .filter((n) => !n.startsWith('verse ') && !VERS.has(n)));
+  }
+  // Kruiden die in je kast staan hoef je niet te halen.
+  function metKast(m, namen) {
+    const uitKast = m.mist.filter((n) => namen.has(Hulp.norm(n)));
+    if (!uitKast.length) return m;
+    const heb = [...m.heb, ...uitKast];
+    return { ...m, heb, mist: m.mist.filter((n) => !uitKast.includes(n)), pct: m.totaal ? heb.length / m.totaal : 0 };
+  }
   function kastRecepten(inKast) {
     const perNaam = new Map();
     (window.KRUIDEN || []).forEach((k) => k.namen.forEach((n) => perNaam.set(Hulp.norm(n), k)));
