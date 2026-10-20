@@ -86,6 +86,18 @@ const Boodschappen = (() => {
     bewaar();
   }
 
+  /* Het alternatief in plaats van het ingrediënt: wat er van dit recept al op de lijst stond, gaat eraf. */
+  function vervang(recept, i, alt, factor) {
+    const { q, u } = basis(i, factor);
+    const bestaand = items.find((x) => !x.klaar && !x.eigen && x.k === Hulp.norm(i.n) + '|' + u && x.recepten.includes(recept.naam));
+    if (bestaand) {
+      bestaand.q -= q;
+      if (bestaand.q <= 1e-6) items = items.filter((x) => x !== bestaand);
+    }
+    alt.forEach((a) => voegIngrToe(recept, a, factor));
+    bewaar();
+  }
+
   /* Staat dit ingrediënt al op de lijst (nog niet afgevinkt) voor dit recept? */
   function staatErop(recept, i) {
     const naam = Hulp.norm(i.n);
@@ -173,5 +185,5 @@ const Boodschappen = (() => {
   /* Opnieuw inlezen, bijvoorbeeld nadat een ander apparaat de lijst heeft gewijzigd. */
   const herlaad = () => { items = vulAlternatievenAan(Hulp.opslag.lees('boodschappen', [])); };
 
-  return { herlaad, voegReceptToe, voegEenToe, staatErop, isWater, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
+  return { herlaad, voegReceptToe, voegEenToe, vervang, staatErop, isWater, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
 })();

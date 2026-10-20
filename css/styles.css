@@ -558,8 +558,10 @@ p.sync-fout::before { display: none; }
 .ingr-lijst { list-style: none; margin: 0; padding: 0; }
 .ingr-kop { margin-top: 16px; padding-bottom: 4px; font-family: var(--font-lees); font-style: italic; font-size: 17px; color: var(--k-inkt); }
 .ingr-kop:first-child { margin-top: 0; }
-.ingr { display: flex; align-items: center; gap: 4px; border-bottom: 1px dotted var(--lijn); }
-.ingr label { flex: 1 1 auto; min-width: 0; display: grid; grid-template-columns: 20px 96px minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 8px 0; cursor: pointer; }
+.ingr { display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; border-bottom: 1px dotted var(--lijn); }
+.ingr-of-knop { flex: 1 0 100%; display: inline-flex; align-items: center; gap: 6px; margin: -4px 0 8px; padding: 2px 0 2px 136px; border: 0; background: none; color: var(--k-inkt); font-size: 14px; text-align: left; text-decoration: underline; text-decoration-color: var(--potlood); text-underline-offset: 3px; cursor: pointer; }
+.ingr-of-knop svg { flex: 0 0 auto; width: 16px; height: 16px; }
+.ingr label { flex: 1 1 0; min-width: 0; display: grid; grid-template-columns: 20px 96px minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 8px 0; cursor: pointer; }
 .ingr-mand { flex: 0 0 auto; display: inline-grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--potlood); cursor: pointer; }
 .ingr-mand svg { width: 18px; height: 18px; }
 @media (hover: hover) { .ingr-mand:hover { color: var(--k-inkt); background: color-mix(in srgb, var(--k) 12%, transparent); } }
@@ -751,6 +753,7 @@ p.sync-fout::before { display: none; }
   .heb-velden { justify-content: flex-start; }
   .heb-velden select { max-width: none; }
   .ingr label { grid-template-columns: 20px 78px minmax(0, 1fr); }
+  .ingr-of-knop { padding-left: 118px; }
   .stap { grid-template-columns: 40px minmax(0, 1fr); gap: 10px; }
   .stap-nr { width: 38px; height: 38px; font-size: 28px; }
   .stap-tekst { font-size: 16px; }

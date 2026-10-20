@@ -136,6 +136,42 @@ const Hulp = (() => {
   }
   const vervangerTekst = (i, factor) => { const v = vervanger(i, factor); return v ? (v.tekst || v.vers) : ''; };
 
+  /* Het alternatief uit de uitleg ("droge kruidenmix; of 2 tl ketoembar + 1 tl djinten") als losse
+     ingrediënten voor het boodschappenlijstje, voor het originele aantal personen. Alleen als elk deel
+     een ingrediënt is dat elders in het boek staat; anders null. Zonder hoeveelheid ("; of kipfilet")
+     geldt die van het recept. */
+  let bekend = null;
+  const GETAL = { '½': 0.5, '¼': 0.25, '¾': 0.75 };
+  function leesGetal(s) {
+    const m = s.match(/^(\d+(?:,\d+)?)?([½¼¾])?$/);
+    if (!m || (!m[1] && !m[2])) return null;
+    return (m[1] ? parseFloat(m[1].replace(',', '.')) : 0) + (GETAL[m[2]] || 0);
+  }
+  function alternatief(i) {
+    const of = (i.x || '').split('; of ')[1];
+    if (!of || i.q == null) return null;
+    if (!bekend) {
+      bekend = new Map();
+      (window.RECEPTEN || []).forEach((r) => (r.ingr || []).forEach((g) => {
+        if (!g.n) return;
+        bekend.set(norm(g.n), { n: g.n, p: g.p });
+        if (g.p) bekend.set(norm(g.p), { n: g.n, p: g.p });
+      }));
+    }
+    const eenheid = new Map();
+    Object.entries(window.EENHEDEN || {}).forEach(([u, d]) => { if (d.e) { eenheid.set(d.e, u); eenheid.set(d.m, u); } });
+    const delen = of.split(' of ')[0].split(/ \+ |, /);
+    const uit = delen.map((d) => {
+      const w = d.trim().split(/\s+/);
+      const q = leesGetal(w[0]);
+      if (q == null) return delen.length === 1 && bekend.has(norm(d)) ? { ...bekend.get(norm(d)), q: i.q, u: i.u } : null;
+      const u = eenheid.get(w[1]);
+      const ing = bekend.get(norm(w.slice(u ? 2 : 1).join(' ')));
+      return ing ? { ...ing, q, u: u || 'st' } : null;
+    });
+    return uit.every(Boolean) ? uit : null;
+  }
+
   /* Basisvoorraad die vrijwel iedereen heeft. */
   const BASIS = ['zout', 'peper', 'zwarte peper', 'water', 'lauw water', 'olijfolie', 'zonnebloemolie', 'olie'];
   const isBasis = (ingr) => BASIS.includes(norm(ingr.n));
@@ -527,5 +563,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();
