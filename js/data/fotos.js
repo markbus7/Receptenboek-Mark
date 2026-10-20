@@ -672,11 +672,23 @@ window.FOTOS = {
   "licentie": "Public domain",
   "bron": "https://commons.wikimedia.org/wiki/File:Garam_Masala.JPG"
  },
+ "kruid-gember": {
+  "src": "img/kruid-gember.jpg",
+  "auteur": "Judethedeus",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Ginger_rhizomes.jpg"
+ },
  "kruid-italiaanse-kruiden": {
   "src": "img/kruid-italiaanse-kruiden.jpg",
   "auteur": "John Phelan",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Italian_Herb_Mix,_Penzeys_Spices,_Arlington_Heights_MA.jpg"
+ },
+ "kruid-jeneverbes": {
+  "src": "img/kruid-jeneverbes.jpg",
+  "auteur": "W.carter",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Blue_and_green_juniper_berries_in_a_branch_in_Norrkila_3.jpg"
  },
  "kruid-kaneel": {
   "src": "img/kruid-kaneel.jpg",
@@ -828,6 +840,18 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Tandoori_Masala_(3594429661).jpg"
  },
+ "kruid-tex-mex": {
+  "src": "img/kruid-tex-mex.jpg",
+  "auteur": "GI tagged products",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Byadgi_chili_powder.jpg"
+ },
+ "kruid-thaise-basilicum": {
+  "src": "img/kruid-thaise-basilicum.jpg",
+  "auteur": "Sven.petersen",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:9262-Horapa_Flower_Leaves.jpg"
+ },
  "kruid-tijm": {
   "src": "img/kruid-tijm.jpg",
   "auteur": "Henna",
@@ -845,6 +869,18 @@ window.FOTOS = {
   "auteur": "Tim Sackton",
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Five_spices_detailed.jpg"
+ },
+ "kruid-vleesmixen": {
+  "src": "img/kruid-vleesmixen.jpg",
+  "auteur": "Daryn Nakhuda.",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Applying_a_spice_rub_to_pork_ribs_for_a_barbecue_-_20080329.jpg"
+ },
+ "kruid-zout": {
+  "src": "img/kruid-zout.jpg",
+  "auteur": "Poyraz 72",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Table_salt_with_salt_shaker_V1.jpg"
  },
  "kruid-zuiveringszout": {
   "src": "img/kruid-zuiveringszout.jpg",
