@@ -1272,6 +1272,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Spanakopita.jpg"
  },
+ "spareribs": {
+  "src": "img/spareribs.jpg",
+  "auteur": "Edo de Roo",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Spareribs_20160506_182617113.jpg"
+ },
  "steak-frites": {
   "src": "img/steak-frites.jpg",
   "auteur": "Missvain",
