@@ -338,6 +338,7 @@ const Detail = (() => {
           <span class="ingr-naam">${Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
         </label>
         ${Boodschappen.isWater(i) ? '' : lijstKnop(i, idx)}
+        ${mixNaam ? '' : ofKnop(i, idx)}
       </li>`;
     }).join('');
     renderRest();
@@ -367,6 +368,14 @@ const Detail = (() => {
   function lijstKnop(i, idx) {
     const erop = Boodschappen.staatErop(r, i);
     return `<button type="button" class="ingr-mand${erop ? ' is-erop' : ''}" data-mand="${idx}" aria-pressed="${erop}" aria-label="${erop ? 'Staat op je boodschappenlijst' : 'Zet op je boodschappenlijst'}: ${Hulp.esc(i.n)}" title="${erop ? 'Staat op je boodschappenlijst' : 'Op boodschappenlijst'}">${icoon(erop ? 'vink' : 'mand')}</button>`;
+  }
+
+  /* Het alternatief uit de uitleg ("of 2 tl ketoembar + 1 tl djinten") in één tik op het lijstje, in plaats van het ingrediënt zelf. */
+  const altNamen = (alt) => alt.map((x) => x.n).join(', ').replace(/, ([^,]*)$/, ' en $1');
+  function ofKnop(i, idx) {
+    const alt = Hulp.alternatief(i);
+    if (!alt) return '';
+    return `<button type="button" class="ingr-of-knop" data-mand-of="${idx}" aria-label="Zet ${Hulp.esc(altNamen(alt))} op je boodschappenlijst in plaats van ${Hulp.esc(i.n)}">${icoon('mand')} Liever ${Hulp.esc(altNamen(alt))} op je lijst</button>`;
   }
 
   function renderLijstKnoppen() {
@@ -626,6 +635,15 @@ const Detail = (() => {
       const n = Boodschappen.voegReceptToe(r, factor, mixWeg);
       renderLijstKnoppen();
       return App.toast(`${n} ingrediënten op je boodschappenlijst gezet`);
+    }
+    const mandOf = t.closest('[data-mand-of]');
+    if (mandOf) {
+      const i = r.ingr[+mandOf.dataset.mandOf];
+      const alt = Hulp.alternatief(i);
+      Boodschappen.vervang(r, i, alt, factor);
+      renderLijstKnoppen();
+      const wat = alt.map((x) => Hulp.hoeveelheidTekst(x, factor)).join(', ').replace(/, ([^,]*)$/, ' en $1');
+      return App.toast(`${wat.charAt(0).toUpperCase() + wat.slice(1)} op je boodschappenlijst gezet, in plaats van ${i.n}`);
     }
     const mand = t.closest('[data-mand]');
     if (mand) {
