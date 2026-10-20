@@ -942,6 +942,12 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Mayonnaise_(1).jpg"
  },
+ "mechoui": {
+  "src": "img/mechoui.jpg",
+  "auteur": "Andre Piquet",
+  "licentie": "CC BY 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Mechoui.jpg"
+ },
  "menemen": {
   "src": "img/menemen.jpg",
   "auteur": "E4024",
@@ -1134,6 +1140,12 @@ window.FOTOS = {
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:Quiche.jpg"
  },
+ "rakott-krumpli": {
+  "src": "img/rakott-krumpli.jpg",
+  "auteur": "zolakoma",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Rakott_krumpli.jpg"
+ },
  "ramen": {
   "src": "img/ramen.jpg",
   "auteur": "Quercus acuta",
@@ -1277,6 +1289,12 @@ window.FOTOS = {
   "auteur": "Stacy",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Homemade_sushi_rolls,_2009.jpg"
+ },
+ "sutlac": {
+  "src": "img/sutlac.jpg",
+  "auteur": "E4024",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:S%C3%BCtla%C3%A7_(Turkish_rice_pudding).jpeg"
  },
  "tabouleh": {
   "src": "img/tabouleh.jpg",

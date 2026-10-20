@@ -355,6 +355,43 @@ RECEPTEN.push(
   alt: ['Geen varkensvlees? Gebruik rundergehakt met 1 el olijfolie erdoor, dan blijft de vulling sappig.', 'Vegetarisch: vervang het gehakt door 400 g vegetarisch gehakt.']
 },
 {
+  id: 'rakott-krumpli', toegevoegd: '2026-10-20', naam: 'Rakott krumpli (Hongaarse aardappelschotel)', ook: ['hongaarse aardappelschotel', 'aardappelschotel met worst en ei', 'gelaagde aardappelen', 'rakott krumpli'],
+  keuken: 'Hongaars', soort: 'Hoofdgerecht',
+  tijd: 40, wacht: '45 min in de oven', pers: 4, niveau: 'Makkelijk', vega: false,
+  intro: 'Laagjes aardappel, hardgekookt ei en paprikaworst onder een deken van zure room, in de oven goudbruin gebakken. Hongaars huiskamereten dat je de avond ervoor al kunt klaarzetten.',
+  gerei: [
+    { tool: 'kookpan', tekst: 'Grote kookpan voor de aardappelen en een steelpan voor de eieren' },
+    { tool: 'koekenpan', tekst: 'Koekenpan voor de worst' },
+    { tool: 'ovenschaal', tekst: 'Ovenschaal 20 × 30 cm' },
+    { tool: 'oven', tekst: 'Oven' }
+  ],
+  ingr: [
+    { n: 'vastkokende aardappelen', q: 1, u: 'kg', x: 'ongeschild, ongeveer even groot' },
+    { n: 'ei', p: 'eieren', q: 6, u: 'st' },
+    { n: 'rookworst', p: 'rookworsten', q: 1, u: 'st', x: 'ca. 275 g, in plakjes; of Hongaarse kolbász of chorizo' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
+    { n: 'zure room', q: 375, u: 'ml', x: '3 bekers' },
+    { n: 'paprikapoeder', q: 2, u: 'tl', x: 'edelzoet' },
+    { n: 'boter', q: 30, u: 'g', x: 'plus wat om de schaal in te vetten' },
+    { n: 'zout' }, { n: 'peper' },
+    { kop: 'Erbij' },
+    { n: 'augurk', p: 'augurken', q: 4, u: 'st', opt: true }
+  ],
+  stappen: [
+    { t: 'Kook de aardappelen in de schil in 20 à 25 minuten net gaar in water met zout: een mes moet er met een klein beetje weerstand in gaan. Giet af en laat iets afkoelen.', min: 25 },
+    { t: 'Kook intussen de eieren 10 minuten hard. Laat ze schrikken onder koud water en pel ze.', min: 10 },
+    { t: 'Verwarm de oven voor op 180 °C. Vet de ovenschaal in met boter.' },
+    { t: 'Bak de worstplakjes 3 minuten in de droge koekenpan tot ze kleuren en wat vet loslaten. Bak de ui 5 minuten mee in dat vet tot hij zacht is.', min: 8 },
+    { t: 'Trek de schil van de nog warme aardappelen en snijd ze in plakjes van een halve centimeter. Snijd de eieren in plakjes.' },
+    { t: 'Roer de zure room glad met de helft van het paprikapoeder, een halve theelepel zout en peper.' },
+    { t: 'Leg een derde van de aardappel in de schaal en bestrooi met zout. Verdeel de helft van de eieren en de helft van de worst met ui erover en schep er een derde van de zure room op. Herhaal dit nog een keer en eindig met de rest van de aardappel en de zure room.' },
+    { t: 'Leg de boter in klontjes bovenop en bestrooi met de rest van het paprikapoeder. Bak 40 à 45 minuten in het midden van de oven, tot de bovenkant goudbruin is en de room aan de randen borrelt.', min: 45 },
+    { t: 'Laat 10 minuten rusten, dan snijd je mooiere punten. Serveer met augurken of een frisse komkommersalade.', min: 10 }
+  ],
+  tips: ['Kook de aardappelen en eieren een dag van tevoren: koude aardappelen snijd je zonder dat ze breken. Haal de schaal dan wel 10 minuten langer door de oven.', 'Vastkokende aardappelen houden hun vorm; met kruimige krijg je eerder een soort puree.'],
+  alt: ['Met spek: bak 125 g spekblokjes mee met de worst.', 'Zonder vlees: laat de worst weg en leg een laag gebakken paprikareepjes tussen de aardappel.']
+},
+{
   id: 'lahmacun', naam: 'Lahmacun', ook: ['turkse pizza'],
   keuken: 'Turks', soort: 'Hoofdgerecht',
   tijd: 45, wacht: '1 uur rijzen', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
@@ -444,6 +481,39 @@ RECEPTEN.push(
   ],
   tips: ['Door de schil in streepjes te verwijderen en te zouten nemen de aubergines minder olie op en blijven ze mooi heel.', 'De aubergines moeten echt helemaal zacht zijn voordat je ze vult; in de oven garen ze niet veel meer.'],
   alt: ['Vegetarisch: dan wordt het imam bayıldı. Vul de aubergines met in olijfolie gestoofde ui, knoflook, tomaat en peterselie, zonder gehakt.', 'Alles in de oven: halveer de aubergines in de lengte, bestrijk ze met olie en rooster ze 25 minuten op 200 °C met de snijkant naar beneden. Schep de vulling erop en bak nog 15 minuten.']
+},
+{
+  id: 'sutlac', toegevoegd: '2026-10-20', naam: 'Sütlaç (Turkse rijstpudding)', ook: ['sutlac', 'fırın sütlaç', 'firin sutlac', 'turkse rijstpudding', 'rijstpudding', 'rijstpudding uit de oven'],
+  keuken: 'Turks', soort: 'Dessert',
+  tijd: 40, wacht: '2 uur afkoelen', pers: 6, niveau: 'Makkelijk', vega: true,
+  intro: 'Romige rijstpudding met vanille, in Turkije in elke lokanta te krijgen. In de oven krijgt hij een karamelbruin vel; met kaneel erover lepel je hem koud uit het schaaltje.',
+  methodes: [ { id: 'oven', naam: 'Oven (fırın sütlaç)' }, { id: 'kookpan', naam: 'Alleen op het vuur' } ],
+  gerei: [
+    { tool: 'kookpan', tekst: 'Pan met dikke bodem (minstens 2 liter) en een garde' },
+    { tool: 'ovenschaal', tekst: '6 ovenvaste schaaltjes of kommetjes', of: 'Eén ovenschaal van 20 × 20 cm werkt ook.' },
+    { tool: 'ovenschaal', tekst: 'Diepe ovenschaal of braadslede voor het waterbad', m: 'oven' },
+    { tool: 'oven', tekst: 'Oven met grillstand', m: 'oven' }
+  ],
+  ingr: [
+    { n: 'risottorijst', q: 100, u: 'g', x: 'of andere ronde rijst, zoals dessertrijst' },
+    { n: 'water', q: 250, u: 'ml' },
+    { n: 'melk', q: 1, u: 'l', x: 'volle melk' },
+    { n: 'suiker', q: 150, u: 'g' },
+    { n: 'vanillesuiker', q: 8, u: 'g' },
+    { n: 'maïzena', q: 2, u: 'el', x: 'of 3 el rijstebloem' },
+    { n: 'kaneel', q: 1, u: 'tl', x: 'om te bestrooien' }
+  ],
+  stappen: [
+    { t: 'Spoel de rijst in een zeef af tot het water helder is. Breng hem met het water aan de kook en laat 15 minuten zachtjes koken tot bijna al het water is opgenomen.', min: 15 },
+    { t: 'Houd 100 ml melk apart. Schenk de rest bij de rijst, breng aan de kook en laat 15 minuten zachtjes trekken. Roer regelmatig over de bodem, want melk brandt snel aan.', min: 15 },
+    { t: 'Roer de maïzena glad in de achtergehouden koude melk. Roer suiker en vanillesuiker door de rijst en schenk dan al roerend met de garde het papje erbij. Laat 5 minuten zachtjes koken tot het zo dik is als vla.', min: 5 },
+    { t: 'Zet de grill van de oven op de hoogste stand. Verdeel de pudding over de schaaltjes en zet ze in de diepe ovenschaal. Schenk er koud water omheen tot halverwege de schaaltjes.', m: 'oven' },
+    { t: 'Schuif de schaal hoog in de oven en grill 15 à 20 minuten, tot de bovenkant bruine vlekken heeft. Blijf erbij: het gaat aan het eind snel.', m: 'oven', min: 15 },
+    { t: 'Schep de pudding in de schaaltjes en strijk de bovenkant glad. Leg er meteen een vel plasticfolie op als je geen vel wilt.', m: 'kookpan' },
+    { t: 'Laat afkoelen tot kamertemperatuur en zet de pudding dan minstens 2 uur in de koelkast. Bestrooi vlak voor het serveren met kaneel.', min: 120 }
+  ],
+  tips: ['Warm is de pudding nog dun; in de koelkast wordt hij stevig. Twijfel je of hij dik genoeg is, laat hem dan nog 2 minuten langer koken.', 'Ronde rijst geeft het meeste zetmeel en dus de romigste pudding. Langkorrelige rijst kan ook, maar die blijft losser.'],
+  alt: ['Met een fijngemalen handje pistache of hazelnoten erover in plaats van kaneel, zoals aan de Zwarte Zee.', 'Lichter: vervang 250 ml van de melk door water en neem 120 g suiker.']
 },
 {
   id: 'hummus', naam: 'Hummus', ook: ['houmous', 'humus'],
@@ -659,5 +729,43 @@ RECEPTEN.push(
   tips: ['Zaalouk is de volgende dag nog lekkerder en blijft 3 dagen goed in de koelkast.', 'Rokerige smaak: rooster de hele aubergines eerst boven de gasvlam of onder de hete ovengrill tot de schil zwart is, en schep dan het vruchtvlees eruit.'],
   alt: ['Haast? Gebruik een blik tomatenblokjes in plaats van verse tomaten.', 'Pittiger: roer er ½ tl harissa doorheen.'],
   bij: ['kefta-tajine', 'kip-tajine']
+},
+{
+  id: 'mechoui', toegevoegd: '2026-10-20', naam: 'Mechoui (lamsschouder uit de oven)', ook: ['méchoui', 'marokkaanse lamsschouder', 'lamsschouder uit de oven', 'langzaam gegaarde lamsschouder', 'slow roasted lamb'],
+  keuken: 'Marokkaans', soort: 'Hoofdgerecht',
+  tijd: 20, wacht: '4 uur in de oven', pers: 6, niveau: 'Makkelijk', vega: false,
+  intro: 'Een hele lamsschouder, ingewreven met boter, knoflook en komijn en uren langzaam gegaard tot het vlees van het bot valt. Je trekt het met je vingers los en doopt het in komijnzout. Een weekendgerecht dat zichzelf maakt.',
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven (28 à 30 cm) met deksel, waar de schouder in past', of: 'Een braadslede of diepe ovenschaal, strak afgedekt met een dubbele laag aluminiumfolie.' },
+    { tool: 'oven', tekst: 'Oven' }
+  ],
+  ingr: [
+    { n: 'lamsschouder', q: 2, u: 'kg', x: 'met bot; vraag de slager om het schouderblad te laten zitten' },
+    { kop: 'Kruidenboter' },
+    { n: 'boter', q: 75, u: 'g', x: 'op kamertemperatuur' },
+    { n: 'knoflook', q: 6, u: 'teen', x: 'geperst' },
+    { n: 'komijn', q: 2, u: 'tl', x: 'gemalen' },
+    { n: 'gemalen koriander', q: 2, u: 'tl' },
+    { n: 'paprikapoeder', q: 2, u: 'tl', x: 'edelzoet' },
+    { n: 'zeezout', q: 2, u: 'tl' },
+    { n: 'zwarte peper', q: 1, u: 'tl', x: 'versgemalen' },
+    { n: 'water', q: 250, u: 'ml' },
+    { kop: 'Komijnzout en erbij' },
+    { n: 'komijn', q: 2, u: 'tl', x: 'gemalen' },
+    { n: 'zeezout', q: 2, u: 'tl' },
+    { n: 'Turks brood', q: 1, u: 'st', x: 'of Marokkaans platbrood (khobz)', opt: true }
+  ],
+  stappen: [
+    { t: 'Haal het vlees een uur van tevoren uit de koelkast. Prak de boter met knoflook, komijn, koriander, paprikapoeder, zout en peper tot een smeuïge pasta.', min: 60 },
+    { t: 'Prik met een puntig mes rondom diepe sneetjes van 2 cm in het vlees. Wrijf de kruidenboter over de hele schouder en duw hem goed in de sneetjes.' },
+    { t: 'Verwarm de oven voor op 160 °C. Leg de schouder met de vetkant naar boven in de Dutch oven en schenk het water langs de rand erbij. Leg de deksel erop.' },
+    { t: 'Gaar het vlees 3½ uur in de oven. Haal elk uur de deksel eraf en schep het vocht uit de pan over het vlees.', min: 210 },
+    { t: 'Haal de deksel eraf, zet de oven op 200 °C en rooster nog 30 minuten, tot de buitenkant donker goudbruin is en het vlees met een vork van het bot glijdt. Schep er nog twee keer jus over.', min: 30 },
+    { t: 'Meng voor het komijnzout de komijn met het zeezout en verdeel over een paar schaaltjes.' },
+    { t: 'Laat het vlees 10 minuten rusten. Trek het met twee vorken in grove stukken van het bot en schep de jus erover. Iedereen doopt zelf in het komijnzout, met brood en een frisse salade of zaalouk erbij.', min: 10 }
+  ],
+  tips: ['Heb je tijd, wrijf het vlees dan de avond ervoor in en laat het afgedekt in de koelkast staan. De kruiden trekken dan tot op het bot.', 'Klaar is het niet op de minuut, maar als het vlees zonder kracht van het bot valt. Is dat na 4 uur nog niet zo, geef het dan nog een half uur met de deksel erop.'],
+  alt: ['Geen lamsschouder te krijgen? Een lamsbout (ca. 2 kg) kan ook; die is magerder, gaar hem 3 uur en bedruip hem vaker.', 'Een restje is heerlijk de volgende dag in een wrap of pitabroodje met knoflooksaus en sla.'],
+  bij: ['zaalouk']
 }
 );

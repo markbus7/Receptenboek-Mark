@@ -144,6 +144,9 @@ ARTIKELEN = {
     'gehaktballen-tomatensaus': 'File:Polpette Al Sugo - Nanninella.jpg',
     # 1.19.0: er is geen vrije foto van kip kerrie met perzik; deze kip kerrie met rijst lijkt er het meest op
     'kip-kerrie-perzik': 'File:Chicken curry rice.jpg',
+    # 1.38.0
+    # (kimchi jjigae en Surinaamse pastei: geen vrije foto gevonden, dus het tegeltje)
+    'rakott-krumpli': 'Rakott krumpli', 'mechoui': 'Méchoui', 'sutlac': 'File:Sütlaç (Turkish rice pudding).jpeg',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)
