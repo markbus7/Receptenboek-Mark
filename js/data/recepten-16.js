@@ -710,7 +710,7 @@ RECEPTEN.push(
     { kop: 'Cake' },
     { n: 'dadels', q: 200, u: 'g', x: 'ontpit, liefst medjool' },
     { n: 'water', q: 250, u: 'ml', x: 'kokend' },
-    { n: 'zuiveringszout', q: 1, u: 'tl', x: 'baking soda' },
+    { n: 'zuiveringszout', q: 1, u: 'tl', x: 'bicarbonaat, baking soda; geen bakpoeder' },
     { n: 'boter', q: 75, u: 'g', x: 'zacht, plus wat om in te vetten' },
     { n: 'bruine suiker', q: 150, u: 'g', x: 'donkerbruine basterdsuiker' },
     { n: 'ei', p: 'eieren', q: 2, u: 'st' },

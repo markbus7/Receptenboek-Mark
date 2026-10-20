@@ -282,7 +282,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'biefstuk', q: 500, u: 'g', x: 'of bavette; tegen de draad in in plakjes van 3 mm' },
-    { n: 'zuiveringszout', q: 0.25, u: 'tl', x: 'baking soda' },
+    { n: 'zuiveringszout', q: 0.25, u: 'tl', x: 'bicarbonaat, baking soda; geen bakpoeder' },
     { n: 'maïzena', q: 1, u: 'el', x: 'voor het vlees' },
     { n: 'sojasaus', q: 1, u: 'el', x: 'voor het vlees' },
     { n: 'broccoli', q: 500, u: 'g', x: 'in roosjes, de steel geschild en in plakjes' },

@@ -473,7 +473,7 @@ RECEPTEN.push(
     { t: 'Proef en breng op smaak met zout, citroen of komijn.' },
     { t: 'Schep de hummus op een bord, maak met de bolle kant van een lepel een kuil en vul die met olijfolie. Bestrooi met paprikapoeder en peterselie.' }
   ],
-  tips: ['Extra glad: kook de uitgelekte kikkererwten 15 à 20 minuten met ½ tl zuiveringszout (baking soda) of 1 tl bakpoeder, tot ze bijna uit elkaar vallen. Spoel ze in een vergiet onder koud water af; de losgekomen velletjes spoelen dan grotendeels weg.', 'Hummus blijft 4 dagen goed in de koelkast. Laat hem voor het serveren even op kamertemperatuur komen.'],
+  tips: ['Extra glad: kook de uitgelekte kikkererwten 15 à 20 minuten met ½ tl zuiveringszout (bicarbonaat, baking soda) of 1 tl bakpoeder, tot ze bijna uit elkaar vallen. Spoel ze in een vergiet onder koud water af; de losgekomen velletjes spoelen dan grotendeels weg.', 'Hummus blijft 4 dagen goed in de koelkast. Laat hem voor het serveren even op kamertemperatuur komen.'],
   alt: ['Variaties: mix er een geroosterde rode paprika, 10 g verse koriander met een groene peper, of 1 el harissa doorheen.', 'Geen tahin? Gebruik 3 el Griekse yoghurt en 2 el olijfolie. Het smaakt anders, maar wel lekker.'],
   bij: ['falafel', 'kip-shoarma']
 },
