@@ -280,6 +280,15 @@ def info_per_bestand(bestanden):
     return resultaat
 
 
+def kleiner(meta):
+    """Url van de verkleinde versie. Is het origineel smaller dan THUMB, dan geeft de API het origineel
+    terug; dat weigert upload.wikimedia.org vaak (429), dus vragen we een standaardformaat van 500 px."""
+    if 'thumbnail_unscaled' not in meta['thumb']:
+        return meta['thumb']
+    pad = meta['origineel'].split('/wikipedia/commons/', 1)[1].split('?')[0]
+    return f"https://thumb.wikimedia.org/wikipedia/commons/thumb/{pad}/500px-{pad.rsplit('/', 1)[1]}"
+
+
 def bewaar_foto(data, pad):
     """Schaal naar BREEDTE en sla op als compacte JPEG (valt terug op het origineel zonder Pillow)."""
     try:
@@ -350,7 +359,7 @@ def main():
             data = None
             if thumbs_bereikbaar:
                 try:
-                    data = haal(meta['thumb'], pogingen=8)
+                    data = haal(kleiner(meta), pogingen=8)
                 except urllib.error.HTTPError:
                     raise  # server bereikbaar maar weigert: niet terugvallen op het (zwaardere) origineel
                 except urllib.error.URLError:

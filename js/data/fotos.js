@@ -1206,6 +1206,12 @@ window.FOTOS = {
   "licentie": "CC BY 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chipotlesenadobo.jpg"
  },
+ "smaak-dashi": {
+  "src": "img/smaak-dashi.jpg",
+  "auteur": "サフィル",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:JapaneseKatsuobushiAndKombu.jpg"
+ },
  "smaak-donkere-sojasaus": {
   "src": "img/smaak-donkere-sojasaus.jpg",
   "auteur": "Luidaguhee",
@@ -1218,6 +1224,12 @@ window.FOTOS = {
   "licentie": "CC BY 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Gochujang_(chilli_paste).jpg"
  },
+ "smaak-groentebouillon": {
+  "src": "img/smaak-groentebouillon.jpg",
+  "auteur": "Veganbaking.net",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Vegan_Vegetable_Stock_(8530528590).jpg"
+ },
  "smaak-harissa": {
   "src": "img/smaak-harissa.jpg",
   "auteur": "Jules (jules:stonesoup)",
@@ -1229,6 +1241,12 @@ window.FOTOS = {
   "auteur": "allen watkin",
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Hoisin_sauce_1.jpg"
+ },
+ "smaak-kalfsbouillon": {
+  "src": "img/smaak-kalfsbouillon.jpg",
+  "auteur": "Mariuszjbie",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Broth.jpg"
  },
  "smaak-ketchup": {
   "src": "img/smaak-ketchup.jpg",
@@ -1259,6 +1277,12 @@ window.FOTOS = {
   "auteur": "Kliek",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Zaanse_mayonaise.jpg"
+ },
+ "smaak-mirin": {
+  "src": "img/smaak-mirin.jpg",
+  "auteur": "KVDP at English Wikipedia",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Japanese_Mirin.JPG"
  },
  "smaak-mosterd": {
   "src": "img/smaak-mosterd.jpg",
@@ -1296,6 +1320,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Red_wine_vinegar.jpg"
  },
+ "smaak-runderbouillon": {
+  "src": "img/smaak-runderbouillon.jpg",
+  "auteur": "Игорь Хмиловский",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Bulion_Wolowy_-_1.jpg"
+ },
  "smaak-sambal-oelek": {
   "src": "img/smaak-sambal-oelek.jpg",
   "auteur": "Father.Jack",
@@ -1307,6 +1337,12 @@ window.FOTOS = {
   "auteur": "Mariko GODA",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Sesame_oil.jpg"
+ },
+ "smaak-shaoxing": {
+  "src": "img/smaak-shaoxing.jpg",
+  "auteur": "renbucholz",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Shaoxing_cooking_rice_wine_by_renbucholz.jpg"
  },
  "smaak-sherry-azijn": {
   "src": "img/smaak-sherry-azijn.jpg",
@@ -1343,6 +1379,12 @@ window.FOTOS = {
   "auteur": "SKopp",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Tomato_paste_on_spoon.jpg"
+ },
+ "smaak-visbouillon": {
+  "src": "img/smaak-visbouillon.jpg",
+  "auteur": "BocaDorada",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Fumet_(Lubina).jpg"
  },
  "smaak-vissaus": {
   "src": "img/smaak-vissaus.jpg",
