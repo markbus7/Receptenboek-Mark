@@ -20,7 +20,7 @@ RECEPTEN.push(
     { n: 'boter', q: 50, u: 'g' },
     { n: 'verse tijm', q: 2, u: 'takje' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 2, u: 'st' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'grof gehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'grof gehakt' },
     { n: 'peper' },
     { kop: 'Erbij' },
     { n: 'mayonaise', x: 'zelfgemaakt of uit een pot' },
@@ -40,7 +40,7 @@ RECEPTEN.push(
   ],
   alt: [
     'Mosselen met room: roer na het koken 150 ml kookroom en 1 el mosterd door het kookvocht en laat even meewarmen.',
-    'Geen wijn? Gebruik een blond Belgisch bier, of half water en half groentebouillon met een scheutje azijn.'
+    'Geen wijn? Gebruik een blond Belgisch bier, of half water en half groentebouillon met 1 el azijn.'
   ]
 },
 {
@@ -65,7 +65,7 @@ RECEPTEN.push(
     { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom' },
     { n: 'eidooier', p: 'eidooiers', q: 2, u: 'st' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
@@ -103,7 +103,7 @@ RECEPTEN.push(
     { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom' },
     { n: 'eidooier', p: 'eidooiers', q: 2, u: 'st' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
@@ -160,7 +160,7 @@ RECEPTEN.push(
     { t: 'Vul de pasteibakjes met de ragout en schep de rest ernaast. Lekker met friet en mayonaise, of met rijst.' }
   ],
   tips: [
-    'De ragout kun je een dag van tevoren maken. Hij dikt in de koelkast flink in: warm hem zachtjes op met een scheutje bouillon of melk.',
+    'De ragout kun je een dag van tevoren maken. Hij dikt in de koelkast flink in: warm hem zachtjes op met 2 el bouillon of melk.',
     'In Nederland heet dit koninginnenhapje en eet je het vaak als voorgerecht; in België is het met friet een volwaardige maaltijd.'
   ],
   alt: [
@@ -216,7 +216,7 @@ RECEPTEN.push(
     { n: 'bloem', q: 500, u: 'g' },
     { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
     { n: 'suiker', q: 30, u: 'g' },
-    { n: 'vanillesuiker', q: 1, u: 'zakje' },
+    { n: 'vanillesuiker', q: 8, u: 'g' },
     { n: 'zout', q: 0.5, u: 'tl' },
     { n: 'melk', q: 150, u: 'ml', x: 'lauw' },
     { n: 'ei', p: 'eieren', q: 2, u: 'st', x: 'op kamertemperatuur' },
@@ -312,14 +312,14 @@ RECEPTEN.push(
     { t: 'Zet de staafmixer helemaal op de bodem van de beker en zet hem aan op de hoogste stand. Houd hem stil tot je onderin een witte, dikke saus ziet ontstaan (na 5 à 10 seconden). Trek hem dan heel langzaam omhoog en beweeg hem op en neer tot alle olie is opgenomen.', m: 'staafmixer' },
     { t: 'Klop in de kom de eidooier met mosterd, azijn en zout 30 seconden los.', m: 'mixer' },
     { t: 'Klop de olie er druppel voor druppel door. Na zo\'n 50 ml wordt het dik en glanzend: giet de rest dan in een heel dun straaltje erbij en blijf kloppen tot alle olie op is. Wordt hij te dik, klop er dan een theelepel water door.', m: 'mixer' },
-    { t: 'Proef en breng op smaak met zout en eventueel een scheutje extra azijn of citroensap. Bewaar de mayonaise afgedekt in de koelkast en eet hem binnen 3 dagen op.' }
+    { t: 'Proef en breng op smaak met zout en eventueel 1 tl extra azijn of citroensap. Bewaar de mayonaise afgedekt in de koelkast en eet hem binnen 3 dagen op.' }
   ],
   tips: [
     'Geschift? Doe een nieuwe eidooier of 1 el mosterd in een schone kom en klop de geschifte mayonaise er druppel voor druppel door. Dan komt hij alsnog goed.',
     'Belgische frietsauzen: voor andalouse roer je 4 el mayonaise met 1 el tomatenpuree, een snuf paprikapoeder, wat fijngehakte paprika en ui en een paar druppels citroensap. Voor samurai roer je 1 à 2 tl harissa of sambal oelek door 4 el mayonaise.'
   ],
   alt: [
-    'Knoflookmayonaise: roer 1 fijngeperste teen knoflook en een scheutje citroensap door de mayonaise.',
+    'Knoflookmayonaise: roer 1 fijngeperste teen knoflook en 1 el citroensap door de mayonaise.',
     'Rauw ei liever niet (bijvoorbeeld bij zwangerschap)? Gebruik dan mayonaise uit een pot; die is gemaakt met gepasteuriseerd ei.'
   ],
   bij: ['steak-frites', 'mosselen', 'kapsalon', 'fish-and-chips']
@@ -343,7 +343,7 @@ RECEPTEN.push(
     { n: 'zonnebloemolie', q: 150, u: 'ml', x: 'voor de pan; in de airfryer 2 el' },
     { n: 'boter', q: 50, u: 'g' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'in partjes' },
-    { n: 'verse peterselie', q: 1, u: 'handje', opt: true },
+    { n: 'verse peterselie', q: 10, u: 'g', opt: true },
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
@@ -435,7 +435,7 @@ RECEPTEN.push(
     { n: 'bloem', q: 125, u: 'g' },
     { n: 'melk', q: 250, u: 'ml' },
     { n: 'suiker', q: 30, u: 'g' },
-    { n: 'vanillesuiker', q: 1, u: 'zakje' },
+    { n: 'vanillesuiker', q: 8, u: 'g' },
     { n: 'zout', q: 1, u: 'snuf' },
     { n: 'rozijnen', q: 40, u: 'g' },
     { n: 'boter', q: 40, u: 'g' },
@@ -455,7 +455,7 @@ RECEPTEN.push(
   tips: ['Het geheim van een luchtige schmarrn: stijfgeklopt eiwit en een dikke pannenkoek. Van binnen mag hij nog net een beetje smeuïg zijn.'],
   alt: [
     'Keren lastig? Bak de onderkant in een ovenvaste koekenpan en zet hem dan 8 minuten in de oven op 200 °C. Scheur hem daarna in de pan in stukken.',
-    'Zonder rozijnen: strooi er geschaafde amandelen over, of schep er bij het karamelliseren een handje blauwe bessen door.'
+    'Zonder rozijnen: strooi er geschaafde amandelen over, of schep er bij het karamelliseren 50 g blauwe bessen door.'
   ]
 },
 {
@@ -494,7 +494,7 @@ RECEPTEN.push(
     { t: 'Verhit 1 el olie in de steelpan en fruit de ui 5 minuten op middelhoog vuur. Bak kerriepoeder, paprikapoeder en tomatenpuree 1 minuut mee tot het gaat geuren.', min: 6 },
     { t: 'Voeg passata, ketchup, azijn, suiker, worcestershiresaus en het water toe. Laat 12 minuten zachtjes koken met de deksel op een kier, en roer af en toe.', min: 12 },
     { t: 'Bak intussen de worsten in de rest van de olie in de koekenpan 10 à 12 minuten op middelhoog vuur, tot ze rondom bruin en gaar zijn.', min: 11 },
-    { t: 'Pureer de saus glad met de staafmixer en breng op smaak met zout. Is hij te dik, voeg dan een scheutje water toe.' },
+    { t: 'Pureer de saus glad met de staafmixer en breng op smaak met zout. Is hij te dik, voeg dan 2 el water toe.' },
     { t: 'Snijd de worsten schuin in plakjes van 1½ cm. Schep de saus erover, bestrooi met een beetje kerriepoeder en serveer met de friet en eventueel mayonaise.' }
   ],
   tips: [
@@ -534,7 +534,7 @@ RECEPTEN.push(
     { t: 'Giet de hete bouillon over de warme aardappelen en schep voorzichtig om. Laat 30 minuten intrekken en schep af en toe om: de aardappelen zuigen het vocht op en worden smeuïg.', min: 30 },
     { t: 'Schep de olie, augurk en bieslook erdoor. Proef: hij mag flink zuur en hartig zijn. Serveer lauw of op kamertemperatuur, niet koud uit de koelkast.' }
   ],
-  tips: ['Hoort het glanzend en een beetje nat te zijn? Ja: in Zwaben noemen ze een goede Kartoffelsalat "schlonzig". Te droog? Schep er een scheutje warme bouillon door.'],
+  tips: ['Hoort het glanzend en een beetje nat te zijn? Ja: in Zwaben noemen ze een goede Kartoffelsalat "schlonzig". Te droog? Schep er 2 el warme bouillon door.'],
   alt: [
     'Noord-Duitse variant met mayonaise: laat de aardappelen helemaal afkoelen en meng ze met 150 g mayonaise, 2 el augurkennat, augurk, ui en 2 hardgekookte eieren in blokjes.',
     'Beierse variant: bak 100 g spekblokjes uit en schep ze met het vet door de salade in plaats van de olie.'

@@ -35,7 +35,7 @@ window.GROENTEMIXEN = [
   {
     id: 'wortel-erwt', aanraders: ['shepherds-pie', 'boerenomelet', 'nasi-goreng', 'gehaktballen-jus', 'egg-fried-rice', 'guisado-carne-molida', 'foe-yong-hai'], naam: 'Worteltjes en doperwten', voorbeeld: 'Hollandse mix',
     bevat: ['wortel', 'winterpeen', 'doperwten'],
-    bereiding: 'Stoof de groente bevroren met een klontje boter, een scheutje water en een snuf suiker, 6 minuten met de deksel op de pan. Of kook 5 minuten in water met zout.',
+    bereiding: 'Stoof de groente bevroren met een klontje boter, 2 el water en een snuf suiker, 6 minuten met de deksel op de pan. Of kook 5 minuten in water met zout.',
     snel: 'Klassiek bij aardappelen en een gehaktbal, of door nasi, een boerenomelet of shepherd\'s pie.'
   },
   {

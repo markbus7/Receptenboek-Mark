@@ -23,7 +23,7 @@ RECEPTEN.push(
     { t: 'Bak 30 minuten met de deksel erop. Haal de deksel eraf en bak nog 15 à 20 minuten tot de korst diep goudbruin is.', min: 48 },
     { t: 'Het brood is gaar als het hol klinkt als je op de onderkant klopt. Laat minstens 1 uur afkoelen op een rooster voordat je het aansnijdt.', min: 60 }
   ],
-  tips: ['Variaties: meng 100 g geraspte kaas, een handje olijven of 2 el rozemarijn door het deeg.', 'Het knapperen dat je hoort tijdens het afkoelen is de korst die krimpt: een goed teken.'],
+  tips: ['Variaties: meng 100 g geraspte kaas, 30 g olijven of 2 el rozemarijn door het deeg.', 'Het knapperen dat je hoort tijdens het afkoelen is de korst die krimpt: een goed teken.'],
   alt: ['Geen Dutch oven? Bak op een hete bakplaat en zet een bakje heet water onderin de oven voor stoom. De korst wordt minder dik.']
 },
 {
@@ -85,7 +85,7 @@ RECEPTEN.push(
     { n: 'kastanjechampignons', q: 250, u: 'g', x: 'in vieren' },
     { n: 'zilveruitjes', q: 200, u: 'g', x: 'gepeld, of kleine sjalotjes' },
     { n: 'boter', q: 30, u: 'g' },
-    { n: 'verse peterselie', q: 1, u: 'handje' }
+    { n: 'verse peterselie', q: 10, u: 'g' }
   ],
   stappen: [
     { t: 'Bak de spekblokjes in de Dutch oven op middelhoog vuur 6 minuten tot ze bruin zijn. Schep ze eruit; laat het vet in de pan.', min: 6 },
@@ -118,7 +118,7 @@ RECEPTEN.push(
     { n: 'gerookt paprikapoeder', q: 1, u: 'tl' },
     { n: 'karwijzaad', q: 1, u: 'tl', opt: true },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'runderbouillon', q: 500, u: 'ml' },
     { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'in blokjes' },
     { n: 'zure room', q: 125, u: 'ml', x: 'om te serveren' },
@@ -259,12 +259,12 @@ RECEPTEN.push(
     { n: 'bleekselderij', q: 2, u: 'stengel' },
     { n: 'knoflook', q: 2, u: 'teen' },
     { n: 'witte wijn', q: 200, u: 'ml' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'kalfsbouillon', q: 300, u: 'ml', x: 'of kippenbouillon' },
     { n: 'boter', q: 30, u: 'g' },
     { n: 'olijfolie', q: 2, u: 'el' },
     { kop: 'Gremolata' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'alleen de geraspte schil' },
     { n: 'knoflook', q: 1, u: 'teen', x: 'heel fijn gehakt' }
   ],

@@ -86,6 +86,18 @@ const Boodschappen = (() => {
     bewaar();
   }
 
+  /* Het alternatief in plaats van het ingrediënt: wat er van dit recept al op de lijst stond, gaat eraf. */
+  function vervang(recept, i, alt, factor) {
+    const { q, u } = basis(i, factor);
+    const bestaand = items.find((x) => !x.klaar && !x.eigen && x.k === Hulp.norm(i.n) + '|' + u && x.recepten.includes(recept.naam));
+    if (bestaand) {
+      bestaand.q -= q;
+      if (bestaand.q <= 1e-6) items = items.filter((x) => x !== bestaand);
+    }
+    alt.forEach((a) => voegIngrToe(recept, a, factor));
+    bewaar();
+  }
+
   /* Staat dit ingrediënt al op de lijst (nog niet afgevinkt) voor dit recept? */
   function staatErop(recept, i) {
     const naam = Hulp.norm(i.n);
@@ -116,11 +128,14 @@ const Boodschappen = (() => {
     if (!el) return;
     el.hidden = !uitkomst;
     if (el.hidden) { el.innerHTML = ''; return; }
-    const e = Prijzen.euro;
     el.innerHTML = `
       <h3 id="lijst-prijs-titel">Wat kost het?</h3>
       ${Prijzen.winkelLijst(uitkomst.winkels)}
-      <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)} gebruikt, ± ${e(uitkomst.goedkoopstKassa)} aan de kassa. Per product zie je hierboven waar dat is.</p>
+      <p class="bon-mix">${Prijzen.mixTekst(uitkomst)}</p>
+      <details class="bon-details">
+        <summary>Welke producten zijn dat?</summary>
+        ${Prijzen.productLijst(uitkomst.regels)}
+      </details>
       <p class="bon-voet"><i>Gebruikt</i> is het deel van de verpakkingen dat je nodig hebt, <i>kassa</i> wat je afrekent met hele verpakkingen. Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via <a href="https://www.checkjebon.nl" target="_blank" rel="noopener">Checkjebon.nl</a>); aanbiedingen tellen niet altijd mee.${uitkomst.zonder.length ? ` Zonder prijs: ${Hulp.esc(uitkomst.zonder.join(', '))}.` : ''}</p>`;
   }
 
@@ -170,5 +185,5 @@ const Boodschappen = (() => {
   /* Opnieuw inlezen, bijvoorbeeld nadat een ander apparaat de lijst heeft gewijzigd. */
   const herlaad = () => { items = vulAlternatievenAan(Hulp.opslag.lees('boodschappen', [])); };
 
-  return { herlaad, voegReceptToe, voegEenToe, staatErop, isWater, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
+  return { herlaad, voegReceptToe, voegEenToe, vervang, staatErop, isWater, voegEigenToe, render, wissel, verwijder, wisAfgevinkt, wisAlles, alsTekst, aantalOpen };
 })();

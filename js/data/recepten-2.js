@@ -27,7 +27,7 @@ RECEPTEN.push(
     { t: 'Stamp alles grof met boter en warme melk. Een beetje kookvocht maakt het smeuïger. Breng op smaak met nootmuskaat, zout en peper.' },
     { t: 'Serveer met de rookworst in plakken en eventueel een kuiltje jus.' }
   ],
-  tips: ['Lekker met een scheutje azijn of een lepel mosterd door de stamppot.'],
+  tips: ['Lekker met 1 el azijn of een lepel mosterd door de stamppot.'],
   alt: ['Vegetarisch? Gebruik een vegetarische rookworst; de bereiding blijft hetzelfde.']
 },
 {
@@ -50,7 +50,7 @@ RECEPTEN.push(
     { n: 'aardappel', p: 'aardappelen', q: 2, u: 'st', x: 'kruimig, in blokjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'bouillonblokje', p: 'bouillonblokjes', q: 1, u: 'st' },
-    { n: 'verse selderij', q: 1, u: 'bos', x: 'blad, fijngesneden' }
+    { n: 'verse selderij', q: 30, u: 'g', x: 'blad, fijngesneden' }
   ],
   stappen: [
     { t: 'Doe de spliterwten, het water, de krabbetjes en het bouillonblokje in de soeppan. Breng aan de kook en schep het schuim eraf.', m: 'kookpan', min: 10 },
@@ -215,7 +215,7 @@ RECEPTEN.push(
     { t: 'Voeg het water en het laurierblad toe. Leg de deksel op de pan en laat 30 minuten zachtjes garen. Keer de ballen halverwege.', min: 30 },
     { t: 'Haal de ballen eruit en laat de jus zo nodig 3 minuten inkoken. Breng op smaak met zout.' }
   ],
-  tips: ['Een scheutje sojasaus of een eetlepel ketjap geeft de jus extra kleur en diepte.'],
+  tips: ['1 el sojasaus of een eetlepel ketjap geeft de jus extra kleur en diepte.'],
   alt: ['Geen braadpan? Een koekenpan met hoge rand en deksel werkt ook.']
 }
 );

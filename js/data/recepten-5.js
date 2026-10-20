@@ -9,7 +9,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'ei', p: 'eieren', q: 6, u: 'st' },
-    { n: 'tomatenblokjes', q: 2, u: 'blik', x: 'à 400 g' },
+    { n: 'tomatenblokjes', q: 800, u: 'g' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 2, u: 'st', x: 'in reepjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'knoflook', q: 3, u: 'teen' },
@@ -17,7 +17,7 @@ RECEPTEN.push(
     { n: 'paprikapoeder', q: 2, u: 'tl', x: 'liefst gerookt' },
     { n: 'harissa', q: 1, u: 'el', x: 'of ½ tl chilivlokken' },
     { n: 'feta', q: 100, u: 'g', opt: true },
-    { n: 'verse koriander', q: 1, u: 'handje', x: 'of peterselie' },
+    { n: 'verse koriander', q: 10, u: 'g', x: 'of peterselie' },
     { n: 'olijfolie', q: 3, u: 'el' },
     { n: 'brood', q: 1, u: 'st', x: 'stokbrood of pita' }
   ],
@@ -47,8 +47,8 @@ RECEPTEN.push(
     { n: 'gedroogde kikkererwten', q: 250, u: 'g', x: '12 uur geweekt, níet gekookt' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in stukken' },
     { n: 'knoflook', q: 3, u: 'teen' },
-    { n: 'verse peterselie', q: 1, u: 'bos', vers: 'geeft de falafel smaak en kleur' },
-    { n: 'verse koriander', q: 1, u: 'bos', vers: 'geeft de falafel smaak en kleur' },
+    { n: 'verse peterselie', q: 30, u: 'g', vers: 'geeft de falafel smaak en kleur' },
+    { n: 'verse koriander', q: 30, u: 'g', vers: 'geeft de falafel smaak en kleur' },
     { n: 'komijn', q: 2, u: 'tl' },
     { n: 'gemalen koriander', q: 1, u: 'tl' },
     { n: 'bakpoeder', q: 1, u: 'tl' },
@@ -144,7 +144,7 @@ RECEPTEN.push(
     { t: 'Grill de spiesen op een gloeiend hete grillpan 8 à 10 minuten rondom.', m: 'grillpan', min: 9 },
     { t: 'Bak de spiesen 10 à 12 minuten in de airfryer op 200 °C. Keer halverwege.', m: 'airfryer', min: 11 },
     { t: 'Gril de spiesen 12 minuten op het rooster onder de ovengrill. Keer halverwege.', m: 'oven', min: 12 },
-    { t: 'Bak de spiesen 8 à 10 minuten in een scheutje olie op middelhoog vuur. Keer regelmatig.', m: 'koekenpan', min: 9 },
+    { t: 'Bak de spiesen 8 à 10 minuten in 1 el olie op middelhoog vuur. Keer regelmatig.', m: 'koekenpan', min: 9 },
     { t: 'Serveer met warme pita, ringen rode ui en tzatziki.' }
   ],
   tips: ['Varkenshaas is snel droog. Haal hem eraf als hij vanbinnen nog net licht roze is.'],
@@ -169,7 +169,7 @@ RECEPTEN.push(
     { n: 'lamsgehakt', q: 500, u: 'g', x: 'of rundergehakt' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'knoflook', q: 2, u: 'teen' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
     { n: 'kaneel', q: 1, u: 'tl' },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },
@@ -210,13 +210,13 @@ RECEPTEN.push(
     { n: 'ras el hanout', q: 2, u: 'el' },
     { n: 'kaneelstokje', p: 'kaneelstokjes', q: 1, u: 'st' },
     { n: 'gedroogde abrikozen', q: 150, u: 'g' },
-    { n: 'kikkererwten', q: 1, u: 'blik', x: '400 g, uitgelekt' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'kikkererwten', q: 240, u: 'g', x: 'uitgelekt' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'kippenbouillon', q: 250, u: 'ml' },
     { n: 'honing', q: 1, u: 'el' },
     { n: 'couscous', q: 300, u: 'g' },
     { n: 'geschaafde amandelen', q: 30, u: 'g' },
-    { n: 'verse koriander', q: 1, u: 'handje' }
+    { n: 'verse koriander', q: 10, u: 'g' }
   ],
   stappen: [
     { t: 'Bestrooi de kip met zout en de helft van de ras el hanout. Braad hem rondom bruin in olie in de braadpan, ca. 6 minuten. Haal eruit.', min: 6 },

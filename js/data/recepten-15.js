@@ -89,7 +89,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Breng in de steelpan het water met de boter, suiker en zout aan de kook, tot de boter gesmolten is.' },
     { t: 'Haal de pan van het vuur, stort de bloem er in één keer in en roer krachtig met een houten lepel tot een glad deeg dat als een bal loslaat van de pan. Laat 10 minuten afkoelen.', min: 10 },
-    { t: 'Chocoladesaus: roer de maïzena los in een scheutje van de koude melk. Verwarm de rest van de melk met de suiker in de andere steelpan, voeg de chocolade toe en roer op laag vuur tot hij gesmolten is. Roer de maïzena erdoor en laat 2 minuten zachtjes binden tot de saus dik is. Houd warm op het laagste vuur.', min: 2 },
+    { t: 'Chocoladesaus: roer de maïzena los in 2 el van de koude melk. Verwarm de rest van de melk met de suiker in de andere steelpan, voeg de chocolade toe en roer op laag vuur tot hij gesmolten is. Roer de maïzena erdoor en laat 2 minuten zachtjes binden tot de saus dik is. Houd warm op het laagste vuur.', min: 2 },
     { t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 180 °C. Geen thermometer? Houd er een houten lepel in: stijgen er direct belletjes langs op, dan is de olie heet genoeg.' },
     { t: 'Schep het deeg in de spuitzak. Spuit stengels van 10 à 12 cm direct boven de olie en knip ze af met een schaar. Bak 4 à 5 churros tegelijk.' },
     { t: 'Frituur ze 3 à 4 minuten tot ze rondom diep goudbruin zijn; keer halverwege. Schep ze eruit en laat uitlekken op keukenpapier. Laat de olie tussen de porties weer op temperatuur komen.', min: 4 },
@@ -139,7 +139,7 @@ RECEPTEN.push(
     { t: 'Snijd het vlees in dunne reepjes. Verhit de koekenpan op hoog vuur, zonder extra olie. Bak het vlees in 2 porties 5 à 6 minuten, tot het gaar is en er donkere, krokante randjes aan zitten. Doe niet te veel tegelijk in de pan, anders gaat het vlees koken in plaats van bakken.', m: 'koekenpan', min: 6 },
     { t: 'Leg de hele lapjes op de voorverwarmde contactgrill, sluit de deksel en grill 5 à 6 minuten, tot ze gaar zijn en mooie bruine strepen hebben. Laat ze 2 minuten rusten en snijd ze in dunne reepjes.', m: 'contactgrill', min: 6 },
     { t: 'Warm de pita\'s 1 minuut per kant op in de hete koekenpan, met een paar druppels olie.' },
-    { t: 'Beleg elke pita met vlees, tomaat, ui, een flinke schep tzatziki en eventueel een handje friet. Rol op en wikkel de onderkant in bakpapier.' }
+    { t: 'Beleg elke pita met vlees, tomaat, ui, een flinke schep tzatziki en eventueel een paar frietjes. Rol op en wikkel de onderkant in bakpapier.' }
   ],
   tips: ['Schouder blijft sappiger dan filet en is ook het vlees dat in Griekenland aan het spit gaat. Het vetrandje hoort erbij.', 'De krokante, donkere randjes maken het gyros: bak dus op hoog vuur en in kleine porties.'],
   alt: ['Gyrosschotel: serveer het vlees met friet, Griekse salade en tzatziki op een bord in plaats van in een pita.']
@@ -157,7 +157,7 @@ RECEPTEN.push(
     { t: 'Snijd de kip in reepjes. Verhit de koekenpan op hoog vuur, zonder extra olie. Bak de kip in 2 porties 6 à 8 minuten, tot hij gaar is en er donkere, krokante randjes aan zitten. Doe niet te veel tegelijk in de pan, anders gaat hij koken in plaats van bakken.', m: 'koekenpan', min: 7 },
     { t: 'Leg de hele kippendijen op de voorverwarmde contactgrill, sluit de deksel en grill 7 à 8 minuten, tot ze gaar zijn en mooie bruine strepen hebben. Laat ze 2 minuten rusten en snijd ze in reepjes.', m: 'contactgrill', min: 8 },
     { t: 'Warm de pita\'s 1 minuut per kant op in de hete koekenpan, met een paar druppels olie.' },
-    { t: 'Beleg elke pita met kip, tomaat, ui, een flinke schep tzatziki en eventueel een handje friet. Rol op en wikkel de onderkant in bakpapier.' }
+    { t: 'Beleg elke pita met kip, tomaat, ui, een flinke schep tzatziki en eventueel een paar frietjes. Rol op en wikkel de onderkant in bakpapier.' }
   ],
   tips: ['Kippendij blijft bij hoge hitte sappig; kipfilet wordt snel droog. Neem je toch filet, snijd hem dan in dunne plakken en bak hem 2 minuten korter.', 'De krokante, donkere randjes maken het gyros: bak dus op hoog vuur en in kleine porties.']
 },
@@ -176,8 +176,8 @@ RECEPTEN.push(
     { n: 'feta', q: 400, u: 'g', x: 'verkruimeld' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'lente-ui', p: 'lente-uien', q: 6, u: 'st', x: 'in ringetjes' },
-    { n: 'verse dille', q: 1, u: 'handje', x: 'ca. 20 g, fijngehakt' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse dille', q: 20, u: 'g', x: 'fijngehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'ei', p: 'eieren', q: 3, u: 'st' },
     { n: 'olijfolie', q: 2, u: 'el' },
     { n: 'peper' },
@@ -377,7 +377,7 @@ RECEPTEN.push(
     { n: 'puntpaprika', p: 'puntpaprika\'s', q: 1, u: 'st', x: 'rood, in stukken' },
     { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'zonder zaadjes' },
     { n: 'knoflook', q: 2, u: 'teen' },
-    { n: 'verse peterselie', q: 1, u: 'handje' },
+    { n: 'verse peterselie', q: 10, u: 'g' },
     { n: 'tomatenpuree', q: 2, u: 'el', x: 'of 1 el tomatenpuree en 1 el Turkse paprikapasta (biber salçası)' },
     { n: 'pul biber', q: 2, u: 'tl', x: 'Turkse chilivlokken' },
     { n: 'komijn', q: 1, u: 'tl' },
@@ -386,7 +386,7 @@ RECEPTEN.push(
     { kop: 'Erbij' },
     { n: 'citroen', p: 'citroenen', q: 2, u: 'st', x: 'in partjes' },
     { n: 'rode ui', p: 'rode uien', q: 1, u: 'st', x: 'in dunne ringen' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'grof geplukt' }
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'grof geplukt' }
   ],
   stappen: [
     { t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 minuten tot een glad, soepel deeg.', min: 8 },
@@ -426,7 +426,7 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 2, u: 'el' },
     { n: 'paprikapoeder', q: 1, u: 'tl' },
     { n: 'pul biber', q: 1, u: 'tl', opt: true },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'zout' }, { n: 'peper' },
     { kop: 'Erbij' },
     { n: 'rijst', q: 300, u: 'g' },
@@ -454,7 +454,7 @@ RECEPTEN.push(
     { tool: 'staafmixer', tekst: 'Keukenmachine of staafmixer met hakbeker', of: 'Met een gewone staafmixer in een hoge beker lukt het ook; voeg dan wat meer water toe.' }
   ],
   ingr: [
-    { n: 'kikkererwten', q: 2, u: 'blik', x: 'à 400 g, uitgelekt' },
+    { n: 'kikkererwten', q: 480, u: 'g', x: 'uitgelekt' },
     { n: 'tahin', q: 6, u: 'el', x: 'ca. 100 g, goed doorgeroerd' },
     { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'sap' },
     { n: 'knoflook', q: 1, u: 'teen' },
@@ -473,8 +473,8 @@ RECEPTEN.push(
     { t: 'Proef en breng op smaak met zout, citroen of komijn.' },
     { t: 'Schep de hummus op een bord, maak met de bolle kant van een lepel een kuil en vul die met olijfolie. Bestrooi met paprikapoeder en peterselie.' }
   ],
-  tips: ['Extra glad: kook de uitgelekte kikkererwten 15 à 20 minuten met ½ tl zuiveringszout (baking soda) of 1 tl bakpoeder, tot ze bijna uit elkaar vallen. Spoel ze in een vergiet onder koud water af; de losgekomen velletjes spoelen dan grotendeels weg.', 'Hummus blijft 4 dagen goed in de koelkast. Laat hem voor het serveren even op kamertemperatuur komen.'],
-  alt: ['Variaties: mix er een geroosterde rode paprika, een handje verse koriander met een groene peper, of 1 el harissa doorheen.', 'Geen tahin? Gebruik 3 el Griekse yoghurt en 2 el olijfolie. Het smaakt anders, maar wel lekker.'],
+  tips: ['Extra glad: kook de uitgelekte kikkererwten 15 à 20 minuten met ½ tl zuiveringszout (bicarbonaat, baking soda) of 1 tl bakpoeder, tot ze bijna uit elkaar vallen. Spoel ze in een vergiet onder koud water af; de losgekomen velletjes spoelen dan grotendeels weg.', 'Hummus blijft 4 dagen goed in de koelkast. Laat hem voor het serveren even op kamertemperatuur komen.'],
+  alt: ['Variaties: mix er een geroosterde rode paprika, 10 g verse koriander met een groene peper, of 1 el harissa doorheen.', 'Geen tahin? Gebruik 3 el Griekse yoghurt en 2 el olijfolie. Het smaakt anders, maar wel lekker.'],
   bij: ['falafel', 'kip-shoarma']
 },
 {
@@ -486,8 +486,8 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'Kom of pannetje om de bulgur te laten wellen, en een scherp koksmes' }
   ],
   ingr: [
-    { n: 'verse peterselie', q: 3, u: 'bos', x: 'platte, ca. 120 g', vers: 'de peterselie is de salade' },
-    { n: 'verse munt', q: 1, u: 'handje', x: 'alleen de blaadjes', vers: 'gaat er rauw in' },
+    { n: 'verse peterselie', q: 120, u: 'g', x: 'platte', vers: 'de peterselie is de salade' },
+    { n: 'verse munt', q: 10, u: 'g', x: 'alleen de blaadjes', vers: 'gaat er rauw in' },
     { n: 'bulgur', q: 50, u: 'g', x: 'fijn' },
     { n: 'tomaat', p: 'tomaten', q: 3, u: 'st', x: 'stevig', vers: true },
     { n: 'lente-ui', p: 'lente-uien', q: 4, u: 'st' },
@@ -527,7 +527,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Wrijf de geperste knoflook met een snuf zout fijn tot een smeuïg papje. Zo verdeelt de smaak zich gelijkmatig en wordt hij minder scherp.' },
     { t: 'Roer yoghurt, mayonaise, citroensap, suiker en dille erdoor tot een gladde saus. Wil je hem heel glad, mix dan kort met de staafmixer.' },
-    { t: 'Proef en breng op smaak met zout en citroensap. Te dik? Roer er een scheutje melk of water door.' },
+    { t: 'Proef en breng op smaak met zout en citroensap. Te dik? Roer er 2 el melk of water door.' },
     { t: 'Laat de saus minstens 30 minuten afgedekt in de koelkast trekken, dan wordt de knoflooksmaak ronder.', min: 30 }
   ],
   tips: ['De saus blijft 3 à 4 dagen goed in een afgesloten pot in de koelkast en wordt elke dag knoflookiger.', 'Meer yoghurt maakt hem frisser, meer mayonaise voller en romiger, zoals bij de snackbar.'],
@@ -551,9 +551,9 @@ RECEPTEN.push(
     { n: 'ras el hanout', q: 1, u: 'el' },
     { n: 'kurkuma', q: 0.5, u: 'tl' },
     { n: 'groentebouillon', q: 1.5, u: 'l' },
-    { n: 'kikkererwten', q: 1, u: 'blik', x: '400 g, uitgelekt' },
-    { n: 'verse koriander', q: 1, u: 'bos' },
-    { n: 'verse peterselie', q: 1, u: 'bos' },
+    { n: 'kikkererwten', q: 240, u: 'g', x: 'uitgelekt' },
+    { n: 'verse koriander', q: 30, u: 'g' },
+    { n: 'verse peterselie', q: 30, u: 'g' },
     { n: 'wortel', p: 'wortels', q: 3, u: 'st', x: 'in de lengte gehalveerd, in stukken van 6 cm' },
     { n: 'knolselderij', q: 250, u: 'g', x: 'of een raap, in grote stukken' },
     { n: 'witte kool', q: 0.25, u: 'st', x: 'in 2 partjes' },
@@ -576,7 +576,7 @@ RECEPTEN.push(
     { t: 'Schep de couscous als een berg op een grote schaal, maak een kuil in het midden en leg de groenten erop en eromheen. Schep er wat bouillon over en zet de rest in een kom op tafel, met de kruiden en de harissa.' }
   ],
   tips: ['Snijd de groenten groot en voeg ze toe op volgorde van gaartijd; zo zijn ze na drie kwartier nog heel.', 'Feestelijk: schep er tfaya over, uien die je in 30 minuten zacht en goudbruin stooft in boter met rozijnen, kaneel en een lepel honing.'],
-  alt: ['Met kip: braad 600 g kippendijen in stukken bruin voordat je de ui bakt, laat ze vanaf het begin meetrekken en gebruik kippenbouillon.', 'Andere groenten mogen ook: zoete aardappel, aubergine, raap of een handje tuinbonen.']
+  alt: ['Met kip: braad 600 g kippendijen in stukken bruin voordat je de ui bakt, laat ze vanaf het begin meetrekken en gebruik kippenbouillon.', 'Andere groenten mogen ook: zoete aardappel, aubergine, raap of 100 g tuinbonen.']
 },
 {
   id: 'kefta-tajine', naam: 'Kefta tajine met ei', ook: ['kefta', 'marokkaanse gehaktballetjes'],
@@ -590,8 +590,8 @@ RECEPTEN.push(
     { kop: 'Kefta' },
     { n: 'rundergehakt', q: 500, u: 'g', x: 'of half rund, half lam' },
     { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'geraspt' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt; de helft voor de garnering' },
-    { n: 'verse koriander', q: 1, u: 'handje', x: 'fijngehakt; de helft voor de garnering' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt; de helft voor de garnering' },
+    { n: 'verse koriander', q: 10, u: 'g', x: 'fijngehakt; de helft voor de garnering' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'paprikapoeder', q: 1, u: 'tl' },
     { n: 'kaneel', q: 0.25, u: 'tl' },
@@ -603,7 +603,7 @@ RECEPTEN.push(
     { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'paprikapoeder', q: 1, u: 'tl' },
-    { n: 'tomatenblokjes', q: 2, u: 'blik', x: 'à 400 g' },
+    { n: 'tomatenblokjes', q: 800, u: 'g' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
     { n: 'water', q: 100, u: 'ml' },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'fijngehakt, of ½ tl cayennepeper', opt: true },
@@ -642,8 +642,8 @@ RECEPTEN.push(
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'paprikapoeder', q: 1, u: 'tl', x: 'edelzoet' },
     { n: 'cayennepeper', q: 1, u: 'snuf', opt: true },
-    { n: 'verse koriander', q: 1, u: 'handje', x: 'fijngehakt' },
-    { n: 'verse peterselie', q: 1, u: 'handje', x: 'fijngehakt' },
+    { n: 'verse koriander', q: 10, u: 'g', x: 'fijngehakt' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
     { n: 'zout' }
   ],

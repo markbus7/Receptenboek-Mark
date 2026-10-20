@@ -7,12 +7,16 @@ const path = require('path');
 const vm = require('vm');
 
 const map = path.join(__dirname, '..', 'js', 'data');
+/* Maten die per verpakking of per hand verschillen. Recepten gebruiken gram; de app toont zelf het aantal
+   zakjes, bossen of blikken erbij (PAKMATEN in gereedschap.js). Een snuf, teen, takje of plak mag. */
+const VAAG = ['handje', 'zakje', 'bos', 'blik'];
 const ctx = { window: {} };
 ctx.window = ctx;
 vm.createContext(ctx);
 const laad = (f) => vm.runInContext(fs.readFileSync(path.join(map, f), 'utf8'), ctx, { filename: f });
 laad('gereedschap.js');
 laad('hoofdstukken.js');
+laad('vriezer.js');
 
 const bestanden = fs.readdirSync(map).filter((f) => /^recepten-\d+\.js$/.test(f))
   .sort((a, b) => parseInt(a.match(/\d+/)[0], 10) - parseInt(b.match(/\d+/)[0], 10));
@@ -101,6 +105,7 @@ for (const r of ctx.RECEPTEN) {
     if (i.q !== undefined && !(typeof i.q === 'number' && i.q > 0)) fout(`"${i.n}": q moet een positief getal zijn`);
     if (i.u !== undefined && !ctx.EENHEDEN[i.u]) fout(`"${i.n}": onbekende eenheid "${i.u}"`);
     if (i.u !== undefined && i.q === undefined) fout(`"${i.n}": eenheid zonder hoeveelheid`);
+    if (VAAG.includes(i.u)) fout(`"${i.n}": "${i.u}" is geen vaste maat; gebruik gram en zet de verpakking in PAKMATEN (zie README)`);
     if (i.p !== undefined && typeof i.p !== 'string') fout(`"${i.n}": p (meervoud) moet tekst zijn`);
     if (i.vers !== undefined && i.vers !== true && !(typeof i.vers === 'string' && i.vers.trim())) fout(`"${i.n}": vers moet true of een reden zijn`);
     if (i.of !== undefined && !(typeof i.of === 'string' && i.of.trim())
@@ -109,15 +114,27 @@ for (const r of ctx.RECEPTEN) {
     const onbekend = Object.keys(i).filter((k) => !['n', 'p', 'q', 'u', 'x', 'opt', 'vers', 'of'].includes(k));
     if (onbekend.length) fout(`"${i.n}": onbekende velden ${onbekend.join(', ')}`);
   }
+  for (const v of Object.values(r.vervang || {})) if (v && VAAG.includes(v.u)) fout(`vervang "${v.n}": "${v.u}" is geen vaste maat`);
+  const teksten = [...(r.stappen || []).map((s) => s.t), ...(r.tips || []), ...(r.alt || []), ...(r.ingr || []).map((i) => i.x)];
+  for (const t of teksten) {
+    const m = typeof t === 'string' && t.match(/\been (scheutje|handje)\b/i);
+    if (m) fout(`"${m[0]}" in de tekst is geen vaste maat: "${t.slice(0, 40)}…"`);
+  }
   if (!Array.isArray(r.stappen) || r.stappen.length < 2) fout('stappen ontbreken');
   for (const s of r.stappen || []) {
     if (typeof s.t !== 'string' || !s.t.trim()) fout('stap zonder tekst');
     if (s.min !== undefined && !(typeof s.min === 'number' && s.min > 0)) fout(`stap "${(s.t || '').slice(0, 30)}": min moet positief zijn`);
     if (s.m && !mids.includes(s.m)) fout(`stap "${(s.t || '').slice(0, 30)}": onbekende methode "${s.m}"`);
   }
-  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'pit', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep']);
+  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'pit', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep', 'vriezer']);
   const vreemd = Object.keys(r).filter((k) => !bekend.has(k));
   if (vreemd.length) fout(`onbekende velden: ${vreemd.join(', ')}`);
+  // vriezer: { <ingrediënt>: { bevroren, inStap, water } } voor een ingrediënt uit js/data/vriezer.js
+  Object.entries(r.vriezer || {}).forEach(([n, v]) => {
+    if (!r.ingr.some((i) => i.n === n) || !ctx.VRIEZER.some((x) => x.n.includes(n))) fout(`vriezer: "${n}" staat niet in het recept of niet in vriezer.js`);
+    const raar = Object.keys(v || {}).filter((k) => !['bevroren', 'inStap', 'water'].includes(k));
+    if (raar.length) fout(`vriezer "${n}": onbekende velden ${raar.join(', ')}`);
+  });
 }
 for (const r of ctx.RECEPTEN) {
   for (const b of r.bij || []) if (!ids.has(b)) fouten.push({ f: herkomst.get(r.id), id: r.id, m: `bij: onbekend recept "${b}"` });

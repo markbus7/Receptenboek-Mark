@@ -19,12 +19,12 @@ RECEPTEN.push(
     { n: 'madras-kerriepoeder', q: 3, u: 'el', x: 'of: 2 tl komijn, 2 tl koriander, 1 tl kurkuma, 1 tl garam masala' },
     { n: 'chilipoeder', q: 1.5, u: 'tl', x: 'minder voor milder' },
     { n: 'tomatenpuree', q: 2, u: 'el' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'runderbouillon', q: 300, u: 'ml' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
-    { n: 'verse koriander', q: 1, u: 'handje' },
+    { n: 'verse koriander', q: 10, u: 'g' },
     { n: 'basmatirijst', q: 300, u: 'g' }
   ],
   stappen: [
@@ -62,11 +62,11 @@ RECEPTEN.push(
     { n: 'chilipoeder', q: 1.5, u: 'tl', x: 'Kashmiri voor de kleur; minder voor milder' },
     { n: 'gedroogde rode pepers', q: 2, u: 'st', opt: true },
     { n: 'tomatenpuree', q: 2, u: 'el' },
-    { n: 'tomatenblokjes', q: 1, u: 'blik', x: '400 g' },
+    { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'kippenbouillon', q: 200, u: 'ml' },
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
-    { n: 'verse koriander', q: 1, u: 'handje' },
+    { n: 'verse koriander', q: 10, u: 'g' },
     { n: 'basmatirijst', q: 300, u: 'g' }
   ],
   stappen: [
@@ -171,7 +171,7 @@ RECEPTEN.push(
     { t: 'Laat met de deksel erop 15 minuten zachtjes garen. Kook intussen de rijst.', min: 15 },
     { t: 'Vis het kaneelstokje eruit. Bestrooi met geroosterde amandelen.' }
   ],
-  tips: ['Te dik? Een scheutje water of melk. Te flauw? Een kneepje citroen en een snuf zout.'],
+  tips: ['Te dik? 2 el water of melk. Te flauw? Een kneepje citroen en een snuf zout.'],
   alt: ['Vegetarisch? Vervang de kip door bloemkoolroosjes en kikkererwten; laat ze 20 minuten garen.']
 },
 {
@@ -200,8 +200,8 @@ RECEPTEN.push(
     { n: 'kardemompeulen', q: 4, u: 'st' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 2, u: 'st' },
     { n: 'saffraan', q: 1, u: 'snuf', x: 'geweekt in 3 el warme melk' },
-    { n: 'verse munt', q: 1, u: 'handje' },
-    { n: 'verse koriander', q: 1, u: 'handje' }
+    { n: 'verse munt', q: 10, u: 'g' },
+    { n: 'verse koriander', q: 10, u: 'g' }
   ],
   stappen: [
     { t: 'Meng de kip met de marinade en een theelepel zout. Laat minimaal 1 uur marineren.', min: 60 },
@@ -241,7 +241,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Bak de paneer in de olie in de koekenpan op middelhoog vuur 5 minuten rondom goudbruin. Bestrooi met zout en zet apart.', min: 5 },
-    { t: 'Slink de spinazie 2 minuten in de hapjespan met een scheutje water. Laat afkoelen en pureer grof met de staafmixer.', min: 2 },
+    { t: 'Slink de spinazie 2 minuten in de hapjespan met 2 el water. Laat afkoelen en pureer grof met de staafmixer.', min: 2 },
     { t: 'Smelt de boter in de hapjespan. Bak het komijnzaad 30 seconden. Fruit de ui 6 minuten.', min: 6 },
     { t: 'Bak knoflook, gember, peper, garam masala en kurkuma 1 minuut mee.' },
     { t: 'Voeg de spinazie en de room toe en laat 5 minuten zachtjes koken. Breng op smaak met zout.', min: 5 },
@@ -339,7 +339,7 @@ RECEPTEN.push(
     { n: 'garam masala', q: 1, u: 'tl' },
     { n: 'chilipoeder', q: 0.5, u: 'tl' },
     { n: 'zonnebloemolie', q: 4, u: 'el' },
-    { n: 'verse koriander', q: 1, u: 'handje' },
+    { n: 'verse koriander', q: 10, u: 'g' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st' }
   ],
   stappen: [

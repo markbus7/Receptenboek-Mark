@@ -56,6 +56,7 @@ const Detail = (() => {
   const sheet = document.getElementById('sheet');
   const blad = document.getElementById('detail');
   let gekozenMixen = new Set(), mixWeg = new Set();
+  let gekozenVries = new Set(), vries = { items: [], algemeen: [] };
   let r = null, ctx = null, factor = 1, methode = null, ikHeb = null, wakeLock = null, wilScherm = false, terugFocus = null;
 
   const icoon = (naam) => `<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${naam}"/></svg>`;
@@ -73,7 +74,7 @@ const Detail = (() => {
      en de scrollpositie staan. Met { personen } opent het recept meteen omgerekend (uit een gedeelde link). */
   function open(recept, context, { houd = false, personen = null } = {}) {
     const vorige = houd && r ? { personen: r.pers * factor, methode, scroll: blad.scrollTop } : null;
-    r = recept; ctx = context; factor = 1; ikHeb = null; gekozenMixen = new Set();
+    r = recept; ctx = context; factor = 1; ikHeb = null; gekozenMixen = new Set(); gekozenVries = new Set();
     if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
     methode = ms.length ? (ms.find((m) => m.heb) || ms[0]).id : null;
@@ -187,6 +188,8 @@ const Detail = (() => {
             </div>
             <div class="mix-kies" id="d-mix-kies" hidden></div>
             <div class="mix-notitie" id="d-mix" hidden></div>
+            <div class="mix-kies vries-kies" id="d-vries-kies" hidden></div>
+            <div class="mix-notitie vries-notitie" id="d-vries" hidden></div>
           <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
             <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
           </section>
@@ -307,6 +310,9 @@ const Detail = (() => {
       : `<b>Lekker met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> voeg ± ${erbij} g toe.`} ${Hulp.esc(mix.bereiding)}</p>`).join('') +
       (mixen.length ? `<p class="mix-vriezer"><b>Bevroren?</b> Niet ontdooien: dan wordt de groente slap en waterig. Gebruik hem recht uit de vriezer, zet het vuur een stand hoger en reken op 2 à 3 minuten extra bak- of kooktijd. Bevroren groente geeft vocht af: laat dat in de pan eerst verdampen voor je verder bakt, en doe hem bij een saus of soep er pas in als die al kookt. Weeg hem bevroren, zonder het ijs uit de zak.</p>` : '');
 
+    renderVriezer();
+    const vriesKort = new Map(vries.items.map((x) => [x.i.n, x.kort]));
+
     const uitMix = new Map();
     mixen.forEach(({ mix, gedekt }) => gedekt.forEach((i) => uitMix.set(i.n, mix.naam.toLowerCase())));
 
@@ -329,9 +335,10 @@ const Detail = (() => {
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${Hulp.esc(h.naam)}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}</span>
+          <span class="ingr-naam">${Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
         </label>
         ${Boodschappen.isWater(i) ? '' : lijstKnop(i, idx)}
+        ${mixNaam ? '' : ofKnop(i, idx)}
       </li>`;
     }).join('');
     renderRest();
@@ -339,10 +346,36 @@ const Detail = (() => {
     if (blad.querySelector('#d-stappen')) renderStappen();
   }
 
+  /* Vlees of vis uit de vriezer: aantikken wat eruit komt, dan zegt het briefje hoe lang het moet ontdooien
+     en wat er in dit recept anders gaat (js/data/vriezer.js). */
+  function renderVriezer() {
+    const kunnen = Hulp.vriezerbaar(r);
+    vries = Hulp.vriezer(r, [...gekozenVries], factor, methode);
+    const kiesEl = blad.querySelector('#d-vries-kies');
+    kiesEl.hidden = !kunnen.length;
+    kiesEl.innerHTML = kunnen.length ? `<p class="mix-kies-vraag">Komt er iets uit de vriezer?</p><div class="mix-kies-chips">${kunnen.map((i) => `<button type="button" class="chip chip-vries" data-kies-vries="${Hulp.esc(i.n)}" aria-pressed="${gekozenVries.has(i.n)}">${Hulp.esc(i.n)}</button>`).join('')}</div>` : '';
+    const el = blad.querySelector('#d-vries');
+    el.hidden = !vries.items.length;
+    el.innerHTML = vriesRegels().map((x) => `<p>${x}</p>`).join('');
+  }
+
+  const vriesRegels = () => [
+    ...vries.items.flatMap((x) => [`<b class="vries-kop">${Hulp.esc(x.titel.charAt(0).toUpperCase() + x.titel.slice(1))} uit de vriezer</b>`, ...x.regels]),
+    ...vries.algemeen
+  ];
+
   /* Losse knop per ingrediënt: alleen dit ingrediënt op het boodschappenlijstje. */
   function lijstKnop(i, idx) {
     const erop = Boodschappen.staatErop(r, i);
     return `<button type="button" class="ingr-mand${erop ? ' is-erop' : ''}" data-mand="${idx}" aria-pressed="${erop}" aria-label="${erop ? 'Staat op je boodschappenlijst' : 'Zet op je boodschappenlijst'}: ${Hulp.esc(i.n)}" title="${erop ? 'Staat op je boodschappenlijst' : 'Op boodschappenlijst'}">${icoon(erop ? 'vink' : 'mand')}</button>`;
+  }
+
+  /* Het alternatief uit de uitleg ("of 2 tl ketoembar + 1 tl djinten") in één tik op het lijstje, in plaats van het ingrediënt zelf. */
+  const altNamen = (alt) => alt.map((x) => x.n).join(', ').replace(/, ([^,]*)$/, ' en $1');
+  function ofKnop(i, idx) {
+    const alt = Hulp.alternatief(i);
+    if (!alt) return '';
+    return `<button type="button" class="ingr-of-knop" data-mand-of="${idx}" aria-label="Zet ${Hulp.esc(altNamen(alt))} op je boodschappenlijst in plaats van ${Hulp.esc(i.n)}">${icoon('mand')} Liever ${Hulp.esc(altNamen(alt))} op je lijst</button>`;
   }
 
   function renderLijstKnoppen() {
@@ -369,14 +402,6 @@ const Detail = (() => {
     el.innerHTML = rest.length ? `<h3 id="d-rest-titel">Restjes</h3><ul>${rest.map((x) => `<li>${x}</li>`).join('')}</ul>` : '';
   }
 
-  /* "· aan de kassa 2× € 0,72" als je voor dit ingrediënt meer of iets anders koopt dan het product hierboven. */
-  function kassaTekst({ pak, naam, kassa }) {
-    if (!kassa || (kassa.aantal === 1 && kassa.naam === naam && kassa.pak === pak)) return '';
-    const e = Prijzen.euro;
-    const wat = kassa.naam === naam && kassa.pak === pak ? '' : ` ${kassa.naam === naam ? '' : Hulp.esc(kassa.naam)}${kassa.maat ? ` (${Hulp.esc(kassa.maat)})` : ''}`;
-    return `<br>aan de kassa:${wat} ${kassa.aantal > 1 ? `${kassa.aantal}× ${e(kassa.pak)} = ` : ''}${e(kassa.bedrag)}`;
-  }
-
   /* Wat kost het? Geschatte prijs per supermarkt als kassabonnetje, voor het aantal personen dat je nu kookt. */
   function renderPrijs() {
     const el = blad.querySelector('#d-prijs');
@@ -399,13 +424,8 @@ const Detail = (() => {
       ${Prijzen.winkelLijst(winkels)}
       <details class="bon-details">
         <summary>Per ingrediënt, waar het het goedkoopst is</summary>
-        <ul class="bon-regels">
-          ${regels.map(({ i, beste }) => `<li>
-            <span>${Hulp.esc(Hulp.hoeveelheidTekst(i, factor))}<small>${beste.link ? `<a href="${Hulp.esc(beste.link)}" target="_blank" rel="noopener">${Hulp.esc(beste.naam)}</a>` : Hulp.esc(beste.naam)}${beste.maat ? ` · ${Hulp.esc(beste.maat)}` : ''} · ${e(beste.pak)}${kassaTekst(beste)}</small></span>
-            <span>${Hulp.esc(Prijzen.winkelNaam(beste.id))}</span><span>${e(beste.bedrag)}</span>
-          </li>`).join('')}
-        </ul>
-        <p class="bon-mix">Haal je alles waar het het goedkoopst is: ± ${e(uitkomst.goedkoopst)} gebruikt, ± ${e(uitkomst.goedkoopstKassa)} aan de kassa.</p>
+        ${Prijzen.productLijst(regels)}
+        <p class="bon-mix">${Prijzen.mixTekst(uitkomst)}</p>
       </details>
       <p class="bon-voet">Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via <a href="https://www.checkjebon.nl" target="_blank" rel="noopener">Checkjebon.nl</a>). <i>Gebruikt</i> is het deel van de verpakkingen dat in dit recept gaat, <i>kassa</i> wat je afrekent als je alles nieuw koopt. Aanbiedingen tellen niet altijd mee.${zonder.length ? ` Zonder prijs: ${Hulp.esc(zonder.join(', '))}.` : ''}</p>`;
   }
@@ -419,6 +439,7 @@ const Detail = (() => {
         <div class="stap-tekst">
           <p>${Hulp.stapMetHoeveelheden(s.t, r, factor, gebruikt, mixWeg)}</p>
           ${ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? '<span class="stap-notitie">of: in je rijstkoker</span>' : ''}
+          ${vries.items.filter((x) => x.stap === s).map((x) => `<span class="stap-notitie">${Hulp.esc(x.i.n)} uit de vriezer: ${Hulp.esc(x.inStap)}</span>`).join('')}
           ${s.min ? `<button type="button" class="timer-knop" data-min="${s.min}" data-label="Stap ${n + 1}">${icoon('klok')} Timer ${Hulp.tijdTekst(s.min)}</button>` : ''}
         </div>
       </li>`).join('');
@@ -521,7 +542,7 @@ const Detail = (() => {
   let pdf = null, bezig = false;
   async function deel(knop) {
     if (bezig) return;
-    const sleutel = `${r.id}|${Math.round(r.pers * factor)}|${methode}`;
+    const sleutel = `${r.id}|${Math.round(r.pers * factor)}|${methode}|${[...gekozenVries]}`;
     if (!pdf || pdf.sleutel !== sleutel) {
       bezig = true;
       knop.setAttribute('aria-busy', 'true');
@@ -530,7 +551,7 @@ const Detail = (() => {
       try {
         const bestand = await DeelKaart.maak(r, {
           factor, methode, methodes: Hulp.methodes(r, ctx.keuken), varianten: ctx.varianten(r),
-          hoofdstuk: ctx.hoofdstuk(r.keuken), restjes: restRegels(), link: link()
+          hoofdstuk: ctx.hoofdstuk(r.keuken), restjes: restRegels(), vriezer: vries.items.length ? vriesRegels() : [], link: link()
         });
         pdf = { sleutel, bestand };
       } catch (e) {
@@ -581,7 +602,7 @@ const Detail = (() => {
     if (m) {
       methode = m.dataset.methode;
       blad.querySelectorAll('[data-methode]').forEach((b) => b.setAttribute('aria-pressed', String(b === m)));
-      renderGerei(); renderStappen();
+      renderGerei(); renderVriezer(); renderStappen();
       return;
     }
     if (t.closest('#d-min')) return zetPersonen(Math.ceil(r.pers * factor - 0.01) - 1);
@@ -608,10 +629,21 @@ const Detail = (() => {
     if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }
     const kies = t.closest('[data-kies-mix]');
     if (kies) { const id = kies.dataset.kiesMix; gekozenMixen.has(id) ? gekozenMixen.delete(id) : gekozenMixen.add(id); return renderIngr(); }
+    const vk = t.closest('[data-kies-vries]');
+    if (vk) { const n = vk.dataset.kiesVries; gekozenVries.has(n) ? gekozenVries.delete(n) : gekozenVries.add(n); return renderIngr(); }
     if (t.closest('#d-lijst')) {
       const n = Boodschappen.voegReceptToe(r, factor, mixWeg);
       renderLijstKnoppen();
       return App.toast(`${n} ingrediënten op je boodschappenlijst gezet`);
+    }
+    const mandOf = t.closest('[data-mand-of]');
+    if (mandOf) {
+      const i = r.ingr[+mandOf.dataset.mandOf];
+      const alt = Hulp.alternatief(i);
+      Boodschappen.vervang(r, i, alt, factor);
+      renderLijstKnoppen();
+      const wat = alt.map((x) => Hulp.hoeveelheidTekst(x, factor)).join(', ').replace(/, ([^,]*)$/, ' en $1');
+      return App.toast(`${wat.charAt(0).toUpperCase() + wat.slice(1)} op je boodschappenlijst gezet, in plaats van ${i.n}`);
     }
     const mand = t.closest('[data-mand]');
     if (mand) {

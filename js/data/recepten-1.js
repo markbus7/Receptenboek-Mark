@@ -26,7 +26,7 @@ RECEPTEN.push(
     { t: 'Schep de spaghetti met een tang direct in de koekenpan met de pancetta. Het vuur blijft uit. Meng een halve minuut zodat de pasta iets afkoelt.' },
     { t: 'Giet het eimengsel erbij en schep snel om. Voeg scheutjes kookvocht toe tot de saus romig en glanzend is. Het ei mag niet stollen tot roerei.' }
   ],
-  tips: ['Te dik geworden? Nog een scheutje kookvocht erbij en direct serveren.'],
+  tips: ['Te dik geworden? Nog 2 el kookvocht erbij en direct serveren.'],
   alt: ['Geen pancetta? Ontbijtspek of spekblokjes werken ook.', 'Geen Pecorino? Gebruik alleen Parmezaanse kaas (100 g in totaal).']
 },
 {
@@ -94,7 +94,7 @@ RECEPTEN.push(
     { n: 'groentebouillon', q: 1200, u: 'ml' },
     { n: 'boter', q: 40, u: 'g' },
     { n: 'Parmezaanse kaas', q: 60, u: 'g', x: 'vegetarische variant, geraspt' },
-    { n: 'verse peterselie', q: 1, u: 'handje' },
+    { n: 'verse peterselie', q: 10, u: 'g' },
     { n: 'olijfolie', q: 2, u: 'el' }
   ],
   stappen: [
@@ -128,7 +128,7 @@ RECEPTEN.push(
     { kop: 'Beleg' },
     { n: 'passata', q: 150, u: 'ml' },
     { n: 'mozzarella', q: 2, u: 'bol', x: 'à 125 g, uitgelekt' },
-    { n: 'verse basilicum', q: 1, u: 'handje', vers: 'gaat er rauw op' },
+    { n: 'verse basilicum', q: 10, u: 'g', vers: 'gaat er rauw op' },
     { n: 'gedroogde oregano', q: 0.5, u: 'tl' }
   ],
   stappen: [
@@ -156,12 +156,12 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'penne', q: 400, u: 'g' },
-    { n: 'tomatenblokjes', q: 2, u: 'blik', x: 'à 400 g' },
+    { n: 'tomatenblokjes', q: 800, u: 'g' },
     { n: 'knoflook', q: 4, u: 'teen', x: 'in plakjes' },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'of 1 tl chilivlokken' },
     { n: 'olijfolie', q: 4, u: 'el' },
     { n: 'suiker', q: 1, u: 'snuf' },
-    { n: 'verse peterselie', q: 1, u: 'handje' },
+    { n: 'verse peterselie', q: 10, u: 'g' },
     { n: 'Parmezaanse kaas', q: 40, u: 'g', opt: true, x: 'om te serveren' }
   ],
   stappen: [
@@ -188,7 +188,7 @@ RECEPTEN.push(
     { n: 'kipfilet', q: 400, u: 'g', x: 'in reepjes' },
     { n: 'zongedroogde tomaten', q: 80, u: 'g', x: 'in reepjes' },
     { kop: 'Pesto' },
-    { n: 'verse basilicum', q: 2, u: 'bos', x: 'ca. 50 g', vers: 'de basilicum is de saus' },
+    { n: 'verse basilicum', q: 50, u: 'g', vers: 'de basilicum is de saus' },
     { n: 'pijnboompitten', q: 40, u: 'g' },
     { n: 'Parmezaanse kaas', q: 40, u: 'g', x: 'geraspt' },
     { n: 'knoflook', q: 1, u: 'teen' },
@@ -199,7 +199,7 @@ RECEPTEN.push(
     { t: 'Pureer basilicum, pijnboompitten, kaas, knoflook en olie met de staafmixer tot een grove pesto. Breng op smaak met zout.' },
     { t: 'Kook de pasta beetgaar volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
     { t: 'Bestrooi de kip met zout en peper. Bak in een scheut olie in de koekenpan op middelhoog vuur 6 à 7 minuten rondom goudbruin en gaar.', min: 7 },
-    { t: 'Meng pasta, kip, zongedroogde tomaat en pesto. Maak de saus wat losser met een scheutje kookvocht.' }
+    { t: 'Meng pasta, kip, zongedroogde tomaat en pesto. Maak de saus wat losser met 2 el kookvocht.' }
   ],
   tips: ['Verwarm pesto niet in de pan: dan verliest de basilicum zijn frisse kleur en smaak.'],
   alt: ['Kip vervangen? Kikkererwten uit blik (2 blikken, uitgelekt) maken het vegetarisch.']
