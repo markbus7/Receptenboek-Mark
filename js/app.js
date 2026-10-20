@@ -71,10 +71,18 @@ const App = (() => {
   const INGR_NAMEN = [...INGR_AANTAL.keys()].sort((a, b) => a.localeCompare(b, 'nl'));
   const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, VARIANTEN.gerecht(r), ...(r.ook || []), r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
-  /* Tab Nieuw: de 5 recepten met de jongste datum bij toegevoegd (nieuwste eerst). */
-  const AANTAL_NIEUW = 5;
-  const NIEUW = RECEPTEN.filter((r) => r.toegevoegd)
-    .sort((a, b) => b.toegevoegd.localeCompare(a.toegevoegd)).slice(0, AANTAL_NIEUW).map((r) => r.id);
+  /* Tab Nieuw: recepten die in de afgelopen week zijn toegevoegd (nieuwste eerst). Een recept van
+     dinsdag staat er tot en met de dinsdag erna, dus de recepten van vorige week verdwijnen pas als de nieuwe er zijn. */
+  const DAGEN_NIEUW = 7;
+  const NIEUW_VANAF = (() => {
+    const d = new Date();
+    d.setDate(d.getDate() - DAGEN_NIEUW);
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  })();
+  const NIEUW = RECEPTEN.filter((r) => r.toegevoegd && r.toegevoegd >= NIEUW_VANAF)
+    .sort((a, b) => b.toegevoegd.localeCompare(a.toegevoegd)).map((r) => r.id);
+  // Een gerecht met een nieuwe variant is één kaart, dus tel per gerecht.
+  const NIEUW_KAARTEN = new Set(NIEUW.map((id) => RECEPTEN.find((r) => r.id === id)).map((r) => r.variantVan || r.id)).size;
 
   const state = {
     view: 'alle',
@@ -423,6 +431,10 @@ const App = (() => {
       $('#leeg-titel').textContent = 'Nog geen favorieten';
       $('#leeg-tekst').textContent = 'Tik op het hartje bij een recept om het hier te bewaren.';
       $('#leeg-wis').hidden = true;
+    } else if (leeg && state.view === 'nieuw' && !NIEUW.length) {
+      $('#leeg-titel').textContent = 'Deze week nog niets nieuw';
+      $('#leeg-tekst').textContent = 'Recepten die in de afgelopen week zijn toegevoegd, staan hier een week lang.';
+      $('#leeg-wis').hidden = true;
     } else if (leeg && state.view === 'gemaakt' && !RECEPTEN.some((r) => Logboek.keer(r.id))) {
       $('#leeg-titel').textContent = 'Nog niets gemaakt';
       $('#leeg-tekst').textContent = 'Open een recept en tik onder Mijn logboek op Gemaakt. Dan staat het hier.';
@@ -440,7 +452,7 @@ const App = (() => {
     if (state.vaag) tekst = `Niets gevonden voor “${state.zoek.trim()}”. Wel ${n} ${n === 1 ? 'recept dat erop lijkt' : 'recepten die erop lijken'}:`;
     if (state.view === 'fav') tekst += ' in je favorieten';
     if (state.view === 'gemaakt') tekst += n === 1 ? ' dat je gemaakt hebt' : ' die je gemaakt hebt';
-    if (state.view === 'nieuw') tekst = n === NIEUW.length ? `De ${n} nieuwste recepten, nieuwste eerst` : `${tekst} van de ${NIEUW.length} nieuwste`;
+    if (state.view === 'nieuw') tekst = n === NIEUW_KAARTEN ? `${tekst} van de afgelopen week, nieuwste eerst` : `${tekst} van de ${NIEUW_KAARTEN} van de afgelopen week`;
     if (state.voorraad.length) tekst += `, gesorteerd op wat je in huis hebt`;
     $('#resultaat-tekst').textContent = tekst;
     $('.sorteer-groep').hidden = state.view === 'nieuw';

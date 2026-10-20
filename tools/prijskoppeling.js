@@ -187,6 +187,7 @@ window.PRIJSKOPPELING = {
   'procureur': { zoek: ['procureur', 'schouderkarbonade'], niet: ['bbq', 'gemarineerd', 'gemarinee', 'rollade', 'hutspot'] },
   'varkensbuik': { zoek: ['varkensbuik', 'buikspek', 'varkensbuikspek'], niet: ['rub', 'vietnamees', 'sous', 'maaltijd', 'bami', 'ovenbroodje', 'slow', 'gerookt', 'gerookte', 'mealmasters'] },
   'krabbetjes': { niet: ['gemarineerd', 'bbq', 'spare'] },
+  'spareribs': { niet: ['gemarineerd', 'gemarinee', 'bbq', 'honing', 'sticky', 'saus', 'pittig', 'gegaard', 'kant-en-klaar'] },
   'spekblokjes': { niet: ['kaas'] },
   'ontbijtspek': { niet: ['kaas'], om: { plak: 10 } },
   'pancetta': {},

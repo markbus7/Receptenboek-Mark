@@ -406,7 +406,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 1, u: 'st' },
     { n: 'vanille-extract', q: 1, u: 'tl', opt: true },
     { n: 'bloem', q: 175, u: 'g' },
-    { n: 'baking soda', q: 0.5, u: 'tl', x: 'zuiveringszout; geen bakpoeder' },
+    { n: 'baking soda', q: 0.5, u: 'tl', x: 'zuiveringszout, bicarbonaat; geen bakpoeder' },
     { n: 'zout', q: 0.5, u: 'tl' },
     { n: 'pure chocolade', q: 150, u: 'g', x: 'grof gehakt, of chocoladedruppels' },
     { n: 'zeezout', x: 'vlokken, om te bestrooien', opt: true }

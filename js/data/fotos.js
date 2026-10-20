@@ -624,6 +624,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Cut_Garlic_Chives.jpg"
  },
+ "kruid-cajun": {
+  "src": "img/kruid-cajun.jpg",
+  "auteur": "Henna",
+  "licentie": "CC BY-SA 1.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Cajunkruiden-spice.jpg"
+ },
  "kruid-chili": {
   "src": "img/kruid-chili.jpg",
   "auteur": "Ajay Suresh",
@@ -672,11 +678,23 @@ window.FOTOS = {
   "licentie": "Public domain",
   "bron": "https://commons.wikimedia.org/wiki/File:Garam_Masala.JPG"
  },
+ "kruid-gember": {
+  "src": "img/kruid-gember.jpg",
+  "auteur": "Judethedeus",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Ginger_rhizomes.jpg"
+ },
  "kruid-italiaanse-kruiden": {
   "src": "img/kruid-italiaanse-kruiden.jpg",
   "auteur": "John Phelan",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Italian_Herb_Mix,_Penzeys_Spices,_Arlington_Heights_MA.jpg"
+ },
+ "kruid-jeneverbes": {
+  "src": "img/kruid-jeneverbes.jpg",
+  "auteur": "W.carter",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Blue_and_green_juniper_berries_in_a_branch_in_Norrkila_3.jpg"
  },
  "kruid-kaneel": {
   "src": "img/kruid-kaneel.jpg",
@@ -695,6 +713,12 @@ window.FOTOS = {
   "auteur": "OttawaAC",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Caraway_Seed.jpg"
+ },
+ "kruid-kerriepoeder": {
+  "src": "img/kruid-kerriepoeder.jpg",
+  "auteur": "Slick",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Nahrungsmittel_2012-07-08-9517.jpg"
  },
  "kruid-knoflookpoeder": {
   "src": "img/kruid-knoflookpoeder.jpg",
@@ -828,6 +852,18 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Tandoori_Masala_(3594429661).jpg"
  },
+ "kruid-tex-mex": {
+  "src": "img/kruid-tex-mex.jpg",
+  "auteur": "GI tagged products",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Byadgi_chili_powder.jpg"
+ },
+ "kruid-thaise-basilicum": {
+  "src": "img/kruid-thaise-basilicum.jpg",
+  "auteur": "Sven.petersen",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:9262-Horapa_Flower_Leaves.jpg"
+ },
  "kruid-tijm": {
   "src": "img/kruid-tijm.jpg",
   "auteur": "Henna",
@@ -845,6 +881,18 @@ window.FOTOS = {
   "auteur": "Tim Sackton",
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Five_spices_detailed.jpg"
+ },
+ "kruid-vleesmixen": {
+  "src": "img/kruid-vleesmixen.jpg",
+  "auteur": "Daryn Nakhuda.",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Applying_a_spice_rub_to_pork_ribs_for_a_barbecue_-_20080329.jpg"
+ },
+ "kruid-zout": {
+  "src": "img/kruid-zout.jpg",
+  "auteur": "Poyraz 72",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Table_salt_with_salt_shaker_V1.jpg"
  },
  "kruid-zuiveringszout": {
   "src": "img/kruid-zuiveringszout.jpg",
@@ -905,6 +953,12 @@ window.FOTOS = {
   "auteur": "jules",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Mayonnaise_(1).jpg"
+ },
+ "mechoui": {
+  "src": "img/mechoui.jpg",
+  "auteur": "Andre Piquet",
+  "licentie": "CC BY 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Mechoui.jpg"
  },
  "menemen": {
   "src": "img/menemen.jpg",
@@ -1097,6 +1151,12 @@ window.FOTOS = {
   "auteur": "Ghouston",
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:Quiche.jpg"
+ },
+ "rakott-krumpli": {
+  "src": "img/rakott-krumpli.jpg",
+  "auteur": "zolakoma",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Rakott_krumpli.jpg"
  },
  "ramen": {
   "src": "img/ramen.jpg",
@@ -1440,6 +1500,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Spanakopita.jpg"
  },
+ "spareribs": {
+  "src": "img/spareribs.jpg",
+  "auteur": "Edo de Roo",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Spareribs_20160506_182617113.jpg"
+ },
  "steak-frites": {
   "src": "img/steak-frites.jpg",
   "auteur": "Missvain",
@@ -1469,6 +1535,12 @@ window.FOTOS = {
   "auteur": "Stacy",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Homemade_sushi_rolls,_2009.jpg"
+ },
+ "sutlac": {
+  "src": "img/sutlac.jpg",
+  "auteur": "E4024",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:S%C3%BCtla%C3%A7_(Turkish_rice_pudding).jpeg"
  },
  "tabouleh": {
   "src": "img/tabouleh.jpg",

@@ -129,6 +129,14 @@ ARTIKELEN = {
     'kruid-currypasta': 'File:Curry pastes Thailand (cropped).JPG',
     'kruid-italiaanse-kruiden': 'File:Italian Herb Mix, Penzeys Spices, Arlington Heights MA.jpg',
     'kruid-patatkruiden': 'File:Seasoned Salt, Penzeys Spices, Arlington Heights MA.jpg',
+    'kruid-thaise-basilicum': 'File:9262-Horapa Flower Leaves.jpg',
+    'kruid-gember': 'File:Ginger rhizomes.jpg',
+    'kruid-jeneverbes': 'File:Blue and green juniper berries in a branch in Norrkila 3.jpg',
+    'kruid-zout': 'File:Table salt with salt shaker V1.jpg',
+    'kruid-tex-mex': 'File:Byadgi chili powder.jpg',
+    'kruid-vleesmixen': 'File:Applying a spice rub to pork ribs for a barbecue - 20080329.jpg',
+    'kruid-kerriepoeder': 'File:Nahrungsmittel 2012-07-08-9517.jpg',
+    'kruid-cajun': 'File:Cajunkruiden-spice.jpg',
     # Sauzen en smaakmakers (tabblad Sauzen), met de hand gekozen foto's van het product
     'smaak-sojasaus': 'File:Kikkoman soysauce.jpg',
     'smaak-donkere-sojasaus': 'File:HK Parkn Shop Pearl River Bridge Dark Soy Sauce glass bottles Jan-2013.jpg',
@@ -177,6 +185,10 @@ ARTIKELEN = {
     'gehaktballen-tomatensaus': 'File:Polpette Al Sugo - Nanninella.jpg',
     # 1.19.0: er is geen vrije foto van kip kerrie met perzik; deze kip kerrie met rijst lijkt er het meest op
     'kip-kerrie-perzik': 'File:Chicken curry rice.jpg',
+    # 1.38.0
+    # (kimchi jjigae en Surinaamse pastei: geen vrije foto gevonden, dus het tegeltje)
+    'rakott-krumpli': 'Rakott krumpli', 'mechoui': 'Méchoui', 'sutlac': 'File:Sütlaç (Turkish rice pudding).jpeg',
+    'spareribs': 'Spare ribs',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

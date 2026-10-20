@@ -141,8 +141,8 @@ window.KRUIDEN = [
     wat: 'Keukenzout (fijn, met jodium) voor koken en bakken; grof zeezout uit de molen of in vlokken voor erover.',
     gebruik: 'Overal. Zout maakt andere smaken sterker, ook in zoet: een snuf in cake of chocolade.',
     tip: 'Zout het kookwater van pasta flink (10 g per liter). Grof zeezout pas op het bord, dan blijft het knapperig.' },
-  { id: 'zuiveringszout', naam: 'Zuiveringszout (bicarbonaat)', soort: 'Specerij', namen: ['zuiveringszout', 'baking soda'],
-    wat: 'Natriumbicarbonaat, ook baking soda. Geen specerij maar een rijsmiddel: het reageert met zuur (karnemelk, yoghurt, citroen).',
+  { id: 'zuiveringszout', naam: 'Zuiveringszout (bicarbonaat)', soort: 'Specerij', namen: ['zuiveringszout', 'bicarbonaat', 'baking soda'],
+    wat: 'Natriumbicarbonaat, in de winkel ook als bicarbonaat of baking soda: drie namen voor hetzelfde potje. Geen specerij maar een rijsmiddel: het reageert met zuur (karnemelk, yoghurt, citroen).',
     gebruik: 'Cookies, pancakes en cake. Een snuf maakt kikkererwten zachter en hummus gladder, en vlees malser (velveting).',
     tip: 'Niet hetzelfde als bakpoeder: bakpoeder heeft het zuur er al in. Gebruik weinig, anders smaakt het zeepachtig.' },
 
