@@ -125,7 +125,33 @@ RECEPTEN.push(
   ],
   alt: [
     'Minder pittig: laat de cayenne weg en gebruik 1 el sambal. Nog heter: 1 tl chilivlokken in de rub en 2 el sriracha door de saus.',
-    'Sweet & spicy: maak de sweet saus en roer er 1½ el sambal door.',
+    'Liever zoet met een beetje pit? Kies de variant sweet & spicy.',
+    'Op de barbecue: gaar ze in de oven en lak ze op het laatst 10 minuten boven indirecte hitte, met de deksel dicht.'
+  ]
+},
+{
+  id: 'spareribs-sweet-spicy', toegevoegd: '2026-10-21', variantVan: 'spareribs', variant: 'Sweet & spicy', pit: 1, naam: 'Sweet & spicy spareribs',
+  ook: ['sweet and spicy spareribs', 'sweet & spicy ribs', 'zoet pittige spareribs', 'zoetpittige spareribs', 'spareribs sweet spicy'],
+  intro: 'Het beste van allebei: dezelfde spareribs die van het bot vallen, gelakt met de plakkerige, zoete saus van ketjap en honing, met sambal en een snufje cayenne erdoor. Eerst zoet, daarna een warme gloed.',
+  vervang: {
+    paprikapoeder: [{ n: 'paprikapoeder', q: 2, u: 'tl', x: 'edelzoet' }, { n: 'cayennepeper', q: 0.5, u: 'tl' }],
+    'Sweet saus': { kop: 'Sweet & spicy saus' },
+    'ketjap manis': [{ n: 'ketjap manis', q: 6, u: 'el' }, { n: 'sambal oelek', q: 2, u: 'el' }]
+  },
+  stappen: [
+    { t: 'Draai de spareribs om, met de botkant naar boven. Wrik met een botermesje het dunne vliesje los bij één van de botjes, pak het vast met keukenpapier en trek het er in één keer af. Dep het vlees droog.' },
+    { t: 'Meng de bruine suiker, paprikapoeder, cayennepeper, knoflookpoeder, uienpoeder, zout en peper en wrijf de spareribs er rondom mee in. Heb je tijd, laat ze dan afgedekt een nacht in de koelkast intrekken.' },
+    { t: 'Verwarm de oven voor op 150 °C. Leg elk stuk op een dubbele laag aluminiumfolie, met de botkant naar boven, verdeel de appelsap erover en vouw de folie strak dicht tot een pakketje. Leg de pakketjes op de bakplaat.', m: 'oven' },
+    { t: 'Gaar de spareribs 2½ à 3 uur in de oven. Ze zijn goed als je een botje er met twee vingers uit kunt draaien. Is dat nog niet zo, geef ze dan nog een half uur.', m: 'oven', min: 165 },
+    { t: 'Snijd de spareribs in stukken van 3 à 4 botjes. Zet ze rechtop langs de wand van de slowcooker, met de vlezige kant naar buiten, en schenk de appelsap erbij.', m: 'slowcooker' },
+    { t: 'Gaar de spareribs 7 à 8 uur op LOW, tot je een botje er met twee vingers uit kunt draaien.', m: 'slowcooker', min: 450 },
+    { t: 'Haal de spareribs voorzichtig uit de folie of de slowcooker; ze zijn nu zo mals dat ze kunnen breken. Vang 100 ml van het vocht op.' },
+    { t: 'Doe ketjap, sambal, honing, ketchup, sojasaus, knoflook, gember en appelazijn met het opgevangen vocht in de steelpan. Laat 8 à 10 minuten zachtjes inkoken tot een stroperige saus die aan je lepel blijft plakken. Proef: zoeter met 1 el honing, pittiger met 1 el sambal.', min: 9 },
+    { t: 'Zet de oven op 220 °C. Leg de spareribs met de vlezige kant naar boven op de bakplaat met bakpapier en smeer ze dik in met de helft van de saus. Lak ze 10 minuten, smeer er nog een laag over en geef ze nog 5 à 10 minuten, tot de saus plakkerig is en de randjes donker karamelliseren. Houd ze in de gaten: door de honing verbranden ze snel.', min: 18 },
+    { t: 'Laat 5 minuten rusten en snijd ze tussen de botjes door. Serveer met de rest van de saus, friet, knoflooksaus en koolsla.', min: 5 }
+  ],
+  alt: [
+    'Wil je het precies zo pittig als je lekker vindt, maak dan de sweet saus en schep er aan tafel sambal bij.',
     'Op de barbecue: gaar ze in de oven en lak ze op het laatst 10 minuten boven indirecte hitte, met de deksel dicht.'
   ]
 }
