@@ -103,6 +103,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.38.1**: nu hebben ook kerriepoeder en cajunkruiden een foto, dus alle 48 kruiden.
 - **1.38.0**: vijf nieuwe recepten uit keukens met de minste gerechten: *rakott krumpli* (Hongaarse ovenschotel met aardappel, ei en worst onder zure room), *mechoui* (Marokkaanse lamsschouder, 4 uur in de oven, met komijnzout), *Surinaamse pastei* (kip met groente in zelfgemaakt zanddeeg), *kimchi jjigae* (Koreaanse kimchistoof met varkensbuik en tahoe) en als dessert *sütlaç* (Turkse rijstpudding uit de oven of de pan). Rakott krumpli, mechoui en sütlaç hebben een foto. Kimchi en tahoe staan bij de verpakkingen, met een tip voor wat je overhoudt.
 - **1.36.2**: foto's voor nog zes kruiden (Thaise basilicum, gember, jeneverbes, zout, fajitakruiden, vleesmixen).
 - **1.36.1**: bij zuiveringszout en baking soda staat nu ook *bicarbonaat*, de naam op veel potjes in de winkel. Het is alle drie hetzelfde (en geen bakpoeder). Bij *Kruiden* vind je het ook als je op bicarbonaat zoekt.

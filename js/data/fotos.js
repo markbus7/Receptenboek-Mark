@@ -624,6 +624,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Cut_Garlic_Chives.jpg"
  },
+ "kruid-cajun": {
+  "src": "img/kruid-cajun.jpg",
+  "auteur": "Henna",
+  "licentie": "CC BY-SA 1.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Cajunkruiden-spice.jpg"
+ },
  "kruid-chili": {
   "src": "img/kruid-chili.jpg",
   "auteur": "Ajay Suresh",
@@ -707,6 +713,12 @@ window.FOTOS = {
   "auteur": "OttawaAC",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Caraway_Seed.jpg"
+ },
+ "kruid-kerriepoeder": {
+  "src": "img/kruid-kerriepoeder.jpg",
+  "auteur": "Slick",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Nahrungsmittel_2012-07-08-9517.jpg"
  },
  "kruid-knoflookpoeder": {
   "src": "img/kruid-knoflookpoeder.jpg",

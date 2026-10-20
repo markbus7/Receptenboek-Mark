@@ -135,6 +135,8 @@ ARTIKELEN = {
     'kruid-zout': 'File:Table salt with salt shaker V1.jpg',
     'kruid-tex-mex': 'File:Byadgi chili powder.jpg',
     'kruid-vleesmixen': 'File:Applying a spice rub to pork ribs for a barbecue - 20080329.jpg',
+    'kruid-kerriepoeder': 'File:Nahrungsmittel 2012-07-08-9517.jpg',
+    'kruid-cajun': 'File:Cajunkruiden-spice.jpg',
     'botercake': 'nl:Cake (gebak)',
     'sushi-maki': 'File:Homemade sushi rolls, 2009.jpg',
     'burritos': 'Burrito', 'tacos': 'Taco', 'enchiladas': 'Enchilada', 'guisado-carne-molida': 'Picadillo',
