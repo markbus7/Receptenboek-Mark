@@ -87,6 +87,7 @@ const App = (() => {
     voorraad: opslag.lees('voorraad', []),
     basis: opslag.lees('basis', true),
     compleet: false,
+    alleGekozen: false,
     keuken: laadKeuken(),
     pannen: opslag.lees('pannen', standaardPannen),
     bereid: new Set(),
@@ -123,6 +124,7 @@ const App = (() => {
     $('#f-vega').checked = state.vega;
     $('#basis').checked = state.basis;
     $('#alleen-compleet').checked = state.compleet;
+    $('#alle-gekozen').checked = state.alleGekozen;
     $('#f-maakbaar').checked = state.maakbaar;
     const optie = (attr, k, item, aan) => `
       <label class="gerei-optie">
@@ -241,7 +243,8 @@ const App = (() => {
       (!state.kruid || kruidRecepten().has(r.id)) &&
       (!state.maakbaar || maakbaar) &&
       (!metVoorraad || m.heb.length > 0 || isAanrader(r)) &&
-      (!metVoorraad || !state.compleet || m.mist.length === 0)
+      (!metVoorraad || !state.compleet || m.mist.length === 0) &&
+      (!metVoorraad || !state.alleGekozen || m.gebruikt.length === state.voorraad.length)
     );
     // Niets gevonden? Probeer het opnieuw met tikfouten, zodat "ommelet" toch omelet vindt.
     state.vaag = false;
@@ -256,7 +259,7 @@ const App = (() => {
     const opBlz = (a, b) => BLZ.get(a.r.id) - BLZ.get(b.r.id);
     const fav = (x) => (state.favs.has(x.r.id) ? 0 : 1);
     const sorteer = {
-      match: (a, b) => metVoorraad ? (aanrader(a) - aanrader(b)) || (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
+      match: (a, b) => metVoorraad ? (b.m.gebruikt.length - a.m.gebruikt.length) || (aanrader(a) - aanrader(b)) || (a.m.mist.length - b.m.mist.length) || (b.m.pct - a.m.pct) || opBlz(a, b) : opBlz(a, b),
       naam: opNaam,
       tijd: (a, b) => (a.r.tijd - b.r.tijd) || opBlz(a, b),
       ingr: (a, b) => (AANTAL_INGR.get(a.r.id) - AANTAL_INGR.get(b.r.id)) || (a.r.tijd - b.r.tijd) || opNaam(a, b),
@@ -394,6 +397,7 @@ const App = (() => {
     if (state.vega) items.push(['vega', '1', 'Vegetarisch']);
     if (state.kruid) { const k = (window.KRUIDEN || []).find((x) => x.id === state.kruid); if (k) items.push(['kruid', k.id, `Met ${k.naam.replace(/ \(.*\)$/, '')}`]); }
     if (state.maakbaar) items.push(['maakbaar', '1', 'Past bij mijn keuken']);
+    if (state.alleGekozen) items.push(['alleGekozen', '1', 'Met al mijn ingrediënten']);
     if (state.compleet) items.push(['compleet', '1', 'Alles in huis']);
     return items;
   }
@@ -623,7 +627,7 @@ const App = (() => {
 
   function wisAlles() {
     state.keukens.clear(); state.soorten.clear(); state.niveaus.clear(); state.bereid.clear(); state.tijd = null; state.vega = false; state.kruid = null;
-    state.maakbaar = false; state.compleet = false; state.voorraad = []; state.zoek = '';
+    state.maakbaar = false; state.compleet = false; state.alleGekozen = false; state.voorraad = []; state.zoek = '';
     $('#zoek').value = '';
     opslag.schrijf('voorraad', []);
     renderFilters(); render();
@@ -797,6 +801,7 @@ const App = (() => {
       if (t.id === 'f-vega') state.vega = t.checked;
       if (t.id === 'basis') { state.basis = t.checked; opslag.schrijf('basis', t.checked); }
       if (t.id === 'alleen-compleet') state.compleet = t.checked;
+      if (t.id === 'alle-gekozen') state.alleGekozen = t.checked;
       if (t.id === 'f-maakbaar') state.maakbaar = t.checked;
       if (t.dataset.tool) {
         state.keuken = APPARATEN.map(([k]) => k).filter((k) => $(`[data-tool="${k}"]`).checked);
@@ -860,6 +865,7 @@ const App = (() => {
       if (g === 'kruid') state.kruid = null;
       if (g === 'maakbaar') state.maakbaar = false;
       if (g === 'compleet') state.compleet = false;
+      if (g === 'alleGekozen') state.alleGekozen = false;
       renderFilters(); render();
     });
 
