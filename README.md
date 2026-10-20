@@ -103,6 +103,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.36.3**: nu hebben ook kerriepoeder en cajunkruiden een foto, dus alle 48 kruiden.
 - **1.36.2**: foto's voor nog zes kruiden (Thaise basilicum, gember, jeneverbes, zout, fajitakruiden, vleesmixen).
 - **1.36.1**: bij zuiveringszout en baking soda staat nu ook *bicarbonaat*, de naam op veel potjes in de winkel. Het is alle drie hetzelfde (en geen bakpoeder). Bij *Kruiden* vind je het ook als je op bicarbonaat zoekt.
 - **1.36.0**: staat er bij een ingrediënt een alternatief (*droge kruidenmix; of 2 tl ketoembar + 1 tl djinten*), dan zet *Liever ketoembar en djinten op je lijst* dat alternatief in één tik op je boodschappenlijst, voor het aantal personen dat je kookt. Stond het ingrediënt zelf al op de lijst, dan gaat het eraf. Werkt voor alternatieven die als ingrediënt in het boek staan, zoals kookroom voor slagroom of kipfilet voor kippendijfilet.
