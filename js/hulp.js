@@ -212,7 +212,15 @@ const Hulp = (() => {
     const heb = [], mist = [];
     const termen = voorraadTermen(voorraad);
     lijst.forEach((i) => (termen.some((t) => termPast(t, i)) ? heb : mist).push(i.n));
-    return { heb, mist, totaal: lijst.length, pct: lijst.length ? heb.length / lijst.length : 0 };
+    // Welke gekozen ingrediënten (of mixen) dit recept echt gebruikt; een mix telt ook als het recept hem aanraadt.
+    const nodig = ingrediënten(recept).filter((i) => !i.opt);
+    const gebruikt = voorraad.filter((v) => {
+      const mix = isMix(v) ? mixVan(v) : null;
+      if (mix && (mix.aanraders || []).some((id) => id === recept.id || id === recept.groep)) return true;
+      const ts = isMix(v) ? ((mix || {}).bevat || []) : [v];
+      return nodig.some((i) => ts.some((t) => termPast(t, i)));
+    });
+    return { heb, mist, gebruikt, totaal: lijst.length, pct: lijst.length ? heb.length / lijst.length : 0 };
   }
 
   /* Apparatuur */
