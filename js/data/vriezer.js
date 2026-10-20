@@ -41,7 +41,7 @@ window.VRIEZER_SOORTEN = {
   },
   stoof: {
     uur: [12, 18], water: 35, droog: true,
-    stap: /vlees|lappen|schenkel|schouder|buik|procureur|krabbetjes|\blam\b|riblappen/i,
+    stap: /vlees|lappen|schenkel|schouder|buik|procureur|krabbetjes|spareribs|\blam\b|riblappen/i,
     inStap: 'ontdooid en drooggedept', inStapStoof: 'ontdooid aanbraden, of bevroren de helft langer stoven',
     bevroren: 'Bevroren kun je het niet aanbraden of snijden: laat het helemaal ontdooien.',
     stoof: 'Kan als je haast hebt, maar aanbraden lukt dan niet. Leg het bevroren in hele stukken in het hete stoofvocht en reken op de helft langer stoven. De bruine aanbaklaag mist, dus de saus wordt iets minder diep van smaak.'
@@ -104,7 +104,7 @@ window.VRIEZER = [
   { n: ['kippenpoten'], soort: 'kip', stuk: 250 },
   { n: ['kippenvleugels'], soort: 'kip', stuk: 90 },
   { n: ['hele kip'], soort: 'heleKip', stuk: 1500 },
-  { n: ['runderlappen', 'runderstoofvlees', 'runderschenkel', 'lamsschouder', 'lamsvlees', 'varkensschouder', 'varkensbuik', 'varkensvlees', 'procureur', 'krabbetjes'], soort: 'stoof' },
+  { n: ['runderlappen', 'runderstoofvlees', 'runderschenkel', 'lamsschouder', 'lamsvlees', 'varkensschouder', 'varkensbuik', 'varkensvlees', 'procureur', 'krabbetjes', 'spareribs'], soort: 'stoof' },
   { n: ['kalfsschenkel'], soort: 'stoof', stuk: 300 },
   { n: ['biefstuk', 'entrecote', 'varkenshaas'], soort: 'kortBakken' },
   { n: ['schnitzel'], soort: 'kortBakken', stuk: 150 },

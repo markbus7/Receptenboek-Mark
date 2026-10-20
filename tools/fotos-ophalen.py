@@ -149,6 +149,7 @@ ARTIKELEN = {
     # 1.38.0
     # (kimchi jjigae en Surinaamse pastei: geen vrije foto gevonden, dus het tegeltje)
     'rakott-krumpli': 'Rakott krumpli', 'mechoui': 'Méchoui', 'sutlac': 'File:Sütlaç (Turkish rice pudding).jpeg',
+    'spareribs': 'Spare ribs',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)
