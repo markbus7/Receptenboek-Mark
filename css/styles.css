@@ -878,6 +878,13 @@ p.sync-fout::before { display: none; }
 .kast-recepten li { margin-bottom: 6px; break-inside: avoid; }
 .kast-recepten a { color: var(--pen); font-weight: 700; text-underline-offset: 2px; }
 .kast-recepten .zacht { display: block; font-size: 13px; }
+.koop-lijst { list-style: none; margin: 4px 0 18px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.koop-item { margin: 0; padding: 12px 14px; border: 1px dashed var(--lijn); border-radius: var(--r); }
+.koop-item p { margin: 6px 0 0; }
+.koop-kop { display: flex; align-items: center; gap: 10px; }
+.koop-kop h4 { margin: 0; flex: 1; font-size: 18px; }
+.koop-nr { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--pen); color: var(--papier); font-weight: 700; font-size: 14px; }
+.koop-advies ul { columns: 1; }
 .kruiden-zoek { margin: 6px 0 10px; }
 .kruiden-zoek input { width: 100%; }
 .kruid-toon { margin: 4px 0 8px; }
