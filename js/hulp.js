@@ -60,9 +60,33 @@ const Hulp = (() => {
     return Math.round(x / 50) * 50;
   }
 
+  /* Indische namen met de Nederlandse naam erachter, in het recept en op het boodschappenlijstje:
+     "ketoembar (korianderzaad)". Op de potjes in de supermarkt staat vaak alleen de Nederlandse naam. */
+  const NL_NAAM = {
+    ketoembar: 'korianderzaad', djinten: 'komijnzaad', laos: 'galanga', salamblad: 'Indisch laurierblad',
+    'gula djawa': 'palmsuiker', djeroekbladeren: 'kaffirlimoenblad', asem: 'tamarinde', sereh: 'citroengras',
+    djahe: 'gember', koenjit: 'kurkuma', kentjoer: 'zedoarwortel', trassi: 'garnalenpasta'
+  };
+  /* Welk potje je koopt: gemalen of heel. Niet als de notitie (x) het al zegt. Waar het andere ook kan,
+     staat de omrekening in js/data/vervangers.js. */
+  const VORM = {
+    komijn: 'gemalen', djinten: 'gemalen', ketoembar: 'gemalen', kurkuma: 'gemalen', kaneel: 'gemalen', laos: 'gemalen',
+    komijnzaad: 'heel', korianderzaad: 'heel', karwijzaad: 'heel', mosterdzaad: 'heel', kruidnagel: 'heel',
+    steranijs: 'heel', jeneverbes: 'heel', kardemompeulen: 'heel', nootmuskaat: 'gemalen, of een hele noot die je raspt'
+  };
+  function metNlNaam(n, x = '', toon = n) {
+    const nl = NL_NAAM[norm(n)];
+    const vorm = /gemalen|heel|hele|rasp/.test(norm(x)) ? '' : VORM[norm(n)];
+    const uitleg = [vorm, nl].filter(Boolean).join(' ');
+    return uitleg ? `${toon} (${uitleg})` : toon;
+  }
+  // De Nederlandse naam ook in de uitleg bij een ingrediënt ("of 2 tl ketoembar + 1 tl djinten"), als er nog geen haakje achter staat.
+  const NL_WOORD = new RegExp(`\\b(${Object.keys(NL_NAAM).join('|')})\\b(?! \\()`, 'gi');
+  const metNlNamen = (tekst) => String(tekst).replace(NL_WOORD, (w) => NL_NAAM[norm(w)] ? `${w} (${NL_NAAM[norm(w)]})` : w);
+
   /* Geeft { aantal, eenheid, naam } voor een ingrediënt met een vermenigvuldigingsfactor. */
   function hoeveelheid(ingr, factor = 1) {
-    if (ingr.q == null) return { aantal: '', eenheid: '', naam: ingr.n, waarde: null };
+    if (ingr.q == null) return { aantal: '', eenheid: '', naam: metNlNaam(ingr.n, ingr.x), waarde: null };
     const def = EENHEDEN[ingr.u] || EENHEDEN.st;
     let waarde = ingr.q * factor;
     let aantal, eenheid = '', meervoud = false;
@@ -85,7 +109,7 @@ const Hulp = (() => {
       meervoud = Math.max(stap, Math.round(waarde / stap) * stap) >= 2;
       eenheid = ingr.u === 'st' ? '' : (meervoud ? def.m : def.e);
     }
-    const naam = (ingr.u === 'st' && meervoud && ingr.p) ? ingr.p : ingr.n;
+    const naam = metNlNaam(ingr.n, ingr.x, (ingr.u === 'st' && meervoud && ingr.p) ? ingr.p : ingr.n);
     const pak = verpakt(ingr, waarde);
     if (pak) return { ...pak, gram: `${aantal} ${eenheid}`, naam, waarde };
     return { aantal, eenheid, naam, waarde };
@@ -616,5 +640,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

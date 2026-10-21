@@ -348,7 +348,7 @@ const Detail = (() => {
       }
       const mixNaam = uitMix.get(i.n);
       const h = Hulp.hoeveelheid(i, factor);
-      const extra = i.x || (i.q == null ? 'naar smaak' : '');
+      const extra = i.x ? Hulp.metNlNamen(i.x) : (i.q == null ? 'naar smaak' : '');
       const ofTekst = mixNaam ? '' : Hulp.vervangerTekst(i, factor);
       return `<li class="ingr${i.opt ? ' is-opt' : ''}">
         <label>
@@ -390,7 +390,7 @@ const Detail = (() => {
   }
 
   /* Het alternatief uit de uitleg ("of 2 tl ketoembar + 1 tl djinten") in één tik op het lijstje, in plaats van het ingrediënt zelf. */
-  const altNamen = (alt) => alt.map((x) => x.n).join(', ').replace(/, ([^,]*)$/, ' en $1');
+  const altNamen = (alt) => alt.map((x) => Hulp.metNlNaam(x.n)).join(', ').replace(/, ([^,]*)$/, ' en $1');
   function ofKnop(i, idx) {
     const alt = Hulp.alternatief(i);
     if (!alt) return '';
@@ -506,7 +506,7 @@ const Detail = (() => {
     regels.push('', 'Ingrediënten');
     r.ingr.forEach((i) => {
       if (i.kop) return regels.push('', i.kop);
-      const extra = i.x || (i.q == null ? 'naar smaak' : '');
+      const extra = i.x ? Hulp.metNlNamen(i.x) : (i.q == null ? 'naar smaak' : '');
       const ofTekst = Hulp.vervangerTekst(i, factor);
       regels.push(`- ${Hulp.hoeveelheidTekst(i, factor)}${extra ? `, ${extra}` : ''}${ofTekst ? ` (${ofTekst})` : ''}${i.opt ? ' (optioneel)' : ''}`);
     });

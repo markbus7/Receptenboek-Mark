@@ -21,6 +21,11 @@ window.VERVANGERS = [
   { n: ['citroengras'], per: { stengel: 1 }, u: 'tl', wat: 'gemalen sereh', tenzij: ['gemalen', 'gedroogd'] },
   { n: ['djeroekbladeren'], tekst: 'gedroogde of diepvriesblaadjes werken ook, evenveel' },
 
+  /* Hele specerijen: gemalen kan ook. Waar het heel moet blijven (kruidnagels die je eruit vist, een heldere
+     bouillon) staat er geen vervanger. */
+  { n: ['komijnzaad'], per: { tl: 1 }, u: 'tl', wat: 'gemalen komijn' },
+  { n: ['kaneelstokje'], per: { st: 0.5 }, u: 'tl', wat: 'gemalen kaneel' },
+
   /* Pepers */
   { n: ['rode peper', 'groene peper'], per: { st: 0.5 }, u: 'tl', wat: 'chilivlokken', tenzij: ['chili', 'sambal', 'cayenne', 'paprikapoeder'] },
   { n: ['jalapeño'], per: { st: 2 }, u: 'el', wat: 'jalapeño uit een pot', tenzij: ['pot'] },

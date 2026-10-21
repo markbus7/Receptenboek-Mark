@@ -39,7 +39,7 @@ RECEPTEN.push(
   id: 'saoto-soep', naam: 'Saoto soep', ook: ['saoto', 'soto ajam'],
   keuken: 'Surinaams', soort: 'Soep',
   tijd: 40, wacht: '1 uur trekken', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 2,
-  intro: 'Heldere, geurige kippensoep met laos, sereh en djahé, die via Java in Suriname terechtkwam. Aan tafel maak je je eigen kom af met taugé, ei, gebakken uitjes en knapperige aardappelstengels.',
+  intro: 'Heldere, geurige kippensoep met laos (galanga), sereh (citroengras) en djahé (gember), die via Java in Suriname terechtkwam. Aan tafel maak je je eigen kom af met taugé, ei, gebakken uitjes en knapperige aardappelstengels.',
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of soeppan (minimaal 4 liter) met deksel' },
     { tool: 'kookpan', tekst: 'Kookpan voor de eieren en de vermicelli' }
@@ -51,8 +51,8 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 4, u: 'teen', x: 'fijngehakt' },
     { n: 'gember', q: 30, u: 'g', x: 'djahé, in plakjes' },
-    { n: 'laos', q: 1, u: 'tl', x: 'gemalen, of 3 cm vers in plakjes' },
-    { n: 'ketoembar', q: 1, u: 'tl', x: 'gemalen koriander' },
+    { n: 'laos', q: 1, u: 'tl', x: 'of 3 cm vers in plakjes' },
+    { n: 'ketoembar', q: 1, u: 'tl' },
     { n: 'citroengras', q: 2, u: 'stengel', x: 'sereh, gekneusd' },
     { n: 'salamblad', q: 2, u: 'st', x: 'of laurier', opt: true },
     { n: 'zonnebloemolie', q: 2, u: 'el' },
@@ -143,7 +143,7 @@ RECEPTEN.push(
     { n: 'bloem', q: 300, u: 'g' },
     { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
     { n: 'kerriepoeder', q: 1, u: 'tl', x: 'of Surinaamse masala' },
-    { n: 'komijn', q: 1, u: 'tl', x: 'djeera, gemalen' },
+    { n: 'komijn', q: 1, u: 'tl', x: 'djeera' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
     { n: 'suiker', q: 1, u: 'tl' },
     { n: 'zout', q: 1, u: 'tl' },
