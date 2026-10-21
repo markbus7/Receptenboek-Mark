@@ -514,7 +514,7 @@ RECEPTEN.push(
     { n: 'boter', q: 30, u: 'g' },
     { n: 'zout' }, { n: 'peper' },
     { kop: 'Extra voor de snelle jus' },
-    { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'of 1 sjalot, fijngesnipperd' },
+    { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'fijngesnipperd' },
     { n: 'ketjap manis', q: 1, u: 'el', x: 'of 2 tl sojasaus' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 1, u: 'st', opt: true }
   ],

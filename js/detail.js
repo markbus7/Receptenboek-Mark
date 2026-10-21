@@ -347,14 +347,15 @@ const Detail = (() => {
         return `<li class="ingr ingr-is-mix"><label><input type="checkbox"><span class="hv">± ${m.gram} g</span><span class="ingr-naam">${Hulp.esc(m.mix.naam.toLowerCase())} <em>(diepvries)</em><span class="ingr-x">in plaats van ${Hulp.esc(m.gedekt.map((x) => x.n).join(', '))}</span></span></label></li>`;
       }
       const mixNaam = uitMix.get(i.n);
-      const h = Hulp.hoeveelheid(i, factor);
+      const ui = Hulp.uiAdvies(r, i, factor);
+      const h = Hulp.hoeveelheid(ui ? ui.ingr : i, factor);
       const extra = i.x ? Hulp.metNlNamen(i.x) : (i.q == null ? 'naar smaak' : '');
       const ofTekst = mixNaam ? '' : Hulp.vervangerTekst(i, factor);
       return `<li class="ingr${i.opt ? ' is-opt' : ''}">
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
+          <span class="ingr-naam">${Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
         </label>
         ${Boodschappen.isWater(i) ? '' : lijstKnop(i, idx)}
         ${mixNaam ? '' : ofKnop(i, idx)}
@@ -382,6 +383,9 @@ const Detail = (() => {
     ...vries.items.flatMap((x) => [`<b class="vries-kop">${Hulp.esc(x.titel.charAt(0).toUpperCase() + x.titel.slice(1))} uit de vriezer</b>`, ...x.regels]),
     ...vries.algemeen
   ];
+
+  /* Welke ui: waarom deze, en wat ook goed werkt (js/data/uien.js). */
+  const uiRegel = (ui) => `<span class="ingr-x ingr-ui"><b>Waarom ${Hulp.esc(ui.beste)}?</b> ${Hulp.esc(ui.waarom)}.${ui.ook ? ` Ook goed: ${Hulp.esc(ui.ook)}.` : ''}</span>`;
 
   /* Losse knop per ingrediënt: alleen dit ingrediënt op het boodschappenlijstje. */
   function lijstKnop(i, idx) {
@@ -424,7 +428,7 @@ const Detail = (() => {
   /* Wat kost het? Geschatte prijs per supermarkt als kassabonnetje, voor het aantal personen dat je nu kookt. */
   function renderPrijs() {
     const el = blad.querySelector('#d-prijs');
-    const uitkomst = Prijzen.actief && Prijzen.lijst(r.ingr.filter((i) => !i.kop && !i.opt).map((i) => ({ i, factor })));
+    const uitkomst = Prijzen.actief && Prijzen.lijst(r.ingr.filter((i) => !i.kop && !i.opt).map((i) => ({ i: Hulp.metUi(r, i, factor), factor })));
     el.hidden = !uitkomst;
     if (el.hidden) { el.innerHTML = ''; return; }
     const { winkels, regels, zonder } = uitkomst;
@@ -508,7 +512,8 @@ const Detail = (() => {
       if (i.kop) return regels.push('', i.kop);
       const extra = i.x ? Hulp.metNlNamen(i.x) : (i.q == null ? 'naar smaak' : '');
       const ofTekst = Hulp.vervangerTekst(i, factor);
-      regels.push(`- ${Hulp.hoeveelheidTekst(i, factor)}${extra ? `, ${extra}` : ''}${ofTekst ? ` (${ofTekst})` : ''}${i.opt ? ' (optioneel)' : ''}`);
+      const ui = Hulp.uiAdvies(r, i, factor);
+      regels.push(`- ${Hulp.hoeveelheidTekst(ui ? ui.ingr : i, factor)}${extra ? `, ${extra}` : ''}${ofTekst ? ` (${ofTekst})` : ''}${ui && ui.ook ? ` (ook goed: ${ui.ook})` : ''}${i.opt ? ' (optioneel)' : ''}`);
     });
     regels.push('', 'Bereiding');
     r.stappen.filter((s) => !s.m || s.m === methode).forEach((s, n) => regels.push(`${n + 1}. ${s.t}`));
@@ -674,7 +679,7 @@ const Detail = (() => {
     const mand = t.closest('[data-mand]');
     if (mand) {
       const i = r.ingr[+mand.dataset.mand];
-      const wat = i.q == null ? i.n : Hulp.hoeveelheidTekst(i, factor);
+      const wat = i.q == null ? i.n : Hulp.hoeveelheidTekst(Hulp.metUi(r, i, factor), factor);
       const Wat = wat.charAt(0).toUpperCase() + wat.slice(1);
       if (Boodschappen.staatErop(r, i)) return App.toast(`${Wat} staat al op je boodschappenlijst`);
       Boodschappen.voegEenToe(r, i, factor);

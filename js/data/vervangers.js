@@ -36,7 +36,6 @@ window.VERVANGERS = [
 
   /* Groente */
   { n: ['spinazie'], per: { g: 0.6 }, u: 'g', wat: 'diepvries bladspinazie', tenzij: ['diepvries', 'savooiekool'] },
-  { n: ['sjalot'], per: { st: 0.5 }, u: 'st', wat: 'ui', mv: 'uien' },
 
   /* Verse kruiden: gedroogd is sterker, dus minder. Werkt goed in alles wat meekookt;
      over een gerecht strooien kan ook, maar vers is daar mooier. 10 g vers (een handje) is ± 1½ tl gedroogd. */

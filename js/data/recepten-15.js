@@ -39,7 +39,7 @@ RECEPTEN.push(
     { n: 'tomaat', q: 1, u: 'kg', x: 'heel rijp, bijvoorbeeld trostomaten', vers: 'gaat rauw de blender in' },
     { n: 'komkommer', p: 'komkommers', q: 0.5, u: 'st', x: 'geschild' },
     { n: 'groene paprika', p: 'groene paprika\'s', q: 1, u: 'st', x: 'of een rode, voor een zoetere soep' },
-    { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'klein, of 1 sjalot' },
+    { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'klein' },
     { n: 'knoflook', q: 1, u: 'teen' },
     { n: 'brood', q: 2, u: 'plak', x: 'oudbakken wit brood zonder korst' },
     { n: 'olijfolie', q: 75, u: 'ml', x: 'extra vierge, plus wat om te besprenkelen' },

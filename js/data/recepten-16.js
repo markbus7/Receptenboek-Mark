@@ -10,7 +10,7 @@ RECEPTEN.push(
     { n: 'pindakaas', q: 200, u: 'g', x: 'liefst 100% pinda, met of zonder stukjes' },
     { n: 'kokosmelk', q: 200, u: 'ml', x: 'of water' },
     { n: 'water', q: 100, u: 'ml', x: 'om de saus op dikte te brengen' },
-    { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'heel fijn gesnipperd, of 1 sjalot' },
+    { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'heel fijn gesnipperd' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
     { n: 'ketjap manis', q: 2, u: 'el' },
     { n: 'sambal oelek', q: 1, u: 'tl', x: 'meer of minder naar smaak' },

@@ -157,6 +157,23 @@ for (const v of ctx.VERVANGERS) {
   if (!v.tekst && !(v.per && v.wat && ctx.EENHEDEN[v.u] && Object.keys(v.per).every((u) => ctx.EENHEDEN[u]))) fouten.push({ f: 'vervangers.js', id: v.n[0], m: 'tekst, of per, u en wat met bekende eenheden, zijn nodig' });
 }
 
+// Welke ui: elk recept met gewoon "ui" krijgt een advies, en elk advies hoort bij een bestaand recept en ingrediënt.
+vm.runInContext(fs.readFileSync(path.join(map, 'uien.js'), 'utf8'), ctx, { filename: 'uien.js' });
+const UIEN = ctx.UIEN;
+for (const [id, perNaam] of Object.entries(UIEN.recepten)) {
+  const r = ctx.RECEPTEN.find((x) => x.id === id);
+  if (!r) { fouten.push({ f: 'uien.js', id, m: 'onbekend recept' }); continue; }
+  for (const [n, a] of Object.entries(perNaam)) {
+    if (!r.ingr.some((i) => i.n === n)) fouten.push({ f: 'uien.js', id, m: `"${n}" staat niet in de ingrediënten` });
+    if (!Array.isArray(a) || a.length < 2 || !a.every((x) => typeof x === 'string' && x)) fouten.push({ f: 'uien.js', id, m: `"${n}": ['beste ui', 'waarom', 'ook goed', ...] verwacht` });
+    else if (a[0] !== n && !UIEN.soorten[a[0]]) fouten.push({ f: 'uien.js', id, m: `"${a[0]}" staat niet in soorten` });
+  }
+}
+for (const r of ctx.RECEPTEN) {
+  const advies = UIEN.recepten[r.id] || UIEN.recepten[r.variantVan] || {};
+  if (r.ingr.some((i) => i.n === 'ui') && !advies.ui) fouten.push({ f: herkomst.get(r.id), id: r.id, m: 'welke ui past het best? Zet het advies in js/data/uien.js' });
+}
+
 const toon = fouten.filter((x) => !alleen.length || alleen.includes(x.f));
 toon.forEach((x) => console.log(`${x.f} · ${x.id}: ${x.m}`));
 const telling = {};
