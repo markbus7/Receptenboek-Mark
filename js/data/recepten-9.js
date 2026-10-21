@@ -83,7 +83,7 @@ RECEPTEN.push(
     { n: 'verse tijm', q: 4, u: 'takje' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 2, u: 'st' },
     { n: 'kastanjechampignons', q: 250, u: 'g', x: 'in vieren' },
-    { n: 'zilveruitjes', q: 200, u: 'g', x: 'gepeld, of kleine sjalotjes' },
+    { n: 'zilveruitjes', q: 200, u: 'g', x: 'gepeld' },
     { n: 'boter', q: 30, u: 'g' },
     { n: 'verse peterselie', q: 10, u: 'g' }
   ],

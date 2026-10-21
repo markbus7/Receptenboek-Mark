@@ -10,6 +10,8 @@ const Prijzen = (() => {
   const STUKS = ['st', 'teen', 'bos', 'takje', 'stengel', 'zakje', 'vel', 'bol', 'blokje'];
   /* Hier zoeken we geen prijs voor (zie tools/prijzen-ophalen.js), en we noemen ze ook niet als "zonder prijs". */
   const BASIS = ['zout', 'peper', 'zwarte peper', 'water', 'lauw water'];
+  /* Namen uit het ui-advies (js/data/uien.js) die in de prijzen anders heten: een gewone ui is een gele ui. */
+  const ZELFDE = { 'gele ui': 'ui', 'witte ui': 'ui' };
 
   /* Zelfde sleutel als tools/prijzen-ophalen.js: kleine letters, zonder accenten en leestekens. */
   const sleutel = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -52,7 +54,7 @@ const Prijzen = (() => {
      verpakkingen het minst afrekent; dat kan een andere zijn dan beste (kleinere verpakking). */
   function regel(i, factor = 1) {
     if (!P || i.kop || i.q == null || !i.n) return null;
-    const p = P.p[sleutel(i.n)];
+    const p = P.p[sleutel(i.n)] || P.p[ZELFDE[sleutel(i.n)]];
     if (!p) return null;
     const hv = hoeveelheid(p, i.q * factor, i.u || 'st');
     if (hv == null || !(hv > 0)) return null;

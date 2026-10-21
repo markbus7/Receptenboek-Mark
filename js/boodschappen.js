@@ -34,6 +34,9 @@ const Boodschappen = (() => {
   const isWater = (i) => /^(lauw )?water$/.test(Hulp.norm(i.n));
 
   function voegIngrToe(recept, i, factor) {
+    // Gewoon "ui" in het recept: de ui die er het best bij past gaat op het lijstje (js/data/uien.js).
+    const ui = Hulp.uiAdvies(recept, i, factor);
+    if (ui) i = ui.ingr;
     // Zonder hoeveelheid (zout, peper naar smaak) gaat het als los item mee, met het recept erbij.
     if (i.q == null) {
       const k = 'smaak-' + Hulp.norm(i.n);
@@ -59,11 +62,13 @@ const Boodschappen = (() => {
       if (i.vers) bestaand.vers = true;
       if (typeof i.of === 'string' && !bestaand.of) bestaand.of = i.of;
       if (ofPer && !bestaand.ofPer) bestaand.ofPer = ofPer;
+      if (ui && ui.ook && !bestaand.ui) bestaand.ui = ui.ook;
     } else {
       const nieuw = { k, n: i.n, p: i.p, q, u, x: i.x, recepten: [recept.naam], klaar: false };
       if (i.vers) nieuw.vers = true;
       if (typeof i.of === 'string') nieuw.of = i.of;
       if (ofPer) nieuw.ofPer = ofPer;
+      if (ui && ui.ook) nieuw.ui = ui.ook;
       items.push(nieuw);
     }
   }
@@ -88,6 +93,7 @@ const Boodschappen = (() => {
 
   /* Het alternatief in plaats van het ingrediënt: wat er van dit recept al op de lijst stond, gaat eraf. */
   function vervang(recept, i, alt, factor) {
+    i = Hulp.metUi(recept, i, factor);
     const { q, u } = basis(i, factor);
     const bestaand = items.find((x) => !x.klaar && !x.eigen && x.k === Hulp.norm(i.n) + '|' + u && x.recepten.includes(recept.naam));
     if (bestaand) {
@@ -100,7 +106,7 @@ const Boodschappen = (() => {
 
   /* Staat dit ingrediënt al op de lijst (nog niet afgevinkt) voor dit recept? */
   function staatErop(recept, i) {
-    const naam = Hulp.norm(i.n);
+    const naam = Hulp.norm(Hulp.metUi(recept, i).n);
     return items.some((x) => !x.klaar && x.recepten.includes(recept.naam)
       && (x.k === 'smaak-' + naam || x.k.split('|')[0] === naam && !x.eigen));
   }
@@ -165,6 +171,7 @@ const Boodschappen = (() => {
             <span class="item-tekst">${Hulp.esc(tekstVan(it))}</span>
             ${it.x ? `<span class="item-x">${Hulp.esc(it.x)}</span>` : ''}
             ${ofVan(it) ? `<span class="item-x item-of">${Hulp.esc(ofVan(it))}</span>` : ''}
+            ${it.ui ? `<span class="item-x item-of">ook goed: ${Hulp.esc(it.ui)}</span>` : ''}
             ${!it.klaar && prijsVan(it) ? `<span class="item-x item-prijs">${Hulp.esc(prijsVan(it))}</span>` : ''}
           </span>
         </label>
@@ -180,7 +187,7 @@ const Boodschappen = (() => {
   function verwijder(k) { items = items.filter((x) => x.k !== k); bewaar(); }
   function wisAfgevinkt() { items = items.filter((x) => !x.klaar); bewaar(); }
   function wisAlles() { items = []; bewaar(); }
-  const alsTekst = () => items.filter((x) => !x.klaar).map((x) => '- ' + tekstVan(x) + (x.x ? ` (${x.x})` : '') + (ofVan(x) ? ` (${ofVan(x)})` : '')).join('\n');
+  const alsTekst = () => items.filter((x) => !x.klaar).map((x) => '- ' + tekstVan(x) + (x.x ? ` (${x.x})` : '') + (ofVan(x) ? ` (${ofVan(x)})` : '') + (x.ui ? ` (ook goed: ${x.ui})` : '')).join('\n');
   const aantalOpen = () => items.filter((x) => !x.klaar).length;
   /* Opnieuw inlezen, bijvoorbeeld nadat een ander apparaat de lijst heeft gewijzigd. */
   const herlaad = () => { items = vulAlternatievenAan(Hulp.opslag.lees('boodschappen', [])); };

@@ -84,6 +84,28 @@ const Hulp = (() => {
   const NL_WOORD = new RegExp(`\\b(${Object.keys(NL_NAAM).join('|')})\\b(?! \\()`, 'gi');
   const metNlNamen = (tekst) => String(tekst).replace(NL_WOORD, (w) => NL_NAAM[norm(w)] ? `${w} (${NL_NAAM[norm(w)]})` : w);
 
+  /* Welke ui (js/data/uien.js): { ingr, beste, waarom, ook } of null. ingr is het ingrediënt met de beste ui erin
+     ("1 gele ui", of 3 sjalotten voor 1 ui); ook is wat ook goed werkt, met de hoeveelheid erbij als die te ruilen is. */
+  function uiAdvies(recept, i, factor = 1) {
+    const U = window.UIEN;
+    if (!U || !recept || i.kop || !i.n) return null;
+    const n = norm(i.n);
+    const advies = (U.recepten[recept.id] || {})[n] || (U.recepten[recept.variantVan] || {})[n] || U.standaard[n];
+    if (!advies) return null;
+    const [beste, waarom, ...ook] = advies;
+    const soort = (s) => U.soorten[s];
+    // Hoeveel van soort s je nodig hebt; sjalotten in hele stuks.
+    const ruilbaar = i.q != null && (i.u || 'st') === 'st' && soort(n);
+    const aantal = (s) => {
+      const x = i.q * factor * soort(s).perUi / soort(n).perUi;
+      return soort(s).perUi === 1 ? x : Math.max(1, Math.round(x));
+    };
+    const ingr = beste === n ? i : { ...i, n: beste, p: soort(beste) && soort(beste).p, q: ruilbaar && soort(beste) ? aantal(beste) / factor : i.q };
+    const ookTekst = ook.map((s) => ruilbaar && soort(s) ? hoeveelheidTekst({ n: s, p: soort(s).p, q: aantal(s), u: 'st' }) : s);
+    return { ingr, beste, waarom, ook: ookTekst.join(', ').replace(/, ([^,]*)$/, ' of $1') };
+  }
+  const metUi = (recept, i, factor) => { const u = uiAdvies(recept, i, factor); return u ? u.ingr : i; };
+
   /* Geeft { aantal, eenheid, naam } voor een ingrediënt met een vermenigvuldigingsfactor. */
   function hoeveelheid(ingr, factor = 1) {
     if (ingr.q == null) return { aantal: '', eenheid: '', naam: metNlNaam(ingr.n, ingr.x), waarde: null };
@@ -640,5 +662,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uiAdvies, metUi, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();
