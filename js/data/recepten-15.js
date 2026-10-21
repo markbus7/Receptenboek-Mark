@@ -262,7 +262,7 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 1, u: 'el' },
     { n: 'runderbouillon', q: 1.5, u: 'l', x: 'of water met 1 bouillonblokje' },
     { n: 'laurierblad', p: 'laurierbladeren', q: 1, u: 'st' },
-    { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'in blokjes van 1,5 cm' },
+    { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'geschild, in blokjes van 1,5 cm' },
     { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in plakjes' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in blokjes' },
     { n: 'tomaat', p: 'tomaten', q: 1, u: 'st', x: 'in blokjes', of: { q: 100, u: 'g', n: 'tomatenblokjes uit blik' } },

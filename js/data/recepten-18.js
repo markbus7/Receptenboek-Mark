@@ -196,7 +196,7 @@ RECEPTEN.push(
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st', x: 'of 1 chipotle in adobo voor een rokerige smaak' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },
-    { n: 'vastkokende aardappelen', q: 300, u: 'g', x: 'in blokjes van 1 cm' },
+    { n: 'vastkokende aardappelen', q: 300, u: 'g', x: 'geschild, in blokjes van 1 cm' },
     { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in blokjes van 1 cm' },
     { n: 'doperwten', q: 100, u: 'g', x: 'diepvries, of courgette in blokjes', opt: true },
     { n: 'runderbouillon', q: 250, u: 'ml', x: 'of kippenbouillon' },

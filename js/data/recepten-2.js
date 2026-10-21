@@ -47,7 +47,7 @@ RECEPTEN.push(
     { n: 'knolselderij', q: 300, u: 'g', x: 'in blokjes' },
     { n: 'prei', p: 'preien', q: 1, u: 'st', x: 'in ringen' },
     { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in blokjes' },
-    { n: 'aardappel', p: 'aardappelen', q: 2, u: 'st', x: 'kruimig, in blokjes' },
+    { n: 'aardappel', p: 'aardappelen', q: 2, u: 'st', x: 'kruimig, geschild, in blokjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'bouillonblokje', p: 'bouillonblokjes', q: 1, u: 'st' },
     { n: 'verse selderij', q: 30, u: 'g', x: 'blad, fijngesneden' }

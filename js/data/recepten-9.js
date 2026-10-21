@@ -120,7 +120,7 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'runderbouillon', q: 500, u: 'ml' },
-    { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'in blokjes' },
+    { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'geschild, in blokjes' },
     { n: 'zure room', q: 125, u: 'ml', x: 'om te serveren' },
     { n: 'zonnebloemolie', q: 3, u: 'el' }
   ],

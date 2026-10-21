@@ -60,7 +60,7 @@ RECEPTEN.push(
     { n: 'prei', p: 'preien', q: 2, u: 'st', x: 'het wit en lichtgroen in dunne reepjes' },
     { n: 'wortel', p: 'wortels', q: 3, u: 'st', x: 'in luciferdunne reepjes' },
     { n: 'bleekselderij', q: 3, u: 'stengel', x: 'in dunne reepjes' },
-    { n: 'vastkokende aardappelen', q: 600, u: 'g', x: 'in blokjes van 1½ cm' },
+    { n: 'vastkokende aardappelen', q: 600, u: 'g', x: 'geschild, in blokjes van 1½ cm' },
     { kop: 'Binding' },
     { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom' },
     { n: 'eidooier', p: 'eidooiers', q: 2, u: 'st' },
@@ -98,7 +98,7 @@ RECEPTEN.push(
     { n: 'prei', p: 'preien', q: 2, u: 'st', x: 'het wit en lichtgroen in dunne reepjes' },
     { n: 'wortel', p: 'wortels', q: 3, u: 'st', x: 'in luciferdunne reepjes' },
     { n: 'bleekselderij', q: 3, u: 'stengel', x: 'in dunne reepjes' },
-    { n: 'vastkokende aardappelen', q: 600, u: 'g', x: 'in blokjes van 1½ cm' },
+    { n: 'vastkokende aardappelen', q: 600, u: 'g', x: 'geschild, in blokjes van 1½ cm' },
     { kop: 'Binding' },
     { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom' },
     { n: 'eidooier', p: 'eidooiers', q: 2, u: 'st' },
@@ -178,7 +178,7 @@ RECEPTEN.push(
     { tool: 'koekenpan', tekst: 'Koekenpan van 28 cm voor de prei en de worst' }
   ],
   ingr: [
-    { n: 'kruimige aardappelen', q: 1000, u: 'g', x: 'in gelijke stukken' },
+    { n: 'kruimige aardappelen', q: 1000, u: 'g', x: 'geschild, in gelijke stukken' },
     { n: 'wortel', p: 'wortels', q: 4, u: 'st', x: 'ca. 400 g, in plakjes' },
     { n: 'prei', p: 'preien', q: 2, u: 'st', x: 'in ringen' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
@@ -259,7 +259,7 @@ RECEPTEN.push(
     { n: 'knoflook', q: 1, u: 'teen', x: 'gekneusd', opt: true, vers: 'gaat heel mee in de boter' },
     { n: 'verse tijm', q: 2, u: 'takje', opt: true },
     { kop: 'Friet' },
-    { n: 'kruimige aardappelen', q: 1000, u: 'g', x: 'bijv. bintje of frietaardappelen' },
+    { n: 'kruimige aardappelen', q: 1000, u: 'g', x: 'bijv. bintje of frietaardappelen; schillen mag, hoeft niet' },
     { n: 'zonnebloemolie', q: 4, u: 'el', x: '3 el voor de friet, 1 el voor de steak' },
     { kop: 'Sla' },
     { n: 'kropsla', q: 1, u: 'st', x: 'of een zak gemengde sla' },
@@ -516,7 +516,7 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'Steelpan voor de bouillon' }
   ],
   ingr: [
-    { n: 'vastkokende aardappelen', q: 800, u: 'g', x: 'liefst kleine, bijv. nicola of opperdoezer' },
+    { n: 'vastkokende aardappelen', q: 800, u: 'g', x: 'ongeschild (je pelt ze na het koken), liefst kleine, bijv. nicola of opperdoezer' },
     { n: 'groentebouillon', q: 200, u: 'ml', x: 'of runderbouillon, zoals in Zwaben' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'heel fijn gesnipperd' },
     { n: 'azijn', q: 4, u: 'el', x: 'witte wijnazijn of appelazijn' },

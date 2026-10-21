@@ -357,7 +357,7 @@ RECEPTEN.push(
     { n: 'bleekselderij', q: 2, u: 'stengel', x: 'in kleine blokjes' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
-    { n: 'vastkokende aardappelen', q: 250, u: 'g', x: 'in blokjes van 1 cm' },
+    { n: 'vastkokende aardappelen', q: 250, u: 'g', x: 'geschild, in blokjes van 1 cm' },
     { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'groentebouillon', q: 1.5, u: 'l' },
     { n: 'courgette', p: 'courgettes', q: 1, u: 'st', x: 'in blokjes' },

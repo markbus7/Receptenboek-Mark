@@ -328,7 +328,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'bloemkool', p: 'bloemkolen', q: 1, u: 'st', x: 'in kleine roosjes' },
-    { n: 'vastkokende aardappelen', q: 500, u: 'g', x: 'in blokjes van 2 cm' },
+    { n: 'vastkokende aardappelen', q: 500, u: 'g', x: 'geschild, in blokjes van 2 cm' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes', of: { q: 200, u: 'g', n: 'tomatenblokjes uit blik' } },
     { n: 'knoflook', q: 3, u: 'teen' },

@@ -143,7 +143,7 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'Steelpan voor de bravassaus' }
   ],
   ingr: [
-    { n: 'vastkokende aardappelen', q: 800, u: 'g', x: 'in blokjes van 2 cm' },
+    { n: 'vastkokende aardappelen', q: 800, u: 'g', x: 'geschild, in blokjes van 2 cm' },
     { n: 'olijfolie', q: 3, u: 'el' },
     { kop: 'Bravassaus' },
     { n: 'tomatenblokjes', q: 200, u: 'g' },
