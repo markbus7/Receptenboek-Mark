@@ -230,6 +230,21 @@ const Hulp = (() => {
       .filter((d) => d.gedekt.length || d.aanrader);
   }
 
+  /* Alle mixen die in dit recept groente vervangen, van de mix die het meest vervangt naar het minst.
+     Bij gelijkspel eerst de mixen die er echt bij passen (aanraders), dan de mix die de meeste grammen vervangt.
+     Een mix die alleen de ui vervangt telt niet mee: die snij je net zo snel zelf. */
+  const ALLEEN_UI = ['ui', 'uien', 'rode ui', 'sjalot', 'sjalotten'];
+  function mixRanglijst(recept, factor = 1) {
+    const lijst = (window.GROENTEMIXEN || []).map((mix) => {
+      const d = mixDekking(recept, mix, factor);
+      return { mix, ...d, gewicht: d.gedekt.reduce((som, i) => som + gram(i), 0) };
+    }).filter((d) => d.aanrader || d.gedekt.some((i) => !ALLEEN_UI.includes(norm(i.n))));
+    const groenten = [...new Set(lijst.flatMap((d) => d.gedekt.map((i) => i.n)))];
+    lijst.forEach((d) => { d.mist = groenten.filter((n) => !d.gedekt.some((i) => i.n === n)); });
+    lijst.sort((a, b) => (b.gedekt.length - a.gedekt.length) || (b.aanrader - a.aanrader) || (b.gewicht - a.gewicht));
+    return { groenten, lijst };
+  }
+
   /* Unieke, echte ingrediënten van een recept (zonder kopjes en dubbelingen). */
   function ingrediënten(recept) {
     const gezien = new Set();
@@ -567,5 +582,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();
