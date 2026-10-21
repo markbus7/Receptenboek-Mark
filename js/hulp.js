@@ -67,14 +67,26 @@ const Hulp = (() => {
     'gula djawa': 'palmsuiker', djeroekbladeren: 'kaffirlimoenblad', asem: 'tamarinde', sereh: 'citroengras',
     djahe: 'gember', koenjit: 'kurkuma', kentjoer: 'zedoarwortel', trassi: 'garnalenpasta'
   };
-  const metNlNaam = (n) => NL_NAAM[norm(n)] ? `${n} (${NL_NAAM[norm(n)]})` : n;
-  // Hetzelfde in de uitleg bij een ingrediënt ("of 2 tl ketoembar + 1 tl djinten"), als er nog geen haakje achter staat.
+  /* Welk potje je koopt: gemalen of heel. Niet als de notitie (x) het al zegt. Waar het andere ook kan,
+     staat de omrekening in js/data/vervangers.js. */
+  const VORM = {
+    komijn: 'gemalen', djinten: 'gemalen', ketoembar: 'gemalen', kurkuma: 'gemalen', kaneel: 'gemalen', laos: 'gemalen',
+    komijnzaad: 'heel', korianderzaad: 'heel', karwijzaad: 'heel', mosterdzaad: 'heel', kruidnagel: 'heel',
+    steranijs: 'heel', jeneverbes: 'heel', kardemompeulen: 'heel', nootmuskaat: 'gemalen, of een hele noot die je raspt'
+  };
+  function metNlNaam(n, x = '', toon = n) {
+    const nl = NL_NAAM[norm(n)];
+    const vorm = /gemalen|heel|hele|rasp/.test(norm(x)) ? '' : VORM[norm(n)];
+    const uitleg = [vorm, nl].filter(Boolean).join(' ');
+    return uitleg ? `${toon} (${uitleg})` : toon;
+  }
+  // De Nederlandse naam ook in de uitleg bij een ingrediënt ("of 2 tl ketoembar + 1 tl djinten"), als er nog geen haakje achter staat.
   const NL_WOORD = new RegExp(`\\b(${Object.keys(NL_NAAM).join('|')})\\b(?! \\()`, 'gi');
-  const metNlNamen = (tekst) => String(tekst).replace(NL_WOORD, (w) => metNlNaam(w));
+  const metNlNamen = (tekst) => String(tekst).replace(NL_WOORD, (w) => NL_NAAM[norm(w)] ? `${w} (${NL_NAAM[norm(w)]})` : w);
 
   /* Geeft { aantal, eenheid, naam } voor een ingrediënt met een vermenigvuldigingsfactor. */
   function hoeveelheid(ingr, factor = 1) {
-    if (ingr.q == null) return { aantal: '', eenheid: '', naam: metNlNaam(ingr.n), waarde: null };
+    if (ingr.q == null) return { aantal: '', eenheid: '', naam: metNlNaam(ingr.n, ingr.x), waarde: null };
     const def = EENHEDEN[ingr.u] || EENHEDEN.st;
     let waarde = ingr.q * factor;
     let aantal, eenheid = '', meervoud = false;
@@ -97,7 +109,7 @@ const Hulp = (() => {
       meervoud = Math.max(stap, Math.round(waarde / stap) * stap) >= 2;
       eenheid = ingr.u === 'st' ? '' : (meervoud ? def.m : def.e);
     }
-    const naam = metNlNaam((ingr.u === 'st' && meervoud && ingr.p) ? ingr.p : ingr.n);
+    const naam = metNlNaam(ingr.n, ingr.x, (ingr.u === 'st' && meervoud && ingr.p) ? ingr.p : ingr.n);
     const pak = verpakt(ingr, waarde);
     if (pak) return { ...pak, gram: `${aantal} ${eenheid}`, naam, waarde };
     return { aantal, eenheid, naam, waarde };
