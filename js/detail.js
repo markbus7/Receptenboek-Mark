@@ -295,12 +295,17 @@ const Detail = (() => {
     const uitVoorraad = (ctx.voorraad || []).filter(Hulp.isMix);
     const mixen = Hulp.mixenVoor(r, [...new Set([...uitVoorraad, ...[...gekozenMixen].map((id) => 'mix:' + id)])], factor);
     // Alle passende mixen op volgorde: de mix die de meeste groenten uit het recept vervangt staat bovenaan.
-    const { groenten, lijst: passend } = Hulp.mixRanglijst(r, factor);
+    const { groenten, lijst: passend, combi } = Hulp.mixRanglijst(r, factor);
     const en = (namen) => namen.join(', ').replace(/, ([^,]*)$/, ' en $1');
     const kiesEl = blad.querySelector('#d-mix-kies');
     kiesEl.hidden = !passend.length;
     kiesEl.innerHTML = passend.length ? `<p class="mix-kies-vraag">Heb je een groentemix uit de vriezer?</p>
       ${groenten.length ? `<p class="mix-rang-uitleg">Een mix kan hier ${groenten.length === 1 ? 'de' : groenten.length} ${groenten.length === 1 ? Hulp.esc(groenten[0]) : `groenten vervangen: ${Hulp.esc(en(groenten))}`}. Bovenaan staat de mix die er het meest van vervangt; tik een mix aan om hem te gebruiken.</p>` : ''}
+      ${combi ? (() => {
+        const aan = [combi.a, combi.b].every((m) => gekozenMixen.has(m.id) || uitVoorraad.includes('mix:' + m.id));
+        return `<p class="mix-combi"><b>Samen vervangen twee mixen meer:</b> ${Hulp.esc(combi.a.naam)} (±&nbsp;${combi.gramA}&nbsp;g) en ${Hulp.esc(combi.b.naam.toLowerCase())} (±&nbsp;${combi.gramB}&nbsp;g) vervangen ${combi.samen === groenten.length ? `alle ${groenten.length}` : `${combi.samen} van de ${groenten.length}`} groenten.${combi.mist.length ? ` Nog vers: ${Hulp.esc(en(combi.mist))}.` : ''}
+          <button type="button" class="chip chip-mix" data-kies-combi="${combi.a.id} ${combi.b.id}" aria-pressed="${aan}">Gebruik ze allebei</button></p>`;
+      })() : ''}
       <ol class="mix-rang">${passend.map(({ mix, gedekt, gram, erbij, mist }, nr) => {
       if (nr === 5 && passend.length > 6) return `</ol><details class="mix-rang-meer"${passend.slice(5).some((d) => gekozenMixen.has(d.mix.id)) ? ' open' : ''}><summary>Nog ${passend.length - 5} mixen die minder vervangen</summary><ol class="mix-rang" start="6">${rij({ mix, gedekt, gram, erbij, mist }, nr)}`;
       return rij({ mix, gedekt, gram, erbij, mist }, nr);
@@ -318,9 +323,10 @@ const Detail = (() => {
     }
     const mixEl = blad.querySelector('#d-mix');
     mixEl.hidden = !mixen.length;
-    mixEl.innerHTML = mixen.map(({ mix, gedekt, gram, erbij }) => `<p>${gedekt.length
-      ? `<b>Met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> die vervangt hier ${Hulp.esc(gedekt.map((i) => i.n).join(', '))}. Gebruik ± ${gram} g van je mix.`
-      : `<b>Lekker met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> voeg ± ${erbij} g toe.`} ${Hulp.esc(mix.bereiding)}</p>`).join('') +
+    mixEl.innerHTML = mixen.map(({ mix, gedekt, gram, erbij, dubbel }) => `<p>${gedekt.length
+      ? `<b>Met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> die vervangt hier ${Hulp.esc(gedekt.map((i) => i.n).join(', '))}${dubbel ? ` (${Hulp.esc(en(dubbel.map((i) => i.n)))} ${dubbel.length > 1 ? 'komen' : 'komt'} al uit je andere mix)` : ''}. Gebruik ± ${gram} g van je mix.`
+      : dubbel ? `<b>Je ${Hulp.esc(mix.naam.toLowerCase())}</b> is hier niet nodig: ${Hulp.esc(en(dubbel.map((i) => i.n)))} ${dubbel.length > 1 ? 'komen' : 'komt'} al uit je andere mix.`
+      : `<b>Lekker met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> voeg ± ${erbij} g toe.`}${dubbel && !gedekt.length ? '' : ' ' + Hulp.esc(mix.bereiding)}</p>`).join('') +
       (mixen.length ? `<p class="mix-vriezer"><b>Bevroren?</b> Niet ontdooien: dan wordt de groente slap en waterig. Gebruik hem recht uit de vriezer, zet het vuur een stand hoger en reken op 2 à 3 minuten extra bak- of kooktijd. Bevroren groente geeft vocht af: laat dat in de pan eerst verdampen voor je verder bakt, en doe hem bij een saus of soep er pas in als die al kookt. Weeg hem bevroren, zonder het ijs uit de zak.</p>` : '');
 
     renderVriezer();
@@ -640,6 +646,13 @@ const Detail = (() => {
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
     const bij = t.closest('[data-bij]');
     if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }
+    const combi = t.closest('[data-kies-combi]');
+    if (combi) {
+      const ids = combi.dataset.kiesCombi.split(' ');
+      if (combi.getAttribute('aria-pressed') === 'true') ids.forEach((id) => gekozenMixen.delete(id));
+      else ids.forEach((id) => gekozenMixen.add(id));
+      return renderIngr();
+    }
     const kies = t.closest('[data-kies-mix]');
     if (kies) { const id = kies.dataset.kiesMix; gekozenMixen.has(id) ? gekozenMixen.delete(id) : gekozenMixen.add(id); return renderIngr(); }
     const vk = t.closest('[data-kies-vries]');
