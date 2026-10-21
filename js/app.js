@@ -549,6 +549,86 @@ const App = (() => {
     </section>`;
   }
 
+  /* Wat koop ik het best? Per potje dat je nog niet hebt: hoeveel recepten er dan bij "Alles in je kast"
+     komen, en hoeveel er daarna nog maar één potje missen. Plus de beste twee samen. */
+  function koopAdvies(w, inKast) {
+    const cfg = KASTEN[w];
+    const perNaam = new Map();
+    cfg.lijst().forEach((k) => k.namen.forEach((n) => perNaam.set(Hulp.norm(n), k)));
+    const mistPer = [];
+    RECEPTEN.forEach((r) => {
+      const nodig = new Set();
+      (r.ingr || []).forEach((i) => {
+        if (!i.n || i.opt) return;
+        const n = Hulp.norm(i.n);
+        const k = perNaam.get(n);
+        if (k && cfg.telt(k, n)) nodig.add(k.id);
+      });
+      if (nodig.size < 2) return;
+      const mist = [...nodig].filter((id) => !inKast.has(id));
+      if (mist.length) mistPer.push({ r, mist });
+    });
+    const items = new Map(cfg.lijst().map((k) => [k.id, k]));
+    const per = new Map();
+    const voor = (id) => per.get(id) || per.set(id, { k: items.get(id), klaar: [], bijna: 0, totaal: 0 }).get(id);
+    mistPer.forEach(({ r, mist }) => mist.forEach((id) => {
+      const a = voor(id);
+      a.totaal++;
+      if (mist.length === 1) a.klaar.push(r);
+      else if (mist.length === 2) a.bijna++;
+    }));
+    const los = [...per.values()].filter((a) => a.klaar.length || a.bijna)
+      .sort((a, b) => (b.klaar.length - a.klaar.length) || (b.bijna - a.bijna) || (b.totaal - a.totaal) || a.k.naam.localeCompare(b.k.naam, 'nl'));
+    // Twee potjes samen: alleen interessant als ze samen meer opleveren dan elk apart.
+    const duo = new Map();
+    mistPer.filter(({ mist }) => mist.length === 2).forEach(({ r, mist }) => {
+      const sl = [...mist].sort().join('|');
+      (duo.get(sl) || duo.set(sl, []).get(sl)).push(r);
+    });
+    const duos = [...duo.entries()].map(([sl, samen]) => {
+      const [a, b] = sl.split('|').map((id) => voor(id));
+      return { a, b, samen, alles: a.klaar.length + b.klaar.length + samen.length };
+    }).sort((x, y) => (y.samen.length - x.samen.length) || (y.alles - x.alles)).slice(0, 3);
+    return { los: los.slice(0, 6), duos };
+  }
+  // Goedkoopste potje in de supermarkt, als er een prijs voor is.
+  function potjesPrijs(k) {
+    const p = window.PRIJZEN && PRIJZEN.p;
+    if (!p || typeof Prijzen === 'undefined' || !Prijzen.actief) return '';
+    const sleutel = (s) => Hulp.norm(s).replace(/[^a-z0-9]+/g, ' ').trim();
+    let beste = null;
+    k.namen.forEach((n) => Object.entries((p[sleutel(n)] || {}).w || {}).forEach(([id, [, pak, , , maat]]) => {
+      if (pak && (!beste || pak < beste.pak)) beste = { id, pak, maat };
+    }));
+    return beste ? `vanaf ${Prijzen.euro(beste.pak)} bij ${esc(Prijzen.winkelNaam(beste.id))}${beste.maat ? ` (${esc(beste.maat)})` : ''}` : '';
+  }
+  function renderKoopAdvies(w, inKast) {
+    const cfg = KASTEN[w];
+    const { los, duos } = koopAdvies(w, inKast);
+    const naam = (k) => esc(k.naam.replace(/ \(.*\)$/, ''));
+    const links = (rs) => rs.map((r) => `<a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>`).join(', ');
+    const keer = (n, een, meer) => `${n} ${n === 1 ? een : meer}`;
+    const kaart = ({ k, klaar, bijna }, nr) => {
+      const prijs = potjesPrijs(k);
+      return `<li class="koop-item">
+        <div class="koop-kop"><span class="koop-nr">${nr}</span><h4>${esc(k.naam)}</h4>
+          <button type="button" class="knop knop-klein" data-koop-lijst="${k.id}">Op mijn lijst</button></div>
+        <p>${klaar.length ? `Dan heb je alles voor <b>${keer(klaar.length, 'recept', 'recepten')} meer</b>: ${links(klaar)}.` : 'Maakt nog geen recept helemaal compleet.'}
+          ${bijna ? ` En ${keer(bijna, 'recept mist', 'recepten missen')} daarna nog maar één potje.` : ''}</p>
+        ${prijs ? `<p class="zacht">${prijs}</p>` : ''}
+        <p class="zacht"><a href="#${cfg.foto}${k.id}" data-kast-naar="${k.id}">Wat is ${naam(k)}?</a></p>
+      </li>`;
+    };
+    const duoRij = ({ a, b, samen, alles }) => `<li><b>${naam(a.k)} + ${naam(b.k)}</b>
+      <span class="zacht">samen ${keer(alles, 'recept', 'recepten')} compleet. Alleen met allebei: ${links(samen)}</span></li>`;
+    return `<section class="kast-recepten koop-advies">
+      <h3>Wat koop ik de volgende keer?</h3>
+      <p class="hint">Op volgorde van hoeveel recepten je ermee compleet maakt, met wat je nu in je kast hebt. Het telt recepten met minstens 2 ${cfg.woord}, net als Wat kan ik maken.${w === 'kruiden' ? ' Verse kruiden en pepers koop je er vers bij.' : ''}</p>
+      ${los.length ? `<ol class="koop-lijst">${los.map((a, i) => kaart(a, i + 1)).join('')}</ol>` : `<p>Je kast is al zo goed als compleet: er is geen ${w === 'kruiden' ? 'potje' : 'fles of potje'} dat nog een recept afmaakt.</p>`}
+      ${duos.length ? `<h3>Twee tegelijk</h3><p class="hint">Deze recepten missen er precies twee, dus die kun je het best samen kopen.</p><ul>${duos.map(duoRij).join('')}</ul>` : ''}
+    </section>`;
+  }
+
   function renderKast(w) {
     const cfg = KASTEN[w];
     const inKast = kast(w);
@@ -561,12 +641,13 @@ const App = (() => {
       const woorden = tekst.split(/[^a-z0-9]+/).filter(Boolean);
       return q.split(/\s+/).every((t) => tekst.includes(t) || (t.length >= 4 && woorden.some((x) => Hulp.lijktOp(t, x))));
     };
-    const lijst = cfg.lijst().filter((k) => (!soortNu || soortNu === 'maak' || (soortNu === 'kast' ? inKast.has(k.id) : k.soort === soortNu)) && zoekPast(k));
+    const lijst = cfg.lijst().filter((k) => (!soortNu || soortNu === 'maak' || soortNu === 'koop' || (soortNu === 'kast' ? inKast.has(k.id) : k.soort === soortNu)) && zoekPast(k));
     if (q) lijst.sort((a, b) => Number(!Hulp.norm(a.naam).includes(q)) - Number(!Hulp.norm(b.naam).includes(q)));
     const soortLabel = new Map(cfg.soorten);
-    const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['maak', 'Wat kan ik maken?'], ...cfg.soorten];
+    const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['maak', 'Wat kan ik maken?'], ['koop', 'Wat koop ik?'], ...cfg.soorten];
     $(`#${w}-filter`).innerHTML = soorten.map(([s, l]) => `<button type="button" class="chip" data-kastsoort="${s}" aria-pressed="${soortNu === s}">${l}</button>`).join('');
     if (soortNu === 'maak' && !q) { $(`#${w}-lijst`).innerHTML = renderKastRecepten(w, inKast); return; }
+    if (soortNu === 'koop' && !q) { $(`#${w}-lijst`).innerHTML = renderKoopAdvies(w, inKast); return; }
     if (!lijst.length) {
       $(`#${w}-lijst`).innerHTML = q ? `<p class="hint">Niets gevonden voor "${esc(q)}". Probeer een ander woord, zoals een gerecht of een smaak.</p>` : `<p class="hint">${cfg.leeg}</p>`;
       return;
@@ -934,6 +1015,19 @@ const App = (() => {
           const set = kast(w); kb.checked ? set.add(kb.dataset.kast) : set.delete(kb.dataset.kast);
           opslag.schrijf(KASTEN[w].opslag, [...set]);
           return soortIn[w] === 'kast' ? renderKast(w) : ($(`#${w}-filter [data-kastsoort="kast"]`).textContent = `In mijn kast (${set.size})`);
+        }
+        const kl = e.target.closest('[data-koop-lijst]');
+        if (kl) {
+          const k = kastItem(kl.dataset.koopLijst);
+          Boodschappen.voegEigenToe(k.naam.replace(/ \(.*\)$/, '') + (w === 'kruiden' ? ' (potje)' : ''));
+          renderLijst(); toast(`${k.naam.replace(/ \(.*\)$/, '')} staat op je boodschappenlijst`); return;
+        }
+        const kn = e.target.closest('[data-kast-naar]');
+        if (kn) {
+          e.preventDefault(); soortIn[w] = ''; $(`#${w}-zoek`).value = ''; renderKast(w);
+          const el = document.getElementById(KASTEN[w].foto + kn.dataset.kastNaar);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
         }
         const kf = e.target.closest('[data-kruid-filter]');
         if (kf) { state.kruid = kf.dataset.kruidFilter; zetView('alle'); return; }
