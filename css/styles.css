@@ -266,6 +266,20 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .mix-kies-vraag { margin: 0 0 6px; font-family: var(--font-hand); font-size: 20px; color: var(--pen); }
 .mix-kies-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .mix-kies .chip:disabled { opacity: .7; cursor: default; }
+.mix-rang-meer { margin-top: 8px; }
+.mix-rang-meer summary { cursor: pointer; font-size: 13px; color: var(--inkt-zacht); margin-bottom: 8px; }
+.mix-combi { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 0 0 12px; padding: 10px 12px; border: 1px dashed var(--lijn); border-radius: 10px; font-size: 13px; line-height: 1.4; color: var(--inkt); }
+.mix-combi b { font-weight: 700; }
+.mix-rang-uitleg { margin: -2px 0 8px; font-size: 13px; line-height: 1.4; }
+.mix-rang { display: grid; grid-template-columns: 22px max-content 1fr; align-items: start; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.mix-rang-item { display: contents; }
+.mix-rang-nr { padding-top: 7px; font-family: var(--font-hand); font-size: 18px; line-height: 1; color: var(--pen); text-align: right; }
+.mix-rang-item .chip { justify-self: start; }
+.mix-rang-tekst { display: flex; flex-direction: column; padding-top: 4px; font-size: 13px; line-height: 1.35; color: var(--inkt); }
+.mix-rang-tekst b { font-weight: 700; }
+.mix-rang-tekst small { font-size: 12px; color: var(--inkt-zacht); }
+.mix-rang-best { align-self: flex-start; margin-bottom: 2px; padding: 1px 7px; border-radius: 999px; background: var(--ok-zacht); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+@media (max-width: 520px) { .mix-rang { grid-template-columns: 22px 1fr; row-gap: 4px; } .mix-rang-tekst { grid-column: 2; padding: 0 0 6px; } }
 .mix-vriezer { font-size: 14px; color: var(--inkt-zacht); }
 .vries-notitie p:has(.vries-kop):not(:first-child) { margin-top: 6px; }
 .vries-notitie .vries-kop { font-family: var(--font-hand); font-weight: 700; font-size: 22px; color: var(--pen); }

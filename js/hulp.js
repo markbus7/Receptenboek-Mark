@@ -213,21 +213,70 @@ const Hulp = (() => {
     return 0;
   }
 
+  /* Gram mix voor deze groenten: afgerond op 50 g, minstens 100 g. */
+  function mixGram(gedekt, factor = 1) {
+    const totaal = gedekt.reduce((som, i) => som + gram(i), 0) * factor;
+    return totaal ? Math.max(100, Math.round(totaal / 50) * 50) : 0;
+  }
+
   /* Welke groenten uit een recept een mix vervangt, en ongeveer hoeveel gram mix je dan gebruikt. */
   function mixDekking(recept, mix, factor = 1) {
     const gedekt = ingrediënten(recept).filter((i) => !isBasis(i) && mix.bevat.some((t) => termPast(t, i)));
-    const totaal = gedekt.reduce((som, i) => som + gram(i), 0) * factor;
     const aanrader = (mix.aanraders || []).includes(recept.id);
     // Vervangt de mix niets maar past hij er wel bij? Dan ± 100 g per persoon erbij.
     const erbij = !gedekt.length && aanrader ? Math.round((recept.pers * factor * 100) / 50) * 50 : 0;
-    return { gedekt, aanrader, gram: totaal ? Math.max(100, Math.round(totaal / 50) * 50) : 0, erbij };
+    return { gedekt, aanrader, gram: mixGram(gedekt, factor), erbij };
   }
 
-  /* Mixen uit de voorraad die bij dit recept passen. */
+  /* Mixen uit de voorraad die bij dit recept passen. Gebruik je er meer, dan vervangt de mix die het meest
+     vervangt zijn groenten, en de volgende alleen wat er nog over is; `dubbel` is wat een andere mix al doet. */
   function mixenVoor(recept, voorraad, factor = 1) {
+    const gezien = new Set();
     return voorraad.filter(isMix).map(mixVan).filter(Boolean)
       .map((mix) => ({ mix, ...mixDekking(recept, mix, factor) }))
-      .filter((d) => d.gedekt.length || d.aanrader);
+      .filter((d) => d.gedekt.length || d.aanrader)
+      .sort((a, b) => b.gedekt.length - a.gedekt.length)
+      .map((d) => {
+        const gedekt = d.gedekt.filter((i) => !gezien.has(i.n));
+        gedekt.forEach((i) => gezien.add(i.n));
+        const dubbel = d.gedekt.filter((i) => !gedekt.includes(i));
+        return dubbel.length ? { ...d, gedekt, dubbel, gram: mixGram(gedekt, factor) } : d;
+      });
+  }
+
+  /* Alle mixen die in dit recept groente vervangen, van de mix die het meest vervangt naar het minst.
+     Bij gelijkspel eerst de mixen die er echt bij passen (aanraders), dan de mix die de meeste grammen vervangt.
+     Een mix die alleen de ui vervangt telt niet mee: die snij je net zo snel zelf. */
+  const ALLEEN_UI = ['ui', 'uien', 'rode ui', 'sjalot', 'sjalotten'];
+  function mixRanglijst(recept, factor = 1) {
+    const lijst = (window.GROENTEMIXEN || []).map((mix) => {
+      const d = mixDekking(recept, mix, factor);
+      return { mix, ...d, gewicht: d.gedekt.reduce((som, i) => som + gram(i), 0) };
+    }).filter((d) => d.aanrader || d.gedekt.some((i) => !ALLEEN_UI.includes(norm(i.n))));
+    const groenten = [...new Set(lijst.flatMap((d) => d.gedekt.map((i) => i.n)))];
+    lijst.forEach((d) => { d.mist = groenten.filter((n) => !d.gedekt.some((i) => i.n === n)); });
+    lijst.sort((a, b) => (b.gedekt.length - a.gedekt.length) || (b.aanrader - a.aanrader) || (b.gewicht - a.gewicht));
+    return { groenten, lijst, combi: mixCombi(lijst, groenten, factor) };
+  }
+
+  /* Twee mixen samen, als die meer groenten vervangen dan de beste mix alleen.
+     De tweede mix moet er meer dan alleen ui bij doen. */
+  function mixCombi(lijst, groenten, factor) {
+    const met = lijst.filter((d) => d.gedekt.length);
+    if (!met.length || met[0].gedekt.length >= groenten.length) return null;
+    let beste = null;
+    met.forEach((a, ai) => met.slice(ai + 1).forEach((b) => {
+      const extra = b.gedekt.filter((i) => !a.gedekt.some((x) => x.n === i.n));
+      if (!extra.some((i) => !ALLEEN_UI.includes(norm(i.n)))) return;
+      const samen = a.gedekt.length + extra.length;
+      const score = [samen, a.aanrader + b.aanrader, -(b.gedekt.length - extra.length), a.gewicht + b.gewicht];
+      // Meeste groenten samen, dan de meeste aanraders, dan de minste overlap, dan de meeste grammen.
+      const k = beste ? score.findIndex((v, n) => v !== beste.score[n]) : -1;
+      if (!beste || (k >= 0 && score[k] > beste.score[k])) beste = { a, b, extra, samen, score };
+    }));
+    if (!beste || beste.samen <= met[0].gedekt.length) return null;
+    const { a, b, extra, samen } = beste;
+    return { a: a.mix, b: b.mix, gramA: a.gram, gramB: mixGram(extra, factor), samen, mist: groenten.filter((n) => !a.gedekt.some((i) => i.n === n) && !extra.some((i) => i.n === n)) };
   }
 
   /* Unieke, echte ingrediënten van een recept (zonder kopjes en dubbelingen). */
@@ -567,5 +616,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();
