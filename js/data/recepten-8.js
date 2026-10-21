@@ -21,13 +21,13 @@ RECEPTEN.push(
     { n: 'laos', q: 2, u: 'tl', x: 'gemalen, of 25 g vers' },
     { n: 'kurkuma', q: 1, u: 'tl' },
     { n: 'ketoembar', q: 2, u: 'tl' },
-    { n: 'djinten', q: 1, u: 'tl', x: 'gemalen komijn' },
+    { n: 'djinten', q: 1, u: 'tl', x: 'gemalen' },
     { kop: 'Verder' },
     { n: 'citroengras', q: 2, u: 'stengel', x: 'gekneusd' },
-    { n: 'djeroekbladeren', q: 4, u: 'st', x: 'kaffirlimoenblad' },
+    { n: 'djeroekbladeren', q: 4, u: 'st' },
     { n: 'salamblad', q: 2, u: 'st', opt: true, x: 'of laurier' },
     { n: 'gula djawa', q: 1, u: 'el', x: 'of bruine suiker' },
-    { n: 'asem', q: 1, u: 'el', x: 'tamarinde, of 1 el citroensap' },
+    { n: 'asem', q: 1, u: 'el', x: 'of 1 el citroensap' },
     { n: 'geraspte kokos', q: 50, u: 'g', x: 'droog geroosterd' },
     { n: 'zonnebloemolie', q: 3, u: 'el' }
   ],
@@ -41,7 +41,7 @@ RECEPTEN.push(
     { t: 'Doe alles over in de slowcooker en gaar 8 uur op LOW. Doe het daarna terug in de pan en laat 20 minuten zonder deksel inkoken tot de saus droog en donker is.', m: 'slowcooker', min: 480 },
     { t: 'Vis citroengras en bladeren eruit. Breng op smaak met zout. Serveer met witte rijst, atjar en sambal.' }
   ],
-  tips: ['Rendang is na een nacht in de koelkast nog lekkerder.', 'De kruiden (laos, djeroekblad, salamblad, gula djawa) vind je bij de toko.'],
+  tips: ['Rendang is na een nacht in de koelkast nog lekkerder.', 'De kruiden (laos of galanga, djeroekblad of kaffirlimoenblad, salamblad of Indisch laurierblad, gula djawa of palmsuiker) vind je bij de toko, en laos en gula djawa ook gewoon in de supermarkt.'],
   alt: ['Minder tijd? Gebruik 800 g kippendijen en stoof 45 minuten. Dat heet rendang ajam.']
 },
 {

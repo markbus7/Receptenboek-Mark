@@ -50,7 +50,7 @@ RECEPTEN.push(
     { kop: 'Marinade' },
     { n: 'ketjap manis', q: 3, u: 'el' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
-    { n: 'ketoembar', q: 1, u: 'tl', x: 'gemalen koriander' },
+    { n: 'ketoembar', q: 1, u: 'tl', x: 'gemalen' },
     { n: 'zonnebloemolie', q: 1, u: 'el' },
     { kop: 'Pindasaus' },
     { n: 'pindakaas', q: 150, u: 'g', x: 'met stukjes' },
