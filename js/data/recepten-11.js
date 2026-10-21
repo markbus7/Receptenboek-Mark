@@ -107,7 +107,7 @@ RECEPTEN.push(
     { tool: 'koekenpan', tekst: 'Ovenvaste koekenpan van 24 cm (RVS of gietijzer, zonder plastic handvat)', m: 'oven' }
   ],
   ingr: [
-    { n: 'vastkokende aardappelen', q: 600, u: 'g', x: 'in dunne plakjes' },
+    { n: 'vastkokende aardappelen', q: 600, u: 'g', x: 'geschild, in dunne plakjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in dunne halve ringen' },
     { n: 'ei', p: 'eieren', q: 6, u: 'st' },
     { n: 'olijfolie', q: 200, u: 'ml', x: 'om in te garen; je houdt het meeste over' },

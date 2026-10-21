@@ -105,7 +105,7 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'Steelpan voor de pindasaus' }
   ],
   ingr: [
-    { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'in plakken' },
+    { n: 'vastkokende aardappelen', q: 400, u: 'g', x: 'geschild, in plakken' },
     { n: 'sperziebonen', q: 200, u: 'g' },
     { n: 'witte kool', q: 200, u: 'g', x: 'in reepjes' },
     { n: 'taugé', q: 200, u: 'g' },

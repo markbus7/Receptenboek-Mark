@@ -83,7 +83,7 @@ RECEPTEN.push(
     { n: 'rode linzen', q: 250, u: 'g', x: 'gewassen' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'wortel', p: 'wortels', q: 1, u: 'st' },
-    { n: 'aardappel', p: 'aardappelen', q: 1, u: 'st', x: 'kruimig' },
+    { n: 'aardappel', p: 'aardappelen', q: 1, u: 'st', x: 'kruimig, geschild' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'groentebouillon', q: 1200, u: 'ml' },
@@ -293,7 +293,7 @@ RECEPTEN.push(
     { n: 'verse tijm', q: 3, u: 'takje' },
     { n: 'doperwten', q: 150, u: 'g', x: 'diepvries' },
     { kop: 'Puree' },
-    { n: 'kruimige aardappelen', q: 1200, u: 'g' },
+    { n: 'kruimige aardappelen', q: 1200, u: 'g', x: 'geschild, in stukken' },
     { n: 'boter', q: 60, u: 'g' },
     { n: 'melk', q: 150, u: 'ml', x: 'warm' },
     { n: 'cheddar', q: 75, u: 'g', x: 'geraspt' }
