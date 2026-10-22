@@ -629,6 +629,14 @@ const App = (() => {
     </section>`;
   }
 
+  // Het potje dat je zelf in de kast hebt staan, met merk, prijs en wat erin zit.
+  const mijnPotje = (m) => `<aside class="kruid-mijn">
+      <p><b>Jouw potje: ${esc(m.naam)}</b>${m.pittig ? ' <span class="label-pittig">pittig</span>' : ''}
+        <span class="zacht kruid-mijn-maat">${esc(m.maat)}${m.prijs ? `, ${typeof Prijzen !== 'undefined' ? Prijzen.euro(m.prijs) : '€ ' + m.prijs}` : ''}</span></p>
+      <p>${esc(m.over)}</p>
+      <p class="zacht"><b>Wat zit erin:</b> ${esc(m.bevat)} ${esc(m.let || '')}</p>
+    </aside>`;
+
   function renderKast(w) {
     const cfg = KASTEN[w];
     const inKast = kast(w);
@@ -637,7 +645,7 @@ const App = (() => {
     const q = Hulp.norm(($(`#${w}-zoek`) || {}).value || '').trim();
     const zoekPast = (k) => {
       if (!q) return true;
-      const tekst = Hulp.norm([k.naam, k.soort, k.wat, k.bevat, k.gebruik, k.tip, ...k.namen, ...receptenMet(k).map((x) => x.naam)].filter(Boolean).join(' '));
+      const tekst = Hulp.norm([k.naam, k.soort, k.wat, k.bevat, k.gebruik, k.tip, k.mijn && k.mijn.naam, ...k.namen, ...receptenMet(k).map((x) => x.naam)].filter(Boolean).join(' '));
       const woorden = tekst.split(/[^a-z0-9]+/).filter(Boolean);
       return q.split(/\s+/).every((t) => tekst.includes(t) || (t.length >= 4 && woorden.some((x) => Hulp.lijktOp(t, x))));
     };
@@ -665,6 +673,7 @@ const App = (() => {
         ${k.bevat ? `<p><b>Wat zit erin:</b> ${esc(k.bevat)}</p>` : ''}
         <p><b>Wat je ermee doet:</b> ${esc(k.gebruik)}</p>
         ${k.tip ? `<p class="kruid-tip">${esc(k.tip)}</p>` : ''}
+        ${k.mijn && inKast.has(k.id) ? mijnPotje(k.mijn) : ''}
         ${rs.length ? `<button type="button" class="knop knop-klein kruid-toon" data-kruid-filter="${k.id}">Toon deze recepten</button>` : ''}
         ${rs.length ? `<p class="kruid-recepten"><b>In dit boek (${rs.length}):</b> ${rs.map((r) => `<a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>`).join(', ')}</p>` : ''}
       </article>`;
@@ -697,6 +706,11 @@ const App = (() => {
     get keuken() { return mijnKeuken(); },
     blz: (id) => BLZ.get(id),
     get voorraad() { return state.voorraad; },
+    /* Je eigen potje voor dit ingrediënt, als het in je kast staat (zoals Hot curry voor kerriepoeder). */
+    mijnPotje: (n) => {
+      const k = KASTEN.kruiden.lijst().find((x) => x.mijn && x.namen.some((y) => Hulp.norm(y) === Hulp.norm(n)));
+      return k && kast('kruiden').has(k.id) ? k.mijn : null;
+    },
     hoofdstuk: (keuken) => hk(keuken),
     isFav: (id) => state.favs.has(id),
     isNieuw: (id) => NIEUW.includes(id),

@@ -868,6 +868,11 @@ p.sync-fout::before { display: none; }
 .kruid p { margin: 0 0 8px; }
 .kruid-soort { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--potlood); margin-bottom: 2px !important; }
 .kruid-tip { font-family: var(--font-hand); font-size: 20px; line-height: 1.25; color: var(--pen); }
+.kruid-mijn { margin: 4px 0 12px; padding: 10px 12px; background: var(--notitie); border: 1px solid var(--notitie-rand); border-radius: 6px; }
+.kruid-mijn p { margin: 0 0 4px; }
+.kruid-mijn p:last-child { margin: 0; }
+.kruid-mijn-maat { white-space: nowrap; }
+.label-pittig { display: inline-block; padding: 1px 7px; border-radius: 4px; background: var(--warn-zacht); color: var(--warn); font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: middle; }
 .kruid-recepten a { color: var(--pen); font-weight: 600; text-underline-offset: 2px; }
 .kruid-kop { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .kruid-kast { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui, inherit); font-size: 13px; font-weight: 600; color: var(--inkt-zacht); cursor: pointer; }
