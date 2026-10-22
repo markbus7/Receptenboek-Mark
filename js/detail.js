@@ -355,7 +355,7 @@ const Detail = (() => {
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
+          <span class="ingr-naam">${Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${potjeRegel(i)}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
         </label>
         ${Boodschappen.isWater(i) ? '' : lijstKnop(i, idx)}
         ${mixNaam ? '' : ofKnop(i, idx)}
@@ -385,6 +385,14 @@ const Detail = (() => {
   ];
 
   /* Welke ui: waarom deze, en wat ook goed werkt (js/data/uien.js). */
+  /* Uit je eigen kast: welk potje je pakt, en bij een pittig potje of je minder neemt. */
+  function potjeRegel(i) {
+    const m = ctx.mijnPotje && ctx.mijnPotje(i.n);
+    if (!m) return '';
+    const mild = /mild/.test(Hulp.norm(i.x || ''));
+    const advies = !m.pittig ? '' : mild ? ', die is pittig: neem de helft' : /madras/.test(Hulp.norm(i.n)) ? ', pittig zoals madras hoort' : ', pittiger dan gewone kerrie';
+    return `<span class="ingr-mix">uit je kast: ${Hulp.esc(m.naam)}${advies}</span>`;
+  }
   const uiRegel = (ui) => `<span class="ingr-x ingr-ui"><b>Waarom ${Hulp.esc(ui.beste)}?</b> ${Hulp.esc(ui.waarom)}.${ui.ook ? ` Ook goed: ${Hulp.esc(ui.ook)}.` : ''}</span>`;
 
   /* Losse knop per ingrediënt: alleen dit ingrediënt op het boodschappenlijstje. */

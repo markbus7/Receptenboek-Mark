@@ -176,7 +176,12 @@ window.KRUIDEN = [
     bevat: 'Kurkuma, koriander, komijn, fenegriek, gember, chili en mosterdzaad. Madras is pittiger.',
     wat: 'Een Brits-Indiaas mengsel; in India zelf maakt iedereen zijn eigen.',
     gebruik: 'Curry madras, kip kerrie, roti en snelle curry\'s.',
-    tip: 'Bak kerriepoeder 1 minuut in olie mee met de ui voordat er vocht bij gaat, anders smaakt het stoffig.' },
+    tip: 'Bak kerriepoeder 1 minuut in olie mee met de ui voordat er vocht bij gaat, anders smaakt het stoffig.',
+    // Het potje dat Mark thuis heeft (van zijn foto's, 22-10-2026).
+    mijn: { naam: 'Verstegen Hot curry', maat: '35 g', prijs: 2.89, pittig: true,
+      bevat: 'Kurkuma, koriander, peper, mosterdzaad, fenegriek, gember, komijn, karwijzaad, piment, nootmuskaat, selderijzaad, venkelzaad en lavas.',
+      let: 'Bevat selderij en mosterd.',
+      over: 'Pittige kerrie, scherper dan gewone kerriepoeder. Waar madras-kerriepoeder staat past hij precies; waar het recept milde kerrie wil, neem je de helft.' } },
   { id: 'ras-el-hanout', naam: 'Ras el hanout', soort: 'Mengsel', namen: ['ras el hanout'],
     bevat: 'Vaak 10 tot 30 specerijen: komijn, koriander, kaneel, gember, kurkuma, paprika, kardemom, nootmuskaat, piment en soms rozenblaadjes.',
     wat: '"Het beste van de winkel": het huismengsel van de Marokkaanse specerijhandelaar.',
