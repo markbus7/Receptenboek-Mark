@@ -65,7 +65,7 @@ const Hulp = (() => {
   const NL_NAAM = {
     ketoembar: 'korianderzaad', djinten: 'komijnzaad', laos: 'galanga', salamblad: 'Indisch laurierblad',
     'gula djawa': 'palmsuiker', djeroekbladeren: 'kaffirlimoenblad', asem: 'tamarinde', sereh: 'citroengras',
-    djahe: 'gember', koenjit: 'kurkuma', kentjoer: 'zedoarwortel', trassi: 'garnalenpasta'
+    djahe: 'gember', koenjit: 'kurkuma', kentjoer: 'zedoarwortel', trassi: 'garnalenpasta', 'madras-kerriepoeder': 'pittige kerrie'
   };
   /* Welk potje je koopt: gemalen of heel. Niet als de notitie (x) het al zegt. Waar het andere ook kan,
      staat de omrekening in js/data/vervangers.js. */
