@@ -385,13 +385,15 @@ const Detail = (() => {
   ];
 
   /* Welke ui: waarom deze, en wat ook goed werkt (js/data/uien.js). */
-  /* Uit je eigen kast: welk potje je pakt, en bij een pittig potje of je minder neemt. */
+  /* Uit je eigen kast: welk potje je pakt en hoeveel, met in gewone woorden wat het recept bedoelt. */
   function potjeRegel(i) {
     const m = ctx.mijnPotje && ctx.mijnPotje(i.n);
     if (!m) return '';
-    const mild = /mild/.test(Hulp.norm(i.x || ''));
-    const advies = !m.pittig ? '' : mild ? ', die is pittig: neem de helft' : /madras/.test(Hulp.norm(i.n)) ? ', pittig zoals madras hoort' : ', pittiger dan gewone kerrie';
-    return `<span class="ingr-mix">uit je kast: ${Hulp.esc(m.naam)}${advies}</span>`;
+    const n = Hulp.norm(i.n);
+    const voor = m.voor || {};
+    const mild = /mild/.test(Hulp.norm(i.x || '')) ? ' mild' : '';
+    const tekst = voor[n + mild] || voor[n] || `Gebruik je ${m.naam}.`;
+    return `<span class="ingr-x ingr-potje"><b>Uit je kast:</b> ${Hulp.esc(tekst)}</span>`;
   }
   const uiRegel = (ui) => `<span class="ingr-x ingr-ui"><b>Waarom ${Hulp.esc(ui.beste)}?</b> ${Hulp.esc(ui.waarom)}.${ui.ook ? ` Ook goed: ${Hulp.esc(ui.ook)}.` : ''}</span>`;
 

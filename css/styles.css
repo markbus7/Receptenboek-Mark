@@ -587,6 +587,8 @@ p.sync-fout::before { display: none; }
 .ingr-x { display: block; font-size: 13px; color: var(--inkt-zacht); font-style: italic; }
 .ingr-ui { font-style: normal; }
 .ingr-ui b { font-weight: 600; }
+.ingr-potje { font-style: normal; }
+.ingr-potje b { font-weight: 600; color: var(--ok); }
 .ingr.is-klaar .hv, .ingr.is-klaar .ingr-naam { opacity: .4; text-decoration: line-through; }
 .d-ingr .knop-vol { background: var(--k); border-color: var(--k); color: #FFFDF8; }
 
