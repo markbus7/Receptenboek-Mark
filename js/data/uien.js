@@ -69,6 +69,7 @@ window.UIEN = {
     boerenomelet: { ui: ['gele ui', 'Hij kleurt goudbruin mee met de aardappel', 'rode ui', 'sjalot'] },
     zuurkoolstamppot: { ui: ['gele ui', 'Goudbruin gebakken in het spekvet is hij zoet tegen de zure kool', 'sjalot', 'rode ui'] },
     hachee: { ui: ['gele ui', 'Een pond ui die urenlang stooft en de saus zoet en dik maakt; gele uien zijn daar het best en het goedkoopst voor', 'rode ui', 'sjalot'] },
+    'pannenkoeken-pittig-gehakt': { ui: ['gele ui', 'Fijngesnipperd bakt hij zacht en zoet mee in het gehakt, en dat zoet tempert de Spaanse peper', 'witte ui', 'sjalot'] },
     'hollandse-macaroni': { ui: ['gele ui', 'Hij bakt mee met het gehakt en de paprika', 'witte ui', 'rode ui'] },
     'groentesoep-balletjes': { ui: ['gele ui', 'Hij kookt zacht in de bouillon en geeft zoetheid', 'witte ui', 'sjalot'] },
     'kip-kerrie-perzik': { ui: ['gele ui', 'Gefruit wordt hij zoet en draagt hij de kerrie', 'witte ui', 'sjalot'] },
