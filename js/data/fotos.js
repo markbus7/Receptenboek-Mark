@@ -1062,6 +1062,11 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:2015_01_Appelpannenkoek.jpg"
  },
+ "pannenkoeken-pittig-gehakt": {
+  "src": "img/pannenkoeken-pittig-gehakt.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto, in het pannenkoekenhuis"
+ },
  "paprikas-csirke": {
   "src": "img/paprikas-csirke.jpg",
   "auteur": "Atilla the Great",

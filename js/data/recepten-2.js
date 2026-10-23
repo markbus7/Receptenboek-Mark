@@ -120,9 +120,9 @@ RECEPTEN.push(
 },
 {
   id: 'pannenkoeken-pittig-gehakt', toegevoegd: '2026-10-23', variantVan: 'pannenkoeken', variant: 'Pittig gehakt', pit: 2, vega: false,
-  naam: 'Pannenkoek met pittig gekruid gehakt', tijd: 45,
+  naam: 'Pannenkoek met pittig gekruid gehakt', tijd: 50,
   ook: ['pittig gekruid gehakt', 'gehaktpannenkoek', 'pannenkoek gehakt', 'pannenkoek met gehakt en kaas', 'pannenkoek met knoflooksaus', 'pittige pannenkoek'],
-  intro: 'Zoals bij het pannenkoekenhuis: pittig gekruid gehakt met Spaanse pepers in de pannenkoek gebakken, gesmolten kaas erover en een flinke klodder zelfgemaakte knoflooksaus erbij.',
+  intro: 'Zoals bij het pannenkoekenhuis: een dunne pannenkoek met een dikke laag pittig gekruid gehakt in tomatensaus, een berg gesmolten kaas, verse Spaanse pepertjes erover en een bakje zelfgemaakte knoflooksaus met kruiden in het midden.',
   gerei: [
     { tool: 'koekenpan', tekst: 'Pannenkoekenpan of koekenpan (28 cm), bij voorkeur antiaanbak, met een deksel', of: 'Geen deksel? Leg een groot bord op de pan, dan smelt de kaas net zo goed.' },
     { tool: 'mixer', tekst: 'Garde en twee kommen, voor het beslag en de knoflooksaus', of: 'Een handmixer maakt het beslag sneller klontvrij.' }
@@ -138,32 +138,35 @@ RECEPTEN.push(
     { n: 'half-om-half gehakt', q: 300, u: 'g', x: 'of rundergehakt' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
-    { n: 'rode peper', p: 'rode pepers', q: 2, u: 'st', x: 'Spaanse pepers, in dunne ringetjes; met de zaadjes voor extra pit' },
+    { n: 'tomatenpuree', q: 70, u: 'g', x: '1 klein blikje' },
+    { n: 'water', q: 150, u: 'ml' },
+    { n: 'rode peper', p: 'rode pepers', q: 3, u: 'st', x: 'Spaanse pepers, in ringetjes: 1 voor in het gehakt, 2 om erover te strooien' },
     { n: 'paprikapoeder', q: 2, u: 'tl', x: 'gerookt, of edelzoet' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },
     { n: 'chilivlokken', q: 0.5, u: 'tl', x: 'of een snuf cayennepeper' },
     { n: 'zwarte peper', q: 1, u: 'snuf', x: 'versgemalen' },
-    { n: 'geraspte kaas', q: 200, u: 'g', x: 'jong belegen of belegen' },
+    { n: 'geraspte kaas', q: 250, u: 'g', x: 'jong belegen of belegen; flink veel, zoals in het pannenkoekenhuis' },
     { kop: 'Knoflooksaus' },
     { n: 'Turkse yoghurt', q: 150, u: 'g', x: 'of Griekse yoghurt' },
     { n: 'mayonaise', q: 100, u: 'g', x: 'ca. 6 el' },
     { n: 'knoflook', q: 3, u: 'teen', x: 'geperst of fijngeraspt', vers: 'gaat er rauw in' },
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
-    { n: 'verse peterselie', q: 1, u: 'el', x: 'fijngehakt, of dille', opt: true }
+    { n: 'verse peterselie', q: 1, u: 'el', x: 'fijngehakt, of dille; de groene spikkeltjes in de saus' }
   ],
   stappen: [
     { t: 'Begin met de knoflooksaus. Wrijf de geperste knoflook voor de saus met een snuf zout fijn tot een smeuïg papje. Roer yoghurt, mayonaise, citroensap en peterselie erdoor en proef of er zout bij moet. Zet hem afgedekt in de koelkast: in een half uur wordt de knoflooksmaak ronder.', min: 30 },
     { t: 'Doe bloem en zout in een kom en maak een kuiltje. Breek de eieren erin en giet de helft van de melk erbij. Klop vanuit het midden tot een glad, dik beslag en klop daarna de rest van de melk erdoor. Laat 10 minuten rusten.', min: 10 },
-    { t: 'Zet de koekenpan zonder boter op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin; druk de brokken steeds fijn met je spatel, want grote stukken laten de pannenkoek scheuren.', min: 5 },
-    { t: 'Bak de ui 3 minuten mee tot hij zacht is. Voeg knoflook, de helft van de Spaanse peper, paprikapoeder, komijn, oregano, chilivlokken, peper en een snuf zout toe en bak nog 1 minuut, tot het geurt. Proef: het mag flink pittig zijn, want het beslag en de kaas maken het milder. Schep het gehakt in een kom en veeg de pan schoon met keukenpapier.', min: 4 },
-    { t: 'Smelt een klontje boter in de pan op middelhoog vuur. Verdeel een achtste van het gehakt (2 à 3 eetlepels) en een paar ringetjes peper over de bodem en giet er meteen een soeplepel beslag overheen. Draai de pan zodat het beslag tussen het gehakt doorloopt. Bak tot de bovenkant droog is, 2 à 3 minuten.', min: 3 },
-    { t: 'Keer de pannenkoek om en bak de gehaktkant 1 à 2 minuten, tot het gehakt een krokant korstje heeft. Keer hem terug met het gehakt naar boven.', min: 2 },
-    { t: 'Strooi een achtste van de kaas (± 25 g) over het gehakt, doe de deksel op de pan en laat de kaas in 1 minuut smelten. Schuif de pannenkoek op een bord en houd hem warm onder een schone theedoek. Herhaal met de rest; je hebt genoeg voor 7 à 8 pannenkoeken.', min: 1 },
-    { t: 'Serveer de pannenkoeken met een klodder knoflooksaus erop of ernaast.' }
+    { t: 'Zet de koekenpan zonder boter op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin; druk de brokken steeds fijn met je spatel, zodat je straks een gelijkmatige laag kunt smeren.', min: 5 },
+    { t: 'Bak de ui 3 minuten mee tot hij zacht is. Voeg knoflook, 1 Spaanse peper, paprikapoeder, komijn, oregano, chilivlokken, peper en een snuf zout toe en bak nog 1 minuut, tot het geurt.', min: 4 },
+    { t: 'Roer de tomatenpuree erdoor en bak hem 1 minuut mee. Schenk het water erbij en laat 8 à 10 minuten zachtjes pruttelen tot het een dikke, donkere gehaktsaus is die niet meer loopt. Proef: het mag flink pittig zijn, want de pannenkoek en de kaas maken het milder. Schep het in een kom, houd het warm onder een deksel en veeg de pan schoon.', min: 10 },
+    { t: 'Smelt een klontje boter in de pan op middelhoog vuur. Schep een soeplepel beslag in de pan en draai de pan zodat de bodem dun bedekt is. Bak tot de bovenkant droog is, ongeveer 2 minuten, en keer hem om.', min: 2 },
+    { t: 'Smeer meteen een achtste van de gehaktsaus (3 à 4 eetlepels) dun uit over de hele pannenkoek, tot bijna aan de rand. Strooi er een achtste van de kaas (± 30 g) over, doe de deksel op de pan en bak 1 à 2 minuten, tot de onderkant goudbruin is en de kaas gesmolten.', min: 2 },
+    { t: 'Schuif de pannenkoek op een groot bord en houd hem warm onder een schone theedoek. Herhaal met de rest; je hebt genoeg voor 7 à 8 pannenkoeken.' },
+    { t: 'Strooi de ringetjes verse Spaanse peper over de pannenkoeken en zet een bakje knoflooksaus in het midden, zoals in het pannenkoekenhuis. Dip of schep de saus erover terwijl je eet.' }
   ],
   tips: [
-    'Zo doet het pannenkoekenhuis het ook: de vulling gaat eerst in de pan en het beslag eroverheen, dan zit het gehakt vast in de pannenkoek en valt het er niet af als je omkeert.',
+    'Het gehakt moet echt een dikke saus zijn, geen losse kruimels: door de tomatenpuree plakt het als een laag aan de pannenkoek, net als in het pannenkoekenhuis, en valt het er niet af als je snijdt.',
     'Pannenkoeken warm houden of later opwarmen? Leg ze per stuk 2 à 3 minuten in de airfryer op 160 °C: de kaas smelt weer en de rand wordt krokant.',
     'Het gehakt en de knoflooksaus kun je een dag van tevoren maken. Bewaar ze apart in de koelkast; de saus wordt dan nog knoflookiger.'
   ],
