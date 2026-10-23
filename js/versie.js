@@ -1,2 +1,2 @@
 /* Versie van het receptenboek. Pas aan met: python3 tools/nieuwe-versie.py x.y.z */
-window.VERSIE = '1.49.1';
+window.VERSIE = '1.50.0';
