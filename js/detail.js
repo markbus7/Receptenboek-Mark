@@ -119,7 +119,7 @@ const Detail = (() => {
     const beeld = foto
       ? `<figure class="d-foto">
           <img src="${Hulp.esc(foto.src)}" alt="${Hulp.esc(r.naam)}">
-          <figcaption>Foto: ${foto.bron ? `<a href="${Hulp.esc(foto.bron)}" target="_blank" rel="noopener">${Hulp.esc(foto.auteur)}</a>` : Hulp.esc(foto.auteur)}, ${Hulp.esc(foto.licentie)}, via Wikimedia Commons</figcaption>
+          <figcaption>Foto: ${foto.bron ? `<a href="${Hulp.esc(foto.bron)}" target="_blank" rel="noopener">${Hulp.esc(foto.auteur)}</a>` : Hulp.esc(foto.auteur)}, ${Hulp.esc(foto.licentie)}${/wikimedia/.test(foto.bron || '') ? ', via Wikimedia Commons' : ''}</figcaption>
         </figure>`
       : `<figure class="d-foto d-foto-bord"><span class="bord bord-groot" aria-hidden="true">${toolIcoon(r.methodes && r.methodes.length ? r.methodes[0].id : (r.gerei[0] || {}).tool)}</span></figure>`;
 
