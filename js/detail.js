@@ -57,6 +57,7 @@ const Detail = (() => {
   const blad = document.getElementById('detail');
   let gekozenMixen = new Set(), mixWeg = new Set();
   let gekozenVries = new Set(), vries = { items: [], algemeen: [] };
+  let openUitleg = new Set();
   let r = null, ctx = null, factor = 1, methode = null, ikHeb = null, wakeLock = null, wilScherm = false, terugFocus = null;
 
   const icoon = (naam) => `<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${naam}"/></svg>`;
@@ -74,7 +75,7 @@ const Detail = (() => {
      en de scrollpositie staan. Met { personen } opent het recept meteen omgerekend (uit een gedeelde link). */
   function open(recept, context, { houd = false, personen = null } = {}) {
     const vorige = houd && r ? { personen: r.pers * factor, methode, scroll: blad.scrollTop } : null;
-    r = recept; ctx = context; factor = 1; ikHeb = null; gekozenMixen = new Set(); gekozenVries = new Set();
+    r = recept; ctx = context; factor = 1; ikHeb = null; gekozenMixen = new Set(); gekozenVries = new Set(); openUitleg = new Set();
     if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
     methode = ms.length ? (ms.find((m) => m.heb) || ms[0]).id : null;
@@ -351,14 +352,16 @@ const Detail = (() => {
       const h = Hulp.hoeveelheid(ui ? ui.ingr : i, factor);
       const extra = i.x ? Hulp.metNlNamen(i.x) : (i.q == null ? 'naar smaak' : '');
       const ofTekst = mixNaam ? '' : Hulp.vervangerTekst(i, factor);
+      const wat = Hulp.uitleg(i.n);
       return `<li class="ingr${i.opt ? ' is-opt' : ''}">
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${potjeRegel(i)}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
+          <span class="ingr-naam">${wat ? watKnop(h.naam, idx) : Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${potjeRegel(i)}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
         </label>
         ${Boodschappen.isWater(i) ? '' : lijstKnop(i, idx)}
         ${mixNaam ? '' : ofKnop(i, idx)}
+        ${wat ? uitlegBlok(wat, idx) : ''}
       </li>`;
     }).join('');
     renderRest();
@@ -396,6 +399,20 @@ const Detail = (() => {
     return `<span class="ingr-x ingr-potje"><b>Uit je kast:</b> ${Hulp.esc(tekst)}</span>`;
   }
   const uiRegel = (ui) => `<span class="ingr-x ingr-ui"><b>Waarom ${Hulp.esc(ui.beste)}?</b> ${Hulp.esc(ui.waarom)}.${ui.ook ? ` Ook goed: ${Hulp.esc(ui.ook)}.` : ''}</span>`;
+
+  /* Wat is het? Tik op de naam van een onbekend ingrediënt (mirin, dashi) en de uitleg klapt eronder open:
+     wat het is, waar je het koopt en wat je anders kunt nemen (Hulp.uitleg). Blijft open als je personen aanpast. */
+  const watKnop = (naam, idx) => `<button type="button" class="ingr-wat" data-wat="${idx}" aria-expanded="${openUitleg.has(idx)}" aria-controls="d-uitleg-${idx}">${Hulp.esc(naam)}<span class="ingr-wat-i" aria-hidden="true">?</span></button>`;
+  function uitlegBlok(k, idx) {
+    return `<div class="ingr-uitleg" id="d-uitleg-${idx}"${openUitleg.has(idx) ? '' : ' hidden'}>
+      ${k.foto ? `<img src="${k.foto.src}" alt="" loading="lazy">` : ''}
+      <p><b>Wat is ${Hulp.esc(k.naam)}?</b> ${Hulp.esc(k.wat)}</p>
+      ${k.bevat ? `<p><b>Wat zit erin:</b> ${Hulp.esc(k.bevat)}</p>` : ''}
+      ${k.gebruik ? `<p><b>Waar het in gaat:</b> ${Hulp.esc(k.gebruik)}</p>` : ''}
+      ${k.waar ? `<p><b>Waar koop je het?</b> ${Hulp.esc(k.waar)}</p>` : ''}
+      ${k.tip ? `<p><b>Tip:</b> ${Hulp.esc(k.tip)}</p>` : ''}
+    </div>`;
+  }
 
   /* Losse knop per ingrediënt: alleen dit ingrediënt op het boodschappenlijstje. */
   function lijstKnop(i, idx) {
@@ -630,6 +647,15 @@ const Detail = (() => {
   blad.addEventListener('click', (e) => {
     const t = e.target;
     if (t.closest('[data-sluit]')) return ctx.sluit();
+    const wat = t.closest('[data-wat]');
+    if (wat) {
+      e.preventDefault();
+      const idx = +wat.dataset.wat, open = !openUitleg.has(idx);
+      if (open) openUitleg.add(idx); else openUitleg.delete(idx);
+      wat.setAttribute('aria-expanded', String(open));
+      blad.querySelector(`#d-uitleg-${idx}`).hidden = !open;
+      return;
+    }
     const v = t.closest('[data-variant]');
     if (v) { if (v.dataset.variant !== r.id) ctx.kiesVariant(v.dataset.variant); return; }
     const m = t.closest('[data-methode]');

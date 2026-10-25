@@ -84,6 +84,21 @@ const Hulp = (() => {
   const NL_WOORD = new RegExp(`\\b(${Object.keys(NL_NAAM).join('|')})\\b(?! \\()`, 'gi');
   const metNlNamen = (tekst) => String(tekst).replace(NL_WOORD, (w) => NL_NAAM[norm(w)] ? `${w} (${NL_NAAM[norm(w)]})` : w);
 
+  /* Wat is het? Uitleg bij een ingrediënt, voor als je in het recept op de naam tikt: uit js/data/uitleg.js,
+     smaakmakers.js of kruiden.js, met de foto uit de kast erbij. Zout en peper kent iedereen. */
+  let uitlegNamen = null;
+  function uitleg(n) {
+    if (!uitlegNamen) {
+      uitlegNamen = new Map();
+      [['', window.UITLEG], ['smaak-', window.SMAAKMAKERS], ['kruid-', window.KRUIDEN]].forEach(([pre, lijst]) => (lijst || []).forEach((k) => {
+        if (k.id === 'zout' || k.id === 'peper') return;
+        const foto = (pre && window.FOTOS && FOTOS[pre + k.id]) || null;
+        k.namen.forEach((x) => { if (!uitlegNamen.has(norm(x))) uitlegNamen.set(norm(x), { ...k, foto }); });
+      }));
+    }
+    return uitlegNamen.get(norm(n)) || null;
+  }
+
   /* Welke ui (js/data/uien.js): { ingr, beste, waarom, ook } of null. ingr is het ingrediënt met de beste ui erin
      ("1 gele ui", of 3 sjalotten voor 1 ui); ook is wat ook goed werkt, met de hoeveelheid erbij als die te ruilen is. */
   function uiAdvies(recept, i, factor = 1) {
@@ -662,5 +677,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uiAdvies, metUi, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();
