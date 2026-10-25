@@ -1,5 +1,11 @@
 /* Foto's per recept. Wordt gevuld door tools/fotos-ophalen.py; zonder foto toont een recept het tegeltje. */
 window.FOTOS = {
+ "airfryer-bolletjes": {
+  "src": "img/airfryer-bolletjes.jpg",
+  "auteur": "jeffreyw",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Sesame_seed_hamburger_buns.jpg"
+ },
  "ajam-pedis": {
   "src": "img/ajam-pedis.jpg",
   "auteur": "Gunawan Kartapranata",
@@ -48,6 +54,12 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Vegan_apple_crumble_(8293111737).jpg"
  },
+ "arepas": {
+  "src": "img/arepas.jpg",
+  "auteur": "Steven Depolo",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Arepitas_Food_Macro.jpg"
+ },
  "babi-ketjap": {
   "src": "img/babi-ketjap.jpg",
   "auteur": "Gunawan Kartapranata",
@@ -59,6 +71,12 @@ window.FOTOS = {
   "auteur": "Gunawan Kartapranata",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Panggang_1.JPG"
+ },
+ "bagels": {
+  "src": "img/bagels.jpg",
+  "auteur": "Shisma",
+  "licentie": "CC BY 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Bagel_with_sesame_3.jpg"
  },
  "bakabana": {
   "src": "img/bakabana.jpg",
@@ -90,6 +108,12 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Ribs_with_Asian_Barbecue_Sauce_3of3_(8735180329).jpg"
  },
+ "bazlama": {
+  "src": "img/bazlama.jpg",
+  "auteur": "Noumenon",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Bazlama.jpg"
+ },
  "bearnaise": {
   "src": "img/bearnaise.jpg",
   "auteur": "Alexander Guy",
@@ -113,6 +137,12 @@ window.FOTOS = {
   "auteur": "Sous Chef",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Dolsot-bibimbap.jpg"
+ },
+ "bloem-tortillas": {
+  "src": "img/bloem-tortillas.jpg",
+  "auteur": "AlbertCahalan~commonswiki",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:NCI_flour_tortillas.jpg"
  },
  "bo-luc-lac": {
   "src": "img/bo-luc-lac.jpg",
@@ -294,6 +324,12 @@ window.FOTOS = {
   "licentie": "Public domain",
   "bron": "https://commons.wikimedia.org/wiki/File:Enchilada_Rice_Beans.jpg"
  },
+ "engelse-muffins": {
+  "src": "img/engelse-muffins.jpg",
+  "auteur": "Missvain",
+  "licentie": "CC BY 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Harborview_Bistro_%26_Bar_-_January_2024_-_Sarah_Stierch_08.jpg"
+ },
  "erwtensoep": {
   "src": "img/erwtensoep.jpg",
   "auteur": "Eric Polk",
@@ -311,6 +347,12 @@ window.FOTOS = {
   "auteur": "Matthias Meckel",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Fish_and_chips_blackpool.jpg"
+ },
+ "focaccia": {
+  "src": "img/focaccia.jpg",
+  "auteur": "Fred Benenson",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Focaccia_with_Crumb.jpg"
  },
  "foe-yong-hai": {
   "src": "img/foe-yong-hai.jpg",
@@ -413,6 +455,12 @@ window.FOTOS = {
   "auteur": "HarshLight",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Fire-Roasted_Vegetable_Soup.jpg"
+ },
+ "gua-bao": {
+  "src": "img/gua-bao.jpg",
+  "auteur": "LeoAlmighty",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Steamed_Sandwich,taken_by_LeoAlmighty.jpg"
  },
  "guisado-carne-molida": {
   "src": "img/guisado-carne-molida.jpg",
@@ -1067,11 +1115,23 @@ window.FOTOS = {
   "auteur": "Mark",
   "licentie": "eigen foto, in het pannenkoekenhuis"
  },
+ "pao-de-queijo": {
+  "src": "img/pao-de-queijo.jpg",
+  "auteur": "Murilo manzini",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Cheesebread.jpg"
+ },
  "paprikas-csirke": {
   "src": "img/paprikas-csirke.jpg",
   "auteur": "Atilla the Great",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chicken_Paprikash_(Csirke_Paprik%C3%A1s).jpg"
+ },
+ "paratha": {
+  "src": "img/paratha.jpg",
+  "auteur": "Nithyasrm",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Triangle_paratha_(cropped).JPG"
  },
  "pasta-pesto-kip": {
   "src": "img/pasta-pesto-kip.jpg",
@@ -1120,6 +1180,12 @@ window.FOTOS = {
   "auteur": "Gunawan Kartapranata",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Pecel_Solo.JPG"
+ },
+ "pita-pan": {
+  "src": "img/pita-pan.jpg",
+  "auteur": "Azure Dragon of the East",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Pita_Bread.jpg"
  },
  "pizza-margherita": {
   "src": "img/pizza-margherita.jpg",
@@ -1648,6 +1714,12 @@ window.FOTOS = {
   "auteur": "Quercus acuta",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Yakisoba_-_01.jpg"
+ },
+ "yoghurt-platbrood": {
+  "src": "img/yoghurt-platbrood.jpg",
+  "auteur": "Jonathunder",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Flatbread.JPG"
  },
  "zaalouk": {
   "src": "img/zaalouk.jpg",

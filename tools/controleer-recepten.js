@@ -54,7 +54,7 @@ for (const r of ctx.RECEPTEN) {
 }
 
 const alleen = process.argv.slice(2).map((n) => `recepten-${n}.js`);
-const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Saus', 'Dessert'];
+const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert'];
 const NIVEAUS = ['Makkelijk', 'Gemiddeld', 'Moeilijk'];
 const KEUKENS = ctx.HOOFDSTUKKEN.map((h) => h.keuken);
 const ids = new Map();
@@ -172,6 +172,20 @@ for (const [id, perNaam] of Object.entries(UIEN.recepten)) {
 for (const r of ctx.RECEPTEN) {
   const advies = UIEN.recepten[r.id] || UIEN.recepten[r.variantVan] || {};
   if (r.ingr.some((i) => i.n === 'ui') && !advies.ui) fouten.push({ f: herkomst.get(r.id), id: r.id, m: 'welke ui past het best? Zet het advies in js/data/uien.js' });
+}
+
+// Wat is dit? Elke uitleg hoort bij een ingrediënt uit een recept, en staat niet ook al in de kruiden- of sauzenkast.
+['kruiden.js', 'smaakmakers.js', 'uitleg.js'].forEach((f) => vm.runInContext(fs.readFileSync(path.join(map, f), 'utf8'), ctx, { filename: f }));
+const inKast = new Set([...ctx.KRUIDEN, ...ctx.SMAAKMAKERS].flatMap((k) => k.namen.map((n) => n.toLowerCase())));
+const uitlegIds = new Set();
+for (const u of ctx.UITLEG) {
+  if (uitlegIds.has(u.id)) fouten.push({ f: 'uitleg.js', id: u.id, m: 'dubbel id' });
+  uitlegIds.add(u.id);
+  if (!u.naam || !u.wat || !u.waar || !Array.isArray(u.namen) || !u.namen.length) fouten.push({ f: 'uitleg.js', id: u.id, m: 'naam, namen, wat en waar zijn nodig' });
+  for (const n of u.namen || []) {
+    if (!namen.has(n.toLowerCase())) fouten.push({ f: 'uitleg.js', id: n, m: 'komt in geen enkel recept voor' });
+    if (inKast.has(n.toLowerCase())) fouten.push({ f: 'uitleg.js', id: n, m: 'staat al in kruiden.js of smaakmakers.js' });
+  }
 }
 
 const toon = fouten.filter((x) => !alleen.length || alleen.includes(x.f));

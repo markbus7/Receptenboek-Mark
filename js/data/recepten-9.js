@@ -1,7 +1,7 @@
 /* Dutch oven-klassiekers */
 RECEPTEN.push(
 {
-  id: 'no-knead-brood', naam: 'Brood uit de Dutch oven', ook: ['no knead brood', 'brood bakken'], keuken: 'Amerikaans', soort: 'Ontbijt & lunch',
+  id: 'no-knead-brood', naam: 'Brood uit de Dutch oven', ook: ['no knead brood', 'brood bakken'], keuken: 'Amerikaans', soort: 'Brood',
   tijd: 20, wacht: '12 uur rijzen + 45 min bakken', pers: 8, niveau: 'Makkelijk', vega: true,
   intro: 'Een knapperig, open brood zonder kneden. De hete Dutch oven werkt als een bakkersoven met stoom.',
   gerei: [

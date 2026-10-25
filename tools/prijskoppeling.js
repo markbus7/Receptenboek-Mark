@@ -92,6 +92,7 @@ window.PRIJSKOPPELING = {
   'verse selderij': { zoek: ['selderij', 'verse selderij'], niet: ['knol', 'bleek', 'zout', 'silvo'], om: { handje: 10, bos: 40 }, ruim: 0 },
   'verse dille': { zoek: ['dille', 'verse dille'], niet: ['silvo', 'verstegen', 'saus', 'zalm', 'augurk'], om: { handje: 10 }, ruim: 0 },
   'verse dragon': { geen: true },
+  'verse rozemarijn': { zoek: ['rozemarijn'], niet: ['silvo', 'verstegen', 'euroma', 'gedroogd', 'pot', 'aardappel', 'olijven', 'focaccia', 'crackers', 'scrocchi'], e: 'g', om: { takje: 1 }, ruim: 0 },
   'verse tijm': { zoek: ['tijm', 'verse tijm'], niet: ['hoest', 'pastilles', 'bronchostop', 'silvo', 'verstegen', 'gedroogd', 'pot'], e: 'g', om: { takje: 1 }, ruim: 0 },
   'bieslook': { niet: ['philadelphia', 'eru', 'salade', 'roomkaas', 'saus', 'ei', 'silvo'], om: { bos: 20 }, ruim: 0 },
 
@@ -277,6 +278,9 @@ window.PRIJSKOPPELING = {
   'bakpoeder': {},
   'baking soda': {},
   'zuiveringszout': { als: 'baking soda' },
+  'voorgekookt maismeel': { zoek: ['voorgekookte meel', 'voorgekookt maismeel', 'masarepa'], ruim: 5 },
+  'tapiocameel': { geen: true },
+  'chapatimeel': { geen: true },
   'gedroogde gist': { zoek: ['gist', 'droge gist', 'bakkersgist'], niet: ['extract', 'marmite', 'vlokken'] },
   'gelatineblaadje': { zoek: ['bladgelatine', 'gelatine'], niet: ['vegatine'], e: 'g', st: 1.7 },
   'cacaopoeder': {},
@@ -300,6 +304,7 @@ window.PRIJSKOPPELING = {
   'sesamzaad': { niet: ['ongepeld', 'zwart'] },
 
   /* Sauzen, olie en azijn */
+  'zeezout': { zoek: ['grof zeezout', 'zeezoutvlokken'], niet: ['chips', 'molen', 'zeezoutmolen'] },
   'olijfolie': { niet: ['zonnebloem', 'blend', 'spray', 'knoflook', 'chili', 'kruiden', 'basilicum'] },
   'zonnebloemolie': { niet: ['olijf', 'spray', 'blend'] },
   'sesamolie': {},

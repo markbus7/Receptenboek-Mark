@@ -7,7 +7,7 @@ const App = (() => {
   const KEUKENS = [...HOOFDSTUKKEN.map((h) => h.keuken), ...new Set(RECEPTEN.map((r) => r.keuken))]
     .filter((k, i, a) => a.indexOf(k) === i && RECEPTEN.some((r) => r.keuken === k));
   const HK = new Map(KEUKENS.map((k, i) => [k, { nr: i + 1, kleur: (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).kleur || '#5A5048' }]));
-  const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Saus', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
+  const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
   // Paginanummers: elk hoofdstuk opent met één pagina, elk recept beslaat een dubbele pagina.
   const BLZ = new Map();
   (() => {
@@ -54,7 +54,8 @@ const App = (() => {
     dessert: 'Dessert', desserts: 'Dessert', toetje: 'Dessert', toetjes: 'Dessert', nagerecht: 'Dessert', nagerechten: 'Dessert',
     soep: 'Soep', soepen: 'Soep', hoofdgerecht: 'Hoofdgerecht', hoofdgerechten: 'Hoofdgerecht',
     ontbijt: 'Ontbijt & lunch', lunch: 'Ontbijt & lunch', bijgerecht: 'Salade & bijgerecht', bijgerechten: 'Salade & bijgerecht',
-    salade: 'Salade & bijgerecht', salades: 'Salade & bijgerecht'
+    salade: 'Salade & bijgerecht', salades: 'Salade & bijgerecht',
+    brood: 'Brood', broden: 'Brood', broodjes: 'Brood', broodgerechten: 'Brood', broodrecepten: 'Brood'
   };
   const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
   // Woorden per recept voor korte zoektermen en tikfouten: naam, keuken, soort, ingrediënten en gerei.
