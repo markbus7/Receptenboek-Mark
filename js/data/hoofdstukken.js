@@ -22,5 +22,6 @@ window.HOOFDSTUKKEN = [
   { keuken: 'Koreaans',       kleur: '#B23A2A' }, // gochujang
   { keuken: 'Japans',         kleur: '#2E3B5E' }, // indigo
   { keuken: 'Mexicaans',      kleur: '#B0185A' }, // chili
+  { keuken: 'Zuid-Amerikaans', kleur: '#6A3D8F' }, // paarse maïs
   { keuken: 'Amerikaans',     kleur: '#8C6A14' }  // mosterd
 ];

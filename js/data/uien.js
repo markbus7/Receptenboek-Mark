@@ -96,6 +96,8 @@ window.UIEN = {
     'guisado-carne-molida': { ui: ['witte ui', 'De helft gaat rauw in de saus: een witte ui is daar frisser en minder zoet dan een gele', 'gele ui'] },
     'salsa-fresca': { ui: ['witte ui', 'Rauw is een witte ui knapperig en fris: de klassieke keuze voor deze salsa', 'rode ui', 'sjalot'] },
     'chili-con-carne': { ui: ['gele ui', 'Hij stooft mee en maakt de chili zoet', 'witte ui', 'rode ui'] },
+    /* Zuid-Amerikaans */
+    'arepas-mechada': { ui: ['gele ui', 'Hij stooft 2 uur mee en valt dan helemaal weg in het draadjesvlees', 'witte ui', 'rode ui'] },
     'kip-fajitas': { 'rode ui': ['rode ui', 'De partjes worden zoet in de pan en blijven mooi van kleur', 'gele ui', 'witte ui'] },
     barbecuesaus: { ui: ['gele ui', 'Zacht gefruit maakt hij de saus zoet', 'witte ui', 'sjalot'] },
     'smash-burgers': { ui: ['rode ui', 'Hij gaat rauw op de burger: milder en knapperig', 'witte ui', 'gele ui'] },
