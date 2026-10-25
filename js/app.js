@@ -672,6 +672,7 @@ const App = (() => {
         <p>${esc(k.wat)}</p>
         ${k.bevat ? `<p><b>Wat zit erin:</b> ${esc(k.bevat)}</p>` : ''}
         <p><b>Wat je ermee doet:</b> ${esc(k.gebruik)}</p>
+        ${k.waar ? `<p><b>Waar koop je het:</b> ${esc(k.waar)}</p>` : ''}
         ${k.tip ? `<p class="kruid-tip">${esc(k.tip)}</p>` : ''}
         ${k.mijn && inKast.has(k.id) ? mijnPotje(k.mijn) : ''}
         ${rs.length ? `<button type="button" class="knop knop-klein kruid-toon" data-kruid-filter="${k.id}">Toon deze recepten</button>` : ''}
