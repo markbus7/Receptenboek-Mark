@@ -192,6 +192,8 @@ ARTIKELEN = {
     'yoghurt-platbrood': 'Flatbread', 'bloem-tortillas': 'Flour tortilla', 'arepas': 'Arepa', 'bazlama': 'Bazlama',
     'pita-pan': 'Pita', 'engelse-muffins': 'English muffin', 'pao-de-queijo': 'Pão de queijo', 'airfryer-bolletjes': 'Bun',
     'focaccia': 'Focaccia', 'paratha': 'Paratha', 'cong-you-bing': 'Cong you bing', 'bagels': 'Bagel', 'gua-bao': 'Gua bao',
+    # 1.54.0: stomen in de rijstkoker
+    'gestoomde-vis-gember': 'File:Homemade steamed fish in dinner.jpg', 'siu-mai': 'Shumai', 'gestoomde-groenten-sesam': 'File:Tenderstem broccoli dressed with sesame sauce 001.jpg',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

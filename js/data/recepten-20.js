@@ -508,7 +508,7 @@ RECEPTEN.push(
     { t: 'Rol het deeg uit tot 5 mm dik en steek er met een glas van 9 cm rondjes uit. Rol elk rondje kort uit tot een ovaal. Bestrijk de helft met een beetje olie, leg een stukje van een rietje of een eetstokje in het midden en vouw dubbel. Trek het stokje eruit.' },
     { t: 'Leg elke bao op een vierkantje bakpapier in het stoommandje, met ruimte ertussen. Laat ze afgedekt 30 minuten rijzen.', min: 30 },
     { t: 'Haal het vlees uit de pan en kook het vocht in tot een stroperige saus. Doe het vlees terug en schep het om tot het glanst.', min: 10 },
-    { t: 'Zet het mandje op de wok met kokend water (het water mag het mandje niet raken). Stoom de bao 10 minuten op middelhoog vuur. Doe daarna het vuur uit en laat de deksel er nog 5 minuten op: dan zakken ze niet in.', min: 15 },
+    { t: 'Zet het mandje op de wok met kokend water (het water mag het mandje niet raken). Stoom de bao 10 minuten op middelhoog vuur. Doe daarna het vuur uit en laat de deksel er nog 5 minuten op: dan zakken ze niet in.', min: 15, stoom: 'laat de bao op hun bakpapiertjes op een plank rijzen en zet er 3 à 4 tegelijk in het mandje. Stoom 12 minuten en laat de deksel daarna nog 5 minuten dicht. Houd de rest intussen onder een doek.' },
     { t: 'Vul elke bao met een plak buikspek, komkommer, koriander en de zoete pinda\'s.' }
   ],
   tips: ['Gestoomde bao kun je invriezen. Stoom ze bevroren 8 minuten, dan zijn ze weer als vers.', 'Wil je het makkelijker? Diepvries bao vind je bij de toko; dan maak je alleen het vlees.'],

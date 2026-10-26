@@ -123,8 +123,8 @@ RECEPTEN.push(
     { n: 'limoen', p: 'limoenen', q: 0.5, u: 'st', x: 'sap' }
   ],
   stappen: [
-    { t: 'Kook de aardappelplakken 10 minuten gaar in water met zout. Schep ze eruit.', min: 10 },
-    { t: 'Kook in hetzelfde water de sperziebonen 5 minuten en de kool 2 minuten. Overgiet de taugé met kokend water. Laat alles uitlekken.', min: 7 },
+    { t: 'Kook de aardappelplakken 10 minuten gaar in water met zout. Schep ze eruit.', min: 10, stoom: 'de aardappelplakken 15 minuten, tot een mes er makkelijk in gaat' },
+    { t: 'Kook in hetzelfde water de sperziebonen 5 minuten en de kool 2 minuten. Overgiet de taugé met kokend water. Laat alles uitlekken.', min: 7, stoom: 'de sperziebonen 8 minuten, de kool de laatste 3 minuten erbij' },
     { t: 'Bak de tahoe in een scheut olie 6 minuten rondom goudbruin.', min: 6 },
     { t: 'Verwarm alle ingrediënten voor de pindasaus op laag vuur tot een gladde saus. Maak hem lopend met wat water.', min: 4 },
     { t: 'Leg de groenten, komkommer, tahoe en gehalveerde eieren op een grote schaal. Schenk de warme saus erover en bestrooi met gebakken uitjes. Serveer met kroepoek.' }

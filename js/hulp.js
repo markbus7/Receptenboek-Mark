@@ -429,6 +429,8 @@ const Hulp = (() => {
     const tools = new Set(recept.gerei.map((g) => g.tool));
     (recept.methodes || []).forEach((m) => tools.add(m.id));
     if (recept.gerei.some((g) => /braadpan|stoofpan|dutch oven|tajine/i.test(g.tekst))) tools.add('braadpan');
+    // Stappen met een `stoom`-krabbel kun je ook in de rijstkoker doen; rijst koken alleen telt niet.
+    if ((recept.stappen || []).some((s) => s.stoom)) tools.add('rijstkoker');
     return tools;
   }
 
@@ -490,6 +492,14 @@ const Hulp = (() => {
 
     if (g.tool === 'kookpan' && heb('rijstkoker') && /rijst/.test(tekst)) {
       return eenmalig('rijst', { soort: 'vervang', tekst: 'Gebruik je rijstkoker: spoel de rijst, vul water bij tot het streepje voor het aantal maatbekers en zet hem aan. Hij houdt de rijst daarna warm.' });
+    }
+
+    const stomen = 'doe 2 à 3 maatbekers water in de binnenpan, zet het stoommandje erop, leg het eten erin en sluit de deksel. Zet hem op Stomen (Steam). De tijd telt vanaf het moment dat er stoom uit het ventiel komt. Past niet alles in het mandje, stoom dan in twee rondes.';
+    if (g.tool === 'rijstkoker' && heb('rijstkoker')) {
+      return eenmalig('stomen', { soort: 'tip', tekst: 'Stomen in je rijstkoker: ' + stomen });
+    }
+    if (g.tool === 'kookpan' && heb('rijstkoker') && (recept.stappen || []).some((s) => s.stoom)) {
+      return eenmalig('stomen', { soort: 'tip', tekst: 'Je kunt ook stomen in je rijstkoker (zie de krabbels bij de stappen): ' + stomen });
     }
 
     if (g.tool === 'kookpan' && heb('rvs-kookpan') && /bechamel|saus|melk|room/.test(tekst)) {

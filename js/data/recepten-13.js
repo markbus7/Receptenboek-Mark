@@ -528,7 +528,7 @@ RECEPTEN.push(
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
-    { t: 'Kook de aardappelen met schil in water met zout in 20 à 25 minuten gaar, afhankelijk van de grootte.', min: 22 },
+    { t: 'Kook de aardappelen met schil in water met zout in 20 à 25 minuten gaar, afhankelijk van de grootte.', min: 22, stoom: 'de aardappelen met schil 25 à 30 minuten, tot een mes er makkelijk in gaat' },
     { t: 'Giet ze af en laat 5 minuten uitdampen. Pel ze terwijl ze nog warm zijn (prik ze op een vork, dan verbrand je je vingers niet) en snijd ze in plakjes van 3 à 4 mm in een grote kom.', min: 5 },
     { t: 'Breng intussen de bouillon met de ui aan de kook in de steelpan en laat 2 minuten zachtjes koken. Roer azijn, mosterd, suiker, zout en peper erdoor.', min: 2 },
     { t: 'Giet de hete bouillon over de warme aardappelen en schep voorzichtig om. Laat 30 minuten intrekken en schep af en toe om: de aardappelen zuigen het vocht op en worden smeuïg.', min: 30 },

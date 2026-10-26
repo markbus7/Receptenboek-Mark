@@ -259,7 +259,7 @@ RECEPTEN.push(
     { n: 'maïzena', q: 1, u: 'tl', x: 'aangelengd met 2 el water' }
   ],
   stappen: [
-    { t: 'Kook de rijst volgens de verpakking. Stoom of kook de broccoli 4 minuten beetgaar.', min: 15 },
+    { t: 'Kook de rijst volgens de verpakking. Stoom of kook de broccoli 4 minuten beetgaar.', min: 15, stoom: 'de broccoli 6 minuten, boven de rijst als je rijstkoker dat kan' },
     { t: 'Breng sojasaus, mirin, honing en gember aan de kook in de steelpan. Roer de maïzena erdoor en laat 1 minuut binden tot een stroperige saus.', min: 2 },
     { t: 'Bak de zalm met de velkant naar beneden 4 minuten in 1 el olie op middelhoog vuur. Keer om en bak 2 minuten. Giet de helft van de saus erover en laat 1 minuut glaceren.', m: 'koekenpan', min: 7 },
     { t: 'Leg de zalm met de velkant naar beneden op de voorverwarmde contactgrill en sluit de deksel. Grill 4 à 5 minuten. Leg hem op een bord en bestrijk met de helft van de saus.', m: 'contactgrill', min: 5 },

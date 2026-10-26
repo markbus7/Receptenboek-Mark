@@ -426,6 +426,18 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:(waterzooi)_(79743868).jpg"
  },
+ "gestoomde-groenten-sesam": {
+  "src": "img/gestoomde-groenten-sesam.jpg",
+  "auteur": "Flickr user yoppy",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Tenderstem_broccoli_dressed_with_sesame_sauce_001.jpg"
+ },
+ "gestoomde-vis-gember": {
+  "src": "img/gestoomde-vis-gember.jpg",
+  "auteur": "Apeach316",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Homemade_steamed_fish_in_dinner.jpg"
+ },
  "goi-cuon": {
   "src": "img/goi-cuon.jpg",
   "auteur": "pelican",
@@ -1306,6 +1318,12 @@ window.FOTOS = {
   "auteur": "Oxfordian Kissuth",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Homerton_College_-_Shepherd%27s_pie_(cropped).jpg"
+ },
+ "siu-mai": {
+  "src": "img/siu-mai.jpg",
+  "auteur": "Mshuang2",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Yellow_dim_sum_in_steamer_basket.jpg"
  },
  "smaak-appelazijn": {
   "src": "img/smaak-appelazijn.jpg",

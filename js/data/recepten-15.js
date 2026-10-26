@@ -304,7 +304,7 @@ RECEPTEN.push(
     { n: 'geraspte kaas', q: 150, u: 'g', x: 'Goudse, Emmentaler of Hongaarse trappista' }
   ],
   stappen: [
-    { t: 'Kook de aardappel in 15 minuten gaar in de steelpan. Giet af, prak hem heel fijn en laat lauw worden.', min: 15 },
+    { t: 'Kook de aardappel in 15 minuten gaar in de steelpan. Giet af, prak hem heel fijn en laat lauw worden.', min: 15, stoom: 'de aardappel in stukken 15 minuten' },
     { t: 'Meng bloem, gist, suiker en zout in een kom. Voeg de aardappel, de lauwe melk en 1 el olie toe en kneed 8 minuten tot een zacht, licht plakkerig deeg.', min: 8 },
     { t: 'Laat het deeg afgedekt op een warme plek 1 uur rijzen, tot het in volume verdubbeld is.', min: 60 },
     { t: 'Roer intussen de knoflook door 3 el olie met een snuf zout.' },
@@ -385,8 +385,8 @@ RECEPTEN.push(
     { n: 'augurk', p: 'augurken', q: 4, u: 'st', opt: true }
   ],
   stappen: [
-    { t: 'Kook de aardappelen in de schil in 20 à 25 minuten net gaar in water met zout: een mes moet er met een klein beetje weerstand in gaan. Giet af en laat iets afkoelen.', min: 25 },
-    { t: 'Kook intussen de eieren 10 minuten hard. Laat ze schrikken onder koud water en pel ze.', min: 10 },
+    { t: 'Kook de aardappelen in de schil in 20 à 25 minuten net gaar in water met zout: een mes moet er met een klein beetje weerstand in gaan. Giet af en laat iets afkoelen.', min: 25, stoom: 'de aardappelen in de schil 25 minuten, tot een mes er met een beetje weerstand in gaat' },
+    { t: 'Kook intussen de eieren 10 minuten hard. Laat ze schrikken onder koud water en pel ze.', min: 10, stoom: 'de eieren 12 minuten, daarna in koud water' },
     { t: 'Verwarm de oven voor op 180 °C. Vet de ovenschaal in met boter.', m: 'oven' },
     { t: 'Bak de worstplakjes 3 minuten in de droge koekenpan tot ze kleuren en wat vet loslaten. Bak de ui 5 minuten mee in dat vet tot hij zacht is.', min: 8 },
     { t: 'Trek de schil van de nog warme aardappelen en snijd ze in plakjes van een halve centimeter. Snijd de eieren in plakjes.' },
