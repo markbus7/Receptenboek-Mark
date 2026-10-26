@@ -429,7 +429,7 @@ const Hulp = (() => {
     const tools = new Set(recept.gerei.map((g) => g.tool));
     (recept.methodes || []).forEach((m) => tools.add(m.id));
     if (recept.gerei.some((g) => /braadpan|stoofpan|dutch oven|tajine/i.test(g.tekst))) tools.add('braadpan');
-    // Stappen met een `stoom`-krabbel kun je ook in de rijstkoker doen; rijst koken alleen telt niet.
+    // Stappen met een `stoom`-krabbel (tekst) of die al stomen (`stoom: true`, stomen is daar lekkerder); rijst koken alleen telt niet.
     if ((recept.stappen || []).some((s) => s.stoom)) tools.add('rijstkoker');
     return tools;
   }
@@ -498,8 +498,8 @@ const Hulp = (() => {
     if (g.tool === 'rijstkoker' && heb('rijstkoker')) {
       return eenmalig('stomen', { soort: 'tip', tekst: 'Stomen in je rijstkoker: ' + stomen });
     }
-    if (g.tool === 'kookpan' && heb('rijstkoker') && (recept.stappen || []).some((s) => s.stoom)) {
-      return eenmalig('stomen', { soort: 'tip', tekst: 'Je kunt ook stomen in je rijstkoker (zie de krabbels bij de stappen): ' + stomen });
+    if (g.tool === 'kookpan' && heb('rijstkoker') && !recept.gerei.some((x) => x.tool === 'rijstkoker') && (recept.stappen || []).some((s) => s.stoom)) {
+      return eenmalig('stomen', { soort: 'tip', tekst: 'Je kunt ook stomen in je rijstkoker (zie de stappen): ' + stomen });
     }
 
     if (g.tool === 'kookpan' && heb('rvs-kookpan') && /bechamel|saus|melk|room/.test(tekst)) {

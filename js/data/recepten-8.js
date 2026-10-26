@@ -98,9 +98,10 @@ RECEPTEN.push(
 {
   id: 'gado-gado', naam: 'Gado-gado', keuken: 'Indonesisch', soort: 'Salade & bijgerecht',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
-  intro: 'Kleurrijke schotel van gekookte groenten, ei, tahoe en een warme, romige pindasaus.',
+  intro: 'Kleurrijke schotel van gestoomde groenten, aardappel, ei, tahoe en een warme, romige pindasaus.',
   gerei: [
-    { tool: 'kookpan', tekst: 'Kookpan om de groenten te blancheren' },
+    { tool: 'kookpan', tekst: 'Kookpan voor de aardappelen' },
+    { tool: 'rijstkoker', tekst: 'Rijstkoker met stoommandje voor de sperziebonen en kool', of: 'Geen rijstkoker: een vergiet boven de pan met de deksel erop, of kook ze mee in het aardappelwater.' },
     { tool: 'koekenpan', tekst: 'Koekenpan voor de tahoe' },
     { tool: 'kookpan', tekst: 'Steelpan voor de pindasaus' }
   ],
@@ -124,7 +125,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kook de aardappelplakken 10 minuten gaar in water met zout. Schep ze eruit.', min: 10, stoom: 'de aardappelplakken 15 minuten, tot een mes er makkelijk in gaat' },
-    { t: 'Kook in hetzelfde water de sperziebonen 5 minuten en de kool 2 minuten. Overgiet de taugé met kokend water. Laat alles uitlekken.', min: 7, stoom: 'de sperziebonen 8 minuten, de kool de laatste 3 minuten erbij' },
+    { t: 'Stoom de sperziebonen 8 minuten in het stoommandje van je rijstkoker (of in een vergiet boven de pan met de deksel erop) en leg de kool de laatste 3 minuten erbij. Stomen is hier de eerste keuze vanwege de smaak: de groente blijft knapperig en zoeter en wordt niet waterig onder de pindasaus. Overgiet de taugé met kokend water en laat uitlekken. Liever koken? Kook de sperziebonen dan 5 minuten en de kool 2 minuten in het aardappelwater.', min: 8, stoom: true },
     { t: 'Bak de tahoe in een scheut olie 6 minuten rondom goudbruin.', min: 6 },
     { t: 'Verwarm alle ingrediënten voor de pindasaus op laag vuur tot een gladde saus. Maak hem lopend met wat water.', min: 4 },
     { t: 'Leg de groenten, komkommer, tahoe en gehalveerde eieren op een grote schaal. Schenk de warme saus erover en bestrooi met gebakken uitjes. Serveer met kroepoek.' }

@@ -489,7 +489,7 @@ const Detail = (() => {
         <div class="stap-tekst">
           <p>${Hulp.stapMetHoeveelheden(s.t, r, factor, gebruikt, mixWeg)}</p>
           ${ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? '<span class="stap-notitie">of: in je rijstkoker</span>' : ''}
-          ${ctx.keuken.includes('rijstkoker') && s.stoom ? `<span class="stap-notitie">of stomen in je rijstkoker: ${Hulp.esc(s.stoom)}</span>` : ''}
+          ${ctx.keuken.includes('rijstkoker') && typeof s.stoom === 'string' ? `<span class="stap-notitie">of stomen in je rijstkoker: ${Hulp.esc(s.stoom)}</span>` : ''}
           ${vries.items.filter((x) => x.stap === s).map((x) => `<span class="stap-notitie">${Hulp.esc(x.i.n)} uit de vriezer: ${Hulp.esc(x.inStap)}</span>`).join('')}
           ${s.min ? `<button type="button" class="timer-knop" data-min="${s.min}" data-label="Stap ${n + 1}">${icoon('klok')} Timer ${Hulp.tijdTekst(s.min)}</button>` : ''}
         </div>
