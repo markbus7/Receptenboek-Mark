@@ -28,7 +28,7 @@ RECEPTEN.push(
     { t: 'Verhit 2 el olie in de Dutch oven en bak de rest van de masala 1 minuut. Bak de ui en de rest van de knoflook 5 minuten.', min: 6 },
     { t: 'Voeg de kip toe en bak 5 minuten rondom. Roer de tomatenpuree erdoor.', min: 5 },
     { t: 'Voeg aardappelen, bouillon en de hele madame jeanette toe. Laat met de deksel erop 40 à 45 minuten zachtjes stoven. De aardappels mogen een beetje uit elkaar vallen; dat bindt de saus.', min: 45 },
-    { t: 'Kook de eieren 9 minuten hard, pel ze en leg ze de laatste 10 minuten in de kerrie.', min: 9 },
+    { t: 'Kook de eieren 9 minuten hard, pel ze en leg ze de laatste 10 minuten in de kerrie.', min: 9, stoom: 'de eieren 12 minuten, daarna even in koud water' },
     { t: 'Bak de kousenband 6 minuten in 1 el olie met knoflook, zout en peper.', min: 6 },
     { t: 'Haal de madame jeanette eruit voordat hij openbarst. Verwarm de roti 30 seconden per kant in een droge koekenpan. Serveer met kip, aardappel, ei en kousenband.' }
   ],
@@ -299,7 +299,7 @@ RECEPTEN.push(
     { n: 'cheddar', q: 75, u: 'g', x: 'geraspt' }
   ],
   stappen: [
-    { t: 'Kook de aardappelen in 20 minuten gaar. Stamp ze met boter en warme melk tot een smeuïge puree. Breng op smaak.', min: 20 },
+    { t: 'Kook de aardappelen in 20 minuten gaar. Stamp ze met boter en warme melk tot een smeuïge puree. Breng op smaak.', min: 20, stoom: 'de aardappelen in stukken van 3 cm 20 minuten; de puree wordt er voller van' },
     { t: 'Bak het gehakt in de Dutch oven rul en bruin. Bak ui, wortel en selderij 6 minuten mee.', min: 10 },
     { t: 'Roer tomatenpuree en bloem erdoor en bak 1 minuut. Voeg worcestershiresaus, bouillon en tijm toe en laat 15 minuten inkoken tot een dikke saus. Roer de doperwten erdoor.', min: 15 },
     { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },

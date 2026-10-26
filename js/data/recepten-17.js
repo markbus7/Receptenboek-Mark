@@ -302,7 +302,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Kook de rijst volgens de verpakking.', min: 15 },
     { t: 'Meng het vlees met zuiveringszout, maïzena, 1 el sojasaus, 1 el water en 1 tl olie. Laat 15 minuten staan; dit maakt het vlees mals (velveting). Leg de biefstuk vooraf 20 minuten in de vriezer, dan snijd je hem makkelijk flinterdun.', min: 15 },
-    { t: 'Breng water met zout aan de kook in de kookpan. Blancheer de broccoli 1 minuut, giet af en laat goed uitlekken.', min: 1 },
+    { t: 'Breng water met zout aan de kook in de kookpan. Blancheer de broccoli 1 minuut, giet af en laat goed uitlekken.', min: 1, stoom: 'de broccoli 3 minuten, hij moet nog knapperig zijn' },
     { t: 'Roer de ingrediënten voor de saus door elkaar en zet alles klaar naast de wok.' },
     { t: 'Verhit 1 el olie in de wok op het hoogste vuur tot hij walmt. Leg de helft van het vlees in één laag, laat 1 minuut liggen en roerbak nog 30 seconden, tot het bruin is maar vanbinnen nog roze. Schep uit en bak de tweede helft net zo.', min: 2 },
     { t: 'Verhit de laatste el olie. Roerbak knoflook en gember 30 seconden tot ze geuren. Voeg de broccoli toe en roerbak 1 minuut.', min: 1 },
@@ -321,7 +321,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Kook de rijst volgens de verpakking.', min: 15 },
     { t: 'Meng de kip met de maïzena, 1 el sojasaus, 1 el water en 1 tl olie. Laat 10 minuten staan.', min: 10 },
-    { t: 'Breng water met zout aan de kook in de kookpan. Blancheer de broccoli 1 minuut, giet af en laat goed uitlekken.', min: 1 },
+    { t: 'Breng water met zout aan de kook in de kookpan. Blancheer de broccoli 1 minuut, giet af en laat goed uitlekken.', min: 1, stoom: 'de broccoli 3 minuten, hij moet nog knapperig zijn' },
     { t: 'Roer de ingrediënten voor de saus door elkaar en zet alles klaar naast de wok.' },
     { t: 'Verhit 1 el olie in de wok op het hoogste vuur tot hij walmt. Leg de helft van de kip in één laag, laat 1 minuut liggen en roerbak nog 2 minuten, tot hij bruin en gaar is. Schep uit en bak de tweede helft net zo.', min: 3 },
     { t: 'Verhit de laatste el olie. Roerbak knoflook en gember 30 seconden tot ze geuren. Voeg de broccoli toe en roerbak 1 minuut.', min: 1 },
@@ -592,7 +592,7 @@ RECEPTEN.push(
     { t: 'Bouillon: breng de kippenbouillon met gember, knoflook, het groen van de lente-ui, kombu en shiitake aan de kook in de soeppan. Vis de kombu eruit zodra de bouillon kookt. Laat 20 minuten zachtjes trekken met de deksel op een kier en zeef hem.', min: 20 },
     { t: 'Roer de sojasaus en mirin voor de tare door elkaar.' },
     { t: 'Bestrooi de kip met een snuf zout. Bak hem in de olie in de koekenpan op middelhoog vuur 5 minuten per kant tot hij goudbruin en gaar is. Giet er de laatste minuut 1 el van de tare over en laat die karamelliseren. Laat 5 minuten rusten en snijd in plakjes.', min: 10 },
-    { t: 'Kook de noedels in ruim water zonder zout volgens de verpakking (vers 1 à 2 minuten, gedroogd 3 à 4). Blancheer de paksoi de laatste minuut mee. Giet goed af.', min: 3 },
+    { t: 'Kook de noedels in ruim water zonder zout volgens de verpakking (vers 1 à 2 minuten, gedroogd 3 à 4). Blancheer de paksoi de laatste minuut mee. Giet goed af.', min: 3, stoom: 'de paksoi 4 minuten, dan hoeft hij niet bij de noedels' },
     { t: 'Doe 1 el tare in elke voorverwarmde kom en schenk er 400 ml gloeiend hete bouillon op. Proef en voeg naar smaak meer tare toe. Leg de noedels erin en maak af met kip, een gehalveerd ei, paksoi, mais, nori, het wit van de lente-ui en sesamzaad. Eet direct, voordat de noedels zacht worden.' }
   ],
   tips: ['Gebruik je bouillon van blokjes, maak hem dan slapper (1 blokje per liter): de tare brengt ook zout mee.', 'Echte ramenzaken trekken hun bouillon een hele dag en serveren chashu, opgerold gestoofd buikspek. Deze kip is de snelle thuisversie.'],
