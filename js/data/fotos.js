@@ -60,6 +60,12 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Arepitas_Food_Macro.jpg"
  },
+ "avgolemono": {
+  "src": "img/avgolemono.jpg",
+  "auteur": "robin.norwood",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Avgolemono_soup.jpg"
+ },
  "babi-ketjap": {
   "src": "img/babi-ketjap.jpg",
   "auteur": "Gunawan Kartapranata",
@@ -318,6 +324,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Soft-boiled-egg.jpg"
  },
+ "empanadas": {
+  "src": "img/empanadas.jpg",
+  "auteur": "Tamorlan",
+  "licentie": "CC BY 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Tapa_de_empanadillitas.JPG"
+ },
  "enchiladas": {
   "src": "img/enchiladas.jpg",
   "auteur": "Jon Sullivan",
@@ -527,6 +539,12 @@ window.FOTOS = {
   "auteur": "Lily15",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Gulyas080.jpg"
+ },
+ "hotteok": {
+  "src": "img/hotteok.jpg",
+  "auteur": "Korea.net / Korean Culture and Information Service",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Hotteok.jpg"
  },
  "huevos-rancheros": {
   "src": "img/huevos-rancheros.jpg",
@@ -1660,6 +1678,12 @@ window.FOTOS = {
   "auteur": "Calvin Marquess",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Salmon_Teriyaki.jpg"
+ },
+ "thit-kho": {
+  "src": "img/thit-kho.jpg",
+  "auteur": "Kingofthepings",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Caramelized_Pork_and_Eggs.jpg"
  },
  "tiramisu": {
   "src": "img/tiramisu.jpg",

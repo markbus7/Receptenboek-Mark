@@ -1,6 +1,6 @@
 # Receptenboek Mark
 
-Een receptenboek in de browser met 208 gerechten uit 23 keukens, waarvan 25 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
+Een receptenboek in de browser met 213 gerechten uit 23 keukens, waarvan 25 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
 
 ## Wat kan het
 
@@ -105,6 +105,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.55.0**: Vijf nieuwe recepten: *Rinderrouladen* (Duitse runderrolletjes met mosterd, spek en augurk, 1½ uur gestoofd in rode wijn), *Thịt kho* (Vietnamese varkensbuik met eieren in karamel en kokoswater), *Avgolemono* (Griekse kippensoep met ei en citroen), *Empanadas met gehakt uit de airfryer* (met zelfgemaakt deeg) en als dessert *Hotteok* (Koreaanse pannenkoekjes met bruine suiker en kaneel, uit de koekenpan). *Wat is het?* kent kokoswater. Vier van de vijf hebben een foto; de rinderrouladen houden het tegeltje.
 - **1.54.1**: Stomen als eerste keuze waar het lekkerder is: broccoli (beef/kip broccoli, recepten-3), sperziebonen en kool (gado-gado) en paksoi (ramen) worden nu gestoomd, met de reden (smaak) erbij en koken als alternatief. Aardappelen en eieren houden de krabbel.
 - **1.54.0**: Stomen in de rijstkoker. Stappen kunnen een `stoom`-krabbel hebben met de stoomtijd in de rijstkoker (11 recepten en de bao); bij de kookpan staat dan uitleg hoe je stoomt. *Bereid in* heeft *Rijstkoker (stomen)*. Drie nieuwe recepten in `recepten-21.js`: *Gestoomde vis met gember en lente-ui*, *Siu mai* en *Gestoomde groenten met sesamdressing*.
 - **1.53.0**: Brood zonder oven. Een nieuwe soort *Brood* met 13 nieuwe recepten, van makkelijk naar moeilijk: *Snel platbrood met yoghurt* (pan of OptiGrill), *Zachte tortilla's*, *Bazlama*, *Pitabroodjes uit de pan* (of airfryer), *Engelse muffins uit de pan*, *Pão de queijo*, *Zachte witte bolletjes uit de airfryer*, *Focaccia* (airfryer of OptiGrill-bak), *Laagjesparatha*, *Chinese lente-uipannenkoekjes*, *Bagels uit de airfryer* en *Gua bao met buikspek*. Naanbrood en het brood uit de Dutch oven staan nu ook bij *Brood*. Nieuw hoofdstuk *Zuid-Amerikaans* met *Arepas* in drie varianten: kip en avocado (reina pepiada), ham en kaas, en draadjesvlees (carne mechada). *Wat is het?* kent 22 ingrediënten meer, zoals voorgekookt maïsmeel (P.A.N. bij Jumbo), tapiocameel, chapatimeel, ghee, griesmeel, crème fraîche en karnemelk; `node tools/controleer-recepten.js` controleert nu ook `js/data/uitleg.js`. Prijzen bijgewerkt.

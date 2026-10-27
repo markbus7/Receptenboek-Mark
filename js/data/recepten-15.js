@@ -205,6 +205,42 @@ RECEPTEN.push(
   alt: ['Spanakopitakia uit de airfryer: snijd de vellen in repen van 8 cm breed, kwast ze in met boter, leg een lepel vulling onderaan en vouw ze als een vlag tot driehoekjes. Bak ze in porties 10 à 12 minuten op 180 °C tot ze goudbruin zijn.', 'Mildere vulling: vervang 100 g van de feta door ricotta.']
 },
 {
+  id: 'avgolemono', toegevoegd: '2026-10-27', naam: 'Avgolemono (Griekse kippensoep met ei en citroen)',
+  ook: ['avgolemono', 'kotosoupa avgolemono', 'griekse kippensoep', 'citroensoep', 'kippensoep met citroen', 'egg lemon soup'],
+  keuken: 'Grieks', soort: 'Soep',
+  tijd: 45, pers: 4, niveau: 'Makkelijk', vega: false,
+  intro: 'De Griekse kippensoep waar je beter van wordt: kip en rijst in bouillon, op het laatst gebonden met ei en citroensap. De soep wordt romig en fris-zuur tegelijk, zonder één druppel room. Het enige trucje is het ei goed laten wennen aan de warme soep.',
+  gerei: [
+    { tool: 'kookpan', tekst: 'Soeppan (minstens 3 liter) met deksel' }
+  ],
+  ingr: [
+    { n: 'kippendijfilet', q: 500, u: 'g', x: 'heel' },
+    { n: 'kippenbouillon', q: 1.5, u: 'l' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
+    { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in kleine blokjes' },
+    { n: 'bleekselderij', q: 2, u: 'stengel', x: 'in kleine blokjes' },
+    { n: 'olijfolie', q: 2, u: 'el' },
+    { n: 'risottorijst', q: 100, u: 'g', x: 'of andere ronde rijst, of orzo' },
+    { kop: 'Ei en citroen' },
+    { n: 'ei', p: 'eieren', q: 3, u: 'st' },
+    { n: 'citroen', p: 'citroenen', q: 2, u: 'st', x: 'sap, ca. 6 el' },
+    { n: 'verse dille', q: 20, u: 'g', x: 'fijngehakt, of peterselie' },
+    { n: 'zout' },
+    { n: 'zwarte peper' }
+  ],
+  stappen: [
+    { t: 'Verhit de olie in de soeppan en fruit ui, wortel en selderij 5 minuten zacht, zonder dat ze kleuren.', min: 5 },
+    { t: 'Schenk de bouillon erbij en leg de kip erin. Breng aan de kook, schep het schuim eraf en laat met de deksel er schuin op 20 minuten zachtjes trekken.', min: 20 },
+    { t: 'Haal de kip eruit. Doe de rijst in de soep en kook hem in 15 minuten gaar. Trek intussen de kip met twee vorken in draadjes.', min: 15 },
+    { t: 'Draai het vuur uit. Klop in een kom de eieren met de garde 1 minuut tot ze schuimen, en klop het citroensap erdoor.' },
+    { t: 'Nu het belangrijkste: schep één soeplepel hete bouillon (zonder rijst) en schenk die in een dun straaltje bij het ei, terwijl je blijft kloppen. Doe dat nog twee keer. Zo went het ei aan de warmte en schift het niet.' },
+    { t: 'Schenk het ei-mengsel al roerend terug in de pan en doe de kip erbij. Zet het vuur heel laag en roer 3 à 4 minuten tot de soep iets dikker en romig wordt. Laat hem níét meer koken, anders krijg je draadjes ei.', min: 4 },
+    { t: 'Breng op smaak met zout, peper en eventueel nog wat citroensap. Strooi de dille erover en eet hem meteen, met brood.' }
+  ],
+  tips: ['De eieren kun je het best een half uur van tevoren uit de koelkast halen: koude eieren schiften sneller.', 'Opwarmen gaat prima, maar zachtjes en zonder te koken. De rijst zuigt in de koelkast vocht op; doe er dan een scheut bouillon bij.'],
+  alt: ['Met een hele kip (of kippenpoten) en water in plaats van bouillon: laat dan 1 uur trekken. Dat is de echte Griekse kotosoupa.', 'Met orzo (risoni) in plaats van rijst: kook die 10 minuten.']
+},
+{
   id: 'paprikas-csirke', naam: 'Paprikás csirke', ook: ['paprikakip', 'chicken paprikash', 'paprikash'],
   keuken: 'Hongaars', soort: 'Hoofdgerecht',
   tijd: 35, wacht: '35 min stoven', pers: 4, niveau: 'Makkelijk', vega: false,

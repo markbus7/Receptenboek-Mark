@@ -134,6 +134,10 @@ window.UITLEG = [
     waar: 'Bij het fruit of de toko.' },
 
   /* ---------- Overige keukens ---------- */
+  { id: 'kokoswater', naam: 'Kokoswater', namen: ['kokoswater'],
+    wat: 'Het heldere, licht zoete sap uit een jonge, groene kokosnoot. Dun als water, dus heel iets anders dan kokosmelk. In Vietnam stoof je er vlees in.',
+    waar: 'In pakjes of flesjes bij de sappen of de sportdranken, soms bij de wereldkeuken. Ook bij de toko. Neem puur kokoswater zonder toegevoegde suiker of smaakje.',
+    tip: 'Niet te vinden? Water met 1 el extra suiker. Kokosmelk werkt níét: dan wordt het een curry.' },
   { id: 'pul-biber', naam: 'Pul biber', namen: ['pul biber'],
     wat: 'Turkse chilivlokken: grof, olieachtig en mild pittig, met een fruitige smaak.',
     waar: 'Bij de Turkse supermarkt; soms bij de wereldkeuken.',

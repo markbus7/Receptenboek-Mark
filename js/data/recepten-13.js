@@ -540,5 +540,53 @@ RECEPTEN.push(
     'Beierse variant: bak 100 g spekblokjes uit en schep ze met het vet door de salade in plaats van de olie.'
   ],
   bij: ['wiener-schnitzel', 'currywurst']
+},
+{
+  id: 'rinderrouladen', toegevoegd: '2026-10-27', naam: 'Rinderrouladen (Duitse runderrollade)',
+  ook: ['rinderrouladen', 'rouladen', 'rindsrouladen', 'runderrolletjes', 'blinde vinken van rund', 'duitse rollade', 'rollade met augurk'],
+  keuken: 'Duits & Oostenrijks', soort: 'Hoofdgerecht',
+  tijd: 40, wacht: '1½ uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  intro: 'Het zondagse stoofgerecht van Duitse oma\'s: dunne lappen rundvlees, besmeerd met mosterd en opgerold met spek, ui en augurk. Ze stoven anderhalf uur in rode wijn tot ze boterzacht zijn, en de stoofvloeistof wordt een donkere, glanzende jus. Met aardappelen en rode kool.',
+  vriezer: { runderlappen: { bevroren: 'Bevroren kun je de lappen niet oprollen. Laat ze helemaal ontdooien; een paar minuten in een zak in koud water helpt het laatste stukje.', inStap: 'helemaal ontdooid' } },
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of braadpan (24 à 28 cm) met deksel', of: 'Een hapjespan met deksel werkt ook; houd het vuur dan heel laag en kijk af en toe of er genoeg vocht in zit.' },
+    { tool: 'kookpan', tekst: 'Kookpan voor de aardappelen' }
+  ],
+  ingr: [
+    { kop: 'Rolletjes' },
+    { n: 'runderlappen', q: 600, u: 'g', x: '4 grote, dunne lappen van ½ cm (bovenbil); bij de slager heten ze rollades of rouladen' },
+    { n: 'mosterd', q: 4, u: 'el', x: 'middelscherp, liefst Duitse mosterd' },
+    { n: 'ontbijtspek', q: 125, u: 'g', x: '8 plakken' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in dunne halve ringen' },
+    { n: 'augurk', p: 'augurken', q: 2, u: 'st', x: 'in de lengte in 4 reepjes' },
+    { n: 'zout' },
+    { n: 'zwarte peper' },
+    { kop: 'Stoofsaus' },
+    { n: 'roomboter', q: 30, u: 'g' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in grove stukken' },
+    { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in stukjes' },
+    { n: 'bleekselderij', q: 1, u: 'stengel', x: 'in stukjes', opt: true },
+    { n: 'tomatenpuree', q: 1, u: 'el' },
+    { n: 'rode wijn', q: 250, u: 'ml', x: 'of extra bouillon met 1 el rode wijnazijn' },
+    { n: 'runderbouillon', q: 500, u: 'ml' },
+    { n: 'laurierblad', p: 'laurierbladen', q: 2, u: 'st' },
+    { n: 'maïzena', q: 1, u: 'el', x: 'aangelengd met 2 el koud water' },
+    { kop: 'Erbij' },
+    { n: 'kruimige aardappelen', q: 1, u: 'kg', x: 'geschild, in gelijke stukken' }
+  ],
+  stappen: [
+    { t: 'Leg de lappen plat op de plank. Zijn ze dikker dan ½ cm, leg er dan plasticfolie op en sla ze plat met de onderkant van een steelpan. Bestrooi met peper en een klein beetje zout (het spek is al zout).' },
+    { t: 'Smeer elke lap dun in met 1 el mosterd. Leg er 2 plakken spek op, een paar ringen ui en aan de korte kant 2 reepjes augurk.' },
+    { t: 'Rol de lappen vanaf de kant met de augurk strak op en vouw de zijkanten een beetje naar binnen. Zet de rolletjes vast met 2 prikkers of bind ze op met keukentouw.' },
+    { t: 'Smelt de boter in de Dutch oven op middelhoog vuur en bak de rolletjes rondom in 8 à 10 minuten goed bruin. Neem de tijd: die bruine korst is de smaak van de saus. Haal ze uit de pan.', min: 9 },
+    { t: 'Bak ui, wortel en selderij 5 minuten in het braadvet, tot ze kleuren. Roer de tomatenpuree erdoor en bak 1 minuut mee.', min: 6 },
+    { t: 'Blus af met de rode wijn en schraap de aanbaksels los. Laat 3 minuten inkoken, schenk de bouillon erbij en voeg de laurier toe.', min: 3 },
+    { t: 'Leg de rolletjes terug; ze moeten voor twee derde onder staan. Leg de deksel erop en laat 1½ uur heel zachtjes stoven. Keer ze na 45 minuten.', min: 90 },
+    { t: 'Kook intussen het laatste half uur de geschilde aardappelen in water met zout in 20 minuten gaar.', min: 20, stoom: 'de aardappelen in stukken 25 minuten' },
+    { t: 'Haal de rolletjes eruit en houd ze warm onder de deksel. Zeef de saus (druk de groente goed uit) of pureer hem met de staafmixer. Breng aan de kook, roer de aangelengde maïzena erdoor en laat 1 minuut binden. Proef op zout en peper.', min: 3 },
+    { t: 'Trek de prikkers of het touw eruit en serveer de rolletjes met de saus, de aardappelen en rode kool.' }
+  ],
+  tips: ['Vraag de slager om rouladen of rollades: dunne, grote lappen van de bovenbil. Bij de supermarkt neem je de dunste runderlappen die je kunt vinden.', 'Rinderrouladen worden de tweede dag nog lekkerder. Ze kunnen ook in de saus de vriezer in.', 'Pot rode kool met appel uit de supermarkt is de klassieke begeleider; in Duitsland eten ze er ook Knödel of spätzle bij.'],
+  alt: ['Zonder wijn: neem 750 ml bouillon en 1 el rode wijnazijn.', 'Slowcooker: bak de rolletjes en groenten eerst aan zoals hierboven, en gaar alles 7 uur op LOW. Bind de saus daarna in de pan.']
 }
 );
