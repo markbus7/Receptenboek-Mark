@@ -194,6 +194,8 @@ ARTIKELEN = {
     'focaccia': 'Focaccia', 'paratha': 'Paratha', 'cong-you-bing': 'Cong you bing', 'bagels': 'Bagel', 'gua-bao': 'Gua bao',
     # 1.54.0: stomen in de rijstkoker
     'gestoomde-vis-gember': 'File:Homemade steamed fish in dinner.jpg', 'siu-mai': 'Shumai', 'gestoomde-groenten-sesam': 'File:Tenderstem broccoli dressed with sesame sauce 001.jpg',
+    # 1.55.0 (rinderrouladen: de enige vrije foto is een rauwe rollade, dus het tegeltje)
+    'thit-kho': 'Thịt kho', 'avgolemono': 'Avgolemono', 'empanadas': 'Empanada', 'hotteok': 'Hotteok',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

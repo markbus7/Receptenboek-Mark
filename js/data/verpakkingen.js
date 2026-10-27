@@ -39,6 +39,8 @@ window.VERPAKKINGEN = [
     tip: 'Passata over? Open blijft hij zo\'n 5 dagen goed in de koelkast. Maak er een snelle pastasaus of tomatensoep van, of vries hem in.' },
   { n: ['kokosmelk'], maat: 'ml', pak: [200, 400], per: { blik: 400 }, wat: 'blik',
     tip: 'Kokosmelk over? Doe hem in een bakje en gebruik hem binnen 3 dagen in een curry, soep of smoothie, of vries hem in een ijsblokjesvorm in.' },
+  { n: ['kokoswater'], maat: 'ml', pak: [330, 500, 1000], wat: 'pak',
+    tip: 'Kokoswater over? Drink het koud met ijs en een partje limoen, of gebruik het in plaats van water voor de rijst.' },
   { n: ['perziken op siroop'], maat: 'g', pak: [410, 820], per: { blik: 410 }, wat: 'blik',
     tip: 'Perziken over? Bewaar ze in hun siroop in een afgesloten bakje (niet in het blik); dan blijven ze 3 dagen goed. Lekker bij yoghurt, op een toetje met vanillevla of in een smoothie.' },
   { n: ['mais'], maat: 'g', pak: [150, 300], per: { blik: 300 }, wat: 'blikje',

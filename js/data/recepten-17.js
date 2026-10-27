@@ -551,6 +551,42 @@ RECEPTEN.push(
   alt: ['Geen varkensbuik? Spekblokjes of dunne reepjes varkensschouder werken ook.', 'Minder pittig: laat de chilivlokken weg en houd het bij de gochujang.']
 },
 {
+  id: 'hotteok', toegevoegd: '2026-10-27', naam: 'Hotteok (Koreaanse pannenkoekjes met bruine suiker)',
+  ook: ['hotteok', 'hoddeok', 'koreaanse pannenkoekjes', 'koreaanse suikerpannenkoek', 'sweet korean pancakes', 'gevulde pannenkoekjes'],
+  keuken: 'Koreaans', soort: 'Dessert',
+  tijd: 35, wacht: '1 uur rijzen', pers: 8, stuks: 'hotteok', niveau: 'Gemiddeld', vega: true,
+  intro: 'Het favoriete winterstraatsnoepje van Korea: zachte gistdeegbolletjes gevuld met bruine suiker, kaneel en noten, platgedrukt in de pan. Buiten krokant, binnen een laagje gesmolten, kruidige suikerstroop. Je bakt ze in de koekenpan, geen oven nodig.',
+  gerei: [
+    { tool: 'koekenpan', tekst: 'Koekenpan met antiaanbaklaag (28 cm)' }
+  ],
+  ingr: [
+    { kop: 'Deeg' },
+    { n: 'bloem', q: 250, u: 'g' },
+    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'suiker', q: 1, u: 'el' },
+    { n: 'zout', q: 0.5, u: 'tl' },
+    { n: 'melk', q: 180, u: 'ml', x: 'lauw' },
+    { n: 'zonnebloemolie', q: 1, u: 'el' },
+    { kop: 'Vulling' },
+    { n: 'lichtbruine basterdsuiker', q: 80, u: 'g', x: 'of donkere basterdsuiker' },
+    { n: 'kaneel', q: 1, u: 'tl' },
+    { n: 'walnoten', q: 40, u: 'g', x: 'fijngehakt, of ongezouten pinda\'s' },
+    { kop: 'Bakken' },
+    { n: 'zonnebloemolie', q: 4, u: 'el' }
+  ],
+  stappen: [
+    { t: 'Meng bloem, gist, suiker en zout in een kom. Schenk de lauwe melk en 1 el olie erbij en roer met een lepel tot een zacht, plakkerig deeg. Kneed of roer het 3 minuten tot het een beetje elastisch wordt.', min: 3 },
+    { t: 'Dek de kom af en laat het deeg 1 uur rijzen op een warme plek, tot het twee keer zo groot is.', min: 60 },
+    { t: 'Meng basterdsuiker, kaneel en walnoten voor de vulling.' },
+    { t: 'Vet je handen in met olie (het deeg plakt) en verdeel het deeg in 8 bolletjes. Druk een bolletje plat in je hand, leg er 1½ el vulling in en vouw de randen erover. Knijp de naad goed dicht, zodat er geen suiker uit kan lekken.' },
+    { t: 'Verhit 2 el olie in de koekenpan op middelhoog vuur. Leg 4 bolletjes erin met de naad naar beneden en bak ze 1 minuut tot de onderkant lichtbruin is.', min: 1 },
+    { t: 'Keer ze om en druk ze met de spatel plat tot een pannenkoekje van ongeveer 1 cm dik. Bak 2 minuten, keer nog eens en bak met het vuur iets lager en de deksel erop nog 2 minuten, tot ze goudbruin zijn en de suiker binnenin gesmolten is.', min: 4 },
+    { t: 'Bak de andere 4 op dezelfde manier. Laat ze een paar minuten afkoelen: de suikerstroop is heet. Eet ze warm, uit de hand of op een servetje.' }
+  ],
+  tips: ['Het deeg is bewust zacht en plakkerig; dat maakt ze luchtig. Doe er geen extra bloem bij, maar vet je handen in.', 'Lekt er toch suiker uit, veeg de pan dan even schoon met keukenpapier voor de volgende ronde, anders verbrandt de suiker.', 'Opwarmen gaat het best in de airfryer: 3 minuten op 170 °C.'],
+  alt: ['Met zonnebloempitten of pompoenpitten in plaats van walnoten, zoals de ssiat-hotteok van de markt in Busan.', 'Hartig: vul ze met geraspte kaas en een beetje gehakte kimchi.']
+},
+{
   id: 'ramen', naam: 'Ramen met kip en zacht ei', ook: ['shoyu ramen', 'ramen soep'],
   keuken: 'Japans', soort: 'Soep',
   tijd: 45, wacht: '2 uur marineren', pers: 4, niveau: 'Gemiddeld', vega: false,

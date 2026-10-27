@@ -513,5 +513,53 @@ RECEPTEN.push(
   ],
   tips: ['Gestoomde bao kun je invriezen. Stoom ze bevroren 8 minuten, dan zijn ze weer als vers.', 'Wil je het makkelijker? Diepvries bao vind je bij de toko; dan maak je alleen het vlees.'],
   alt: ['Met kip: vervang het buikspek door kippendijfilet en stoof 40 minuten.', 'Met krokante kip: vul de bao met stukjes kip uit de airfryer, sriracha-mayonaise en zoetzure komkommer.']
+},
+{
+  id: 'empanadas', toegevoegd: '2026-10-27', naam: 'Empanadas met gehakt uit de airfryer',
+  ook: ['empanadas', 'empanada', 'empanadas de carne', 'argentijnse empanadas', 'gevulde deegflapjes', 'pasteitjes met gehakt'],
+  keuken: 'Zuid-Amerikaans', soort: 'Ontbijt & lunch',
+  tijd: 75, wacht: '30 min koelen', pers: 12, stuks: 'empanadas', niveau: 'Gemiddeld', vega: false,
+  intro: 'Halvemaanvormige deegflapjes uit Argentinië, gevuld met gekruid gehakt, paprika, olijven en ei. Je maakt het boterdeeg zelf en vouwt de randen dicht met het typische gedraaide randje, het repulgue. In de airfryer worden ze goudbruin en krokant. Lekker als lunch, hapje of avondeten.',
+  gerei: [
+    { tool: 'koekenpan', tekst: 'Koekenpan voor de vulling' },
+    { tool: 'kookpan', tekst: 'Steelpan voor de eieren' },
+    { tool: 'airfryer', tekst: 'Airfryer met bakpapier (met gaatjes) in de mand', of: 'Geen airfryer: bak ze 20 minuten in de OptiGrill-bak of op 200 °C in een oven.' }
+  ],
+  ingr: [
+    { kop: 'Deeg' },
+    { n: 'bloem', q: 500, u: 'g' },
+    { n: 'roomboter', q: 125, u: 'g', x: 'zacht' },
+    { n: 'lauw water', q: 200, u: 'ml' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { kop: 'Vulling' },
+    { n: 'rundergehakt', q: 500, u: 'g' },
+    { n: 'olijfolie', q: 2, u: 'el' },
+    { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'fijngesnipperd' },
+    { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in kleine blokjes' },
+    { n: 'lente-ui', p: 'lente-uien', q: 3, u: 'st', x: 'in ringetjes' },
+    { n: 'paprikapoeder', q: 2, u: 'tl', x: 'edelzoet' },
+    { n: 'komijn', q: 1, u: 'tl', x: 'gemalen (komijnpoeder)' },
+    { n: 'gedroogde oregano', q: 1, u: 'tl' },
+    { n: 'chilivlokken', q: 0.5, u: 'tl', opt: true },
+    { n: 'ei', p: 'eieren', q: 2, u: 'st', x: 'om hard te koken' },
+    { n: 'groene olijven', q: 75, u: 'g', x: 'zonder pit, in stukjes', opt: true },
+    { n: 'zout' },
+    { n: 'zwarte peper' },
+    { kop: 'Afbakken' },
+    { n: 'ei', p: 'eieren', q: 1, u: 'st', x: 'losgeklopt, om te bestrijken' }
+  ],
+  stappen: [
+    { t: 'Deeg: meng bloem en zout in een kom en wrijf de zachte boter er met je vingers door tot een kruimelig mengsel. Schenk het lauwe water erbij en kneed 5 minuten tot een soepel, glad deeg. Wikkel het in folie en leg het 30 minuten in de koelkast.', min: 5 },
+    { t: 'Kook de eieren voor de vulling 10 minuten hard, laat ze schrikken, pel ze en hak ze grof.', min: 10, stoom: 'de eieren 12 minuten, daarna in koud water' },
+    { t: 'Verhit de olie in de koekenpan en bak ui en paprika 6 minuten zacht. Voeg het gehakt toe en bak het 6 minuten rul en gaar.', min: 12 },
+    { t: 'Roer paprikapoeder, komijn, oregano en chilivlokken erdoor en bak 1 minuut mee. Breng flink op smaak met zout en peper; de vulling mag pittig gekruid zijn. Roer de lente-ui erdoor en laat helemaal afkoelen. Warme vulling maakt het deeg slap.', min: 1 },
+    { t: 'Rol het deeg in twee delen 3 mm dun uit op een met bloem bestoven aanrecht. Steek er rondjes van 12 à 13 cm uit; kneed de restjes samen en rol ze opnieuw uit. Je krijgt er ongeveer 12.' },
+    { t: 'Leg op elk rondje 2 el vulling met wat ei en olijf, iets uit het midden. Maak de rand nat met water, vouw dicht tot een halve maan en druk de rand goed aan.' },
+    { t: 'Maak het randje: vouw een stukje rand met je duim naar binnen en over zichzelf heen, schuif een stukje op en herhaal, tot je een gedraaid touwtje hebt. Lukt dat niet, druk de rand dan dicht met de tanden van een vork.' },
+    { t: 'Verwarm de airfryer voor op 180 °C. Bestrijk de empanadas met losgeklopt ei en bak ze in één laag, 4 à 6 tegelijk, 12 à 14 minuten tot ze goudbruin zijn.', min: 13 },
+    { t: 'Laat ze 5 minuten afkoelen voor je erin bijt: de vulling is gloeiend heet.' }
+  ],
+  tips: ['Geen zin in deeg maken? Bij de diepvries van grote supermarkten en de toko vind je kant-en-klare empanadavellen (tapas para empanadas). Bladerdeeg werkt ook, maar wordt luchtiger en minder stevig.', 'Rauwe empanadas kun je op een plank invriezen en daarna in een zak bewaren. Bak ze bevroren 18 minuten op 170 °C.', 'In Argentinië eet je ze uit het vuistje, met chimichurri of salsa erbij.'],
+  alt: ['Met kip: neem 500 g kippendijfilet in heel kleine blokjes en bak die in plaats van het gehakt.', 'Ham en kaas (jamón y queso): vul elk rondje met een plak ham en een plakje jonge kaas.']
 }
 );
