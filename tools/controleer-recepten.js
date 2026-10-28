@@ -59,6 +59,9 @@ const NIVEAUS = ['Makkelijk', 'Gemiddeld', 'Moeilijk'];
 const KEUKENS = ctx.HOOFDSTUKKEN.map((h) => h.keuken);
 const ids = new Map();
 const fouten = [...variantFouten];
+// Elk hoofdstuk hoort bij een bestaand deel (regio): dat is het grote tabblad waaronder het staat.
+ctx.HOOFDSTUKKEN.filter((h) => !ctx.DELEN.some((d) => d.regio === h.regio))
+  .forEach((h) => fouten.push({ f: 'hoofdstukken.js', id: h.keuken, m: `onbekende regio "${h.regio}"` }));
 
 for (const r of ctx.RECEPTEN) {
   const f = herkomst.get(r.id);
