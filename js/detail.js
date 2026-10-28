@@ -75,6 +75,7 @@ const Detail = (() => {
      en de scrollpositie staan. Met { personen } opent het recept meteen omgerekend (uit een gedeelde link). */
   function open(recept, context, { houd = false, personen = null } = {}) {
     const vorige = houd && r ? { personen: r.pers * factor, methode, scroll: blad.scrollTop } : null;
+    if (!vorige) kookStap = 0;
     r = recept; ctx = context; factor = 1; ikHeb = null; gekozenMixen = new Set(); gekozenVries = new Set(); openUitleg = new Set();
     if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
@@ -93,6 +94,7 @@ const Detail = (() => {
 
   function sluit() {
     if (sheet.hidden) return;
+    kook.hidden = true;
     sheet.hidden = true;
     document.body.classList.remove('sheet-open');
     wilScherm = false;
@@ -128,8 +130,9 @@ const Detail = (() => {
       <header class="d-balk">
         <button type="button" class="ikoon-knop" data-sluit aria-label="Sluit recept">${icoon('sluit')}</button>
         <div class="d-balk-acties">
+          <button type="button" class="knop knop-klein d-kook-knop" id="d-kook">${icoon('kookpan')} Koken</button>
           <button type="button" class="knop knop-klein knop-zacht" id="d-deel" aria-label="Deel recept">${icoon('deel')} <span class="d-deel-tekst">Deel</span></button>
-          <button type="button" class="knop knop-klein knop-zacht" id="d-scherm" aria-pressed="${wilScherm}">${icoon('scherm')} Scherm aan</button>
+          <button type="button" class="knop knop-klein knop-zacht" id="d-scherm" aria-pressed="${wilScherm}" aria-label="Scherm aan">${icoon('scherm')} <span class="d-scherm-tekst">Scherm aan</span></button>
           <button type="button" class="ikoon-knop fav-knop" id="d-fav" aria-pressed="${fav}" aria-label="${fav ? 'Verwijder uit favorieten' : 'Voeg toe aan favorieten'}">${icoon('hart')}</button>
         </div>
       </header>
@@ -199,7 +202,10 @@ const Detail = (() => {
         <section class="d-pagina d-rechts">
           <p class="d-loopkop">${Hulp.esc(r.naam)}</p>
           <section class="d-stappen" aria-labelledby="d-stap-titel">
-            <h3 id="d-stap-titel">Bereiding</h3>
+            <div class="d-stap-kop">
+              <h3 id="d-stap-titel">Bereiding</h3>
+              <button type="button" class="knop knop-klein d-kook-knop" data-kook-start>${icoon('kookpan')} Start koken</button>
+            </div>
             <ol class="stappen" id="d-stappen"></ol>
           </section>
           <div class="d-notities">
@@ -480,21 +486,149 @@ const Detail = (() => {
       <p class="bon-voet">Webshopprijzen van ${Hulp.esc(Prijzen.datum())} (via <a href="https://www.checkjebon.nl" target="_blank" rel="noopener">Checkjebon.nl</a>). <i>Gebruikt</i> is het deel van de verpakkingen dat in dit recept gaat, <i>kassa</i> wat je afrekent als je alles nieuw koopt. Aanbiedingen tellen niet altijd mee.${zonder.length ? ` Zonder prijs: ${Hulp.esc(zonder.join(', '))}.` : ''}</p>`;
   }
 
+  /* De stappen zoals je ze nu kookt (gekozen bereidingswijze), met hoeveelheden in de tekst,
+     krabbels en welke ingrediënten je in die stap voor het eerst gebruikt. */
+  function stapData() {
+    const gebruikt = new Set(), genoemd = new Set();
+    return r.stappen.filter((s) => !s.m || s.m === methode).map((s, n) => {
+      const voor = new Set(gebruikt);
+      const html = Hulp.stapMetHoeveelheden(s.t, r, factor, gebruikt, mixWeg);
+      const notities = [
+        ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? 'of: in je rijstkoker' : '',
+        ctx.keuken.includes('rijstkoker') && typeof s.stoom === 'string' ? `of stomen in je rijstkoker: ${s.stoom}` : '',
+        ...vries.items.filter((x) => x.stap === s).map((x) => `${x.i.n} uit de vriezer: ${x.inStap}`)
+      ].filter(Boolean);
+      const woorden = Hulp.norm(s.t).split(/[^\p{L}]+/u).filter(Boolean);
+      const nodig = r.ingr.filter((i) => {
+        if (i.kop || Hulp.isBasis(i) || mixWeg.has(i.n) || genoemd.has(i.n)) return false;
+        const erin = (gebruikt.has(i.n) && !voor.has(i.n)) || noemt(i, woorden);
+        if (erin) genoemd.add(i.n);
+        return erin;
+      });
+      return { s, n, html, notities, nodig };
+    });
+  }
+
+  /* Noemt de stap dit ingrediënt? Op het laatste woord ("de kip" bij kipfilet, "de aardappelen" bij
+     kruimige aardappelen, "de bouillon" bij runderbouillon) of een lang eerste woord ("de ketjap" bij ketjap manis). */
+  function noemt(i, woorden) {
+    const namen = [i.n, i.p].filter(Boolean).map((x) => Hulp.norm(x).split(' '));
+    const sleutels = new Set(namen.flatMap((d) => [d[d.length - 1], d.length > 1 && d[0].length >= 5 ? d[0] : '']).filter(Boolean));
+    return woorden.some((w) => [...sleutels].some((k) => k === w
+      || (w.length >= 3 && k.startsWith(w) && k.length - w.length <= 6)
+      || (w.length >= 5 && k.endsWith(w))
+      || (k.length >= 4 && w.startsWith(k) && w.length - k.length <= 3)));
+  }
+
+  const timerKnop = (d) => d.s.min ? `<button type="button" class="timer-knop" data-min="${d.s.min}" data-label="Stap ${d.n + 1}">${icoon('klok')} Timer ${Hulp.tijdTekst(d.s.min)}</button>` : '';
+
   function renderStappen() {
-    const stappen = r.stappen.filter((s) => !s.m || s.m === methode);
-    const gebruikt = new Set();
-    blad.querySelector('#d-stappen').innerHTML = stappen.map((s, n) => `
-      <li class="stap${s.m ? ' stap-methode' : ''}">
-        <button type="button" class="stap-nr" data-stap aria-label="Markeer stap ${n + 1} als klaar">${n + 1}</button>
+    blad.querySelector('#d-stappen').innerHTML = stapData().map((d) => `
+      <li class="stap${d.s.m ? ' stap-methode' : ''}">
+        <button type="button" class="stap-nr" data-stap aria-label="Markeer stap ${d.n + 1} als klaar">${d.n + 1}</button>
         <div class="stap-tekst">
-          <p>${Hulp.stapMetHoeveelheden(s.t, r, factor, gebruikt, mixWeg)}</p>
-          ${ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? '<span class="stap-notitie">of: in je rijstkoker</span>' : ''}
-          ${ctx.keuken.includes('rijstkoker') && typeof s.stoom === 'string' ? `<span class="stap-notitie">of stomen in je rijstkoker: ${Hulp.esc(s.stoom)}</span>` : ''}
-          ${vries.items.filter((x) => x.stap === s).map((x) => `<span class="stap-notitie">${Hulp.esc(x.i.n)} uit de vriezer: ${Hulp.esc(x.inStap)}</span>`).join('')}
-          ${s.min ? `<button type="button" class="timer-knop" data-min="${s.min}" data-label="Stap ${n + 1}">${icoon('klok')} Timer ${Hulp.tijdTekst(s.min)}</button>` : ''}
+          <p>${d.html}</p>
+          ${d.notities.map((t) => `<span class="stap-notitie">${Hulp.esc(t)}</span>`).join('')}
+          ${timerKnop(d)}
         </div>
       </li>`).join('');
   }
+
+  /* ---------- Kookstand: één stap groot op het scherm ---------- */
+  const kook = document.getElementById('kook');
+  let kookStap = 0, kookData = [];
+  const kookOpen = () => !kook.hidden;
+
+  function ingrRegel(i) {
+    const extra = i.x ? Hulp.metNlNamen(i.x) : '';
+    return `<li><b>${Hulp.esc(Hulp.hoeveelheidTekst(Hulp.metUi(r, i, factor), factor))}</b>${extra ? ` <span class="zacht">${Hulp.esc(extra)}</span>` : ''}</li>`;
+  }
+
+  function startKoken() {
+    kookData = stapData();
+    if (!kookData.length) return;
+    kookStap = Math.min(kookStap, kookData.length - 1);
+    kook.style.setProperty('--k', ctx.hoofdstuk(r.keuken).kleur);
+    kook.hidden = false;
+    renderKook();
+    kook.querySelector('[data-kook-volgende]').focus({ preventScroll: true });
+    if (!wilScherm) wisselScherm(blad.querySelector('#d-scherm'), true);
+  }
+
+  function stopKoken() {
+    if (!kookOpen()) return;
+    kook.hidden = true;
+    const knop = blad.querySelector('#d-kook');
+    if (knop) knop.focus({ preventScroll: true });
+  }
+
+  function renderKook() {
+    const d = kookData[kookStap], laatste = kookStap === kookData.length - 1;
+    const pers = Math.round(r.pers * factor);
+    const alle = r.ingr.filter((i) => !mixWeg.has(i.n));
+    kook.innerHTML = `
+      <header class="kook-kop">
+        <button type="button" class="ikoon-knop" data-kook-sluit aria-label="Stop met de kookstand">${icoon('sluit')}</button>
+        <div class="kook-titel">
+          <p class="kook-naam">${Hulp.esc(r.naam)}</p>
+          <p class="kook-teller">Stap ${kookStap + 1} van ${kookData.length} · ${pers} ${r.stuks || (pers === 1 ? 'persoon' : 'personen')}</p>
+        </div>
+      </header>
+      <div class="kook-voortgang" aria-hidden="true"><span style="width:${((kookStap + 1) / kookData.length) * 100}%"></span></div>
+      <div class="kook-midden">
+        <p class="kook-nr">${kookStap + 1}</p>
+        <p class="kook-tekst" aria-live="polite">${d.html}</p>
+        ${d.notities.map((t) => `<p class="stap-notitie">${Hulp.esc(t)}</p>`).join('')}
+        ${timerKnop(d)}
+        ${d.nodig.length ? `<section class="kook-nodig"><h3>Hierbij nodig</h3><ul>${d.nodig.map(ingrRegel).join('')}</ul></section>` : ''}
+        <details class="kook-alle">
+          <summary>Alle ingrediënten</summary>
+          <ul>${alle.map((i) => i.kop ? `<li class="kook-kop-ingr">${Hulp.esc(i.kop)}</li>` : ingrRegel(i)).join('')}</ul>
+        </details>
+      </div>
+      <footer class="kook-voet">
+        <button type="button" class="knop knop-zacht" data-kook-vorige ${kookStap ? '' : 'disabled'}>‹ Vorige</button>
+        <button type="button" class="knop" data-kook-volgende>${laatste ? 'Klaar met koken' : 'Volgende stap ›'}</button>
+      </footer>`;
+    kook.querySelector('.kook-midden').scrollTop = 0;
+  }
+
+  function kookNaar(n) {
+    if (n < 0) return;
+    // Een stap die je af hebt, staat ook in het recept als klaar.
+    const li = blad.querySelectorAll('#d-stappen .stap')[kookStap];
+    if (n > kookStap && li) { li.classList.add('is-klaar'); li.querySelector('[data-stap]').setAttribute('aria-pressed', 'true'); }
+    if (n >= kookData.length) {
+      stopKoken();
+      kookStap = 0;
+      const log = blad.querySelector('#d-log');
+      if (log) log.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return App.toast('Eet smakelijk! Vink hier af dat je het gemaakt hebt');
+    }
+    kookStap = n;
+    renderKook();
+  }
+
+  kook.addEventListener('click', (e) => {
+    const t = e.target;
+    if (t.closest('[data-kook-sluit]')) return stopKoken();
+    if (t.closest('[data-kook-vorige]')) return kookNaar(kookStap - 1);
+    if (t.closest('[data-kook-volgende]')) return kookNaar(kookStap + 1);
+    const tk = t.closest('.timer-knop');
+    if (tk) {
+      Timers.start(`${r.naam}, ${tk.dataset.label.toLowerCase()}`, +tk.dataset.min);
+      App.toast(`Timer gestart: ${Hulp.tijdTekst(+tk.dataset.min)}`);
+    }
+  });
+  // Vegen naar links of rechts bladert ook.
+  let veeg = null;
+  kook.addEventListener('touchstart', (e) => { const p = e.touches[0]; veeg = { x: p.clientX, y: p.clientY }; }, { passive: true });
+  kook.addEventListener('touchend', (e) => {
+    if (!veeg) return;
+    const p = e.changedTouches[0], dx = p.clientX - veeg.x, dy = p.clientY - veeg.y;
+    veeg = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) kookNaar(kookStap + (dx < 0 ? 1 : -1));
+  });
 
   function zetHebEenheid() {
     const sel = blad.querySelector('#d-heb-ingr');
@@ -626,7 +760,7 @@ const Detail = (() => {
     bewaar(pdf.bestand);
   }
 
-  async function wisselScherm(knop) {
+  async function wisselScherm(knop, stil = false) {
     if (wilScherm) {
       wilScherm = false;
       if (wakeLock) { wakeLock.release().catch(() => {}); wakeLock = null; }
@@ -639,9 +773,9 @@ const Detail = (() => {
       wakeLock.addEventListener('release', () => { wakeLock = null; });
       wilScherm = true;
       knop.setAttribute('aria-pressed', 'true');
-      App.toast('Je scherm blijft aan zolang dit recept open is');
+      if (!stil) App.toast('Je scherm blijft aan zolang dit recept open is');
     } catch (e) {
-      App.toast('Je browser staat niet toe dat het scherm aan blijft');
+      if (!stil) App.toast('Je browser staat niet toe dat het scherm aan blijft');
     }
   }
 
@@ -686,6 +820,7 @@ const Detail = (() => {
     if (st) { Logboek.beoordeel(r.id, st.dataset.beoordeel, +st.dataset.waarde); return renderLog(); }
     if (t.closest('#d-deel')) return deel(t.closest('#d-deel'));
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
+    if (t.closest('#d-kook, [data-kook-start]')) return startKoken();
     const bij = t.closest('[data-bij]');
     if (bij) { e.preventDefault(); return ctx.open(bij.dataset.bij); }
     const combi = t.closest('[data-kies-combi]');
@@ -752,7 +887,15 @@ const Detail = (() => {
   });
 
   sheet.addEventListener('click', (e) => { if (e.target.matches('.sheet-achter')) ctx.sluit(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !sheet.hidden) ctx.sluit(); });
+  document.addEventListener('keydown', (e) => {
+    if (kookOpen()) {
+      if (e.key === 'Escape') return stopKoken();
+      if (e.key === 'ArrowRight') kookNaar(kookStap + 1);
+      if (e.key === 'ArrowLeft') kookNaar(kookStap - 1);
+      return;
+    }
+    if (e.key === 'Escape' && !sheet.hidden) ctx.sluit();
+  });
   document.addEventListener('visibilitychange', async () => {
     // De wake lock vervalt als je van tabblad wisselt; vraag hem opnieuw aan.
     if (document.visibilityState === 'visible' && !sheet.hidden && wilScherm && !wakeLock) {
