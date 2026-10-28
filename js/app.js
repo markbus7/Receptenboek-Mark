@@ -468,8 +468,8 @@ const App = (() => {
     $('#lijst-aantal').textContent = Boodschappen.aantalOpen() || '';
   }
 
-  /* ---------- Kruiden en specerijen, sauzen en smaakmakers ---------- */
-  // Twee kasten met dezelfde opbouw: een lijst met uitleg, "In mijn kast" en "Wat kan ik maken?".
+  /* ---------- Kruiden en specerijen, sauzen en smaakmakers, basisproducten ---------- */
+  // Drie kasten met dezelfde opbouw: een lijst met uitleg, "In mijn kast" en "Wat kan ik maken?".
   // Wat er in Marks kruidenkast staat (van zijn foto's); daarna past hij het zelf aan.
   const KAST_START = ['chili', 'oregano', 'korianderzaad', 'tijm', 'garam-masala', 'kaneel', 'kerriepoeder', 'cajun', 'knoflookpoeder',
     'kardemom', 'mosterdzaad', 'bieslook', 'nootmuskaat', 'gember', 'paprikapoeder', 'fenegriek', 'italiaanse-kruiden', 'komijn',
@@ -482,19 +482,26 @@ const App = (() => {
       soorten: [['Kruid', 'Kruiden'], ['Specerij', 'Specerijen'], ['Mengsel', 'Mengsels']],
       telt: (k, n) => k.id !== 'zout' && k.id !== 'peper' && !n.startsWith('verse ') && !VERS.has(n),
       maakTitel: 'Alles in je kast', maakHint: 'Recepten met minstens 2 gedroogde kruiden of specerijen, die je allemaal al hebt. Verse kruiden en pepers koop je er vers bij.',
-      leeg: 'Nog niets: vink meer potjes aan bij In mijn kast.', mistEen: 'Mist één potje', woord: 'kruiden'
+      leeg: 'Nog niets: vink meer potjes aan bij In mijn kast.', mistEen: 'Mist één potje', woord: 'kruiden', stuk: 'potje'
     },
     sauzen: {
       lijst: () => window.SMAAKMAKERS || [], opslag: 'smaakmakerkast', start: [], foto: 'smaak-',
       soorten: [['Saus', 'Sauzen'], ['Pasta', 'Pasta\'s en sambal'], ['Zuur', 'Azijn, olie en rijstwijn'], ['Bouillon', 'Bouillon']],
       telt: () => true,
       maakTitel: 'Alles in je kast', maakHint: 'Recepten met minstens 2 sauzen of smaakmakers, die je allemaal al hebt.',
-      leeg: 'Nog niets: vink aan wat je hebt bij In mijn kast.', mistEen: 'Mist één fles of potje', woord: 'smaakmakers'
+      leeg: 'Nog niets: vink aan wat je hebt bij In mijn kast.', mistEen: 'Mist één fles of potje', woord: 'smaakmakers', stuk: 'fles of potje'
+    },
+    basis: {
+      lijst: () => window.BASIS || [], opslag: 'basiskast', start: [], foto: 'basis-',
+      soorten: [['Zoet', 'Suiker en zoet'], ['Meel', 'Meel en binden'], ['Bakken', 'Bakken en rijzen']],
+      telt: () => true,
+      maakTitel: 'Alles in je kast', maakHint: 'Recepten met minstens 2 basisproducten, die je allemaal al hebt.',
+      leeg: 'Nog niets: vink aan wat je hebt bij In mijn kast.', mistEen: 'Mist één pak', woord: 'basisproducten', stuk: 'pak'
     }
   };
-  const soortIn = { kruiden: '', sauzen: '' };
+  const soortIn = { kruiden: '', sauzen: '', basis: '' };
   const kast = (w) => new Set(opslag.lees(KASTEN[w].opslag, KASTEN[w].start));
-  const kastItem = (id) => [...KASTEN.kruiden.lijst(), ...KASTEN.sauzen.lijst()].find((x) => x.id === id);
+  const kastItem = (id) => Object.values(KASTEN).flatMap((c) => c.lijst()).find((x) => x.id === id);
   const kruidRecepten = () => { const k = kastItem(state.kruid); return new Set(k ? receptenMet(k).map((r) => r.id) : []); };
   function receptenMet(k) {
     const namen = k.namen.map((n) => Hulp.norm(n));
@@ -550,7 +557,7 @@ const App = (() => {
     </section>`;
   }
 
-  /* Wat koop ik het best? Per potje dat je nog niet hebt: hoeveel recepten er dan bij "Alles in je kast"
+  /* Wat koop ik het best? Per potje (of pak) dat je nog niet hebt: hoeveel recepten er dan bij "Alles in je kast"
      komen, en hoeveel er daarna nog maar één potje missen. Plus de beste twee samen. */
   function koopAdvies(w, inKast) {
     const cfg = KASTEN[w];
@@ -615,7 +622,7 @@ const App = (() => {
         <div class="koop-kop"><span class="koop-nr">${nr}</span><h4>${esc(k.naam)}</h4>
           <button type="button" class="knop knop-klein" data-koop-lijst="${k.id}">Op mijn lijst</button></div>
         <p>${klaar.length ? `Dan heb je alles voor <b>${keer(klaar.length, 'recept', 'recepten')} meer</b>: ${links(klaar)}.` : 'Maakt nog geen recept helemaal compleet.'}
-          ${bijna ? ` En ${keer(bijna, 'recept mist', 'recepten missen')} daarna nog maar één potje.` : ''}</p>
+          ${bijna ? ` En ${keer(bijna, 'recept mist', 'recepten missen')} daarna nog maar één ${cfg.stuk}.` : ''}</p>
         ${prijs ? `<p class="zacht">${prijs}</p>` : ''}
         <p class="zacht"><a href="#${cfg.foto}${k.id}" data-kast-naar="${k.id}">Wat is ${naam(k)}?</a></p>
       </li>`;
@@ -625,7 +632,7 @@ const App = (() => {
     return `<section class="kast-recepten koop-advies">
       <h3>Wat koop ik de volgende keer?</h3>
       <p class="hint">Op volgorde van hoeveel recepten je ermee compleet maakt, met wat je nu in je kast hebt. Het telt recepten met minstens 2 ${cfg.woord}, net als Wat kan ik maken.${w === 'kruiden' ? ' Verse kruiden en pepers koop je er vers bij.' : ''}</p>
-      ${los.length ? `<ol class="koop-lijst">${los.map((a, i) => kaart(a, i + 1)).join('')}</ol>` : `<p>Je kast is al zo goed als compleet: er is geen ${w === 'kruiden' ? 'potje' : 'fles of potje'} dat nog een recept afmaakt.</p>`}
+      ${los.length ? `<ol class="koop-lijst">${los.map((a, i) => kaart(a, i + 1)).join('')}</ol>` : `<p>Je kast is al zo goed als compleet: er is geen ${cfg.stuk} dat nog een recept afmaakt.</p>`}
       ${duos.length ? `<h3>Twee tegelijk</h3><p class="hint">Deze recepten missen er precies twee, dus die kun je het best samen kopen.</p><ul>${duos.map(duoRij).join('')}</ul>` : ''}
     </section>`;
   }
@@ -689,7 +696,7 @@ const App = (() => {
 
   /* ---------- Weergave wisselen ---------- */
   // Weergaven met een eigen pagina in plaats van het receptenoverzicht.
-  const APART = ['lijst', 'kruiden', 'sauzen'];
+  const APART = ['lijst', ...Object.keys(KASTEN)];
   function zetView(view) {
     state.view = view;
     document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.view === view)));
@@ -698,6 +705,7 @@ const App = (() => {
     $('#view-lijst').hidden = view !== 'lijst';
     $('#view-kruiden').hidden = view !== 'kruiden';
     $('#view-sauzen').hidden = view !== 'sauzen';
+    $('#view-basis').hidden = view !== 'basis';
     document.body.classList.toggle('view-lijst', apart);
     if (view === 'lijst') renderLijst(); else if (KASTEN[view]) renderKast(view); else render();
     window.scrollTo({ top: 0 });
