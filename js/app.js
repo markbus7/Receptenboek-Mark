@@ -500,6 +500,8 @@ const App = (() => {
     }
   };
   const soortIn = { kruiden: '', sauzen: '', basis: '' };
+  // Per kast wat je in deze sessie via "Heb ik nu" in je kast zette, zodat je het nog terug kunt draaien.
+  const netGekocht = { kruiden: [], sauzen: [], basis: [] };
   const kast = (w) => new Set(opslag.lees(KASTEN[w].opslag, KASTEN[w].start));
   const kastItem = (id) => Object.values(KASTEN).flatMap((c) => c.lijst()).find((x) => x.id === id);
   const kruidRecepten = () => { const k = kastItem(state.kruid); return new Set(k ? receptenMet(k).map((r) => r.id) : []); };
@@ -619,7 +621,9 @@ const App = (() => {
     const kaart = ({ k, klaar, bijna }, nr) => {
       const prijs = potjesPrijs(k);
       return `<li class="koop-item">
-        <div class="koop-kop"><span class="koop-nr">${nr}</span><h4>${esc(k.naam)}</h4>
+        <div class="koop-kop"><span class="koop-nr">${nr}</span><h4>${esc(k.naam)}</h4></div>
+        <div class="koop-knoppen">
+          <button type="button" class="knop knop-klein knop-heb" data-koop-heb="${k.id}">✓ Heb ik nu</button>
           <button type="button" class="knop knop-klein" data-koop-lijst="${k.id}">Op mijn lijst</button></div>
         <p>${klaar.length ? `Dan heb je alles voor <b>${keer(klaar.length, 'recept', 'recepten')} meer</b>: ${links(klaar)}.` : 'Maakt nog geen recept helemaal compleet.'}
           ${bijna ? ` En ${keer(bijna, 'recept mist', 'recepten missen')} daarna nog maar één ${cfg.stuk}.` : ''}</p>
@@ -628,10 +632,16 @@ const App = (() => {
       </li>`;
     };
     const duoRij = ({ a, b, samen, alles }) => `<li><b>${naam(a.k)} + ${naam(b.k)}</b>
-      <span class="zacht">samen ${keer(alles, 'recept', 'recepten')} compleet. Alleen met allebei: ${links(samen)}</span></li>`;
+      <span class="zacht">samen ${keer(alles, 'recept', 'recepten')} compleet. Alleen met allebei: ${links(samen)}</span>
+      <button type="button" class="knop knop-klein knop-heb" data-koop-heb="${a.k.id} ${b.k.id}">✓ Heb ik allebei</button></li>`;
+    // Wat je net (in de winkel) als "Heb ik nu" hebt aangetikt, met een knop om het terug te draaien.
+    const net = netGekocht[w].filter((id) => inKast.has(id)).map(kastItem).filter(Boolean);
+    const netRij = net.length ? `<p class="koop-net">Net in je kast gezet: <b>${net.map(naam).join(', ')}</b>
+      <button type="button" class="knop knop-klein" data-koop-terug>Toch niet</button></p>` : '';
     return `<section class="kast-recepten koop-advies">
       <h3>Wat koop ik de volgende keer?</h3>
-      <p class="hint">Op volgorde van hoeveel recepten je ermee compleet maakt, met wat je nu in je kast hebt. Het telt recepten met minstens 2 ${cfg.woord}, net als Wat kan ik maken.${w === 'kruiden' ? ' Verse kruiden en pepers koop je er vers bij.' : ''}</p>
+      <p class="hint">Op volgorde van hoeveel recepten je ermee compleet maakt, met wat je nu in je kast hebt. Het telt recepten met minstens 2 ${cfg.woord}, net als Wat kan ik maken.${w === 'kruiden' ? ' Verse kruiden en pepers koop je er vers bij.' : ''} Ligt het in je winkelwagen? Tik op <b>Heb ik nu</b>, dan staat het in je kast.</p>
+      ${netRij}
       ${los.length ? `<ol class="koop-lijst">${los.map((a, i) => kaart(a, i + 1)).join('')}</ol>` : `<p>Je kast is al zo goed als compleet: er is geen ${cfg.stuk} dat nog een recept afmaakt.</p>`}
       ${duos.length ? `<h3>Twee tegelijk</h3><p class="hint">Deze recepten missen er precies twee, dus die kun je het best samen kopen.</p><ul>${duos.map(duoRij).join('')}</ul>` : ''}
     </section>`;
@@ -1039,6 +1049,20 @@ const App = (() => {
           const set = kast(w); kb.checked ? set.add(kb.dataset.kast) : set.delete(kb.dataset.kast);
           opslag.schrijf(KASTEN[w].opslag, [...set]);
           return soortIn[w] === 'kast' ? renderKast(w) : ($(`#${w}-filter [data-kastsoort="kast"]`).textContent = `In mijn kast (${set.size})`);
+        }
+        const kh = e.target.closest('[data-koop-heb]');
+        if (kh) {
+          const ids = kh.dataset.koopHeb.split(' ');
+          const set = kast(w); ids.forEach((id) => set.add(id));
+          opslag.schrijf(KASTEN[w].opslag, [...set]);
+          netGekocht[w] = [...netGekocht[w].filter((id) => !ids.includes(id)), ...ids];
+          renderKast(w);
+          toast(`${ids.map((id) => kastItem(id).naam.replace(/ \(.*\)$/, '')).join(' en ')} ${ids.length > 1 ? 'staan' : 'staat'} nu in je kast`); return;
+        }
+        if (e.target.closest('[data-koop-terug]')) {
+          const set = kast(w); netGekocht[w].forEach((id) => set.delete(id));
+          opslag.schrijf(KASTEN[w].opslag, [...set]);
+          netGekocht[w] = []; renderKast(w); toast('Weer uit je kast gehaald'); return;
         }
         const kl = e.target.closest('[data-koop-lijst]');
         if (kl) {
