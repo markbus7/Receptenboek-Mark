@@ -298,6 +298,7 @@ window.PRIJSKOPPELING = {
   'geschaafde amandelen': { zoek: ['amandelschaafsel', 'amandel schaafsel'] },
   'pijnboompitten': {},
   'walnoten': { niet: ['in dop', 'dop'] },
+  'pistachenoten': { zoek: ['pistache ongezouten', 'pistachenoten ongezouten', 'pistache gepeld', 'pistachenoten'], niet: ['chocolade', 'pasta', 'crème', 'creme', 'ijs', 'koek', 'reep', 'mix'] },
   'ongezouten cashewnoten': {},
   'ongezouten pindas': {},
   'geraspte kokos': {},

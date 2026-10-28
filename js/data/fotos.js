@@ -90,6 +90,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Pisang_Goreng.jpg"
  },
+ "baklava": {
+  "src": "img/baklava.jpg",
+  "auteur": "Sakaman",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Baklava(1).png"
+ },
  "bami-goreng": {
   "src": "img/bami-goreng.jpg",
   "auteur": "Gunawan Kartapranata",
