@@ -336,6 +336,24 @@ p.sync-fout::before { display: none; }
   }
 }
 
+/* Subtabs: de keukens van het gekozen deel, op een strook in de kleur van dat deel,
+   zodat het grote tabblad er als een map in doorloopt. */
+.subtabs {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 10px; background: var(--k, var(--inkt));
+  border-radius: 0 var(--r) 0 0; position: relative; z-index: 1;
+}
+.subtabs[hidden] { display: none; }
+.subtab {
+  flex: none; min-height: 30px; padding: 4px 12px;
+  border: 1px solid rgba(255, 253, 248, 0.45); border-radius: 999px;
+  background: transparent; color: #FFFDF8;
+  font-size: 13px; font-weight: 600; white-space: nowrap;
+}
+.subtab:hover { background: rgba(255, 253, 248, 0.14); }
+.subtab[aria-pressed="true"] { background: var(--papier); color: var(--sk, var(--k)); border-color: var(--papier); }
+.subtabs:not([hidden]) + .boekpagina { border-radius: 0 0 var(--r) var(--r); }
+
 .boekpagina {
   position: relative;
   padding: clamp(18px, 3vw, 40px) clamp(16px, 3vw, 44px) 48px;
@@ -840,6 +858,8 @@ p.sync-fout::before { display: none; }
   .sug-label { white-space: normal; }
   .filter-knop { padding: 0 14px; }
   .tabbladen { margin-inline: calc(-1 * var(--gutter)); padding-left: var(--gutter); padding-right: 36px; }
+  .subtabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); border-radius: 0; }
+  .subtabs::-webkit-scrollbar { display: none; }
   .raster { gap: 28px 16px; }
   .sheet-blad { inset: 0; width: 100%; }
   .d-balk { padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px; background: color-mix(in srgb, var(--tafel) 85%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }

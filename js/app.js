@@ -7,6 +7,10 @@ const App = (() => {
   const KEUKENS = [...HOOFDSTUKKEN.map((h) => h.keuken), ...new Set(RECEPTEN.map((r) => r.keuken))]
     .filter((k, i, a) => a.indexOf(k) === i && RECEPTEN.some((r) => r.keuken === k));
   const HK = new Map(KEUKENS.map((k, i) => [k, { nr: i + 1, kleur: (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).kleur || '#5A5048' }]));
+  // Delen (regio's) zijn de grote tabbladen; elk deel bundelt een paar hoofdstukken. Een keuken zonder regio valt onder het eerste deel.
+  const REGIO = new Map(KEUKENS.map((k) => [k, (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).regio || DELEN[0].regio]));
+  const REGIOS = DELEN.filter((d) => KEUKENS.some((k) => REGIO.get(k) === d.regio));
+  const keukensVan = (regio) => KEUKENS.filter((k) => REGIO.get(k) === regio);
   const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
   // Paginanummers: elk hoofdstuk opent met één pagina, elk recept beslaat een dubbele pagina.
   const BLZ = new Map();
@@ -46,6 +50,11 @@ const App = (() => {
   const ALIASSEN = {
     indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'],
     duitsland: ['duits'], oostenrijk: ['oostenrijks']
+  };
+  // Zoekwoorden voor de delen: "europees" of "aziatisch" geeft het hele deel.
+  const REGIO_WOORDEN = {
+    Europa: ['europees', 'europese'], 'Azië': ['aziatisch', 'aziatische', 'oosters', 'oosterse'],
+    'Midden-Oosten & Afrika': ['afrikaans', 'afrikaanse', 'afrika', 'arabisch', 'arabische', 'noord-afrika'], Amerika: ['amerika']
   };
   /* Zoek je op een soort gerecht ("sauzen", "toetje"), dan krijg je precies die soort,
      niet alles waar toevallig sojasaus in zit. */
@@ -384,22 +393,40 @@ const App = (() => {
   function hoofdstukKop(keuken, aantal) {
     const h = hk(keuken);
     return `<header class="hoofdstuk-kop hk" style="--k:${h.kleur}">
-      <span class="hoofdstuk-nr">Hoofdstuk ${h.nr}</span>
+      <span class="hoofdstuk-nr">${esc(REGIO.get(keuken) || '')} · Hoofdstuk ${h.nr}</span>
       <h2>${esc(keuken)}</h2>
       <span class="hoofdstuk-aantal">${aantal} ${aantal === 1 ? 'recept' : 'recepten'}</span>
     </header>`;
   }
 
+  // Het deel waar alle gekozen keukens in vallen, of null als er geen of keukens uit meerdere delen gekozen zijn.
+  function actiefDeel() {
+    const delen = new Set([...state.keukens].map((k) => REGIO.get(k)));
+    return delen.size === 1 ? REGIOS.find((d) => delen.has(d.regio)) || null : null;
+  }
+  const heelDeel = (regio) => { const ks = keukensVan(regio); return ks.length === state.keukens.size && ks.every((k) => state.keukens.has(k)); };
+
   function renderTabbladen() {
+    const deel = actiefDeel();
     const alleen = state.keukens.size === 1 ? [...state.keukens][0] : null;
     $('#tabbladen').innerHTML =
       `<button type="button" class="tabblad tabblad-alle" data-tab="" aria-pressed="${!state.keukens.size}">Alle</button>` +
-      KEUKENS.map((k) => `<button type="button" class="tabblad hk" style="--k:${hk(k).kleur}" data-tab="${esc(k)}" aria-pressed="${alleen === k}">${esc(k)}</button>`).join('');
+      REGIOS.map((d) => `<button type="button" class="tabblad hk" style="--k:${d.kleur}" data-regio="${esc(d.regio)}" aria-pressed="${deel === d}">${esc(d.regio)}</button>`).join('');
+    const sub = $('#subtabs');
+    sub.hidden = !deel;
+    if (!deel) { sub.innerHTML = ''; return; }
+    sub.style.setProperty('--k', deel.kleur);
+    sub.innerHTML =
+      `<button type="button" class="subtab" data-regio="${esc(deel.regio)}" aria-pressed="${heelDeel(deel.regio)}">Alles</button>` +
+      keukensVan(deel.regio).map((k) => `<button type="button" class="subtab" style="--sk:${hk(k).kleur}" data-tab="${esc(k)}" aria-pressed="${alleen === k}">${esc(k)}</button>`).join('');
   }
 
   function actieveFilters() {
     const items = [];
-    state.keukens.forEach((k) => items.push(['keuken', k, k]));
+    // Een heel deel gekozen? Dan één filter met de naam van de regio in plaats van elke keuken apart.
+    const deel = actiefDeel();
+    if (deel && heelDeel(deel.regio) && state.keukens.size > 1) items.push(['regio', deel.regio, deel.regio]);
+    else state.keukens.forEach((k) => items.push(['keuken', k, k]));
     state.soorten.forEach((s) => items.push(['soort', s, s]));
     state.niveaus.forEach((n) => items.push(['niveau', n, n]));
     if (state.tijd) items.push(['tijd', state.tijd, `≤ ${state.tijd} min`]);
@@ -832,6 +859,7 @@ const App = (() => {
       return namen.length ? [r, namen[0][1], namen[0][0] === r.naam ? null : namen[0][0]] : null;
     }).filter(Boolean);
     const hoofdstukken = KEUKENS.map((k) => [k, (ALIASSEN[t] || []).some((x) => Hulp.norm(k).startsWith(x) || Hulp.norm(k).includes(' ' + x)) ? 1 : score(k)]).filter(([, s]) => s >= 0);
+    const delen = REGIOS.map((d) => [d.regio, t.length >= 3 && (REGIO_WOORDEN[d.regio] || []).some((x) => x.startsWith(t)) ? 1 : score(d.regio)]).filter(([, s]) => s >= 0 && s < 3);
     const ingredienten = INGR_NAMEN.map((n) => [n, score(n)]).filter(([, s]) => s >= 0);
     const soort = SOORT_WOORDEN[t] || (t.length >= 3 && SOORTEN.find((s) => Hulp.norm(s).startsWith(t)));
     // Tikfout-treffers (score 3) alleen tonen als er niets echts gevonden is.
@@ -843,6 +871,8 @@ const App = (() => {
       const n = RECEPTEN.filter((r) => r.soort === soort).length;
       uit.unshift({ type: 'soort', waarde: soort, label: soort === 'Saus' ? 'Sauzen' : soort, extra: `${n} recepten` });
     }
+    delen.sort((a, b) => a[1] - b[1]).slice(0, 1)
+      .forEach(([d]) => uit.push({ type: 'regio', waarde: d, label: d, extra: keukensVan(d).join(', ') }));
     hoofdstukken.filter(houd).sort((a, b) => a[1] - b[1]).slice(0, 3)
       .forEach(([k]) => uit.push({ type: 'hoofdstuk', waarde: k, label: k, extra: `Hoofdstuk ${hk(k).nr}` }));
     ingredienten.filter(houd).sort((a, b) => (a[1] - b[1]) || (INGR_AANTAL.get(b[0]) - INGR_AANTAL.get(a[0]))).slice(0, 3)
@@ -861,7 +891,7 @@ const App = (() => {
     const veld = $('#zoek'), el = $('#suggesties');
     sugLijst = document.activeElement === veld ? maakSuggesties(veld.value) : [];
     sugActief = -1;
-    const SOORT = { recept: 'Recept', hoofdstuk: 'Hoofdstuk', ingredient: 'Ingrediënt', soort: 'Soort' };
+    const SOORT = { recept: 'Recept', regio: 'Deel', hoofdstuk: 'Hoofdstuk', ingredient: 'Ingrediënt', soort: 'Soort' };
     el.innerHTML = sugLijst.map((s, i) => `
       <li class="sug" role="option" id="sug-${i}" data-i="${i}" aria-selected="false">
         <span class="sug-type">${SOORT[s.type]}</span>
@@ -886,9 +916,9 @@ const App = (() => {
     sluitSuggesties();
     if (s.type === 'recept') {
       openRecept(s.id);
-    } else if (s.type === 'hoofdstuk') {
+    } else if (s.type === 'hoofdstuk' || s.type === 'regio') {
       veld.value = ''; state.zoek = '';
-      state.keukens = new Set([s.waarde]);
+      state.keukens = new Set(s.type === 'regio' ? keukensVan(s.waarde) : [s.waarde]);
       if (APART.includes(state.view)) zetView('alle'); else render();
       veld.blur();
     } else if (s.type === 'soort') {
@@ -1020,14 +1050,20 @@ const App = (() => {
       if (a && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openRecept(a.dataset.open); }
     });
 
-    $('#tabbladen').addEventListener('click', (e) => {
-      const t = e.target.closest('[data-tab]');
+    // Groot tabblad: kies een heel deel (nog eens tikken = alles). Subtab: kies één keuken (nog eens tikken = terug naar het deel).
+    const kiesTab = (e) => {
+      const t = e.target.closest('[data-tab], [data-regio]');
       if (!t) return;
-      const k = t.dataset.tab;
-      state.keukens = new Set(k && !(state.keukens.size === 1 && state.keukens.has(k)) ? [k] : []);
+      const r = t.dataset.regio, k = t.dataset.tab, rij = e.currentTarget;
+      if (r !== undefined) state.keukens = new Set(heelDeel(r) && t.classList.contains('tabblad') ? [] : keukensVan(r));
+      else if (k && state.keukens.size === 1 && state.keukens.has(k)) state.keukens = new Set(keukensVan(REGIO.get(k)));
+      else state.keukens = new Set(k ? [k] : []);
       if (APART.includes(state.view)) zetView('alle'); else render();
-      t.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
-    });
+      const nu = rij.querySelector('[aria-pressed="true"]');
+      if (nu) nu.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    };
+    $('#tabbladen').addEventListener('click', kiesTab);
+    $('#subtabs').addEventListener('click', kiesTab);
 
     $('#actieve-filters').addEventListener('click', (e) => {
       if (e.target.closest('[data-wis-alles]')) return wisAlles();
@@ -1035,6 +1071,7 @@ const App = (() => {
       if (!c) return;
       const { wisGroep: g, wisWaarde: w } = c.dataset;
       if (g === 'keuken') state.keukens.delete(w);
+      if (g === 'regio') keukensVan(w).forEach((k) => state.keukens.delete(k));
       if (g === 'soort') state.soorten.delete(w);
       if (g === 'niveau') state.niveaus.delete(w);
       if (g === 'tijd') state.tijd = null;
