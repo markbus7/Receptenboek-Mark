@@ -85,13 +85,13 @@ const Hulp = (() => {
   const metNlNamen = (tekst) => String(tekst).replace(NL_WOORD, (w) => NL_NAAM[norm(w)] ? `${w} (${NL_NAAM[norm(w)]})` : w);
 
   /* Wat is het? Uitleg bij een ingrediënt, voor als je in het recept op de naam tikt: uit js/data/uitleg.js,
-     smaakmakers.js of kruiden.js, met de foto uit de kast erbij. Zout en peper kent iedereen. */
+     smaakmakers.js, kruiden.js of basis.js, met de foto uit de kast erbij. Zout, peper, suiker en bloem kent iedereen. */
   let uitlegNamen = null;
   function uitleg(n) {
     if (!uitlegNamen) {
       uitlegNamen = new Map();
-      [['', window.UITLEG], ['smaak-', window.SMAAKMAKERS], ['kruid-', window.KRUIDEN]].forEach(([pre, lijst]) => (lijst || []).forEach((k) => {
-        if (k.id === 'zout' || k.id === 'peper') return;
+      [['', window.UITLEG], ['smaak-', window.SMAAKMAKERS], ['kruid-', window.KRUIDEN], ['basis-', window.BASIS]].forEach(([pre, lijst]) => (lijst || []).forEach((k) => {
+        if (['zout', 'peper', 'suiker', 'bloem'].includes(k.id)) return;
         const foto = (pre && window.FOTOS && FOTOS[pre + k.id]) || null;
         k.namen.forEach((x) => { if (!uitlegNamen.has(norm(x))) uitlegNamen.set(norm(x), { ...k, foto }); });
       }));

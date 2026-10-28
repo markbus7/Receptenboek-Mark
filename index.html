@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=1.55.0">
+<link rel="stylesheet" href="css/styles.css?v=1.56.0">
 </head>
 <body>
 <div class="app">
@@ -24,8 +24,10 @@
         <button type="button" class="tab" id="tab-nieuw" data-view="nieuw" aria-pressed="false">Nieuw</button>
         <button type="button" class="tab" id="tab-fav" data-view="fav" aria-pressed="false">Favorieten</button>
         <button type="button" class="tab" id="tab-gemaakt" data-view="gemaakt" aria-pressed="false">Gemaakt</button>
+        <span class="tabs-breek" aria-hidden="true"></span>
         <button type="button" class="tab" id="tab-kruiden" data-view="kruiden" aria-pressed="false">Kruiden</button>
         <button type="button" class="tab" id="tab-sauzen" data-view="sauzen" aria-pressed="false">Sauzen</button>
+        <button type="button" class="tab" id="tab-basis" data-view="basis" aria-pressed="false">Basis</button>
         <button type="button" class="tab" id="tab-lijst" data-view="lijst" aria-pressed="false">Boodschappen <span class="badge" id="lijst-aantal"></span></button>
       </nav>
     </div>
@@ -190,6 +192,15 @@
         <div class="kruiden-filter" id="sauzen-filter"></div>
         <div class="kruiden-lijst" id="sauzen-lijst"></div>
       </section>
+      <section id="view-basis" class="kruiden" hidden>
+        <div class="lijst-kop"><div>
+          <h2>Basis voor de voorraadkast</h2>
+          <p class="hint">Suiker, meel en bakproducten: wat het is, wat je ermee doet en in welke recepten je het gebruikt. Vink aan wat je in huis hebt, dan staat het niet meer bij Nog halen. Zout, peper en olie staan hier niet: die heb je volgens Filters altijd.</p>
+        </div></div>
+        <label class="zoek kruiden-zoek" for="basis-zoek"><span class="sr">Zoek in basisproducten</span><input id="basis-zoek" type="search" placeholder="Zoek product of gerecht… (bijv. suiker, binden, cake)" autocomplete="off"></label>
+        <div class="kruiden-filter" id="basis-filter"></div>
+        <div class="kruiden-lijst" id="basis-lijst"></div>
+      </section>
     </main>
   </div>
 </div>
@@ -238,48 +249,49 @@
   </defs>
 </svg>
 
-<script src="js/versie.js?v=1.55.0"></script>
-<script src="js/data/gereedschap.js?v=1.55.0"></script>
-<script src="js/data/hoofdstukken.js?v=1.55.0"></script>
-<script src="js/data/recepten-1.js?v=1.55.0"></script>
-<script src="js/data/recepten-2.js?v=1.55.0"></script>
-<script src="js/data/recepten-3.js?v=1.55.0"></script>
-<script src="js/data/recepten-4.js?v=1.55.0"></script>
-<script src="js/data/recepten-5.js?v=1.55.0"></script>
-<script src="js/data/recepten-6.js?v=1.55.0"></script>
-<script src="js/data/recepten-7.js?v=1.55.0"></script>
-<script src="js/data/recepten-8.js?v=1.55.0"></script>
-<script src="js/data/recepten-9.js?v=1.55.0"></script>
-<script src="js/data/recepten-10.js?v=1.55.0"></script>
-<script src="js/data/recepten-11.js?v=1.55.0"></script>
-<script src="js/data/recepten-12.js?v=1.55.0"></script>
-<script src="js/data/recepten-13.js?v=1.55.0"></script>
-<script src="js/data/recepten-14.js?v=1.55.0"></script>
-<script src="js/data/recepten-15.js?v=1.55.0"></script>
-<script src="js/data/recepten-16.js?v=1.55.0"></script>
-<script src="js/data/recepten-17.js?v=1.55.0"></script>
-<script src="js/data/recepten-18.js?v=1.55.0"></script>
-<script src="js/data/recepten-19.js?v=1.55.0"></script>
-<script src="js/data/recepten-20.js?v=1.55.0"></script>
-<script src="js/data/recepten-21.js?v=1.55.0"></script>
-<script src="js/data/kruiden.js?v=1.55.0"></script>
-<script src="js/data/smaakmakers.js?v=1.55.0"></script>
-<script src="js/varianten.js?v=1.55.0"></script>
-<script src="js/data/fotos.js?v=1.55.0"></script>
-<script src="js/data/groentemixen.js?v=1.55.0"></script>
-<script src="js/data/verpakkingen.js?v=1.55.0"></script>
-<script src="js/data/vervangers.js?v=1.55.0"></script>
-<script src="js/data/uien.js?v=1.55.0"></script>
-<script src="js/data/uitleg.js?v=1.55.0"></script>
-<script src="js/data/vriezer.js?v=1.55.0"></script>
-<script src="js/data/prijzen.js?v=1.55.0"></script>
-<script src="js/hulp.js?v=1.55.0"></script>
-<script src="js/prijzen.js?v=1.55.0"></script>
-<script src="js/boodschappen.js?v=1.55.0"></script>
-<script src="js/deelkaart.js?v=1.55.0"></script>
-<script src="js/logboek.js?v=1.55.0"></script>
-<script src="js/detail.js?v=1.55.0"></script>
-<script src="js/sync.js?v=1.55.0"></script>
-<script src="js/app.js?v=1.55.0"></script>
+<script src="js/versie.js?v=1.56.0"></script>
+<script src="js/data/gereedschap.js?v=1.56.0"></script>
+<script src="js/data/hoofdstukken.js?v=1.56.0"></script>
+<script src="js/data/recepten-1.js?v=1.56.0"></script>
+<script src="js/data/recepten-2.js?v=1.56.0"></script>
+<script src="js/data/recepten-3.js?v=1.56.0"></script>
+<script src="js/data/recepten-4.js?v=1.56.0"></script>
+<script src="js/data/recepten-5.js?v=1.56.0"></script>
+<script src="js/data/recepten-6.js?v=1.56.0"></script>
+<script src="js/data/recepten-7.js?v=1.56.0"></script>
+<script src="js/data/recepten-8.js?v=1.56.0"></script>
+<script src="js/data/recepten-9.js?v=1.56.0"></script>
+<script src="js/data/recepten-10.js?v=1.56.0"></script>
+<script src="js/data/recepten-11.js?v=1.56.0"></script>
+<script src="js/data/recepten-12.js?v=1.56.0"></script>
+<script src="js/data/recepten-13.js?v=1.56.0"></script>
+<script src="js/data/recepten-14.js?v=1.56.0"></script>
+<script src="js/data/recepten-15.js?v=1.56.0"></script>
+<script src="js/data/recepten-16.js?v=1.56.0"></script>
+<script src="js/data/recepten-17.js?v=1.56.0"></script>
+<script src="js/data/recepten-18.js?v=1.56.0"></script>
+<script src="js/data/recepten-19.js?v=1.56.0"></script>
+<script src="js/data/recepten-20.js?v=1.56.0"></script>
+<script src="js/data/recepten-21.js?v=1.56.0"></script>
+<script src="js/data/kruiden.js?v=1.56.0"></script>
+<script src="js/data/smaakmakers.js?v=1.56.0"></script>
+<script src="js/data/basis.js?v=1.56.0"></script>
+<script src="js/varianten.js?v=1.56.0"></script>
+<script src="js/data/fotos.js?v=1.56.0"></script>
+<script src="js/data/groentemixen.js?v=1.56.0"></script>
+<script src="js/data/verpakkingen.js?v=1.56.0"></script>
+<script src="js/data/vervangers.js?v=1.56.0"></script>
+<script src="js/data/uien.js?v=1.56.0"></script>
+<script src="js/data/uitleg.js?v=1.56.0"></script>
+<script src="js/data/vriezer.js?v=1.56.0"></script>
+<script src="js/data/prijzen.js?v=1.56.0"></script>
+<script src="js/hulp.js?v=1.56.0"></script>
+<script src="js/prijzen.js?v=1.56.0"></script>
+<script src="js/boodschappen.js?v=1.56.0"></script>
+<script src="js/deelkaart.js?v=1.56.0"></script>
+<script src="js/logboek.js?v=1.56.0"></script>
+<script src="js/detail.js?v=1.56.0"></script>
+<script src="js/sync.js?v=1.56.0"></script>
+<script src="js/app.js?v=1.56.0"></script>
 </body>
 </html>
