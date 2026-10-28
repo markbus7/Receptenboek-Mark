@@ -906,6 +906,11 @@ p.sync-fout::before { display: none; }
 .koop-kop h4 { margin: 0; flex: 1; font-size: 18px; }
 .koop-nr { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--pen); color: var(--papier); font-weight: 700; font-size: 14px; }
 .koop-advies ul { columns: 1; }
+.koop-knoppen { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.koop-knoppen .knop { min-height: 44px; }
+.knop-heb { background: var(--pen); color: var(--papier); border-color: var(--pen); }
+.koop-advies li > .knop-heb { display: block; margin: 6px 0 4px; min-height: 44px; }
+.koop-net { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 12px; padding: 8px 12px; border-radius: var(--r); background: var(--lijn); }
 .kruiden-zoek { margin: 6px 0 10px; }
 .kruiden-zoek input { width: 100%; }
 .kruid-toon { margin: 4px 0 8px; }
