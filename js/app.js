@@ -707,9 +707,15 @@ const App = (() => {
   /* ---------- Weergave wisselen ---------- */
   // Weergaven met een eigen pagina in plaats van het receptenoverzicht.
   const APART = ['lijst', ...Object.keys(KASTEN)];
+  /* Kruiden, Sauzen en Basis staan samen onder de tab Kast; die opent waar je het laatst was. */
+  let laatsteKast = 'kruiden';
   function zetView(view) {
+    if (view === 'kast') view = laatsteKast;
+    if (KASTEN[view]) laatsteKast = view;
     state.view = view;
-    document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.view === view)));
+    document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.view === view || (t.dataset.view === 'kast' && !!KASTEN[view]))));
+    document.querySelectorAll('[data-kast]').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.kast === view)));
+    $('#kast-wissel').hidden = !KASTEN[view];
     const apart = APART.includes(view);
     $('#view-recepten').hidden = apart;
     $('#view-lijst').hidden = view !== 'lijst';
@@ -935,6 +941,7 @@ const App = (() => {
     });
 
     document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.view)));
+    document.querySelectorAll('[data-kast]').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.kast)));
 
     $('#paneel').addEventListener('click', (e) => {
       const c = e.target.closest('[data-groep]');

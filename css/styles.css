@@ -159,7 +159,10 @@ svg { flex-shrink: 0; }
   min-height: 38px; padding: 0 16px; border: 0; border-radius: 999px;
   background: transparent; color: var(--inkt-zacht); font-weight: 600; white-space: nowrap;
 }
-.tabs-breek { display: none; }
+.tab svg, .tab-kort { display: none; }
+.segment.kast-wissel { margin-bottom: 18px; }
+.segment.kast-wissel button { min-height: 42px; padding: 0 18px; font-size: 15px; }
+.segment.kast-wissel button[aria-pressed="true"] { background: var(--inkt); border-color: var(--inkt); color: var(--papier); }
 .tab:hover { color: var(--inkt); }
 .tab[aria-pressed="true"] { background: var(--inkt); color: var(--papier); }
 .tab .badge { min-width: 20px; padding: 0 6px; line-height: 20px; border-radius: 999px; background: var(--warn); color: var(--papier); text-align: center; }
@@ -499,6 +502,7 @@ p.sync-fout::before { display: none; }
 .d-balk .ikoon-knop, .d-balk .knop-zacht { background: var(--papier); border-color: transparent; box-shadow: var(--schaduw-klein); }
 .d-balk .knop-zacht[aria-pressed="true"] { background: var(--inkt); color: var(--papier); }
 .d-balk-acties { display: flex; gap: 8px; align-items: center; }
+@media (max-width: 640px) { .d-scherm-tekst { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
 @media (max-width: 380px) { .d-deel-tekst { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
 
 .d-spread {
@@ -623,6 +627,51 @@ p.sync-fout::before { display: none; }
 }
 .timer-knop svg { width: 15px; height: 15px; color: var(--k-inkt); }
 .timer-knop:hover { border-color: var(--k); }
+
+/* Kookstand: één stap groot over het hele scherm, met grote knoppen voor natte of vette handen. */
+.d-kook-knop { background: var(--k); border-color: var(--k); color: #FFFDF8; }
+.d-balk .d-kook-knop { box-shadow: var(--schaduw-klein); }
+.d-stap-kop { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 4px; }
+.kook {
+  position: fixed; inset: 0; z-index: 5; display: flex; flex-direction: column;
+  background: var(--papier); color: var(--inkt);
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  animation: infaden .15s ease-out;
+}
+.kook[hidden] { display: none; }
+.kook-kop { display: flex; align-items: center; gap: 14px; padding: 12px 16px 10px; }
+.kook-titel { min-width: 0; }
+.kook-naam { font-family: var(--font-titel); font-size: 18px; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kook-teller { font-size: 13px; font-weight: 600; color: var(--k-inkt); letter-spacing: 0.02em; }
+.kook-voortgang { height: 4px; margin: 0 16px; border-radius: 999px; background: var(--lijn); overflow: hidden; }
+.kook-voortgang span { display: block; height: 100%; background: var(--k); transition: width .2s ease-out; }
+.kook-midden {
+  flex: 1; overflow-y: auto; overscroll-behavior: contain;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  width: min(760px, 100%); margin-inline: auto; padding: 22px 22px 32px;
+}
+.kook-nr { font-family: var(--font-titel); font-size: 56px; line-height: 1; color: var(--k-inkt); }
+.kook-tekst { font-family: var(--font-lees); font-size: clamp(22px, 3.4vw, 30px); line-height: 1.5; text-wrap: pretty; }
+.kook-tekst .stap-hv { color: var(--k-inkt); }
+.kook .timer-knop { min-height: 46px; padding: 0 18px; font-size: 16px; }
+.kook .timer-knop svg { width: 20px; height: 20px; }
+.kook-nodig, .kook-alle { width: 100%; padding: 14px 16px; border-radius: 10px; background: var(--k-vlak); }
+.kook-nodig h3 { font-family: var(--font-ui); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--k-inkt); margin-bottom: 6px; }
+.kook-nodig ul, .kook-alle ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 17px; line-height: 1.4; }
+.kook-nodig b, .kook-alle b { font-weight: 600; }
+.kook-alle { background: transparent; border: 1px solid var(--lijn); }
+.kook-alle summary { font-weight: 600; cursor: pointer; }
+.kook-alle[open] summary { margin-bottom: 8px; }
+.kook-alle ul { font-size: 15px; }
+.kook-kop-ingr { margin-top: 6px; font-weight: 700; color: var(--k-inkt); }
+.kook-voet {
+  display: grid; grid-template-columns: 1fr 2fr; gap: 10px;
+  width: min(760px, 100%); margin-inline: auto; padding: 10px 16px 14px;
+  border-top: 1px solid var(--lijn);
+}
+.kook-voet .knop { min-height: 58px; font-size: 18px; justify-content: center; }
+.kook-voet .knop:not(.knop-zacht) { background: var(--k); border-color: var(--k); color: #FFFDF8; }
+.kook-voet .knop:disabled { opacity: .35; }
 
 /* Notities: geeltje met plakband, met de hand geschreven */
 .d-notities { display: flex; flex-direction: column; gap: 26px; padding-top: 6px; }
@@ -755,11 +804,30 @@ p.sync-fout::before { display: none; }
   .paneel-kop { display: flex; justify-content: space-between; align-items: center; position: sticky; top: calc(-16px - env(safe-area-inset-top, 0px)); z-index: 1; margin: -4px 0 0; padding: 4px 0 10px; background: var(--papier); }
   .paneel-kop h2 { font-size: 30px; }
 }
-/* Acht tabs passen op een telefoon of iPad niet op één rij: vier boven, vier onder, elk zo breed als de tekst nodig heeft. */
+/* iPad: de zes tabs op één rij over de hele breedte. */
 @media (max-width: 860px) {
-  .tabs { width: 100%; flex-wrap: wrap; overflow-x: visible; border-radius: 22px; }
-  .tab { flex: 1 1 auto; justify-content: center; padding: 0 4px; font-size: 15px; }
-  .tabs-breek { display: block; flex-basis: 100%; height: 0; }
+  .tabs { width: 100%; }
+  .tab { flex: 1 1 auto; justify-content: center; padding: 0 6px; font-size: 15px; }
+}
+/* Telefoon: de tabs als vaste balk onderin, met icoon en kort woord, zodat je ze met je duim haalt. */
+@media (max-width: 640px) {
+  body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
+  .tabs {
+    position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; width: auto;
+    gap: 0; padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px)); border-radius: 0;
+    background: var(--papier); box-shadow: 0 -1px 0 var(--lijn), 0 -8px 20px -12px rgba(60, 45, 25, 0.35); overflow: visible;
+  }
+  .tab {
+    position: relative; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 3px;
+    min-height: 54px; padding: 4px 0 2px; border-radius: 12px; font-size: 11.5px; letter-spacing: 0.01em;
+  }
+  .tab svg { display: block; box-sizing: content-box; width: 22px; height: 22px; padding: 3px 14px; border-radius: 999px; fill: none; }
+  .tab[aria-pressed="true"] { background: transparent; color: var(--inkt); }
+  .tab[aria-pressed="true"] svg { background: var(--inkt); color: var(--papier); }
+  .tab-lang { display: none; }
+  .tab-kort { display: inline; }
+  .tab .badge { position: absolute; top: 0; left: calc(50% + 8px); min-width: 18px; padding: 0 5px; line-height: 18px; font-size: 11px; }
+  body:not(.sheet-open) .timers { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
 }
 @media (max-width: 640px) {
   .kop { padding-top: 18px; }
@@ -874,7 +942,7 @@ p.sync-fout::before { display: none; }
 .stap-hv { font-weight: 700; color: var(--pen); white-space: nowrap; }
 
 /* ---------- Kruiden en specerijen ---------- */
-#view-kruiden, #view-sauzen { max-width: 900px; margin-inline: auto; width: 100%; }
+#kast-wissel, #view-kruiden, #view-sauzen, #view-basis { max-width: 900px; margin-inline: auto; width: 100%; }
 .kruiden-filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 18px; }
 .kruiden-lijst { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 16px; }
 .kruid { background: var(--papier); border-radius: var(--r); box-shadow: var(--schaduw); padding: 18px 20px; font-family: var(--font-lees); font-size: 15px; line-height: 1.5; }
