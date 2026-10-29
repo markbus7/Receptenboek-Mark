@@ -35,7 +35,7 @@ RECEPTEN.push(
   alt: ['Vegetarisch? Vervang het spek door gebakken prei en champignons.']
 },
 {
-  id: 'ratatouille', naam: 'Ratatouille', keuken: 'Frans', soort: 'Salade & bijgerecht',
+  id: 'ratatouille', naam: 'Ratatouille', keuken: 'Frans', soort: 'Bijgerecht & snack',
   tijd: 25, wacht: '40 min stoven', pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Provençaalse groentestoof met courgette, aubergine, paprika en tijm.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'oven', naam: 'Oven' } ],
@@ -131,7 +131,7 @@ RECEPTEN.push(
   alt: ['Met zeevruchten? Leg in de laatste 5 minuten gamba\'s en mosselen op de rijst.']
 },
 {
-  id: 'patatas-bravas', naam: 'Patatas bravas', keuken: 'Spaans', soort: 'Salade & bijgerecht',
+  id: 'patatas-bravas', naam: 'Patatas bravas', keuken: 'Spaans', soort: 'Bijgerecht & snack',
   tijd: 40, pers: 4, niveau: 'Makkelijk', vega: true, pit: 2,
   intro: 'Krokante aardappelblokjes met pittige tomatensaus en knoflookmayonaise. Tapas-favoriet.',
   methodes: [ { id: 'airfryer', naam: 'Airfryer' }, { id: 'oven', naam: 'Oven' }, { id: 'koekenpan', naam: 'Koekenpan' } ],

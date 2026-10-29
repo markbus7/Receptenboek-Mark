@@ -54,7 +54,7 @@ for (const r of ctx.RECEPTEN) {
 }
 
 const alleen = process.argv.slice(2).map((n) => `recepten-${n}.js`);
-const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert'];
+const SOORTEN = ['Hoofdgerecht', 'Bijgerecht & snack', 'Soep', 'Salade', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert'];
 const NIVEAUS = ['Makkelijk', 'Gemiddeld', 'Moeilijk'];
 const KEUKENS = ctx.HOOFDSTUKKEN.map((h) => h.keuken);
 const ids = new Map();

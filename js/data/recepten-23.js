@@ -5,7 +5,7 @@ RECEPTEN.push(
 {
   id: 'kiptenders', toegevoegd: '2026-10-29', naam: 'Kiptenders in karnemelk', gerecht: 'Kiptenders', variant: 'Karnemelk',
   ook: ['kiptenders', 'chicken tenders', 'tenders', 'kipstrips', 'chicken strips', 'chicken fingers', 'kipfingers', 'krokante kipreepjes', 'buttermilk tenders'],
-  keuken: 'Amerikaans', soort: 'Hoofdgerecht',
+  keuken: 'Amerikaans', soort: 'Bijgerecht & snack',
   tijd: 35, wacht: '1 à 4 uur marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Repen kipfilet die eerst in gekruide karnemelk liggen en daarna door een knapperig jasje van bloem en panko gaan. Sappig vanbinnen, krokant vanbuiten, en ze komen gewoon uit de airfryer. Kies hierboven een andere marinade: cajun, knoflook en Parmezaan of yoghurt-tandoori.',
   methodes: [ { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
@@ -119,7 +119,7 @@ RECEPTEN.push(
 {
   id: 'kipnuggets', toegevoegd: '2026-10-29', naam: 'Zelfgemaakte kipnuggets', gerecht: 'Kipnuggets', variant: 'Panko',
   ook: ['kipnuggets', 'nuggets', 'chicken nuggets', 'kipnugget', 'nuggets van kip'],
-  keuken: 'Amerikaans', soort: 'Hoofdgerecht',
+  keuken: 'Amerikaans', soort: 'Bijgerecht & snack',
   tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Nuggets zoals van de snackbar, maar dan van echte kipfilet die je zelf fijnhakt en kruidt. Je vormt ze, haalt ze door bloem, ei en panko en bakt ze knapperig in de airfryer of de pan. Maak er meteen een dubbele portie van: ze zijn perfect om in te vriezen.',
   methodes: [ { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
@@ -181,7 +181,7 @@ RECEPTEN.push(
 {
   id: 'popcorn-chicken', toegevoegd: '2026-10-29', naam: 'Popcorn chicken', gerecht: 'Popcorn chicken', variant: 'Karnemelk',
   ook: ['popcorn kip', 'kipbites', 'chicken bites', 'krokante kipblokjes', 'kip popcorn'],
-  keuken: 'Amerikaans', soort: 'Hoofdgerecht',
+  keuken: 'Amerikaans', soort: 'Bijgerecht & snack',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Kleine, knapperige hapjes kippendij, om zo uit de bak te eten. Eerst kort in gekruide karnemelk, dan door een licht jasje van bloem en maïzena. Of kies de Taiwanese versie: met sojasaus, knoflook en vijfkruidenpoeder, en een zout-pepermix erover.',
   methodes: [ { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
@@ -256,7 +256,7 @@ RECEPTEN.push(
 {
   id: 'kippenvleugels-buffalo', toegevoegd: '2026-10-29', naam: 'Krokante buffalo wings', gerecht: 'Krokante kippenvleugels', variant: 'Buffalo (pittig)',
   ook: ['kippenvleugels', 'kipvleugels', 'chicken wings', 'wings', 'buffalo wings', 'hot wings', 'kippenvleugeltjes', 'vleugeltjes'],
-  keuken: 'Amerikaans', soort: 'Hoofdgerecht',
+  keuken: 'Amerikaans', soort: 'Bijgerecht & snack',
   tijd: 45, wacht: 'liefst 1 uur drogen in de koelkast', pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
   intro: 'Kippenvleugels met een vel zo knapperig als chips, zonder frituren: het geheim is een snufje bakpoeder in de kruidenmix. Daarna gaan ze door een saus. Hier de klassieke buffalo-saus van hete saus en boter; kies hierboven ook honing-knoflook, teriyaki of barbecue.',
   methodes: [ { id: 'airfryer', naam: 'Airfryer' }, { id: 'contactgrill', naam: 'OptiGrill' } ],
@@ -379,7 +379,7 @@ RECEPTEN.push(
 {
   id: 'karaage', toegevoegd: '2026-10-29', naam: 'Kara-age (Japanse krokante kip)',
   ook: ['karaage', 'kara age', 'tori karaage', 'japanse gefrituurde kip', 'japanse fried chicken', 'japanse kip'],
-  keuken: 'Japans', soort: 'Hoofdgerecht',
+  keuken: 'Japans', soort: 'Bijgerecht & snack',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'De Japanse versie van krokante kip: stukken kippendij in sojasaus, gember en knoflook, door aardappelzetmeel en twee keer kort gebakken. Het korstje wordt dun, licht en glazig knapperig. Met een partje citroen en mayonaise, als snack of met rijst.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' } ],

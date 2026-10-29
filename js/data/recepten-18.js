@@ -223,7 +223,7 @@ RECEPTEN.push(
 },
 {
   id: 'nachos', naam: 'Nacho\'s uit de oven', ook: ['nachos', 'nacho schotel', 'loaded nachos'],
-  keuken: 'Mexicaans', soort: 'Salade & bijgerecht',
+  keuken: 'Mexicaans', soort: 'Bijgerecht & snack',
   tijd: 20, pers: 4, niveau: 'Makkelijk', vega: true, pit: 2,
   intro: 'Een bakplaat vol tortillachips met gesmolten kaas, zwarte bonen en jalapeño, met guacamole, zure room en salsa erbij. Om samen uit het midden van de tafel te eten.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],

@@ -36,7 +36,7 @@ RECEPTEN.push(
   alt: ['Geen roti? Eet de kip kerrie met rijst; dat heet dan rijst met kip.']
 },
 {
-  id: 'bakabana', naam: 'Bakabana met pindasaus', ook: ['gebakken banaan', 'bananenbeignets'], keuken: 'Surinaams', soort: 'Salade & bijgerecht',
+  id: 'bakabana', naam: 'Bakabana met pindasaus', ook: ['gebakken banaan', 'bananenbeignets'], keuken: 'Surinaams', soort: 'Bijgerecht & snack',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Plakken rijpe bakbanaan in een krokant beslag, met warme pindasaus. De favoriete Surinaamse snack.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' } ],
@@ -190,7 +190,7 @@ RECEPTEN.push(
   alt: ['Pho ga (kip): gebruik een hele kip of 1 kg kippenpoten en laat 1 uur trekken.']
 },
 {
-  id: 'bun-cha-gio', naam: 'Vietnamese noedelsalade met citroengraskip', ook: ['bun cha gio', 'bun'], keuken: 'Vietnamees', soort: 'Salade & bijgerecht',
+  id: 'bun-cha-gio', naam: 'Vietnamese noedelsalade met citroengraskip', ook: ['bun cha gio', 'bun'], keuken: 'Vietnamees', soort: 'Salade',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Koude rijstnoedels met gegrilde citroengraskip, verse kruiden, komkommer en een frisse nuoc cham-dressing.',
   methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'grillpan', naam: 'Grillpan' } ],

@@ -11,7 +11,7 @@ const App = (() => {
   const REGIO = new Map(KEUKENS.map((k) => [k, (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).regio || DELEN[0].regio]));
   const REGIOS = DELEN.filter((d) => KEUKENS.some((k) => REGIO.get(k) === d.regio));
   const keukensVan = (regio) => KEUKENS.filter((k) => REGIO.get(k) === regio);
-  const SOORTEN = ['Hoofdgerecht', 'Soep', 'Salade & bijgerecht', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
+  const SOORTEN = ['Hoofdgerecht', 'Bijgerecht & snack', 'Soep', 'Salade', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
   // Paginanummers: elk hoofdstuk opent met één pagina, elk recept beslaat een dubbele pagina.
   const BLZ = new Map();
   (() => {
@@ -62,8 +62,10 @@ const App = (() => {
     saus: 'Saus', sauzen: 'Saus', sausje: 'Saus', basissaus: 'Saus', basissauzen: 'Saus',
     dessert: 'Dessert', desserts: 'Dessert', toetje: 'Dessert', toetjes: 'Dessert', nagerecht: 'Dessert', nagerechten: 'Dessert',
     soep: 'Soep', soepen: 'Soep', hoofdgerecht: 'Hoofdgerecht', hoofdgerechten: 'Hoofdgerecht',
-    ontbijt: 'Ontbijt & lunch', lunch: 'Ontbijt & lunch', bijgerecht: 'Salade & bijgerecht', bijgerechten: 'Salade & bijgerecht',
-    salade: 'Salade & bijgerecht', salades: 'Salade & bijgerecht',
+    ontbijt: 'Ontbijt & lunch', lunch: 'Ontbijt & lunch', bijgerecht: 'Bijgerecht & snack', bijgerechten: 'Bijgerecht & snack',
+    snack: 'Bijgerecht & snack', snacks: 'Bijgerecht & snack', sidedish: 'Bijgerecht & snack', sidedishes: 'Bijgerecht & snack',
+    hapje: 'Bijgerecht & snack', hapjes: 'Bijgerecht & snack', borrelhapjes: 'Bijgerecht & snack',
+    salade: 'Salade', salades: 'Salade',
     brood: 'Brood', broden: 'Brood', broodjes: 'Brood', broodgerechten: 'Brood', broodrecepten: 'Brood'
   };
   const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
