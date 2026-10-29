@@ -178,6 +178,16 @@ for (const r of ctx.RECEPTEN) {
   if (r.ingr.some((i) => i.n === 'ui') && !advies.ui) fouten.push({ f: herkomst.get(r.id), id: r.id, m: 'welke ui past het best? Zet het advies in js/data/uien.js' });
 }
 
+// Hoofdingrediënten: elk gerecht zegt in 1 tot 4 woorden waar het vooral uit bestaat; varianten erven die van hun basisrecept.
+vm.runInContext(fs.readFileSync(path.join(map, 'hoofdingredienten.js'), 'utf8'), ctx, { filename: 'hoofdingredienten.js' });
+for (const [id, lijst] of Object.entries(ctx.HOOFD)) {
+  if (!ids.has(id)) fouten.push({ f: 'hoofdingredienten.js', id, m: 'onbekend recept' });
+  if (!Array.isArray(lijst) || lijst.length < 1 || lijst.length > 4 || !lijst.every((x) => typeof x === 'string' && x.trim())) fouten.push({ f: 'hoofdingredienten.js', id, m: '1 tot 4 hoofdingrediënten verwacht' });
+}
+for (const r of ctx.RECEPTEN) {
+  if (!ctx.HOOFD[r.id] && !ctx.HOOFD[r.variantVan]) fouten.push({ f: herkomst.get(r.id), id: r.id, m: 'waar bestaat het vooral uit? Zet de hoofdingrediënten in js/data/hoofdingredienten.js' });
+}
+
 // Wat is dit? Elke uitleg hoort bij een ingrediënt uit een recept, en staat niet ook al in de kruiden- of sauzenkast.
 ['kruiden.js', 'smaakmakers.js', 'uitleg.js'].forEach((f) => vm.runInContext(fs.readFileSync(path.join(map, f), 'utf8'), ctx, { filename: f }));
 const inKast = new Set([...ctx.KRUIDEN, ...ctx.SMAAKMAKERS].flatMap((k) => k.namen.map((n) => n.toLowerCase())));
