@@ -5,7 +5,8 @@ window.DELEN = [
   { regio: 'Europa',                 kleur: '#2B4C9B' },
   { regio: 'Midden-Oosten & Afrika', kleur: '#0E7C80' },
   { regio: 'Azië',                   kleur: '#2F7A35' },
-  { regio: 'Amerika',                kleur: '#B0185A' }
+  { regio: 'Amerika',                kleur: '#B0185A' },
+  { regio: 'Cocktails',              kleur: '#B5651D' }
 ];
 window.HOOFDSTUKKEN = [
   { keuken: 'Nederlands',          regio: 'Europa',  kleur: '#2B4C9B' }, // Delfts blauw
@@ -30,5 +31,10 @@ window.HOOFDSTUKKEN = [
   { keuken: 'Surinaams',           regio: 'Amerika', kleur: '#B5470F' }, // madame jeanette
   { keuken: 'Mexicaans',           regio: 'Amerika', kleur: '#B0185A' }, // chili
   { keuken: 'Zuid-Amerikaans',     regio: 'Amerika', kleur: '#6A3D8F' }, // paarse maïs
-  { keuken: 'Amerikaans',          regio: 'Amerika', kleur: '#8C6A14' }  // mosterd
+  { keuken: 'Amerikaans',          regio: 'Amerika', kleur: '#8C6A14' }, // mosterd
+  // Cocktails staan los van de keukens: alleen onder hun eigen tabblad, of als je ze zoekt.
+  { keuken: 'Klassiekers',         regio: 'Cocktails', kleur: '#8A4B12' }, // bourbon
+  { keuken: 'Long drinks',         regio: 'Cocktails', kleur: '#1F7A8C' }, // tonic
+  { keuken: 'Tropisch',            regio: 'Cocktails', kleur: '#C2306E' }, // hibiscus
+  { keuken: 'Alcoholvrij',         regio: 'Cocktails', kleur: '#3F8F4A' }  // munt
 ];

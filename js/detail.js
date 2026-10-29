@@ -158,7 +158,7 @@ const Detail = (() => {
           </div>
           ${beeld}
           <section class="d-gerei" aria-labelledby="d-gerei-titel">
-            <h3 id="d-gerei-titel">Pannen en apparatuur</h3>
+            <h3 id="d-gerei-titel">${r.soort === 'Cocktail' ? 'Glazen en gerei' : 'Pannen en apparatuur'}</h3>
             ${ms.length ? `
               <div class="methode" role="group" aria-label="Bereidingswijze">
                 <span class="methode-label">Bereiden met</span>
