@@ -197,6 +197,8 @@ ARTIKELEN = {
     # 1.55.0 (rinderrouladen: de enige vrije foto is een rauwe rollade, dus het tegeltje)
     'thit-kho': 'Thịt kho', 'avgolemono': 'Avgolemono', 'empanadas': 'Empanada', 'hotteok': 'Hotteok',
     'baklava': 'Baklava',
+    'kiptenders': 'Chicken fingers', 'kipnuggets': 'Chicken nugget', 'popcorn-chicken-taiwanees': 'Taiwanese fried chicken',
+    'kippenvleugels-buffalo': 'Buffalo wing', 'karaage': 'Karaage',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

@@ -116,6 +116,7 @@ window.PRIJSKOPPELING = {
   'bamikruiden': { zoek: ['bamikruiden', 'bami kruidenmix', 'bami kruiden', 'boemboe bami'], niet: ['goreng', 'nasi'], e: 'g', om: { el: 6, zakje: 30 } },
   'fajitakruiden': { zoek: ['fajita kruidenmix', 'kruidenmix fajita', 'fajita kruiden', 'fajita seasoning'], om: { el: 7 } },
   'shoarmakruiden': {},
+  'cajunkruiden': { zoek: ['cajun kruiden', 'cajun'], niet: ['roast', 'potatoes', 'jambalaya', 'speklap', 'rub'], ruim: 4 },
   'vijfkruidenpoeder': { zoek: ['chinese 5 kruiden', 'five spice powder', 'five spices'], niet: ['woksaus'] },
   'pul biber': { als: 'chilivlokken' },
   'chilivlokken': { zoek: ['chilivlokken'], niet: ['ricotta', 'roomkaas'] },
@@ -162,6 +163,8 @@ window.PRIJSKOPPELING = {
   'pecorino romano': { zoek: ['pecorino romano'] },
   'gruyere': {},
   'paneer': { niet: ['panko'] },
+  'aardappelzetmeel': { zoek: ['aardappelzetmeel', 'aardappelmeel', 'potato starch'] },
+  'cornflakes': { niet: ['choco', 'honing', 'frosties', 'krokante', 'havermout', 'reep', 'repen'] },
 
   /* Vlees en vis */
   'kipfilet': { zoek: ['kipfilet', 'kipfilets', 'kipfilet bl'], niet: ['americanos', 'krieltjes', 'spinazie', 'beleg', 'gerookt', 'gegrild', 'gebraden', 'plakjes', 'salade', 'pesto', 'tandoori', 'shoarma', 'gyros', 'spies', 'cordon', 'kerrie', 'teriyaki', 'pittige', 'smaakmaker', 'ambachtelijke', 'ovengebakken'], st: 150 },
@@ -346,6 +349,7 @@ window.PRIJSKOPPELING = {
   'groene olijven': { zoek: ['groene olijven'], niet: ['knoflook', 'paprika', 'gevuld', 'gevulde', 'amandel', 'ansjovis', 'tapenade', 'kruiden', 'pikant', 'feta'] },
   'salsa': { niet: ['fajita', 'chips', 'dip'] },
   'barbecuesaus': {},
+  'hete saus': { zoek: ['red hot sauce', 'redhot sauce', 'cholula hot sauce original'], niet: ['samurai', 'mayo', 'wings'] },
   'knoflooksaus': {},
   'passata': {},
   'tomatenpuree': {},
