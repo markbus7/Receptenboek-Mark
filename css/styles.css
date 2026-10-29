@@ -142,8 +142,8 @@ svg { flex-shrink: 0; }
 .tegel-klein { --t: 38px; }
 
 /* ---------- Kop (omslag) ---------- */
-.kop { padding: 28px var(--gutter) 18px; }
-.kop-binnen, .zoekrij { max-width: 1400px; margin-inline: auto; }
+.kop { padding: 28px var(--gutter) 6px; }
+.kop-binnen { max-width: 1400px; margin-inline: auto; }
 .kop-binnen { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 24px; }
 .merk { position: relative; display: grid; grid-template-columns: auto auto; align-items: end; column-gap: 12px; }
 .merk-boven { grid-column: 1 / -1; font-family: var(--font-lees); font-style: italic; font-size: 18px; color: var(--inkt-zacht); margin-bottom: -4px; }
@@ -167,16 +167,29 @@ svg { flex-shrink: 0; }
 .tab[aria-pressed="true"] { background: var(--inkt); color: var(--papier); }
 .tab .badge { min-width: 20px; padding: 0 6px; line-height: 20px; border-radius: 999px; background: var(--warn); color: var(--papier); text-align: center; }
 
-.zoekrij { display: flex; gap: 10px; margin-top: 22px; }
+/* Balk: tabs, zoeken en filters blijven bovenaan in beeld als je door een lange lijst scrolt.
+   Effen tafelkleur zodat de kaarten er netjes onderdoor schuiven; een schaduw zodra hij vastzit.
+   Geen transform of backdrop-filter hier: dan zou de vaste onderbalk op de telefoon mee scrollen. */
+html { scroll-padding-top: calc(var(--balk-h, 70px) + 12px); }
+.balk {
+  position: sticky; top: 0; z-index: 20;
+  margin-top: calc(-1 * env(safe-area-inset-top, 0px));
+  padding: calc(10px + env(safe-area-inset-top, 0px)) var(--gutter) 10px;
+  background: var(--tafel);
+  transition: box-shadow .2s;
+}
+.balk.vast { box-shadow: 0 1px 0 var(--lijn), 0 10px 18px -14px rgba(60, 45, 25, 0.5); }
+.balk-binnen { max-width: 1400px; margin-inline: auto; display: flex; align-items: center; gap: 8px 16px; }
+.zoekrij { flex: 1; min-width: 0; order: -1; display: flex; gap: 10px; }
 .zoek {
   flex: 1; min-width: 0;
   display: flex; align-items: center; gap: 10px;
-  padding: 0 18px; min-height: 50px;
+  padding: 0 18px; min-height: 46px;
   border: 1px solid var(--lijn); border-radius: 999px; background: var(--papier); box-shadow: var(--schaduw-klein);
 }
 .zoek:focus-within { border-color: var(--inkt); }
 .zoek svg { width: 20px; height: 20px; color: var(--potlood); }
-.zoek input { flex: 1; min-width: 0; border: 0; background: transparent; outline: none; font-size: 16px; padding: 12px 0; font-family: var(--font-lees); }
+.zoek input { flex: 1; min-width: 0; border: 0; background: transparent; outline: none; font-size: 16px; padding: 10px 0; font-family: var(--font-lees); }
 .zoek input::placeholder { color: var(--potlood); font-style: italic; }
 .filter-knop { display: none; }
 .zoek-wrap { position: relative; flex: 1; min-width: 0; display: flex; }
@@ -205,8 +218,8 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 
 /* ---------- Filterpaneel ---------- */
 .paneel {
-  position: sticky; top: 16px;
-  max-height: calc(100vh - 32px); overflow-y: auto;
+  position: sticky; top: calc(var(--balk-h, 70px) + 12px);
+  max-height: calc(100vh - var(--balk-h, 70px) - 24px); overflow-y: auto;
   display: flex; flex-direction: column; gap: 22px;
   padding: 22px 20px; margin-top: 46px;
   background: var(--papier); border-radius: var(--r); box-shadow: var(--schaduw);
@@ -804,6 +817,17 @@ p.sync-fout::before { display: none; }
   background: var(--inkt); color: var(--papier); font-size: 14px; font-weight: 600;
   transition: opacity .2s, transform .2s;
 }
+/* Pijltjes rechtsonder: in één tik naar het begin of het einde van een lange lijst. */
+.pijlen {
+  position: fixed; z-index: 25; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex; flex-direction: column; gap: 8px;
+}
+.pijl { width: 44px; height: 44px; border-color: transparent; box-shadow: var(--schaduw-klein); color: var(--inkt-zacht); }
+.pijl:hover { color: var(--inkt); }
+.pijl svg { width: 22px; height: 22px; }
+#naar-beneden svg { transform: rotate(180deg); }
+.pijl[hidden] { display: none; }
+body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
 .toast.zichtbaar { opacity: 1; transform: translate(-50%, 0); }
 
 /* ---------- Kleinere schermen ---------- */
@@ -829,8 +853,10 @@ p.sync-fout::before { display: none; }
   .paneel-kop { display: flex; justify-content: space-between; align-items: center; position: sticky; top: calc(-16px - env(safe-area-inset-top, 0px)); z-index: 1; margin: -4px 0 0; padding: 4px 0 10px; background: var(--papier); }
   .paneel-kop h2 { font-size: 30px; }
 }
-/* iPad: de zes tabs op één rij over de hele breedte. */
-@media (max-width: 860px) {
+/* iPad en kleiner scherm: de zes tabs op één rij over de hele breedte, zoeken eronder. */
+@media (max-width: 1000px) {
+  .balk-binnen { flex-wrap: wrap; }
+  .zoekrij { order: 0; flex-basis: 100%; }
   .tabs { width: 100%; }
   .tab { flex: 1 1 auto; justify-content: center; padding: 0 6px; font-size: 15px; }
 }
@@ -853,10 +879,13 @@ p.sync-fout::before { display: none; }
   .tab-kort { display: inline; }
   .tab .badge { position: absolute; top: 0; left: calc(50% + 8px); min-width: 18px; padding: 0 5px; line-height: 18px; font-size: 11px; }
   body:not(.sheet-open) .timers { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+  .pijlen { right: calc(10px + env(safe-area-inset-right, 0px)); bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+  .pijl { width: 40px; height: 40px; }
+  body:has(#timers:not([hidden])) .pijlen { display: none; }
 }
 @media (max-width: 640px) {
   .kop { padding-top: 18px; }
-  .zoekrij { margin-top: 16px; }
+  .balk { padding-top: calc(8px + env(safe-area-inset-top, 0px)); padding-bottom: 8px; }
   /* Suggesties over de volle breedte, ook onder de Filters-knop */
   .zoekrij { position: relative; }
   .zoek-wrap { position: static; }
