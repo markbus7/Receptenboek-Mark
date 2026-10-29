@@ -125,11 +125,11 @@ RECEPTEN.push(
     { n: 'basmatirijst', q: 300, u: 'g' }
   ],
   stappen: [
-    { t: 'Meng de kip met alle ingrediënten van de marinade en een theelepel zout. Laat minimaal 1 uur marineren in de koelkast.', min: 60 },
-    { t: 'Bak de kip in de airfryer 12 à 14 minuten op 200 °C tot de randjes geblakerd zijn. Schud halverwege.', m: 'airfryer', min: 13 },
+    { kop: 'Kip marineren', t: 'Meng de kip met alle ingrediënten van de marinade en een theelepel zout. Laat minimaal 1 uur marineren in de koelkast.', min: 60 },
+    { kop: 'Kip bakken', t: 'Bak de kip in de airfryer 12 à 14 minuten op 200 °C tot de randjes geblakerd zijn. Schud halverwege.', m: 'airfryer', min: 13 },
     { t: 'Spreid de kip uit op de bakplaat en gril 12 minuten bovenin de oven. Keer halverwege.', m: 'oven', min: 12 },
     { t: 'Verhit de koekenpan op hoog vuur met een scheut olie. Bak de kip in 2 porties 5 minuten tot hij bruin is.', m: 'koekenpan', min: 10 },
-    { t: 'Kook de rijst volgens de verpakking.', min: 12 },
+    { kop: 'Masala-saus', t: 'Kook de rijst volgens de verpakking.', min: 12 },
     { t: 'Smelt de boter in de hapjespan. Bak ui en paprika 8 minuten zacht. Bak knoflook, gember en specerijen 1 minuut mee.', min: 9 },
     { t: 'Voeg passata en suiker toe en laat 10 minuten pruttelen. Pureer met de staafmixer.', min: 10 },
     { t: 'Roer de room erdoor, voeg de kip toe en laat 5 minuten zachtjes doorwarmen. Breng op smaak met zout.', min: 5 }
@@ -204,10 +204,10 @@ RECEPTEN.push(
     { n: 'verse koriander', q: 10, u: 'g' }
   ],
   stappen: [
-    { t: 'Meng de kip met de marinade en een theelepel zout. Laat minimaal 1 uur marineren.', min: 60 },
-    { t: 'Bak de uien in de olie in de koekenpan in 15 à 20 minuten donker goudbruin en krokant. Laat uitlekken op keukenpapier; bewaar de olie.', min: 18 },
-    { t: 'Breng een grote pan water met een flinke schep zout, de kardemom en de laurier aan de kook. Kook de rijst 5 minuten: hij moet nog een harde kern hebben. Giet af.', min: 5 },
-    { t: 'Doe 2 el uienolie in de Dutch oven. Leg de kip met marinade erin en de helft van de uien, munt en koriander erop.' },
+    { kop: 'Kip marineren', t: 'Meng de kip met de marinade en een theelepel zout. Laat minimaal 1 uur marineren.', min: 60 },
+    { kop: 'Gebakken uien', t: 'Bak de uien in de olie in de koekenpan in 15 à 20 minuten donker goudbruin en krokant. Laat uitlekken op keukenpapier; bewaar de olie.', min: 18 },
+    { kop: 'Rijst', t: 'Breng een grote pan water met een flinke schep zout, de kardemom en de laurier aan de kook. Kook de rijst 5 minuten: hij moet nog een harde kern hebben. Giet af.', min: 5 },
+    { kop: 'Opbouwen en garen', t: 'Doe 2 el uienolie in de Dutch oven. Leg de kip met marinade erin en de helft van de uien, munt en koriander erop.' },
     { t: 'Schep de rijst erover. Besprenkel met saffraanmelk, gesmolten boter en de rest van de uien en kruiden.' },
     { t: 'Leg een vel aluminiumfolie op de pan en druk de deksel erop. Zet 5 minuten op middelhoog vuur, daarna 30 minuten op het allerlaagste pit.', m: 'braadpan', min: 35 },
     { t: 'Leg een vel aluminiumfolie op de pan en druk de deksel erop. Zet 5 minuten op middelhoog vuur en daarna 35 minuten in een voorverwarmde oven op 170 °C.', m: 'oven', min: 40 },

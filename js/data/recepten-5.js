@@ -138,14 +138,14 @@ RECEPTEN.push(
     { n: 'rode ui', p: 'rode uien', q: 1, u: 'st' }
   ],
   stappen: [
-    { t: 'Meng het vlees met olie, citroen, oregano, knoflook en peper. Laat minimaal 1 uur marineren. Rijg aan de spiesen en bestrooi met zout.', min: 60 },
-    { t: 'Tzatziki: knijp de geraspte komkommer goed uit in een theedoek. Meng met yoghurt, knoflook, dille en zout.' },
-    { t: 'Leg de spiesen op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 8 minuten; haal ze eraf als het vlees vanbinnen nog net licht roze is.', m: 'contactgrill', min: 7 },
+    { kop: 'Vlees', t: 'Meng het vlees met olie, citroen, oregano, knoflook en peper. Laat minimaal 1 uur marineren. Rijg aan de spiesen en bestrooi met zout.', min: 60 },
+    { kop: 'Tzatziki', t: 'Knijp de geraspte komkommer goed uit in een theedoek. Meng met yoghurt, knoflook, dille en zout.' },
+    { kop: 'Grillen', t: 'Leg de spiesen op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 8 minuten; haal ze eraf als het vlees vanbinnen nog net licht roze is.', m: 'contactgrill', min: 7 },
     { t: 'Grill de spiesen op een gloeiend hete grillpan 8 à 10 minuten rondom.', m: 'grillpan', min: 9 },
     { t: 'Bak de spiesen 10 à 12 minuten in de airfryer op 200 °C. Keer halverwege.', m: 'airfryer', min: 11 },
     { t: 'Gril de spiesen 12 minuten op het rooster onder de ovengrill. Keer halverwege.', m: 'oven', min: 12 },
     { t: 'Bak de spiesen 8 à 10 minuten in 1 el olie op middelhoog vuur. Keer regelmatig.', m: 'koekenpan', min: 9 },
-    { t: 'Serveer met warme pita, ringen rode ui en tzatziki.' }
+    { kop: 'Serveren', t: 'Serveer met warme pita, ringen rode ui en tzatziki.' }
   ],
   tips: ['Varkenshaas is snel droog. Haal hem eraf als hij vanbinnen nog net licht roze is.'],
   alt: ['Geen varkenshaas? Kippendij werkt net zo goed, bak dan 2 minuten langer.']
@@ -182,11 +182,11 @@ RECEPTEN.push(
     { n: 'geraspte kaas', q: 75, u: 'g', x: 'kefalotiri of Parmezaan' }
   ],
   stappen: [
-    { t: 'Bestrijk de auberginepakken met olie en zout. Gaar ze 15 minuten in de airfryer op 200 °C (in porties) of 25 minuten op een bakplaat in de oven op 220 °C, tot ze zacht en goudbruin zijn.', min: 15 },
-    { t: 'Bak gehakt en ui rul in de hapjespan. Voeg knoflook, tomatenpuree, kaneel en oregano toe en bak 1 minuut.', min: 8 },
+    { kop: 'Aubergine', t: 'Bestrijk de auberginepakken met olie en zout. Gaar ze 15 minuten in de airfryer op 200 °C (in porties) of 25 minuten op een bakplaat in de oven op 220 °C, tot ze zacht en goudbruin zijn.', min: 15 },
+    { kop: 'Gehaktsaus', t: 'Bak gehakt en ui rul in de hapjespan. Voeg knoflook, tomatenpuree, kaneel en oregano toe en bak 1 minuut.', min: 8 },
     { t: 'Voeg de tomaten toe en laat 15 minuten inkoken tot een dikke saus. Breng op smaak.', min: 15 },
-    { t: 'Maak de bechamel zoals bij lasagne: boter smelten, bloem erdoor, melk erbij kloppen tot het bindt. Haal van het vuur, klop ei en de helft van de kaas erdoor.' },
-    { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 200 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
+    { kop: 'Bechamel', t: 'Maak de bechamel zoals bij lasagne: boter smelten, bloem erdoor, melk erbij kloppen tot het bindt. Haal van het vuur, klop ei en de helft van de kaas erdoor.' },
+    { kop: 'Opbouwen en bakken', t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 200 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
     { t: 'Leg in de schaal de helft van de aubergine, dan de gehaktsaus, dan de rest van de aubergine. Giet de bechamel erover en bestrooi met de rest van de kaas.' },
     { t: 'Bak 40 à 45 minuten in een voorverwarmde oven op 180 °C tot de bovenkant diep goudbruin is.', m: 'oven', min: 45 },
     { t: 'Dek af met folie en bak 20 minuten op 160 °C. Haal de folie weg en bak nog 10 minuten.', m: 'airfryer', min: 30 },

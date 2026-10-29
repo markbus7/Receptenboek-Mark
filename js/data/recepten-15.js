@@ -87,13 +87,13 @@ RECEPTEN.push(
     { n: 'suiker', q: 1, u: 'el' }
   ],
   stappen: [
-    { t: 'Breng in de steelpan het water met de boter, suiker en zout aan de kook, tot de boter gesmolten is.' },
+    { kop: 'Deeg', t: 'Breng in de steelpan het water met de boter, suiker en zout aan de kook, tot de boter gesmolten is.' },
     { t: 'Haal de pan van het vuur, stort de bloem er in één keer in en roer krachtig met een houten lepel tot een glad deeg dat als een bal loslaat van de pan. Laat 10 minuten afkoelen.', min: 10 },
-    { t: 'Chocoladesaus: roer de maïzena los in 2 el van de koude melk. Verwarm de rest van de melk met de suiker in de andere steelpan, voeg de chocolade toe en roer op laag vuur tot hij gesmolten is. Roer de maïzena erdoor en laat 2 minuten zachtjes binden tot de saus dik is. Houd warm op het laagste vuur.', min: 2 },
-    { t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 180 °C. Geen thermometer? Houd er een houten lepel in: stijgen er direct belletjes langs op, dan is de olie heet genoeg.' },
+    { kop: 'Chocoladesaus', t: 'Roer de maïzena los in 2 el van de koude melk. Verwarm de rest van de melk met de suiker in de andere steelpan, voeg de chocolade toe en roer op laag vuur tot hij gesmolten is. Roer de maïzena erdoor en laat 2 minuten zachtjes binden tot de saus dik is. Houd warm op het laagste vuur.', min: 2 },
+    { kop: 'Frituren', t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 180 °C. Geen thermometer? Houd er een houten lepel in: stijgen er direct belletjes langs op, dan is de olie heet genoeg.' },
     { t: 'Schep het deeg in de spuitzak. Spuit stengels van 10 à 12 cm direct boven de olie en knip ze af met een schaar. Bak 4 à 5 churros tegelijk.' },
     { t: 'Frituur ze 3 à 4 minuten tot ze rondom diep goudbruin zijn; keer halverwege. Schep ze eruit en laat uitlekken op keukenpapier. Laat de olie tussen de porties weer op temperatuur komen.', min: 4 },
-    { t: 'Meng suiker en kaneel in een diep bord en rol de nog warme churros erdoor. Serveer direct met de warme chocoladesaus om in te dopen.' }
+    { kop: 'Kaneelsuiker', t: 'Meng suiker en kaneel in een diep bord en rol de nog warme churros erdoor. Serveer direct met de warme chocoladesaus om in te dopen.' }
   ],
   tips: ['De ribbels van de stervormige spuitmond zijn geen versiering: ze voorkomen dat de churros in de olie openbarsten en maken ze extra krokant.', 'Houd de olie op 175 à 180 °C. Te koel en de churros worden vet, te heet en ze zijn vanbinnen nog rauw.'],
   alt: ['Airfryer: spuit de churros op bakpapier en leg ze 20 minuten in de vriezer, zodat ze stevig worden. Bestrijk ze rondom met olie, leg ze in een goed ingevette mand en bak 10 à 12 minuten op 200 °C; keer halverwege. Bestrijk ze met gesmolten boter en rol ze door de kaneelsuiker. Lekker, maar minder krokant dan gefrituurd.', 'Snelle chocoladesaus: verwarm 150 ml slagroom tot net tegen de kook en smelt er 150 g pure chocolade in.']
@@ -133,12 +133,12 @@ RECEPTEN.push(
     { n: 'friet', q: 300, u: 'g', x: 'diepvries, om in de pita te stoppen zoals in Griekenland', opt: true }
   ],
   stappen: [
-    { t: 'Meng olie, citroensap, knoflook, oregano, paprikapoeder, komijn, zout en peper in een kom. Schep het vlees erdoor en laat minstens 30 minuten marineren, of afgedekt een nacht in de koelkast.', min: 30 },
-    { t: 'Tzatziki: rasp de komkommer grof en knijp hem in een schone theedoek zo droog mogelijk. Meng met yoghurt, knoflook, olijfolie, dille en een snuf zout. Zet koud.' },
-    { t: 'Neem je friet? Bak die nu volgens de verpakking in de oven of airfryer.' },
+    { kop: 'Marinade', t: 'Meng olie, citroensap, knoflook, oregano, paprikapoeder, komijn, zout en peper in een kom. Schep het vlees erdoor en laat minstens 30 minuten marineren, of afgedekt een nacht in de koelkast.', min: 30 },
+    { kop: 'Tzatziki', t: 'Rasp de komkommer grof en knijp hem in een schone theedoek zo droog mogelijk. Meng met yoghurt, knoflook, olijfolie, dille en een snuf zout. Zet koud.' },
+    { kop: 'Bakken', t: 'Neem je friet? Bak die nu volgens de verpakking in de oven of airfryer.' },
     { t: 'Snijd het vlees in dunne reepjes. Verhit de koekenpan op hoog vuur, zonder extra olie. Bak het vlees in 2 porties 5 à 6 minuten, tot het gaar is en er donkere, krokante randjes aan zitten. Doe niet te veel tegelijk in de pan, anders gaat het vlees koken in plaats van bakken.', m: 'koekenpan', min: 6 },
     { t: 'Leg de hele lapjes op de voorverwarmde contactgrill, sluit de deksel en grill 5 à 6 minuten, tot ze gaar zijn en mooie bruine strepen hebben. Laat ze 2 minuten rusten en snijd ze in dunne reepjes.', m: 'contactgrill', min: 6 },
-    { t: 'Warm de pita\'s 1 minuut per kant op in de hete koekenpan, met een paar druppels olie.' },
+    { kop: 'Serveren', t: 'Warm de pita\'s 1 minuut per kant op in de hete koekenpan, met een paar druppels olie.' },
     { t: 'Beleg elke pita met vlees, tomaat, ui, een flinke schep tzatziki en eventueel een paar frietjes. Rol op en wikkel de onderkant in bakpapier.' }
   ],
   tips: ['Schouder blijft sappiger dan filet en is ook het vlees dat in Griekenland aan het spit gaat. Het vetrandje hoort erbij.', 'De krokante, donkere randjes maken het gyros: bak dus op hoog vuur en in kleine porties.'],
@@ -340,14 +340,14 @@ RECEPTEN.push(
     { n: 'geraspte kaas', q: 150, u: 'g', x: 'Goudse, Emmentaler of Hongaarse trappista' }
   ],
   stappen: [
-    { t: 'Kook de aardappel in 15 minuten gaar in de steelpan. Giet af, prak hem heel fijn en laat lauw worden.', min: 15, stoom: 'de aardappel in stukken 15 minuten' },
+    { kop: 'Deeg', t: 'Kook de aardappel in 15 minuten gaar in de steelpan. Giet af, prak hem heel fijn en laat lauw worden.', min: 15, stoom: 'de aardappel in stukken 15 minuten' },
     { t: 'Meng bloem, gist, suiker en zout in een kom. Voeg de aardappel, de lauwe melk en 1 el olie toe en kneed 8 minuten tot een zacht, licht plakkerig deeg.', min: 8 },
     { t: 'Laat het deeg afgedekt op een warme plek 1 uur rijzen, tot het in volume verdubbeld is.', min: 60 },
-    { t: 'Roer intussen de knoflook door 3 el olie met een snuf zout.' },
-    { t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 180 °C. Geen thermometer? Houd er een houten lepel in: borrelen er direct belletjes omheen, dan is de olie heet genoeg.' },
+    { kop: 'Topping', t: 'Roer intussen de knoflook door 3 el olie met een snuf zout.' },
+    { kop: 'Bakken', t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 180 °C. Geen thermometer? Houd er een houten lepel in: borrelen er direct belletjes omheen, dan is de olie heet genoeg.' },
     { t: 'Verdeel het deeg in 4 stukken. Rek elk stuk met ingeoliede handen uit tot een lap van ca. 18 cm, dun in het midden en met een dikkere rand.' },
     { t: 'Laat een lap voorzichtig in de olie glijden en bak hem 1½ à 2 minuten per kant, tot hij goudbruin en opgebold is. Laat uitlekken op keukenpapier en bak zo de rest.', min: 4 },
-    { t: 'Bestrijk de warme lángos met knoflookolie, smeer er zure room over en strooi er royaal kaas op. Meteen eten.' }
+    { kop: 'Topping', t: 'Bestrijk de warme lángos met knoflookolie, smeer er zure room over en strooi er royaal kaas op. Meteen eten.' }
   ],
   tips: ['De aardappel maakt het deeg luchtig en zacht vanbinnen. Een restje aardappelpuree zonder melk en boter werkt ook.', 'Rek het deeg pas vlak voor het bakken uit; als het blijft liggen, trekt het weer samen.'],
   alt: ['Geen zin in frituren? Bak de lángos in 1 cm olie in een koekenpan, 2 à 3 minuten per kant. Ze worden iets platter, maar zijn nog steeds heerlijk.', 'Zoet: laat de knoflook, room en kaas weg en bestrooi de warme lángos met kaneelsuiker of besmeer ze met jam.']
@@ -383,11 +383,11 @@ RECEPTEN.push(
     { n: 'zure room', q: 125, u: 'ml', opt: true }
   ],
   stappen: [
-    { t: 'Snijd een kapje van de paprika\'s en haal de zaadlijsten en zaadjes eruit. Bewaar de kapjes.' },
-    { t: 'Meng gehakt, ongekookte rijst, ui, knoflook, ei, paprikapoeder, zout en peper. Vul de paprika\'s losjes: de rijst zet nog uit. Rol van de overgebleven vulling kleine balletjes.' },
+    { kop: 'Paprika\'s', t: 'Snijd een kapje van de paprika\'s en haal de zaadlijsten en zaadjes eruit. Bewaar de kapjes.' },
+    { kop: 'Vulling', t: 'Meng gehakt, ongekookte rijst, ui, knoflook, ei, paprikapoeder, zout en peper. Vul de paprika\'s losjes: de rijst zet nog uit. Rol van de overgebleven vulling kleine balletjes.' },
     { t: 'Verwarm de oven voor op 180 °C.', m: 'oven' },
-    { t: 'Verhit de olie in de Dutch oven en fruit de tweede ui 4 minuten op middelhoog vuur. Voeg passata, water, suiker, laurier en een theelepel zout toe en breng aan de kook.', min: 4 },
-    { t: 'Zet de paprika\'s rechtop in de saus en leg de balletjes en de kapjes ertussen. Schep wat saus over de vulling.' },
+    { kop: 'Tomatensaus', t: 'Verhit de olie in de Dutch oven en fruit de tweede ui 4 minuten op middelhoog vuur. Voeg passata, water, suiker, laurier en een theelepel zout toe en breng aan de kook.', min: 4 },
+    { kop: 'Stoven', t: 'Zet de paprika\'s rechtop in de saus en leg de balletjes en de kapjes ertussen. Schep wat saus over de vulling.' },
     { t: 'Leg de deksel erop en laat 1 uur zachtjes stoven op laag vuur, tot de rijst in de vulling gaar is. Schep halverwege saus over de paprika\'s.', m: 'braadpan', min: 60 },
     { t: 'Zet de Dutch oven met deksel 1 uur in de oven. Haal de laatste 15 minuten de deksel eraf, dan krijgen de paprika\'s een licht geroosterd randje.', m: 'oven', min: 60 },
     { t: 'Proef de saus: hij moet zoetzuur zijn, dus breng hem op smaak met zout en suiker. Te dun? Laat hem zonder deksel nog 5 minuten inkoken. Serveer met aardappelpuree of brood en een schep zure room.' }
@@ -473,16 +473,16 @@ RECEPTEN.push(
     { n: 'verse peterselie', q: 10, u: 'g', x: 'grof geplukt' }
   ],
   stappen: [
-    { t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 minuten tot een glad, soepel deeg.', min: 8 },
+    { kop: 'Deeg', t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 minuten tot een glad, soepel deeg.', min: 8 },
     { t: 'Laat het deeg afgedekt op een warme plek 1 uur rijzen.', min: 60 },
-    { t: 'Vulling: maal ui, paprika, tomaat, knoflook en peterselie in de hakmolen tot een grove puree. Kneed het met gehakt, tomatenpuree, specerijen en zout tot een smeuïge pasta. Is het erg nat, giet dan eerst wat groentevocht af.' },
-    { t: 'Zet de bakplaat in de oven en verwarm minstens 20 minuten voor op de hoogste stand.', m: 'oven', min: 20 },
+    { kop: 'Vulling', t: 'Maal ui, paprika, tomaat, knoflook en peterselie in de hakmolen tot een grove puree. Kneed het met gehakt, tomatenpuree, specerijen en zout tot een smeuïge pasta. Is het erg nat, giet dan eerst wat groentevocht af.' },
+    { kop: 'Bakken', t: 'Zet de bakplaat in de oven en verwarm minstens 20 minuten voor op de hoogste stand.', m: 'oven', min: 20 },
     { t: 'Verdeel het deeg in 8 bolletjes. Rol ze op een met bloem bestoven werkblad uit tot flinterdunne ovalen van ca. 30 × 18 cm.', m: 'oven' },
     { t: 'Verdeel het deeg in 8 bolletjes. Rol ze op een met bloem bestoven werkblad uit tot flinterdunne rondjes die net in je pan passen (ca. 24 cm).', m: 'koekenpan' },
     { t: 'Leg 2 lappen op een vel bakpapier en smeer er een dunne laag vulling op, tot vlak aan de rand. Druk de vulling met je vingers goed aan.', m: 'oven' },
     { t: 'Schuif ze met bakpapier en al op de hete bakplaat en bak 6 à 8 minuten bovenin de oven, tot de randen goudbruin zijn en de onderkant knapperig. Bak zo de rest.', m: 'oven', min: 7 },
     { t: 'Verhit de droge koekenpan op middelhoog vuur. Leg er een lap in, smeer er snel een dunne laag vulling op tot vlak aan de rand en druk aan. Leg de deksel erop en bak 4 à 5 minuten, tot de onderkant knapperig en gespikkeld is en het vlees gaar. De bovenkant wordt niet bruin; dat hoort zo. Bak zo de rest.', m: 'koekenpan', min: 5 },
-    { t: 'Stapel de lahmacun op elkaar, dan blijven ze soepel. Besprenkel met citroensap, beleg met rode ui en peterselie, rol op en eet direct.' }
+    { kop: 'Erbij', t: 'Stapel de lahmacun op elkaar, dan blijven ze soepel. Besprenkel met citroensap, beleg met rode ui en peterselie, rol op en eet direct.' }
   ],
   tips: ['Dun is het geheim: dikker deeg wordt gewoon pizza. Een goed voorverwarmde bakplaat geeft de knapperige bodem.', 'Strooi wat sumak over de rode ui, zoals bij de Turkse bakker; dat geeft een frisse, zurige smaak.'],
   alt: ['Snel: smeer de vulling dun op grote tarwewraps en bak ze 5 à 6 minuten op de hete bakplaat. Dan sla je het deeg en het rijzen over.', 'Vegetarisch: vervang het gehakt door 200 g heel fijngehakte champignons en 75 g gemalen walnoten.']
@@ -520,14 +520,14 @@ RECEPTEN.push(
     { n: 'Turkse yoghurt', q: 250, u: 'g', opt: true }
   ],
   stappen: [
-    { t: 'Schil de aubergines in de lengte in streepjes, zodat ze er gestreept uitzien. Laat het steeltje eraan. Bestrooi ze met zout, laat 15 minuten staan en dep ze droog.', min: 15 },
+    { kop: 'Aubergines', t: 'Schil de aubergines in de lengte in streepjes, zodat ze er gestreept uitzien. Laat het steeltje eraan. Bestrooi ze met zout, laat 15 minuten staan en dep ze droog.', min: 15 },
     { t: 'Verhit 1 cm olie in de koekenpan op middelhoog vuur. Bak de hele aubergines 10 à 12 minuten rondom goudbruin en helemaal zacht; keer ze regelmatig. Laat uitlekken op keukenpapier.', m: 'koekenpan', min: 12 },
     { t: 'Bestrijk de hele aubergines rondom met olie. Gaar ze 18 à 20 minuten in de airfryer op 200 °C, tot ze helemaal zacht zijn en bruine plekken hebben; keer halverwege.', m: 'airfryer', min: 20 },
-    { t: 'Vulling: fruit de ui 4 minuten in 1 el olie in de koekenpan. Bak het gehakt 5 minuten rul en bruin. Voeg knoflook, 1 paprika in blokjes, 2 tomaten in blokjes, 1 el tomatenpuree, paprikapoeder en pul biber toe en laat 5 minuten inkoken. Roer de peterselie erdoor en breng op smaak met zout en peper.', min: 14 },
-    { t: 'Verwarm de oven voor op 190 °C. Leg de aubergines in de ovenschaal en snijd ze in de lengte open, zonder door de bodem te gaan. Druk ze met twee lepels open tot een bootje. Karnıyarık betekent letterlijk "opengereten buik".' },
+    { kop: 'Vulling', t: 'Fruit de ui 4 minuten in 1 el olie in de koekenpan. Bak het gehakt 5 minuten rul en bruin. Voeg knoflook, 1 paprika in blokjes, 2 tomaten in blokjes, 1 el tomatenpuree, paprikapoeder en pul biber toe en laat 5 minuten inkoken. Roer de peterselie erdoor en breng op smaak met zout en peper.', min: 14 },
+    { kop: 'Bakken', t: 'Verwarm de oven voor op 190 °C. Leg de aubergines in de ovenschaal en snijd ze in de lengte open, zonder door de bodem te gaan. Druk ze met twee lepels open tot een bootje. Karnıyarık betekent letterlijk "opengereten buik".' },
     { t: 'Schep de vulling in de aubergines en leg op elke aubergine een plakje van de laatste tomaat en een reepje van de tweede paprika. Roer de rest van de tomatenpuree door 150 ml heet water en giet dat in de schaal.' },
     { t: 'Bak 25 minuten in de oven, tot de tomaat zacht is en de saus borrelt.', min: 25 },
-    { t: 'Kook de rijst intussen volgens de verpakking. Serveer de karnıyarık met rijst en een schep yoghurt.' }
+    { kop: 'Erbij', t: 'Kook de rijst intussen volgens de verpakking. Serveer de karnıyarık met rijst en een schep yoghurt.' }
   ],
   tips: ['Door de schil in streepjes te verwijderen en te zouten nemen de aubergines minder olie op en blijven ze mooi heel.', 'De aubergines moeten echt helemaal zacht zijn voordat je ze vult; in de oven garen ze niet veel meer.'],
   alt: ['Vegetarisch: dan wordt het imam bayıldı. Vul de aubergines met in olijfolie gestoofde ui, knoflook, tomaat en peterselie, zonder gehakt.', 'Alles in de oven: halveer de aubergines in de lengte, bestrijk ze met olie en rooster ze 25 minuten op 200 °C met de snijkant naar beneden. Schep de vulling erop en bak nog 15 minuten.']
@@ -687,12 +687,12 @@ RECEPTEN.push(
     { n: 'harissa', q: 2, u: 'tl', opt: true }
   ],
   stappen: [
-    { t: 'Verhit de olie in de Dutch oven en bak de ui 5 minuten op middelhoog vuur. Roer tomaat, tomatenpuree, ras el hanout, kurkuma, 1 tl zout en peper erdoor en bak 2 minuten mee.', min: 7 },
+    { kop: 'Groenten', t: 'Verhit de olie in de Dutch oven en bak de ui 5 minuten op middelhoog vuur. Roer tomaat, tomatenpuree, ras el hanout, kurkuma, 1 tl zout en peper erdoor en bak 2 minuten mee.', min: 7 },
     { t: 'Bind de helft van de koriander en peterselie met een touwtje tot een bosje. Doe het met de bouillon en de kikkererwten in de pan en breng aan de kook.' },
     { t: 'Voeg de groenten toe die lang moeten garen: wortel, knolselderij en kool. Laat met de deksel erop 20 minuten zachtjes koken.', min: 20 },
     { t: 'Voeg pompoen en courgette toe en laat nog 20 à 25 minuten sudderen, tot alle groenten zacht zijn maar nog heel.', min: 22 },
-    { t: 'Couscous: doe de couscous met een snuf zout in de kom en giet er 300 ml kokend water of bouillon uit de pan over. Dek af en laat 5 minuten wellen. Maak los met een vork en roer de boter erdoor.', min: 5 },
-    { t: 'Vis het kruidenbosje uit de pan, breng de bouillon op smaak met zout en hak de rest van de kruiden fijn.' },
+    { kop: 'Couscous', t: 'Doe de couscous met een snuf zout in de kom en giet er 300 ml kokend water of bouillon uit de pan over. Dek af en laat 5 minuten wellen. Maak los met een vork en roer de boter erdoor.', min: 5 },
+    { kop: 'Serveren', t: 'Vis het kruidenbosje uit de pan, breng de bouillon op smaak met zout en hak de rest van de kruiden fijn.' },
     { t: 'Schep de couscous als een berg op een grote schaal, maak een kuil in het midden en leg de groenten erop en eromheen. Schep er wat bouillon over en zet de rest in een kom op tafel, met de kruiden en de harissa.' }
   ],
   tips: ['Snijd de groenten groot en voeg ze toe op volgorde van gaartijd; zo zijn ze na drie kwartier nog heel.', 'Feestelijk: schep er tfaya over, uien die je in 30 minuten zacht en goudbruin stooft in boter met rozijnen, kaneel en een lepel honing.'],
@@ -733,10 +733,10 @@ RECEPTEN.push(
     { n: 'Turks brood', q: 1, u: 'st', x: 'of Marokkaans platbrood (khobz)' }
   ],
   stappen: [
-    { t: 'Meng gehakt, geraspte ui, de helft van de kruiden, komijn, paprikapoeder, kaneel, zout en peper. Kneed 1 minuut tot het plakt en draai er met natte handen balletjes van ca. 3 cm van.' },
-    { t: 'Verhit de olie in de tajine of Dutch oven op middelhoog vuur. Fruit de ui 4 minuten en bak de knoflook, komijn en paprikapoeder 1 minuut mee.', min: 5 },
+    { kop: 'Kefta', t: 'Meng gehakt, geraspte ui, de helft van de kruiden, komijn, paprikapoeder, kaneel, zout en peper. Kneed 1 minuut tot het plakt en draai er met natte handen balletjes van ca. 3 cm van.' },
+    { kop: 'Saus', t: 'Verhit de olie in de tajine of Dutch oven op middelhoog vuur. Fruit de ui 4 minuten en bak de knoflook, komijn en paprikapoeder 1 minuut mee.', min: 5 },
     { t: 'Voeg tomatenblokjes, tomatenpuree, water, rode peper, suiker en een snuf zout toe. Laat 10 minuten zachtjes koken tot de saus iets dikker is.', min: 10 },
-    { t: 'Leg de balletjes in de saus en schud de pan zodat ze erin wegzakken. Leg de deksel erop en laat 15 minuten op laag vuur garen; keer ze halverwege.', min: 15 },
+    { kop: 'Afmaken', t: 'Leg de balletjes in de saus en schud de pan zodat ze erin wegzakken. Leg de deksel erop en laat 15 minuten op laag vuur garen; keer ze halverwege.', min: 15 },
     { t: 'Maak met een lepel 4 kuiltjes tussen de balletjes en breek in elk kuiltje een ei. Deksel erop en laat 5 à 7 minuten garen, tot het eiwit gestold is en de dooier nog zacht.', min: 6 },
     { t: 'Strooi de rest van de kruiden erover, zet de pan op tafel en eet met warm brood.' }
   ],
@@ -808,16 +808,16 @@ RECEPTEN.push(
     { n: 'Turks brood', q: 1, u: 'st', x: 'of Marokkaans platbrood (khobz)', opt: true }
   ],
   stappen: [
-    { t: 'Haal het vlees een uur van tevoren uit de koelkast. Prak de boter met knoflook, komijn, koriander, paprikapoeder, zout en peper tot een smeuïge pasta.', min: 60 },
+    { kop: 'Kruidenboter', t: 'Haal het vlees een uur van tevoren uit de koelkast. Prak de boter met knoflook, komijn, koriander, paprikapoeder, zout en peper tot een smeuïge pasta.', min: 60 },
     { t: 'Prik met een puntig mes rondom diepe sneetjes van 2 cm in het vlees. Wrijf de kruidenboter over de hele schouder en duw hem goed in de sneetjes.' },
-    { t: 'Verwarm de oven voor op 160 °C. Leg de schouder met de vetkant naar boven in de Dutch oven en schenk het water langs de rand erbij. Leg de deksel erop.', m: 'oven' },
+    { kop: 'Garen', t: 'Verwarm de oven voor op 160 °C. Leg de schouder met de vetkant naar boven in de Dutch oven en schenk het water langs de rand erbij. Leg de deksel erop.', m: 'oven' },
     { t: 'Leg de schouder met de vetkant naar boven in de Dutch oven, schenk het water langs de rand erbij en breng het aan de kook. Leg de deksel erop en zet het vuur zo laag als het gaat. Dit werkt alleen met een zware pan met deksel, niet met folie.', m: 'braadpan' },
     { t: 'Gaar het vlees 3½ uur in de oven. Haal elk uur de deksel eraf en schep het vocht uit de pan over het vlees.', m: 'oven', min: 210 },
     { t: 'Haal de deksel eraf, zet de oven op 200 °C en rooster nog 30 minuten, tot de buitenkant donker goudbruin is en het vlees met een vork van het bot glijdt. Schep er nog twee keer jus over.', m: 'oven', min: 30 },
     { t: 'Laat het vlees 3½ à 4 uur heel zachtjes garen: het vocht moet net tikken, niet koken. Keer de schouder elk uur, schep het vocht erover en doe er 100 ml water bij als de bodem droog dreigt te raken. Het is klaar als het vlees met een vork van het bot glijdt.', m: 'braadpan', min: 225 },
     { t: 'Haal de schouder voorzichtig uit de pan en bak hem in een hete koekenpan met 1 el van het vet uit de pan rondom 1 à 2 minuten bruin. Laat intussen het vocht in de Dutch oven zonder deksel 5 minuten inkoken tot jus.', m: 'braadpan', min: 5 },
-    { t: 'Meng voor het komijnzout de komijn met het zeezout en verdeel over een paar schaaltjes.' },
-    { t: 'Laat het vlees 10 minuten rusten. Trek het met twee vorken in grove stukken van het bot en schep de jus erover. Iedereen doopt zelf in het komijnzout, met brood en een frisse salade of zaalouk erbij.', min: 10 }
+    { kop: 'Komijnzout', t: 'Meng voor het komijnzout de komijn met het zeezout en verdeel over een paar schaaltjes.' },
+    { kop: 'Serveren', t: 'Laat het vlees 10 minuten rusten. Trek het met twee vorken in grove stukken van het bot en schep de jus erover. Iedereen doopt zelf in het komijnzout, met brood en een frisse salade of zaalouk erbij.', min: 10 }
   ],
   tips: ['Heb je tijd, wrijf het vlees dan de avond ervoor in en laat het afgedekt in de koelkast staan. De kruiden trekken dan tot op het bot.', 'Klaar is het niet op de minuut, maar als het vlees zonder kracht van het bot valt. Is dat na 4 uur nog niet zo, geef het dan nog een half uur met de deksel erop.'],
   alt: ['Geen lamsschouder te krijgen? Een lamsbout (ca. 2 kg) kan ook; die is magerder, gaar hem 3 uur en bedruip hem vaker.', 'Een restje is heerlijk de volgende dag in een wrap of pitabroodje met knoflooksaus en sla.'],

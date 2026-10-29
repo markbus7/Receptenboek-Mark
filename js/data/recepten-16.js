@@ -69,10 +69,10 @@ RECEPTEN.push(
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'in partjes', opt: true }
   ],
   stappen: [
-    { t: 'Verhit de olie in de Dutch oven op middelhoog vuur. Bak ui, knoflook, gember, laos en ketoembar 3 minuten tot het geurt. De ui mag niet bruin worden.', min: 3 },
+    { kop: 'Bouillon', t: 'Verhit de olie in de Dutch oven op middelhoog vuur. Bak ui, knoflook, gember, laos en ketoembar 3 minuten tot het geurt. De ui mag niet bruin worden.', min: 3 },
     { t: 'Leg de kippenpoten erin en bak ze 2 minuten mee. Giet de bouillon erbij, voeg citroengras en salamblad toe en breng aan de kook. Schep het grijze schuim eraf.', min: 5 },
     { t: 'Zet het vuur laag, leg de deksel op een kier en laat de soep 1 uur zachtjes trekken. Hij mag nauwelijks borrelen, dan blijft hij helder.', min: 60 },
-    { t: 'Kook intussen de eieren 9 minuten hard, laat ze schrikken in koud water en pel ze. Kook in hetzelfde water de vermicelli volgens de verpakking en laat uitlekken.', min: 12 },
+    { kop: 'In de kom', t: 'Kook intussen de eieren 9 minuten hard, laat ze schrikken in koud water en pel ze. Kook in hetzelfde water de vermicelli volgens de verpakking en laat uitlekken.', min: 12 },
     { t: 'Haal de kip uit de soep en pluk het vlees met twee vorken van de botten; vel en botten gaan weg. Vis citroengras, salamblad en gember eruit. Breng de bouillon op smaak met zout en peper en doe de kip terug.' },
     { t: 'Verdeel vermicelli, rauwe taugé en kip over diepe kommen en schep de kokende bouillon erover; die gaart de taugé net. Leg er een gehalveerd ei op.' },
     { t: 'Zet gebakken uitjes, aardappelstengels, selderij, sambal, ketjap en limoen op tafel, zodat iedereen zijn eigen kom afmaakt.' }
@@ -112,12 +112,12 @@ RECEPTEN.push(
     { n: 'piccalilly', q: 3, u: 'el', opt: true }
   ],
   stappen: [
-    { t: 'Meng de kip met het citroensap, de helft van de knoflook, zout en peper. Laat minimaal 15 minuten marineren, of een nacht in de koelkast.', min: 15 },
-    { t: 'Meng de ontdooide pomtajer met sinaasappelsap, suiker, nootmuskaat, 1 tl zout en twee derde van de gesmolten boter.' },
-    { t: 'Smelt 25 g boter in de Dutch oven op middelhoog vuur. Bak de kip 5 minuten rondom bruin en schep hem uit de pan.', min: 5 },
+    { kop: 'Kip', t: 'Meng de kip met het citroensap, de helft van de knoflook, zout en peper. Laat minimaal 15 minuten marineren, of een nacht in de koelkast.', min: 15 },
+    { kop: 'Pom', t: 'Meng de ontdooide pomtajer met sinaasappelsap, suiker, nootmuskaat, 1 tl zout en twee derde van de gesmolten boter.' },
+    { kop: 'Kip', t: 'Smelt 25 g boter in de Dutch oven op middelhoog vuur. Bak de kip 5 minuten rondom bruin en schep hem uit de pan.', min: 5 },
     { t: 'Bak de ui met de rest van de knoflook 8 minuten zacht en lichtbruin. Voeg tomaat, tomatenpuree en de hele madame jeanette toe en bak 3 minuten. Doe de kip terug, giet de bouillon erbij en laat 20 minuten zonder deksel stoven tot de saus dik is. Haal de madame jeanette eruit.', min: 31 },
-    { t: 'Verwarm de oven voor op 180 °C (hetelucht 160 °C). Vet de ovenschaal in en roer 4 el stoofvocht van de kip door de pom; dat geeft extra smaak.' },
-    { t: 'Strijk de helft van de pom uit over de bodem van de schaal. Schep de kip met saus erover en dek af met de rest van de pom. Strijk glad en besprenkel met de rest van de boter.' },
+    { kop: 'Pom', t: 'Verwarm de oven voor op 180 °C (hetelucht 160 °C). Vet de ovenschaal in en roer 4 el stoofvocht van de kip door de pom; dat geeft extra smaak.' },
+    { kop: 'In de schaal', t: 'Strijk de helft van de pom uit over de bodem van de schaal. Schep de kip met saus erover en dek af met de rest van de pom. Strijk glad en besprenkel met de rest van de boter.' },
     { t: 'Bak de pom ongeveer 1 uur in het midden van de oven, tot de bovenkant goudbruin is en de randjes donker en knapperig. Kleurt hij te snel, leg er dan aluminiumfolie op.', min: 60 },
     { t: 'Laat de pom 15 minuten rusten, dan kun je mooie stukken snijden. Eet hem met witte rijst of op een zacht broodje.', min: 15 }
   ],
@@ -159,10 +159,10 @@ RECEPTEN.push(
     { n: 'madame jeanette', p: 'madame jeanettes', q: 0.5, u: 'st', x: 'heel fijn, of ½ rode peper', opt: true }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, kerrie, komijn, suiker en zout in een ruime kom. Voeg knoflook en lauw water toe en kneed met de deeghaken 5 minuten tot een glad, plakkerig en vrij slap deeg. Het moet zwaar van de lepel vallen.', min: 5 },
+    { kop: 'Deeg', t: 'Meng bloem, gist, kerrie, komijn, suiker en zout in een ruime kom. Voeg knoflook en lauw water toe en kneed met de deeghaken 5 minuten tot een glad, plakkerig en vrij slap deeg. Het moet zwaar van de lepel vallen.', min: 5 },
     { t: 'Dek de kom af en laat het deeg op een warme plek 1 uur rijzen, tot het in volume verdubbeld is en vol luchtbellen zit.', min: 60 },
-    { t: 'Saus: roer ketjap, azijn, water, suiker en knoflook door elkaar tot de suiker is opgelost. Schep augurk en peper erdoor en laat staan tot de bara klaar zijn.' },
-    { t: 'Verhit de olie in de Dutch oven op middelhoog vuur tot 175 °C. Geen thermometer? Steek een houten lepel in de olie: borrelen er meteen belletjes langs de steel, dan is hij heet genoeg.', min: 10 },
+    { kop: 'Zoetzure ketjap-augurk', t: 'Roer ketjap, azijn, water, suiker en knoflook door elkaar tot de suiker is opgelost. Schep augurk en peper erdoor en laat staan tot de bara klaar zijn.' },
+    { kop: 'Bakken', t: 'Verhit de olie in de Dutch oven op middelhoog vuur tot 175 °C. Geen thermometer? Steek een houten lepel in de olie: borrelen er meteen belletjes langs de steel, dan is hij heet genoeg.', min: 10 },
     { t: 'Maak je handen nat. Neem een bolletje deeg zo groot als een golfbal, druk het plat tot een schijf van 8 à 10 cm en duw met je duim een gat in het midden. Laat hem van je af in de olie glijden.' },
     { t: 'Bak 3 à 4 bara tegelijk 1½ à 2 minuten per kant, tot ze opgezwollen en goudbruin zijn. Laat uitlekken op keukenpapier en bak zo al het deeg op.', min: 4 },
     { t: 'Eet de bara warm, gedoopt in de zoetzure ketjap-augurk.' }
@@ -218,13 +218,13 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 1, u: 'st', x: 'losgeklopt' }
   ],
   stappen: [
-    { t: 'Deeg: meng bloem, suiker, bakpoeder en zout in een kom. Wrijf de koude boter er met je vingertoppen doorheen tot een kruimelig mengsel. Voeg het ei en het ijskoude water toe en kneed kort tot een bal; niet langer dan nodig, dan blijft het deeg kruimelig.' },
+    { kop: 'Deeg', t: 'Meng bloem, suiker, bakpoeder en zout in een kom. Wrijf de koude boter er met je vingertoppen doorheen tot een kruimelig mengsel. Voeg het ei en het ijskoude water toe en kneed kort tot een bal; niet langer dan nodig, dan blijft het deeg kruimelig.' },
     { t: 'Druk het deeg plat, verpak het in folie en laat het 30 minuten opstijven in de koelkast.', min: 30 },
-    { t: 'Vulling: bestrooi de kip met de Maggi en peper. Verhit de olie in de hapjespan en bak de kip in 5 minuten rondom lichtbruin. Schep uit de pan.', min: 5 },
+    { kop: 'Vulling', t: 'Bestrooi de kip met de Maggi en peper. Verhit de olie in de hapjespan en bak de kip in 5 minuten rondom lichtbruin. Schep uit de pan.', min: 5 },
     { t: 'Fruit de ui 5 minuten in hetzelfde vet. Bak knoflook, tomaat en tomatenpuree 2 minuten mee.', min: 7 },
     { t: 'Doe de kip terug met de bouillon en de wortel. Laat met de deksel erop 15 minuten zachtjes stoven.', min: 15 },
     { t: 'Roer doperwten, selderij en nootmuskaat erdoor en roer de aangelengde maïzena erbij. Laat 2 minuten koken tot de saus dik is: de vulling moet smeuïg zijn, niet nat. Proef en laat hem helemaal afkoelen, anders smelt de boter in het deeg.', min: 2 },
-    { t: 'Verwarm de oven voor op 180 °C en vet de springvorm in. Rol tweederde van het deeg uit tot een lap van 3 à 4 mm en bekleed er de bodem en de rand mee.', m: 'oven' },
+    { kop: 'Pastei', t: 'Verwarm de oven voor op 180 °C en vet de springvorm in. Rol tweederde van het deeg uit tot een lap van 3 à 4 mm en bekleed er de bodem en de rand mee.', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 160 °C en vet de vorm in. Rol tweederde van het deeg uit tot een lap van 3 à 4 mm en bekleed er de bodem en de rand mee.', m: 'airfryer' },
     { t: 'Schep de vulling erin. Rol de rest van het deeg uit, leg het als deksel erop en knijp de randen goed dicht. Maak in het midden een gaatje voor de stoom en versier de bovenkant met reepjes of figuurtjes van de deegresten.' },
     { t: 'Smeer de bovenkant in met het losgeklopte ei en bak de pastei 45 à 50 minuten onderin de oven tot hij goudbruin is.', m: 'oven', min: 50 },
@@ -264,12 +264,12 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
-    { t: 'Hak knoflook en pepers samen grof, of stamp ze in een vijzel. Roer oestersaus, sojasaus, vissaus, suiker, ketjap en water door elkaar.' },
-    { t: 'Verhit 4 el olie in de koekenpan op middelhoog tot hoog vuur. Bak de eieren twee tegelijk en schep de hete olie over het eiwit, tot de randen bruin en krokant zijn en de dooier nog zacht is. Laat uitlekken op keukenpapier.', min: 3 },
-    { t: 'Verhit 2 el olie in de wok op hoog vuur. Roerbak knoflook en pepers 20 seconden tot ze geuren; ze mogen niet bruin worden.' },
+    { kop: 'Saus', t: 'Hak knoflook en pepers samen grof, of stamp ze in een vijzel. Roer oestersaus, sojasaus, vissaus, suiker, ketjap en water door elkaar.' },
+    { kop: 'Gebakken ei', t: 'Verhit 4 el olie in de koekenpan op middelhoog tot hoog vuur. Bak de eieren twee tegelijk en schep de hete olie over het eiwit, tot de randen bruin en krokant zijn en de dooier nog zacht is. Laat uitlekken op keukenpapier.', min: 3 },
+    { kop: 'Wokken', t: 'Verhit 2 el olie in de wok op hoog vuur. Roerbak knoflook en pepers 20 seconden tot ze geuren; ze mogen niet bruin worden.' },
     { t: 'Voeg de kip (en de sperziebonen) toe, verdeel over de wok en laat 1 minuut ongestoord bakken. Roerbak dan nog 3 à 4 minuten, tot de kip gaar is en hier en daar bruin.', min: 5 },
     { t: 'Giet de saus erbij en roerbak 1 minuut tot de kip glanst. Zet het vuur uit en schep de basilicum erdoor tot hij net slinkt.', min: 1 },
-    { t: 'Schep rijst en kip op de borden en leg er een krokant ei op. Prik de dooier door en meng hem door de rijst.' }
+    { kop: 'Serveren', t: 'Schep rijst en kip op de borden en leg er een krokant ei op. Prik de dooier door en meng hem door de rijst.' }
   ],
   tips: [
     'Zet prik nam pla op tafel zoals in Thailand: vissaus met fijngesneden pepers en een kneepje limoen.',
@@ -329,9 +329,9 @@ RECEPTEN.push(
     { n: 'rijstazijn', q: 3, u: 'el', x: 'met plakjes rode peper (prik nam som)', opt: true }
   ],
   stappen: [
-    { t: 'Week de noedels 10 à 15 minuten in heet kraanwater tot ze buigzaam maar nog stevig zijn. Giet af en schep er 1 tl olie door, dan plakken ze niet. Verse noedels trek je alleen voorzichtig los.', min: 12 },
+    { kop: 'Voorbereiden', t: 'Week de noedels 10 à 15 minuten in heet kraanwater tot ze buigzaam maar nog stevig zijn. Giet af en schep er 1 tl olie door, dan plakken ze niet. Verse noedels trek je alleen voorzichtig los.', min: 12 },
     { t: 'Meng de kip met 1 tl sojasaus en de maïzena. Roer de ingrediënten voor de saus door elkaar. Snijd dikke broccolistelen in dunne plakjes.' },
-    { t: 'Verhit 1 el olie in de wok op hoog vuur tot hij begint te roken. Bak de knoflook 10 seconden, voeg de kip toe en roerbak 3 minuten tot hij net gaar is. Doe de broccoli erbij met 1 el water en roerbak nog 2 minuten. Schep alles uit de wok.', min: 5 },
+    { kop: 'Wokken', t: 'Verhit 1 el olie in de wok op hoog vuur tot hij begint te roken. Bak de knoflook 10 seconden, voeg de kip toe en roerbak 3 minuten tot hij net gaar is. Doe de broccoli erbij met 1 el water en roerbak nog 2 minuten. Schep alles uit de wok.', min: 5 },
     { t: 'Verhit de rest van de olie. Doe de noedels en de saus erin en schep om tot ze egaal bruin zijn. Laat ze dan 30 à 45 seconden ongestoord liggen, zodat ze schroeien en hier en daar karamelliseren. Schep om en herhaal dat twee keer.', min: 3 },
     { t: 'Schuif de noedels naar de rand, breek de eieren in het midden, laat ze 20 seconden stollen en roer ze grof los. Schep ze door de noedels.' },
     { t: 'Doe kip en broccoli terug en schep 30 seconden om. Proef: meer sojasaus voor zout, een snuf suiker voor zoet. Serveer met de pepers in azijn.' }
@@ -457,9 +457,9 @@ RECEPTEN.push(
     { n: 'jasmijnrijst', q: 300, u: 'g' }
   ],
   stappen: [
-    { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
+    { kop: 'Voorbereiden', t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
     { t: 'Bestrooi de kip met een snuf zout en de maïzena en schep om. Roer de ingrediënten voor de saus door elkaar.' },
-    { t: 'Rooster de cashewnoten in de droge wok op middelhoog vuur 3 à 4 minuten goudbruin; schud regelmatig. Schep ze uit. Bak de gedroogde pepers 30 seconden in 1 el olie tot ze donkerrood zijn, niet zwart. Schep ze uit.', min: 4 },
+    { kop: 'Wokken', t: 'Rooster de cashewnoten in de droge wok op middelhoog vuur 3 à 4 minuten goudbruin; schud regelmatig. Schep ze uit. Bak de gedroogde pepers 30 seconden in 1 el olie tot ze donkerrood zijn, niet zwart. Schep ze uit.', min: 4 },
     { t: 'Verhit de rest van de olie in de wok op hoog vuur. Bak de kip in 2 delen, elke keer 4 minuten, tot hij goudbruin en gaar is. Schep hem uit.', min: 8 },
     { t: 'Roerbak knoflook en ui 1 minuut, voeg de paprika toe en roerbak nog 2 minuten. De groente moet knapperig blijven.', min: 3 },
     { t: 'Doe de kip terug, giet de saus erbij en roerbak 1 minuut tot alles glanst. Schep cashewnoten, pepers en lente-ui erdoor en serveer meteen met de rijst.', min: 1 }
@@ -508,11 +508,11 @@ RECEPTEN.push(
     { n: 'Maggi', q: 2, u: 'tl', x: 'of sojasaus' }
   ],
   stappen: [
-    { t: 'Pickles: los suiker en zout op in het warme water en roer de azijn erdoor. Leg wortel en daikon erin en laat minimaal 30 minuten staan.' },
-    { t: 'Meng citroengras, knoflook, vissaus, sojasaus, suiker, 1 el olie en de peper. Schep het vlees erdoor en laat 30 minuten marineren, of een nacht in de koelkast.', min: 30 },
+    { kop: 'Snelle pickles', t: 'Los suiker en zout op in het warme water en roer de azijn erdoor. Leg wortel en daikon erin en laat minimaal 30 minuten staan.' },
+    { kop: 'Vlees', t: 'Meng citroengras, knoflook, vissaus, sojasaus, suiker, 1 el olie en de peper. Schep het vlees erdoor en laat 30 minuten marineren, of een nacht in de koelkast.', min: 30 },
     { t: 'Verhit de rest van de olie in de koekenpan op hoog vuur. Bak het vlees in 2 delen 2 à 3 minuten per kant, tot het gaar is en de randjes karamelliseren.', m: 'koekenpan', min: 6 },
     { t: 'Leg de plakjes vlees naast elkaar op de voorverwarmde contactgrill en sluit de deksel. Grill 3 à 4 minuten tot ze gaar zijn en mooie grillstrepen hebben.', m: 'contactgrill', min: 4 },
-    { t: 'Warm het brood 4 à 5 minuten op in de voorverwarmde oven op 200 °C tot de korst knapperig is. Snijd het aan één kant open, niet helemaal door, en haal wat van het zachte binnenste weg.', min: 5 },
+    { kop: 'Broodje', t: 'Warm het brood 4 à 5 minuten op in de voorverwarmde oven op 200 °C tot de korst knapperig is. Snijd het aan één kant open, niet helemaal door, en haal wat van het zachte binnenste weg.', min: 5 },
     { t: 'Besmeer het brood met mayonaise (en paté). Vul met vlees, uitgelekte pickles, komkommer, flink wat koriander en rode peper. Sprenkel er wat Maggi over en eet meteen.' }
   ],
   tips: [
@@ -619,11 +619,11 @@ RECEPTEN.push(
     { n: 'jasmijnrijst', q: 300, u: 'g' }
   ],
   stappen: [
-    { t: 'Meng oestersaus, sojasaus, vissaus, suiker, de helft van de knoflook, 1 el olie en de peper. Schep het vlees erdoor en laat 30 minuten marineren buiten de koelkast.', min: 30 },
-    { t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
-    { t: 'Salade: meng de rode ui met azijn, suiker en een snuf zout en laat 10 minuten staan. Leg waterkers en tomaat op een schaal en schep de ui met het zuur erover.' },
-    { t: 'Dip: verdeel zout en peper over kleine schaaltjes en zet ze met limoenpartjes op tafel. Iedereen knijpt er zelf limoen over en roert.' },
-    { t: 'Verhit de wok op het hoogste vuur tot hij rookt en doe er dan pas 1 el olie in. Leg de helft van het vlees in één laag in de pan en laat 1 minuut ongestoord bakken tot er een bruine korst op zit.', min: 1 },
+    { kop: 'Marinade', t: 'Meng oestersaus, sojasaus, vissaus, suiker, de helft van de knoflook, 1 el olie en de peper. Schep het vlees erdoor en laat 30 minuten marineren buiten de koelkast.', min: 30 },
+    { kop: 'Rijst', t: 'Kook de jasmijnrijst volgens de verpakking.', min: 15 },
+    { kop: 'Salade', t: 'Meng de rode ui met azijn, suiker en een snuf zout en laat 10 minuten staan. Leg waterkers en tomaat op een schaal en schep de ui met het zuur erover.' },
+    { kop: 'Dip', t: 'Verdeel zout en peper over kleine schaaltjes en zet ze met limoenpartjes op tafel. Iedereen knijpt er zelf limoen over en roert.' },
+    { kop: 'Wokken', t: 'Verhit de wok op het hoogste vuur tot hij rookt en doe er dan pas 1 el olie in. Leg de helft van het vlees in één laag in de pan en laat 1 minuut ongestoord bakken tot er een bruine korst op zit.', min: 1 },
     { t: 'Schud de pan flink heen en weer (lúc lắc betekent schudden) en bak nog 1 à 2 minuten, tot het vlees rondom bruin maar vanbinnen nog rosé is. Schep uit en bak de rest net zo.', min: 2 },
     { t: 'Doe al het vlees terug, zet het vuur uit, voeg de boter en de rest van de knoflook toe en schud 30 seconden tot alles glanst. Schep het vlees met het jus over de salade en serveer met rijst en de dip.' }
   ],
@@ -728,15 +728,15 @@ RECEPTEN.push(
     { n: 'azijn', q: 4, u: 'el', x: 'liefst moutazijn (malt vinegar)', opt: true }
   ],
   stappen: [
-    { t: 'Schil de aardappelen en snijd ze in dikke frieten van 1,5 cm. Spoel ze af in koud water en dep ze goed droog met een theedoek.' },
+    { kop: 'Chips', t: 'Schil de aardappelen en snijd ze in dikke frieten van 1,5 cm. Spoel ze af in koud water en dep ze goed droog met een theedoek.' },
     { t: 'Verwarm de oven voor op 220 °C (hetelucht 200 °C). Schep de frieten om met de olie en zout en spreid ze in één laag over de bakplaat. Bak ze 35 à 40 minuten tot ze goudbruin en krokant zijn; keer halverwege.', m: 'oven', min: 38 },
     { t: 'Schep de frieten om met de olie en zout. Bak ze 20 à 25 minuten in de airfryer op 190 °C en schud elke 5 minuten. Bij een kleine mand bak je in 2 porties; houd de eerste warm in de oven op 100 °C.', m: 'airfryer', min: 22 },
-    { t: 'Tartaarsaus: meng mayonaise, augurk, kappertjes, peterselie en een kneepje citroensap. Zet koud weg.' },
-    { t: 'Mushy peas: kook de doperwten 4 minuten in water met zout. Giet af en stamp ze grof met de boter, munt, zout en peper. Houd warm met de deksel op de pan.', min: 4 },
-    { t: 'Verhit de olie in de Dutch oven tot 180 °C. Geen thermometer? Steek een houten lepel in de olie: borrelen er meteen veel belletjes langs de steel, dan is hij heet genoeg.', min: 10 },
+    { kop: 'Tartaarsaus', t: 'Meng mayonaise, augurk, kappertjes, peterselie en een kneepje citroensap. Zet koud weg.' },
+    { kop: 'Mushy peas', t: 'Kook de doperwten 4 minuten in water met zout. Giet af en stamp ze grof met de boter, munt, zout en peper. Houd warm met de deksel op de pan.', min: 4 },
+    { kop: 'Vis', t: 'Verhit de olie in de Dutch oven tot 180 °C. Geen thermometer? Steek een houten lepel in de olie: borrelen er meteen veel belletjes langs de steel, dan is hij heet genoeg.', min: 10 },
     { t: 'Klop pas nu de 175 g bloem, het bakpoeder en ½ tl zout met het ijskoude bier tot een glad beslag, zo dik als yoghurt. Een paar klontjes zijn prima.' },
     { t: 'Dep de vis droog, bestrooi met zout en haal door de rest van de bloem; klop het teveel eraf. Haal elk stuk door het beslag en laat het van je af in de olie zakken. Bak 2 stukken tegelijk 5 à 7 minuten, keer halverwege, tot ze diep goudbruin zijn. Laat uitlekken op een rooster.', min: 6 },
-    { t: 'Serveer direct met de chips, mushy peas, tartaarsaus en citroenpartjes. Strooi zout over vis en chips en sprenkel er azijn over, zoals in Engeland.' }
+    { kop: 'Serveren', t: 'Serveer direct met de chips, mushy peas, tartaarsaus en citroenpartjes. Strooi zout over vis en chips en sprenkel er azijn over, zoals in Engeland.' }
   ],
   tips: [
     'IJskoud bier in hete olie maakt het beslag luchtig en krokant. Zet het bier vooraf 15 minuten in de vriezer.',
@@ -822,15 +822,15 @@ RECEPTEN.push(
     { n: 'vanille-ijs', q: 500, u: 'ml', x: 'of warme custard' }
   ],
   stappen: [
-    { t: 'Snijd de dadels klein, doe ze in een kom en giet het kokende water erover. Roer het zuiveringszout erdoor (het schuimt even) en laat 10 minuten wellen. Prak ze daarna grof met een vork.', min: 10 },
+    { kop: 'Cake', t: 'Snijd de dadels klein, doe ze in een kom en giet het kokende water erover. Roer het zuiveringszout erdoor (het schuimt even) en laat 10 minuten wellen. Prak ze daarna grof met een vork.', min: 10 },
     { t: 'Verwarm de oven voor op 180 °C (hetelucht 160 °C). Vet de ovenschaal of de muffinvorm royaal in met boter.', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 160 °C en vet de vormpjes in.', m: 'airfryer' },
     { t: 'Klop boter en suiker met de handmixer 3 minuten luchtig. Klop de eieren er één voor één door, en daarna de vanille en de stroop.', min: 3 },
     { t: 'Spatel het bakmeel erdoor en daarna het dadelmengsel met het vocht. Het beslag is vrij dun; dat hoort zo.' },
     { t: 'Giet het beslag in de schaal en bak 30 à 35 minuten, tot een satéprikker er schoon uitkomt. In de muffinvorm (¾ vol) is dat 20 à 22 minuten.', m: 'oven', min: 32 },
     { t: 'Vul de vormpjes voor ¾ en bak ze in delen 14 à 16 minuten, tot een satéprikker er schoon uitkomt.', m: 'airfryer', min: 15 },
-    { t: 'Toffeesaus: verwarm boter, suiker en de helft van de room in de steelpan op middelhoog vuur en roer tot de suiker is opgelost. Laat 3 à 4 minuten zacht koken tot de saus donker en dik is. Roer de rest van de room en het zout erdoor.', min: 4 },
-    { t: 'Prik gaatjes in de warme cake en schenk er een derde van de saus over, zodat hij intrekt. Serveer warm met de rest van de saus en vanille-ijs of custard.' }
+    { kop: 'Toffeesaus', t: 'Verwarm boter, suiker en de helft van de room in de steelpan op middelhoog vuur en roer tot de suiker is opgelost. Laat 3 à 4 minuten zacht koken tot de saus donker en dik is. Roer de rest van de room en het zout erdoor.', min: 4 },
+    { kop: 'Serveren', t: 'Prik gaatjes in de warme cake en schenk er een derde van de saus over, zodat hij intrekt. Serveer warm met de rest van de saus en vanille-ijs of custard.' }
   ],
   tips: [
     'Je kunt de pudding een dag van tevoren bakken. Warm hem met wat saus erover en afgedekt 15 minuten op in de oven op 160 °C, of per portie 30 seconden in de magnetron.',
@@ -869,13 +869,13 @@ RECEPTEN.push(
     { t: 'Verwarm de oven voor op 190 °C (hetelucht 170 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 170 °C.', m: 'airfryer' },
     { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 190 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
-    { t: 'Schil de appels, verwijder het klokhuis en snijd ze in blokjes van 2 cm. Meng ze met citroensap, 40 g bruine suiker, kaneel en maïzena.' },
+    { kop: 'Appels', t: 'Schil de appels, verwijder het klokhuis en snijd ze in blokjes van 2 cm. Meng ze met citroensap, 40 g bruine suiker, kaneel en maïzena.' },
     { t: 'Schep de appels in de ingevette ovenschaal.', m: 'oven' },
     { t: 'Verdeel de appels over de ingevette schaaltjes.', m: 'airfryer' },
     { t: 'Vet de hete bak in met een klontje boter en schep de appels erin.', m: 'optigrill-bak' },
-    { t: 'Crumble: wrijf bloem, suiker, zout en koude boter met je vingertoppen tot grove kruimels, met hier en daar een groter klontje. Meng de havermout erdoor. Werk snel, de boter moet koud blijven.' },
+    { kop: 'Crumble', t: 'Wrijf bloem, suiker, zout en koude boter met je vingertoppen tot grove kruimels, met hier en daar een groter klontje. Meng de havermout erdoor. Werk snel, de boter moet koud blijven.' },
     { t: 'Strooi de crumble losjes over de appels; druk hem niet aan.' },
-    { t: 'Bak 35 à 40 minuten in het midden van de oven, tot de crumble goudbruin is en het appelsap aan de randen borrelt.', m: 'oven', min: 38 },
+    { kop: 'Bakken', t: 'Bak 35 à 40 minuten in het midden van de oven, tot de crumble goudbruin is en het appelsap aan de randen borrelt.', m: 'oven', min: 38 },
     { t: 'Zet de schaaltjes in de mand en bak 18 à 20 minuten, tot de bovenkant goudbruin is en het sap borrelt. Kleurt de bovenkant te snel, leg er dan een stukje aluminiumfolie op.', m: 'airfryer', min: 19 },
     { t: 'Sluit de deksel en bak 25 à 30 minuten, tot de crumble goudbruin is, de appels zacht zijn en het sap aan de randen borrelt. Kijk na 15 minuten even: kleurt de bovenkant te snel, leg er dan een vel bakpapier op.', m: 'optigrill-bak', min: 28 },
     { t: 'Laat 10 minuten afkoelen en serveer warm met custard of vanille-ijs.', min: 10 }

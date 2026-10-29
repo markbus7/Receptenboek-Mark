@@ -35,12 +35,12 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Kook de rijst volgens de verpakking met een snuf zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
-    { t: 'Meng de kip met knoflook, komijn, paprikapoeder, chilipoeder, oregano, 1 el olie en een halve theelepel zout.' },
+    { kop: 'Limoen-korianderrijst', t: 'Kook de rijst volgens de verpakking met een snuf zout. Schep hem los met een vork en roer de limoenrasp, het sap van een halve limoen en de helft van de koriander erdoor.', min: 12 },
+    { kop: 'Kip', t: 'Meng de kip met knoflook, komijn, paprikapoeder, chilipoeder, oregano, 1 el olie en een halve theelepel zout.' },
     { t: 'Verhit de rest van de olie in de koekenpan op middelhoog tot hoog vuur. Bak de kip in 6 à 8 minuten rondom goudbruin en gaar. Knijp de rest van de limoen erover en schep de kip in een kom.', min: 7 },
-    { t: 'Doe de bonen met 2 el water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
+    { kop: 'Vulling', t: 'Doe de bonen met 2 el water en wat zout in dezelfde pan. Warm ze 2 à 3 minuten op en prak ongeveer de helft grof; zo houden ze de vulling bij elkaar.', min: 3 },
     { t: 'Verwarm de tortilla\'s 20 seconden per kant in een droge koekenpan, of 30 seconden in de magnetron onder een vochtige theedoek. Warme tortilla\'s scheuren niet bij het oprollen.' },
-    { t: 'Leg op het onderste derde van elke tortilla een strook rijst, bonen, kip, kaas, zure room, salsa en sla. Laat aan de zijkanten 5 cm vrij en doe er niet te veel op.' },
+    { kop: 'Rollen en bakken', t: 'Leg op het onderste derde van elke tortilla een strook rijst, bonen, kip, kaas, zure room, salsa en sla. Laat aan de zijkanten 5 cm vrij en doe er niet te veel op.' },
     { t: 'Vouw de onderkant over de vulling en trek hem met je vingers strak naar je toe. Vouw de zijkanten naar binnen en rol verder op tot een stevige rol.' },
     { t: 'Leg de burrito\'s met de naad naar onderen in de droge koekenpan op middelhoog vuur. Bak ze 2 minuten per kant tot ze goudbruin en dicht zijn.', m: 'koekenpan', min: 4 },
     { t: 'Leg de burrito\'s met de naad naar onderen op de voorverwarmde contactgrill en sluit de deksel zonder te drukken. Grill 3 à 4 minuten tot ze goudbruin zijn, met grillstrepen.', m: 'contactgrill', min: 4 },
@@ -101,9 +101,9 @@ RECEPTEN.push(
     { n: 'queso fresco', q: 75, u: 'g', x: 'verkruimeld; of feta', opt: true }
   ],
   stappen: [
-    { t: 'Verhit de olie in de koekenpan op middelhoog vuur en fruit de ui 3 minuten. Zet het vuur hoog en bak het gehakt in 5 à 6 minuten rul en bruin.', min: 8 },
+    { kop: 'Picadillo', t: 'Verhit de olie in de koekenpan op middelhoog vuur en fruit de ui 3 minuten. Zet het vuur hoog en bak het gehakt in 5 à 6 minuten rul en bruin.', min: 8 },
     { t: 'Bak knoflook, jalapeño, komijn en oregano 1 minuut mee. Voeg de tomaat toe en laat 6 à 8 minuten pruttelen tot het vocht bijna weg is en het gehakt smeuïg is. Breng op smaak met zout en peper.', min: 7 },
-    { t: 'Meng de witte ui met de koriander: dit is de klassieke topping. Zet salsa, limoenpartjes, avocado en queso fresco klaar.' },
+    { kop: 'Taco\'s', t: 'Meng de witte ui met de koriander: dit is de klassieke topping. Zet salsa, limoenpartjes, avocado en queso fresco klaar.' },
     { t: 'Verhit de droge koekenpan op middelhoog vuur. Verwarm de tortilla\'s één voor één 30 à 45 seconden per kant, tot ze soepel zijn en bruine vlekjes hebben. Stapel ze in de theedoek, dan blijven ze warm en zacht.' },
     { t: 'Leg steeds 2 tortilla\'s op elkaar (zo scheuren ze niet), schep er 2 eetlepels picadillo op en strooi ui en koriander erover. Salsa en een kneepje limoen erbij en meteen opeten, uit de hand.' }
   ],
@@ -162,10 +162,10 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Verhit de olie in de hapjespan op middelhoog vuur en fruit de ui 4 minuten glazig. Bak knoflook, tomatenpuree, chilipoeder, komijn en oregano 1 minuut mee tot het geurt.', min: 5 },
+    { kop: 'Saus en kip', t: 'Verhit de olie in de hapjespan op middelhoog vuur en fruit de ui 4 minuten glazig. Bak knoflook, tomatenpuree, chilipoeder, komijn en oregano 1 minuut mee tot het geurt.', min: 5 },
     { t: 'Giet passata en bouillon erbij, breng aan de kook en breng op smaak met zout. Leg de kipfilets in de saus, zodat ze net onder staan. Deksel erop en laat 15 minuten zachtjes pocheren tot de kip gaar is (kerntemperatuur 75 °C). Gebruik je kip van gisteren? Laat de saus dan 10 minuten zonder kip pruttelen.', min: 15 },
     { t: 'Haal de kip uit de pan en trek hem met twee vorken in draadjes. Laat intussen de saus zonder deksel nog 5 minuten inkoken, tot hij de achterkant van een lepel bedekt.', min: 5 },
-    { t: 'Verwarm de oven voor op 200 °C (hetelucht 180 °C).', m: 'oven' },
+    { kop: 'Opbouwen en bakken', t: 'Verwarm de oven voor op 200 °C (hetelucht 180 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 180 °C.', m: 'airfryer' },
     { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen. Rol de tortilla\'s hieronder op een bord op en leg ze daarna in de hete bak, op het laagje saus.', m: 'optigrill-bak' },
     { t: 'Meng de kip met 6 el saus, de bonen en een derde van de kaas. Schep een dun laagje saus in de ovenschaal. Verdeel de vulling over de tortilla\'s, rol ze op en leg ze met de naad naar onderen strak naast elkaar.' },
@@ -173,7 +173,7 @@ RECEPTEN.push(
     { t: 'Bak de enchiladas 20 minuten in het midden van de oven, tot de kaas goudbruin is en de saus aan de randen borrelt.', m: 'oven', min: 20 },
     { t: 'Bak de enchiladas 12 à 15 minuten, tot de kaas goudbruin is en de saus borrelt.', m: 'airfryer', min: 13 },
     { t: 'Sluit de deksel en bak de enchiladas 12 à 15 minuten, tot de kaas goudbruin is en de saus aan de randen borrelt.', m: 'optigrill-bak', min: 13 },
-    { t: 'Laat 5 minuten rusten. Maak af met zure room, koriander en lente-ui.' }
+    { kop: 'Erbij', t: 'Laat 5 minuten rusten. Maak af met zure room, koriander en lente-ui.' }
   ],
   tips: ['Warm de tortilla\'s eerst 30 seconden op in de magnetron onder een vochtige theedoek, dan scheuren ze niet bij het oprollen. Dat geldt vooral voor maistortilla\'s.', 'Je kunt de schaal een dag van tevoren vullen. Giet de saus er pas vlak voor het bakken over, anders worden de tortilla\'s papperig.'],
   alt: ['Enchiladas verdes: gebruik groene salsa verde van tomatillo (uit een pot) in plaats van de rode saus.', 'Vegetarisch: vul met zwarte bonen, mais en geroosterde zoete aardappel en gebruik groentebouillon.']
@@ -340,10 +340,10 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Haal roomkaas, eieren en zure room minstens een uur van tevoren uit de koelkast; koude roomkaas geeft klontjes. Verwarm de oven voor op 175 °C, bij voorkeur zonder hetelucht.' },
-    { t: 'Maal de koekjes fijn in een diepvrieszak met een deegroller en meng ze met de gesmolten boter. Druk het mengsel stevig aan op de bodem van de springvorm, bijvoorbeeld met de onderkant van een glas. Bak 10 minuten en laat iets afkoelen.', min: 10 },
-    { t: 'Zet de oven op 150 °C. Zet de ovenschaal met 2 cm kokend water op de onderste rail. De stoom houdt de cheesecake zacht en helpt tegen scheuren.' },
+    { kop: 'Bodem', t: 'Maal de koekjes fijn in een diepvrieszak met een deegroller en meng ze met de gesmolten boter. Druk het mengsel stevig aan op de bodem van de springvorm, bijvoorbeeld met de onderkant van een glas. Bak 10 minuten en laat iets afkoelen.', min: 10 },
+    { kop: 'Vulling', t: 'Zet de oven op 150 °C. Zet de ovenschaal met 2 cm kokend water op de onderste rail. De stoom houdt de cheesecake zacht en helpt tegen scheuren.' },
     { t: 'Klop roomkaas, suiker, bloem en zout op de laagste stand in 1 minuut glad. Klop de eieren er één voor één door, telkens tot ze net zijn opgenomen. Roer zure room, vanille, citroenrasp en -sap erdoor. Klop niet harder of langer dan nodig.' },
-    { t: 'Giet de vulling op de bodem en tik de vorm een paar keer op het aanrecht om luchtbellen kwijt te raken. Bak 60 à 70 minuten op het rooster boven het water. Hij is klaar als de rand stevig is en het midden nog licht trilt als je tegen de vorm tikt.', min: 65 },
+    { kop: 'Bakken', t: 'Giet de vulling op de bodem en tik de vorm een paar keer op het aanrecht om luchtbellen kwijt te raken. Bak 60 à 70 minuten op het rooster boven het water. Hij is klaar als de rand stevig is en het midden nog licht trilt als je tegen de vorm tikt.', min: 65 },
     { t: 'Zet de oven uit, zet de deur op een kier en laat de cheesecake 1 uur in de oven afkoelen. Ga daarna met een dun mes langs de rand, zodat hij los kan krimpen.', min: 60 },
     { t: 'Laat hem op het aanrecht helemaal afkoelen. Dek af en laat een nacht, minimaal 6 uur, opstijven in de koelkast. Snijd met een mes dat je steeds in heet water dompelt en afveegt.', min: 360 }
   ],
@@ -380,10 +380,10 @@ RECEPTEN.push(
     { n: 'zonnebloemolie', q: 1.5, u: 'l', x: 'om te frituren; voor de airfryer 2 el in een verstuiver' }
   ],
   stappen: [
-    { t: 'Meng karnemelk, zout, paprikapoeder en knoflookpoeder in een kom of diepvrieszak. Leg de kip erin, zorg dat alles onder staat en laat minimaal 4 uur, liefst een nacht, marineren in de koelkast.', min: 240 },
-    { t: 'Haal de kip een half uur voor het bakken uit de koelkast. Meng in een brede schaal bloem, paprikapoeder, knoflookpoeder, cayenne, zout, peper en bakpoeder. Sprenkel er 3 el van de marinade over en wrijf het met je vingers door de bloem: die kleine klontjes worden extra krokant.' },
+    { kop: 'Marinade', t: 'Meng karnemelk, zout, paprikapoeder en knoflookpoeder in een kom of diepvrieszak. Leg de kip erin, zorg dat alles onder staat en laat minimaal 4 uur, liefst een nacht, marineren in de koelkast.', min: 240 },
+    { kop: 'Bloemlaag', t: 'Haal de kip een half uur voor het bakken uit de koelkast. Meng in een brede schaal bloem, paprikapoeder, knoflookpoeder, cayenne, zout, peper en bakpoeder. Sprenkel er 3 el van de marinade over en wrijf het met je vingers door de bloem: die kleine klontjes worden extra krokant.' },
     { t: 'Haal de kip stuk voor stuk uit de marinade, laat kort uitlekken en druk hem rondom stevig in de bloem. Leg de stukken op het rooster en laat ze 15 minuten rusten, zodat de laag goed hecht.', min: 15 },
-    { t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 175 °C. Geen thermometer? Steek een houten lepel in de olie: als er direct gestaag belletjes langs komen, is hij heet genoeg.', m: 'braadpan', min: 10 },
+    { kop: 'Bakken', t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 175 °C. Geen thermometer? Steek een houten lepel in de olie: als er direct gestaag belletjes langs komen, is hij heet genoeg.', m: 'braadpan', min: 10 },
     { t: 'Leg er 3 à 4 stukken in; de temperatuur zakt dan naar ongeveer 160 °C. Stel het vuur zo bij dat de olie tussen 160 en 170 °C blijft. Frituur 12 à 15 minuten en keer de stukken om de paar minuten, tot ze diep goudbruin zijn en de kerntemperatuur 75 °C is (meet in het dikste deel, niet tegen het bot).', m: 'braadpan', min: 14 },
     { t: 'Laat de kip uitlekken op het rooster en houd hem warm in de oven op 100 °C terwijl je de rest frituurt.', m: 'braadpan' },
     { t: 'Verwarm de airfryer voor op 190 °C. Spuit de kip rondom in met olie tot er geen droge, witte plekken bloem meer te zien zijn. Leg de stukken in één laag in de mand, met ruimte ertussen; bak zo nodig in 2 rondes.', m: 'airfryer' },

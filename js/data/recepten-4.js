@@ -33,11 +33,11 @@ RECEPTEN.push(
     { n: 'verse koriander', q: 10, u: 'g', opt: true }
   ],
   stappen: [
-    { t: 'Meng de kip met de marinade en laat minimaal 30 minuten, of een nacht, marineren in de koelkast.', min: 30 },
-    { t: 'Bak de kip in een scheut olie op hoog vuur in 2 delen in 5 minuten bruin. Hij hoeft nog niet helemaal gaar.', m: 'koekenpan', min: 5 },
+    { kop: 'Kip marineren', t: 'Meng de kip met de marinade en laat minimaal 30 minuten, of een nacht, marineren in de koelkast.', min: 30 },
+    { kop: 'Kip bakken', t: 'Bak de kip in een scheut olie op hoog vuur in 2 delen in 5 minuten bruin. Hij hoeft nog niet helemaal gaar.', m: 'koekenpan', min: 5 },
     { t: 'Bak de kip in de airfryer 12 minuten op 200 °C tot de randjes geblakerd zijn.', m: 'airfryer', min: 12 },
     { t: 'Leg de kip op de bakplaat en gril 10 à 12 minuten bovenin de oven tot de randjes geblakerd zijn.', m: 'oven', min: 11 },
-    { t: 'Kook de rijst volgens de verpakking.', min: 12 },
+    { kop: 'Saus', t: 'Kook de rijst volgens de verpakking.', min: 12 },
     { t: 'Smelt de boter in de hapjespan. Fruit de ui 6 minuten zacht. Bak gember en knoflook 1 minuut mee.', min: 6 },
     { t: 'Voeg tomaten, garam masala en suiker toe en laat 10 minuten inkoken. Pureer met de staafmixer tot een gladde saus.', min: 10 },
     { t: 'Roer de room erdoor, voeg de kip toe en laat 5 minuten zachtjes garen. Breng op smaak met zout en serveer met rijst en koriander.', min: 5 }

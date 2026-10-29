@@ -149,12 +149,12 @@ RECEPTEN.push(
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
-    { t: 'Breng de bouillon met laurier en tijm aan de kook in de Dutch oven. Leg de kipfilet erin, zet het vuur laag en laat de kip met de deksel erop 15 minuten zachtjes trekken.', min: 15 },
+    { kop: 'Kip en balletjes', t: 'Breng de bouillon met laurier en tijm aan de kook in de Dutch oven. Leg de kipfilet erin, zet het vuur laag en laat de kip met de deksel erop 15 minuten zachtjes trekken.', min: 15 },
     { t: 'Meng intussen het gehakt met het paneermeel, een snuf nootmuskaat, zout en peper. Draai er met natte handen balletjes van zo groot als een knikker (ca. 30 stuks).' },
     { t: 'Haal de kip uit de pan. Pocheer de balletjes en de champignons 5 minuten in de zacht kokende bouillon. Schep ze eruit en giet de bouillon door een zeef in een maatbeker: je hebt 750 ml nodig.', min: 5 },
-    { t: 'Smelt de boter in de lege pan op middelhoog vuur. Roer de bloem erdoor en laat 1 minuut garen. Klop de warme bouillon er scheutje voor scheutje door met de garde, tot een gladde, dikke saus. Laat 5 minuten zachtjes koken en roer af en toe.', min: 5 },
+    { kop: 'Saus', t: 'Smelt de boter in de lege pan op middelhoog vuur. Roer de bloem erdoor en laat 1 minuut garen. Klop de warme bouillon er scheutje voor scheutje door met de garde, tot een gladde, dikke saus. Laat 5 minuten zachtjes koken en roer af en toe.', min: 5 },
     { t: 'Klop de room met de eidooier en het citroensap los. Zet het vuur laag en roer het mengsel door de saus. Breng op smaak met zout, peper en nootmuskaat.' },
-    { t: 'Snijd of trek de kip in blokjes. Schep kip, balletjes en champignons door de saus en warm 3 minuten door zonder te laten koken.', min: 3 },
+    { kop: 'Afmaken', t: 'Snijd of trek de kip in blokjes. Schep kip, balletjes en champignons door de saus en warm 3 minuten door zonder te laten koken.', min: 3 },
     { t: 'Warm de pasteibakjes 5 minuten op in de oven op 180 °C.', m: 'oven', min: 5 },
     { t: 'Warm de pasteibakjes 3 minuten op in de airfryer op 160 °C.', m: 'airfryer', min: 3 },
     { t: 'Vul de pasteibakjes met de ragout en schep de rest ernaast. Lekker met friet en mayonaise, of met rijst.' }
@@ -272,11 +272,11 @@ RECEPTEN.push(
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
-    { t: 'Haal de steaks uit de koelkast. Snijd de aardappelen (geschild of met schil) in staafjes van 1 cm dik. Laat ze 15 minuten in koud water liggen, spoel ze af en droog ze heel goed in een schone theedoek.', min: 15 },
+    { kop: 'Friet', t: 'Haal de steaks uit de koelkast. Snijd de aardappelen (geschild of met schil) in staafjes van 1 cm dik. Laat ze 15 minuten in koud water liggen, spoel ze af en droog ze heel goed in een schone theedoek.', min: 15 },
     { t: 'Verwarm de oven voor op 220 °C (hetelucht 200 °C). Hussel de friet met 3 el olie en verdeel hem in één laag over de bakplaten. Bak 30 à 35 minuten goudbruin en krokant; keer na 15 minuten en wissel de platen van plek.', m: 'oven', min: 32 },
     { t: 'Hussel de friet met 3 el olie. Bak hem in twee porties, net als in het frietkot in twee rondes: eerst 15 minuten op 160 °C, dan 6 à 8 minuten op 200 °C tot hij goudbruin en krokant is. Schud de mand een paar keer. Houd de eerste portie warm in de oven op 100 °C.', m: 'airfryer', min: 22 },
-    { t: 'Klop olijfolie, azijn, mosterd en wat zout los tot een vinaigrette. Scheur de sla in een schaal en leg de tomaat erbij; schep de vinaigrette er pas vlak voor het eten door.' },
-    { t: 'Dep de steaks droog en bestrooi ze ruim met zout. Verhit de koekenpan zonder olie 2 à 3 minuten op hoog vuur, tot een druppel water als een balletje over de bodem rolt. Doe 1 el olie erin en leg de steaks erin. Laat ze liggen: ze laten vanzelf los als de korst er is.' },
+    { kop: 'Sla', t: 'Klop olijfolie, azijn, mosterd en wat zout los tot een vinaigrette. Scheur de sla in een schaal en leg de tomaat erbij; schep de vinaigrette er pas vlak voor het eten door.' },
+    { kop: 'Steak', t: 'Dep de steaks droog en bestrooi ze ruim met zout. Verhit de koekenpan zonder olie 2 à 3 minuten op hoog vuur, tot een druppel water als een balletje over de bodem rolt. Doe 1 el olie erin en leg de steaks erin. Laat ze liggen: ze laten vanzelf los als de korst er is.' },
     { t: 'Bak de steaks bij 2½ cm dikte per kant 1 minuut voor bleu, 2 minuten voor saignant, 3 minuten voor à point of 4 à 5 minuten voor bien cuit. Zet het vuur de laatste minuut middelhoog, doe boter, knoflook en tijm erbij en schep de schuimende boter steeds over het vlees.', min: 3 },
     { t: 'Laat de steaks 5 minuten rusten op een warm bord onder een losse lap aluminiumfolie. Bestrooi de friet met zout en serveer met de steak, peper, de sla en mayonaise.', min: 5 }
   ],
@@ -404,10 +404,10 @@ RECEPTEN.push(
     { n: 'vanillesaus', q: 500, u: 'ml', opt: true, x: 'of geslagen slagroom' }
   ],
   stappen: [
-    { t: 'Week de rozijnen 10 minuten in warm water (of rum) en knijp ze uit. Verwarm de oven voor op 190 °C (hetelucht 170 °C).', min: 10 },
+    { kop: 'Vulling', t: 'Week de rozijnen 10 minuten in warm water (of rum) en knijp ze uit. Verwarm de oven voor op 190 °C (hetelucht 170 °C).', min: 10 },
     { t: 'Smelt 40 g boter in de koekenpan en rooster het paneermeel 3 à 4 minuten op middelhoog vuur, al roerend, tot het goudbruin is. Laat afkoelen op een bord.', min: 4 },
     { t: 'Schil de appels, verwijder de klokhuizen en snijd ze in dunne plakjes. Meng ze met citroensap, suiker, kaneel, rozijnen en eventueel de walnoten.' },
-    { t: 'Smelt de rest van de boter. Leg de theedoek op het werkblad en leg er een vel filodeeg op, met de lange kant naar je toe. Bestrijk het dun met boter, leg het volgende vel erop en herhaal tot alle 6 vellen op elkaar liggen.' },
+    { kop: 'Strudel', t: 'Smelt de rest van de boter. Leg de theedoek op het werkblad en leg er een vel filodeeg op, met de lange kant naar je toe. Bestrijk het dun met boter, leg het volgende vel erop en herhaal tot alle 6 vellen op elkaar liggen.' },
     { t: 'Strooi het paneermeel over de onderste helft van het deeg en schep de appel erop in een dikke strook, met 5 cm rand aan de zijkanten. Vouw de zijkanten naar binnen en rol de strudel met behulp van de theedoek strak op. Laat hem met de naad naar onderen op de bakplaat rollen.' },
     { t: 'Bestrijk de strudel met boter en bak hem 35 à 40 minuten in het midden van de oven, tot hij goudbruin en knapperig is. Bestrijk hem halverwege nog een keer met boter.', min: 35 },
     { t: 'Laat de strudel 10 minuten afkoelen, bestuif met poedersuiker en snijd in plakken met een kartelmes. Lekker lauw met vanillesaus of slagroom.', min: 10 }
@@ -575,15 +575,15 @@ RECEPTEN.push(
     { n: 'kruimige aardappelen', q: 1, u: 'kg', x: 'geschild, in gelijke stukken' }
   ],
   stappen: [
-    { t: 'Leg de lappen plat op de plank. Zijn ze dikker dan ½ cm, leg er dan plasticfolie op en sla ze plat met de onderkant van een steelpan. Bestrooi met peper en een klein beetje zout (het spek is al zout).' },
+    { kop: 'Rolletjes', t: 'Leg de lappen plat op de plank. Zijn ze dikker dan ½ cm, leg er dan plasticfolie op en sla ze plat met de onderkant van een steelpan. Bestrooi met peper en een klein beetje zout (het spek is al zout).' },
     { t: 'Smeer elke lap dun in met 1 el mosterd. Leg er 2 plakken spek op, een paar ringen ui en aan de korte kant 2 reepjes augurk.' },
     { t: 'Rol de lappen vanaf de kant met de augurk strak op en vouw de zijkanten een beetje naar binnen. Zet de rolletjes vast met 2 prikkers of bind ze op met keukentouw.' },
-    { t: 'Smelt de boter in de Dutch oven op middelhoog vuur en bak de rolletjes rondom in 8 à 10 minuten goed bruin. Neem de tijd: die bruine korst is de smaak van de saus. Haal ze uit de pan.', min: 9 },
+    { kop: 'Stoofsaus', t: 'Smelt de boter in de Dutch oven op middelhoog vuur en bak de rolletjes rondom in 8 à 10 minuten goed bruin. Neem de tijd: die bruine korst is de smaak van de saus. Haal ze uit de pan.', min: 9 },
     { t: 'Bak ui, wortel en selderij 5 minuten in het braadvet, tot ze kleuren. Roer de tomatenpuree erdoor en bak 1 minuut mee.', min: 6 },
     { t: 'Blus af met de rode wijn en schraap de aanbaksels los. Laat 3 minuten inkoken, schenk de bouillon erbij en voeg de laurier toe.', min: 3 },
     { t: 'Leg de rolletjes terug; ze moeten voor twee derde onder staan. Leg de deksel erop en laat 1½ uur heel zachtjes stoven. Keer ze na 45 minuten.', min: 90 },
-    { t: 'Kook intussen het laatste half uur de geschilde aardappelen in water met zout in 20 minuten gaar.', min: 20, stoom: 'de aardappelen in stukken 25 minuten' },
-    { t: 'Haal de rolletjes eruit en houd ze warm onder de deksel. Zeef de saus (druk de groente goed uit) of pureer hem met de staafmixer. Breng aan de kook, roer de aangelengde maïzena erdoor en laat 1 minuut binden. Proef op zout en peper.', min: 3 },
+    { kop: 'Aardappelen', t: 'Kook intussen het laatste half uur de geschilde aardappelen in water met zout in 20 minuten gaar.', min: 20, stoom: 'de aardappelen in stukken 25 minuten' },
+    { kop: 'Afmaken', t: 'Haal de rolletjes eruit en houd ze warm onder de deksel. Zeef de saus (druk de groente goed uit) of pureer hem met de staafmixer. Breng aan de kook, roer de aangelengde maïzena erdoor en laat 1 minuut binden. Proef op zout en peper.', min: 3 },
     { t: 'Trek de prikkers of het touw eruit en serveer de rolletjes met de saus, de aardappelen en rode kool.' }
   ],
   tips: ['Vraag de slager om rouladen of rollades: dunne, grote lappen van de bovenbil. Bij de supermarkt neem je de dunste runderlappen die je kunt vinden.', 'Rinderrouladen worden de tweede dag nog lekkerder. Ze kunnen ook in de saus de vriezer in.', 'Pot rode kool met appel uit de supermarkt is de klassieke begeleider; in Duitsland eten ze er ook Knödel of spätzle bij.'],

@@ -502,15 +502,15 @@ RECEPTEN.push(
     { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in ringetjes', opt: true }
   ],
   stappen: [
-    { t: 'Bak het buikspek in de droge koekenpan op middelhoog vuur 5 minuten tot het rondom bruin is en er vet uitkomt.', min: 5 },
+    { kop: 'Buikspek', t: 'Bak het buikspek in de droge koekenpan op middelhoog vuur 5 minuten tot het rondom bruin is en er vet uitkomt.', min: 5 },
     { t: 'Doe het vlees in de braadpan met sojasaus, rijstwijn, suiker, steranijs, gember, knoflook en water. Breng aan de kook, leg de deksel op de pan en laat 1½ uur zachtjes stoven, tot het vlees heel zacht is.', m: 'braadpan', min: 90 },
     { t: 'Doe het vlees in de slowcooker met sojasaus, rijstwijn, suiker, steranijs, gember, knoflook en de helft van het water. Gaar 5 uur op laag. Giet het vocht daarna in een steelpan.', m: 'slowcooker' },
-    { t: 'Maak intussen het deeg. Meng bloem, gist, suiker, bakpoeder en zout. Voeg melk en olie toe en kneed 10 minuten tot een heel glad, zijdezacht deeg. Laat afgedekt 1 uur rijzen.', min: 70 },
+    { kop: 'Bao', t: 'Maak intussen het deeg. Meng bloem, gist, suiker, bakpoeder en zout. Voeg melk en olie toe en kneed 10 minuten tot een heel glad, zijdezacht deeg. Laat afgedekt 1 uur rijzen.', min: 70 },
     { t: 'Rol het deeg uit tot 5 mm dik en steek er met een glas van 9 cm rondjes uit. Rol elk rondje kort uit tot een ovaal. Bestrijk de helft met een beetje olie, leg een stukje van een rietje of een eetstokje in het midden en vouw dubbel. Trek het stokje eruit.' },
     { t: 'Leg elke bao op een vierkantje bakpapier in het stoommandje, met ruimte ertussen. Laat ze afgedekt 30 minuten rijzen.', min: 30 },
-    { t: 'Haal het vlees uit de pan en kook het vocht in tot een stroperige saus. Doe het vlees terug en schep het om tot het glanst.', min: 10 },
-    { t: 'Zet het mandje op de wok met kokend water (het water mag het mandje niet raken). Stoom de bao 10 minuten op middelhoog vuur. Doe daarna het vuur uit en laat de deksel er nog 5 minuten op: dan zakken ze niet in.', min: 15, stoom: 'laat de bao op hun bakpapiertjes op een plank rijzen en zet er 3 à 4 tegelijk in het mandje. Stoom 12 minuten en laat de deksel daarna nog 5 minuten dicht. Houd de rest intussen onder een doek.' },
-    { t: 'Vul elke bao met een plak buikspek, komkommer, koriander en de zoete pinda\'s.' }
+    { kop: 'Buikspek', t: 'Haal het vlees uit de pan en kook het vocht in tot een stroperige saus. Doe het vlees terug en schep het om tot het glanst.', min: 10 },
+    { kop: 'Bao', t: 'Zet het mandje op de wok met kokend water (het water mag het mandje niet raken). Stoom de bao 10 minuten op middelhoog vuur. Doe daarna het vuur uit en laat de deksel er nog 5 minuten op: dan zakken ze niet in.', min: 15, stoom: 'laat de bao op hun bakpapiertjes op een plank rijzen en zet er 3 à 4 tegelijk in het mandje. Stoom 12 minuten en laat de deksel daarna nog 5 minuten dicht. Houd de rest intussen onder een doek.' },
+    { kop: 'Vullen', t: 'Vul elke bao met een plak buikspek, komkommer, koriander en de zoete pinda\'s.' }
   ],
   tips: ['Gestoomde bao kun je invriezen. Stoom ze bevroren 8 minuten, dan zijn ze weer als vers.', 'Wil je het makkelijker? Diepvries bao vind je bij de toko; dan maak je alleen het vlees.'],
   alt: ['Met kip: vervang het buikspek door kippendijfilet en stoof 40 minuten.', 'Met krokante kip: vul de bao met stukjes kip uit de airfryer, sriracha-mayonaise en zoetzure komkommer.']
@@ -550,14 +550,14 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 1, u: 'st', x: 'losgeklopt, om te bestrijken' }
   ],
   stappen: [
-    { t: 'Deeg: meng bloem en zout in een kom en wrijf de zachte boter er met je vingers door tot een kruimelig mengsel. Schenk het lauwe water erbij en kneed 5 minuten tot een soepel, glad deeg. Wikkel het in folie en leg het 30 minuten in de koelkast.', min: 5 },
-    { t: 'Kook de eieren voor de vulling 10 minuten hard, laat ze schrikken, pel ze en hak ze grof.', min: 10, stoom: 'de eieren 12 minuten, daarna in koud water' },
+    { kop: 'Deeg', t: 'Meng bloem en zout in een kom en wrijf de zachte boter er met je vingers door tot een kruimelig mengsel. Schenk het lauwe water erbij en kneed 5 minuten tot een soepel, glad deeg. Wikkel het in folie en leg het 30 minuten in de koelkast.', min: 5 },
+    { kop: 'Vulling', t: 'Kook de eieren voor de vulling 10 minuten hard, laat ze schrikken, pel ze en hak ze grof.', min: 10, stoom: 'de eieren 12 minuten, daarna in koud water' },
     { t: 'Verhit de olie in de koekenpan en bak ui en paprika 6 minuten zacht. Voeg het gehakt toe en bak het 6 minuten rul en gaar.', min: 12 },
     { t: 'Roer paprikapoeder, komijn, oregano en chilivlokken erdoor en bak 1 minuut mee. Breng flink op smaak met zout en peper; de vulling mag pittig gekruid zijn. Roer de lente-ui erdoor en laat helemaal afkoelen. Warme vulling maakt het deeg slap.', min: 1 },
-    { t: 'Rol het deeg in twee delen 3 mm dun uit op een met bloem bestoven aanrecht. Steek er rondjes van 12 à 13 cm uit; kneed de restjes samen en rol ze opnieuw uit. Je krijgt er ongeveer 12.' },
+    { kop: 'Vouwen', t: 'Rol het deeg in twee delen 3 mm dun uit op een met bloem bestoven aanrecht. Steek er rondjes van 12 à 13 cm uit; kneed de restjes samen en rol ze opnieuw uit. Je krijgt er ongeveer 12.' },
     { t: 'Leg op elk rondje 2 el vulling met wat ei en olijf, iets uit het midden. Maak de rand nat met water, vouw dicht tot een halve maan en druk de rand goed aan.' },
     { t: 'Maak het randje: vouw een stukje rand met je duim naar binnen en over zichzelf heen, schuif een stukje op en herhaal, tot je een gedraaid touwtje hebt. Lukt dat niet, druk de rand dan dicht met de tanden van een vork.' },
-    { t: 'Verwarm de airfryer voor op 180 °C. Bestrijk de empanadas met losgeklopt ei en bak ze in één laag, 4 à 6 tegelijk, 12 à 14 minuten tot ze goudbruin zijn.', min: 13 },
+    { kop: 'Afbakken', t: 'Verwarm de airfryer voor op 180 °C. Bestrijk de empanadas met losgeklopt ei en bak ze in één laag, 4 à 6 tegelijk, 12 à 14 minuten tot ze goudbruin zijn.', min: 13 },
     { t: 'Laat ze 5 minuten afkoelen voor je erin bijt: de vulling is gloeiend heet.' }
   ],
   tips: ['Geen zin in deeg maken? Bij de diepvries van grote supermarkten en de toko vind je kant-en-klare empanadavellen (tapas para empanadas). Bladerdeeg werkt ook, maar wordt luchtiger en minder stevig.', 'Rauwe empanadas kun je op een plank invriezen en daarna in een zak bewaren. Bak ze bevroren 18 minuten op 170 °C.', 'In Argentinië eet je ze uit het vuistje, met chimichurri of salsa erbij.'],

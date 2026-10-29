@@ -155,15 +155,15 @@ RECEPTEN.push(
     { n: 'verse peterselie', q: 1, u: 'el', x: 'fijngehakt, of dille; de groene spikkeltjes in de saus' }
   ],
   stappen: [
-    { t: 'Begin met de knoflooksaus. Wrijf de geperste knoflook voor de saus met een snuf zout fijn tot een smeuïg papje. Roer yoghurt, mayonaise, citroensap en peterselie erdoor en proef of er zout bij moet. Zet hem afgedekt in de koelkast: in een half uur wordt de knoflooksmaak ronder.', min: 30 },
-    { t: 'Doe bloem en zout in een kom en maak een kuiltje. Breek de eieren erin en giet de helft van de melk erbij. Klop vanuit het midden tot een glad, dik beslag en klop daarna de rest van de melk erdoor. Laat 10 minuten rusten.', min: 10 },
-    { t: 'Zet de koekenpan zonder boter op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin; druk de brokken steeds fijn met je spatel, zodat je straks een gelijkmatige laag kunt smeren.', min: 5 },
+    { kop: 'Knoflooksaus', t: 'Begin met de knoflooksaus. Wrijf de geperste knoflook voor de saus met een snuf zout fijn tot een smeuïg papje. Roer yoghurt, mayonaise, citroensap en peterselie erdoor en proef of er zout bij moet. Zet hem afgedekt in de koelkast: in een half uur wordt de knoflooksmaak ronder.', min: 30 },
+    { kop: 'Beslag', t: 'Doe bloem en zout in een kom en maak een kuiltje. Breek de eieren erin en giet de helft van de melk erbij. Klop vanuit het midden tot een glad, dik beslag en klop daarna de rest van de melk erdoor. Laat 10 minuten rusten.', min: 10 },
+    { kop: 'Pittig gekruid gehakt', t: 'Zet de koekenpan zonder boter op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin; druk de brokken steeds fijn met je spatel, zodat je straks een gelijkmatige laag kunt smeren.', min: 5 },
     { t: 'Bak de ui 3 minuten mee tot hij zacht is. Voeg knoflook, 1 Spaanse peper, paprikapoeder, komijn, oregano, chilivlokken, peper en een snuf zout toe en bak nog 1 minuut, tot het geurt.', min: 4 },
     { t: 'Roer de tomatenpuree erdoor en bak hem 1 minuut mee. Schenk het water erbij en laat 8 à 10 minuten zachtjes pruttelen tot het een dikke, donkere gehaktsaus is die niet meer loopt. Proef: het mag flink pittig zijn, want de pannenkoek en de kaas maken het milder. Schep het in een kom, houd het warm onder een deksel en veeg de pan schoon.', min: 10 },
-    { t: 'Smelt een klontje boter in de pan op middelhoog vuur. Schep een soeplepel beslag in de pan en draai de pan zodat de bodem dun bedekt is. Bak tot de bovenkant droog is, ongeveer 2 minuten, en keer hem om.', min: 2 },
+    { kop: 'Bakken', t: 'Smelt een klontje boter in de pan op middelhoog vuur. Schep een soeplepel beslag in de pan en draai de pan zodat de bodem dun bedekt is. Bak tot de bovenkant droog is, ongeveer 2 minuten, en keer hem om.', min: 2 },
     { t: 'Smeer meteen een achtste van de gehaktsaus (3 à 4 eetlepels) dun uit over de hele pannenkoek, tot bijna aan de rand. Strooi er een achtste van de kaas (± 30 g) over, doe de deksel op de pan en bak 1 à 2 minuten, tot de onderkant goudbruin is en de kaas gesmolten.', min: 2 },
     { t: 'Schuif de pannenkoek op een groot bord en houd hem warm onder een schone theedoek. Herhaal met de rest; je hebt genoeg voor 7 à 8 pannenkoeken.' },
-    { t: 'Strooi de ringetjes verse Spaanse peper over de pannenkoeken en zet een bakje knoflooksaus in het midden, zoals in het pannenkoekenhuis. Dip of schep de saus erover terwijl je eet.' }
+    { kop: 'Serveren', t: 'Strooi de ringetjes verse Spaanse peper over de pannenkoeken en zet een bakje knoflooksaus in het midden, zoals in het pannenkoekenhuis. Dip of schep de saus erover terwijl je eet.' }
   ],
   tips: [
     'Het gehakt moet echt een dikke saus zijn, geen losse kruimels: door de tomatenpuree plakt het als een laag aan de pannenkoek, net als in het pannenkoekenhuis, en valt het er niet af als je snijdt.',
@@ -234,11 +234,11 @@ RECEPTEN.push(
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' }
   ],
   stappen: [
-    { t: 'Kneed bakmeel, boter, basterdsuiker, zout en 3/4 van het ei kort tot een samenhangend deeg. Laat 15 minuten opstijven in de koelkast.', min: 15 },
-    { t: 'Schil de appels, verwijder klokhuizen en snijd ze in blokjes. Meng met suiker, kaneel, rozijnen en citroensap.' },
+    { kop: 'Deeg', t: 'Kneed bakmeel, boter, basterdsuiker, zout en 3/4 van het ei kort tot een samenhangend deeg. Laat 15 minuten opstijven in de koelkast.', min: 15 },
+    { kop: 'Vulling', t: 'Schil de appels, verwijder klokhuizen en snijd ze in blokjes. Meng met suiker, kaneel, rozijnen en citroensap.' },
     { t: 'Verwarm de oven voor op 175 °C (hetelucht 160 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 150 °C.', m: 'airfryer' },
-    { t: 'Bekleed bodem en rand van de vorm met 2/3 van het deeg. Schep de vulling erin en druk aan. Leg repen van de rest van het deeg als rooster erop en bestrijk met de rest van het ei.' },
+    { kop: 'Vormen en bakken', t: 'Bekleed bodem en rand van de vorm met 2/3 van het deeg. Schep de vulling erin en druk aan. Leg repen van de rest van het deeg als rooster erop en bestrijk met de rest van het ei.' },
     { t: 'Bak de taart 60 à 70 minuten onderin de oven tot hij goudbruin is.', m: 'oven', min: 65 },
     { t: 'Bak de taart 40 minuten. Dek hem af met folie als de bovenkant te snel bruin wordt en bak nog 10 à 15 minuten.', m: 'airfryer', min: 55 },
     { t: 'Laat minstens 1 uur afkoelen in de vorm voordat je hem eruit haalt.', min: 60 }
