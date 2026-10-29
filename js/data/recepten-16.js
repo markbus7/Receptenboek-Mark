@@ -131,7 +131,7 @@ RECEPTEN.push(
   ]
 },
 {
-  id: 'bara', naam: 'Bara', keuken: 'Surinaams', soort: 'Ontbijt & lunch',
+  id: 'bara', naam: 'Bara', keuken: 'Surinaams', soort: 'Bijgerecht & snack',
   tijd: 40, wacht: '1 uur rijzen', pers: 4, niveau: 'Gemiddeld', vega: true, pit: 1,
   intro: 'Luchtige, gefrituurde Surinaamse gistbroodjes met kerrie en djeera, van oorsprong gemaakt van gemalen spliterwten. Warm gedoopt in een zoetzure ketjapsaus met augurk zijn ze onweerstaanbaar.',
   gerei: [
@@ -542,7 +542,7 @@ RECEPTEN.push(
 },
 {
   id: 'goi-cuon', naam: 'Goi cuon (verse loempia\'s)', ook: ['verse loempia', 'summer rolls', 'rijstvelloempia'],
-  keuken: 'Vietnamees', soort: 'Salade & bijgerecht',
+  keuken: 'Vietnamees', soort: 'Bijgerecht & snack',
   tijd: 40, pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Doorschijnende rolletjes van rijstpapier met garnalen, noedels en verse kruiden, met een romige pinda-hoisindip. Fris, licht en zonder bakken.',
   gerei: [

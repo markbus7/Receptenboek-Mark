@@ -508,7 +508,7 @@ RECEPTEN.push(
 },
 {
   id: 'kartoffelsalat', naam: 'Kartoffelsalat', ook: ['duitse aardappelsalade', 'aardappelsalade'],
-  keuken: 'Duits & Oostenrijks', soort: 'Salade & bijgerecht',
+  keuken: 'Duits & Oostenrijks', soort: 'Salade',
   tijd: 25, wacht: '30 min laten intrekken', pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Zuid-Duitse aardappelsalade zonder mayonaise: warme plakjes aardappel die een hete bouillon met azijn opzuigen, met ui, augurk en bieslook. Fris, smeuïg en lauw op zijn best.',
   gerei: [

@@ -42,7 +42,7 @@ RECEPTEN.push(
 {
   id: 'siu-mai', toegevoegd: '2026-10-26', naam: 'Siu mai (dim sum met varkensvlees en garnalen)',
   ook: ['siu mai', 'shumai', 'shu mai', 'dim sum', 'dimsum', 'gestoomde dumplings', 'stomen'],
-  keuken: 'Chinees', soort: 'Ontbijt & lunch',
+  keuken: 'Chinees', soort: 'Bijgerecht & snack',
   tijd: 60, pers: 24, stuks: 'siu mai', niveau: 'Gemiddeld', vega: false,
   intro: 'De bekendste dim sum: open bekertjes van een dun velletje met een sappige vulling van varkensgehakt, garnalen en shiitake, met een oranje stipje wortel erop. Vouwen is makkelijker dan bij gyoza: je knijpt ze gewoon in je hand dicht. In de rijstkoker stoom je ze in rondes.',
   gerei: [
@@ -85,7 +85,7 @@ RECEPTEN.push(
 {
   id: 'gestoomde-groenten-sesam', toegevoegd: '2026-10-26', naam: 'Gestoomde groenten met sesamdressing',
   ook: ['gestoomde groente', 'gestoomde groenten', 'goma-ae', 'goma ae', 'groente stomen', 'broccoli stomen', 'stomen'],
-  keuken: 'Japans', soort: 'Salade & bijgerecht',
+  keuken: 'Japans', soort: 'Bijgerecht & snack',
   tijd: 20, pers: 2, niveau: 'Makkelijk', vega: true,
   intro: 'Broccoli, sperziebonen en wortel uit het stoommandje, nog knapperig en felgekleurd, met een nootachtige Japanse dressing van geroosterd sesamzaad en sojasaus. Lekker bij rijst en vis of vlees, warm of koud.',
   gerei: [

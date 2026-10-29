@@ -2,7 +2,7 @@
 RECEPTEN.push(
 {
   id: 'gambas-al-ajillo', naam: 'Gambas al ajillo', ook: ['knoflookgarnalen', 'gambas pil pil'],
-  keuken: 'Spaans', soort: 'Salade & bijgerecht',
+  keuken: 'Spaans', soort: 'Bijgerecht & snack',
   tijd: 15, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
   intro: 'Garnalen die nog sissend in een bad van olijfolie, knoflook en pepertjes op tafel komen. Het brood om de olie op te deppen is minstens zo belangrijk.',
   gerei: [
@@ -567,7 +567,7 @@ RECEPTEN.push(
 },
 {
   id: 'hummus', naam: 'Hummus', ook: ['houmous', 'humus'],
-  keuken: 'Midden-Oosters', soort: 'Salade & bijgerecht',
+  keuken: 'Midden-Oosters', soort: 'Bijgerecht & snack',
   tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Romige dip van kikkererwten, tahin, citroen en knoflook. Zelfgemaakt is hij luchtiger en frisser dan uit het bakje.',
   gerei: [
@@ -599,7 +599,7 @@ RECEPTEN.push(
 },
 {
   id: 'tabouleh', naam: 'Tabouleh', ook: ['tabbouleh', 'tabbouli'],
-  keuken: 'Midden-Oosters', soort: 'Salade & bijgerecht',
+  keuken: 'Midden-Oosters', soort: 'Salade',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Libanese kruidensalade: veel fijngesneden peterselie en munt met een beetje bulgur, tomaat, citroen en olijfolie. Groen, fris en heerlijk naast alles van de grill.',
   gerei: [
@@ -745,7 +745,7 @@ RECEPTEN.push(
 },
 {
   id: 'zaalouk', naam: 'Zaalouk', ook: ['marokkaanse auberginesalade'],
-  keuken: 'Marokkaans', soort: 'Salade & bijgerecht',
+  keuken: 'Marokkaans', soort: 'Salade',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Smeuïge Marokkaanse salade van aubergine en tomaat met knoflook, komijn en verse kruiden. Lekker lauw of koud, met brood om te dippen of naast een tajine.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'hapjespan', naam: 'Op het vuur' } ],

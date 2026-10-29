@@ -96,7 +96,7 @@ RECEPTEN.push(
   ]
 },
 {
-  id: 'gado-gado', naam: 'Gado-gado', keuken: 'Indonesisch', soort: 'Salade & bijgerecht',
+  id: 'gado-gado', naam: 'Gado-gado', keuken: 'Indonesisch', soort: 'Salade',
   tijd: 35, pers: 4, niveau: 'Makkelijk', vega: true, pit: 1,
   intro: 'Kleurrijke schotel van gestoomde groenten, aardappel, ei, tahoe en een warme, romige pindasaus.',
   gerei: [
@@ -231,7 +231,7 @@ RECEPTEN.push(
   alt: ['Geen djeroekbladeren? Gebruik de geraspte schil van een halve limoen.']
 },
 {
-  id: 'perkedel-djagung', naam: 'Perkedel djagung', ook: ['maiskoekjes', 'bakwan jagung'], keuken: 'Indonesisch', soort: 'Salade & bijgerecht',
+  id: 'perkedel-djagung', naam: 'Perkedel djagung', ook: ['maiskoekjes', 'bakwan jagung'], keuken: 'Indonesisch', soort: 'Bijgerecht & snack',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Krokante maïskoekjes met lente-ui en selderij. Een heerlijke snack of bijgerecht bij de rijsttafel.',
   methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'airfryer', naam: 'Airfryer' } ],

@@ -235,7 +235,7 @@ RECEPTEN.push(
   alt: ['Geen ras el hanout? Meng 1 tl komijn, 1 tl koriander, 1 tl kaneel, ½ tl gember en ½ tl kurkuma.']
 },
 {
-  id: 'griekse-salade', naam: 'Griekse salade (choriatiki)', keuken: 'Grieks', soort: 'Salade & bijgerecht',
+  id: 'griekse-salade', naam: 'Griekse salade (choriatiki)', keuken: 'Grieks', soort: 'Salade',
   tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true,
   intro: 'Rijpe tomaat, komkommer, olijven en een heel blok feta. Geen sla, wel veel olijfolie.',
   gerei: [ { tool: 'ovenschaal', tekst: 'Grote platte schaal; geen pannen nodig' } ],

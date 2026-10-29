@@ -518,7 +518,7 @@ RECEPTEN.push(
 {
   id: 'empanadas', toegevoegd: '2026-10-27', naam: 'Empanadas met gehakt uit de airfryer',
   ook: ['empanadas', 'empanada', 'empanadas de carne', 'argentijnse empanadas', 'gevulde deegflapjes', 'pasteitjes met gehakt'],
-  keuken: 'Zuid-Amerikaans', soort: 'Ontbijt & lunch',
+  keuken: 'Zuid-Amerikaans', soort: 'Bijgerecht & snack',
   tijd: 75, wacht: '30 min koelen', pers: 12, stuks: 'empanadas', niveau: 'Gemiddeld', vega: false,
   intro: 'Halvemaanvormige deegflapjes uit Argentinië, gevuld met gekruid gehakt, paprika, olijven en ei. Je maakt het boterdeeg zelf en vouwt de randen dicht met het typische gedraaide randje, het repulgue. In de airfryer worden ze goudbruin en krokant. Lekker als lunch, hapje of avondeten.',
   gerei: [
