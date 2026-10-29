@@ -1195,11 +1195,37 @@ const App = (() => {
     toast('Bijgewerkt met je andere apparaten');
   }
 
+  /* Balk bovenaan: zijn hoogte gaat naar --balk-h (voor het filterpaneel en scroll-doelen) en hij
+     krijgt een schaduw zodra hij vastzit. De pijltjes verschijnen pas bij een lange pagina. */
+  function balkEnPijlen() {
+    const balk = $('#balk'), boven = $('#naar-boven'), beneden = $('#naar-beneden');
+    const zetHoogte = () => document.documentElement.style.setProperty('--balk-h', `${balk.offsetHeight}px`);
+    if (window.ResizeObserver) new ResizeObserver(zetHoogte).observe(balk); else zetHoogte();
+    let gepland = false;
+    const bij = () => {
+      gepland = false;
+      const y = window.scrollY, hoog = window.innerHeight, totaal = document.documentElement.scrollHeight;
+      balk.classList.toggle('vast', balk.getBoundingClientRect().top <= 0 && y > 0);
+      const lang = totaal > hoog * 2.5;
+      boven.hidden = !lang || y < hoog * 0.8;
+      beneden.hidden = !lang || y + hoog > totaal - hoog * 0.8;
+    };
+    const plan = () => { if (!gepland) { gepland = true; requestAnimationFrame(bij); } };
+    window.addEventListener('scroll', plan, { passive: true });
+    window.addEventListener('resize', plan);
+    if (window.ResizeObserver) new ResizeObserver(plan).observe(document.body);
+    const zacht = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    boven.addEventListener('click', () => window.scrollTo({ top: 0, behavior: zacht }));
+    beneden.addEventListener('click', () => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: zacht }));
+    bij();
+  }
+
   function start() {
     const metVarianten = new Set(RECEPTEN.filter((r) => VARIANTEN.heeft(r)).map((r) => r.groep)).size;
     $('#teller').textContent = `${VARIANTEN.aantalGerechten()} recepten · ${metVarianten} met varianten · ${KEUKENS.length} hoofdstukken · versie ${window.VERSIE || '?'}`;
     renderFilters();
     koppel();
+    balkEnPijlen();
     render();
     Sync.start(herlaadOpslag);
     const { id, personen } = uitLink();
