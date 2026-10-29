@@ -200,11 +200,11 @@ RECEPTEN.push(
     { n: 'koolsla', q: 400, u: 'g' }
   ],
   stappen: [
-    { t: 'Meng de rub en wrijf het vlees er rondom mee in. Liefst een nacht laten intrekken in de koelkast.' },
-    { t: 'Leg de ui op de bodem van de Dutch oven, het vlees erop en giet appelsap en azijn erbij. Deksel erop en zet 5 à 6 uur in een voorverwarmde oven op 150 °C.', m: 'oven', min: 330 },
+    { kop: 'Rub', t: 'Meng de rub en wrijf het vlees er rondom mee in. Liefst een nacht laten intrekken in de koelkast.' },
+    { kop: 'Garen', t: 'Leg de ui op de bodem van de Dutch oven, het vlees erop en giet appelsap en azijn erbij. Deksel erop en zet 5 à 6 uur in een voorverwarmde oven op 150 °C.', m: 'oven', min: 330 },
     { t: 'Haal de deksel eraf, zet de oven op 200 °C en laat de bovenkant in 20 minuten een donkere korst krijgen.', m: 'oven', min: 20 },
     { t: 'Leg de ui in de slowcooker met het vlees erop. Giet appelsap en azijn erbij. Gaar 8 à 10 uur op LOW.', m: 'slowcooker', min: 540 },
-    { t: 'Trek het vlees met twee vorken uit elkaar. Meng met een deel van het vocht uit de pan en de barbecuesaus.' },
+    { kop: 'Serveren', t: 'Trek het vlees met twee vorken uit elkaar. Meng met een deel van het vocht uit de pan en de barbecuesaus.' },
     { t: 'Serveer op geroosterde broodjes met koolsla.' }
   ],
   tips: ['Het vlees is klaar als een vork er zonder weerstand in draait (kerntemperatuur rond 93 °C).', 'Restjes zijn perfect voor taco\'s, nacho\'s of een tosti.'],

@@ -361,12 +361,12 @@ RECEPTEN.push(
     { n: 'gochujang', q: 2, u: 'el', opt: true }
   ],
   stappen: [
-    { t: 'Leg het vlees 30 minuten in de vriezer tot het stevig maar niet hard is. Snijd het met een scherp mes tegen de draad in in plakjes van 2 à 3 mm.', min: 30 },
+    { kop: 'Vlees', t: 'Leg het vlees 30 minuten in de vriezer tot het stevig maar niet hard is. Snijd het met een scherp mes tegen de draad in in plakjes van 2 à 3 mm.', min: 30 },
     { t: 'Meng peer, sojasaus, suiker, knoflook, sesamolie, peper en het wit van de lente-ui. Schep het vlees en de ui erdoor en laat 30 minuten marineren (of tot een nacht in de koelkast).', min: 30 },
-    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
-    { t: 'Verhit de olie in de koekenpan (of wok) op hoog vuur tot hij echt heet is. Laat de marinade van het vlees afdruipen en bak het in 3 à 4 porties in één laag, 1½ à 2 minuten, tot de randjes karamelliseren. Doe niet te veel tegelijk, anders gaat het koken.', m: 'koekenpan', min: 2 },
+    { kop: 'Erbij', t: 'Kook de rijst volgens de verpakking.', min: 15 },
+    { kop: 'Bakken', t: 'Verhit de olie in de koekenpan (of wok) op hoog vuur tot hij echt heet is. Laat de marinade van het vlees afdruipen en bak het in 3 à 4 porties in één laag, 1½ à 2 minuten, tot de randjes karamelliseren. Doe niet te veel tegelijk, anders gaat het koken.', m: 'koekenpan', min: 2 },
     { t: 'Verwarm de contactgrill voor op de hoogste stand. Laat de marinade van het vlees afdruipen, leg het in een dunne laag op de grill met de ui ertussen en grill 2 minuten met de deksel dicht. Werk in porties.', m: 'contactgrill', min: 2 },
-    { t: 'Bestrooi het vlees met sesamzaad en het groen van de lente-ui. Leg een slablad in je hand, schep er wat rijst, vlees en kimchi op, eventueel een likje gochujang, vouw dicht en eet in één hap.' }
+    { kop: 'Serveren', t: 'Bestrooi het vlees met sesamzaad en het groen van de lente-ui. Leg een slablad in je hand, schep er wat rijst, vlees en kimchi op, eventueel een likje gochujang, vouw dicht en eet in één hap.' }
   ],
   tips: ['De peer bevat een enzym dat het vlees mals maakt. Marineer niet langer dan een nacht, anders wordt het melig.', 'Bulgogi betekent letterlijk "vuurvlees": in Korea grill je het aan tafel boven houtskool.'],
   alt: ['Geen peer? Neem een halve geraspte appel of 1 el honing.']
@@ -501,14 +501,14 @@ RECEPTEN.push(
     { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in ringetjes' }
   ],
   stappen: [
-    { t: 'Dep de kip goed droog. Meng hem met knoflook, gember, zout en peper en laat 15 minuten staan (of tot een dag in de koelkast).', min: 15 },
+    { kop: 'Kip', t: 'Dep de kip goed droog. Meng hem met knoflook, gember, zout en peper en laat 15 minuten staan (of tot een dag in de koelkast).', min: 15 },
     { t: 'Strooi maïzena en bakpoeder over de kip en schep om tot elk stuk bedekt is. Laat 5 minuten staan tot de laag vochtig wordt en een dun beslag vormt; klop daarna los meel eraf.', min: 5 },
-    { t: 'Verhit de olie in de Dutch oven tot 170 °C (thermometer, of: een houten lepelsteel in de olie geeft meteen een krans van belletjes). Bak de kip in 3 porties 8 minuten (dijstukken 6 minuten), tot hij lichtgoud en gaar is. Laat uitlekken op een rooster.', m: 'braadpan', min: 8 },
+    { kop: 'Bakken', t: 'Verhit de olie in de Dutch oven tot 170 °C (thermometer, of: een houten lepelsteel in de olie geeft meteen een krans van belletjes). Bak de kip in 3 porties 8 minuten (dijstukken 6 minuten), tot hij lichtgoud en gaar is. Laat uitlekken op een rooster.', m: 'braadpan', min: 8 },
     { t: 'Verhit de olie tot 180 °C en bak alle kip een tweede keer, in porties, 2 à 3 minuten tot hij diep goudbruin en knapperig is. Die tweede ronde maakt de korst glazig en extra knapperig.', m: 'braadpan', min: 3 },
     { t: 'Besproei of bestrijk de kip met olie en leg hem in één laag in de mand. Bak 20 minuten op 180 °C; keer halverwege en bestrijk droge, witte plekken met nog wat olie.', m: 'airfryer', min: 20 },
     { t: 'Zet de airfryer op 200 °C en bak nog 5 à 6 minuten tot de kip diep goudbruin en knapperig is.', m: 'airfryer', min: 5 },
-    { t: 'Verwarm alle ingrediënten voor de saus in de steelpan op middelhoog vuur en laat 2 minuten zachtjes borrelen tot hij glanst en stroperig is.', min: 2 },
-    { t: 'Schep de kip vlak voor het eten in een grote kom door de warme saus. Bestrooi met sesamzaad en lente-ui en eet direct.' }
+    { kop: 'Yangnyeom-saus', t: 'Verwarm alle ingrediënten voor de saus in de steelpan op middelhoog vuur en laat 2 minuten zachtjes borrelen tot hij glanst en stroperig is.', min: 2 },
+    { kop: 'Serveren', t: 'Schep de kip vlak voor het eten in een grote kom door de warme saus. Bestrooi met sesamzaad en lente-ui en eet direct.' }
   ],
   tips: ['Houd de helft zonder saus en eet die met een snufje zout en peper: in Korea bestel je vaak half-half.', 'Koreanen eten dit met ingelegde rettich en een biertje: chimaek, van chicken en maekju (bier).'],
   alt: ['Minder pittig: neem 2 el gochujang en 1 el extra ketchup.', 'Soja-knoflooksaus (ganjang): vervang de saus door 3 el sojasaus, 3 el honing, 4 tenen knoflook en 2 el water.']
@@ -575,10 +575,10 @@ RECEPTEN.push(
     { n: 'zonnebloemolie', q: 4, u: 'el' }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, suiker en zout in een kom. Schenk de lauwe melk en 1 el olie erbij en roer met een lepel tot een zacht, plakkerig deeg. Kneed of roer het 3 minuten tot het een beetje elastisch wordt.', min: 3 },
+    { kop: 'Deeg', t: 'Meng bloem, gist, suiker en zout in een kom. Schenk de lauwe melk en 1 el olie erbij en roer met een lepel tot een zacht, plakkerig deeg. Kneed of roer het 3 minuten tot het een beetje elastisch wordt.', min: 3 },
     { t: 'Dek de kom af en laat het deeg 1 uur rijzen op een warme plek, tot het twee keer zo groot is.', min: 60 },
-    { t: 'Meng basterdsuiker, kaneel en walnoten voor de vulling.' },
-    { t: 'Vet je handen in met olie (het deeg plakt) en verdeel het deeg in 8 bolletjes. Druk een bolletje plat in je hand, leg er 1½ el vulling in en vouw de randen erover. Knijp de naad goed dicht, zodat er geen suiker uit kan lekken.' },
+    { kop: 'Vulling', t: 'Meng basterdsuiker, kaneel en walnoten voor de vulling.' },
+    { kop: 'Bakken', t: 'Vet je handen in met olie (het deeg plakt) en verdeel het deeg in 8 bolletjes. Druk een bolletje plat in je hand, leg er 1½ el vulling in en vouw de randen erover. Knijp de naad goed dicht, zodat er geen suiker uit kan lekken.' },
     { t: 'Verhit 2 el olie in de koekenpan op middelhoog vuur. Leg 4 bolletjes erin met de naad naar beneden en bak ze 1 minuut tot de onderkant lichtbruin is.', min: 1 },
     { t: 'Keer ze om en druk ze met de spatel plat tot een pannenkoekje van ongeveer 1 cm dik. Bak 2 minuten, keer nog eens en bak met het vuur iets lager en de deksel erop nog 2 minuten, tot ze goudbruin zijn en de suiker binnenin gesmolten is.', min: 4 },
     { t: 'Bak de andere 4 op dezelfde manier. Laat ze een paar minuten afkoelen: de suikerstroop is heet. Eet ze warm, uit de hand of op een servetje.' }
@@ -623,11 +623,11 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Eieren: breng water aan de kook in de steelpan. Laat de eieren er met een schuimspaan in zakken en kook ze precies 6½ minuut. Leg ze direct 5 minuten in ijskoud water en pel ze.', min: 6.5 },
+    { kop: 'Gemarineerd ei', t: 'Breng water aan de kook in de steelpan. Laat de eieren er met een schuimspaan in zakken en kook ze precies 6½ minuut. Leg ze direct 5 minuten in ijskoud water en pel ze.', min: 6.5 },
     { t: 'Optioneel, maar het verschil zit hem hierin: meng sojasaus, mirin en water voor de marinade in een diepvrieszakje, leg de gepelde eieren erin, druk de lucht eruit en laat minstens 2 uur (tot 2 dagen) in de koelkast marineren. Geen tijd? Sla dit over en bestrooi de eieren straks met een snufje zout.', min: 120 },
-    { t: 'Bouillon: breng de kippenbouillon met gember, knoflook, het groen van de lente-ui, kombu en shiitake aan de kook in de soeppan. Vis de kombu eruit zodra de bouillon kookt. Laat 20 minuten zachtjes trekken met de deksel op een kier en zeef hem.', min: 20 },
-    { t: 'Roer de sojasaus en mirin voor de tare door elkaar.' },
-    { t: 'Bestrooi de kip met een snuf zout. Bak hem in de olie in de koekenpan op middelhoog vuur 5 minuten per kant tot hij goudbruin en gaar is. Giet er de laatste minuut 1 el van de tare over en laat die karamelliseren. Laat 5 minuten rusten en snijd in plakjes.', min: 10 },
+    { kop: 'Bouillon', t: 'Breng de kippenbouillon met gember, knoflook, het groen van de lente-ui, kombu en shiitake aan de kook in de soeppan. Vis de kombu eruit zodra de bouillon kookt. Laat 20 minuten zachtjes trekken met de deksel op een kier en zeef hem.', min: 20 },
+    { kop: 'Tare', t: 'Roer de sojasaus en mirin voor de tare door elkaar.' },
+    { kop: 'Kom', t: 'Bestrooi de kip met een snuf zout. Bak hem in de olie in de koekenpan op middelhoog vuur 5 minuten per kant tot hij goudbruin en gaar is. Giet er de laatste minuut 1 el van de tare over en laat die karamelliseren. Laat 5 minuten rusten en snijd in plakjes.', min: 10 },
     { t: 'Stoom de paksoi 4 minuten in het stoommandje van je rijstkoker, of in een vergiet boven de pan met de deksel erop. Stomen is hier de eerste keuze vanwege de smaak: de paksoi blijft knapperig en houdt zijn eigen frisse smaak. Kook intussen de noedels in ruim water zonder zout volgens de verpakking (vers 1 à 2 minuten, gedroogd 3 à 4) en giet goed af. Liever koken? Blancheer de paksoi dan de laatste minuut met de noedels mee.', min: 4, stoom: true },
     { t: 'Doe 1 el tare in elke voorverwarmde kom en schenk er 400 ml gloeiend hete bouillon op. Proef en voeg naar smaak meer tare toe. Leg de noedels erin en maak af met kip, een gehalveerd ei, paksoi, mais, nori, het wit van de lente-ui en sesamzaad. Eet direct, voordat de noedels zacht worden.' }
   ],
@@ -664,13 +664,13 @@ RECEPTEN.push(
     { n: 'benishoga', q: 2, u: 'el', x: 'rode ingelegde gember', opt: true }
   ],
   stappen: [
-    { t: 'Kook de mie 1 minuut korter dan op de verpakking staat. Spoel koud, laat goed uitlekken en meng met 1 tl olie. Verse yakisobanoedels maak je alleen los onder de warme kraan.', min: 3 },
+    { kop: 'Voorbereiden', t: 'Kook de mie 1 minuut korter dan op de verpakking staat. Spoel koud, laat goed uitlekken en meng met 1 tl olie. Verse yakisobanoedels maak je alleen los onder de warme kraan.', min: 3 },
     { t: 'Zet alles klaar naast de wok: snijd vlees en groente en roer de ingrediënten voor de saus door elkaar.' },
-    { t: 'Verhit 1 el olie in de wok op het hoogste vuur. Bak het vlees in 2 à 3 minuten bruin en gaar; bak in 2 delen als het niet in één laag past. Schep het uit de wok.', min: 3 },
+    { kop: 'Wokken', t: 'Verhit 1 el olie in de wok op het hoogste vuur. Bak het vlees in 2 à 3 minuten bruin en gaar; bak in 2 delen als het niet in één laag past. Schep het uit de wok.', min: 3 },
     { t: 'Verhit nog 1 el olie. Roerbak ui en wortel 2 minuten. Voeg de kool toe en roerbak 2 minuten tot hij beetgaar is en bruine randjes heeft.', min: 4 },
     { t: 'Doe de noedels en het vlees erbij en roerbak 2 minuten. Laat de noedels af en toe even liggen, zodat ze een beetje aanbakken. In een koekenpan doe je dit in 2 delen.', min: 2 },
     { t: 'Giet de saus erover, voeg de taugé toe en schep alles 1 minuut om tot de noedels egaal bruin zijn en glanzen. Roer de lente-ui erdoor.', min: 1 },
-    { t: 'Schep op en bestrooi met bonitovlokken, aonori en een hoopje benishoga.' }
+    { kop: 'Erbij', t: 'Schep op en bestrooi met bonitovlokken, aonori en een hoopje benishoga.' }
   ],
   tips: ['Ondanks de naam zijn het geen boekweitnoedels (soba): yakisoba maak je met tarwenoedels, zoals mie.'],
   alt: ['Vegetarisch: laat het vlees weg en bak 200 g shiitake of tofu mee. Worcestershiresaus bevat ansjovis en oestersaus is van oesters: kies vegetarische varianten.']
@@ -745,13 +745,13 @@ RECEPTEN.push(
     { n: 'ingelegde gember', q: 50, u: 'g', x: 'sushigember' }
   ],
   stappen: [
-    { t: 'Kook de sushirijst: spoel hem in een zeef onder de koude kraan tot het water helder blijft. Breng hem met 480 ml water aan de kook in de pan met deksel, zet het vuur op de laagste stand en laat 12 minuten garen. Niet roeren en de deksel erop houden.', min: 12 },
+    { kop: 'Sushirijst', t: 'Kook de sushirijst: spoel hem in een zeef onder de koude kraan tot het spoelwater helder blijft. Breng hem met 480 ml water aan de kook in de pan met deksel, zet het vuur op de laagste stand en laat 12 minuten garen. Niet roeren en de deksel erop houden.', min: 12 },
     { t: 'Haal de pan van het vuur en laat de rijst 10 minuten nastomen met de deksel erop. Verwarm intussen rijstazijn, suiker en zout tot alles is opgelost (30 seconden in de magnetron of in een steelpannetje).', min: 10 },
     { t: 'Schep de rijst in een brede kom van hout, glas of plastic. Giet de sushi-azijn erover en spatel hem er met snijdende bewegingen door, zonder de korrels te pletten. Laat hem afgedekt met een vochtige doek in 30 minuten afkoelen tot kamertemperatuur.', min: 30 },
-    { t: 'Snijd zalm, komkommer (zonder zaadlijst) en avocado in reepjes van 1 cm dik. Halveer de surimi in de lengte en meng met de mayonaise. Wikkel het bamboe matje in vershoudfolie en zet een kommetje water met 1 el rijstazijn klaar voor je handen.' },
-    { t: 'Maki: leg een half vel nori met de ruwe kant naar boven op het matje. Verdeel met natte handen ca. 80 g rijst in een dunne laag erover en laat bovenaan 1 cm vrij. Leg een reepje zalm of komkommer over de breedte in het midden. Til het matje aan de onderkant op, rol strak over de vulling tot aan de vrije rand, rol verder en knijp de rol voorzichtig aan.' },
+    { kop: 'Vulling', t: 'Snijd zalm, komkommer (zonder zaadlijst) en avocado in reepjes van 1 cm dik. Halveer de surimi in de lengte en meng met de mayonaise. Wikkel het bamboe matje in vershoudfolie en zet een kommetje water met 1 el rijstazijn klaar voor je handen.' },
+    { kop: 'Rollen', t: 'Maki: leg een half vel nori met de ruwe kant naar boven op het matje. Verdeel met natte handen ca. 80 g rijst in een dunne laag erover en laat bovenaan 1 cm vrij. Leg een reepje zalm of komkommer over de breedte in het midden. Til het matje aan de onderkant op, rol strak over de vulling tot aan de vrije rand, rol verder en knijp de rol voorzichtig aan.' },
     { t: 'Uramaki: bedek een half vel nori helemaal met ca. 130 g rijst en strooi er sesamzaad over. Keer het vel om, zodat de rijst op de folie ligt. Leg surimi, avocado en komkommer op de nori en rol op zoals bij de maki. De folie zorgt dat de rijst niet aan het matje plakt.' },
-    { t: 'Snijd met een scherp, nat mes elke maki in 6 en elke uramaki in 8 stukjes; veeg het mes na elke snee schoon met een natte doek. Serveer met sojasaus, wasabi en gember.' }
+    { kop: 'Snijden en serveren', t: 'Snijd met een scherp, nat mes elke maki in 6 en elke uramaki in 8 stukjes; veeg het mes na elke snee schoon met een natte doek. Serveer met sojasaus, wasabi en gember.' }
   ],
   tips: ['Rauwe vis: koop zalm van sushikwaliteit bij de visboer of toko; die is diepgevroren tegen parasieten. Twijfel je, neem dan gerookte zalm: veilig en net zo lekker.', 'Bewaar sushi niet in de koelkast, dan wordt de rijst hard. Maak hem op de dag dat je hem eet.'],
   alt: ['Vegetarisch: vul de rollen met komkommer, avocado, reepjes paprika en reepjes tamagoyaki (Japanse omelet).']

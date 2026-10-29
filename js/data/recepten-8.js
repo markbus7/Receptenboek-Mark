@@ -32,8 +32,8 @@ RECEPTEN.push(
     { n: 'zonnebloemolie', q: 3, u: 'el' }
   ],
   stappen: [
-    { t: 'Pureer alle ingrediënten voor de boemboe met 2 el olie tot een gladde pasta.' },
-    { t: 'Rooster de geraspte kokos in de droge Dutch oven op middelhoog vuur 3 minuten goudbruin. Schep uit de pan.', min: 3 },
+    { kop: 'Boemboe', t: 'Pureer alle ingrediënten voor de boemboe met 2 el olie tot een gladde pasta.' },
+    { kop: 'Stoven', t: 'Rooster de geraspte kokos in de droge Dutch oven op middelhoog vuur 3 minuten goudbruin. Schep uit de pan.', min: 3 },
     { t: 'Bak de boemboe in de rest van de olie 5 minuten op middelhoog vuur tot hij geurt en de olie zich afscheidt.', min: 5 },
     { t: 'Voeg het vlees, citroengras, djeroek- en salamblad toe en bak 3 minuten. Giet de kokosmelk erbij met gula djawa, asem, de geroosterde kokos en een theelepel zout.', min: 3 },
     { t: 'Laat zonder deksel heel zachtjes 2½ à 3 uur stoven. Roer elk kwartier: het vocht kookt langzaam in tot een dikke, donkere saus. Het laatste half uur vaker roeren, dan brandt het niet aan.', m: 'braadpan', min: 180 },

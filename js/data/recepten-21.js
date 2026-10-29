@@ -28,11 +28,11 @@ RECEPTEN.push(
     { n: 'verse koriander', q: 10, u: 'g', opt: true }
   ],
   stappen: [
-    { t: 'Spoel de rijst en zet hem op in de rijstkoker met water tot het streepje.', min: 35 },
-    { t: 'Dep de vis droog en bestrooi met een snuf zout. Leg de plakjes gember en de stukken lente-ui op het bord, de vis erop en sprenkel de rijstwijn erover.' },
+    { kop: 'Rijst', t: 'Spoel de rijst en zet hem op in de rijstkoker met water tot het streepje.', min: 35 },
+    { kop: 'Vis', t: 'Dep de vis droog en bestrooi met een snuf zout. Leg de plakjes gember en de stukken lente-ui op het bord, de vis erop en sprenkel de rijstwijn erover.' },
     { t: 'Zet het bord in het stoommandje en zet het mandje de laatste 10 minuten op de rijstkoker. Stoom 8 à 10 minuten, tot de vis net wit is en uit elkaar valt als je er met een vork in duwt.', min: 10 },
-    { t: 'Warm intussen sojasaus, water en suiker in het steelpannetje tot de suiker is opgelost. Giet in een kommetje.' },
-    { t: 'Haal het bord eruit, giet het vocht weg en haal de gember en lente-ui van onder de vis weg. Leg de reepjes gember en lente-ui op de vis.' },
+    { kop: 'Saus', t: 'Warm intussen sojasaus, water en suiker in het steelpannetje tot de suiker is opgelost. Giet in een kommetje.' },
+    { kop: 'Afmaken', t: 'Haal het bord eruit, giet het vocht weg en haal de gember en lente-ui van onder de vis weg. Leg de reepjes gember en lente-ui op de vis.' },
     { t: 'Verhit olie en sesamolie in het steelpannetje tot ze net beginnen te roken en giet ze over de reepjes: het moet sissen. Schenk de saus rond de vis en leg de koriander erop. Eet met de rijst.' }
   ],
   tips: ['Heeft je rijstkoker geen stand om tegelijk te koken en te stomen? Kook dan eerst de rijst, laat hem in de warmhoudstand staan en stoom de vis daarna op de stand Stomen.', 'Vis uit de vriezer eerst helemaal ontdooien en goed droogdeppen, anders loopt er veel vocht op het bord.', 'Dunne stukken (1 cm) zijn al na 6 minuten gaar.'],
@@ -71,12 +71,12 @@ RECEPTEN.push(
     { n: 'chili-olie', q: 1, u: 'tl', opt: true }
   ],
   stappen: [
-    { t: 'Doe het gehakt met sojasaus, oestersaus, rijstwijn, sesamolie, suiker, maïzena en witte peper in een kom. Roer 2 minuten stevig in één richting, tot het een plakkerige massa is: dan blijft de vulling sappig.', min: 2 },
+    { kop: 'Vulling', t: 'Doe het gehakt met sojasaus, oestersaus, rijstwijn, sesamolie, suiker, maïzena en witte peper in een kom. Roer 2 minuten stevig in één richting, tot het een plakkerige massa is: dan blijft de vulling sappig.', min: 2 },
     { t: 'Roer garnalen, shiitake, lente-ui en gember erdoor. Zet de vulling 15 minuten in de koelkast, dan is hij makkelijker te vullen.', min: 15 },
-    { t: 'Leg een velletje in je holle hand en schep er een volle eetlepel vulling op. Knijp je hand dicht, zodat het velletje als een bekertje om de vulling plooit en de bovenkant open blijft. Druk de vulling plat met een natte lepel en zet hem op tafel, zodat de bodem plat wordt. Leg er een stipje wortel op.' },
-    { t: 'Leg een vel bakpapier met een paar gaatjes erin in het stoommandje en zet er zoveel siu mai op als er passen, met 1 cm ruimte ertussen. Houd de rest onder een vochtige doek.' },
+    { kop: 'Vouwen', t: 'Leg een velletje in je holle hand en schep er een volle eetlepel vulling op. Knijp je hand dicht, zodat het velletje als een bekertje om de vulling plooit en de bovenkant open blijft. Druk de vulling plat met een natte lepel en zet hem op tafel, zodat de bodem plat wordt. Leg er een stipje wortel op.' },
+    { kop: 'Stomen', t: 'Leg een vel bakpapier met een paar gaatjes erin in het stoommandje en zet er zoveel siu mai op als er passen, met 1 cm ruimte ertussen. Houd de rest onder een vochtige doek.' },
     { t: 'Stoom ze 10 minuten op de stand Stomen, tot de vulling stevig en gaar is. Stoom de rest in de volgende rondes; vul tussendoor water bij als het bijna op is.', min: 10 },
-    { t: 'Roer de sojasaus met de azijn en eventueel de chili-olie tot dipsaus. Eet de siu mai warm.' }
+    { kop: 'Dipsaus', t: 'Roer de sojasaus met de azijn en eventueel de chili-olie tot dipsaus. Eet de siu mai warm.' }
   ],
   tips: ['Siu mai kun je goed invriezen voor het stomen: leg ze los van elkaar op een plank in de vriezer en doe ze daarna in een zak. Stoom ze bevroren 14 minuten.', 'Wontonvelletjes (vierkant) werken ook; knip er dan rondjes van of laat de puntjes erboven uitsteken.'],
   alt: ['Alleen garnalen: gebruik 400 g garnalen en laat het gehakt weg.', 'Vegetarisch: vervang gehakt en garnalen door 300 g fijngehakte champignons en 150 g fijngehakte, uitgeknepen tofu.'],

@@ -134,13 +134,13 @@ RECEPTEN.push(
     { n: 'Turks brood', q: 1, u: 'st', x: 'of 4 pita\'s' }
   ],
   stappen: [
-    { t: 'Kneed gehakt, ui, knoflook, peterselie, specerijen, paneermeel en een theelepel zout 2 minuten tot het plakt. Vorm 12 langwerpige rolletjes. Laat 10 minuten opstijven in de koelkast.', min: 10 },
+    { kop: 'Köfte', t: 'Kneed gehakt, ui, knoflook, peterselie, specerijen, paneermeel en een theelepel zout 2 minuten tot het plakt. Vorm 12 langwerpige rolletjes. Laat 10 minuten opstijven in de koelkast.', min: 10 },
     { t: 'Leg de köfte en de paprika\'s op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 7 minuten tot de köfte gaar zijn.', m: 'contactgrill', min: 7 },
     { t: 'Bak de köfte in een scheut olie op middelhoog vuur 8 à 10 minuten rondom bruin en gaar. Bak de paprika\'s ernaast mee tot ze zwarte vlekken hebben.', m: 'koekenpan', min: 9 },
     { t: 'Bak de köfte en paprika\'s 10 à 12 minuten in de airfryer op 200 °C. Schud halverwege.', m: 'airfryer', min: 11 },
     { t: 'Gril de köfte en paprika\'s op een gloeiend hete grillpan 8 à 10 minuten. Keer regelmatig.', m: 'grillpan', min: 9 },
-    { t: 'Roer yoghurt, knoflook, munt en een snuf zout door elkaar.' },
-    { t: 'Serveer de köfte met de paprika\'s, yoghurtsaus en warm Turks brood.' }
+    { kop: 'Yoghurtsaus', t: 'Roer yoghurt, knoflook, munt en een snuf zout door elkaar.' },
+    { kop: 'Serveren', t: 'Serveer de köfte met de paprika\'s, yoghurtsaus en warm Turks brood.' }
   ],
   tips: ['Uitknijpen van de geraspte ui voorkomt dat de köfte uit elkaar vallen.'],
   alt: ['Geen lamsgehakt? Rundergehakt werkt prima; voeg dan 1 el olijfolie toe aan het gehakt.']

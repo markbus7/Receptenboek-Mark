@@ -22,13 +22,13 @@ RECEPTEN.push(
     { n: 'hazelnootpasta', q: 100, u: 'g', x: 'zoals Nutella', opt: true }
   ],
   stappen: [
-    { t: 'Doe de bloem en het zout in een kom, maak een kuiltje en breek de eieren erin. Giet er een derde van de melk bij en klop met de garde vanuit het midden tot een dik, glad beslag. Klop dan de rest van de melk erdoor. Met de staafmixer: doe alles in de hoge beker en mix 30 seconden.' },
+    { kop: 'Beslag', t: 'Doe de bloem en het zout in een kom, maak een kuiltje en breek de eieren erin. Giet er een derde van de melk bij en klop met de garde vanuit het midden tot een dik, glad beslag. Klop dan de rest van de melk erdoor. Met de staafmixer: doe alles in de hoge beker en mix 30 seconden.' },
     { t: 'Smelt alle boter. Roer 30 g (ca. 2 el) door het beslag; de rest gebruik je straks om de pan in te vetten. Het beslag is zo dun als ongeklopte slagroom. Is het dikker, voeg dan 2 el melk toe.' },
     { t: 'Laat het beslag afgedekt 30 minuten rusten. Dan worden de crêpes soepeler en scheuren ze minder snel.', min: 30 },
-    { t: 'Verhit de koekenpan op middelhoog vuur. Vet hem in met een propje keukenpapier dat je door de gesmolten boter haalt.' },
+    { kop: 'Bakken', t: 'Verhit de koekenpan op middelhoog vuur. Vet hem in met een propje keukenpapier dat je door de gesmolten boter haalt.' },
     { t: 'Giet een kleine soeplepel beslag (ca. 50 ml) in de pan en draai en kantel de pan meteen, zodat de bodem dun bedekt raakt. Bak ca. 1 minuut, tot de rand loskomt en de onderkant goudbruine vlekjes heeft.', min: 1 },
     { t: 'Keer de crêpe met de spatel en bak de andere kant 30 seconden. Stapel de crêpes op een bord onder een schone theedoek. De eerste mislukt bijna altijd: dat hoort erbij.' },
-    { t: 'Bestrooi een crêpe met suiker, knijp er wat citroen over en vouw hem in vieren. Of besmeer hem met hazelnootpasta en rol hem op.' }
+    { kop: 'Vulling', t: 'Bestrooi een crêpe met suiker, knijp er wat citroen over en vouw hem in vieren. Of besmeer hem met hazelnootpasta en rol hem op.' }
   ],
   tips: [
     'Crêpes Suzette: laat 50 g boter en 50 g suiker in de koekenpan smelten tot een lichte karamel. Blus af met het sap en de geraspte schil van 2 sinaasappels en laat 2 minuten inkoken. Leg de in vieren gevouwen crêpes in de saus en schenk er 3 el Grand Marnier over. Flamberen? Zet de afzuigkap uit, zet de fles ver weg en steek de damp aan met een lange aansteker. Of laat de likeur gewoon 1 minuut meekoken.',
@@ -208,8 +208,8 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Doe azijn, wijn, sjalot, peper en de dragonsteeltjes in het steelpannetje. Laat op middelhoog vuur in 3 à 4 minuten inkoken tot er ongeveer 2 el vocht over is. Giet door een zeef, druk de sjalot goed uit en laat afkoelen.', min: 4 },
-    { t: 'Smelt de boter op laag vuur en schep het witte schuim eraf. Voor geklaarde boter giet je de heldere boter voorzichtig af en laat je het melkachtige laagje onderin achter. Houd de boter warm, niet heet.' },
+    { kop: 'Reductie', t: 'Doe azijn, wijn, sjalot, peper en de dragonsteeltjes in het steelpannetje. Laat op middelhoog vuur in 3 à 4 minuten inkoken tot er ongeveer 2 el vocht over is. Giet door een zeef, druk de sjalot goed uit en laat afkoelen.', min: 4 },
+    { kop: 'Saus', t: 'Smelt de boter op laag vuur en schep het witte schuim eraf. Voor geklaarde boter giet je de heldere boter voorzichtig af en laat je het melkachtige laagje onderin achter. Houd de boter warm, niet heet.' },
     { t: 'Breng in de steelpan 3 cm water aan de kook en zet het vuur laag, zodat het water net niet meer kookt. De bodem van de kom mag het water niet raken.' },
     { t: 'Klop de dooiers met de reductie en 1 el water in de kom los. Zet de kom op de pan en klop 3 à 4 minuten, tot het mengsel dik en schuimig is en de garde een spoor achterlaat. Wordt de kom te heet? Til hem even van de pan, anders krijg je roerei.', min: 4 },
     { t: 'Haal de kom van de pan. Klop de boter er eerst druppel voor druppel door, daarna in een dun straaltje, tot een dikke, glanzende saus.' },
@@ -409,13 +409,13 @@ RECEPTEN.push(
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' }
   ],
   stappen: [
-    { t: 'Week de gelatineblaadjes 5 minuten in ruim koud water.', min: 5 },
+    { kop: 'Panna cotta', t: 'Week de gelatineblaadjes 5 minuten in ruim koud water.', min: 5 },
     { t: 'Snijd het vanillestokje in de lengte open en schraap het merg eruit. Verwarm room, melk, suiker, merg en stokje in de steelpan op middelhoog vuur tot het mengsel dampt en de suiker is opgelost. Laat het niet koken.' },
     { t: 'Haal de pan van het vuur en vis het stokje eruit. Knijp de gelatine uit en roer hem door het warme roommengsel tot hij helemaal is opgelost.' },
     { t: 'Laat het mengsel 10 minuten afkoelen en roer af en toe; zo zakt het vanillemerg niet naar de bodem. Verdeel het over de glaasjes. Wil je de panna cotta storten, spoel de vormpjes dan eerst om met koud water.', min: 10 },
     { t: 'Dek af en laat minimaal 4 uur opstijven in de koelkast.', min: 240 },
-    { t: 'Maak de saus: verwarm de bosvruchten met de suiker en het citroensap in de kleine steelpan. Laat 5 minuten zachtjes koken, tot de vruchten stukgaan en de saus iets indikt. Laat afkoelen.', min: 5 },
-    { t: 'Schep de saus op de panna cotta in de glaasjes. Storten: dompel een vormpje 5 seconden in heet water, maak de rand los met een mesje en keer het om op een bordje. Schep de saus eromheen.' }
+    { kop: 'Bosvruchtensaus', t: 'Maak de saus: verwarm de bosvruchten met de suiker en het citroensap in de kleine steelpan. Laat 5 minuten zachtjes koken, tot de vruchten stukgaan en de saus iets indikt. Laat afkoelen.', min: 5 },
+    { kop: 'Serveren', t: 'Schep de saus op de panna cotta in de glaasjes. Storten: dompel een vormpje 5 seconden in heet water, maak de rand los met een mesje en keer het om op een bordje. Schep de saus eromheen.' }
   ],
   tips: [
     'Een goede panna cotta trilt nog als je tegen het bord tikt. Te stevig geworden? Neem de volgende keer een blaadje gelatine minder.',
@@ -531,14 +531,14 @@ RECEPTEN.push(
     { n: 'Parmezaanse kaas', q: 30, u: 'g', x: 'geraspt, om erover te strooien', opt: true }
   ],
   stappen: [
-    { t: 'Week het paneermeel 5 minuten in de melk. Voeg gehakt, ei, Parmezaanse kaas, knoflook, peterselie, zout en peper toe en meng kort met je handen; te lang kneden maakt de ballen taai. Draai er met natte handen ca. 16 ballen van zo\'n 4 cm van.', min: 5 },
+    { kop: 'Gehaktballen', t: 'Week het paneermeel 5 minuten in de melk. Voeg gehakt, ei, Parmezaanse kaas, knoflook, peterselie, zout en peper toe en meng kort met je handen; te lang kneden maakt de ballen taai. Draai er met natte handen ca. 16 ballen van zo\'n 4 cm van.', min: 5 },
     { t: 'Verhit 2 el olijfolie in de braadpan op middelhoog vuur. Bak de ballen in 6 à 8 minuten rondom bruin, in twee porties als de pan te vol wordt. Haal ze eruit; ze hoeven nog niet gaar te zijn.', m: 'braadpan', min: 7 },
     { t: 'Bak de ballen 8 minuten in de airfryer op 200 °C tot ze rondom bruin zijn. Ze hoeven nog niet gaar te zijn. Verhit intussen 2 el olijfolie in de braadpan.', m: 'airfryer', min: 8 },
-    { t: 'Doe de rest van de olie in de pan en fruit de ui 4 minuten op middelhoog vuur. Bak knoflook en tomatenpuree 1 minuut mee.', min: 5 },
+    { kop: 'Tomatensaus', t: 'Doe de rest van de olie in de pan en fruit de ui 4 minuten op middelhoog vuur. Bak knoflook en tomatenpuree 1 minuut mee.', min: 5 },
     { t: 'Voeg tomaten, oregano en een snuf zout toe en breng aan de kook. Leg de gehaktballen in de saus.' },
     { t: 'Zet het vuur laag en laat 20 à 25 minuten zachtjes garen met de deksel op een kier. Keer de ballen halverwege voorzichtig. De saus is klaar als hij is ingedikt.', min: 22 },
-    { t: 'Kook intussen de spaghetti beetgaar in ruim water met zout.', min: 10 },
-    { t: 'Proef de saus: is hij wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
+    { kop: 'Erbij', t: 'Kook intussen de spaghetti beetgaar in ruim water met zout.', min: 10 },
+    { kop: 'Afmaken', t: 'Proef de saus: is hij wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
   ],
   tips: [
     'Steek een thermometer in een bal: bij 70 °C in het midden is hij gaar. Zonder thermometer: snijd er één doormidden, hij mag niet meer roze zijn.',

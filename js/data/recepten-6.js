@@ -156,12 +156,12 @@ RECEPTEN.push(
     { n: 'knoflook', q: 1, u: 'teen', x: 'geperst' }
   ],
   stappen: [
-    { t: 'Kook de aardappelblokjes 5 minuten in water met zout. Giet af en laat 5 minuten droog stomen.', min: 10, stoom: 'de aardappelblokjes 8 minuten, daarna 5 minuten laten uitdampen' },
+    { kop: 'Aardappelen', t: 'Kook de aardappelblokjes 5 minuten in water met zout. Giet af en laat 5 minuten droog stomen.', min: 10, stoom: 'de aardappelblokjes 8 minuten, daarna 5 minuten laten uitdampen' },
     { t: 'Meng met olie en zout. Bak 18 à 20 minuten in de airfryer op 200 °C. Schud elke 5 minuten.', m: 'airfryer', min: 20 },
     { t: 'Meng met olie en zout en spreid uit op de bakplaat. Rooster 30 à 35 minuten in een voorverwarmde oven op 220 °C. Keer halverwege.', m: 'oven', min: 32 },
     { t: 'Bak in 1 cm hete olie in 2 porties 8 à 10 minuten tot ze rondom goudbruin zijn. Laat uitlekken op keukenpapier.', m: 'koekenpan', min: 10 },
-    { t: 'Saus: bak de knoflook kort in 1 el olie, voeg tomaat, paprikapoeder en cayenne toe en kook 8 minuten. Pureer of prak glad en voeg de azijn toe.', min: 8 },
-    { t: 'Roer mayonaise en knoflook door elkaar. Schep beide sauzen over de warme aardappelen.' }
+    { kop: 'Bravassaus', t: 'Bak de knoflook kort in 1 el olie, voeg tomaat, paprikapoeder en cayenne toe en kook 8 minuten. Pureer of prak glad en voeg de azijn toe.', min: 8 },
+    { kop: 'Alioli', t: 'Roer mayonaise en knoflook door elkaar. Schep beide sauzen over de warme aardappelen.' }
   ],
   tips: ['Het voorkoken en droog laten stomen zorgt voor de krokante buitenkant.'],
   alt: ['Weinig tijd? Gebruik voorgekookte aardappelblokjes uit de koeling; sla dan stap 1 over.']

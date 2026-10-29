@@ -60,13 +60,13 @@ RECEPTEN.push(
     { n: 'limoen', p: 'limoenen', q: 0.5, u: 'st', x: 'sap' }
   ],
   stappen: [
-    { t: 'Meng de marinade, schep de kip erdoor en laat minimaal 30 minuten marineren. Rijg de kip aan de geweekte prikkers.', min: 30 },
-    { t: 'Leg de spiesen naast elkaar op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 8 minuten tot de kip gaar en licht geblakerd is.', m: 'contactgrill', min: 7 },
+    { kop: 'Marinade', t: 'Meng de marinade, schep de kip erdoor en laat minimaal 30 minuten marineren. Rijg de kip aan de geweekte prikkers.', min: 30 },
+    { kop: 'Grillen', t: 'Leg de spiesen naast elkaar op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 8 minuten tot de kip gaar en licht geblakerd is.', m: 'contactgrill', min: 7 },
     { t: 'Verhit de grillpan op hoog vuur tot hij rookt. Grill de spiesen 8 à 10 minuten en draai ze regelmatig.', m: 'grillpan', min: 9 },
     { t: 'Verwarm de airfryer voor op 200 °C. Bak de spiesen in één laag 10 à 12 minuten. Keer ze halverwege.', m: 'airfryer', min: 11 },
     { t: 'Zet de oven op de grillstand (of 230 °C). Leg de spiesen op het rooster boven de bakplaat, 10 cm onder de grill. Grill 12 à 15 minuten en keer halverwege.', m: 'oven', min: 13 },
     { t: 'Bak de kipblokjes in een scheut olie in de koekenpan op hoog vuur 7 à 8 minuten rondom bruin en gaar. Steek ze daarna aan de prikkers.', m: 'koekenpan', min: 8 },
-    { t: 'Pindasaus: verwarm alle ingrediënten in de steelpan op laag vuur en roer tot een gladde saus. Te dik? Voeg wat water toe.', min: 5 }
+    { kop: 'Pindasaus', t: 'Verwarm alle ingrediënten in de steelpan op laag vuur en roer tot een gladde saus. Te dik? Voeg wat water toe.', min: 5 }
   ],
   tips: ['Kippendij blijft veel sappiger dan kipfilet, juist bij hoge hitte.'],
   alt: ['Geen satéprikkers? Bak de kip los en schep de saus erover; net zo lekker met rijst en atjar.']

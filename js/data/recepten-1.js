@@ -63,11 +63,11 @@ RECEPTEN.push(
     { n: 'geraspte kaas', q: 150, u: 'g', x: 'mozzarella of belegen' }
   ],
   stappen: [
-    { t: 'Snipper ui, wortel en bleekselderij fijn. Fruit ze 8 minuten in de olijfolie in de hapjespan op middelhoog vuur.', min: 8 },
+    { kop: 'Ragù', t: 'Snipper ui, wortel en bleekselderij fijn. Fruit ze 8 minuten in de olijfolie in de hapjespan op middelhoog vuur.', min: 8 },
     { t: 'Voeg het gehakt toe en bak het rul en bruin, ca. 5 minuten. Bak knoflook en tomatenpuree 1 minuut mee.', min: 5 },
     { t: 'Blus af met de wijn (of een scheut water). Voeg passata en oregano toe, breng op smaak met zout en peper. Laat 25 minuten zachtjes pruttelen met de deksel op een kier.', min: 25 },
-    { t: 'Bechamel: smelt de boter in de steelpan, roer de bloem erdoor en laat 1 minuut garen. Klop de melk er in scheutjes door met de garde tot een gladde, dikke saus. Breng op smaak met nootmuskaat en zout.' },
-    { t: 'Verwarm de oven voor op 180 °C (hetelucht 160 °C).', m: 'oven' },
+    { kop: 'Bechamelsaus', t: 'Smelt de boter in de steelpan, roer de bloem erdoor en laat 1 minuut garen. Klop de melk er in scheutjes door met de garde tot een gladde, dikke saus. Breng op smaak met nootmuskaat en zout.' },
+    { kop: 'Opbouwen en bakken', t: 'Verwarm de oven voor op 180 °C (hetelucht 160 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 160 °C.', m: 'airfryer' },
     { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen en bouw de lasagne dan op in de hete bak, met de deksel open.', m: 'optigrill-bak' },
     { t: 'Bouw op in de schaal: een dun laagje ragù, lasagnebladen, ragù, bechamel. Herhaal tot alles op is en eindig met bechamel en de kaas.' },
@@ -135,10 +135,10 @@ RECEPTEN.push(
     { n: 'gedroogde oregano', q: 0.5, u: 'tl' }
   ],
   stappen: [
-    { t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 à 10 minuten tot een glad, soepel deeg.', min: 10 },
+    { kop: 'Deeg', t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 à 10 minuten tot een glad, soepel deeg.', min: 10 },
     { t: 'Laat het deeg afgedekt op een warme plek rijzen tot het in volume verdubbeld is, ongeveer 1 uur.', min: 60 },
     { t: 'Verdeel het deeg in 2 bollen en druk ze met je vingers uit tot dunne pizza\'s van ca. 28 cm.' },
-    { t: 'Zet de bakplaat in de oven en verwarm voor op de hoogste stand (250 °C of hoger), minimaal 20 minuten.', m: 'oven', min: 20 },
+    { kop: 'Beleggen en bakken', t: 'Zet de bakplaat in de oven en verwarm voor op de hoogste stand (250 °C of hoger), minimaal 20 minuten.', m: 'oven', min: 20 },
     { t: 'Beleg een pizza met passata, oregano en stukjes mozzarella. Schuif hem op bakpapier op de hete plaat en bak 8 à 10 minuten bovenin de oven.', m: 'oven', min: 9 },
     { t: 'Verwarm de airfryer voor op 200 °C. Maak de pizza\'s zo groot dat ze in de mand passen.', m: 'airfryer' },
     { t: 'Beleg een pizza met passata, oregano en stukjes mozzarella. Leg hem op bakpapier in de mand en bak 7 à 9 minuten tot de rand goudbruin is.', m: 'airfryer', min: 8 },
