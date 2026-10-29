@@ -121,17 +121,16 @@ RECEPTEN.push(
   ook: ['kipnuggets', 'nuggets', 'chicken nuggets', 'kipnugget', 'nuggets van kip'],
   keuken: 'Amerikaans', soort: 'Bijgerecht & snack',
   tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
-  intro: 'Nuggets zoals van de snackbar, maar dan van echte kipfilet die je zelf fijnhakt en kruidt. Je vormt ze, haalt ze door bloem, ei en panko en bakt ze knapperig in de airfryer of de pan. Maak er meteen een dubbele portie van: ze zijn perfect om in te vriezen.',
+  intro: 'Nuggets zoals van de snackbar, maar dan van gewoon kipgehakt uit de supermarkt dat je zelf kruidt. Je vormt ze, haalt ze door bloem, ei en panko en bakt ze knapperig in de airfryer of de pan. Maak er meteen een dubbele portie van: ze zijn perfect om in te vriezen.',
   methodes: [ { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
   gerei: [
-    { tool: 'staafmixer', tekst: 'Hakmolen van de staafmixer of een keukenmachine', of: 'Geen hakmolen: koop 500 g kipgehakt, of snijd de kip met een groot mes heel fijn.' },
     { tool: 'airfryer', tekst: 'Airfryer en een oliespuit of -verstuiver', m: 'airfryer' },
     { tool: 'koekenpan', tekst: 'Koekenpan (28 cm), voor een laag olie van 1 cm', m: 'koekenpan' },
     { tool: 'bakplaat', tekst: 'Drie diepe borden om te paneren, en een bord of plank met bakpapier' }
   ],
   ingr: [
     { kop: 'Nuggets' },
-    { n: 'kipfilet', q: 500, u: 'g', x: 'in grove stukken' },
+    { n: 'kipgehakt', q: 500, u: 'g', of: 'of 500 g kipfilet of kippendijfilet, zelf fijngehakt (zie de alternatieven)' },
     { n: 'paneermeel', q: 2, u: 'el' },
     { n: 'knoflookpoeder', q: 0.5, u: 'tl' },
     { n: 'uienpoeder', q: 0.5, u: 'tl' },
@@ -146,7 +145,7 @@ RECEPTEN.push(
     { n: 'zonnebloemolie', q: 300, u: 'ml', x: 'voor de koekenpan; voor de airfryer 2 el in een verstuiver' }
   ],
   stappen: [
-    { kop: 'Nuggets', t: 'Doe de kip met paneermeel, knoflookpoeder, uienpoeder, paprikapoeder, zout en peper in de hakmolen. Hak met korte stootjes tot een grove, plakkerige massa. Niet tot een gladde pasta: kleine stukjes geven de bite van een echte nugget.' },
+    { kop: 'Nuggets', t: 'Doe het kipgehakt met paneermeel, knoflookpoeder, uienpoeder, paprikapoeder, zout en peper in een kom. Meng het met een vork of je hand tot alles goed verdeeld is en de massa een beetje aan elkaar plakt. Niet te lang kneden, dan worden de nuggets taai.' },
     { t: 'Maak je handen nat en vorm er ongeveer 24 platte nuggets van, zo groot als een walnoot en 1,5 cm dik. Leg ze op het bakpapier. Plakt het te veel, zet de massa dan eerst 15 minuten in de koelkast.' },
     { kop: 'Paneren', t: 'Zet drie borden klaar: een met bloem en een snufje zout, een met de losgeklopte eieren en een met de panko. Haal elke nugget eerst door de bloem, dan door het ei en druk hem rondom in de panko. Leg ze terug op het bakpapier.' },
     { kop: 'Bakken', t: 'Verwarm de airfryer voor op 200 °C. Spuit de nuggets aan beide kanten in met olie en leg ze in één laag in de mand. Bak 10 à 12 minuten en keer ze na 6 minuten, tot ze goudbruin en gaar zijn (snijd er een door: vanbinnen wit). Bak in 2 rondes als ze niet in één laag passen.', m: 'airfryer', min: 11 },
@@ -156,10 +155,10 @@ RECEPTEN.push(
   tips: [
     'Invriezen: leg de gepaneerde, rauwe nuggets los van elkaar op het bakpapier in de vriezer. Na een uur zijn ze hard en doe je ze in een zak; ze blijven 3 maanden goed. Bak ze bevroren in de airfryer, 13 à 15 minuten op 200 °C, en keer halverwege.',
     'Honing-mosterddip: roer 4 el mayonaise, 1 el mosterd en 1 el honing door elkaar.',
-    'Wil je ze echt glad, zoals uit de fabriek? Hak de kip dan langer, tot een pasta, en vorm de nuggets met een natte lepel.'
+    'Kipgehakt is zacht en plakkerig. Werk met natte handen, of vorm de nuggets met twee natte lepels, en zet ze na het paneren 15 minuten in de koelkast: dan houden ze beter hun vorm.'
   ],
   alt: [
-    'Met kippendijfilet worden ze sappiger en smaakvoller. Hak ze even fijn als de kipfilet.',
+    'Zelf hakken in plaats van kipgehakt: snijd 500 g kipfilet of kippendijfilet in grove stukken en hak ze met de kruiden in de hakmolen van de staafmixer met korte stootjes tot een grove, plakkerige massa. Je krijgt dan stukjes met meer bite, zoals een snackbarnugget. Geen hakmolen? Snijd de kip met een groot mes heel fijn. Met kippendij worden ze het sappigst.',
     'Met kaas: meng 50 g geraspte belegen kaas door de kipmassa.'
   ],
   bij: ['barbecuesaus', 'mayonaise']

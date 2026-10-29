@@ -169,6 +169,7 @@ window.PRIJSKOPPELING = {
   /* Vlees en vis */
   'kipfilet': { zoek: ['kipfilet', 'kipfilets', 'kipfilet bl'], niet: ['americanos', 'krieltjes', 'spinazie', 'beleg', 'gerookt', 'gegrild', 'gebraden', 'plakjes', 'salade', 'pesto', 'tandoori', 'shoarma', 'gyros', 'spies', 'cordon', 'kerrie', 'teriyaki', 'pittige', 'smaakmaker', 'ambachtelijke', 'ovengebakken'], st: 150 },
   'kippendijfilet': { zoek: ['kippendijfilet', 'kipdijfilet', 'kipdijfilets'], niet: ['biologisch', 'biologische', 'bio', 'spies', 'gemarineerd', 'gemarineerde', 'shoarma', 'gyros', 'reepjes', 'kips', 'pittig', 'teriyaki', 'tandoori'] },
+  'kipgehakt': { zoek: ['kipgehakt', 'gehakt kip', 'kippengehakt'], niet: ['ballen', 'balletjes', 'burger', 'gekruid', 'kruiden', 'worst', 'gebraden', 'gegrild'] },
   'kippendijen': { zoek: ['kippendijen', 'kipdijen'] },
   'kippenpoten': { zoek: ['kippenpoten', 'kippenbouten'] },
   'kippenvleugels': { zoek: ['kippenvleugels', 'kipvleugels'], niet: ['gemarineerd', 'hot', 'bbq', 'spicy'] },
