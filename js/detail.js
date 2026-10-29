@@ -152,6 +152,7 @@ const Detail = (() => {
                 </div>
               </div>` : '';
             })()}
+            ${Hulp.hoofd(r) ? `<p class="d-hoofd"><span>Hoofdingrediënten</span> ${Hulp.esc(Hulp.hoofd(r))}</p>` : ''}
             <p class="d-intro">${Hulp.esc(r.intro)}</p>
             <ul class="d-meta">${meta}</ul>
           </div>

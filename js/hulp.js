@@ -121,6 +121,14 @@ const Hulp = (() => {
   }
   const metUi = (recept, i, factor) => { const u = uiAdvies(recept, i, factor); return u ? u.ingr : i; };
 
+  /* Waar het gerecht vooral uit bestaat (js/data/hoofdingredienten.js): "aardappel, tomaat en mayonaise".
+     Een variant zonder eigen regel neemt die van zijn basisrecept over. */
+  function hoofd(recept) {
+    const H = window.HOOFD || {};
+    const lijst = H[recept.id] || H[recept.variantVan] || [];
+    return lijst.join(', ').replace(/, ([^,]*)$/, ' en $1');
+  }
+
   /* Geeft { aantal, eenheid, naam } voor een ingrediënt met een vermenigvuldigingsfactor. */
   function hoeveelheid(ingr, factor = 1) {
     if (ingr.q == null) return { aantal: '', eenheid: '', naam: metNlNaam(ingr.n, ingr.x), waarde: null };
@@ -708,5 +716,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stappenMetDeel, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stappenMetDeel, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

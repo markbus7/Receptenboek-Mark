@@ -81,7 +81,7 @@ const App = (() => {
     INGR_AANTAL.set(n, (INGR_AANTAL.get(n) || 0) + 1);
   }));
   const INGR_NAMEN = [...INGR_AANTAL.keys()].sort((a, b) => a.localeCompare(b, 'nl'));
-  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, VARIANTEN.gerecht(r), ...(r.ook || []), r.keuken, r.soort, r.intro, ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
+  const ZOEKTEKST = new Map(RECEPTEN.map((r) => [r.id, Hulp.norm([r.naam, VARIANTEN.gerecht(r), ...(r.ook || []), r.keuken, r.soort, r.intro, Hulp.hoofd(r), ...r.ingr.map((i) => i.n || ''), ...r.gerei.map((g) => g.tekst)].join(' | '))]));
 
   /* Tab Nieuw: recepten die in de afgelopen week zijn toegevoegd (nieuwste eerst). Een recept van
      dinsdag staat er tot en met de dinsdag erna, dus de recepten van vorige week verdwijnen pas als de nieuwe er zijn. */
@@ -370,6 +370,7 @@ const App = (() => {
           <span class="kaart-tekst">
             <span class="kaart-kop"><span class="kaart-keuken">${esc(r.keuken)} · ${esc(r.soort)}</span><span class="kaart-blz">blz. ${BLZ.get(r.id)}</span></span>
             <span class="kaart-titel">${esc(VARIANTEN.heeft(r) ? VARIANTEN.gerecht(r) : r.naam)}</span>
+            ${Hulp.hoofd(r) ? `<span class="kaart-hoofd"><span>Vooral</span> ${esc(Hulp.hoofd(r))}</span>` : ''}
             <span class="kaart-meta">
               <span>${Hulp.tijdTekst(r.tijd)}${r.wacht ? ` <span class="plus">+ ${esc(r.wacht)}</span>` : ''}</span>
               <span>${r.pers} ${esc(r.stuks || 'pers.')}</span>

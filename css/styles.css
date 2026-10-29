@@ -399,6 +399,9 @@ p.sync-fout::before { display: none; }
 .kaart-keuken { font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--k-inkt); }
 .kaart-blz { flex: none; font-family: var(--font-lees); font-style: italic; font-size: 13px; color: var(--potlood); font-variant-numeric: tabular-nums; }
 .kaart-titel { font-family: var(--font-titel); font-size: 22px; line-height: 1.15; text-wrap: balance; }
+/* Waar het gerecht vooral uit bestaat, direct onder de naam. */
+.kaart-hoofd { font-family: var(--font-lees); font-size: 15px; line-height: 1.35; color: var(--inkt); }
+.kaart-hoofd > span, .d-hoofd > span { font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--k-inkt); margin-right: 4px; }
 .kaart-meta { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 14px; color: var(--inkt-zacht); font-variant-numeric: tabular-nums; }
 .kaart-meta > span { display: inline-flex; align-items: center; gap: 4px; }
 .kaart-meta svg { width: 14px; height: 14px; }
@@ -540,6 +543,7 @@ p.sync-fout::before { display: none; }
 .d-blz { position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; font-family: var(--font-titel); font-size: 15px; color: var(--potlood); font-variant-numeric: tabular-nums; }
 
 .d-titelblok { display: flex; flex-direction: column; gap: 12px; }
+.d-hoofd { font-family: var(--font-lees); font-size: 17px; line-height: 1.4; color: var(--inkt); margin: 6px 0 2px; }
 .d-soort { font-family: var(--font-lees); font-style: italic; font-size: 17px; color: var(--k-inkt); }
 .d-titelblok h2 { font-size: clamp(36px, 4.6vw, 58px); letter-spacing: -0.01em; }
 .d-intro { font-family: var(--font-lees); font-size: 18px; line-height: 1.6; color: var(--inkt-zacht); max-width: 46ch; }
@@ -981,7 +985,7 @@ p.sync-fout::before { display: none; }
 .label-pittig { display: inline-block; padding: 1px 7px; border-radius: 4px; background: var(--warn-zacht); color: var(--warn); font-family: var(--font-ui); font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: middle; }
 .kruid-recepten a { color: var(--pen); font-weight: 600; text-underline-offset: 2px; }
 .kruid-kop { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-.kruid-kast { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui, inherit); font-size: 13px; font-weight: 600; color: var(--inkt-zacht); cursor: pointer; }
+.kruid-kast { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-ui); font-size: 13px; font-weight: 600; color: var(--inkt-zacht); cursor: pointer; }
 .kruid-foto { margin: 6px 0 10px; }
 .kruid-foto img { width: 100%; height: 190px; object-fit: contain; background: color-mix(in srgb, var(--lijn) 40%, transparent); border-radius: 6px; display: block; }
 .kruid-foto figcaption { font-size: 11px; color: var(--potlood); margin-top: 3px; }
