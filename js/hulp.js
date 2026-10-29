@@ -592,11 +592,32 @@ const Hulp = (() => {
   /* Zet de hoeveelheid in de staptekst: "Strooi de bloem erover" → "Strooi de **2 el** bloem erover".
      Alleen na "de"/"het", de eerste keer dat een ingrediënt genoemd wordt, niet na "rest van" of "helft van",
      en niet bij één stuk ("de 1 ui"). Ingrediënten die twee keer in de lijst staan slaan we over. */
-  function stapMetHoeveelheden(tekst, recept, factor, gebruikt, overslaan = new Set()) {
+  /* Stappen kunnen een kop hebben ({ kop: 'Arepas', t: ... }): vanaf die stap ben je met dat deel bezig.
+     Geeft de stappen van deze bereidingswijze met per stap het deel, en de ingrediënten van dat deel
+     (het ingrediëntkopje dat met dezelfde woorden begint, zoals 'Arepas (8 stuks)'). */
+  function stappenMetDeel(recept, methode) {
+    let deel = '';
+    const delen = recept.stappen.map((s) => (deel = s.kop || deel));
+    return recept.stappen.map((s, idx) => ({ s, deel: delen[idx] })).filter(({ s }) => !s.m || s.m === methode)
+      .map((x) => ({ ...x, ingr: deelIngr(recept, x.deel) }));
+  }
+
+  function deelIngr(recept, deel) {
+    if (!deel) return null;
+    const d = norm(deel), uit = [];
+    let erin = false, gevonden = false;
+    for (const i of recept.ingr) {
+      if (i.kop) { const k = norm(i.kop); erin = k.startsWith(d) || d.startsWith(k); gevonden = gevonden || erin; continue; }
+      if (erin) uit.push(i);
+    }
+    return gevonden ? uit : null;
+  }
+
+  function stapMetHoeveelheden(tekst, recept, factor, gebruikt, overslaan = new Set(), metBasis = false) {
     const lijst = recept.ingr.filter((i) => !i.kop && i.q != null);
     const telling = new Map();
     lijst.forEach((i) => telling.set(norm(i.n), (telling.get(norm(i.n)) || 0) + 1));
-    const kandidaten = lijst.filter((i) => telling.get(norm(i.n)) === 1 && !overslaan.has(i.n) && !isBasis(i)
+    const kandidaten = lijst.filter((i) => telling.get(norm(i.n)) === 1 && !overslaan.has(i.n) && (metBasis || !isBasis(i))
       && !(i.u === 'st' && i.q * factor < 1.75));
     const past = (i, w) => {
       const n = norm(i.n), p = i.p ? norm(i.p) : '';
@@ -687,5 +708,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stappenMetDeel, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

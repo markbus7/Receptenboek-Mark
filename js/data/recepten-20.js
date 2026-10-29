@@ -91,13 +91,13 @@ RECEPTEN.push(
     { n: 'zwarte peper' }
   ],
   stappen: [
-    { t: 'Leg de kipfilet met het laurierblad en een theelepel zout in de kookpan, zet hem net onder water en breng aan de kook. Laat 15 minuten zachtjes trekken met de deksel op de pan, en laat de kip daarna in het vocht wat afkoelen.', min: 15 },
-    { t: 'Maak nu het deeg, los van de kip. Doe het lauwe water en het zout uit het lijstje Arepas in een kom (niet het kookvocht van de kip) en strooi het maïsmeel er al roerend in. Kneed het met je handen 2 minuten tot een soepel deeg zonder klontjes, en laat het 5 minuten staan: het meel zwelt nog op. Is het te stevig of scheurt het, kneed er dan een scheut water door; is het te nat, een lepel meel.', min: 7 },
+    { kop: 'Reina pepiada', t: 'Leg de kipfilet met het laurierblad en een theelepel zout in de kookpan, zet hem net onder water en breng aan de kook. Laat 15 minuten zachtjes trekken met de deksel op de pan, en laat de kip daarna in het vocht wat afkoelen.', min: 15 },
+    { kop: 'Arepas', t: 'Maak het deeg. Doe het water met het zout in een kom en strooi het maïsmeel er al roerend in. Kneed het met je handen 2 minuten tot een soepel deeg zonder klontjes, en laat het 5 minuten staan: het meel zwelt nog op. Is het te stevig of scheurt het, kneed er dan een scheut water door; is het te nat, een lepel meel.', min: 7 },
     { t: 'Maak met natte handen 8 ballen en druk ze plat tot schijven van 1½ cm dik en ongeveer 9 cm breed. Strijk de randen glad met een natte vinger, dan scheuren ze niet.' },
-    { t: 'Verhit de eetlepel olie uit het lijstje Arepas in de koekenpan op middelhoog vuur. Bak de arepas 6 à 8 minuten per kant met de deksel op de pan, tot ze een goudbruin korstje hebben. Zet het vuur daarna laag en bak ze nog 5 minuten, af en toe keren: dan worden ze ook van binnen gaar.', m: 'koekenpan', min: 20 },
+    { t: 'Verhit de olie in de koekenpan op middelhoog vuur. Bak de arepas 6 à 8 minuten per kant met de deksel op de pan, tot ze een goudbruin korstje hebben. Zet het vuur daarna laag en bak ze nog 5 minuten, af en toe keren: dan worden ze ook van binnen gaar.', m: 'koekenpan', min: 20 },
     { t: 'Bestrijk de arepas dun met olie en bak ze in één laag 18 à 20 minuten in de airfryer op 200 °C. Keer ze halverwege. In een XXL passen er 6 à 8 tegelijk.', m: 'airfryer', min: 20 },
-    { t: 'Pluk de kip intussen met twee vorken in draadjes. Prak de avocado met de mayonaise, knoflook en het limoensap, en roer de kip, rode ui en koriander erdoor. Breng op smaak met zout en peper.' },
-    { t: 'Een arepa is gaar als hij hol klinkt als je erop tikt. Snijd hem aan één kant open als een pitabroodje (niet helemaal doorsnijden) en vul hem royaal. Eet ze meteen, nog warm.' }
+    { kop: 'Reina pepiada', t: 'Pluk de kip intussen met twee vorken in draadjes. Prak de avocado met de mayonaise, knoflook en het limoensap, en roer de kip, rode ui en koriander erdoor. Breng op smaak met zout en peper.' },
+    { kop: 'Vullen', t: 'Een arepa is gaar als hij hol klinkt als je erop tikt. Snijd hem aan één kant open als een pitabroodje (niet helemaal doorsnijden) en vul hem royaal. Eet ze meteen, nog warm.' }
   ],
   tips: ['Voorgekookt maïsmeel heet masarepa; het bekendste merk is P.A.N. (geel-witte zak). Je vindt het bij de Jumbo, in de wereldkeuken-schappen van andere grote supermarkten, bij de toko of Surinaamse winkel, en online. Gewone maïsmeel, polenta of maïzena werken níét: die zijn niet voorgekookt en het deeg valt uit elkaar.', 'Rauwe arepas kun je een dag in de koelkast bewaren en gebakken arepas invriezen. Opwarmen: 8 minuten in de airfryer op 180 °C.'],
   alt: ['Met kaas in het deeg: kneed 75 g geraspte belegen kaas door het deeg, voor arepas die van binnen smelten.', 'Vegetarisch: vul met zwarte bonen uit blik, geraspte kaas en avocado (een arepa dominó).']
@@ -118,11 +118,11 @@ RECEPTEN.push(
     { n: 'boter', q: 30, u: 'g', x: 'om de warme arepa mee te besmeren' }
   ],
   stappen: [
-    { t: 'Doe het lauwe water en het zout uit het lijstje Arepas in een kom en strooi het maïsmeel er al roerend in. Kneed het met je handen 2 minuten tot een soepel deeg zonder klontjes, en laat het 5 minuten staan: het meel zwelt nog op. Is het te stevig of scheurt het, kneed er dan een scheut water door; is het te nat, een lepel meel.', min: 7 },
+    { kop: 'Arepas', t: 'Doe het water met het zout in een kom en strooi het maïsmeel er al roerend in. Kneed het met je handen 2 minuten tot een soepel deeg zonder klontjes, en laat het 5 minuten staan: het meel zwelt nog op. Is het te stevig of scheurt het, kneed er dan een scheut water door; is het te nat, een lepel meel.', min: 7 },
     { t: 'Maak met natte handen 8 ballen en druk ze plat tot schijven van 1½ cm dik en ongeveer 9 cm breed. Strijk de randen glad met een natte vinger, dan scheuren ze niet.' },
-    { t: 'Verhit de eetlepel olie uit het lijstje Arepas in de koekenpan op middelhoog vuur. Bak de arepas 6 à 8 minuten per kant met de deksel op de pan, tot ze een goudbruin korstje hebben. Zet het vuur daarna laag en bak ze nog 5 minuten, af en toe keren: dan worden ze ook van binnen gaar.', m: 'koekenpan', min: 20 },
+    { t: 'Verhit de olie in de koekenpan op middelhoog vuur. Bak de arepas 6 à 8 minuten per kant met de deksel op de pan, tot ze een goudbruin korstje hebben. Zet het vuur daarna laag en bak ze nog 5 minuten, af en toe keren: dan worden ze ook van binnen gaar.', m: 'koekenpan', min: 20 },
     { t: 'Bestrijk de arepas dun met olie en bak ze in één laag 18 à 20 minuten in de airfryer op 200 °C. Keer ze halverwege. In een XXL passen er 6 à 8 tegelijk.', m: 'airfryer', min: 20 },
-    { t: 'Snijd de warme arepas aan één kant open, smeer er een klein beetje boter in en vul ze met ham en kaas. Leg ze nog 1 à 2 minuten terug in de pan met de deksel erop, of in de airfryer, tot de kaas smelt.', min: 2 }
+    { kop: 'Vulling', t: 'Snijd de warme arepas aan één kant open, smeer er een klein beetje boter in en vul ze met ham en kaas. Leg ze nog 1 à 2 minuten terug in de pan met de deksel erop, of in de airfryer, tot de kaas smelt.', min: 2 }
   ],
   tips: ['Voorgekookt maïsmeel heet masarepa; het bekendste merk is P.A.N. (geel-witte zak). Je vindt het bij de Jumbo, in de wereldkeuken-schappen van andere grote supermarkten, bij de toko of Surinaamse winkel, en online. Gewone maïsmeel, polenta of maïzena werken níét.'],
   alt: ['Met roerei: vul de arepa met roerei met tomaat en lente-ui (perico), het andere klassieke ontbijt.']
@@ -159,14 +159,14 @@ RECEPTEN.push(
     { n: 'geraspte kaas', q: 100, u: 'g', opt: true }
   ],
   stappen: [
-    { t: 'Bestrooi het vlees met zout en peper. Verhit de olie in de braadpan op hoog vuur en bak de stukken rondom bruin, in 5 minuten. Haal ze eruit.', min: 5 },
+    { kop: 'Carne mechada', t: 'Bestrooi het vlees met zout en peper. Verhit de olie in de braadpan op hoog vuur en bak de stukken rondom bruin, in 5 minuten. Haal ze eruit.', min: 5 },
     { t: 'Bak ui en paprika 5 minuten op middelhoog vuur. Bak knoflook, komijn en paprikapoeder 1 minuut mee.', min: 6 },
     { t: 'Doe het vlees terug met de tomatenblokjes, bouillon en het laurierblad. Breng aan de kook, leg de deksel op de pan en laat 2 uur heel zachtjes stoven, tot het vlees uit elkaar valt.', min: 120 },
     { t: 'Haal het vlees eruit, trek het met twee vorken in draadjes en doe het terug in de saus. Laat zonder deksel nog 10 minuten inkoken tot het smeuïg is maar niet meer nat. Proef op zout.', min: 10 },
-    { t: 'Maak intussen de arepas. Doe het lauwe water en het zout uit het lijstje Arepas in een kom (niet de bouillon of het stoofvocht) en strooi het maïsmeel er al roerend in. Kneed het 2 minuten tot een soepel deeg en laat het 5 minuten staan. Maak met natte handen 8 schijven van 1½ cm dik en ongeveer 9 cm breed.', min: 7 },
-    { t: 'Verhit de eetlepel olie uit het lijstje Arepas in de koekenpan op middelhoog vuur. Bak de arepas 6 à 8 minuten per kant met de deksel op de pan, tot ze een goudbruin korstje hebben. Zet het vuur daarna laag en bak ze nog 5 minuten, af en toe keren.', m: 'koekenpan', min: 20 },
+    { kop: 'Arepas', t: 'Maak intussen de arepas. Doe het water met het zout in een kom en strooi het maïsmeel er al roerend in. Kneed het 2 minuten tot een soepel deeg en laat het 5 minuten staan. Maak met natte handen 8 schijven van 1½ cm dik en ongeveer 9 cm breed.', min: 7 },
+    { t: 'Verhit de olie in de koekenpan op middelhoog vuur. Bak de arepas 6 à 8 minuten per kant met de deksel op de pan, tot ze een goudbruin korstje hebben. Zet het vuur daarna laag en bak ze nog 5 minuten, af en toe keren.', m: 'koekenpan', min: 20 },
     { t: 'Bestrijk de arepas dun met olie en bak ze in één laag 18 à 20 minuten in de airfryer op 200 °C. Keer ze halverwege.', m: 'airfryer', min: 20 },
-    { t: 'Snijd de arepas aan één kant open en vul ze met het draadjesvlees, en eventueel avocado en kaas.' }
+    { kop: 'Vullen', t: 'Snijd de arepas aan één kant open en vul ze met het draadjesvlees, en eventueel avocado en kaas.' }
   ],
   tips: ['Het vlees is de volgende dag nog lekkerder en kan prima de vriezer in. Wat je overhoudt, eet je met rijst en zwarte bonen: dat is pabellón criollo, het nationale gerecht van Venezuela.'],
   alt: ['Slowcooker: doe alles na het aanbakken in de slowcooker en gaar 7 uur op laag.']
@@ -438,6 +438,7 @@ RECEPTEN.push(
     { tool: 'airfryer', tekst: 'Airfryer met bakpapier (met gaatjes) in de mand' }
   ],
   ingr: [
+    { kop: 'Deeg' },
     { n: 'bloem', q: 500, u: 'g', x: 'het liefst broodbloem of patentbloem' },
     { n: 'gedroogde gist', q: 7, u: 'g' },
     { n: 'suiker', q: 1, u: 'el' },
@@ -451,13 +452,13 @@ RECEPTEN.push(
     { n: 'sesamzaad', q: 2, u: 'el', x: 'of maanzaad', opt: true }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, suiker en zout. Voeg het lauwe water toe en kneed 10 minuten tot een stevig, glad deeg. Het is steviger dan gewoon brooddeeg; dat hoort zo.', min: 10 },
+    { kop: 'Deeg', t: 'Meng bloem, gist, suiker en zout. Voeg het water toe en kneed 10 minuten tot een stevig, glad deeg. Het is steviger dan gewoon brooddeeg; dat hoort zo.', min: 10 },
     { t: 'Laat het deeg afgedekt 1 uur rijzen.', min: 60 },
     { t: 'Verdeel het in 8 stukken van ongeveer 100 g en rol ze tot strakke bollen. Duw je duim door het midden en draai de bal rond je vingers tot een ring met een gat van 3 cm. Het gat krimpt nog.' },
     { t: 'Leg de bagels op stukjes bakpapier en laat ze 20 minuten rusten. Een bagel is klaar als hij binnen een paar seconden boven komt drijven in een kom koud water.', min: 20 },
-    { t: 'Breng in de brede kookpan 3 liter water met de honing en het zuiveringszout aan de kook (dit is ander water dan het lauwe water in het deeg). Kook de bagels 3 à 4 tegelijk 1 minuut per kant. Haal ze er met een schuimspaan uit en laat ze uitlekken.', min: 6 },
-    { t: 'Bestrijk ze met eiwit en druk de bovenkant in het sesamzaad.' },
-    { t: 'Verwarm de airfryer voor op 190 °C. Bak de bagels 4 tegelijk op bakpapier 14 à 16 minuten tot ze diep goudbruin zijn. Keer ze de laatste 3 minuten om, dan wordt ook de onderkant mooi.', min: 16 },
+    { kop: 'Kookwater', t: 'Breng in de brede kookpan 3 liter water met de honing en het zuiveringszout aan de kook. Kook de bagels 3 à 4 tegelijk 1 minuut per kant. Haal ze er met een schuimspaan uit en laat ze uitlekken.', min: 6 },
+    { kop: 'Erop', t: 'Bestrijk ze met eiwit en druk de bovenkant in het sesamzaad.' },
+    { kop: 'Bakken', t: 'Verwarm de airfryer voor op 190 °C. Bak de bagels 4 tegelijk op bakpapier 14 à 16 minuten tot ze diep goudbruin zijn. Keer ze de laatste 3 minuten om, dan wordt ook de onderkant mooi.', min: 16 },
     { t: 'Laat ze minstens 15 minuten afkoelen op een rooster voor je ze opensnijdt: ze garen nog na.', min: 15 }
   ],
   tips: ['Nog lekkerder: zet de gevormde bagels na stap 3 een nacht afgedekt in de koelkast. Kook en bak ze de volgende ochtend meteen uit de koelkast.', 'Zuiveringszout (baking soda) staat in de supermarkt bij het bakpoeder. Het geeft de bagels hun bruine, glanzende korst.'],
