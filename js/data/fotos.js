@@ -600,6 +600,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Kapsalon_dutch_meal.jpg"
  },
+ "karaage": {
+  "src": "img/karaage.jpg",
+  "auteur": "Ocdp",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Chicken_karaage_003.jpg"
+ },
  "karniyarik": {
   "src": "img/karniyarik.jpg",
   "auteur": "E4024",
@@ -677,6 +683,24 @@ window.FOTOS = {
   "auteur": "BBouchra00",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Tajine-marocain-un-plat-varie-et-sain_(cropped).jpg"
+ },
+ "kipnuggets": {
+  "src": "img/kipnuggets.jpg",
+  "auteur": "James Palinsad",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Chicken_Nuggets.jpg"
+ },
+ "kippenvleugels-buffalo": {
+  "src": "img/kippenvleugels-buffalo.jpg",
+  "auteur": "Clotee Pridgen Allochuku",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Buffalo_wings-01.jpg"
+ },
+ "kiptenders": {
+  "src": "img/kiptenders.jpg",
+  "auteur": "FotoosVanRobin",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Crispy_Chicken_Strips_-_FotoosVanRobin.jpg"
  },
  "knoflooksaus": {
   "src": "img/knoflooksaus.jpg",
@@ -1240,6 +1264,12 @@ window.FOTOS = {
   "auteur": "No machine-readable author provided. Alfredo1980 assumed (ba",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Pom_gerecht.JPG"
+ },
+ "popcorn-chicken-taiwanees": {
+  "src": "img/popcorn-chicken-taiwanees.jpg",
+  "auteur": "NeoBatfreak",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Taiwanese_Pepper_Salt_Chicken_(%E9%B9%BD%E9%85%A5%E9%9B%9E)_in_Clovis,_CA.jpg"
  },
  "pulled-pork": {
   "src": "img/pulled-pork.jpg",
