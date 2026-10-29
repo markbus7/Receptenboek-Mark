@@ -19,7 +19,10 @@ window.GEREEDSCHAP = {
   braadpan:   { naam: 'Dutch oven (braadpan)', icoon: 'braadpan' },
   ovenschaal: { naam: 'Ovenschaal',        icoon: 'ovenschaal' },
   bakplaat:   { naam: 'Bakplaat',          icoon: 'bakplaat' },
-  bakvorm:    { naam: 'Bakvorm',           icoon: 'bakvorm' }
+  bakvorm:    { naam: 'Bakvorm',           icoon: 'bakvorm' },
+  shaker:     { naam: 'Cocktailshaker',    icoon: 'shaker' },
+  glas:       { naam: 'Glas',              icoon: 'glas' },
+  maatje:     { naam: 'Maatglaasje',       icoon: 'maatje' }
 };
 
 /* Eenheden: enkelvoud, meervoud, en hoe fijn we afronden bij het omrekenen. */

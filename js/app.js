@@ -11,7 +11,7 @@ const App = (() => {
   const REGIO = new Map(KEUKENS.map((k) => [k, (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).regio || DELEN[0].regio]));
   const REGIOS = DELEN.filter((d) => KEUKENS.some((k) => REGIO.get(k) === d.regio));
   const keukensVan = (regio) => KEUKENS.filter((k) => REGIO.get(k) === regio);
-  const SOORTEN = ['Hoofdgerecht', 'Bijgerecht & snack', 'Soep', 'Salade', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert'].filter((s) => RECEPTEN.some((r) => r.soort === s));
+  const SOORTEN = ['Hoofdgerecht', 'Bijgerecht & snack', 'Soep', 'Salade', 'Ontbijt & lunch', 'Brood', 'Saus', 'Dessert', 'Cocktail'].filter((s) => RECEPTEN.some((r) => r.soort === s));
   // Paginanummers: elk hoofdstuk opent met één pagina, elk recept beslaat een dubbele pagina.
   const BLZ = new Map();
   (() => {
@@ -48,7 +48,7 @@ const App = (() => {
   const BEREID = [['braadpan', 'Dutch oven'], ['koekenpan', 'Koekenpan'], ['oven', 'Oven'], ['airfryer', 'Airfryer'], ['contactgrill', 'Contactgrill'], ['optigrill-bak', 'OptiGrill-bak'], ['rijstkoker', 'Rijstkoker (stomen)'], ['slowcooker', 'Slowcooker'], ['wok', 'Wok']];
   const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
   const ALIASSEN = {
-    indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'],
+    mocktail: ['alcoholvrij'], mocktails: ['alcoholvrij'], indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'],
     duitsland: ['duits'], oostenrijk: ['oostenrijks']
   };
   // Zoekwoorden voor de delen: "europees" of "aziatisch" geeft het hele deel.
@@ -66,8 +66,13 @@ const App = (() => {
     snack: 'Bijgerecht & snack', snacks: 'Bijgerecht & snack', sidedish: 'Bijgerecht & snack', sidedishes: 'Bijgerecht & snack',
     hapje: 'Bijgerecht & snack', hapjes: 'Bijgerecht & snack', borrelhapjes: 'Bijgerecht & snack',
     salade: 'Salade', salades: 'Salade',
-    brood: 'Brood', broden: 'Brood', broodjes: 'Brood', broodgerechten: 'Brood', broodrecepten: 'Brood'
+    brood: 'Brood', broden: 'Brood', broodjes: 'Brood', broodgerechten: 'Brood', broodrecepten: 'Brood',
+    cocktail: 'Cocktail', cocktails: 'Cocktail', drankje: 'Cocktail', drankjes: 'Cocktail', longdrink: 'Cocktail', longdrinks: 'Cocktail'
   };
+  /* Cocktails zijn een eigen deel van het boek: ze staan niet tussen het eten, tenzij je het tabblad Cocktails kiest,
+     de soort Cocktail aanvinkt of ernaar zoekt. In Nieuw, Favorieten en Gemaakt staan ze gewoon. */
+  const DRANK = new Set(keukensVan('Cocktails'));
+  const toonDrank = () => state.view !== 'alle' || !!Hulp.norm(state.zoek).trim() || state.soorten.has('Cocktail') || [...state.keukens].some((k) => DRANK.has(k));
   const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
   // Woorden per recept voor korte zoektermen en tikfouten: naam, keuken, soort, ingrediënten en gerei.
   const WOORDEN = new Map(RECEPTEN.map((r) => [r.id, new Set(splits([
@@ -250,7 +255,9 @@ const App = (() => {
       m: metVoorraad ? metKast(Hulp.match(r, state.voorraad, state.basis), inKast) : null,
       maakbaar: Hulp.maakbaar(r, mijnKeuken())
     }));
+    const drank = toonDrank();
     const filter = (vaag) => lijst.filter(({ r, m, maakbaar }) =>
+      (drank || !DRANK.has(r.keuken)) &&
       (state.view !== 'fav' || state.favs.has(r.id)) &&
       (state.view !== 'nieuw' || NIEUW.includes(r.id)) &&
       (state.view !== 'gemaakt' || Logboek.keer(r.id) > 0) &&
