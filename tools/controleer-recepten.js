@@ -127,6 +127,7 @@ for (const r of ctx.RECEPTEN) {
   for (const s of r.stappen || []) {
     if (typeof s.t !== 'string' || !s.t.trim()) fout('stap zonder tekst');
     if (s.min !== undefined && !(typeof s.min === 'number' && s.min > 0)) fout(`stap "${(s.t || '').slice(0, 30)}": min moet positief zijn`);
+    if (s.kop !== undefined && (typeof s.kop !== 'string' || !s.kop.trim())) fout(`stap "${(s.t || '').slice(0, 30)}": kop moet tekst zijn`);
     if (s.m && !mids.includes(s.m)) fout(`stap "${(s.t || '').slice(0, 30)}": onbekende methode "${s.m}"`);
   }
   const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'pit', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep', 'vriezer']);

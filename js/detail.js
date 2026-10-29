@@ -490,22 +490,24 @@ const Detail = (() => {
      krabbels en welke ingrediënten je in die stap voor het eerst gebruikt. */
   function stapData() {
     const gebruikt = new Set(), genoemd = new Set();
-    return r.stappen.filter((s) => !s.m || s.m === methode).map((s, n) => {
+    return Hulp.stappenMetDeel(r, methode).map(({ s, deel, ingr }, n, alle) => {
       const voor = new Set(gebruikt);
-      const html = Hulp.stapMetHoeveelheden(s.t, r, factor, gebruikt, mixWeg);
+      // Met een kop zoek je alleen in de ingrediënten van dat deel: "het water" is dan het water voor het deeg,
+      // en dan krijgen ook water, zout en olie hun hoeveelheid.
+      const html = Hulp.stapMetHoeveelheden(s.t, ingr ? { ...r, ingr } : r, factor, gebruikt, mixWeg, !!ingr);
       const notities = [
         ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? 'of: in je rijstkoker' : '',
         ctx.keuken.includes('rijstkoker') && typeof s.stoom === 'string' ? `of stomen in je rijstkoker: ${s.stoom}` : '',
         ...vries.items.filter((x) => x.stap === s).map((x) => `${x.i.n} uit de vriezer: ${x.inStap}`)
       ].filter(Boolean);
       const woorden = Hulp.norm(s.t).split(/[^\p{L}]+/u).filter(Boolean);
-      const nodig = r.ingr.filter((i) => {
-        if (i.kop || Hulp.isBasis(i) || mixWeg.has(i.n) || genoemd.has(i.n)) return false;
+      const nodig = (ingr || r.ingr).filter((i) => {
+        if (i.kop || (Hulp.isBasis(i) && !(ingr && i.q != null)) || mixWeg.has(i.n) || genoemd.has(i.n)) return false;
         const erin = (gebruikt.has(i.n) && !voor.has(i.n)) || noemt(i, woorden);
         if (erin) genoemd.add(i.n);
         return erin;
       });
-      return { s, n, html, notities, nodig };
+      return { s, n, html, notities, nodig, deel, nieuwDeel: deel && (n === 0 || alle[n - 1].deel !== deel) };
     });
   }
 
@@ -523,7 +525,8 @@ const Detail = (() => {
   const timerKnop = (d) => d.s.min ? `<button type="button" class="timer-knop" data-min="${d.s.min}" data-label="Stap ${d.n + 1}">${icoon('klok')} Timer ${Hulp.tijdTekst(d.s.min)}</button>` : '';
 
   function renderStappen() {
-    blad.querySelector('#d-stappen').innerHTML = stapData().map((d) => `
+    blad.querySelector('#d-stappen').innerHTML = stapData().map((d) => `${d.nieuwDeel ? `
+      <li class="stap-deel">${Hulp.esc(d.deel)}</li>` : ''}
       <li class="stap${d.s.m ? ' stap-methode' : ''}">
         <button type="button" class="stap-nr" data-stap aria-label="Markeer stap ${d.n + 1} als klaar">${d.n + 1}</button>
         <div class="stap-tekst">
@@ -576,6 +579,7 @@ const Detail = (() => {
       </header>
       <div class="kook-voortgang" aria-hidden="true"><span style="width:${((kookStap + 1) / kookData.length) * 100}%"></span></div>
       <div class="kook-midden">
+        ${d.deel ? `<p class="kook-deel">${Hulp.esc(d.deel)}</p>` : ''}
         <p class="kook-nr">${kookStap + 1}</p>
         <p class="kook-tekst" aria-live="polite">${d.html}</p>
         ${d.notities.map((t) => `<p class="stap-notitie">${Hulp.esc(t)}</p>`).join('')}
@@ -678,7 +682,10 @@ const Detail = (() => {
       regels.push(`- ${Hulp.hoeveelheidTekst(ui ? ui.ingr : i, factor)}${extra ? `, ${extra}` : ''}${ofTekst ? ` (${ofTekst})` : ''}${ui && ui.ook ? ` (ook goed: ${ui.ook})` : ''}${i.opt ? ' (optioneel)' : ''}`);
     });
     regels.push('', 'Bereiding');
-    r.stappen.filter((s) => !s.m || s.m === methode).forEach((s, n) => regels.push(`${n + 1}. ${s.t}`));
+    Hulp.stappenMetDeel(r, methode).forEach(({ s, deel }, n, alle) => {
+      if (deel && (n === 0 || alle[n - 1].deel !== deel)) regels.push(`${deel}:`);
+      regels.push(`${n + 1}. ${s.t}`);
+    });
     if (r.tips && r.tips.length) regels.push('', 'Tip', ...r.tips.map((t) => `- ${t}`));
     regels.push('', link());
     return regels.join('\n');

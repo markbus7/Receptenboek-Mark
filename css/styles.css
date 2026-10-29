@@ -625,6 +625,8 @@ p.sync-fout::before { display: none; }
 .d-ingr .knop-vol { background: var(--k); border-color: var(--k); color: #FFFDF8; }
 
 .stappen { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.stap-deel { margin-top: 18px; padding-bottom: 2px; font-family: var(--font-lees); font-style: italic; font-size: 17px; color: var(--k-inkt); }
+.stap-deel:first-child { margin-top: 0; }
 .stap { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--lijn); }
 .stap:last-child { border-bottom: 0; }
 .stap-nr {
@@ -668,6 +670,7 @@ p.sync-fout::before { display: none; }
   display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
   width: min(760px, 100%); margin-inline: auto; padding: 22px 22px 32px;
 }
+.kook-deel { margin: 0 0 4px; font-family: var(--font-lees); font-style: italic; font-size: 18px; color: var(--k-inkt); }
 .kook-nr { font-family: var(--font-titel); font-size: 56px; line-height: 1; color: var(--k-inkt); }
 .kook-tekst { font-family: var(--font-lees); font-size: clamp(22px, 3.4vw, 30px); line-height: 1.5; text-wrap: pretty; }
 .kook-tekst .stap-hv { color: var(--k-inkt); }
@@ -939,6 +942,7 @@ p.sync-fout::before { display: none; }
 .dk-ingr li em { color: #6B6257; font-size: 13px; }
 .dk-ingr small, .dk-gerei small { font-size: 13px; font-style: italic; color: #6B6257; }
 .dk-gerei small { display: block; }
+.dk-stappen .dk-stap-deel { display: block; padding: 12px 0 2px; border: 0; font-family: var(--font-lees); font-style: italic; font-size: 16px; color: var(--k); }
 .dk-ingr .dk-ingr-kop { display: block; padding: 14px 0 4px; border: 0; font-family: var(--font-lees); font-style: italic; font-size: 16px; color: var(--k); }
 .dk-rechts { display: flex; flex-direction: column; gap: 22px; }
 .dk-rechts figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
