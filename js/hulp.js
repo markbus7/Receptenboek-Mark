@@ -271,6 +271,8 @@ const Hulp = (() => {
   const MIXEN = () => new Map((window.GROENTEMIXEN || []).map((m) => [m.id, m]));
   const isMix = (t) => typeof t === 'string' && t.startsWith('mix:');
   const mixVan = (t) => MIXEN().get(t.slice(4));
+  // Naam van een mix midden in een zin; merknamen als "AH ..." houden hun hoofdletters.
+  const mixKlein = (mix) => (/^AH /.test(mix.naam) ? mix.naam : mix.naam.toLowerCase());
   const voorraadTermen = (voorraad) => voorraad.flatMap((t) => (isMix(t) ? ((mixVan(t) || {}).bevat || []) : [t]));
 
   /* Gewicht in gram van een ingrediënt, om aan te geven hoeveel van een groentemix je gebruikt. */
@@ -716,5 +718,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stappenMetDeel, stapMetHoeveelheden, foto, isMix, mixVan, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stappenMetDeel, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

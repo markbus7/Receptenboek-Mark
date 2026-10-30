@@ -307,11 +307,11 @@ const Detail = (() => {
     const en = (namen) => namen.join(', ').replace(/, ([^,]*)$/, ' en $1');
     const kiesEl = blad.querySelector('#d-mix-kies');
     kiesEl.hidden = !passend.length;
-    kiesEl.innerHTML = passend.length ? `<p class="mix-kies-vraag">Heb je een groentemix uit de vriezer?</p>
+    kiesEl.innerHTML = passend.length ? `<p class="mix-kies-vraag">Heb je een groentemix uit de vriezer of het koelvak?</p>
       ${groenten.length ? `<p class="mix-rang-uitleg">Een mix kan hier ${groenten.length === 1 ? 'de' : groenten.length} ${groenten.length === 1 ? Hulp.esc(groenten[0]) : `groenten vervangen: ${Hulp.esc(en(groenten))}`}. Bovenaan staat de mix die er het meest van vervangt; tik een mix aan om hem te gebruiken.</p>` : ''}
       ${combi ? (() => {
         const aan = [combi.a, combi.b].every((m) => gekozenMixen.has(m.id) || uitVoorraad.includes('mix:' + m.id));
-        return `<p class="mix-combi"><b>Samen vervangen twee mixen meer:</b> ${Hulp.esc(combi.a.naam)} (±&nbsp;${combi.gramA}&nbsp;g) en ${Hulp.esc(combi.b.naam.toLowerCase())} (±&nbsp;${combi.gramB}&nbsp;g) vervangen ${combi.samen === groenten.length ? `alle ${groenten.length}` : `${combi.samen} van de ${groenten.length}`} groenten.${combi.mist.length ? ` Nog vers: ${Hulp.esc(en(combi.mist))}.` : ''}
+        return `<p class="mix-combi"><b>Samen vervangen twee mixen meer:</b> ${Hulp.esc(combi.a.naam)} (±&nbsp;${combi.gramA}&nbsp;g) en ${Hulp.esc(Hulp.mixKlein(combi.b))} (±&nbsp;${combi.gramB}&nbsp;g) vervangen ${combi.samen === groenten.length ? `alle ${groenten.length}` : `${combi.samen} van de ${groenten.length}`} groenten.${combi.mist.length ? ` Nog vers: ${Hulp.esc(en(combi.mist))}.` : ''}
           <button type="button" class="chip chip-mix" data-kies-combi="${combi.a.id} ${combi.b.id}" aria-pressed="${aan}">Gebruik ze allebei</button></p>`;
       })() : ''}
       <ol class="mix-rang">${passend.map(({ mix, gedekt, gram, erbij, mist }, nr) => {
@@ -332,16 +332,16 @@ const Detail = (() => {
     const mixEl = blad.querySelector('#d-mix');
     mixEl.hidden = !mixen.length;
     mixEl.innerHTML = mixen.map(({ mix, gedekt, gram, erbij, dubbel }) => `<p>${gedekt.length
-      ? `<b>Met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> die vervangt hier ${Hulp.esc(gedekt.map((i) => i.n).join(', '))}${dubbel ? ` (${Hulp.esc(en(dubbel.map((i) => i.n)))} ${dubbel.length > 1 ? 'komen' : 'komt'} al uit je andere mix)` : ''}. Gebruik ± ${gram} g van je mix.`
-      : dubbel ? `<b>Je ${Hulp.esc(mix.naam.toLowerCase())}</b> is hier niet nodig: ${Hulp.esc(en(dubbel.map((i) => i.n)))} ${dubbel.length > 1 ? 'komen' : 'komt'} al uit je andere mix.`
-      : `<b>Lekker met je ${Hulp.esc(mix.naam.toLowerCase())}:</b> voeg ± ${erbij} g toe.`}${dubbel && !gedekt.length ? '' : ' ' + Hulp.esc(mix.bereiding)}</p>`).join('') +
-      (mixen.length ? `<p class="mix-vriezer"><b>Bevroren?</b> Niet ontdooien: dan wordt de groente slap en waterig. Gebruik hem recht uit de vriezer, zet het vuur een stand hoger en reken op 2 à 3 minuten extra bak- of kooktijd. Bevroren groente geeft vocht af: laat dat in de pan eerst verdampen voor je verder bakt, en doe hem bij een saus of soep er pas in als die al kookt. Weeg hem bevroren, zonder het ijs uit de zak.</p>` : '');
+      ? `<b>Met je ${Hulp.esc(Hulp.mixKlein(mix))}:</b> die vervangt hier ${Hulp.esc(gedekt.map((i) => i.n).join(', '))}${dubbel ? ` (${Hulp.esc(en(dubbel.map((i) => i.n)))} ${dubbel.length > 1 ? 'komen' : 'komt'} al uit je andere mix)` : ''}. Gebruik ± ${gram} g van je mix.`
+      : dubbel ? `<b>Je ${Hulp.esc(Hulp.mixKlein(mix))}</b> is hier niet nodig: ${Hulp.esc(en(dubbel.map((i) => i.n)))} ${dubbel.length > 1 ? 'komen' : 'komt'} al uit je andere mix.`
+      : `<b>Lekker met je ${Hulp.esc(Hulp.mixKlein(mix))}:</b> voeg ± ${erbij} g toe.`}${dubbel && !gedekt.length ? '' : ' ' + Hulp.esc(mix.bereiding)}</p>`).join('') +
+      (mixen.some((d) => !d.mix.vers) ? `<p class="mix-vriezer"><b>Bevroren?</b> Niet ontdooien: dan wordt de groente slap en waterig. Gebruik hem recht uit de vriezer, zet het vuur een stand hoger en reken op 2 à 3 minuten extra bak- of kooktijd. Bevroren groente geeft vocht af: laat dat in de pan eerst verdampen voor je verder bakt, en doe hem bij een saus of soep er pas in als die al kookt. Weeg hem bevroren, zonder het ijs uit de zak.</p>` : '');
 
     renderVriezer();
     const vriesKort = new Map(vries.items.map((x) => [x.i.n, x.kort]));
 
     const uitMix = new Map();
-    mixen.forEach(({ mix, gedekt }) => gedekt.forEach((i) => uitMix.set(i.n, mix.naam.toLowerCase())));
+    mixen.forEach(({ mix, gedekt }) => gedekt.forEach((i) => uitMix.set(i.n, Hulp.mixKlein(mix))));
 
     // Wat de mix vervangt verdwijnt uit de lijst; op de plek van het eerste ingrediënt komt de mix zelf.
     mixWeg = new Set(uitMix.keys());
@@ -352,7 +352,7 @@ const Detail = (() => {
       if (mixWeg.has(i.n)) {
         const m = mixRegel.get(i.n);
         if (!m || r.ingr.findIndex((x) => x.n === i.n) !== idx) return '';
-        return `<li class="ingr ingr-is-mix"><label><input type="checkbox"><span class="hv">± ${m.gram} g</span><span class="ingr-naam">${Hulp.esc(m.mix.naam.toLowerCase())} <em>(diepvries)</em><span class="ingr-x">in plaats van ${Hulp.esc(m.gedekt.map((x) => x.n).join(', '))}</span></span></label></li>`;
+        return `<li class="ingr ingr-is-mix"><label><input type="checkbox"><span class="hv">± ${m.gram} g</span><span class="ingr-naam">${Hulp.esc(Hulp.mixKlein(m.mix))} <em>(${m.mix.vers ? 'koelvak' : 'diepvries'})</em><span class="ingr-x">in plaats van ${Hulp.esc(m.gedekt.map((x) => x.n).join(', '))}</span></span></label></li>`;
       }
       const mixNaam = uitMix.get(i.n);
       const ui = Hulp.uiAdvies(r, i, factor);
