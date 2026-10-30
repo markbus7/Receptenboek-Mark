@@ -123,53 +123,6 @@ RECEPTEN.push(
   alt: ['Vegetarisch: vervang het vlees door stevige tofu, gebruik groentebouillon en vegetarische oestersaus (op basis van paddenstoelen).']
 },
 {
-  id: 'babi-pangang', naam: 'Babi pangang', ook: ['babi pangang saus'],
-  keuken: 'Chinees', soort: 'Hoofdgerecht',
-  tijd: 30, wacht: '1½ uur in de oven', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
-  intro: 'Buikspek met een knapperig gepoft zwoerd en de bekende knalrode zoetzure saus met atjar. Een feestmaal van de Chinees-Indische afhaal.',
-  methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' } ],
-  gerei: [
-    { tool: 'bakplaat', tekst: 'Ovenrooster met een bakplaat eronder', m: 'oven' },
-    { tool: 'airfryer', tekst: 'Airfryer', m: 'airfryer' },
-    { tool: 'kookpan', tekst: 'Steelpan voor de saus' },
-    { tool: 'kookpan', tekst: 'Pan met deksel voor de rijst' }
-  ],
-  ingr: [
-    { n: 'varkensbuik', q: 750, u: 'g', x: 'buikspek in één stuk met zwoerd' },
-    { n: 'vijfkruidenpoeder', q: 1, u: 'tl' },
-    { n: 'suiker', q: 1, u: 'tl' },
-    { n: 'azijn', q: 1, u: 'el', x: 'voor het zwoerd' },
-    { n: 'zout', q: 2, u: 'tl' },
-    { n: 'rijst', q: 300, u: 'g' },
-    { kop: 'Rode saus' },
-    { n: 'zonnebloemolie', q: 1, u: 'el' },
-    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in dunne halve ringen' },
-    { n: 'knoflook', q: 1, u: 'teen' },
-    { n: 'gember', q: 10, u: 'g', x: 'geraspt' },
-    { n: 'tomatenpuree', q: 2, u: 'el' },
-    { n: 'ketchup', q: 4, u: 'el' },
-    { n: 'sambal oelek', q: 1, u: 'tl' },
-    { n: 'suiker', q: 3, u: 'el' },
-    { n: 'azijn', q: 3, u: 'el' },
-    { n: 'ketjap manis', q: 1, u: 'el' },
-    { n: 'water', q: 250, u: 'ml' },
-    { n: 'maïzena', q: 1, u: 'el', x: 'aangelengd met 2 el koud water' },
-    { n: 'atjar', q: 100, u: 'g', x: 'atjar tjampoer uit een pot, uitgelekt', opt: true }
-  ],
-  stappen: [
-    { t: 'Dep het vlees goed droog. Prik het zwoerd overal in met de punt van een scherp mes of een satéprikker, zonder in het vlees te komen. Wrijf de vleeskant in met vijfkruidenpoeder, suiker en 1 tl zout. Wrijf het zwoerd in met de azijn en daarna met de rest van het zout.' },
-    { t: 'Verwarm de oven voor op 180 °C. Leg het vlees met het zwoerd naar boven op het rooster en schuif een bakplaat met een laagje water eronder om het vet op te vangen. Bak 60 minuten.', m: 'oven', min: 60 },
-    { t: 'Zet de oven op 230 °C (of zet de grill aan) en bak nog 20 à 30 minuten, tot het zwoerd overal opbolt en knapperig is. Blijf er de laatste minuten bij; het mag niet zwart worden.', m: 'oven', min: 25 },
-    { t: 'Snijd het vlees zo nodig in 2 stukken zodat het in de mand past. Leg het met het zwoerd naar boven in de airfryer en bak 35 minuten op 160 °C.', m: 'airfryer', min: 35 },
-    { t: 'Zet de airfryer op 200 °C en bak nog 15 à 20 minuten, tot het zwoerd overal gepoft en knapperig is.', m: 'airfryer', min: 18 },
-    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
-    { t: 'Saus: fruit ui, knoflook en gember 3 minuten in de olie in de steelpan. Voeg tomatenpuree, ketchup, sambal, suiker, azijn, ketjap en water toe en breng aan de kook. Bind met de aangelengde maïzena, laat 2 minuten zachtjes koken en roer de atjar erdoor.', min: 6 },
-    { t: 'Laat het vlees 5 minuten rusten. Leg het met het zwoerd naar beneden op de snijplank en snijd het met een groot mes in plakken of blokjes. Serveer op de rijst met de saus ernaast, dan blijft het zwoerd knapperig.', min: 5 }
-  ],
-  tips: ['Wrijf het vlees een dag van tevoren in en laat het onafgedekt in de koelkast staan. Hoe droger het zwoerd, hoe beter het popt.', 'Het voorbeeld is het Kantonese siu yuk, geroosterd buikspek; de knalrode zoetzure saus is een echte Nederlands-Chinese vinding.'],
-  alt: ['Minder vet: neem 600 g procureur (varkensnek) in plakken van 2 cm, ingewreven met ketjap en vijfkruidenpoeder. Bak ze 20 à 25 minuten in de oven op 220 °C of 12 à 15 minuten in de airfryer op 200 °C; keer halverwege.']
-},
-{
   id: 'zoetzure-kip', naam: 'Zoetzure kip', gerecht: 'Zoetzuur (koe lo)', variant: 'Kip', ook: ['koe lo kai', 'kip zoetzuur', 'sweet and sour chicken'],
   keuken: 'Chinees', soort: 'Hoofdgerecht',
   tijd: 40, pers: 4, niveau: 'Gemiddeld', vega: false,
@@ -376,7 +329,7 @@ RECEPTEN.push(
   vriezer: { procureur: { bevroren: 'Half ontdooid is hier juist handig: als je er net een mes in krijgt maar het nog stevig is, snijd je het flinterdun. De 30 minuten in de vriezer uit stap 1 sla je dan over.', inStap: 'half ontdooid: vriezer overslaan' } },
   intro: 'Flinterdun varkensvlees in een rode, pittig-zoete marinade van gochujang, soja en knoflook, heet gebakken. Net als bulgogi wikkel je het met rijst en kimchi in een slablad.',
   vervang: {
-    entrecote: { n: 'procureur', q: 600, u: 'g', x: 'varkensschouder, of varkensbuik; half bevroren in flinterdunne plakjes' },
+    entrecote: { n: 'procureur', q: 600, u: 'g', x: 'varkensschouder; half bevroren in flinterdunne plakjes' },
     sojasaus: [{ n: 'sojasaus', q: 3, u: 'el' }, { n: 'gochujang', q: 3, u: 'el', x: 'Koreaanse chilipasta' }, { n: 'gember', q: 10, u: 'g', x: 'geraspt' }],
     gochujang: null
   },
@@ -514,43 +467,6 @@ RECEPTEN.push(
   alt: ['Minder pittig: neem 2 el gochujang en 1 el extra ketchup.', 'Soja-knoflooksaus (ganjang): vervang de saus door 3 el sojasaus, 3 el honing, 4 tenen knoflook en 2 el water.']
 },
 {
-  id: 'kimchi-jjigae', toegevoegd: '2026-10-20', naam: 'Kimchi jjigae (kimchistoof met varkensbuik)', ook: ['kimchi jjigae', 'kimchi chigae', 'kimchi stew', 'kimchisoep', 'koreaanse kimchisoep', 'kimchistoof'],
-  keuken: 'Koreaans', soort: 'Soep',
-  tijd: 15, wacht: '25 min trekken', pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
-  intro: 'Het Koreaanse thuisgerecht bij uitstek: zure kimchi en varkensbuik, samen stevig aangebakken en dan getrokken tot een rode, pittige bouillon met zachte tahoe. Je zet de pan midden op tafel en eet er rijst bij.',
-  vriezer: { varkensbuik: { bevroren: 'Half ontdooid snijd je de varkensbuik makkelijk in dunne plakjes. Helemaal bevroren kun je hem ook in de pan doen: bak hem dan eerst 5 minuten met de deksel erop tot de plakjes loslaten.', inStap: 'half ontdooid snijden' } },
-  gerei: [
-    { tool: 'kookpan', tekst: 'Brede kookpan of braadpan (24 cm) met deksel' },
-    { tool: 'kookpan', tekst: 'Pan met deksel voor de rijst' }
-  ],
-  ingr: [
-    { n: 'kimchi', q: 300, u: 'g', x: '1 pot, goed zuur, met het sap; in stukken geknipt' },
-    { n: 'varkensbuik', q: 300, u: 'g', x: 'zonder zwoerd, in plakjes van ½ cm' },
-    { n: 'sesamolie', q: 1, u: 'el' },
-    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in halve ringen' },
-    { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
-    { n: 'gochujang', q: 1, u: 'el' },
-    { n: 'chilivlokken', q: 2, u: 'tl', x: 'of 1 el gochugaru (Koreaans chilipoeder)' },
-    { n: 'sojasaus', q: 1, u: 'el' },
-    { n: 'suiker', q: 1, u: 'tl' },
-    { n: 'water', q: 750, u: 'ml', x: 'of kippenbouillon' },
-    { n: 'tahoe', q: 400, u: 'g', x: 'stevig of zijden tahoe, in plakken van 1 cm' },
-    { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in schuine ringetjes' },
-    { n: 'rijst', q: 300, u: 'g', x: 'liefst ronde rijst of sushirijst' }
-  ],
-  stappen: [
-    { t: 'Kook de rijst volgens de verpakking.', min: 15 },
-    { t: 'Verhit de sesamolie in de kookpan op middelhoog vuur en bak de varkensbuik 4 minuten, tot het vet uit de plakjes komt en ze licht bruin zijn.', min: 4 },
-    { t: 'Voeg kimchi, ui en knoflook toe en bak 5 minuten mee, tot de kimchi zacht wordt en aan de randen een beetje kleurt. Dat aanbakken geeft de soep zijn diepe smaak.', min: 5 },
-    { t: 'Roer gochujang, chilivlokken, sojasaus en suiker erdoor en bak 1 minuut. Schenk het water en het kimchisap uit de pot erbij en breng aan de kook.', min: 1 },
-    { t: 'Leg de deksel erop en laat 20 minuten zachtjes trekken, tot het vlees mals is.', min: 20 },
-    { t: 'Leg de plakken tahoe in de soep en laat ze 5 minuten meewarmen; roer niet meer, dan blijft de tahoe heel. Proef: te zuur, voeg een snuf suiker toe; te zout, schenk er wat water bij.', min: 5 },
-    { t: 'Strooi de lente-ui erover en zet de pan borrelend op tafel, met een kom rijst voor iedereen.' }
-  ],
-  tips: ['Hoe ouder en zuurder de kimchi, hoe beter de soep. Een pot die al een paar weken open in je koelkast staat is precies goed.', 'Varkensbuik in plakjes snijd je het makkelijkst als hij een half uur in de vriezer heeft gelegen.'],
-  alt: ['Geen varkensbuik? Spekblokjes of dunne reepjes varkensschouder werken ook.', 'Minder pittig: laat de chilivlokken weg en houd het bij de gochujang.']
-},
-{
   id: 'hotteok', toegevoegd: '2026-10-27', naam: 'Hotteok (Koreaanse pannenkoekjes met bruine suiker)',
   ook: ['hotteok', 'hoddeok', 'koreaanse pannenkoekjes', 'koreaanse suikerpannenkoek', 'sweet korean pancakes', 'gevulde pannenkoekjes'],
   keuken: 'Koreaans', soort: 'Dessert',
@@ -631,7 +547,7 @@ RECEPTEN.push(
     { t: 'Stoom de paksoi 4 minuten in het stoommandje van je rijstkoker, of in een vergiet boven de pan met de deksel erop. Stomen is hier de eerste keuze vanwege de smaak: de paksoi blijft knapperig en houdt zijn eigen frisse smaak. Kook intussen de noedels in ruim water zonder zout volgens de verpakking (vers 1 à 2 minuten, gedroogd 3 à 4) en giet goed af. Liever koken? Blancheer de paksoi dan de laatste minuut met de noedels mee.', min: 4, stoom: true },
     { t: 'Doe 1 el tare in elke voorverwarmde kom en schenk er 400 ml gloeiend hete bouillon op. Proef en voeg naar smaak meer tare toe. Leg de noedels erin en maak af met kip, een gehalveerd ei, paksoi, mais, nori, het wit van de lente-ui en sesamzaad. Eet direct, voordat de noedels zacht worden.' }
   ],
-  tips: ['Gebruik je bouillon van blokjes, maak hem dan slapper (1 blokje per liter): de tare brengt ook zout mee.', 'Echte ramenzaken trekken hun bouillon een hele dag en serveren chashu, opgerold gestoofd buikspek. Deze kip is de snelle thuisversie.'],
+  tips: ['Gebruik je bouillon van blokjes, maak hem dan slapper (1 blokje per liter): de tare brengt ook zout mee.', 'Echte ramenzaken trekken hun bouillon een hele dag en serveren er lang gestoofd vlees op. Deze kip is de snelle thuisversie.'],
   alt: ['Miso ramen: roer per kom 1 el witte miso door de tare.', 'Vegetarisch: gebruik groentebouillon met extra shiitake en kombu, en gebakken tofu in plaats van kip.']
 },
 {
@@ -645,7 +561,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'mie', q: 300, u: 'g', x: 'gedroogde mienoedels; of 4 pakjes verse yakisobanoedels (toko)' },
-    { n: 'varkensvlees', q: 300, u: 'g', x: 'dun gesneden buikspek of varkensreepjes; of kipfilet' },
+    { n: 'varkensvlees', q: 300, u: 'g', x: 'varkensreepjes of dun gesneden varkenshaas; of kipfilet' },
     { n: 'spitskool', q: 300, u: 'g', x: 'in stukken van 3 cm; of witte kool' },
     { n: 'wortel', p: 'wortels', q: 1, u: 'st', x: 'in lucifers' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in dunne halve ringen' },

@@ -84,7 +84,7 @@ ARTIKELEN = {
     'kip-cashew': 'Cashew chicken', 'banh-mi': 'Bánh mì', 'goi-cuon': 'Gỏi cuốn', 'bo-luc-lac': 'Shaking beef',
     'fish-and-chips': 'Fish and chips', 'full-english-breakfast': 'Full breakfast',
     'sticky-toffee-pudding': 'Sticky toffee pudding', 'apple-crumble': 'Crumble',
-    'foe-yong-hai': 'File:Nasi Fuyong Hai.jpg', 'tjap-tjoy': 'Chop suey', 'babi-pangang': 'nl:Babi pangang',
+    'foe-yong-hai': 'File:Nasi Fuyong Hai.jpg', 'tjap-tjoy': 'Chop suey',
     'zoetzure-kip': "File:9681KIng's Special and Sweet & Sour Chicken 08.jpg", 'egg-fried-rice': 'Fried rice', 'beef-broccoli': 'Beef and broccoli',
     'bulgogi': 'Bulgogi', 'kimchi-fried-rice': 'Kimchi fried rice', 'japchae': 'Japchae',
     'korean-fried-chicken': 'Korean fried chicken', 'ramen': 'Ramen', 'yakisoba': 'Yakisoba', 'gyoza': 'File:Baked gyoza of Gyoza-no-Manshu.jpg',
@@ -186,7 +186,7 @@ ARTIKELEN = {
     # 1.19.0: er is geen vrije foto van kip kerrie met perzik; deze kip kerrie met rijst lijkt er het meest op
     'kip-kerrie-perzik': 'File:Chicken curry rice.jpg',
     # 1.38.0
-    # (kimchi jjigae en Surinaamse pastei: geen vrije foto gevonden, dus het tegeltje)
+    # (Surinaamse pastei: geen vrije foto gevonden, dus het tegeltje)
     'rakott-krumpli': 'Rakott krumpli', 'mechoui': 'Méchoui', 'sutlac': 'File:Sütlaç (Turkish rice pudding).jpeg',
     'spareribs': 'Spare ribs',
     'yoghurt-platbrood': 'Flatbread', 'bloem-tortillas': 'Flour tortilla', 'arepas': 'Arepa', 'bazlama': 'Bazlama',
@@ -195,7 +195,7 @@ ARTIKELEN = {
     # 1.54.0: stomen in de rijstkoker
     'gestoomde-vis-gember': 'File:Homemade steamed fish in dinner.jpg', 'siu-mai': 'Shumai', 'gestoomde-groenten-sesam': 'File:Tenderstem broccoli dressed with sesame sauce 001.jpg',
     # 1.55.0 (rinderrouladen: de enige vrije foto is een rauwe rollade, dus het tegeltje)
-    'thit-kho': 'Thịt kho', 'avgolemono': 'Avgolemono', 'empanadas': 'Empanada', 'hotteok': 'Hotteok',
+    'avgolemono': 'Avgolemono', 'empanadas': 'Empanada', 'hotteok': 'Hotteok',
     'baklava': 'Baklava',
     'kiptenders': 'Chicken fingers', 'kipnuggets': 'Chicken nugget', 'popcorn-chicken-taiwanees': 'Taiwanese fried chicken',
     'kippenvleugels-buffalo': 'Buffalo wing', 'karaage': 'Karaage',

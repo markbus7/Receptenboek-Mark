@@ -74,7 +74,6 @@ window.HOOFD = {
   'foe-yong-hai-garnalen': ['ei', 'garnalen', 'taugé', 'zoetzure saus'],
   'tjap-tjoy': ['kip', 'Chinese kool', 'champignons', 'taugé'],
   'tjap-tjoy-varken': ['varkensvlees', 'Chinese kool', 'champignons', 'taugé'],
-  'babi-pangang': ['varkensbuik', 'zoetzure saus', 'rijst'],
   'zoetzure-kip': ['kip', 'ananas', 'paprika', 'zoetzure saus'],
   'koe-lo-yuk': ['varkensvlees', 'ananas', 'paprika', 'zoetzure saus'],
   'egg-fried-rice': ['rijst', 'ei', 'doperwten'],
@@ -100,7 +99,6 @@ window.HOOFD = {
   'goi-cuon': ['rijstpapier', 'garnalen', 'rijstnoedels', 'sla'],
   'bo-luc-lac': ['biefstuk', 'rijst', 'tomaat', 'waterkers'],
   'ga-luc-lac': ['kip', 'rijst', 'tomaat', 'waterkers'],
-  'thit-kho': ['varkensbuik', 'ei', 'rijst'],
   'kung-pao-kip': ['kip', 'pinda', 'gedroogde pepers', 'rijst'],
   'teriyaki-zalm': ['zalm', 'rijst', 'broccoli'],
   'chicken-katsu': ['gepaneerde kip', 'currysaus', 'rijst'],
@@ -110,7 +108,6 @@ window.HOOFD = {
   'kimchi-fried-rice': ['rijst', 'kimchi', 'ei', 'spek'],
   japchae: ['glasnoedels', 'rundvlees', 'groenten'],
   'korean-fried-chicken': ['kippenvleugels', 'pittige saus'],
-  'kimchi-jjigae': ['kimchi', 'varkensbuik', 'tofu'],
   hotteok: ['deeg', 'bruine suiker', 'walnoten'],
   ramen: ['ramennoedels', 'kippenbouillon', 'kip', 'ei'],
   yakisoba: ['mie', 'varkensvlees', 'spitskool'],
@@ -121,7 +118,7 @@ window.HOOFD = {
   'siu-mai': ['deegvelletjes', 'varkensgehakt', 'garnalen'],
   'gestoomde-groenten-sesam': ['broccoli', 'sperziebonen', 'wortel', 'sesam'],
   'cong-you-bing': ['deeg', 'lente-ui'],
-  'gua-bao': ['broodje', 'buikspek'],
+  'gua-bao': ['broodje', 'kip'],
   karaage: ['kip', 'sojasaus', 'gember'],
 
   /* Indiaas */

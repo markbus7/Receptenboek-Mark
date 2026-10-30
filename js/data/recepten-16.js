@@ -582,8 +582,7 @@ RECEPTEN.push(
     'Maak ze hooguit een paar uur van tevoren en dek ze af met een vochtige doek. In de koelkast worden ze taai.'
   ],
   alt: [
-    'Vegetarisch: gebakken reepjes stevige tofu in plaats van garnalen. De dip is al vegetarisch.',
-    'Klassiek gaan er ook dunne plakjes gekookt buikspek in, samen met de garnalen.'
+    'Vegetarisch: gebakken reepjes stevige tofu in plaats van garnalen. De dip is al vegetarisch.'
   ]
 },
 {
@@ -651,45 +650,6 @@ RECEPTEN.push(
     { t: 'Doe alle kip terug, zet het vuur uit, voeg de boter en de rest van de knoflook toe en schud 30 seconden tot alles glanst. Schep de kip met het jus over de salade en serveer met rijst en de dip.' }
   ],
   alt: []
-},
-{
-  id: 'thit-kho', toegevoegd: '2026-10-27', naam: 'Thịt kho (Vietnamese karamelvarkensbuik met ei)',
-  ook: ['thit kho', 'thit kho trung', 'thit kho tau', 'vietnamese varkensbuik', 'karamel varkensvlees', 'braised pork belly', 'varkensbuik met ei'],
-  keuken: 'Vietnamees', soort: 'Hoofdgerecht',
-  tijd: 20, wacht: '1¼ uur stoven', pers: 4, niveau: 'Makkelijk', vega: false,
-  intro: 'Het Vietnamese thuisgerecht dat in elk gezin op tafel komt met Tết (nieuwjaar): varkensbuik en gekookte eieren die ruim een uur zachtjes stoven in karamel, vissaus en kokoswater. Het vlees wordt zo zacht dat het uit elkaar valt en de eieren kleuren mooi bruin. Zoet, zout en heel simpel.',
-  vriezer: { varkensbuik: { bevroren: 'Laat de varkensbuik helemaal ontdooien: bevroren vlees kleurt niet in de karamel en spat.', inStap: 'helemaal ontdooid' } },
-  gerei: [
-    { tool: 'braadpan', tekst: 'Dutch oven of pan met dikke bodem (24 cm) met deksel', of: 'Een hapjespan of kookpan met deksel werkt ook; houd het vuur dan heel laag.' },
-    { tool: 'kookpan', tekst: 'Steelpan voor de eieren' },
-    { tool: 'rijstkoker', tekst: 'Rijstkoker voor de rijst', of: 'Of kook de rijst in een pan met deksel.' }
-  ],
-  ingr: [
-    { n: 'varkensbuik', q: 800, u: 'g', x: 'met zwoerd, in blokken van 4 cm' },
-    { n: 'ei', p: 'eieren', q: 6, u: 'st' },
-    { n: 'suiker', q: 3, u: 'el' },
-    { n: 'sjalot', p: 'sjalotten', q: 3, u: 'st', x: 'fijngesneden' },
-    { n: 'knoflook', q: 4, u: 'teen', x: 'fijngehakt' },
-    { n: 'vissaus', q: 3, u: 'el' },
-    { n: 'kokoswater', q: 500, u: 'ml', x: 'puur, zonder suiker; geen kokosmelk' },
-    { n: 'zwarte peper', q: 1, u: 'tl', x: 'grof gemalen' },
-    { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in ringetjes' },
-    { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'in ringetjes', opt: true },
-    { n: 'jasmijnrijst', q: 300, u: 'g' }
-  ],
-  stappen: [
-    { t: 'Zet de varkensbuik onder water in een pan, breng aan de kook en laat 3 minuten koken. Giet af en spoel het vlees schoon onder de kraan. Zo blijft de saus straks helder.', min: 5 },
-    { t: 'Kook intussen de eieren 8 minuten, laat ze schrikken in koud water en pel ze.', min: 8, stoom: 'de eieren 12 minuten, daarna in koud water' },
-    { t: 'Doe de suiker met 2 el water in de droge Dutch oven op middelhoog vuur. Niet roeren, wel af en toe zwenken. Na 4 à 5 minuten wordt het een donkerbruine karamel, de kleur van cola. Dan is hij goed: lichter geeft geen kleur, zwart is bitter.', min: 5 },
-    { t: 'Doe meteen het vlees erbij (pas op, het spat) en schep 3 minuten om tot alles bruin glanst. Bak sjalot en knoflook 1 minuut mee.', min: 4 },
-    { t: 'Schenk vissaus en kokoswater erbij met de peper. Het vlees moet net onder staan; vul aan met water als het nodig is. Breng aan de kook en schep het schuim eraf.' },
-    { t: 'Leg de deksel er schuin op en laat 1 uur heel zachtjes stoven. Leg na een half uur de gepelde eieren erin en draai ze af en toe, zodat ze rondom bruin worden.', min: 60 },
-    { t: 'Kook de rijst.', min: 20 },
-    { t: 'Haal de deksel eraf en laat de saus nog 10 à 15 minuten inkoken tot hij een beetje stroperig is. Proef: te zoet, 1 tl vissaus erbij; te zout, 50 ml water.', min: 12 },
-    { t: 'Halveer de eieren en serveer alles met de saus over de rijst, bestrooid met lente-ui en rode peper.' }
-  ],
-  tips: ['Kokoswater is het heldere sap uit een jonge kokosnoot, geen kokosmelk. Je vindt het in pakjes bij de sappen of in de wereldkeuken, en bij de toko.', 'Lekker met iets fris ernaast: komkommer, gestoomde paksoi of zuur ingelegde taugé.', 'Thịt kho wordt de volgende dag nog lekkerder. Het vet stolt dan bovenop en schep je er makkelijk af.'],
-  alt: ['Geen kokoswater? Neem water met 1 el extra suiker. Het wordt iets minder rond, maar nog steeds heel lekker.', 'Minder vet: neem varkensschouder (procureur) in blokken en stoof 15 minuten langer.']
 },
 {
   id: 'fish-and-chips', naam: 'Fish and chips', ook: ['fish & chips', 'kibbeling'],
