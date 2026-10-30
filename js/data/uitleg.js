@@ -134,6 +134,18 @@ window.UITLEG = [
     waar: 'Bij het fruit of de toko.' },
 
   /* ---------- Overige keukens ---------- */
+  { id: 'romaine-sla', naam: 'Romaine sla', namen: ['romaine sla'],
+    wat: 'Langwerpige krop sla met stevige, knapperige bladeren en een sappige middennerf. De sla van de caesar salad: hij blijft knapperig onder een dikke dressing.',
+    waar: 'Bij de sla en groente, als hele krop of als romaine harten (2 à 3 in een zakje). Heet ook bindsla.',
+    tip: 'Niet te vinden? Little gem of ijsbergsla; kropsla wordt te slap.' },
+  { id: 'ansjovisfilets', naam: 'Ansjovisfilets', namen: ['ansjovisfilets'],
+    wat: 'Kleine gezouten visjes in olie. Fijngeprakt smelten ze weg in een saus of dressing en geven ze een diepe, hartige smaak, zonder dat je vis proeft.',
+    waar: 'In kleine blikjes of potjes bij de vis in blik (naast de tonijn) of de Italiaanse producten.',
+    tip: 'Restje? Leg ze onder olie in een potje in de koelkast, dan blijven ze weken goed. Geen ansjovis: een extra theelepel worcestershiresaus.' },
+  { id: 'sumak', naam: 'Sumak', namen: ['sumak'],
+    wat: 'Gemalen gedroogde bessen van de sumakstruik: paarsrood poeder dat zuur en fris smaakt, zoals citroen. Hoort op fattoush en kebab.',
+    waar: 'Bij de kruiden: Verstegen heeft een potje sumak (AH, Jumbo). Goedkoper in een zakje bij de Turkse of Marokkaanse supermarkt.',
+    tip: 'Niet te vinden? Wat geraspte citroenschil met een snufje zout.' },
   { id: 'kokoswater', naam: 'Kokoswater', namen: ['kokoswater'],
     wat: 'Het heldere, licht zoete sap uit een jonge, groene kokosnoot. Dun als water, dus heel iets anders dan kokosmelk. In Vietnam stoof je er vlees in.',
     waar: 'In pakjes of flesjes bij de sappen of de sportdranken, soms bij de wereldkeuken. Ook bij de toko. Neem puur kokoswater zonder toegevoegde suiker of smaakje.',

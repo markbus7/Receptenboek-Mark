@@ -311,5 +311,18 @@ window.HOOFD = {
   nojito: ['munt', 'limoen', 'bruiswater'],
   'virgin-colada': ['ananassap', 'kokosmelk'],
   'virgin-mule': ['gemberbier', 'limoen', 'munt'],
-  'pink-lemonade': ['frambozen', 'citroen', 'bruiswater']
+  'pink-lemonade': ['frambozen', 'citroen', 'bruiswater'],
+
+  /* Salades (1.68.0) */
+  'caesar-salad': ['romaine sla', 'kip', 'croutons', 'Parmezaanse kaas'],
+  'caesar-salad-garnalen': ['romaine sla', 'garnalen', 'croutons', 'Parmezaanse kaas'],
+  'cobb-salad': ['kip', 'spek', 'ei', 'avocado'],
+  'salade-nicoise': ['tonijn', 'krieltjes', 'sperziebonen', 'ei'],
+  'salade-chevre-chaud': ['geitenkaas', 'stokbrood', 'walnoten', 'honing'],
+  caprese: ['tomaat', 'mozzarella', 'basilicum'],
+  panzanella: ['brood', 'tomaat', 'komkommer'],
+  fattoush: ['sla', 'tomaat', 'komkommer', 'pitabrood'],
+  'yam-nua': ['biefstuk', 'komkommer', 'munt', 'limoen'],
+  'chinese-noedelsalade-kip': ['mie', 'kip', 'pindadressing', 'komkommer'],
+  huzarensalade: ['aardappel', 'ham', 'augurk', 'mayonaise']
 };
