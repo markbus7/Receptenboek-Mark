@@ -123,12 +123,10 @@ window.UIEN = {
     'bo-luc-lac': { 'rode ui': ['rode ui', 'Snel ingelegd in azijn en suiker wordt hij mild, knapperig en roze', 'sjalot', 'witte ui'] },
     'foe-yong-hai': { ui: ['gele ui', 'Hij bakt kort en blijft een beetje knapperig in de omelet', 'witte ui', 'lente-ui'] },
     'tjap-tjoy': { ui: ['gele ui', 'De partjes blijven knapperig in de wok', 'witte ui'] },
-    'babi-pangang': { ui: ['gele ui', 'Gefruit wordt hij zoet in de saus', 'witte ui'] },
     'zoetzure-kip': { ui: ['gele ui', 'De partjes blijven knapperig en vallen niet uit elkaar in de wok', 'witte ui', 'rode ui'] },
     bulgogi: { ui: ['gele ui', 'Gemarineerd en meegegrild wordt hij zoet en glazig', 'witte ui'] },
     'kimchi-fried-rice': { ui: ['gele ui', 'Hij roerbakt zoet tegen de zure kimchi', 'witte ui'] },
     japchae: { ui: ['gele ui', 'Dunne halve ringen die zoet worden in de wok', 'witte ui'] },
-    'kimchi-jjigae': { ui: ['gele ui', 'Hij kookt zacht en zoet in de pittige soep', 'witte ui'] },
     yakisoba: { ui: ['gele ui', 'Hij roerbakt zacht en zoet tussen de kool en de noedels', 'witte ui'] },
     'chicken-katsu': { ui: ['gele ui', 'Japanse kerriesaus begint met zacht gefruite ui: zoet en rond', 'witte ui'] },
 

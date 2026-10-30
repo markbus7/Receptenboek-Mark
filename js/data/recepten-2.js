@@ -42,7 +42,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'spliterwten', q: 500, u: 'g', x: 'gewassen' },
     { n: 'water', q: 2000, u: 'ml' },
-    { n: 'krabbetjes', q: 500, u: 'g', x: 'of 250 g speklap' },
+    { n: 'krabbetjes', q: 500, u: 'g', x: 'of 250 g procureur' },
     { n: 'rookworst', p: 'rookworsten', q: 1, u: 'st' },
     { n: 'knolselderij', q: 300, u: 'g', x: 'in blokjes' },
     { n: 'prei', p: 'preien', q: 1, u: 'st', x: 'in ringen' },

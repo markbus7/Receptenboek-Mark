@@ -72,12 +72,6 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Panggang_1.JPG"
  },
- "babi-pangang": {
-  "src": "img/babi-pangang.jpg",
-  "auteur": "Gunawan Kartapranata",
-  "licentie": "CC BY-SA 3.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Panggang_1.JPG"
- },
  "bagels": {
   "src": "img/bagels.jpg",
   "auteur": "Shisma",
@@ -1762,12 +1756,6 @@ window.FOTOS = {
   "auteur": "Calvin Marquess",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Salmon_Teriyaki.jpg"
- },
- "thit-kho": {
-  "src": "img/thit-kho.jpg",
-  "auteur": "Kingofthepings",
-  "licentie": "CC BY-SA 3.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Caramelized_Pork_and_Eggs.jpg"
  },
  "tiramisu": {
   "src": "img/tiramisu.jpg",

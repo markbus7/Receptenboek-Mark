@@ -54,7 +54,7 @@ RECEPTEN.push(
     { tool: 'slowcooker', tekst: 'Slowcooker', m: 'slowcooker' }
   ],
   ingr: [
-    { n: 'varkensvlees', q: 800, u: 'g', x: 'procureur of speklappen, in blokjes van 3 cm' },
+    { n: 'varkensvlees', q: 800, u: 'g', x: 'procureur of varkensschouder, in blokjes van 3 cm' },
     { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'in halve ringen' },
     { n: 'knoflook', q: 4, u: 'teen' },
     { n: 'gember', q: 30, u: 'g', x: 'in dunne reepjes' },

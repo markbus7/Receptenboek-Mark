@@ -465,16 +465,16 @@ RECEPTEN.push(
   alt: ['Everything bagel: meng sesamzaad, maanzaad, knoflookpoeder, gedroogde uitjes en grof zout als topping.', 'Kaneel-rozijn: kneed 1 tl kaneel en 80 g rozijnen door het deeg en laat het sesamzaad weg.']
 },
 {
-  id: 'gua-bao', toegevoegd: '2026-10-25', naam: 'Gua bao met buikspek',
-  ook: ['bao', 'bao buns', 'gua bao', 'gestoomde broodjes', 'Taiwanese broodjes', 'pork belly bao'],
+  id: 'gua-bao', toegevoegd: '2026-10-25', naam: 'Gua bao met kleverige kip',
+  ook: ['bao', 'bao buns', 'gua bao', 'gestoomde broodjes', 'Taiwanese broodjes', 'chicken bao', 'bao met kip'],
   keuken: 'Chinees', soort: 'Brood',
-  tijd: 75, wacht: '1½ uur rijzen en 1½ uur stoven', pers: 4, niveau: 'Moeilijk', vega: false,
-  intro: 'Witte, wolkzachte gestoomde broodjes uit Taiwan, dubbelgevouwen als een taco en gevuld met kleverig gestoofd buikspek, komkommer, koriander en gezoete pinda\'s. Het deeg en het vlees vragen tijd en wat oefening, maar het resultaat is restaurantwaardig.',
+  tijd: 75, wacht: '1½ uur rijzen', pers: 4, niveau: 'Moeilijk', vega: false,
+  intro: 'Witte, wolkzachte gestoomde broodjes uit Taiwan, dubbelgevouwen als een taco en gevuld met kleverig gestoofde kippendij, komkommer, koriander en gezoete pinda\'s. Het deeg vraagt tijd en wat oefening, maar het resultaat is restaurantwaardig.',
   methodes: [ { id: 'braadpan', naam: 'Braadpan' }, { id: 'slowcooker', naam: 'Slowcooker' } ],
   gerei: [
     { tool: 'braadpan', tekst: 'Dutch oven of braadpan met deksel', m: 'braadpan' },
     { tool: 'slowcooker', tekst: 'Slowcooker', m: 'slowcooker' },
-    { tool: 'koekenpan', tekst: 'Koekenpan om het buikspek aan te bakken' },
+    { tool: 'koekenpan', tekst: 'Koekenpan om de kip aan te bakken' },
     { tool: 'wok', tekst: 'Bamboe stoommandje op een wok of pan met water', of: 'Geen stoommandje: zet een metalen vergiet in een grote kookpan met 3 cm kokend water, leg er bakpapier in en doe de deksel erop.' }
   ],
   ingr: [
@@ -486,15 +486,16 @@ RECEPTEN.push(
     { n: 'zout', q: 0.5, u: 'tl' },
     { n: 'melk', q: 220, u: 'ml', x: 'lauw' },
     { n: 'zonnebloemolie', q: 1, u: 'el', x: 'plus wat om in te vetten' },
-    { kop: 'Buikspek' },
-    { n: 'varkensbuik', q: 600, u: 'g', x: 'zonder zwoerd, in plakken van 1 cm' },
+    { kop: 'Kip' },
+    { n: 'zonnebloemolie', q: 1, u: 'el' },
+    { n: 'kippendijfilet', q: 600, u: 'g', x: 'in repen van 2 cm' },
     { n: 'sojasaus', q: 4, u: 'el' },
     { n: 'shaoxing rijstwijn', q: 3, u: 'el', x: 'of droge sherry' },
     { n: 'bruine suiker', q: 2, u: 'el' },
     { n: 'steranijs', q: 2, u: 'st', x: 'heel' },
     { n: 'gember', q: 15, u: 'g', x: 'in plakjes' },
     { n: 'knoflook', q: 3, u: 'teen', x: 'gekneusd' },
-    { n: 'water', q: 400, u: 'ml' },
+    { n: 'water', q: 250, u: 'ml' },
     { kop: 'Erbij' },
     { n: 'komkommer', p: 'komkommers', q: 0.5, u: 'st', x: 'in dunne plakjes' },
     { n: 'verse koriander', q: 15, u: 'g' },
@@ -502,18 +503,18 @@ RECEPTEN.push(
     { n: 'lente-ui', p: 'lente-uien', q: 2, u: 'st', x: 'in ringetjes', opt: true }
   ],
   stappen: [
-    { kop: 'Buikspek', t: 'Bak het buikspek in de droge koekenpan op middelhoog vuur 5 minuten tot het rondom bruin is en er vet uitkomt.', min: 5 },
-    { t: 'Doe het vlees in de braadpan met sojasaus, rijstwijn, suiker, steranijs, gember, knoflook en water. Breng aan de kook, leg de deksel op de pan en laat 1½ uur zachtjes stoven, tot het vlees heel zacht is.', m: 'braadpan', min: 90 },
-    { t: 'Doe het vlees in de slowcooker met sojasaus, rijstwijn, suiker, steranijs, gember, knoflook en de helft van het water. Gaar 5 uur op laag. Giet het vocht daarna in een steelpan.', m: 'slowcooker' },
+    { kop: 'Kip', t: 'Verhit de olie in de koekenpan op middelhoog vuur en bak de kip 5 minuten tot hij rondom bruin is.', min: 5 },
+    { t: 'Doe de kip in de braadpan met sojasaus, rijstwijn, suiker, steranijs, gember, knoflook en water. Breng aan de kook, leg de deksel op de pan en laat 40 minuten zachtjes stoven, tot de kip heel zacht is.', m: 'braadpan', min: 40 },
+    { t: 'Doe de kip in de slowcooker met sojasaus, rijstwijn, suiker, steranijs, gember, knoflook en de helft van het water. Gaar 3 uur op laag. Giet het vocht daarna in een steelpan.', m: 'slowcooker' },
     { kop: 'Bao', t: 'Maak intussen het deeg. Meng bloem, gist, suiker, bakpoeder en zout. Voeg melk en olie toe en kneed 10 minuten tot een heel glad, zijdezacht deeg. Laat afgedekt 1 uur rijzen.', min: 70 },
     { t: 'Rol het deeg uit tot 5 mm dik en steek er met een glas van 9 cm rondjes uit. Rol elk rondje kort uit tot een ovaal. Bestrijk de helft met een beetje olie, leg een stukje van een rietje of een eetstokje in het midden en vouw dubbel. Trek het stokje eruit.' },
     { t: 'Leg elke bao op een vierkantje bakpapier in het stoommandje, met ruimte ertussen. Laat ze afgedekt 30 minuten rijzen.', min: 30 },
-    { kop: 'Buikspek', t: 'Haal het vlees uit de pan en kook het vocht in tot een stroperige saus. Doe het vlees terug en schep het om tot het glanst.', min: 10 },
+    { kop: 'Kip', t: 'Haal de kip uit de pan en kook het vocht in tot een stroperige saus. Doe de kip terug en schep om tot alles glanst.', min: 10 },
     { kop: 'Bao', t: 'Zet het mandje op de wok met kokend water (het water mag het mandje niet raken). Stoom de bao 10 minuten op middelhoog vuur. Doe daarna het vuur uit en laat de deksel er nog 5 minuten op: dan zakken ze niet in.', min: 15, stoom: 'laat de bao op hun bakpapiertjes op een plank rijzen en zet er 3 à 4 tegelijk in het mandje. Stoom 12 minuten en laat de deksel daarna nog 5 minuten dicht. Houd de rest intussen onder een doek.' },
-    { kop: 'Vullen', t: 'Vul elke bao met een plak buikspek, komkommer, koriander en de zoete pinda\'s.' }
+    { kop: 'Vullen', t: 'Vul elke bao met een paar stukjes kip, komkommer, koriander en de zoete pinda\'s.' }
   ],
-  tips: ['Gestoomde bao kun je invriezen. Stoom ze bevroren 8 minuten, dan zijn ze weer als vers.', 'Wil je het makkelijker? Diepvries bao vind je bij de toko; dan maak je alleen het vlees.'],
-  alt: ['Met kip: vervang het buikspek door kippendijfilet en stoof 40 minuten.', 'Met krokante kip: vul de bao met stukjes kip uit de airfryer, sriracha-mayonaise en zoetzure komkommer.']
+  tips: ['Gestoomde bao kun je invriezen. Stoom ze bevroren 8 minuten, dan zijn ze weer als vers.', 'Wil je het makkelijker? Diepvries bao vind je bij de toko; dan maak je alleen de kip.'],
+  alt: ['Met krokante kip: vul de bao met stukjes kip uit de airfryer, sriracha-mayonaise en zoetzure komkommer.']
 },
 {
   id: 'empanadas', toegevoegd: '2026-10-27', naam: 'Empanadas met gehakt uit de airfryer',

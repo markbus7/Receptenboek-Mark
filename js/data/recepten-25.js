@@ -13,7 +13,7 @@
     ook: ['caesar salad', 'caesar salade', 'caesarsalade', 'chicken caesar', 'caesar met kip', 'kipsalade', 'caesar'],
     keuken: 'Amerikaans', soort: 'Salade',
     tijd: 30, pers: 4, niveau: 'Makkelijk', vega: false,
-    intro: 'Knapperige romaine sla met gegrilde kip, krokante knoflookcroutons en een romige dressing met Parmezaan, citroen en ansjovis. Je proeft de ansjovis niet als vis: hij maakt de dressing hartig. De dressing maak je met mayonaise, dus zonder rauw ei. Kies hierboven garnalen als je eens wat anders wilt.',
+    intro: 'Knapperige romaine sla met gegrilde kip, krokante knoflookcroutons en een romige dressing met Parmezaan, citroen en knoflook. Deze dressing is zonder ansjovis: extra Parmezaan en een scheutje worcestershiresaus maken hem net zo hartig. Je maakt hem met mayonaise, dus zonder rauw ei. Kies hierboven garnalen als je eens wat anders wilt.',
     methodes: [ { id: 'contactgrill', naam: 'OptiGrill' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
     gerei: [
       { tool: 'contactgrill', tekst: 'OptiGrill met de gewone grillplaten, voor de kip', m: 'contactgrill' },
@@ -33,11 +33,10 @@
       { n: 'knoflook', q: 1, u: 'teen', x: 'geperst' },
       { kop: 'Dressing' },
       { n: 'mayonaise', q: 6, u: 'el' },
-      { n: 'Parmezaanse kaas', q: 40, u: 'g', x: 'fijn geraspt' },
-      { n: 'ansjovisfilets', q: 4, u: 'st', x: 'uit een blikje of potje, fijngehakt' },
+      { n: 'Parmezaanse kaas', q: 60, u: 'g', x: 'fijn geraspt' },
       { n: 'knoflook', q: 1, u: 'teen', x: 'geperst' },
       { n: 'citroen', q: 0.5, u: 'st', x: 'alleen het sap' },
-      { n: 'worcestershiresaus', q: 1, u: 'tl' },
+      { n: 'worcestershiresaus', q: 2, u: 'tl', x: 'er zit een klein beetje ansjovis in; wil je helemaal zonder, neem dan sojasaus', of: { q: 1, u: 'tl', n: 'sojasaus' } },
       { n: 'mosterd', q: 1, u: 'tl', x: 'gewone of dijonmosterd' },
       { n: 'water', q: 2, u: 'el' },
       { kop: 'Salade' },
@@ -50,7 +49,7 @@
       { t: 'Verhit 1 el olie in de koekenpan op middelhoog vuur. Bak de kip 5 à 6 minuten per kant tot hij goudbruin en gaar is (kerntemperatuur 75 °C). Veeg de pan daarna schoon met keukenpapier voor de croutons.', m: 'koekenpan', min: 12 },
       { t: 'Leg de kip op een plank onder een stuk aluminiumfolie en laat hem 5 minuten rusten, dan blijft het vocht erin. Snijd hem daarna in plakken.', min: 5 },
       { kop: 'Croutons', t: 'Hussel de blokjes brood met de olijfolie, de knoflook en een snufje zout. Bak ze in de airfryer 6 à 7 minuten op 180 °C, en schud de mand halverwege. In de koekenpan: 5 minuten op middelhoog vuur, vaak omscheppen. Ze moeten goudbruin en knapperig zijn.', min: 7 },
-      { kop: 'Dressing', t: 'Prak de ansjovis met de knoflook fijn met een vork. Roer de mayonaise, de geraspte Parmezaan, het citroensap, de worcestershiresaus en de mosterd erdoor. Maak hem met het water wat dunner, zodat hij over de sla loopt. Proef: hij mag flink peperig zijn.' },
+      { kop: 'Dressing', t: 'Roer de mayonaise met de geraspte Parmezaan, de knoflook, het citroensap, de worcestershiresaus en de mosterd erdoor. Maak hem met het water wat dunner, zodat hij over de sla loopt. Proef: hij mag flink peperig zijn.' },
       { kop: 'Salade', t: 'Snijd het onderste stukje van de romaine sla af en snijd de bladeren in repen van 3 cm. Was ze, en slinger of dep ze goed droog: natte sla maakt de dressing waterig.' },
       { t: 'Hussel de sla in de slakom met tweederde van de dressing. Leg de kip en de croutons erop, schep de rest van de dressing over de kip en strooi de schaafsel Parmezaan erover. Meteen eten, dan blijven sla en croutons knapperig.' }
     ],
@@ -60,7 +59,7 @@
       'Een gekookt eitje erbij (8 minuten, in partjes) maakt hem nog voller.'
     ],
     alt: [
-      'Geen ansjovis? Neem 1 tl extra worcestershiresaus (daar zit ook ansjovis in) en 1 el extra Parmezaan.',
+      'Klassiek gaan er 4 fijngeprakte ansjovisfilets in de dressing. Die zitten er hier niet in; de extra Parmezaan en worcestershiresaus geven dezelfde hartige smaak.',
       'Met kippendijfilet wordt de kip sappiger: grill of bak 1 à 2 minuten langer.',
       'Liever niet zelf croutons maken? Een zakje kant-en-klare croutons uit de supermarkt (bij de soepen en salades).'
     ]
@@ -85,7 +84,7 @@
       { t: 'Dep de garnalen goed droog met keukenpapier; droge garnalen kleuren in de pan, natte koken. Bestrooi ze met zout en peper.' },
       { t: 'Verhit de olijfolie in de koekenpan op hoog vuur. Bak de garnalen 1 minuut zonder te bewegen, keer ze, doe de plakjes knoflook erbij en bak nog 1 à 2 minuten, tot ze helemaal roze en gekruld zijn. Niet langer, dan worden ze taai. Schep ze op een bord en veeg de pan schoon voor de croutons; lauw zijn ze op de salade ook lekker.', min: 3 },
       { kop: 'Croutons', t: 'Hussel de blokjes brood met de olijfolie, de knoflook en een snufje zout. Bak ze in de airfryer 6 à 7 minuten op 180 °C, en schud de mand halverwege. In de koekenpan: 5 minuten op middelhoog vuur, vaak omscheppen. Ze moeten goudbruin en knapperig zijn.', min: 7 },
-      { kop: 'Dressing', t: 'Prak de ansjovis met de knoflook fijn met een vork. Roer de mayonaise, de geraspte Parmezaan, het citroensap, de worcestershiresaus en de mosterd erdoor. Maak hem met het water wat dunner, zodat hij over de sla loopt.' },
+      { kop: 'Dressing', t: 'Roer de mayonaise met de geraspte Parmezaan, de knoflook, het citroensap, de worcestershiresaus en de mosterd erdoor. Maak hem met het water wat dunner, zodat hij over de sla loopt.' },
       { kop: 'Salade', t: 'Snijd het onderste stukje van de romaine sla af en snijd de bladeren in repen van 3 cm. Was ze, en slinger of dep ze goed droog.' },
       { t: 'Hussel de sla in de slakom met tweederde van de dressing. Leg de warme garnalen en de croutons erop, schep de rest van de dressing erover en strooi de schaafsel Parmezaan erover.' }
     ],
@@ -94,7 +93,7 @@
       'Neem je de salade mee, doe de dressing en croutons dan in een apart bakje.'
     ],
     alt: [
-      'Geen ansjovis? Neem 1 tl extra worcestershiresaus en 1 el extra Parmezaan.',
+      'Helemaal zonder vis: neem 1 tl sojasaus in plaats van de worcestershiresaus.',
       'Kant-en-klare croutons uit de supermarkt kan ook.'
     ]
   },
@@ -167,7 +166,6 @@
       { n: 'zwarte olijven', q: 80, u: 'g', x: 'het liefst met pit, zoals in Nice' },
       { n: 'rode ui', p: 'rode uien', q: 0.5, u: 'st', x: 'in flinterdunne ringen' },
       { n: 'kropsla', q: 1, u: 'st', x: 'of een zakje gemengde sla' },
-      { n: 'ansjovisfilets', q: 8, u: 'st', x: 'mag je weglaten' },
       { kop: 'Vinaigrette' },
       { n: 'olijfolie', q: 6, u: 'el' },
       { n: 'rode wijnazijn', q: 2, u: 'el' },
@@ -180,7 +178,7 @@
       { t: 'Kook de krieltjes in water met zout in 15 minuten gaar. Doe de laatste 5 minuten de sperziebonen erbij. Giet af en spoel de bonen kort koud, dan blijven ze knalgroen.', min: 15, stoom: 'de krieltjes 25 minuten, de laatste 8 minuten de sperziebonen erbij' },
       { t: 'Kook intussen de eieren 7 minuten: dan is het geel nog net zacht in het midden. Laat schrikken in koud water, pel ze en halveer ze.', min: 7, stoom: 'de eieren 10 minuten, daarna in koud water' },
       { kop: 'Vinaigrette', t: 'Schud alles voor de vinaigrette in een jampot tot het romig is. Halveer de krieltjes en schep ze nog warm door de helft van de vinaigrette; warme aardappels nemen de smaak het best op.' },
-      { t: 'Leg de sla op de schaal. Verdeel de krieltjes, sperziebonen, tomaat, rode ui en olijven erover. Leg de tonijn in grove stukken en de halve eieren erop, en de ansjovis kruislings over de eieren.' },
+      { t: 'Leg de sla op de schaal. Verdeel de krieltjes, sperziebonen, tomaat, rode ui en olijven erover. Leg de tonijn in grove stukken en de halve eieren erop.' },
       { t: 'Sprenkel de rest van de vinaigrette erover en maal er zwarte peper over.' }
     ],
     tips: ['Tonijn in olijfolie is lekkerder en sappiger dan tonijn op water.', 'Je kunt de krieltjes, bonen en eieren een dag van tevoren koken en koud bewaren.'],
