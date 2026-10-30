@@ -324,7 +324,7 @@ const App = (() => {
     const mixen = mixenInVoorraad();
     $('#mix-info').innerHTML = mixen.map((m) => `
       <aside class="mix-kaart">
-        <h3>Je ${esc(m.naam.toLowerCase())}</h3>
+        <h3>Je ${esc(Hulp.mixKlein(m))}</h3>
         <p class="mix-bevat">Zit er meestal in: ${esc(m.bevat.slice(0, 8).join(', '))}.</p>
         <p><b>Zo gebruik je hem:</b> ${esc(m.bereiding)}</p>
         <p><b>Snel idee:</b> ${esc(m.snel)}</p>
