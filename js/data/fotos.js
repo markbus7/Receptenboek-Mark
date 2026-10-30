@@ -216,6 +216,18 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Butter_Chicken_%26_Butter_Naan_-_Home_-_Chandigarh_-_India_-_0006.jpg"
  },
+ "caesar-salad": {
+  "src": "img/caesar-salad.jpg",
+  "auteur": "Geoff Peters",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Caesar_salad_(2).jpg"
+ },
+ "caprese": {
+  "src": "img/caprese.jpg",
+  "auteur": "Rainer Zenz",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Caprese-1_(tigher_crop).jpg"
+ },
  "champignonsaus": {
   "src": "img/champignonsaus.jpg",
   "auteur": "Antoinel~commonswiki",
@@ -263,6 +275,12 @@ window.FOTOS = {
   "auteur": "Joy",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chocolate_con_churros_(27343655726).jpg"
+ },
+ "cobb-salad": {
+  "src": "img/cobb-salad.jpg",
+  "auteur": "Jodimichelle",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Cobb_salad,_15_October_2010.jpg"
  },
  "coq-au-vin": {
   "src": "img/coq-au-vin.jpg",
@@ -359,6 +377,12 @@ window.FOTOS = {
   "auteur": "Popo le Chien",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Falafels_2.jpg"
+ },
+ "fattoush": {
+  "src": "img/fattoush.jpg",
+  "auteur": "Arousing Appetites",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Fattoush_mixed-salad.jpg"
  },
  "fish-and-chips": {
   "src": "img/fish-and-chips.jpg",
@@ -569,6 +593,12 @@ window.FOTOS = {
   "auteur": "Ellywa",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Hutspot_in_pan.JPG"
+ },
+ "huzarensalade": {
+  "src": "img/huzarensalade.jpg",
+  "auteur": "Sietske",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Huzarensalade_van_kliekjes.jpg"
  },
  "japchae": {
   "src": "img/japchae.jpg",
@@ -1175,6 +1205,12 @@ window.FOTOS = {
   "auteur": "Mark",
   "licentie": "eigen foto, in het pannenkoekenhuis"
  },
+ "panzanella": {
+  "src": "img/panzanella.jpg",
+  "auteur": "Heather Katsoulis",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Italian_Panzanella.jpg"
+ },
  "pao-de-queijo": {
   "src": "img/pao-de-queijo.jpg",
   "auteur": "Murilo manzini",
@@ -1342,6 +1378,18 @@ window.FOTOS = {
   "auteur": "iNews",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Lodeh.jpg"
+ },
+ "salade-chevre-chaud": {
+  "src": "img/salade-chevre-chaud.jpg",
+  "auteur": "Arnaud 25",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Salade_de_ch%C3%A8vre_chaud_002.jpg"
+ },
+ "salade-nicoise": {
+  "src": "img/salade-nicoise.jpg",
+  "auteur": "Wusel007",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Nizza-Salat_an_der_F_Mittelmeerk%C3%BCste.JPG"
  },
  "salsa-fresca": {
   "src": "img/salsa-fresca.jpg",

@@ -199,6 +199,10 @@ ARTIKELEN = {
     'baklava': 'Baklava',
     'kiptenders': 'Chicken fingers', 'kipnuggets': 'Chicken nugget', 'popcorn-chicken-taiwanees': 'Taiwanese fried chicken',
     'kippenvleugels-buffalo': 'Buffalo wing', 'karaage': 'Karaage',
+    # 1.68.0: salades (yam nua en de noedelsalade: geen vrije foto van het echte gerecht, dus het tegeltje)
+    'caesar-salad': 'Caesar salad', 'cobb-salad': 'Cobb salad', 'salade-nicoise': 'Salade niçoise',
+    'salade-chevre-chaud': 'File:Salade de chèvre chaud 002.jpg', 'caprese': 'Caprese salad', 'panzanella': 'Panzanella', 'fattoush': 'Fattoush',
+    'huzarensalade': 'nl:Huzarensalade',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)
