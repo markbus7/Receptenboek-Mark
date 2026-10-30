@@ -321,5 +321,9 @@ window.HOOFD = {
   fattoush: ['sla', 'tomaat', 'komkommer', 'pitabrood'],
   'yam-nua': ['biefstuk', 'komkommer', 'munt', 'limoen'],
   'chinese-noedelsalade-kip': ['mie', 'kip', 'pindadressing', 'komkommer'],
-  huzarensalade: ['aardappel', 'ham', 'augurk', 'mayonaise']
+  huzarensalade: ['aardappel', 'ham', 'augurk', 'mayonaise'],
+
+  /* Snel uit de wok */
+  'kip-ketjap-wokgroente': ['kip', 'wokgroente', 'ketjap', 'rijst'],
+  'kip-oestersaus-wokgroente': ['kip', 'wokgroente', 'oestersaus', 'rijst']
 };

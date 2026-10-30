@@ -3,13 +3,13 @@
    `aanraders` zijn recepten waar de mix echt goed in past (met de hand gekozen). */
 window.GROENTEMIXEN = [
   {
-    id: 'wokgroente', aanraders: ['bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'groene-curry', 'bibimbap', 'tjap-tjoy', 'kip-cashew', 'yakisoba', 'egg-fried-rice', 'japchae', 'pad-see-ew'], naam: 'Wokgroente', voorbeeld: 'Oosterse wokmix, roerbakgroente',
+    id: 'wokgroente', aanraders: ['kip-ketjap-wokgroente', 'kip-oestersaus-wokgroente', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'groene-curry', 'bibimbap', 'tjap-tjoy', 'kip-cashew', 'yakisoba', 'egg-fried-rice', 'japchae', 'pad-see-ew'], naam: 'Wokgroente', voorbeeld: 'Oosterse wokmix, roerbakgroente',
     bevat: ['paprika', 'rode paprika', 'ui', 'rode ui', 'prei', 'witte kool', 'spitskool', 'chinese kool', 'wortel', 'taugé', 'champignons', 'sperziebonen', 'peultjes', 'lente-ui', 'broccoli', 'paksoi'],
     bereiding: 'Niet ontdooien. Doe de groente bevroren in een gloeiend hete wok of koekenpan met een scheut olie en roerbak 5 à 7 minuten op hoog vuur. In een kleine pan in twee porties, anders gaat de groente koken in plaats van bakken.',
     snel: 'Bijgerecht in 7 minuten: roerbak met knoflook, gember en 2 el sojasaus. Of maak er mie met ei van.'
   },
   {
-    id: 'ah-chinees', vers: true, aanraders: ['tjap-tjoy', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'kip-cashew', 'zoetzure-kip', 'egg-fried-rice', 'foe-yong-hai', 'groene-curry', 'gado-gado'], naam: 'AH Chinese wokgroente', voorbeeld: 'koelvak, 400 g: witte kool, rode paprika, sperziebonen, prei en taugé',
+    id: 'ah-chinees', vers: true, aanraders: ['kip-ketjap-wokgroente', 'kip-oestersaus-wokgroente', 'tjap-tjoy', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'kip-cashew', 'zoetzure-kip', 'egg-fried-rice', 'foe-yong-hai', 'groene-curry', 'gado-gado'], naam: 'AH Chinese wokgroente', voorbeeld: 'koelvak, 400 g: witte kool, rode paprika, sperziebonen, prei en taugé',
     bevat: ['witte kool', 'paprika', 'rode paprika', 'sperziebonen', 'prei', 'taugé'],
     bereiding: 'Vers uit het koelvak: roerbak de groente 6 à 8 minuten in een gloeiend hete wok of koekenpan met een scheut olie, tot hij net gaar is maar nog bite heeft. De zak (400 g) is genoeg voor 2 personen als hoofdgroente.',
     snel: 'Bijgerecht in 8 minuten: roerbak met knoflook, gember en 2 el sojasaus. Of door mie of gebakken rijst met een ei.'
