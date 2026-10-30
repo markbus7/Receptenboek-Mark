@@ -1,4 +1,4 @@
-/* Diepvries-groentemixen uit de supermarkt. `bevat` zijn de groenten die er meestal in zitten,
+/* Groentemixen uit de supermarkt (diepvries, en mixen die Mark bij de AH koopt). `bevat` zijn de groenten die er meestal in zitten,
    met de namen zoals ze in de recepten staan; daarmee zoekt de app recepten waar de mix in past.
    `aanraders` zijn recepten waar de mix echt goed in past (met de hand gekozen). */
 window.GROENTEMIXEN = [
@@ -7,6 +7,12 @@ window.GROENTEMIXEN = [
     bevat: ['paprika', 'rode paprika', 'ui', 'prei', 'witte kool', 'chinese kool', 'wortel', 'taugé', 'champignons', 'sperziebonen', 'peultjes', 'lente-ui', 'broccoli', 'paksoi'],
     bereiding: 'Niet ontdooien. Doe de groente bevroren in een gloeiend hete wok of koekenpan met een scheut olie en roerbak 5 à 7 minuten op hoog vuur. In een kleine pan in twee porties, anders gaat de groente koken in plaats van bakken.',
     snel: 'Bijgerecht in 7 minuten: roerbak met knoflook, gember en 2 el sojasaus. Of maak er mie met ei van.'
+  },
+  {
+    id: 'ah-chinees', aanraders: ['tjap-tjoy', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'kip-cashew', 'zoetzure-kip', 'egg-fried-rice', 'foe-yong-hai', 'groene-curry', 'gado-gado'], naam: 'AH Chinese wokgroente', voorbeeld: 'rode paprika, sperziebonen en taugé',
+    bevat: ['paprika', 'rode paprika', 'sperziebonen', 'taugé'],
+    bereiding: 'Roerbak de groente 3 à 4 minuten in een gloeiend hete wok of koekenpan met een scheut olie, als laatste voor de saus erbij gaat. Niet langer: dan wordt de taugé slap. Uit de vriezer: bevroren erin en 5 à 7 minuten.',
+    snel: 'Bijgerecht in 5 minuten: roerbak met knoflook, gember en 2 el sojasaus. Of door mie of gebakken rijst met een ei.'
   },
   {
     id: 'nasi-bami', aanraders: ['nasi-goreng', 'bami-goreng', 'sajoer-lodeh', 'gado-gado', 'egg-fried-rice', 'tjap-tjoy', 'foe-yong-hai', 'kimchi-fried-rice'], naam: 'Nasi- of bamigroente', voorbeeld: 'gesneden prei, kool en wortel',
@@ -25,6 +31,12 @@ window.GROENTEMIXEN = [
     bevat: ['mais', 'paprika', 'rode paprika', 'groene paprika', 'ui', 'rode ui', 'kidneybonen', 'zwarte bonen'],
     bereiding: 'Bak de mix bevroren 6 à 8 minuten in een hete pan tot het vocht verdampt is. Voeg daarna pas kruiden of saus toe.',
     snel: 'In wraps of quesadilla\'s, door chili con carne, of met rijst en avocado als burrito bowl.'
+  },
+  {
+    id: 'ah-mexicaans', aanraders: ['chili-con-carne', 'burritos', 'quesadillas', 'enchiladas', 'nachos', 'guisado-carne-molida', 'huevos-rancheros'], naam: 'AH Roerbak Mexicaans', voorbeeld: 'mais, kidneybonen en sperziebonen',
+    bevat: ['mais', 'kidneybonen', 'sperziebonen'],
+    bereiding: 'Roerbak de groente 4 à 5 minuten in een hete pan met een scheut olie tot de mais een beetje kleurt. Voeg daarna pas kruiden of saus toe. Gebruik je hem in plaats van de kidneybonen uit blik, dan hoef je niets af te spoelen.',
+    snel: 'In wraps of quesadilla\'s, door chili con carne, of met rijst, kaas en salsa als burrito bowl.'
   },
   {
     id: 'paprika-ui', aanraders: ['kip-fajitas', 'kip-shoarma', 'shakshuka', 'menemen', 'boerenomelet', 'hongaarse-goulash', 'paprikas-csirke', 'tjap-tjoy', 'zoetzure-kip', 'gyros'], naam: 'Paprika- en uienreepjes', voorbeeld: 'fajitamix, paprikamix',
