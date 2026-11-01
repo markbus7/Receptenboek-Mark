@@ -247,7 +247,8 @@ const Hulp = (() => {
 
   /* Matcht een zoekterm ("kip") met een ingrediënt ("kippendijfilet"). */
   // Woorden die van een groente of vlees iets anders maken: paprika ≠ paprikapoeder, kip ≠ kippenbouillon.
-  const AFGELEID = /(poeder|puree|pasta|saus|bouillon|kruiden|vlokken|zaad|chips|olie|azijn|meel)$/;
+  // Ook van mais een maistortilla of maisbrood maken: dat is geen groente meer, dus een groentemix vervangt die niet.
+  const AFGELEID = /(poeder|puree|pasta|saus|bouillon|kruiden|vlokken|zaad|chips|olie|azijn|meel|tortillas?|wraps?|brood)$/;
 
   /* Ingrediënten die je zonder meer voor elkaar gebruikt: welke je neemt is een kwestie van smaak.
      Zoeken of in de kast zetten op de een vindt ook recepten met de ander. */
