@@ -308,6 +308,7 @@ const Detail = (() => {
     const kiesEl = blad.querySelector('#d-mix-kies');
     kiesEl.hidden = !passend.length;
     kiesEl.innerHTML = passend.length ? `<p class="mix-kies-vraag">Heb je een groentemix uit de vriezer of het koelvak?</p>
+      ${!groenten.length ? `<p class="mix-rang-uitleg">Een mix vervangt hier geen groente uit het recept, maar ${passend.length === 1 ? 'deze past' : 'deze passen'} er goed bij als extra groente. Tik een mix aan om hem te gebruiken.</p>` : ''}
       ${groenten.length ? `<p class="mix-rang-uitleg">Een mix kan hier ${groenten.length === 1 ? 'de' : groenten.length} ${groenten.length === 1 ? `${Hulp.esc(groenten[0])} vervangen` : `groenten vervangen: ${Hulp.esc(en(groenten))}`}. ${gelijk ? (best && (passend[0].aanrader || passend[0].keuken) ? 'De bovenste mixen vervangen evenveel, dus bovenaan staat de mix die het best bij dit gerecht past.' : 'De bovenste mixen vervangen evenveel.') : 'Bovenaan staat de mix die er het meest van vervangt.'} Tik een mix aan om hem te gebruiken.</p>` : ''}
       ${combi ? (() => {
         const aan = [combi.a, combi.b].every((m) => gekozenMixen.has(m.id) || uitVoorraad.includes('mix:' + m.id));
