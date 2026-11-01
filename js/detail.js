@@ -55,7 +55,7 @@ const Timers = (() => {
 const Detail = (() => {
   const sheet = document.getElementById('sheet');
   const blad = document.getElementById('detail');
-  let gekozenMixen = new Set(), mixWeg = new Set();
+  let gekozenMixen = new Set(), mixWeg = new Set(), mixErbij = [];
   let gekozenVries = new Set(), vries = { items: [], algemeen: [] };
   let openUitleg = new Set();
   let r = null, ctx = null, factor = 1, methode = null, ikHeb = null, wakeLock = null, wilScherm = false, terugFocus = null;
@@ -344,6 +344,8 @@ const Detail = (() => {
     const uitMix = new Map();
     mixen.forEach(({ mix, gedekt }) => gedekt.forEach((i) => uitMix.set(i.n, Hulp.mixKlein(mix))));
 
+    // Een mix die hier niets vervangt maar er als extra groente bij gaat: onderaan de lijst en een eigen stap.
+    mixErbij = mixen.filter((d) => !d.gedekt.length && !d.dubbel && d.erbij);
     // Wat de mix vervangt verdwijnt uit de lijst; op de plek van het eerste ingrediënt komt de mix zelf.
     mixWeg = new Set(uitMix.keys());
     const mixRegel = new Map();
@@ -371,7 +373,7 @@ const Detail = (() => {
         ${mixNaam ? '' : ofKnop(i, idx)}
         ${wat ? uitlegBlok(wat, idx) : ''}
       </li>`;
-    }).join('');
+    }).join('') + mixErbij.map(({ mix, erbij }) => `<li class="ingr ingr-is-mix"><label><input type="checkbox"><span class="hv">± ${erbij} g</span><span class="ingr-naam">${Hulp.esc(Hulp.mixKlein(mix))} <em>(${mix.vers ? 'koelvak' : 'diepvries'})</em><span class="ingr-x">extra groente</span></span></label></li>`).join('');
     renderRest();
     renderPrijs();
     if (blad.querySelector('#d-stappen')) renderStappen();
@@ -492,7 +494,7 @@ const Detail = (() => {
      krabbels en welke ingrediënten je in die stap voor het eerst gebruikt. */
   function stapData() {
     const gebruikt = new Set(), genoemd = new Set();
-    return Hulp.stappenMetDeel(r, methode).map(({ s, deel, ingr }, n, alle) => {
+    const lijst = Hulp.stappenMetDeel(r, methode).map(({ s, deel, ingr }, n, alle) => {
       const voor = new Set(gebruikt);
       // Met een kop zoek je alleen in de ingrediënten van dat deel: "het water" is dan het water voor het deeg,
       // en dan krijgen ook water, zout en olie hun hoeveelheid.
@@ -511,6 +513,29 @@ const Detail = (() => {
       });
       return { s, n, html, notities, nodig, deel, nieuwDeel: deel && (n === 0 || alle[n - 1].deel !== deel) };
     });
+    return metMixStap(lijst);
+  }
+
+  /* Gaat er een groentemix als extra groente bij, dan een eigen stap: vóór het opwarmen van de tortilla's of pita's
+     (dan staat de mix klaar als je de taco's of wraps vult), bij een mix die meekookt vóór het sudderen, anders vóór de laatste stap. */
+  function metMixStap(lijst) {
+    if (!mixErbij.length || !lijst.length) return lijst;
+    const plekVoor = (mix) => {
+      // Gaat de mix mee in de saus of soep, dan vóór de laatste stap met sudderen (met timer, niet de rijst).
+      if (mix.erbijMee) {
+        const mee = lijst.map((d) => d.s.min && !/^Kook de .*rijst/i.test(d.s.t)).lastIndexOf(true);
+        if (mee >= 0) return mee;
+      }
+      const wrap = lijst.findIndex((d) => /tortilla|pita|wrap/i.test(d.s.t));
+      return wrap > 0 ? wrap : Math.max(0, lijst.length - 1);
+    };
+    const plek = plekVoor(mixErbij[0].mix);
+    const extra = mixErbij.map(({ mix, erbij }) => {
+      const t = `Extra groente: ± ${erbij} g ${Hulp.mixKlein(mix)}. ${mix.erbij}`;
+      return { s: { t, min: mix.erbijMin, mix: true }, html: `<b>Extra groente:</b> ± ${erbij} g ${Hulp.esc(Hulp.mixKlein(mix))}. ${Hulp.esc(mix.erbij)}`, notities: mix.vers ? [] : ['Bevroren? Niet ontdooien: recht uit de vriezer in de pan, een stand hoger en 2 à 3 minuten langer.'], nodig: [], deel: lijst[plek].deel, nieuwDeel: false };
+    });
+    const uit = [...lijst.slice(0, plek), ...extra, ...lijst.slice(plek)];
+    return uit.map((d, n) => ({ ...d, n, nieuwDeel: d.deel && (n === 0 || uit[n - 1].deel !== d.deel) }));
   }
 
   /* Noemt de stap dit ingrediënt? Op het laatste woord ("de kip" bij kipfilet, "de aardappelen" bij
@@ -589,7 +614,7 @@ const Detail = (() => {
         ${d.nodig.length ? `<section class="kook-nodig"><h3>Hierbij nodig</h3><ul>${d.nodig.map(ingrRegel).join('')}</ul></section>` : ''}
         <details class="kook-alle">
           <summary>Alle ingrediënten</summary>
-          <ul>${alle.map((i) => i.kop ? `<li class="kook-kop-ingr">${Hulp.esc(i.kop)}</li>` : ingrRegel(i)).join('')}</ul>
+          <ul>${alle.map((i) => i.kop ? `<li class="kook-kop-ingr">${Hulp.esc(i.kop)}</li>` : ingrRegel(i)).join('')}${mixErbij.map(({ mix, erbij }) => `<li><b>± ${erbij} g ${Hulp.esc(Hulp.mixKlein(mix))}</b> <span class="zacht">extra groente</span></li>`).join('')}</ul>
         </details>
       </div>
       <footer class="kook-voet">
