@@ -229,6 +229,7 @@ window.HOOFD = {
   'burritos-gehakt': ['wraps', 'gehakt', 'rijst', 'zwarte bonen'],
   tacos: ['maistortilla', 'gehakt', 'tomaat'],
   'tacos-kip': ['maistortilla', 'kip', 'tomaat'],
+  'tacos-pollo-asado': ['maistortilla', 'kip', 'limoen'],
   enchiladas: ['wraps', 'kip', 'tomatensaus', 'kaas'],
   'guisado-carne-molida': ['gehakt', 'aardappel', 'tomaat'],
   nachos: ['tortillachips', 'kaas', 'zwarte bonen'],

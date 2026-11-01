@@ -111,7 +111,7 @@ RECEPTEN.push(
   alt: ['Tex-Mex-versie met harde tacoschelpen: warm 12 schelpen 3 à 4 minuten in de oven of airfryer op 180 °C en vul ze met het gehakt, ijsbergsla, tomaat, geraspte cheddar en zure room. Lekker, maar zo eet je ze in de VS, niet in Mexico.', 'Vegetarisch: vervang het gehakt door 2 blikken zwarte bonen (uitgelekt, grof geprakt) en bak ze 5 minuten met de kruiden en de tomaat.']
 },
 {
-  id: 'tacos-kip', variantVan: 'tacos', variant: 'Kip', naam: 'Taco\'s met kip (tinga de pollo)', ook: ['kiptaco\'s', 'chicken tacos', 'taco kip', 'tinga de pollo'],
+  id: 'tacos-kip', variantVan: 'tacos', variant: 'Pulled kip', naam: 'Taco\'s met kip (tinga de pollo)', ook: ['kiptaco\'s', 'chicken tacos', 'taco kip', 'tinga de pollo'],
   intro: 'Zachte maistortilla\'s met tinga: draadjes kip in een rokerige saus van tomaat, ui en chipotle. Een Mexicaanse klassieker, met ui, koriander en limoen erop.',
   vervang: {
     Picadillo: { kop: 'Tinga' },
@@ -126,6 +126,55 @@ RECEPTEN.push(
     { t: 'Leg steeds 2 tortilla\'s op elkaar, schep er kip op en maak af met ui, koriander, salsa en limoen.' }
   ],
   alt: ['Met restjes: pluk een gegrilde kip uit elkaar en warm hem 3 minuten op in de saus.', 'Rokeriger: gebruik 1 à 2 chipotles in adobo in plaats van de jalapeño; die horen echt in tinga.']
+},
+{
+  id: 'tacos-pollo-asado', toegevoegd: '2026-11-01', variantVan: 'tacos', variant: 'Stukjes kip', naam: 'Taco\'s met gegrilde stukjes kip (pollo asado)',
+  ook: ['pollo asado', 'tacos de pollo asado', 'taco\'s met stukjes kip', 'taco\'s met kipblokjes', 'kip taco\'s stukjes', 'gegrilde kip taco\'s', 'chicken tacos', 'kiptaco\'s', 'taco kip'],
+  tijd: 35, wacht: '30 minuten tot een nacht marineren',
+  intro: 'Geen draadjes maar hele stukjes kip: kippendijfilet in een marinade van limoen, sinaasappel, knoflook en Mexicaanse kruiden, heet en een beetje zwart gebakken en daarna in blokjes gesneden. Op zachte maistortilla\'s met ui, koriander, salsa en limoen. Uit de koekenpan, van de OptiGrill of uit de airfryer.',
+  methodes: [ { id: 'koekenpan', naam: 'Koekenpan' }, { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  gerei: [
+    { tool: 'koekenpan', tekst: 'Koekenpan van 28 cm, liefst gietijzer of RVS, voor de kip', m: 'koekenpan' },
+    { tool: 'contactgrill', tekst: 'Contactgrill zoals de OptiGrill, op het programma Kip of handmatig op de hoogste stand', m: 'contactgrill' },
+    { tool: 'airfryer', tekst: 'Airfryer (bak in 2 rondes bij een kleine mand)', m: 'airfryer' },
+    { tool: 'koekenpan', tekst: 'Droge koekenpan (of comal) voor de tortilla\'s, en een schone theedoek om ze warm en zacht te houden' }
+  ],
+  ingr: [
+    { kop: 'Kip en marinade' },
+    { n: 'kippendijfilet', q: 600, u: 'g', x: 'of kipfilet' },
+    { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'rasp en sap' },
+    { n: 'sinaasappel', p: 'sinaasappels', q: 0.5, u: 'st', x: 'sap' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'geperst' },
+    { n: 'komijn', q: 1, u: 'tl', x: 'gemalen (komijnpoeder)' },
+    { n: 'gedroogde oregano', q: 1, u: 'tl' },
+    { n: 'gerookt paprikapoeder', q: 2, u: 'tl' },
+    { n: 'chilipoeder', q: 1, u: 'tl', x: 'mild; of 1 chipotle in adobo, fijngehakt' },
+    { n: 'zonnebloemolie', q: 2, u: 'el' },
+    { n: 'zout', q: 1, u: 'tl' }, { n: 'zwarte peper' },
+    { kop: 'Taco\'s' },
+    { n: 'maistortilla', p: 'maistortilla\'s', q: 16, u: 'st', x: 'klein (ca. 12 cm); je gebruikt er 2 per taco' },
+    { n: 'witte ui', p: 'witte uien', q: 0.5, u: 'st', x: 'heel fijn gesnipperd' },
+    { n: 'verse koriander', q: 30, u: 'g', x: 'fijngehakt' },
+    { n: 'limoen', p: 'limoenen', q: 2, u: 'st', x: 'in partjes' },
+    { n: 'salsa', q: 6, u: 'el', x: 'salsa roja, salsa verde of zelfgemaakte salsa fresca' },
+    { n: 'avocado', p: 'avocado\'s', q: 1, u: 'st', x: 'in plakjes', opt: true },
+    { n: 'queso fresco', q: 75, u: 'g', x: 'verkruimeld; of feta', opt: true }
+  ],
+  stappen: [
+    { kop: 'Kip en marinade', t: 'Meng limoenrasp en -sap, sinaasappelsap, knoflook, komijn, oregano, paprikapoeder, chilipoeder, olie, zout en peper in een kom. Schep de kippendijfilets erdoor, of kipfilet die je eerst horizontaal doormidden snijdt zodat hij overal even dik is. Laat minstens 30 minuten marineren, of afgedekt een nacht in de koelkast; langer niet, dan maakt het limoensap de kip melig.', min: 30 },
+    { t: 'Haal de kip 15 minuten voor het bakken uit de koelkast. Schraap overtollige marinade eraf: natte kip kookt in plaats van dat hij bruin wordt.' },
+    { t: 'Verhit de koekenpan op hoog vuur tot hij echt heet is. Leg de dijfilets plat in de pan, met ruimte ertussen (anders in 2 rondes), en laat ze 5 à 6 minuten liggen zonder te schuiven tot de onderkant donkerbruin is en hier en daar zwart.', m: 'koekenpan', min: 6 },
+    { t: 'Keer de kip en bak de andere kant 4 à 5 minuten tot hij gaar is (kerntemperatuur 75 °C, of snijd in het dikste stuk: geen roze meer). Kipfilet is na 3 à 4 minuten per kant al gaar.', m: 'koekenpan', min: 5 },
+    { t: 'Verwarm de OptiGrill voor op het programma Kip of op de hoogste stand. Leg de dijfilets plat op de platen en sluit de deksel. Grill 7 à 9 minuten (kipfilet 5 à 6) tot ze gaar zijn en mooie zwarte grillstrepen hebben.', m: 'contactgrill', min: 8 },
+    { t: 'Verwarm de airfryer voor op 200 °C. Leg de dijfilets in één laag in de mand en bak 12 à 14 minuten (kipfilet 10 à 12), na 7 minuten keren. Wil je ze bruiner, geef ze dan nog 2 minuten op 200 °C.', m: 'airfryer', min: 13 },
+    { t: 'Laat de kip 5 minuten rusten op een snijplank. Snijd hem in blokjes of reepjes van 1 à 2 cm, schep het vocht van de plank er weer door en knijp er een partje limoen over.', min: 5 },
+    { kop: 'Taco\'s', t: 'Meng de witte ui met de koriander: dit is de klassieke topping. Zet salsa, limoenpartjes, avocado en queso fresco klaar.' },
+    { t: 'Veeg de koekenpan schoon en verhit hem droog op middelhoog vuur. Verwarm de tortilla\'s één voor één 30 à 45 seconden per kant tot ze soepel zijn en bruine vlekjes hebben. Stapel ze in de theedoek, dan blijven ze warm en zacht.' },
+    { t: 'Leg steeds 2 tortilla\'s op elkaar, schep er een flinke lepel kipblokjes op en maak af met ui, koriander, salsa en een kneepje limoen. Meteen opeten, uit de hand.' }
+  ],
+  tips: ['Kippendijfilet blijft sappiger dan kipfilet en mag heet en lang genoeg bakken om echt zwarte randjes te krijgen; die zijn de smaak van pollo asado.', 'Liever eerst snijden? Snijd de kip vóór het marineren in blokjes van 2 cm en roerbak ze in de koekenpan in 2 rondes 6 à 7 minuten op hoog vuur. Wel minder grillsmaak, maar sneller.'],
+  alt: ['Geen sinaasappel in huis? Neem het sap van een hele limoen extra en een theelepel honing.', 'Restjes zijn lekker in een quesadilla of over rijst met zwarte bonen.'],
+  bij: ['salsa-fresca']
 },
 {
   id: 'enchiladas', naam: 'Enchiladas met kip',
