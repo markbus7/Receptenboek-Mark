@@ -303,12 +303,12 @@ const Detail = (() => {
     const uitVoorraad = (ctx.voorraad || []).filter(Hulp.isMix);
     const mixen = Hulp.mixenVoor(r, [...new Set([...uitVoorraad, ...[...gekozenMixen].map((id) => 'mix:' + id)])], factor);
     // Alle passende mixen op volgorde: de mix die de meeste groenten uit het recept vervangt staat bovenaan.
-    const { groenten, lijst: passend, combi } = Hulp.mixRanglijst(r, factor);
+    const { groenten, lijst: passend, best, gelijk, combi } = Hulp.mixRanglijst(r, factor);
     const en = (namen) => namen.join(', ').replace(/, ([^,]*)$/, ' en $1');
     const kiesEl = blad.querySelector('#d-mix-kies');
     kiesEl.hidden = !passend.length;
     kiesEl.innerHTML = passend.length ? `<p class="mix-kies-vraag">Heb je een groentemix uit de vriezer of het koelvak?</p>
-      ${groenten.length ? `<p class="mix-rang-uitleg">Een mix kan hier ${groenten.length === 1 ? 'de' : groenten.length} ${groenten.length === 1 ? Hulp.esc(groenten[0]) : `groenten vervangen: ${Hulp.esc(en(groenten))}`}. Bovenaan staat de mix die er het meest van vervangt; tik een mix aan om hem te gebruiken.</p>` : ''}
+      ${groenten.length ? `<p class="mix-rang-uitleg">Een mix kan hier ${groenten.length === 1 ? 'de' : groenten.length} ${groenten.length === 1 ? `${Hulp.esc(groenten[0])} vervangen` : `groenten vervangen: ${Hulp.esc(en(groenten))}`}. ${gelijk ? (best && (passend[0].aanrader || passend[0].keuken) ? 'De bovenste mixen vervangen evenveel, dus bovenaan staat de mix die het best bij dit gerecht past.' : 'De bovenste mixen vervangen evenveel.') : 'Bovenaan staat de mix die er het meest van vervangt.'} Tik een mix aan om hem te gebruiken.</p>` : ''}
       ${combi ? (() => {
         const aan = [combi.a, combi.b].every((m) => gekozenMixen.has(m.id) || uitVoorraad.includes('mix:' + m.id));
         return `<p class="mix-combi"><b>Samen vervangen twee mixen meer:</b> ${Hulp.esc(combi.a.naam)} (±&nbsp;${combi.gramA}&nbsp;g) en ${Hulp.esc(Hulp.mixKlein(combi.b))} (±&nbsp;${combi.gramB}&nbsp;g) vervangen ${combi.samen === groenten.length ? `alle ${groenten.length}` : `${combi.samen} van de ${groenten.length}`} groenten.${combi.mist.length ? ` Nog vers: ${Hulp.esc(en(combi.mist))}.` : ''}
@@ -326,7 +326,7 @@ const Detail = (() => {
         : `<b>${m === 1 ? 'vervangt' : n === m ? `vervangt alle ${m}` : `vervangt ${n} van de ${m}`}</b>${m === 1 ? '' : `: ${Hulp.esc(en(gedekt.map((i) => i.n)))}`} · ±&nbsp;${gram}&nbsp;g`;
       return `<li class="mix-rang-item"><span class="mix-rang-nr" aria-hidden="true">${nr + 1}.</span>
         <button type="button" class="chip chip-mix" data-kies-mix="${mix.id}" aria-pressed="${aan}"${inVoorraad ? ' disabled title="Staat al in je voorraad"' : ''}>${Hulp.esc(mix.naam)}</button>
-        <span class="mix-rang-tekst">${nr === 0 && n ? '<span class="mix-rang-best">past het best</span> ' : ''}<span>${wat}</span>${n && mist.length ? `<small>nog vers: ${Hulp.esc(en(mist))}</small>` : ''}</span>
+        <span class="mix-rang-tekst">${nr === 0 && n && best ? '<span class="mix-rang-best">past het best</span> ' : ''}<span>${wat}</span>${n && mist.length ? `<small>nog vers: ${Hulp.esc(en(mist))}</small>` : ''}</span>
       </li>`;
     }
     const mixEl = blad.querySelector('#d-mix');
