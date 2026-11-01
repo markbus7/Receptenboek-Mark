@@ -34,6 +34,11 @@ window.VERVANGERS = [
   { n: ['citroen'], per: { st: 2 }, u: 'el', wat: 'citroensap uit een fles', alleenAls: /sap/, versAls: /rasp|schil/, versTekst: 'vers nodig voor de rasp of schil', tenzij: ['partjes'] },
   { n: ['limoen'], per: { st: 2 }, u: 'el', wat: 'limoensap uit een fles', alleenAls: /sap/, versAls: /rasp|schil/, versTekst: 'vers nodig voor de rasp of schil', tenzij: ['partjes'] },
 
+  /* Kip: kipfilet en kippendijfilet zijn uitwisselbaar, welke je neemt is een kwestie van smaak.
+     Niet bij platgeslagen of hele stukken kipfilet (schnitzel, cordon bleu): dat lukt niet met dijfilet. */
+  { n: ['kippendijfilet'], tekst: 'of kipfilet', tenzij: ['kipfilet'] },
+  { n: ['kipfilet'], tekst: 'of kippendijfilet (blijft sappiger)', tenzij: ['dij', 'platgeslagen', 'per stuk'] },
+
   /* Groente */
   { n: ['spinazie'], per: { g: 0.6 }, u: 'g', wat: 'diepvries bladspinazie', tenzij: ['diepvries', 'savooiekool'] },
 
