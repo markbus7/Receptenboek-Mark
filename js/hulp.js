@@ -328,13 +328,16 @@ const Hulp = (() => {
      Bij gelijkspel eerst de mixen die er echt bij passen (aanraders), dan de mixen uit dezelfde keuken
      (Mexicaanse mix bij taco's), dan de mix die de meeste grammen vervangt.
      `best` zegt of de bovenste mix echt beter past dan de tweede; staan ze helemaal gelijk, dan is er geen 'past het best'.
-     Een mix die alleen de ui vervangt telt niet mee: die snij je net zo snel zelf. */
+     Vervangt elke mix alleen de ui, dan geen lijst: die snij je net zo snel zelf. */
   const ALLEEN_UI = ['ui', 'uien', 'witte ui', 'gele ui', 'rode ui', 'sjalot', 'sjalotten'];
   function mixRanglijst(recept, factor = 1) {
     const lijst = (window.GROENTEMIXEN || []).map((mix) => {
       const d = mixDekking(recept, mix, factor);
       return { mix, ...d, gewicht: d.gedekt.reduce((som, i) => som + gram(i), 0) };
-    }).filter((d) => d.aanrader || d.gedekt.some((i) => !ALLEEN_UI.includes(norm(i.n))));
+    }).filter((d) => d.aanrader || d.gedekt.length);
+    // Alleen ui vervangen is geen reden om de vraag te stellen; staat hij er toch, dan blijven alle mixen kiesbaar
+    // (heb je geen Mexicaanse mix maar wel wokgroente, dan kun je die nog aantikken).
+    if (!lijst.some((d) => d.aanrader || d.gedekt.some((i) => !ALLEEN_UI.includes(norm(i.n))))) lijst.length = 0;
     const groenten = [...new Set(lijst.flatMap((d) => d.gedekt.map((i) => i.n)))];
     lijst.forEach((d) => { d.mist = groenten.filter((n) => !d.gedekt.some((i) => i.n === n)); });
     const vergelijk = (a, b) => (b.gedekt.length - a.gedekt.length) || (b.aanrader - a.aanrader) || (b.keuken - a.keuken) || (b.gewicht - a.gewicht);
