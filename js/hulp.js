@@ -249,12 +249,18 @@ const Hulp = (() => {
   // Woorden die van een groente of vlees iets anders maken: paprika ≠ paprikapoeder, kip ≠ kippenbouillon.
   const AFGELEID = /(poeder|puree|pasta|saus|bouillon|kruiden|vlokken|zaad|chips|olie|azijn|meel)$/;
 
+  /* Ingrediënten die je zonder meer voor elkaar gebruikt: welke je neemt is een kwestie van smaak.
+     Zoeken of in de kast zetten op de een vindt ook recepten met de ander. */
+  const UITWISSELBAAR = [['kipfilet', 'kippendijfilet']];
+  const uitwisselbaar = (t) => (UITWISSELBAAR.find((g) => g.includes(t)) || []).filter((x) => x !== t);
+
   function termPast(term, ingr) {
     const t = norm(term);
     if (!t) return false;
     const namen = [ingr.n, ingr.p].filter(Boolean).map(norm);
+    const ook = uitwisselbaar(t);
     return namen.some((nm) => {
-      if (nm === t) return true;
+      if (nm === t || ook.includes(nm)) return true;
       if (nm.length >= 4 && t.split(/[\s-]+/).includes(nm)) return true;   // "kipfilet met vel" ⊃ "kipfilet"
       if (t.includes(' ') && nm.includes(t)) return true;
       return nm.split(/[\s-]+/).some((w) => {
@@ -718,5 +724,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stappenMetDeel, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stappenMetDeel, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

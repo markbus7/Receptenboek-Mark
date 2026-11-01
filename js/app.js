@@ -49,7 +49,11 @@ const App = (() => {
   const BEREID_PER_RECEPT = new Map(RECEPTEN.map((r) => [r.id, Hulp.bereidIn(r)]));
   const ALIASSEN = {
     mocktail: ['alcoholvrij'], mocktails: ['alcoholvrij'], indisch: ['indonesisch', 'indiaas', 'surinaams'], 'dutch oven': ['braadpan', 'stoofpan'], dutchoven: ['braadpan'],
-    duitsland: ['duits'], oostenrijk: ['oostenrijks']
+    duitsland: ['duits'], oostenrijk: ['oostenrijks'],
+    // Kipfilet en kippendijfilet zijn uitwisselbaar (zie Hulp.uitwisselbaar): zoek je op de een, dan vind je ook de ander.
+    kipfilet: ['kippendijfilet'], kipfilets: ['kippendijfilet'], kippendijfilet: ['kipfilet'], kipdijfilet: ['kippendijfilet', 'kipfilet'],
+    dijfilet: ['kipfilet'], kippendij: ['kipfilet'], kipdij: ['kippendij', 'kipfilet'], kipborst: ['kipfilet', 'kippendijfilet'],
+    kippenborst: ['kipfilet', 'kippendijfilet']
   };
   // Zoekwoorden voor de delen: "europees" of "aziatisch" geeft het hele deel.
   const REGIO_WOORDEN = {
