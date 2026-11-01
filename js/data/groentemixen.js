@@ -1,63 +1,64 @@
 /* Groentemixen uit de supermarkt: diepvries, en met `vers: true` de verse mixen uit het koelvak die Mark bij de AH koopt. `bevat` zijn de groenten die er meestal in zitten,
    met de namen zoals ze in de recepten staan; daarmee zoekt de app recepten waar de mix in past.
-   `aanraders` zijn recepten waar de mix echt goed in past (met de hand gekozen). */
+   `aanraders` zijn recepten waar de mix echt goed in past (met de hand gekozen).
+   `keukens`: vervangen twee mixen evenveel, dan gaat de mix uit de keuken van het recept voor (Mexicaanse mix bij taco's). */
 window.GROENTEMIXEN = [
   {
-    id: 'wokgroente', aanraders: ['kip-ketjap-wokgroente', 'kip-oestersaus-wokgroente', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'groene-curry', 'bibimbap', 'tjap-tjoy', 'kip-cashew', 'yakisoba', 'egg-fried-rice', 'japchae', 'pad-see-ew'], naam: 'Wokgroente', voorbeeld: 'Oosterse wokmix, roerbakgroente',
+    id: 'wokgroente', keukens: ['Chinees', 'Thais', 'Japans', 'Koreaans', 'Vietnamees', 'Indonesisch'], aanraders: ['kip-ketjap-wokgroente', 'kip-oestersaus-wokgroente', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'groene-curry', 'bibimbap', 'tjap-tjoy', 'kip-cashew', 'yakisoba', 'egg-fried-rice', 'japchae', 'pad-see-ew'], naam: 'Wokgroente', voorbeeld: 'Oosterse wokmix, roerbakgroente',
     bevat: ['paprika', 'rode paprika', 'ui', 'rode ui', 'prei', 'witte kool', 'spitskool', 'chinese kool', 'wortel', 'taugé', 'champignons', 'sperziebonen', 'peultjes', 'lente-ui', 'broccoli', 'paksoi'],
     bereiding: 'Niet ontdooien. Doe de groente bevroren in een gloeiend hete wok of koekenpan met een scheut olie en roerbak 5 à 7 minuten op hoog vuur. In een kleine pan in twee porties, anders gaat de groente koken in plaats van bakken.',
     snel: 'Bijgerecht in 7 minuten: roerbak met knoflook, gember en 2 el sojasaus. Of maak er mie met ei van.'
   },
   {
-    id: 'ah-chinees', vers: true, aanraders: ['kip-ketjap-wokgroente', 'kip-oestersaus-wokgroente', 'tjap-tjoy', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'kip-cashew', 'zoetzure-kip', 'egg-fried-rice', 'foe-yong-hai', 'groene-curry', 'gado-gado'], naam: 'AH Chinese wokgroente', voorbeeld: 'koelvak, 400 g: witte kool, rode paprika, sperziebonen, prei en taugé',
+    id: 'ah-chinees', keukens: ['Chinees', 'Indonesisch', 'Thais', 'Vietnamees'], vers: true, aanraders: ['kip-ketjap-wokgroente', 'kip-oestersaus-wokgroente', 'tjap-tjoy', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'kip-cashew', 'zoetzure-kip', 'egg-fried-rice', 'foe-yong-hai', 'groene-curry', 'gado-gado'], naam: 'AH Chinese wokgroente', voorbeeld: 'koelvak, 400 g: witte kool, rode paprika, sperziebonen, prei en taugé',
     bevat: ['witte kool', 'paprika', 'rode paprika', 'sperziebonen', 'prei', 'taugé'],
     bereiding: 'Vers uit het koelvak: roerbak de groente 6 à 8 minuten in een gloeiend hete wok of koekenpan met een scheut olie, tot hij net gaar is maar nog bite heeft. De zak (400 g) is genoeg voor 2 personen als hoofdgroente.',
     snel: 'Bijgerecht in 8 minuten: roerbak met knoflook, gember en 2 el sojasaus. Of door mie of gebakken rijst met een ei.'
   },
   {
-    id: 'nasi-bami', aanraders: ['nasi-goreng', 'bami-goreng', 'sajoer-lodeh', 'gado-gado', 'egg-fried-rice', 'tjap-tjoy', 'foe-yong-hai', 'kimchi-fried-rice'], naam: 'Nasi- of bamigroente', voorbeeld: 'gesneden prei, spitskool en wortel',
+    id: 'nasi-bami', keukens: ['Indonesisch', 'Surinaams'], aanraders: ['nasi-goreng', 'bami-goreng', 'sajoer-lodeh', 'gado-gado', 'egg-fried-rice', 'tjap-tjoy', 'foe-yong-hai', 'kimchi-fried-rice'], naam: 'Nasi- of bamigroente', voorbeeld: 'gesneden prei, spitskool en wortel',
     bevat: ['prei', 'witte kool', 'spitskool', 'chinese kool', 'wortel', 'ui', 'rode ui', 'verse selderij', 'taugé'],
     bereiding: 'Niet ontdooien. Roerbak de groente 4 à 5 minuten op hoog vuur, op het moment dat het recept de prei en kool toevoegt.',
     snel: 'Gebakken rijst: roerbak de groente, schuif opzij, bak er een ei bij en voeg koude rijst en ketjap toe.'
   },
   {
-    id: 'mediterraan', aanraders: ['ratatouille', 'frittata', 'shakshuka', 'moussaka', 'penne-arrabbiata', 'minestrone', 'groentecouscous'], naam: 'Mediterrane groentemix', voorbeeld: 'Italiaanse of ratatouillegroente',
-    bevat: ['courgette', 'aubergine', 'paprika', 'rode paprika', 'groene paprika', 'rode ui', 'ui', 'cherrytomaten', 'tomaat'],
+    id: 'mediterraan', keukens: ['Italiaans', 'Grieks', 'Spaans', 'Frans', 'Turks', 'Midden-Oosters', 'Marokkaans'], aanraders: ['ratatouille', 'frittata', 'shakshuka', 'moussaka', 'penne-arrabbiata', 'minestrone', 'groentecouscous'], naam: 'Mediterrane groentemix', voorbeeld: 'Italiaanse of ratatouillegroente',
+    bevat: ['courgette', 'aubergine', 'paprika', 'rode paprika', 'groene paprika', 'rode ui', 'ui', 'cherrytomaten'],
     bereiding: 'Rooster hem bevroren met olijfolie en zout: 25 minuten op een bakplaat in de oven op 220 °C, of 15 minuten in de airfryer op 200 °C. In de pan: eerst op hoog vuur het vocht laten verdampen, dan pas bakken.',
     snel: 'Door pasta met pesto en feta, op een pizza, of als vulling voor een frittata of quiche.'
   },
   {
-    id: 'mexicaans', aanraders: ['chili-con-carne', 'quesadillas', 'kip-fajitas', 'huevos-rancheros', 'burritos', 'guisado-carne-molida', 'nachos', 'enchiladas'], naam: 'Mexicaanse groentemix', voorbeeld: 'mais, paprika en bonen',
+    id: 'mexicaans', keukens: ['Mexicaans', 'Zuid-Amerikaans'], aanraders: ['tacos', 'chili-con-carne', 'quesadillas', 'kip-fajitas', 'huevos-rancheros', 'burritos', 'guisado-carne-molida', 'nachos', 'enchiladas'], naam: 'Mexicaanse groentemix', voorbeeld: 'mais, paprika en bonen',
     bevat: ['mais', 'paprika', 'rode paprika', 'groene paprika', 'ui', 'rode ui', 'kidneybonen', 'zwarte bonen'],
     bereiding: 'Bak de mix bevroren 6 à 8 minuten in een hete pan tot het vocht verdampt is. Voeg daarna pas kruiden of saus toe.',
     snel: 'In wraps of quesadilla\'s, door chili con carne, of met rijst en avocado als burrito bowl.'
   },
   {
-    id: 'ah-mexicaans', vers: true, aanraders: ['chili-con-carne', 'burritos', 'quesadillas', 'enchiladas', 'nachos', 'guisado-carne-molida', 'huevos-rancheros'], naam: 'AH Roerbakgroente Mexicaans', voorbeeld: 'koelvak: witte kool, prei, mais, sperziebonen, kidneybonen en rode paprika',
+    id: 'ah-mexicaans', keukens: ['Mexicaans', 'Zuid-Amerikaans'], vers: true, aanraders: ['tacos', 'chili-con-carne', 'burritos', 'quesadillas', 'enchiladas', 'nachos', 'guisado-carne-molida', 'huevos-rancheros'], naam: 'AH Roerbakgroente Mexicaans', voorbeeld: 'koelvak: witte kool, prei, mais, sperziebonen, kidneybonen en rode paprika',
     bevat: ['witte kool', 'prei', 'mais', 'sperziebonen', 'kidneybonen', 'paprika', 'rode paprika'],
     bereiding: 'Vers uit het koelvak: roerbak de groente 6 à 8 minuten in een hete pan met een scheut olie tot de kool zacht is en de mais een beetje kleurt. Voeg daarna pas kruiden of saus toe.',
     snel: 'In wraps of quesadilla\'s, door chili con carne, of met rijst, kaas en salsa als burrito bowl.'
   },
   {
-    id: 'paprika-ui', aanraders: ['kip-fajitas', 'kip-shoarma', 'shakshuka', 'menemen', 'boerenomelet', 'hongaarse-goulash', 'paprikas-csirke', 'tjap-tjoy', 'zoetzure-kip', 'gyros'], naam: 'Paprika- en uienreepjes', voorbeeld: 'fajitamix, paprikamix',
+    id: 'paprika-ui', keukens: ['Hongaars'], aanraders: ['kip-fajitas', 'kip-shoarma', 'shakshuka', 'menemen', 'boerenomelet', 'hongaarse-goulash', 'paprikas-csirke', 'tjap-tjoy', 'zoetzure-kip', 'gyros'], naam: 'Paprika- en uienreepjes', voorbeeld: 'fajitamix, paprikamix',
     bevat: ['paprika', 'rode paprika', 'groene paprika', 'puntpaprika', 'ui', 'rode ui'],
     bereiding: 'Bak de reepjes bevroren op hoog vuur, zonder deksel, tot de randjes bruin worden (6 à 8 minuten). In de airfryer: 12 minuten op 200 °C.',
     snel: 'Fajita\'s, shoarma of kip-paprika uit de pan, of door een omelet of shakshuka.'
   },
   {
-    id: 'wortel-erwt', aanraders: ['shepherds-pie', 'boerenomelet', 'nasi-goreng', 'gehaktballen-jus', 'egg-fried-rice', 'guisado-carne-molida', 'foe-yong-hai'], naam: 'Worteltjes en doperwten', voorbeeld: 'Hollandse mix',
+    id: 'wortel-erwt', keukens: ['Nederlands', 'Brits'], aanraders: ['shepherds-pie', 'boerenomelet', 'nasi-goreng', 'gehaktballen-jus', 'egg-fried-rice', 'guisado-carne-molida', 'foe-yong-hai'], naam: 'Worteltjes en doperwten', voorbeeld: 'Hollandse mix',
     bevat: ['wortel', 'winterpeen', 'doperwten'],
     bereiding: 'Stoof de groente bevroren met een klontje boter, 2 el water en een snuf suiker, 6 minuten met de deksel op de pan. Of kook 5 minuten in water met zout.',
     snel: 'Klassiek bij aardappelen en een gehaktbal, of door nasi, een boerenomelet of shepherd\'s pie.'
   },
   {
-    id: 'soepgroente', aanraders: ['erwtensoep', 'harira', 'linzensoep-mercimek', 'lasagne-bolognese', 'boeuf-bourguignon', 'groentesoep-balletjes', 'minestrone', 'spaghetti-bolognese', 'gentse-waterzooi'], naam: 'Soepgroente', voorbeeld: 'prei, wortel en selderij',
+    id: 'soepgroente', keukens: ['Nederlands', 'Belgisch'], aanraders: ['erwtensoep', 'harira', 'linzensoep-mercimek', 'lasagne-bolognese', 'boeuf-bourguignon', 'groentesoep-balletjes', 'minestrone', 'spaghetti-bolognese', 'gentse-waterzooi'], naam: 'Soepgroente', voorbeeld: 'prei, wortel en selderij',
     bevat: ['prei', 'wortel', 'knolselderij', 'bleekselderij', 'verse selderij', 'ui'],
     bereiding: 'Doe hem bevroren in de soep of stoofpot; 15 minuten meekoken is genoeg.',
     snel: 'Snelle groentesoep: fruit een ui, voeg 1 liter bouillon en de soepgroente toe, kook 15 minuten en doe er vermicelli of soepballetjes bij.'
   },
   {
-    id: 'stamppot', aanraders: ['hutspot-rookworst', 'draadjesvlees', 'stoemp'], naam: 'Stamppotgroente', voorbeeld: 'hutspotmix: peen en ui',
+    id: 'stamppot', keukens: ['Nederlands', 'Belgisch'], aanraders: ['hutspot-rookworst', 'draadjesvlees', 'stoemp'], naam: 'Stamppotgroente', voorbeeld: 'hutspotmix: peen en ui',
     bevat: ['winterpeen', 'wortel', 'ui'],
     bereiding: 'Kook de mix bevroren mee met de aardappelen, net als verse hutspotgroente.',
     snel: 'Hutspot met rookworst, of gepureerd met een klontje boter als bijgerecht.'

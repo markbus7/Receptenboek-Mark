@@ -300,10 +300,12 @@ const Hulp = (() => {
   /* Welke groenten uit een recept een mix vervangt, en ongeveer hoeveel gram mix je dan gebruikt. */
   function mixDekking(recept, mix, factor = 1) {
     const gedekt = ingrediënten(recept).filter((i) => !isBasis(i) && mix.bevat.some((t) => termPast(t, i)));
-    const aanrader = (mix.aanraders || []).includes(recept.id);
+    const aanrader = (mix.aanraders || []).some((id) => id === recept.id || id === recept.groep);
+    // Past de mix bij de keuken van het recept (Mexicaanse mix bij taco's, wokgroente bij Chinees)?
+    const keuken = (mix.keukens || []).includes(recept.keuken);
     // Vervangt de mix niets maar past hij er wel bij? Dan ± 100 g per persoon erbij.
     const erbij = !gedekt.length && aanrader ? Math.round((recept.pers * factor * 100) / 50) * 50 : 0;
-    return { gedekt, aanrader, gram: mixGram(gedekt, factor), erbij };
+    return { gedekt, aanrader, keuken, gram: mixGram(gedekt, factor), erbij };
   }
 
   /* Mixen uit de voorraad die bij dit recept passen. Gebruik je er meer, dan vervangt de mix die het meest
@@ -323,9 +325,11 @@ const Hulp = (() => {
   }
 
   /* Alle mixen die in dit recept groente vervangen, van de mix die het meest vervangt naar het minst.
-     Bij gelijkspel eerst de mixen die er echt bij passen (aanraders), dan de mix die de meeste grammen vervangt.
+     Bij gelijkspel eerst de mixen die er echt bij passen (aanraders), dan de mixen uit dezelfde keuken
+     (Mexicaanse mix bij taco's), dan de mix die de meeste grammen vervangt.
+     `best` zegt of de bovenste mix echt beter past dan de tweede; staan ze helemaal gelijk, dan is er geen 'past het best'.
      Een mix die alleen de ui vervangt telt niet mee: die snij je net zo snel zelf. */
-  const ALLEEN_UI = ['ui', 'uien', 'rode ui', 'sjalot', 'sjalotten'];
+  const ALLEEN_UI = ['ui', 'uien', 'witte ui', 'gele ui', 'rode ui', 'sjalot', 'sjalotten'];
   function mixRanglijst(recept, factor = 1) {
     const lijst = (window.GROENTEMIXEN || []).map((mix) => {
       const d = mixDekking(recept, mix, factor);
@@ -333,8 +337,12 @@ const Hulp = (() => {
     }).filter((d) => d.aanrader || d.gedekt.some((i) => !ALLEEN_UI.includes(norm(i.n))));
     const groenten = [...new Set(lijst.flatMap((d) => d.gedekt.map((i) => i.n)))];
     lijst.forEach((d) => { d.mist = groenten.filter((n) => !d.gedekt.some((i) => i.n === n)); });
-    lijst.sort((a, b) => (b.gedekt.length - a.gedekt.length) || (b.aanrader - a.aanrader) || (b.gewicht - a.gewicht));
-    return { groenten, lijst, combi: mixCombi(lijst, groenten, factor) };
+    const vergelijk = (a, b) => (b.gedekt.length - a.gedekt.length) || (b.aanrader - a.aanrader) || (b.keuken - a.keuken) || (b.gewicht - a.gewicht);
+    lijst.sort(vergelijk);
+    const best = lijst.length === 1 || (lijst.length > 1 && (vergelijk(lijst[0], lijst[1]) < 0 || lijst[0].aanrader || lijst[0].keuken));
+    // Vervangen de bovenste mixen evenveel? Dan zegt de uitleg dat de keuze op 'past bij het gerecht' viel.
+    const gelijk = lijst.length > 1 && lijst[0].gedekt.length === lijst[1].gedekt.length && lijst[0].gewicht === lijst[1].gewicht;
+    return { groenten, lijst, best, gelijk, combi: mixCombi(lijst, groenten, factor) };
   }
 
   /* Twee mixen samen, als die meer groenten vervangen dan de beste mix alleen.
@@ -347,8 +355,8 @@ const Hulp = (() => {
       const extra = b.gedekt.filter((i) => !a.gedekt.some((x) => x.n === i.n));
       if (!extra.some((i) => !ALLEEN_UI.includes(norm(i.n)))) return;
       const samen = a.gedekt.length + extra.length;
-      const score = [samen, a.aanrader + b.aanrader, -(b.gedekt.length - extra.length), a.gewicht + b.gewicht];
-      // Meeste groenten samen, dan de meeste aanraders, dan de minste overlap, dan de meeste grammen.
+      const score = [samen, a.aanrader + b.aanrader, a.keuken + b.keuken, -(b.gedekt.length - extra.length), a.gewicht + b.gewicht];
+      // Meeste groenten samen, dan de meeste aanraders, dan dezelfde keuken, dan de minste overlap, dan de meeste grammen.
       const k = beste ? score.findIndex((v, n) => v !== beste.score[n]) : -1;
       if (!beste || (k >= 0 && score[k] > beste.score[k])) beste = { a, b, extra, samen, score };
     }));
