@@ -539,7 +539,7 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { kop: 'Gemarineerd ei', t: 'Breng water aan de kook in de steelpan. Laat de eieren er met een schuimspaan in zakken en kook ze precies 6½ minuut. Leg ze direct 5 minuten in ijskoud water en pel ze.', min: 6.5 },
+    { kop: 'Gemarineerd ei', t: 'Breng water aan de kook in de steelpan. Laat de eieren er met een schuimspaan in zakken en kook ze precies 6½ minuut. Leg ze direct 5 minuten in ijskoud water en pel ze.', min: 6.5, stoom: 'de eieren 9½ minuut, daarna direct 5 minuten in ijskoud water' },
     { t: 'Optioneel, maar het verschil zit hem hierin: meng sojasaus, mirin en water voor de marinade in een diepvrieszakje, leg de gepelde eieren erin, druk de lucht eruit en laat minstens 2 uur (tot 2 dagen) in de koelkast marineren. Geen tijd? Sla dit over en bestrooi de eieren straks met een snufje zout.', min: 120 },
     { kop: 'Bouillon', t: 'Breng de kippenbouillon met gember, knoflook, het groen van de lente-ui, kombu en shiitake aan de kook in de soeppan. Vis de kombu eruit zodra de bouillon kookt. Laat 20 minuten zachtjes trekken met de deksel op een kier en zeef hem.', min: 20 },
     { kop: 'Tare', t: 'Roer de sojasaus en mirin voor de tare door elkaar.' },

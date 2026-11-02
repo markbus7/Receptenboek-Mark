@@ -234,7 +234,7 @@ RECEPTEN.push(
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
-    { t: 'Doe de aardappelen in de grote pan met water tot ze net onder staan en een theelepel zout. Kook ze met de deksel op de pan in 20 minuten gaar.', min: 20 },
+    { t: 'Doe de aardappelen in de grote pan met water tot ze net onder staan en een theelepel zout. Kook ze met de deksel op de pan in 20 minuten gaar.', min: 20, stoom: 'de aardappelen in stukken van 3 cm 25 minuten; de stamppot wordt er minder waterig van' },
     { t: 'Was de andijvie, slinger hem droog in de slacentrifuge of dep hem droog, en snijd hem in reepjes van 1 cm.' },
     { t: 'Bak de spekblokjes zonder olie in de koekenpan op middelhoog vuur in 6 à 8 minuten bruin en krokant.', min: 7 },
     { t: 'Giet de aardappelen af en stamp ze met de warme melk en de boter tot een smeuïge puree. Breng op smaak met nootmuskaat, peper en een beetje zout.' },

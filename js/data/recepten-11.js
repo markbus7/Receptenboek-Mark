@@ -277,10 +277,11 @@ RECEPTEN.push(
 {
   id: 'eieren-koken', naam: 'Eieren koken: zacht, medium of hard', ook: ['gekookt ei', 'gekookte eieren', 'eitje koken', 'zacht ei', 'hardgekookt ei'], keuken: 'Nederlands', soort: 'Ontbijt & lunch',
   tijd: 12, pers: 2, niveau: 'Makkelijk', vega: true,
-  intro: 'Het perfecte gekookte ei, precies zoals jij hem wilt. Met timers voor zacht, medium en hard.',
-  methodes: [ { id: 'kookpan', naam: 'Kookpan' }, { id: 'airfryer', naam: 'Airfryer' } ],
+  intro: 'Het perfecte gekookte ei, precies zoals jij hem wilt. Met timers voor zacht, medium en hard, uit de kookpan, de airfryer of het stoommandje van je rijstkoker.',
+  methodes: [ { id: 'kookpan', naam: 'Kookpan' }, { id: 'rijstkoker', naam: 'Rijstkoker (stomen)' }, { id: 'airfryer', naam: 'Airfryer' } ],
   gerei: [
     { tool: 'kookpan', tekst: 'Steelpan waar de eieren in één laag in passen, en een schuimspaan', m: 'kookpan' },
+    { tool: 'rijstkoker', tekst: 'Rijstkoker met stoommandje; de eieren liggen in het mandje boven een laagje water', m: 'rijstkoker' },
     { tool: 'airfryer', tekst: 'Airfryer; de eieren gaan er zo in, zonder water', m: 'airfryer' }
   ],
   ingr: [
@@ -293,10 +294,15 @@ RECEPTEN.push(
     { t: 'Zacht ei (vloeibare dooier): 6 minuten koken.', m: 'kookpan', min: 6 },
     { t: 'Medium ei (smeuïge dooier, goed voor salades en ramen): 8 minuten koken.', m: 'kookpan', min: 8 },
     { t: 'Hard ei (stevige dooier): 10 minuten koken.', m: 'kookpan', min: 10 },
+    { t: 'Giet 2 maatbekertjes water (ongeveer 350 ml) in de binnenpan van de rijstkoker. Zet hem op de stand Stomen met de deksel dicht en wacht tot er stoom uit het ventiel komt, na ongeveer 5 minuten.', m: 'rijstkoker', min: 5 },
+    { t: 'Leg de eieren naast elkaar in het stoommandje, zet het mandje in de rijstkoker en doe meteen de deksel weer dicht. Start nu de wekker.', m: 'rijstkoker' },
+    { t: 'Zacht ei (vloeibare dooier): 9 minuten stomen.', m: 'rijstkoker', min: 9 },
+    { t: 'Medium ei (smeuïge dooier, goed voor salades en ramen): 11 minuten stomen.', m: 'rijstkoker', min: 11 },
+    { t: 'Hard ei (stevige dooier): 13 minuten stomen.', m: 'rijstkoker', min: 13 },
     { t: 'Leg de eieren in de airfryer en zet hem op 150 °C. Zacht: 10 minuten. Medium: 12 minuten. Hard: 15 minuten.', m: 'airfryer', min: 12 },
     { t: 'Leg de eieren direct 1 minuut in koud water. Dan gaart de dooier niet verder en pellen ze makkelijker.', min: 1 }
   ],
-  tips: ['Eieren van een paar dagen oud pellen makkelijker dan heel verse.', 'Kleine of grote eieren? Trek er 1 minuut af of tel er 1 minuut bij.'],
+  tips: ['Eieren van een paar dagen oud pellen makkelijker dan heel verse.', 'Gestoomde eieren pellen extra makkelijk, ook als ze vers zijn, en ze knappen niet: er is geen kokend water waar ze tegen de bodem stoten. Stoom je meer dan 6 eieren tegelijk? Tel er dan 1 minuut bij.', 'Stoomt je rijstkoker zwakker (weinig stoom uit het ventiel)? Dan heeft hij een minuut langer nodig. Kook één keer een proefei en onthoud je tijd.', 'Kleine of grote eieren? Trek er 1 minuut af of tel er 1 minuut bij.'],
   alt: ['Kook je eieren uit de kast (op kamertemperatuur)? Haal er dan 1 minuut af.']
 }
 );

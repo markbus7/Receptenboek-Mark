@@ -72,7 +72,7 @@ RECEPTEN.push(
     { kop: 'Bouillon', t: 'Verhit de olie in de Dutch oven op middelhoog vuur. Bak ui, knoflook, gember, laos en ketoembar 3 minuten tot het geurt. De ui mag niet bruin worden.', min: 3 },
     { t: 'Leg de kippenpoten erin en bak ze 2 minuten mee. Giet de bouillon erbij, voeg citroengras en salamblad toe en breng aan de kook. Schep het grijze schuim eraf.', min: 5 },
     { t: 'Zet het vuur laag, leg de deksel op een kier en laat de soep 1 uur zachtjes trekken. Hij mag nauwelijks borrelen, dan blijft hij helder.', min: 60 },
-    { kop: 'In de kom', t: 'Kook intussen de eieren 9 minuten hard, laat ze schrikken in koud water en pel ze. Kook in hetzelfde water de vermicelli volgens de verpakking en laat uitlekken.', min: 12 },
+    { kop: 'In de kom', t: 'Kook intussen de eieren 9 minuten hard, laat ze schrikken in koud water en pel ze. Kook in hetzelfde water de vermicelli volgens de verpakking en laat uitlekken.', stoom: 'de eieren 12 minuten, daarna in koud water; kook alleen de vermicelli in de pan', min: 12 },
     { t: 'Haal de kip uit de soep en pluk het vlees met twee vorken van de botten; vel en botten gaan weg. Vis citroengras, salamblad en gember eruit. Breng de bouillon op smaak met zout en peper en doe de kip terug.' },
     { t: 'Verdeel vermicelli, rauwe taugé en kip over diepe kommen en schep de kokende bouillon erover; die gaart de taugé net. Leg er een gehalveerd ei op.' },
     { t: 'Zet gebakken uitjes, aardappelstengels, selderij, sambal, ketjap en limoen op tafel, zodat iedereen zijn eigen kom afmaakt.' }
