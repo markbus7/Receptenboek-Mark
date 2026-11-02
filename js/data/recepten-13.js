@@ -190,7 +190,7 @@ RECEPTEN.push(
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
-    { t: 'Doe aardappel en wortel in de kookpan, zet ze net onder water en voeg zout toe. Kook in 20 minuten gaar.', min: 20 },
+    { t: 'Doe aardappel en wortel in de kookpan, zet ze net onder water en voeg zout toe. Kook in 20 minuten gaar.', min: 20, stoom: 'aardappel en wortel in stukken van 3 cm 25 minuten; strooi er daarna wat zout over' },
     { t: 'Smelt intussen 30 g boter in de koekenpan en smoor ui en prei 8 minuten op middelhoog vuur tot ze zacht en zoet zijn, maar niet bruin. Schep ze in een kom.', min: 8 },
     { t: 'Smelt 20 g boter in dezelfde pan. Bak de worsten 15 à 18 minuten op middelhoog vuur rondom bruin en gaar; keer ze regelmatig. Zet het vuur wat lager als ze te snel kleuren.', min: 16 },
     { t: 'Giet aardappel en wortel af en laat 1 minuut uitdampen. Stamp ze grof met de rest van de boter en de warme melk. Schep de prei erdoor en breng op smaak met zout, peper en nootmuskaat.' },
