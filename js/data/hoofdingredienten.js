@@ -295,6 +295,7 @@ window.HOOFD = {
   'dark-n-stormy': ['donkere rum', 'gemberbier', 'limoen'],
   'aperol-spritz': ['prosecco', 'Aperol', 'bruiswater'],
   hugo: ['prosecco', 'vlierbloesemsiroop', 'munt'],
+  'limoncello-spritz': ['prosecco', 'limoncello', 'citroen'],
   paloma: ['tequila', 'grapefruitsap', 'limoen', 'bruiswater'],
   'cuba-libre': ['rum', 'cola', 'limoen'],
   'tequila-sunrise': ['tequila', 'sinaasappelsap', 'grenadine'],
