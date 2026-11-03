@@ -1,6 +1,6 @@
 # Receptenboek Mark
 
-Een receptenboek in de browser met 257 gerechten (waarvan 30 cocktails) uit 23 keukens, waarvan 32 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
+Een receptenboek in de browser met 263 gerechten (waarvan 31 cocktails) uit 23 keukens, waarvan 32 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
 
 ## Wat kan het
 
@@ -110,6 +110,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.78.0**: Vijf nieuwe recepten: Königsberger Klopse (Duitse gehaktballetjes gegaard in bouillon, in een romige kappertjessaus), pollo al ajillo (Spaanse knoflookkip met witte wijn), bò kho (Vietnamees rundvleesstoofpotje met citroengras en steranijs, 2 uur stoven), lomo saltado (Peruaanse biefstuk uit de wok met friet uit de airfryer) en als dessert brigadeiros (Braziliaanse chocoladebolletjes met hagelslag). Met uitleg over gezoete gecondenseerde melk.
 - **1.77.0**: Nieuwe cocktail bij Long drinks: limoncello spritz (prosecco, limoncello, sodawater, citroen en munt), met uitleg over limoncello (slijterij) en een alcoholvrije versie.
 - **1.76.0**: Eieren koken heeft een derde bereidingswijze: stomen in de rijstkoker (2 maatbekertjes water, wachten op stoom, dan zacht 9, medium 11 en hard 13 minuten). Daarvoor stond stomen alleen als krabbel bij eieren ín andere recepten. Ook de eieren van saoto en ramen en de aardappelen van andijviestamppot en stoemp kregen een stoom-krabbel.
 - **1.75.0**: Kies je een groentemix die niets vervangt maar er als extra groente bij past (zoals de Mexicaanse mixen bij de taco's), dan staat hij nu ook in de ingrediëntenlijst en krijg je er een eigen stap voor, ook in de kookstand: wat je ermee doet (apart bakken, meepruttelen in de saus) en met timer. De stap staat vóór het opwarmen van de tortilla's of pita's, bij een mix die meekookt vóór het sudderen, en anders vóór de laatste stap. Per mix staat dit in `erbij` in `js/data/groentemixen.js`.

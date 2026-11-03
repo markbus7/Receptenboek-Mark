@@ -150,6 +150,12 @@ window.FOTOS = {
   "licentie": "Public domain",
   "bron": "https://commons.wikimedia.org/wiki/File:NCI_flour_tortillas.jpg"
  },
+ "bo-kho": {
+  "src": "img/bo-kho.jpg",
+  "auteur": "The original uploader was Badagnani at English Wikipedia.",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Kho.jpg"
+ },
  "bo-luc-lac": {
   "src": "img/bo-luc-lac.jpg",
   "auteur": "Nick Nguyen",
@@ -179,6 +185,12 @@ window.FOTOS = {
   "auteur": "Kimberly Vardeman",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Almond_pound_cake,_angled_profile.jpg"
+ },
+ "brigadeiros": {
+  "src": "img/brigadeiros.jpg",
+  "auteur": "User Mayra (Maych) on Flickr",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Brigadeiro.jpg"
  },
  "brownies": {
   "src": "img/brownies.jpg",
@@ -738,6 +750,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.5",
   "bron": "https://commons.wikimedia.org/wiki/File:Koofteh_tabrizi.jpg"
  },
+ "konigsberger-klopse": {
+  "src": "img/konigsberger-klopse.jpg",
+  "auteur": "Rainer Zenz at German Wikipedia",
+  "licentie": "Public domain",
+  "bron": "https://commons.wikimedia.org/wiki/File:Koenigsberger.jpg"
+ },
  "korean-fried-chicken": {
   "src": "img/korean-fried-chicken.jpg",
   "auteur": "KOREA.NET",
@@ -1061,6 +1079,12 @@ window.FOTOS = {
   "auteur": "Roland Unger",
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:EgFoodLentilSoup.jpg"
+ },
+ "lomo-saltado": {
+  "src": "img/lomo-saltado.jpg",
+  "auteur": "Chasqui (Luis Tamayo)",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Lomo_Saltado_-_Lima,_Peru_Miraflores_(Tiendecita_Blanca).jpg"
  },
  "luikse-wafels": {
   "src": "img/luikse-wafels.jpg",

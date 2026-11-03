@@ -563,5 +563,72 @@ RECEPTEN.push(
   ],
   tips: ['Geen zin in deeg maken? Bij de diepvries van grote supermarkten en de toko vind je kant-en-klare empanadavellen (tapas para empanadas). Bladerdeeg werkt ook, maar wordt luchtiger en minder stevig.', 'Rauwe empanadas kun je op een plank invriezen en daarna in een zak bewaren. Bak ze bevroren 18 minuten op 170 °C.', 'In Argentinië eet je ze uit het vuistje, met chimichurri of salsa erbij.'],
   alt: ['Met kip: neem 500 g kippendijfilet in heel kleine blokjes en bak die in plaats van het gehakt.', 'Ham en kaas (jamón y queso): vul elk rondje met een plak ham en een plakje jonge kaas.']
+},
+{
+  id: 'lomo-saltado', toegevoegd: '2026-11-03', naam: 'Lomo saltado (Peruaanse biefstuk uit de wok met friet)',
+  ook: ['lomo saltado', 'peruaanse biefstuk', 'peruviaanse wok', 'biefstuk met friet uit de wok', 'saltado', 'peruaans roerbakvlees'],
+  keuken: 'Zuid-Amerikaans', soort: 'Hoofdgerecht',
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'Het nationale feestmaal van Peru, waar de Chinese wok en de Zuid-Amerikaanse keuken samenkomen: reepjes biefstuk razendsnel geroerbakt met rode ui en tomaat in sojasaus en azijn, en dan meteen door de friet geschept. Met witte rijst ernaast, want in Peru eet je friet en rijst samen.',
+  vriezer: { biefstuk: { bevroren: 'Laat de biefstuk een half uur ontdooien tot hij nog net een beetje bevroren is: dan snijd je hem het makkelijkst in dunne reepjes.', inStap: 'half ontdooid, zodat je hem makkelijk snijdt' } },
+  gerei: [
+    { tool: 'wok', tekst: 'Wok of grote koekenpan voor hoog vuur', of: 'Geen wok? Een grote RVS- of gietijzeren pan werkt ook; bak het vlees dan in drie keer.' },
+    { tool: 'airfryer', tekst: 'Airfryer voor de friet', of: 'Geen airfryer: bak de friet in de OptiGrill-bak of in de oven volgens de verpakking.' },
+    { tool: 'kookpan', tekst: 'Pan met deksel of rijstkoker voor de rijst' }
+  ],
+  ingr: [
+    { n: 'diepvriesfriet', q: 600, u: 'g', x: 'dikke friet' },
+    { n: 'rijst', q: 250, u: 'g' },
+    { kop: 'Vlees' },
+    { n: 'biefstuk', q: 600, u: 'g', x: 'of ossenhaas (lomo), in reepjes van 1 cm dik' },
+    { n: 'komijn', q: 1, u: 'tl', x: 'gemalen (komijnpoeder)' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
+    { n: 'zout', q: 0.5, u: 'tl' },
+    { n: 'zwarte peper' },
+    { n: 'zonnebloemolie', q: 3, u: 'el' },
+    { kop: 'Groente en saus' },
+    { n: 'rode ui', p: 'rode uien', q: 2, u: 'st', x: 'in dikke parten' },
+    { n: 'tomaat', p: 'tomaten', q: 3, u: 'st', x: 'stevige, in parten, zonder pitjes' },
+    { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'zonder zaadjes, in reepjes; of 1 el ají amarillo-pasta' },
+    { n: 'sojasaus', q: 3, u: 'el' },
+    { n: 'rode wijnazijn', q: 2, u: 'el' },
+    { n: 'verse koriander', q: 15, u: 'g', x: 'grof gehakt' }
+  ],
+  stappen: [
+    { t: 'Kook de rijst in de rijstkoker of volgens de verpakking.', min: 15 },
+    { t: 'Bak de friet in de airfryer volgens de verpakking, meestal 18 à 20 minuten op 200 °C, in twee keer als je mand klein is. Schud halverwege.', min: 20 },
+    { kop: 'Vlees', t: 'Meng intussen het vlees met de komijn, knoflook, zout en peper. Roer in een kommetje de sojasaus en azijn door elkaar.' },
+    { t: 'Verhit 1 el olie in de wok op het hoogste vuur tot hij begint te walmen. Bak een derde van het vlees 1 à 2 minuten zonder te roeren tot het bruin is, schep om, en haal het eruit; vanbinnen mag het nog roze zijn. Bak de rest op dezelfde manier.', min: 5 },
+    { kop: 'Groente en saus', t: 'Bak in de hete wok de rode ui en rode peper 1 minuut: de ui moet nog knapperig zijn. Doe de tomaat erbij en roerbak nog 1 minuut, net tot de randjes zacht worden.', min: 2 },
+    { t: 'Doe het vlees terug en schenk de sojasaus met azijn erlangs. Laat 30 seconden flink sissen en schep om, zodat er een beetje saus ontstaat.' },
+    { t: 'Zet het vuur uit, schep de warme friet en de koriander erdoor en serveer meteen met de rijst, voor de friet zacht wordt van de saus.' }
+  ],
+  tips: ['Alles moet klaarstaan voor je begint: het roerbakken duurt maar 5 minuten en de friet moet dan net uit de airfryer komen.', 'Bak het vlees in porties. Een volle wok gaat koken in plaats van bakken, en dan krijg je grauw vlees zonder korst.', 'Ají amarillo, de gele Peruaanse peper, vind je als pasta bij Latijns-Amerikaanse winkels en online. Een gewone rode peper doet het ook prima.'],
+  alt: ['Pollo saltado: neem 600 g kippendijfilet in reepjes en bak die 1 minuut langer.', 'Liever de friet apart? Leg hem op het bord en schep het vlees erover, dan blijft hij krokanter.']
+},
+{
+  id: 'brigadeiros', toegevoegd: '2026-11-03', naam: 'Brigadeiros (Braziliaanse chocoladebonbons)',
+  ook: ['brigadeiros', 'brigadeiro', 'braziliaanse truffels', 'chocoladetruffels', 'chocoladebolletjes', 'bonbons met hagelslag'],
+  keuken: 'Zuid-Amerikaans', soort: 'Dessert',
+  tijd: 25, wacht: '1 uur afkoelen', pers: 20, stuks: 'brigadeiros', niveau: 'Makkelijk', vega: true,
+  intro: 'Op elk Braziliaans verjaardagsfeest staan ze: zachte, kauwbare chocoladebolletjes van gecondenseerde melk, cacao en boter, gerold door hagelslag. Je maakt ze in één pannetje, zonder oven en zonder mixer.',
+  gerei: [
+    { tool: 'kookpan', tekst: 'Steelpan met dikke bodem en een siliconen spatel' }
+  ],
+  ingr: [
+    { n: 'gecondenseerde melk', q: 397, u: 'g', x: 'gezoet, 1 blik' },
+    { n: 'cacaopoeder', q: 2, u: 'el', x: 'ongezoet' },
+    { n: 'roomboter', q: 15, u: 'g', x: 'plus een beetje voor je handen' },
+    { n: 'zout', q: 1, u: 'snuf' },
+    { n: 'chocoladehagelslag', q: 100, u: 'g', x: 'puur of melk' }
+  ],
+  stappen: [
+    { t: 'Doe de gecondenseerde melk, het cacaopoeder, de boter en het zout in de koude steelpan en roer tot er geen klontjes cacao meer zijn.' },
+    { t: 'Zet de pan op middellaag vuur en roer continu met de spatel, ook langs de bodem en de randen. Na zo\'n 10 à 12 minuten is het mengsel dik en glanzend: trek je een streep door de bodem, dan blijft die een paar tellen open, en de massa glijdt als één klont van de bodem af.', min: 12 },
+    { t: 'Schep het mengsel op een ingevet bord en laat het afkoelen tot kamertemperatuur, daarna nog 30 minuten in de koelkast, tot je het kunt vormen.', min: 60 },
+    { t: 'Doe de hagelslag in een diep bord. Vet je handen in met een beetje boter, rol balletjes van een theelepel (ongeveer 2,5 cm) en rol ze direct door de hagelslag. Leg ze in papieren bonbonvormpjes als je die hebt.' }
+  ],
+  tips: ['Niet te kort koken: dan blijft het een saus en kun je geen bolletjes rollen. Te lang en ze worden hard en taai. Die streep door de bodem is de beste test.', 'Hagelslag is precies wat ze in Brazilië gebruiken (chocolate granulado); Nederlandse pure hagelslag is zelfs lekkerder.', 'In een afgesloten bakje blijven ze 3 dagen goed buiten de koelkast, een week erin. Haal ze een half uur van tevoren uit de koelkast, dan zijn ze weer zacht.'],
+  alt: ['Beijinho (witte variant): laat de cacao weg en roer 50 g geraspte kokos door de melk; rol ze door kokos in plaats van hagelslag.', 'Met 1 el sterke koffie of 1 tl rum in het mengsel worden ze iets volwassener.']
 }
 );

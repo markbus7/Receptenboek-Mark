@@ -99,6 +99,41 @@ RECEPTEN.push(
   alt: ['Airfryer: spuit de churros op bakpapier en leg ze 20 minuten in de vriezer, zodat ze stevig worden. Bestrijk ze rondom met olie, leg ze in een goed ingevette mand en bak 10 à 12 minuten op 200 °C; keer halverwege. Bestrijk ze met gesmolten boter en rol ze door de kaneelsuiker. Lekker, maar minder krokant dan gefrituurd.', 'Snelle chocoladesaus: verwarm 150 ml slagroom tot net tegen de kook en smelt er 150 g pure chocolade in.']
 },
 {
+  id: 'pollo-al-ajillo', toegevoegd: '2026-11-03', naam: 'Pollo al ajillo (Spaanse knoflookkip)',
+  ook: ['pollo al ajillo', 'knoflookkip', 'spaanse kip met knoflook', 'kip met knoflook en witte wijn', 'kip in knoflook', 'pollo ajillo'],
+  keuken: 'Spaans', soort: 'Hoofdgerecht',
+  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
+  intro: 'Een Spaanse huiskamerklassieker: stukken kip goudbruin gebakken in olijfolie met een hele bol knoflook, en dan zachtjes gestoofd in witte wijn met laurier. Het sap in de pan is zo lekker dat je er brood in doopt.',
+  gerei: [
+    { tool: 'hapjespan', tekst: 'Hapjespan of brede pan met deksel (28 cm)', of: 'Een Dutch oven of een grote koekenpan met deksel werkt ook.' }
+  ],
+  ingr: [
+    { n: 'kippendijfilet', q: 800, u: 'g', x: 'in grote stukken van 4 cm; of 8 kippendijen met bot' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { n: 'zwarte peper' },
+    { n: 'olijfolie', q: 5, u: 'el' },
+    { n: 'knoflook', q: 1, u: 'bol', x: 'zo\'n 12 tenen, gepeld en plat gedrukt met je mes' },
+    { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'gedroogd of vers, in stukjes; mag ook weg' },
+    { n: 'laurierblad', p: 'laurierbladen', q: 2, u: 'st' },
+    { n: 'witte wijn', q: 200, u: 'ml', x: 'droog; of droge sherry (fino), zoals in Andalusië' },
+    { n: 'kippenbouillon', q: 100, u: 'ml' },
+    { n: 'verse peterselie', q: 15, u: 'g', x: 'fijngehakt' },
+    { kop: 'Erbij' },
+    { n: 'stokbrood', p: 'stokbroden', q: 1, u: 'st' }
+  ],
+  stappen: [
+    { t: 'Dep de kip droog met keukenpapier en bestrooi hem met het zout en flink wat peper.' },
+    { t: 'Verhit 3 el olie in de hapjespan op middelhoog vuur. Bak de kip in twee keer in 8 à 10 minuten rondom goudbruin; hij hoeft nog niet gaar te zijn. Schep hem uit de pan.', min: 9 },
+    { t: 'Zet het vuur laag en doe de rest van de olie, de knoflook, de peper en de laurier in de pan. Bak de knoflook 3 à 4 minuten zachtjes tot hij lichtgoud is en heerlijk ruikt. Niet bruin: dan wordt hij bitter.', min: 4 },
+    { t: 'Doe de kip terug, schenk de wijn erbij en schraap de aanbaksels los. Laat 2 minuten flink borrelen, zodat de alcohol verdampt.', min: 2 },
+    { t: 'Schenk de bouillon erbij, doe de deksel erop en laat 15 minuten zachtjes stoven tot de kip gaar en mals is (met bot 25 minuten).', min: 15 },
+    { t: 'Haal de deksel eraf en laat de saus nog 3 à 4 minuten inkoken tot hij een beetje stroperig is. Proef op zout, roer de peterselie erdoor en serveer met stokbrood om het sap op te deppen.', min: 4 }
+  ],
+  tips: ['Druk de tenen alleen plat in plaats van ze te hakken. Dan worden ze zacht en zoet en verbranden ze niet.', 'Met bot en vel (kippendijen) wordt het nog sappiger en is het Spaanser; bak ze dan eerst met het vel naar beneden.', 'Lekker met patatas bravas of gebakken aardappelblokjes en een groene salade.'],
+  alt: ['Zonder alcohol: neem 300 ml kippenbouillon met 1 el witte wijnazijn of citroensap.', 'Kipfilet kan ook, maar stoof hem dan maar 8 minuten, anders wordt hij droog.'],
+  bij: ['patatas-bravas']
+},
+{
   id: 'gyros', naam: 'Gyros', gerecht: 'Gyros', variant: 'Varkensvlees', ook: ['pita gyros', 'gyros met tzatziki'],
   keuken: 'Grieks', soort: 'Hoofdgerecht',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,

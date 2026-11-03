@@ -294,6 +294,8 @@ window.PRIJSKOPPELING = {
   'gedroogde gist': { zoek: ['gist', 'droge gist', 'bakkersgist'], niet: ['extract', 'marmite', 'vlokken'] },
   'gelatineblaadje': { zoek: ['bladgelatine', 'gelatine'], niet: ['vegatine'], e: 'g', st: 1.7 },
   'cacaopoeder': {},
+  'gecondenseerde melk': { zoek: ['gecondenseerde melk', 'gezoete gecondenseerde'], niet: ['ongezoet', 'koffie', 'evaporated', 'volle melk', 'halfvolle'] },
+  'chocoladehagelslag': { zoek: ['hagelslag puur', 'hagelslag melk', 'chocoladehagelslag'], niet: ['vruchten', 'anijs', 'vlokken', 'wit', 'mini'] },
   'pure chocolade': { zoek: ['pure chocolade', 'chocolade puur'], niet: ['muffins', 'koekjes', 'hagel', 'pasta', 'drank', 'melk', 'ijs', 'koek', 'cake', 'rijst', 'wafels', 'reep met'] },
   'witte chocolade': { niet: ['mousse', 'roomijsjes', 'ijsjes', 'filipinos', 'koek', 'koekjes', 'muffin', 'hagel', 'cake', 'framboos'], ruim: 0 },
   'vanille extract': {},
