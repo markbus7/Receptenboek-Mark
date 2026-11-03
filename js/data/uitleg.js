@@ -214,6 +214,10 @@ window.UITLEG = [
     tip: 'Gewone maïsmeel, polenta of maïzena werken niet: die zijn niet voorgekookt, en het deeg valt dan uit elkaar.' },
 
   /* ---------- Meel, brood, zuivel en de rest ---------- */
+  { id: 'gecondenseerde-melk', naam: 'Gecondenseerde melk (gezoet)', namen: ['gecondenseerde melk'],
+    wat: 'Melk waar het meeste water uit is gekookt, met veel suiker erbij: dik, stroperig en heel zoet, als zachte karamel. Basis van brigadeiros en Vietnamese ijskoffie.',
+    waar: 'Bij de koffiemelk en de bakproducten, in een blik van 397 g of een tube. Neem gezoet: ongezoete (evaporated milk) is dun en werkt niet.',
+    tip: 'Geen koffiemelk: die is ook ingedikt maar niet gezoet, en wordt dus niet dik.' },
   { id: 'tapiocameel', naam: 'Tapiocameel', namen: ['tapiocameel'],
     wat: 'Wit zetmeel uit de wortel van de cassaveplant. Bij het bakken wordt het taai en elastisch. Glutenvrij.',
     waar: 'Toko, Aziatische of Surinaamse winkel, soms bij de glutenvrije producten.',

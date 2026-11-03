@@ -203,6 +203,9 @@ ARTIKELEN = {
     'caesar-salad': 'Caesar salad', 'cobb-salad': 'Cobb salad', 'salade-nicoise': 'Salade niçoise',
     'salade-chevre-chaud': 'File:Salade de chèvre chaud 002.jpg', 'caprese': 'Caprese salad', 'panzanella': 'Panzanella', 'fattoush': 'Fattoush',
     'huzarensalade': 'nl:Huzarensalade',
+    # 1.78.0 (pollo al ajillo: het artikel heeft alleen een foto van gambas al ajillo, dus het tegeltje)
+    'konigsberger-klopse': 'Königsberger Klopse', 'bo-kho': 'Bò kho',
+    'lomo-saltado': 'Lomo saltado', 'brigadeiros': 'Brigadeiro',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

@@ -141,6 +141,7 @@ window.UIEN = {
     'saag-paneer': { ui: ['gele ui', 'Hij fruit zacht in de boter', 'rode ui'] },
     'tandoori-kip': { 'rode ui': ['rode ui', 'Rauw bij de kip, zoals in Indiase restaurants: mild en knapperig', 'witte ui'] },
     'aloo-gobi': { ui: ['rode ui', 'In India de gewone ui: hij bakt in tot een dikke masala', 'gele ui'] },
+    'konigsberger-klopse': { ui: ['gele ui', 'Heel fijn gesnipperd valt hij weg in de zachte balletjes en maakt ze sappig', 'sjalot', 'witte ui'] },
     rinderrouladen: { ui: ['gele ui', 'In de rolletjes wordt hij zacht en zoet, en in de saus kleurt hij mooi bruin', 'sjalot', 'rode ui'] },
     avgolemono: { ui: ['gele ui', 'Zacht gefruit geeft hij de bouillon een zoete basis zonder op te vallen', 'witte ui', 'sjalot'] },
     empanadas: { ui: ['witte ui', 'Zo doen ze het in Argentinië: hij blijft fris en een beetje knapperig in de vulling', 'gele ui'] }

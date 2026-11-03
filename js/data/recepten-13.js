@@ -588,5 +588,57 @@ RECEPTEN.push(
   ],
   tips: ['Vraag de slager om rouladen of rollades: dunne, grote lappen van de bovenbil. Bij de supermarkt neem je de dunste runderlappen die je kunt vinden.', 'Rinderrouladen worden de tweede dag nog lekkerder. Ze kunnen ook in de saus de vriezer in.', 'Pot rode kool met appel uit de supermarkt is de klassieke begeleider; in Duitsland eten ze er ook Knödel of spätzle bij.'],
   alt: ['Zonder wijn: neem 750 ml bouillon en 1 el rode wijnazijn.', 'Slowcooker: bak de rolletjes en groenten eerst aan zoals hierboven, en gaar alles 7 uur op LOW. Bind de saus daarna in de pan.']
+},
+{
+  id: 'konigsberger-klopse', toegevoegd: '2026-11-03', naam: 'Königsberger Klopse (gehaktballen in kappertjessaus)',
+  ook: ['königsberger klopse', 'konigsberger klopse', 'koenigsberger klopse', 'klopse', 'kochklopse', 'gehaktballetjes in witte saus', 'gehaktballen met kappertjes', 'duitse gehaktballen'],
+  keuken: 'Duits & Oostenrijks', soort: 'Hoofdgerecht',
+  tijd: 55, pers: 4, niveau: 'Gemiddeld', vega: false,
+  intro: 'Het bekendste gehaktbalgerecht van Duitsland: zachte balletjes die je niet bakt maar in bouillon gaart, in een romige witte saus met kappertjes en citroen. Fris, mild en heel anders dan gehaktballen in jus. Met gekookte aardappelen en rode bietjes.',
+  vriezer: { 'half-om-half gehakt': { bevroren: 'Laat het gehakt helemaal ontdooien voor je het kneedt; half bevroren mengt het niet goed met het brood en het ei.', inStap: 'helemaal ontdooid' } },
+  gerei: [
+    { tool: 'hapjespan', tekst: 'Brede pan met deksel (24 à 28 cm) om de balletjes te garen', of: 'Een Dutch oven of ruime kookpan werkt ook; de balletjes moeten naast elkaar in de bouillon passen.' },
+    { tool: 'kookpan', tekst: 'Steelpan voor de saus' },
+    { tool: 'kookpan', tekst: 'Kookpan voor de aardappelen' }
+  ],
+  ingr: [
+    { kop: 'Balletjes' },
+    { n: 'half-om-half gehakt', q: 500, u: 'g', x: 'of kalfsgehakt, zoals in Königsberg' },
+    { n: 'brood', q: 2, u: 'plak', x: 'oud wit brood zonder korst' },
+    { n: 'melk', q: 75, u: 'ml' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'heel fijn gesnipperd' },
+    { n: 'ei', p: 'eieren', q: 1, u: 'st' },
+    { n: 'mosterd', q: 1, u: 'tl', x: 'middelscherp' },
+    { n: 'verse peterselie', q: 2, u: 'el', x: 'fijngehakt' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { n: 'zwarte peper' },
+    { kop: 'Bouillon' },
+    { n: 'runderbouillon', q: 1, u: 'l', x: 'of kippenbouillon' },
+    { n: 'laurierblad', p: 'laurierbladen', q: 2, u: 'st' },
+    { n: 'zwarte peperkorrels', q: 6, u: 'st' },
+    { kop: 'Saus' },
+    { n: 'roomboter', q: 40, u: 'g' },
+    { n: 'bloem', q: 40, u: 'g' },
+    { n: 'kookroom', q: 125, u: 'ml', x: 'of slagroom' },
+    { n: 'kappertjes', q: 3, u: 'el', x: 'uitgelekt, plus 1 el van het nat' },
+    { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' },
+    { n: 'eidooier', p: 'eidooiers', q: 1, u: 'st', opt: true, x: 'voor een extra romige saus' },
+    { n: 'suiker', q: 1, u: 'snuf' },
+    { kop: 'Erbij' },
+    { n: 'kruimige aardappelen', q: 1, u: 'kg', x: 'geschild, in gelijke stukken' }
+  ],
+  stappen: [
+    { kop: 'Balletjes', t: 'Snijd de korst van het brood, scheur het in stukjes en laat het 5 minuten weken in de melk. Knijp het daarna een beetje uit.', min: 5 },
+    { t: 'Kneed het gehakt met het geweekte brood, de ui, het ei, de mosterd, de peterselie, 1 tl zout en flink wat peper tot een glad mengsel. Maak met natte handen 12 à 16 balletjes van ongeveer 4 cm.' },
+    { t: 'Breng de bouillon met de laurier en peperkorrels aan de kook in de brede pan. Zet het vuur laag: de bouillon mag alleen nog trillen, niet borrelen. Leg de balletjes erin, doe de deksel erop en gaar ze 15 minuten. Ze drijven als ze gaar zijn.', min: 15 },
+    { t: 'Kook intussen de aardappelen in water met zout in 20 minuten gaar.', min: 20, stoom: 'de aardappelen in stukken 25 minuten' },
+    { t: 'Schep de balletjes uit de bouillon en houd ze warm onder een deksel. Zeef de bouillon in een maatbeker; je hebt er 600 ml van nodig.' },
+    { kop: 'Saus', t: 'Smelt de boter in de steelpan, roer de bloem erdoor en laat dit 2 minuten zachtjes garen zonder dat het kleurt.', min: 2 },
+    { t: 'Schenk in drie keer de 600 ml bouillon erbij en klop na elke keer met een garde glad. Laat de saus 5 minuten zachtjes koken tot hij gebonden is.', min: 5 },
+    { t: 'Roer de kookroom, kappertjes, het kappertjesnat, het citroensap en een snufje suiker erdoor. Gebruik je de eidooier: klop hem los met een paar lepels hete saus en roer hem dan door de saus. Laat de saus nu niet meer koken, anders schift het ei.' },
+    { t: 'Proef: frisser met citroen, zouter met een beetje zout. De saus is fris-zuur en mild. Leg de balletjes in de saus, laat ze 2 minuten warm worden en bestrooi met peterselie. Serveer met de aardappelen.', min: 2 }
+  ],
+  tips: ['Laat de bouillon echt alleen trillen. Borrelt hij, dan worden de balletjes taai en vallen ze uit elkaar.', 'De overgebleven bouillon is een prima basis voor soep; hij kan ook de vriezer in.', 'In Duitsland eet je er een schaaltje rode bietjes uit een pot bij; dat zoete past heel goed bij de zure saus.'],
+  alt: ['Rijst in plaats van aardappelen kan ook: in de DDR at iedereen Klopse met rijst.', 'Geen kappertjes in huis: een paar fijngehakte augurkjes met 1 el augurkennat geven ook dat frisse.']
 }
 );

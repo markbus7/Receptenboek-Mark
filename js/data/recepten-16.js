@@ -652,6 +652,54 @@ RECEPTEN.push(
   alt: []
 },
 {
+  id: 'bo-kho', toegevoegd: '2026-11-03', naam: 'Bò kho (Vietnamees rundvleesstoofpotje)',
+  ook: ['bo kho', 'bò kho', 'vietnamese stoofpot', 'vietnamese beef stew', 'rundvlees met citroengras', 'stoofvlees met steranijs'],
+  keuken: 'Vietnamees', soort: 'Hoofdgerecht',
+  tijd: 35, wacht: '2 uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false, pit: 1,
+  intro: 'Het stoofvlees van Saigon: blokken rundvlees die twee uur zachtjes garen met citroengras, steranijs, kaneel en gember, tot ze uit elkaar vallen in een oranjerode, geurige saus met zachte wortels. In Vietnam eet je het als ontbijt met stokbrood om in te dopen, of met rijstnoedels.',
+  vriezer: { runderstoofvlees: { bevroren: 'Laat het vlees ontdooien en dep het goed droog, anders kleurt het niet in de pan.', inStap: 'ontdooid' } },
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of braadpan (24 à 28 cm) met deksel', of: 'Een grote kookpan met dikke bodem werkt ook; houd het vuur dan heel laag.' }
+  ],
+  ingr: [
+    { kop: 'Marinade' },
+    { n: 'runderstoofvlees', q: 1, u: 'kg', x: 'riblappen of sukadelappen, in blokken van 4 cm' },
+    { n: 'vissaus', q: 2, u: 'el' },
+    { n: 'bruine suiker', q: 1, u: 'el' },
+    { n: 'vijfkruidenpoeder', q: 1, u: 'tl' },
+    { n: 'paprikapoeder', q: 1, u: 'el', x: 'edelzoet, voor de kleur' },
+    { n: 'gember', q: 20, u: 'g', x: 'geraspt' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
+    { kop: 'Stoven' },
+    { n: 'zonnebloemolie', q: 2, u: 'el' },
+    { n: 'sjalot', p: 'sjalotten', q: 3, u: 'st', x: 'fijngesnipperd' },
+    { n: 'citroengras', q: 2, u: 'stengel', x: 'in stukken van 8 cm, geplet met de achterkant van je mes' },
+    { n: 'tomatenpuree', q: 2, u: 'el' },
+    { n: 'steranijs', q: 2, u: 'st' },
+    { n: 'kaneelstokje', p: 'kaneelstokjes', q: 1, u: 'st' },
+    { n: 'laurierblad', p: 'laurierbladen', q: 2, u: 'st' },
+    { n: 'kokoswater', q: 330, u: 'ml', x: 'of gewoon water' },
+    { n: 'water', q: 700, u: 'ml' },
+    { n: 'wortel', p: 'wortels', q: 4, u: 'st', x: 'in schuine stukken van 3 cm' },
+    { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'in ringetjes, mag ook weg', opt: true },
+    { kop: 'Erbij' },
+    { n: 'stokbrood', p: 'stokbroden', q: 1, u: 'st', x: 'of 250 g rijstnoedels' },
+    { n: 'Thaise basilicum', q: 15, u: 'g', x: 'of verse koriander', opt: true },
+    { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'in partjes' }
+  ],
+  stappen: [
+    { kop: 'Marinade', t: 'Meng het vlees in een kom met de vissaus, bruine suiker, vijfkruidenpoeder, paprikapoeder, gember en knoflook. Laat het minstens 30 minuten marineren, of afgedekt een nacht in de koelkast.', min: 30 },
+    { kop: 'Stoven', t: 'Verhit de olie in de Dutch oven op hoog vuur. Schraap de knoflook en gember zo veel mogelijk van het vlees (die verbranden anders) en bak het vlees in twee keer in 5 minuten rondom bruin. Schep het uit de pan.', min: 10 },
+    { t: 'Zet het vuur middelhoog. Bak de sjalot en het citroengras 3 minuten, roer de tomatenpuree erdoor en bak 1 minuut mee, tot hij donkerder wordt.', min: 4 },
+    { t: 'Doe het vlees met de rest van de marinade terug in de pan, met de steranijs, het kaneelstokje en de laurier. Schenk het kokoswater en het water erbij; het vlees moet net onder staan.' },
+    { t: 'Breng aan de kook, schep het schuim eraf, doe de deksel er schuin op en laat 1½ uur heel zachtjes stoven. Roer af en toe.', min: 90 },
+    { t: 'Voeg de wortels (en de rode peper) toe en stoof nog 30 minuten zonder deksel, tot het vlees met een vork uit elkaar valt, de wortels zacht zijn en de saus wat is ingekookt.', min: 30 },
+    { t: 'Vis het citroengras, de steranijs, het kaneelstokje en de laurier eruit. Proef: zouter met 1 tl vissaus, zoeter met een beetje suiker. Schep in diepe borden, met basilicum erover, een partje limoen erbij en stokbrood om te dopen.' }
+  ],
+  tips: ['Paprikapoeder vervangt hier de annattozaadjes die in Vietnam de saus oranjerood kleuren. Wil je het echt doen: bij de toko liggen annattozaadjes (hạt điều màu), die je eerst in de olie laat kleuren.', 'Kokoswater maakt de saus rond en een beetje zoet, zonder naar kokos te smaken. Kokosmelk is iets anders en werkt hier niet.', 'Net als elk stoofvlees is bò kho de volgende dag nog lekkerder. Het kan ook goed de vriezer in.'],
+  alt: ['Slowcooker: bak vlees en sjalot eerst aan zoals hierboven, doe alles met maar 500 ml water in de slowcooker en gaar 7 uur op LOW. Doe de wortels het laatste uur erbij.', 'Met rijstnoedels in plaats van brood is het hủ tiếu bò kho: giet dan 250 ml water extra bij de saus, zodat het meer een soep wordt.']
+},
+{
   id: 'fish-and-chips', naam: 'Fish and chips', ook: ['fish & chips', 'kibbeling'],
   keuken: 'Brits', soort: 'Hoofdgerecht',
   tijd: 50, pers: 4, niveau: 'Gemiddeld', vega: false,
