@@ -362,6 +362,28 @@
     alt: ['Alcoholvrij: alcoholvrije mousserende wijn of alleen bruiswater.']
   },
   {
+    id: 'limoncello-spritz', toegevoegd: '2026-11-03', naam: 'Limoncello spritz',
+    ook: ['limoncello spritz', 'limoncello', 'spritz', 'citroen spritz', 'lemon spritz'],
+    keuken: 'Long drinks', soort: 'Cocktail', tijd: 3, pers: 2, stuks: 'glazen', niveau: 'Makkelijk', vega: true,
+    intro: 'De citroengele zus van de Aperol spritz: prosecco met limoncello (Italiaanse citroenlikeur) en een scheut bruiswater, met citroen en een blaadje munt. Zoet, fris en zomers, en helemaal niet bitter.',
+    gerei: [glas('2 grote wijnglazen'), MAATJE],
+    ingr: [
+      { n: 'prosecco', q: 180, u: 'ml', x: 'goed gekoeld' },
+      { n: 'limoncello', q: 100, u: 'ml', x: 'uit de vriezer of koelkast' },
+      { n: 'sodawater', q: 60, u: 'ml', x: 'of bruisend mineraalwater' },
+      { n: 'citroen', q: 0.5, u: 'st', x: 'in plakjes' },
+      { n: 'verse munt', q: 2, u: 'takje', x: 'of basilicum' },
+      IJS
+    ],
+    stappen: [
+      { t: 'Vul de wijnglazen met ijs.' },
+      { t: 'Schenk eerst de prosecco erin, dan de limoncello en als laatste het sodawater.' },
+      { t: 'Roer één keer zachtjes. Doe er een plakje citroen en een takje munt in; klap de munt eerst even tussen je handen.' }
+    ],
+    tips: ['Limoncello kun je gewoon in de vriezer bewaren: hij bevriest niet en is dan meteen ijskoud.', 'Te zoet? Pers er een paar druppels citroensap bij, of neem iets meer sodawater.'],
+    alt: ['Alcoholvrij: alcoholvrije mousserende wijn met 2 eetlepels citroensiroop (zoals Teisseire) en wat citroensap.', 'Aperol spritz: met Aperol in plaats van limoncello (staat ook in dit hoofdstuk).']
+  },
+  {
     id: 'paloma', toegevoegd: '2026-10-29', naam: 'Paloma',
     ook: ['paloma', 'tequila grapefruit', 'grapefruit cocktail'],
     keuken: 'Long drinks', soort: 'Cocktail', tijd: 5, pers: 2, stuks: 'glazen', niveau: 'Makkelijk', vega: true,
