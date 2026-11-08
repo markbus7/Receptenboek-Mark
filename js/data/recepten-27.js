@@ -13,19 +13,19 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'RVS-kookpan van 24 cm of groter (minstens 4 liter) met deksel, liefst met een dikke bodem', m: 'kookpan', of: 'Een RVS-hapjespan met deksel werkt ook; een glazen deksel is handig, dan zie je wanneer het stopt.' },
     { tool: 'hapjespan', tekst: 'Antiaanbak hapjespan of kookpan van 24 à 28 cm met deksel', m: 'hapjespan' },
     { tool: 'magnetron', tekst: 'Magnetron en 2 bruine papieren boterhamzakjes, zonder plastic venster of nietje', m: 'magnetron' },
-    { tool: 'kookpan', tekst: 'Een heel grote kom, ovenwanten of een theedoek om de pan te schudden, en een vijzel of hakmolen voor het zout' }
+    { tool: 'kookpan', tekst: 'Een heel grote kom, ovenwanten of een theedoek om de pan te schudden, en een diepvrieszakje om het zout fijn te rollen' }
   ],
   ingr: [
     { kop: 'Popcorn' },
     { n: 'popcornmais', q: 100, u: 'g', x: 'geeft ongeveer 4 liter popcorn' },
     { n: 'kokosolie', q: 3, u: 'el', x: 'reukloos', of: { q: 3, u: 'el', n: 'zonnebloemolie' } },
     { n: 'kurkuma', q: 1, u: 'snuf', x: 'gemalen, voor de gele bioscoopkleur', opt: true },
-    { n: 'zout', q: 1, u: 'tl', x: 'zo fijn mogelijk' },
+    { n: 'zout', q: 1, u: 'tl', x: 'fijn tafelzout' },
     { kop: 'Erover' },
     { n: 'ghee', q: 2, u: 'el', x: 'gesmolten; of roomboter', opt: true }
   ],
   stappen: [
-    { kop: 'Popcorn', t: 'Maak het zout zo fijn als poeder: wrijf het in een vijzel fijn, of draai het 20 seconden in een hakmolen of koffiemolen. Gewone zoutkorrels rollen van de popcorn af; poederzout blijft plakken, zoals in de bioscoop. Zet de grote kom klaar.', min: 2 },
+    { kop: 'Popcorn', t: 'Neem fijn tafelzout (keukenzout uit de bus), geen grof zeezout: grove korrels rollen van de popcorn af, fijn zout blijft plakken, zoals in de bioscoop. Nog fijner wordt het in een diepvrieszakje: rol er een paar keer stevig overheen met een deegroller of de bodem van een pan. Een vijzel of de hakmolen van de staafmixer kan ook. Zet de grote kom klaar.', min: 2 },
     { t: 'Doe de kokosolie, de kurkuma en 3 maïskorrels in de RVS-pan en leg het deksel erop. Zet hem op middelhoog vuur (stand 7 van 9 op inductie, of een middelgrote vlam). RVS met een dikke bodem verdeelt de hitte goed; wacht tot alle 3 de korrels zijn geknald, na 2 à 4 minuten. Dan is de olie precies heet genoeg.', m: 'kookpan', min: 3 },
     { t: 'Doe de kokosolie, de kurkuma en 3 maïskorrels in de antiaanbakpan en leg het deksel erop. Zet hem op middelhoog vuur, niet hoger (stand 6 van 9 op inductie): een antiaanbaklaag kan niet tegen de hoogste stand. Wacht tot alle 3 de korrels zijn geknald, na 3 à 5 minuten.', m: 'hapjespan', min: 4 },
     { t: 'Haal de pan van het vuur. Strooi alle popcornmais en de helft van het fijne zout erin, schud tot elke korrel glanst van de olie, en leg het deksel er weer op. Laat de pan 30 seconden van het vuur af staan: zo worden alle korrels even warm en poffen ze straks tegelijk, met bijna geen ongepofte korrels.', m: 'kookpan', min: 1 },
