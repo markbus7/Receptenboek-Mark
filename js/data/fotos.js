@@ -1319,6 +1319,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Pom_gerecht.JPG"
  },
+ "popcorn-bioscoop": {
+  "src": "img/popcorn-bioscoop.jpg",
+  "auteur": "Ziongarage",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Popcorn_in_a_bowl.jpg"
+ },
  "popcorn-chicken-taiwanees": {
   "src": "img/popcorn-chicken-taiwanees.jpg",
   "auteur": "NeoBatfreak",

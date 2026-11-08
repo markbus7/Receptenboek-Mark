@@ -254,6 +254,8 @@ window.HOOFD = {
   empanadas: ['deeg', 'gehakt'],
   'lomo-saltado': ['biefstuk', 'friet', 'rode ui', 'tomaat'],
   brigadeiros: ['gecondenseerde melk', 'chocolade', 'hagelslag'],
+  'popcorn-bioscoop': ['popcornmais', 'kokosolie', 'zout'],
+  'popcorn-bioscoop-zoet': ['popcornmais', 'kokosolie', 'suiker'],
   kiptenders: ['kip', 'krokant jasje'],
   'kiptenders-cajun': ['kip', 'pittig jasje'],
   'kiptenders-knoflook': ['kip', 'Parmezaanse kaas', 'knoflook'],

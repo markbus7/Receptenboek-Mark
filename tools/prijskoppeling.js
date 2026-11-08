@@ -296,6 +296,8 @@ window.PRIJSKOPPELING = {
   'cacaopoeder': {},
   'gecondenseerde melk': { zoek: ['gecondenseerde melk', 'gezoete gecondenseerde'], niet: ['ongezoet', 'koffie', 'evaporated', 'volle melk', 'halfvolle'] },
   'chocoladehagelslag': { zoek: ['hagelslag puur', 'hagelslag melk', 'chocoladehagelslag'], niet: ['vruchten', 'anijs', 'vlokken', 'wit', 'mini'] },
+  'popcornmais': { zoek: ['popcornmais', 'popcorn mais', 'popcorn maïs'], niet: ['magnetron', 'zoet', 'zout', 'karamel', 'gepoft'] },
+  'kokosolie': { zoek: ['kokosolie', 'kokosvet'], niet: ['haar', 'body', 'huid', 'spray', 'melk'] },
   'pure chocolade': { zoek: ['pure chocolade', 'chocolade puur'], niet: ['muffins', 'koekjes', 'hagel', 'pasta', 'drank', 'melk', 'ijs', 'koek', 'cake', 'rijst', 'wafels', 'reep met'] },
   'witte chocolade': { niet: ['mousse', 'roomijsjes', 'ijsjes', 'filipinos', 'koek', 'koekjes', 'muffin', 'hagel', 'cake', 'framboos'], ruim: 0 },
   'vanille extract': {},
