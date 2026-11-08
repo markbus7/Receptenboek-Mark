@@ -110,6 +110,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.79.1**: Bij de popcorn vroeg de app of je een groentemix had, omdat "popcornmais" op mais leek. Popcornmais telt nu niet meer als groente.
 - **1.79.0**: Bioscoop popcorn uit de pan, zout en zoet (Bijgerecht & snack, Amerikaans). Met de RVS-pan, een antiaanbakpan of (alleen zout) de magnetron in een papieren zakje; het bioscoopgeheim is kokosolie met poederfijn zout in de olie. Met uitleg over popcornmais en kokosolie, en waarom de airfryer niet goed werkt.
 - **1.78.0**: Vijf nieuwe recepten: Königsberger Klopse (Duitse gehaktballetjes gegaard in bouillon, in een romige kappertjessaus), pollo al ajillo (Spaanse knoflookkip met witte wijn), bò kho (Vietnamees rundvleesstoofpotje met citroengras en steranijs, 2 uur stoven), lomo saltado (Peruaanse biefstuk uit de wok met friet uit de airfryer) en als dessert brigadeiros (Braziliaanse chocoladebolletjes met hagelslag). Met uitleg over gezoete gecondenseerde melk.
 - **1.77.0**: Nieuwe cocktail bij Long drinks: limoncello spritz (prosecco, limoncello, sodawater, citroen en munt), met uitleg over limoncello (slijterij) en een alcoholvrije versie.
