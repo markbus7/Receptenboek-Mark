@@ -249,6 +249,8 @@ const Hulp = (() => {
   // Woorden die van een groente of vlees iets anders maken: paprika ≠ paprikapoeder, kip ≠ kippenbouillon.
   // Ook van mais een maistortilla of maisbrood maken: dat is geen groente meer, dus een groentemix vervangt die niet.
   const AFGELEID = /(poeder|puree|pasta|saus|bouillon|kruiden|vlokken|zaad|chips|olie|azijn|meel|tortillas?|wraps?|brood)$/;
+  // En ervoor: popcornmais is gedroogde mais om te poffen, geen groente.
+  const AFGELEID_VOOR = /^popcorn/;
 
   /* Ingrediënten die je zonder meer voor elkaar gebruikt: welke je neemt is een kwestie van smaak.
      Zoeken of in de kast zetten op de een vindt ook recepten met de ander. */
@@ -266,6 +268,7 @@ const Hulp = (() => {
       if (t.includes(' ') && nm.includes(t)) return true;
       return nm.split(/[\s-]+/).some((w) => {
         if (AFGELEID.test(w) && !AFGELEID.test(t)) return false;
+        if (AFGELEID_VOOR.test(w) && !AFGELEID_VOOR.test(t)) return false;
         if (t.length >= 4) return w.includes(t);
         if (t.length === 3) return w.startsWith(t);
         // Heel korte woorden (ui, ei): alleen het woord zelf of het meervoud, dus "ui" ≠ "uitjes".
