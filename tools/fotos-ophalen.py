@@ -206,6 +206,7 @@ ARTIKELEN = {
     # 1.78.0 (pollo al ajillo: het artikel heeft alleen een foto van gambas al ajillo, dus het tegeltje)
     'konigsberger-klopse': 'Königsberger Klopse', 'bo-kho': 'Bò kho',
     'lomo-saltado': 'Lomo saltado', 'brigadeiros': 'Brigadeiro',
+    'popcorn-bioscoop': 'File:Popcorn in a bowl.jpg',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)
