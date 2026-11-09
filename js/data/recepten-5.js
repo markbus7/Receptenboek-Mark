@@ -12,7 +12,7 @@ RECEPTEN.push(
     { n: 'tomatenblokjes', q: 800, u: 'g' },
     { n: 'tomatenpuree', q: 1, u: 'el', opt: true, x: 'als je het hebt, maakt de saus voller' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 2, u: 'st', x: 'in reepjes' },
-    { n: 'ui', p: 'uien', q: 1, u: 'st' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in dunne halve ringen' },
     { n: 'knoflook', q: 3, u: 'teen' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'paprikapoeder', q: 2, u: 'tl', x: 'liefst gerookt' },
@@ -23,7 +23,7 @@ RECEPTEN.push(
     { n: 'brood', q: 1, u: 'st', x: 'stokbrood of pita' }
   ],
   stappen: [
-    { t: 'Verhit de olie in de pan. Bak ui en paprika 8 minuten op middelhoog vuur tot ze zacht zijn.', min: 8 },
+    { t: 'Snijd de ui doormidden en dan in dunne halve ringen, zodat ze ongeveer zo lang zijn als de paprikareepjes. Verhit de olie in de pan. Bak ui en paprika 8 minuten op middelhoog vuur tot ze zacht zijn.', min: 8 },
     { t: 'Bak knoflook, komijn, paprikapoeder en harissa 1 minuut mee. Heb je tomatenpuree? Bak die dan ook 1 minuut mee tot hij donkerder rood wordt.' },
     { t: 'Voeg de tomaten toe met wat zout en laat 10 minuten inkoken tot een dikke saus.', min: 10 },
     { t: 'Maak met een lepel 6 kuiltjes in de saus en breek in elk kuiltje een ei.' },
