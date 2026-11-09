@@ -246,7 +246,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'kippendijfilet', q: 500, u: 'g', x: 'met een groot mes fijngehakt, of kipgehakt' },
-    { n: 'knoflook', q: 5, u: 'teen' },
+    { n: 'knoflook', q: 5, u: 'teen', x: 'grof gehakt' },
     { n: 'rode peper', p: 'rode pepers', q: 3, u: 'st', x: 'Thaise (rawit), of 1 grote voor minder pit' },
     { n: 'sperziebonen', q: 100, u: 'g', x: 'in stukjes van 1 cm', opt: true },
     { n: 'Thaise basilicum', q: 20, u: 'g', x: 'liefst kra pao (heilige basilicum) uit de toko; anders gewone basilicum' },

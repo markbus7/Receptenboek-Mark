@@ -12,8 +12,8 @@ RECEPTEN.push(
   ingr: [
     { n: 'kippenpoten', q: 1000, u: 'g', x: 'in stukken, of 600 g kippendij' },
     { n: 'masala', q: 3, u: 'el', x: 'Surinaamse masala (toko) of milde kerrie' },
-    { n: 'ui', p: 'uien', q: 2, u: 'st' },
-    { n: 'knoflook', q: 4, u: 'teen' },
+    { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'gesnipperd' },
+    { n: 'knoflook', q: 4, u: 'teen', x: 'geperst' },
     { n: 'madame jeanette', p: 'madame jeanettes', q: 1, u: 'st', x: 'heel, of 1 tl sambal' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
     { n: 'vastkokende aardappelen', q: 600, u: 'g', x: 'geschild, gehalveerd' },
@@ -81,7 +81,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'rode linzen', q: 250, u: 'g', x: 'gewassen' },
-    { n: 'ui', p: 'uien', q: 1, u: 'st' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in kleine blokjes' },
     { n: 'wortel', p: 'wortels', q: 1, u: 'st' },
     { n: 'aardappel', p: 'aardappelen', q: 1, u: 'st', x: 'kruimig, geschild' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
@@ -119,7 +119,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'lamsgehakt', q: 500, u: 'g', x: 'of half lam, half rund' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'geraspt en uitgeknepen' },
-    { n: 'knoflook', q: 2, u: 'teen' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
     { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
     { n: 'komijn', q: 1, u: 'tl' },
     { n: 'paprikapoeder', q: 1, u: 'tl' },
@@ -171,7 +171,7 @@ RECEPTEN.push(
     { n: 'platte rijstnoedels', q: 300, u: 'g' },
     { n: 'biefstuk', q: 250, u: 'g', x: 'flinterdun gesneden' },
     { n: 'taugé', q: 200, u: 'g' },
-    { n: 'lente-ui', p: 'lente-uien', q: 3, u: 'st' },
+    { n: 'lente-ui', p: 'lente-uien', q: 3, u: 'st', x: 'in dunne ringetjes' },
     { n: 'Thaise basilicum', q: 10, u: 'g' },
     { n: 'verse koriander', q: 10, u: 'g' },
     { n: 'limoen', p: 'limoenen', q: 2, u: 'st', x: 'in partjes' },
@@ -204,7 +204,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'kippendijfilet', q: 500, u: 'g' },
     { n: 'citroengras', q: 2, u: 'stengel', x: 'alleen het zachte binnenste, heel fijn gehakt' },
-    { n: 'knoflook', q: 2, u: 'teen' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt of geperst' },
     { n: 'vissaus', q: 2, u: 'el' },
     { n: 'bruine suiker', q: 1, u: 'el' },
     { n: 'rijstvermicelli', q: 250, u: 'g' },
@@ -241,7 +241,7 @@ RECEPTEN.push(
   gerei: [ { tool: 'braadpan', tekst: 'Dutch oven of soeppan (minimaal 4 liter)' } ],
   ingr: [
     { n: 'lamsvlees', q: 300, u: 'g', x: 'schouder, in kleine blokjes (of rundvlees)' },
-    { n: 'ui', p: 'uien', q: 1, u: 'st' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'bleekselderij', q: 2, u: 'stengel' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'tomatenblokjes', q: 400, u: 'g' },
@@ -283,7 +283,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'lamsgehakt', q: 600, u: 'g', x: 'met rundergehakt heet hij cottage pie' },
-    { n: 'ui', p: 'uien', q: 1, u: 'st' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in blokjes' },
     { n: 'bleekselderij', q: 1, u: 'stengel' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },

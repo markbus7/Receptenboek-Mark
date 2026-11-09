@@ -300,7 +300,7 @@ RECEPTEN.push(
     { n: 'ham', q: 150, u: 'g', x: 'reepjes of blokjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in blokjes' },
-    { n: 'knoflook', q: 1, u: 'teen' },
+    { n: 'knoflook', q: 1, u: 'teen', x: 'fijngehakt of geperst' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'paprikapoeder', q: 1, u: 'tl' },

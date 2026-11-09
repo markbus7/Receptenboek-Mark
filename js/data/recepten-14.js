@@ -563,7 +563,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'verse basilicum', q: 50, u: 'g', x: 'alleen de blaadjes', vers: 'de basilicum is de saus' },
     { n: 'pijnboompitten', q: 30, u: 'g' },
-    { n: 'knoflook', q: 1, u: 'teen' },
+    { n: 'knoflook', q: 1, u: 'teen', x: 'gepeld, gaat heel in de hakmolen' },
     { n: 'Parmezaanse kaas', q: 50, u: 'g', x: 'fijn geraspt; of een vegetarische Italiaanse harde kaas' },
     { n: 'pecorino', q: 20, u: 'g', x: 'liefst Pecorino Sardo, fijn geraspt; of extra Parmezaan', opt: true },
     { n: 'olijfolie', q: 100, u: 'ml', x: 'extra vierge, liefst een milde' },

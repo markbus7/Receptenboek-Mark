@@ -44,10 +44,10 @@ RECEPTEN.push(
   ingr: [
     { kop: 'Ragù' },
     { n: 'rundergehakt', q: 500, u: 'g' },
-    { n: 'ui', p: 'uien', q: 1, u: 'st' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'wortel', p: 'wortels', q: 1, u: 'st' },
     { n: 'bleekselderij', q: 1, u: 'stengel' },
-    { n: 'knoflook', q: 2, u: 'teen' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt of geperst' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'passata', q: 500, u: 'ml', x: 'gezeefde tomaten' },
     { n: 'rode wijn', q: 100, u: 'ml', opt: true },
@@ -92,7 +92,7 @@ RECEPTEN.push(
     { n: 'risottorijst', q: 320, u: 'g', x: 'arborio of carnaroli' },
     { n: 'kastanjechampignons', q: 400, u: 'g', x: 'in plakjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
-    { n: 'knoflook', q: 2, u: 'teen' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
     { n: 'witte wijn', q: 125, u: 'ml' },
     { n: 'groentebouillon', q: 1200, u: 'ml' },
     { n: 'boter', q: 40, u: 'g' },
@@ -194,7 +194,7 @@ RECEPTEN.push(
     { n: 'verse basilicum', q: 50, u: 'g', vers: 'de basilicum is de saus' },
     { n: 'pijnboompitten', q: 40, u: 'g' },
     { n: 'Parmezaanse kaas', q: 40, u: 'g', x: 'geraspt' },
-    { n: 'knoflook', q: 1, u: 'teen' },
+    { n: 'knoflook', q: 1, u: 'teen', x: 'gepeld, gaat heel in de staafmixer' },
     { n: 'olijfolie', q: 100, u: 'ml' }
   ],
   stappen: [
