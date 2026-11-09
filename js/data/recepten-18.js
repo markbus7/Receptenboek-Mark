@@ -240,7 +240,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'rundergehakt', q: 500, u: 'g' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
-    { n: 'knoflook', q: 2, u: 'teen' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'gepeld, gaat heel in de staafmixer' },
     { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st', x: 'of 1 chipotle in adobo voor een rokerige smaak' },
     { n: 'komijn', q: 1, u: 'tl' },
@@ -314,7 +314,7 @@ RECEPTEN.push(
   gerei: [ { tool: 'ovenschaal', tekst: 'Kom, een zeef en een scherp mes; geen pannen nodig' } ],
   ingr: [
     { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'rijp en stevig, ca. 400 g', vers: 'het is een rauwe salsa' },
-    { n: 'ui', p: 'uien', q: 0.5, u: 'st' },
+    { n: 'ui', p: 'uien', q: 0.5, u: 'st', x: 'heel fijn gesnipperd' },
     { n: 'jalapeño', p: 'jalapeños', q: 1, u: 'st', x: 'of groene peper' },
     { n: 'verse koriander', q: 10, u: 'g', vers: 'het is een rauwe salsa' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'sap' },
