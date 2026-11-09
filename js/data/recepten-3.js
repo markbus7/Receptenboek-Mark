@@ -26,7 +26,7 @@ RECEPTEN.push(
     { t: 'Voeg de prei toe en roerbak 2 minuten.', min: 2 },
     { t: 'Doe de koude rijst erbij en roerbak 4 à 5 minuten op hoog vuur tot de rijst heet is en een beetje knispert.', min: 5 },
     { t: 'Doe de kip terug, voeg de ketjap toe en schep goed om.' },
-    { t: 'Bak in de koekenpan 4 spiegeleieren. Serveer de nasi met een ei erop, met kroepoek en komkommer.', min: 4 }
+    { t: 'Bak in de koekenpan {#ei} spiegeleieren. Serveer de nasi met een ei erop, met kroepoek en komkommer.', min: 4 }
   ],
   tips: ['Verse rijst wordt plakkerig. Kook hem een dag eerder of spreid hem uit op een bord en zet hem 1 uur in de koelkast.'],
   alt: ['Vegetarisch? Vervang de kip door tempeh of tofu en gebruik vegetarische nasikruiden.']

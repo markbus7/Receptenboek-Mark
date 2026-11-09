@@ -377,7 +377,7 @@ RECEPTEN.push(
     { t: 'Zet het vuur hoog. Roerbak ui en knoflook 1 minuut in het spekvet. Voeg de kimchi toe en roerbak 3 minuten tot hij iets karamelliseert.', min: 4 },
     { t: 'Doe de rijst erbij (bij een kleinere pan in 2 delen) en roerbak 3 minuten. Voeg het gochujangmengsel toe en bak nog 2 minuten tot alles egaal rood en gloeiend heet is. Een aangebakken korstje mag: dat is het lekkerste.', min: 5 },
     { t: 'Haal de wok van het vuur en roer de sesamolie en de lente-ui erdoor.' },
-    { t: 'Bak in de koekenpan 4 spiegeleieren in de olie op middelhoog vuur, tot de randjes krokant zijn en de dooier nog vloeibaar. Leg ze op de rijst en bestrooi met sesamzaad en nori.', min: 3 }
+    { t: 'Bak in de koekenpan {#ei} spiegeleieren in de olie op middelhoog vuur, tot de randjes krokant zijn en de dooier nog vloeibaar. Leg ze op de rijst en bestrooi met sesamzaad en nori.', min: 3 }
   ],
   tips: ['Hoe ouder en zuurder de kimchi, hoe lekkerder dit wordt. In Korea is dit precies waar je overjarige kimchi voor gebruikt.'],
   alt: ['Vegetarisch: vervang het spek door 200 g stevige tofu in blokjes, goudbruin gebakken in 2 el olie. Let op: veel kimchi bevat vissaus of garnalen, kies dan een vegan kimchi.']

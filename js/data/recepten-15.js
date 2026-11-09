@@ -772,7 +772,7 @@ RECEPTEN.push(
     { kop: 'Saus', t: 'Verhit de olie in de tajine of Dutch oven op middelhoog vuur. Fruit de ui 4 minuten en bak de knoflook, komijn en paprikapoeder 1 minuut mee.', min: 5 },
     { t: 'Voeg tomatenblokjes, tomatenpuree, water, rode peper, suiker en een snuf zout toe. Laat 10 minuten zachtjes koken tot de saus iets dikker is.', min: 10 },
     { kop: 'Afmaken', t: 'Leg de balletjes in de saus en schud de pan zodat ze erin wegzakken. Leg de deksel erop en laat 15 minuten op laag vuur garen; keer ze halverwege.', min: 15 },
-    { t: 'Maak met een lepel 4 kuiltjes tussen de balletjes en breek in elk kuiltje een ei. Deksel erop en laat 5 à 7 minuten garen, tot het eiwit gestold is en de dooier nog zacht.', min: 6 },
+    { t: 'Maak met een lepel {#ei} kuiltjes tussen de balletjes en breek in elk kuiltje een ei. Deksel erop en laat 5 à 7 minuten garen, tot het eiwit gestold is en de dooier nog zacht.', min: 6 },
     { t: 'Strooi de rest van de kruiden erover, zet de pan op tafel en eet met warm brood.' }
   ],
   tips: ['Kook je in een aardewerken tajine, zet er dan een sudderplaatje (vlamverdeler) onder en warm hem langzaam op laag vuur op, anders kan hij barsten.', 'Balletjes en saus kun je een dag van tevoren maken. Warm ze op en pocheer de eieren pas vlak voor het eten.'],
