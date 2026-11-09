@@ -26,7 +26,7 @@ RECEPTEN.push(
     { t: 'Snijd de ui doormidden en dan in dunne halve ringen, zodat ze ongeveer zo lang zijn als de paprikareepjes. Verhit de olie in de pan. Bak ui en paprika 8 minuten op middelhoog vuur tot ze zacht zijn.', min: 8 },
     { t: 'Hak de knoflook fijn (of pers hem) en bak hem met komijn, paprikapoeder en harissa 1 minuut mee. Pas op dat hij niet bruin wordt, dan wordt hij bitter. Heb je tomatenpuree? Bak die dan ook 1 minuut mee tot hij donkerder rood wordt.' },
     { t: 'Voeg de tomaten toe met wat zout en laat 10 minuten inkoken tot een dikke saus.', min: 10 },
-    { t: 'Maak met een lepel 6 kuiltjes in de saus en breek in elk kuiltje een ei.' },
+    { t: 'Maak met een lepel {#ei} kuiltjes in de saus en breek in elk kuiltje een ei.' },
     { t: 'Deksel erop en laat op laag vuur 6 à 8 minuten garen, tot het eiwit gestold is en de dooier nog zacht.', min: 7 },
     { t: 'Brokkel de feta erover en bestrooi met koriander. Zet de pan zo op tafel met brood.' }
   ],

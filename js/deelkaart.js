@@ -78,7 +78,7 @@ const DeelKaart = (() => {
       </div>
       <section class="dk-stappen">
         <h2 data-breek>Bereiding</h2>
-        <ol>${stappen.map(({ s, deel }, n) => `${deel && (n === 0 || stappen[n - 1].deel !== deel) ? `<li class="dk-stap-deel" data-breek>${esc(deel)}</li>` : ''}<li data-breek><span class="dk-nr">${n + 1}</span><p>${esc(s.t)}</p></li>`).join('')}</ol>
+        <ol>${stappen.map(({ s, deel }, n) => `${deel && (n === 0 || stappen[n - 1].deel !== deel) ? `<li class="dk-stap-deel" data-breek>${esc(deel)}</li>` : ''}<li data-breek><span class="dk-nr">${n + 1}</span><p>${esc(Hulp.stapTekst(s.t, r, o.factor))}</p></li>`).join('')}</ol>
       </section>
       <div class="dk-notities">${notitie('Tip', r.tips)}${notitie('Alternatieven', r.alt)}${notitie('Restjes', o.restjes, true)}${notitie('Uit de vriezer', o.vriezer, true)}</div>
       <footer class="dk-voet" data-breek>Uit het Receptenboek van Mark · <span>${esc(o.link)}</span></footer>`;

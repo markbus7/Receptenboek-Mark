@@ -304,7 +304,7 @@ RECEPTEN.push(
     { t: 'Meng sojasaus, 1 el sesamolie, suiker en knoflook. Bak het gehakt rul in de koekenpan, voeg het mengsel toe en bak tot alles karamelliseert, ca. 5 minuten.', min: 7 },
     { t: 'Bak de groenten per soort kort in dezelfde pan met een drupje sesamolie: spinazie 1 minuut, wortel en taugé 2 minuten. Zout erover.' },
     { t: 'Roer de ingrediënten voor de saus door elkaar.' },
-    { t: 'Bak 4 spiegeleieren met een vloeibare dooier.', min: 4 },
+    { t: 'Bak {#ei} spiegeleieren met een vloeibare dooier.', min: 4 },
     { t: 'Verdeel de rijst over kommen. Leg vlees, groenten, komkommer en kimchi in vakjes erop, met het ei in het midden. Meng alles door elkaar met de saus.' }
   ],
   tips: ['Dolsot-stijl: bak de rijst eerst 5 minuten in een gietijzeren pan met sesamolie voor een krokante korst.'],

@@ -649,6 +649,15 @@ const Hulp = (() => {
     return gevonden ? uit : null;
   }
 
+  /* Aantallen in een stap die meeschalen: {#ei} wordt het aantal eieren dat je nu kookt, afgerond op hele
+     stuks (minstens 1). Zo klopt "Maak 6 kuiltjes" ook als je voor 2 personen 3 eieren gebruikt. */
+  function stapTekst(tekst, recept, factor = 1) {
+    return String(tekst || '').replace(/\{#([^}]+)\}/g, (heel, naam) => {
+      const i = (recept.ingr || []).find((x) => !x.kop && x.q != null && norm(x.n) === norm(naam));
+      return i ? String(Math.max(1, Math.round(i.q * factor))) : heel;
+    });
+  }
+
   function stapMetHoeveelheden(tekst, recept, factor, gebruikt, overslaan = new Set(), metBasis = false) {
     const lijst = recept.ingr.filter((i) => !i.kop && i.q != null);
     const telling = new Map();
@@ -744,5 +753,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stappenMetDeel, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stappenMetDeel, stapTekst, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

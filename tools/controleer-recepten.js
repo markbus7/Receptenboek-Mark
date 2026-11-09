@@ -129,6 +129,9 @@ for (const r of ctx.RECEPTEN) {
     if (s.min !== undefined && !(typeof s.min === 'number' && s.min > 0)) fout(`stap "${(s.t || '').slice(0, 30)}": min moet positief zijn`);
     if (s.kop !== undefined && (typeof s.kop !== 'string' || !s.kop.trim())) fout(`stap "${(s.t || '').slice(0, 30)}": kop moet tekst zijn`);
     if (s.m && !mids.includes(s.m)) fout(`stap "${(s.t || '').slice(0, 30)}": onbekende methode "${s.m}"`);
+    for (const [, naam] of (s.t || '').matchAll(/\{#([^}]+)\}/g)) {
+      if (!(r.ingr || []).some((i) => !i.kop && i.q != null && i.n === naam)) fout(`stap "${s.t.slice(0, 30)}": {#${naam}} is geen ingrediënt met een hoeveelheid`);
+    }
   }
   const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'pit', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep', 'vriezer']);
   const vreemd = Object.keys(r).filter((k) => !bekend.has(k));

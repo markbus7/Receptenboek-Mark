@@ -498,7 +498,7 @@ const Detail = (() => {
       const voor = new Set(gebruikt);
       // Met een kop zoek je alleen in de ingrediënten van dat deel: "het water" is dan het water voor het deeg,
       // en dan krijgen ook water, zout en olie hun hoeveelheid.
-      const html = Hulp.stapMetHoeveelheden(s.t, ingr ? { ...r, ingr } : r, factor, gebruikt, mixWeg, !!ingr);
+      const html = Hulp.stapMetHoeveelheden(Hulp.stapTekst(s.t, r, factor), ingr ? { ...r, ingr } : r, factor, gebruikt, mixWeg, !!ingr);
       const notities = [
         ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? 'of: in je rijstkoker' : '',
         ctx.keuken.includes('rijstkoker') && typeof s.stoom === 'string' ? `of stomen in je rijstkoker: ${s.stoom}` : '',
@@ -711,7 +711,7 @@ const Detail = (() => {
     regels.push('', 'Bereiding');
     Hulp.stappenMetDeel(r, methode).forEach(({ s, deel }, n, alle) => {
       if (deel && (n === 0 || alle[n - 1].deel !== deel)) regels.push(`${deel}:`);
-      regels.push(`${n + 1}. ${s.t}`);
+      regels.push(`${n + 1}. ${Hulp.stapTekst(s.t, r, factor)}`);
     });
     if (r.tips && r.tips.length) regels.push('', 'Tip', ...r.tips.map((t) => `- ${t}`));
     regels.push('', link());
