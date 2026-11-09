@@ -10,6 +10,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'ei', p: 'eieren', q: 6, u: 'st' },
     { n: 'tomatenblokjes', q: 800, u: 'g' },
+    { n: 'tomatenpuree', q: 1, u: 'el', opt: true, x: 'als je het hebt, maakt de saus voller' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 2, u: 'st', x: 'in reepjes' },
     { n: 'ui', p: 'uien', q: 1, u: 'st' },
     { n: 'knoflook', q: 3, u: 'teen' },
@@ -23,13 +24,13 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Verhit de olie in de pan. Bak ui en paprika 8 minuten op middelhoog vuur tot ze zacht zijn.', min: 8 },
-    { t: 'Bak knoflook, komijn, paprikapoeder en harissa 1 minuut mee.' },
+    { t: 'Bak knoflook, komijn, paprikapoeder en harissa 1 minuut mee. Heb je tomatenpuree? Bak die dan ook 1 minuut mee tot hij donkerder rood wordt.' },
     { t: 'Voeg de tomaten toe met wat zout en laat 10 minuten inkoken tot een dikke saus.', min: 10 },
     { t: 'Maak met een lepel 6 kuiltjes in de saus en breek in elk kuiltje een ei.' },
     { t: 'Deksel erop en laat op laag vuur 6 à 8 minuten garen, tot het eiwit gestold is en de dooier nog zacht.', min: 7 },
     { t: 'Brokkel de feta erover en bestrooi met koriander. Zet de pan zo op tafel met brood.' }
   ],
-  tips: ['Eiwit stolt sneller als je het rond de dooier voorzichtig een beetje losroert met een vork.'],
+  tips: ['Eiwit stolt sneller als je het rond de dooier voorzichtig een beetje losroert met een vork.', 'Tomatenpuree hoeft niet, maar 1 el maakt de saus dikker en voller van smaak, vooral met tomaten uit blik. Geen puree in huis? Laat de saus dan een paar minuten langer inkoken.'],
   alt: ['Liever in de oven? Zet de pan (ovenvast) na stap 4 zonder deksel 8 minuten in de oven op 190 °C.']
 },
 {

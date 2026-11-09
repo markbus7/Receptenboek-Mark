@@ -110,6 +110,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.80.0**: Shakshuka: tomatenpuree als optionele toevoeging (1 el, meebakken met de kruiden) plus een tip.
 - **1.79.3**: Popcorn: duidelijker dat de rest van de mais erbij gaat zodra de 3 proefkorrels geknald zijn.
 - **1.79.2**: Popcorn: zout fijn maken zonder vijzel (fijn tafelzout, of rollen in een diepvrieszakje).
 - **1.79.1**: Bij de popcorn vroeg de app of je een groentemix had, omdat "popcornmais" op mais leek. Popcornmais telt nu niet meer als groente.
