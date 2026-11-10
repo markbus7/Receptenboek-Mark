@@ -104,7 +104,7 @@ window.VRIEZER = [
   { n: ['kippenpoten'], soort: 'kip', stuk: 250 },
   { n: ['kippenvleugels'], soort: 'kip', stuk: 90 },
   { n: ['hele kip'], soort: 'heleKip', stuk: 1500 },
-  { n: ['runderlappen', 'runderstoofvlees', 'runderschenkel', 'lamsschouder', 'lamsvlees', 'varkensschouder', 'varkensbuik', 'varkensvlees', 'procureur', 'krabbetjes', 'spareribs'], soort: 'stoof' },
+  { n: ['runderlappen', 'runderstoofvlees', 'runder short ribs', 'runderschenkel', 'lamsschouder', 'lamsvlees', 'varkensschouder', 'varkensbuik', 'varkensvlees', 'procureur', 'krabbetjes', 'spareribs'], soort: 'stoof' },
   { n: ['kalfsschenkel'], soort: 'stoof', stuk: 300 },
   { n: ['biefstuk', 'entrecote', 'varkenshaas'], soort: 'kortBakken' },
   { n: ['schnitzel'], soort: 'kortBakken', stuk: 150 },

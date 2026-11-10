@@ -467,6 +467,55 @@ RECEPTEN.push(
   alt: ['Minder pittig: neem 2 el gochujang en 1 el extra ketchup.', 'Soja-knoflooksaus (ganjang): vervang de saus door 3 el sojasaus, 3 el honing, 4 tenen knoflook en 2 el water.']
 },
 {
+  id: 'galbijjim', toegevoegd: '2026-11-10', naam: 'Galbijjim (Koreaanse gestoofde short ribs)',
+  ook: ['galbijjim', 'galbi jjim', 'galbi-jjim', 'kalbi jjim', 'koreaanse short ribs', 'gestoofde short ribs', 'korean braised short ribs', 'koreaans stoofvlees', 'runderribben in sojasaus'],
+  keuken: 'Koreaans', soort: 'Hoofdgerecht',
+  tijd: 40, wacht: '1 uur weken en 1¾ uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  intro: 'Het feestgerecht van Korea, dat op tafel staat met nieuwjaar en Chuseok: runderribben met bot, bijna twee uur zachtjes gestoofd in een zoete, glanzende saus van sojasaus, peer, knoflook en gember, tot het vlees van het bot glijdt. Met wortel, rettich en shiitake die de saus opzuigen, en witte rijst.',
+  vriezer: { 'runder short ribs': { bevroren: 'Laat de ribs helemaal ontdooien voor je ze in water legt; bevroren trekt het bloed er niet uit.', inStap: 'ontdooid' } },
+  gerei: [
+    { tool: 'kookpan', tekst: 'Grote kookpan om het vlees te blancheren' },
+    { tool: 'staafmixer', tekst: 'Blender of staafmixer met beker voor de saus', of: 'Geen blender? Rasp de peer, ui, knoflook en gember fijn op een rasp.' },
+    { tool: 'braadpan', tekst: 'Dutch oven of braadpan (24 à 28 cm) met deksel', of: 'Een grote kookpan met dikke bodem werkt ook; houd het vuur dan heel laag.' },
+    { tool: 'rijstkoker', tekst: 'Rijstkoker of pan met deksel voor de rijst' }
+  ],
+  ingr: [
+    { kop: 'Vlees' },
+    { n: 'runder short ribs', q: 1.5, u: 'kg', x: 'met bot, in stukken van 5 à 6 cm (vraag de slager)' },
+    { kop: 'Saus' },
+    { n: 'peer', p: 'peren', q: 1, u: 'st', x: 'rijp, geschild, zonder klokhuis, in stukken; een Aziatische nashipeer is het echtst' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in grove stukken, gaat in de blender' },
+    { n: 'knoflook', q: 6, u: 'teen', x: 'gepeld, gaat heel in de blender' },
+    { n: 'gember', q: 20, u: 'g', x: 'geschild, in stukjes' },
+    { n: 'sojasaus', q: 120, u: 'ml' },
+    { n: 'bruine suiker', q: 2, u: 'el' },
+    { n: 'mirin', q: 3, u: 'el' },
+    { n: 'sesamolie', q: 1, u: 'el' },
+    { n: 'zwarte peper', q: 0.5, u: 'tl' },
+    { n: 'water', q: 500, u: 'ml' },
+    { kop: 'Groente' },
+    { n: 'wortel', p: 'wortels', q: 3, u: 'st', x: 'in stukken van 4 cm' },
+    { n: 'daikon', q: 300, u: 'g', x: 'in blokken van 4 cm; of 2 vastkokende aardappelen' },
+    { n: 'shiitake', q: 150, u: 'g', x: 'of kastanjechampignons, gehalveerd' },
+    { n: 'lente-ui', p: 'lente-uitjes', q: 4, u: 'st', x: '3 in stukken van 4 cm, 1 in fijne ringetjes' },
+    { kop: 'Erbij' },
+    { n: 'sesamzaad', q: 1, u: 'el', x: 'geroosterd' },
+    { n: 'rijst', q: 300, u: 'g' }
+  ],
+  stappen: [
+    { kop: 'Vlees', t: 'Leg de short ribs 1 uur in een grote kom koud water en ververs het water halverwege. Zo trekt het bloed eruit en wordt de saus helder en zuiver van smaak.', min: 60 },
+    { t: 'Breng een grote pan water aan de kook. Doe de ribs erin, laat 5 minuten koken, giet ze af en spoel het schuim eraf onder de kraan. Spoel ook de pan om.', min: 5 },
+    { kop: 'Saus', t: 'Doe de peer, ui, knoflook en gember met de sojasaus, bruine suiker en mirin in de blender en maak er een gladde saus van.' },
+    { t: 'Leg de ribs in de Dutch oven en schenk de saus, het water, de sesamolie en de peper erover. Breng aan de kook, zet het vuur laag, leg de deksel er schuin op en laat 1 uur zachtjes stoven. Keer de ribs halverwege.', min: 60 },
+    { kop: 'Groente', t: 'Schep met een lepel zo veel mogelijk vet van de saus. Doe de wortel, daikon en shiitake erbij, schep om en stoof nog 45 minuten zonder deksel, tot het vlees loskomt van het bot en de groente zacht is. Schep de ribs af en toe om, zodat ze glanzen.', min: 45 },
+    { kop: 'Erbij', t: 'Kook intussen de rijst in de rijstkoker of volgens de verpakking.', min: 15 },
+    { kop: 'Groente', t: 'Is de saus nog dun? Zet het vuur hoog en laat hem 5 à 10 minuten inkoken tot hij stroperig is en aan het vlees blijft hangen. Roer de stukken lente-ui erdoor en laat 2 minuten meewarmen. Proef: zouter met een scheut sojasaus, zoeter met een beetje suiker.', min: 8 },
+    { kop: 'Erbij', t: 'Schep het vlees met de groente en de saus in een diepe schaal en strooi het sesamzaad en de ringetjes lente-ui erover. Serveer met de rijst.' }
+  ],
+  tips: ['Het weken en blancheren lijkt overbodig, maar het maakt het verschil: zonder krijg je een troebele saus met grijze vlokken.', 'Short ribs (runderribben) heeft elke slager; vraag om stukken van 5 à 6 cm met bot, de Engelse snit. Bij grote supermarkten liggen ze soms als hele platen bij het vlees, en bij de Aziatische supermarkt in de vriezer, al op maat gezaagd.', 'De peer maakt het vlees zachter en de saus zoet. Galbijjim is de dag erna nog lekkerder: zet de pan in de koelkast, dan kun je het gestolde vet er de volgende dag zo afnemen.'],
+  alt: ['Slowcooker: blancheer de ribs zoals hierboven en gaar ze met de saus en maar 250 ml water 7 uur op LOW. Doe de groente het laatste uur erbij en kook de saus daarna in een pan in.', 'Geen short ribs? Dikke runderriblappen of sukadelappen in blokken van 5 cm werken ook; dan stoof je 1 uur en 15 minuten in totaal.', 'Pittig: roer 1 el gochujang door de saus (dan heet het maeun galbijjim).']
+},
+{
   id: 'hotteok', toegevoegd: '2026-10-27', naam: 'Hotteok (Koreaanse pannenkoekjes met bruine suiker)',
   ook: ['hotteok', 'hoddeok', 'koreaanse pannenkoekjes', 'koreaanse suikerpannenkoek', 'sweet korean pancakes', 'gevulde pannenkoekjes'],
   keuken: 'Koreaans', soort: 'Dessert',

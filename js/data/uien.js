@@ -144,6 +144,8 @@ window.UIEN = {
     'konigsberger-klopse': { ui: ['gele ui', 'Heel fijn gesnipperd valt hij weg in de zachte balletjes en maakt ze sappig', 'sjalot', 'witte ui'] },
     rinderrouladen: { ui: ['gele ui', 'In de rolletjes wordt hij zacht en zoet, en in de saus kleurt hij mooi bruin', 'sjalot', 'rode ui'] },
     avgolemono: { ui: ['gele ui', 'Zacht gefruit geeft hij de bouillon een zoete basis zonder op te vallen', 'witte ui', 'sjalot'] },
-    empanadas: { ui: ['witte ui', 'Zo doen ze het in Argentinië: hij blijft fris en een beetje knapperig in de vulling', 'gele ui'] }
+    empanadas: { ui: ['witte ui', 'Zo doen ze het in Argentinië: hij blijft fris en een beetje knapperig in de vulling', 'gele ui'] },
+    galbijjim: { ui: ['gele ui', 'Gepureerd met de peer maakt hij de saus zoet en dik; je proeft hem niet als stukje terug', 'witte ui'] },
+    'tjauw-min': { ui: ['gele ui', 'In halve ringen kort gebakken wordt hij zoet en blijft hij een beetje knapperig tussen de mie', 'witte ui'] }
   }
 };

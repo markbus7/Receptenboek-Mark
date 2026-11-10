@@ -444,6 +444,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Gado_gado_jakarta.jpg"
  },
+ "galbijjim": {
+  "src": "img/galbijjim.jpg",
+  "auteur": "by Richy! at flickr",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Korean_cuisine-Galbijjim-06.jpg"
+ },
  "gambas-al-ajillo": {
   "src": "img/gambas-al-ajillo.jpg",
   "auteur": "Javier Lastras",
@@ -1085,6 +1091,12 @@ window.FOTOS = {
   "auteur": "Chasqui (Luis Tamayo)",
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Lomo_Saltado_-_Lima,_Peru_Miraflores_(Tiendecita_Blanca).jpg"
+ },
+ "loukoumades": {
+  "src": "img/loukoumades.jpg",
+  "auteur": "elif ayse",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Sam%27dan_lokma_tatlisi.jpg"
  },
  "luikse-wafels": {
   "src": "img/luikse-wafels.jpg",

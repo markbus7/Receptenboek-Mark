@@ -1,6 +1,6 @@
 # Receptenboek Mark
 
-Een receptenboek in de browser met 263 gerechten (waarvan 31 cocktails) uit 23 keukens, waarvan 32 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
+Een receptenboek in de browser met 268 gerechten (waarvan 31 cocktails) uit 23 keukens, waarvan 32 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
 
 ## Wat kan het
 
@@ -110,6 +110,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.83.0**: Vijf nieuwe recepten: *Bife con chimichurri* (Argentijnse entrecote van de OptiGrill of uit de pan met een frisse kruidensaus van peterselie, knoflook en azijn, en krieltjes uit de airfryer), *Galbijjim* (Koreaanse short ribs, bijna 2 uur gestoofd in sojasaus met peer, met wortel, rettich en shiitake), *Tjauw min* (Surinaams-Chinese mie met kip, kousenband en Chinese kool), *Cà ri gà* (Vietnamese kipcurry met zoete aardappel en kokosmelk) en als dessert *Loukoumades* (Griekse gefrituurde honingbolletjes met walnoten). *Wat is het?* kent short ribs. Galbijjim en loukoumades hebben een foto; de andere drie houden het tegeltje.
 - **1.82.0**: Aantallen in de stappen schalen mee met de personen: shakshuka en kefta-tajine maken net zoveel kuiltjes als eieren, nasi goreng, bibimbap en kimchi fried rice net zoveel spiegeleieren. In de data schrijf je `{#ei}` in de staptekst; `tools/controleer-recepten.js` controleert dat het ingrediënt bestaat.
 - **1.81.0**: Bij elk recept staat nu hoe je de ui, sjalot, lente-ui en knoflook snijdt (84 ingrediënten aangevuld: gesnipperd, halve ringen, blokjes, fijngehakt, geperst, of heel/gepeld als hij in de blender of hakmolen gaat).
 - **1.80.2**: Shakshuka: knoflook fijngehakt of geperst (bij ingrediënt en stap).

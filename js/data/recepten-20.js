@@ -607,6 +607,52 @@ RECEPTEN.push(
   alt: ['Pollo saltado: neem 600 g kippendijfilet in reepjes en bak die 1 minuut langer.', 'Liever de friet apart? Leg hem op het bord en schep het vlees erover, dan blijft hij krokanter.']
 },
 {
+  id: 'bife-chimichurri', toegevoegd: '2026-11-10', naam: 'Bife con chimichurri (Argentijnse steak met kruidensaus)',
+  ook: ['bife con chimichurri', 'chimichurri', 'steak met chimichurri', 'biefstuk met chimichurri', 'argentijnse steak', 'bife de chorizo', 'asado', 'groene kruidensaus'],
+  keuken: 'Zuid-Amerikaans', soort: 'Hoofdgerecht',
+  tijd: 35, wacht: '30 minuten laten trekken', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'Zo eten ze in Argentinië hun vlees: een dikke, sappige entrecote met een knapperig korstje, en daaroverheen chimichurri, een frisse saus van peterselie, knoflook, oregano, azijn en olijfolie. De saus maak je zonder koken in 10 minuten, de steak gaat op de OptiGrill of in de pan. Met krieltjes uit de airfryer.',
+  methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
+  gerei: [
+    { tool: 'contactgrill', tekst: 'Contactgrill (zoals de OptiGrill) met het steakprogramma', m: 'contactgrill' },
+    { tool: 'koekenpan', tekst: 'Gietijzeren of RVS-koekenpan (28 cm)', m: 'koekenpan', of: 'Een antiaanbakpan wordt niet heet genoeg voor een goed korstje; neem dan de grillpan.' },
+    { tool: 'airfryer', tekst: 'Airfryer voor de krieltjes', of: 'Geen airfryer: bak de krieltjes 15 minuten in een koekenpan met deksel, daarna 5 minuten zonder.' }
+  ],
+  ingr: [
+    { kop: 'Chimichurri' },
+    { n: 'verse peterselie', q: 30, u: 'g', x: 'platte, blaadjes en dunne steeltjes heel fijngehakt' },
+    { n: 'gedroogde oregano', q: 2, u: 'tl' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'heel fijngehakt of geperst' },
+    { n: 'sjalot', p: 'sjalotten', q: 1, u: 'st', x: 'heel fijn gesnipperd' },
+    { n: 'chilivlokken', q: 1, u: 'tl', x: 'minder als je niet van pittig houdt' },
+    { n: 'rode wijnazijn', q: 3, u: 'el' },
+    { n: 'olijfolie', q: 120, u: 'ml' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { n: 'zwarte peper' },
+    { kop: 'Steak' },
+    { n: 'entrecote', q: 800, u: 'g', x: '4 dikke plakken van 2½ à 3 cm; of rib-eye (in Argentinië bife de chorizo)' },
+    { n: 'zeezout', q: 1, u: 'tl', x: 'grof' },
+    { n: 'zwarte peper', x: 'versgemalen' },
+    { n: 'zonnebloemolie', q: 1, u: 'el' },
+    { kop: 'Erbij' },
+    { n: 'krieltjes', q: 600, u: 'g', x: 'gehalveerd' },
+    { n: 'olijfolie', q: 1, u: 'el' },
+    { n: 'zout', q: 0.5, u: 'tl' }
+  ],
+  stappen: [
+    { kop: 'Chimichurri', t: 'Meng de peterselie, oregano, knoflook, sjalot, chilivlokken, azijn, zout en peper in een kom. Roer de olijfolie erdoor. Laat minstens 30 minuten staan, zodat de smaken samenkomen en de oregano zacht wordt.', min: 30 },
+    { kop: 'Steak', t: 'Haal de entrecote een half uur van tevoren uit de koelkast. Dep hem droog met keukenpapier en snijd het vetrandje om de paar centimeter in, zodat hij niet krult.' },
+    { kop: 'Erbij', t: 'Hussel de krieltjes met de olie en het zout en bak ze 18 à 20 minuten in de airfryer op 200 °C, tot ze goudbruin en zacht zijn. Schud halverwege.', min: 20 },
+    { kop: 'Steak', t: 'Bestrijk de steaks met de zonnebloemolie en bestrooi ze vlak voor het grillen met het grove zout en peper.' },
+    { t: 'Verwarm de contactgrill op het steakprogramma (of de hoogste stand). Leg de steaks erop als het lampje aangeeft dat hij heet is en sluit de deksel. Grill tot het lampje op medium staat, bij 2½ cm dik ongeveer 5 à 6 minuten. Je hoeft ze niet te keren.', m: 'contactgrill', min: 6 },
+    { t: 'Verhit de pan op hoog vuur tot hij echt heet is, 3 minuten. Bak de steaks 3 à 4 minuten per kant voor medium-rare, zonder ze tussendoor te verschuiven. Bak ook even het vetrandje bruin door de steaks op hun zijkant te zetten.', m: 'koekenpan', min: 8 },
+    { t: 'Leg de steaks op een plank en laat ze 5 minuten rusten onder een stuk aluminiumfolie, zodat het sap zich verdeelt.', min: 5 },
+    { t: 'Snijd de steaks tegen de draad in in plakken van 1 cm. Schep de chimichurri erover en serveer met de krieltjes en de rest van de saus ernaast.' }
+  ],
+  tips: ['Hak de peterselie met de hand en niet in de hakmolen: dan blijft de saus fris en los, en wordt het geen groene pesto.', 'Chimichurri wordt de volgende dag nog lekkerder. In een potje met een laagje olie erop blijft hij 4 dagen goed in de koelkast; lekker bij kip, worst en gegrilde groente.', 'Met een vleesthermometer: 52 °C in het midden is medium-rare, 57 °C medium. Tijdens het rusten stijgt het nog 2 à 3 graden.'],
+  alt: ['Chimichurri rojo: roer er 1 tl gerookt paprikapoeder en een halve fijngehakte rode paprika door.', 'Liever kip? Grill 600 g kippendijfilet 7 à 8 minuten op de contactgrill (of 5 minuten per kant in de pan) en schep de chimichurri erover.', 'Geen verse peterselie in huis? Neem 15 g verse koriander erbij of in plaats van een deel, maar gedroogde peterselie werkt hier niet.']
+},
+{
   id: 'brigadeiros', toegevoegd: '2026-11-03', naam: 'Brigadeiros (Braziliaanse chocoladebonbons)',
   ook: ['brigadeiros', 'brigadeiro', 'braziliaanse truffels', 'chocoladetruffels', 'chocoladebolletjes', 'bonbons met hagelslag'],
   keuken: 'Zuid-Amerikaans', soort: 'Dessert',

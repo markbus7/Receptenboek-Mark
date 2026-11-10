@@ -276,6 +276,45 @@ RECEPTEN.push(
   alt: ['Met een hele kip (of kippenpoten) en water in plaats van bouillon: laat dan 1 uur trekken. Dat is de echte Griekse kotosoupa.', 'Met orzo (risoni) in plaats van rijst: kook die 10 minuten.']
 },
 {
+  id: 'loukoumades', toegevoegd: '2026-11-10', naam: 'Loukoumades (Griekse honingbolletjes)',
+  ook: ['loukoumades', 'loukoumas', 'lokma', 'lokma tatlisi', 'griekse donuts', 'griekse donutballetjes', 'honingbolletjes', 'honey puffs', 'griekse oliebolletjes'],
+  keuken: 'Grieks', soort: 'Dessert',
+  tijd: 40, wacht: '1 uur rijzen', pers: 4, niveau: 'Gemiddeld', vega: true,
+  intro: 'Kleine gefrituurde bolletjes van gistbeslag, krokant vanbuiten en luchtig als een oliebol vanbinnen, gedrenkt in warme honingsiroop met kaneel en bestrooid met walnoten. In Griekenland koop je ze op straat en eet je ze warm uit een papieren bakje.',
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of hoge pan met 5 cm olie, een keukenthermometer en een schuimspaan' },
+    { tool: 'kookpan', tekst: 'Steelpan voor de honingsiroop' }
+  ],
+  ingr: [
+    { kop: 'Beslag' },
+    { n: 'bloem', q: 250, u: 'g' },
+    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'suiker', q: 1, u: 'el' },
+    { n: 'zout', q: 0.5, u: 'tl' },
+    { n: 'lauw water', q: 300, u: 'ml' },
+    { n: 'zonnebloemolie', q: 1.5, u: 'l', x: 'om te frituren' },
+    { kop: 'Honingsiroop' },
+    { n: 'honing', q: 150, u: 'g' },
+    { n: 'suiker', q: 50, u: 'g' },
+    { n: 'water', q: 75, u: 'ml' },
+    { n: 'kaneelstokje', p: 'kaneelstokjes', q: 1, u: 'st' },
+    { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'een reepje schil en 1 el sap' },
+    { kop: 'Erover' },
+    { n: 'walnoten', q: 50, u: 'g', x: 'grof gehakt' },
+    { n: 'kaneel', q: 1, u: 'tl' }
+  ],
+  stappen: [
+    { kop: 'Beslag', t: 'Meng de bloem, gist, suiker en zout in een kom. Schenk het lauwe water erbij en roer met een lepel 2 minuten tot een glad, dik en kleverig beslag, dikker dan pannenkoekbeslag.', min: 2 },
+    { t: 'Dek de kom af en laat het beslag 1 uur rijzen op een warme plek, tot het verdubbeld is en vol belletjes zit.', min: 60 },
+    { kop: 'Honingsiroop', t: 'Breng intussen de honing, suiker, het water, kaneelstokje en citroenschil aan de kook in de steelpan. Laat 5 minuten zachtjes koken, roer het citroensap erdoor en zet de pan op het laagste vuur, zodat de siroop warm blijft.', min: 5 },
+    { kop: 'Beslag', t: 'Verhit 5 cm olie in de Dutch oven tot 175 °C. Geen thermometer? Laat er een druppel beslag in vallen: komt die binnen een paar tellen sissend boven, dan is de olie heet genoeg.' },
+    { t: 'Doop een theelepel in een glas water en schep er een bolletje beslag mee, en duw het met een tweede natte lepel in de olie. Bak 8 à 10 bolletjes tegelijk 3 à 4 minuten, tot ze rondom goudbruin zijn; keer ze met de schuimspaan. Laat uitlekken op keukenpapier en laat de olie tussendoor weer op temperatuur komen.', min: 16 },
+    { kop: 'Erover', t: 'Doe de warme bolletjes in een schaal, schenk de warme honingsiroop erover en schep om tot ze glanzen. Strooi de walnoten en kaneel erover en eet ze meteen, nu ze nog krokant zijn.' }
+  ],
+  tips: ['Het beslag hoort kleverig te zijn: zo worden ze luchtig. Met natte lepels (of natte vingers) plakt het niet.', 'In Griekenland knijpen ze het beslag door hun vuist en scheppen ze het bolletje dat tussen duim en wijsvinger opkomt eraf met een lepel. Dat gaat sneller als je het een paar keer gedaan hebt.', 'Lekker met een bolletje vanille-ijs of een schep Griekse yoghurt. Ze zijn het best binnen een half uur; de rest kun je 5 minuten opwarmen in de airfryer op 180 °C.'],
+  alt: ['Turkse lokma: laat de honing weg en maak een siroop van 200 g suiker, 150 ml water en een scheut citroensap.', 'Met chocolade: schenk gesmolten pure chocolade of hazelnootpasta over de bolletjes in plaats van de honingsiroop, met gehakte pistachenoten erover.']
+},
+{
   id: 'paprikas-csirke', naam: 'Paprikás csirke', ook: ['paprikakip', 'chicken paprikash', 'paprikash'],
   keuken: 'Hongaars', soort: 'Hoofdgerecht',
   tijd: 35, wacht: '35 min stoven', pers: 4, niveau: 'Makkelijk', vega: false,
