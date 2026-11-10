@@ -235,6 +235,49 @@ RECEPTEN.push(
   alt: ['Snel: gebruik 2 rollen bladerdeeg in plaats van zelfgemaakt deeg. De pastei wordt dan luchtiger en minder zoet; bak hem 35 à 40 minuten op 200 °C.', 'Veel Surinaamse families doen er ook 3 hardgekookte eieren in partjes en een paar plakjes ham in de vulling.']
 },
 {
+  id: 'tjauw-min', toegevoegd: '2026-11-10', naam: 'Tjauw min (Surinaamse mie met kip)',
+  ook: ['tjauw min', 'tjauwmin', 'tjau min', 'chow mein', 'surinaamse mie', 'surinaamse bami', 'mie met kip', 'surinaams-chinese mie'],
+  keuken: 'Surinaams', soort: 'Hoofdgerecht',
+  tijd: 35, pers: 4, niveau: 'Makkelijk', vega: false,
+  intro: 'De lievelingsmie uit de Surinaams-Chinese toko: dunne mie gebakken met kip, kousenband, Chinese kool en taugé, in sojasaus en oestersaus met een vleugje sesamolie. Lichter en minder zoet dan bami, en klaar in de tijd dat je de mie kookt. Met Madame Jeanette-sambal en atjar erbij.',
+  gerei: [
+    { tool: 'wok', tekst: 'Wok of grote hapjespan voor hoog vuur', of: 'Geen wok? Bak dan in een grote koekenpan in twee porties.' },
+    { tool: 'kookpan', tekst: 'Kookpan voor de mie' }
+  ],
+  ingr: [
+    { n: 'mie', q: 250, u: 'g', x: 'mie-nestjes (fijn), 1 pak' },
+    { n: 'kippendijfilet', q: 500, u: 'g', x: 'in dunne reepjes' },
+    { n: 'sojasaus', q: 4, u: 'el', x: '1 el voor de kip, de rest voor de saus' },
+    { n: 'maïzena', q: 1, u: 'tl' },
+    { n: 'zonnebloemolie', q: 3, u: 'el' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in halve ringen' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
+    { n: 'wortel', p: 'wortels', q: 1, u: 'st', x: 'in dunne reepjes' },
+    { n: 'kousenband', q: 200, u: 'g', x: 'in stukjes van 3 cm; of sperziebonen' },
+    { n: 'Chinese kool', q: 300, u: 'g', x: 'in reepjes van 1 cm' },
+    { n: 'taugé', q: 200, u: 'g' },
+    { n: 'oestersaus', q: 2, u: 'el' },
+    { n: 'ketjap manis', q: 1, u: 'el' },
+    { n: 'sesamolie', q: 1, u: 'tl' },
+    { n: 'witte peper', q: 0.5, u: 'tl', x: 'of zwarte peper' },
+    { n: 'lente-ui', p: 'lente-uitjes', q: 3, u: 'st', x: 'in ringetjes' },
+    { n: 'verse selderij', q: 10, u: 'g', x: 'fijngehakt (Surinaamse selderie); mag ook weg', opt: true },
+    { kop: 'Erbij' },
+    { n: 'madame jeanette', p: 'madame jeanettes', q: 1, u: 'st', x: 'heel fijngehakt; of 2 tl sambal oelek', opt: true }
+  ],
+  stappen: [
+    { t: 'Meng de kip met 1 el sojasaus en de maïzena en laat even staan. Roer in een kommetje de rest van de sojasaus met de oestersaus, ketjap, sesamolie en peper door elkaar.' },
+    { t: 'Kook de mie 1 minuut korter dan op de verpakking staat, giet af en spoel kort koud, zodat hij niet doorgaart en niet aan elkaar plakt. Schep er 1 tl olie door.', min: 4 },
+    { t: 'Verhit 2 el olie in de wok op het hoogste vuur. Roerbak de kip in 4 à 5 minuten bruin en gaar en schep hem eruit.', min: 5 },
+    { t: 'Doe de laatste el olie in de wok en roerbak de ui en knoflook 1 minuut. Doe de wortel en kousenband erbij en roerbak 3 minuten; de boontjes moeten nog een beetje knapperig zijn.', min: 4 },
+    { t: 'Voeg de Chinese kool toe en roerbak 1 minuut tot hij net slinkt.', min: 1 },
+    { t: 'Doe de mie, de kip en de saus erbij en schep alles 2 minuten om op hoog vuur, tot de mie overal bruin gekleurd en heet is. Laat de mie ook even tegen de wand bakken voor knapperige randjes.', min: 2 },
+    { t: 'Schep op het laatst de taugé, lente-ui en selderij erdoor en roerbak nog 30 seconden, zodat de taugé knapperig blijft. Serveer met fijngehakte Madame Jeanette of sambal.' }
+  ],
+  tips: ['Kousenband is de Surinaamse lange boon; je vindt hem bij de toko, op de markt en bij steeds meer supermarkten. Sperziebonen smaken bijna hetzelfde.', 'Madame Jeanette is heel heet. Snijd hem met handschoenen of was je handen goed, en begin met een klein beetje.', 'Lekker met een gebakken ei erop, of met een paar plakjes geroosterd varkensvlees (tjasiw) van de toko erbij.'],
+  alt: ['Met garnalen: roerbak 200 g gepelde garnalen 2 minuten met de kip mee.', 'Kipfilet kan ook; bak die 1 minuut korter, anders wordt hij droog.']
+},
+{
   id: 'pad-kra-pao', naam: 'Pad kra pao (kip met Thaise basilicum)', gerecht: 'Pad kra pao', variant: 'Kip', ook: ['pad krapow', 'kra pao', 'pad kaprao'],
   keuken: 'Thais', soort: 'Hoofdgerecht',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false, pit: 3,
@@ -698,6 +741,48 @@ RECEPTEN.push(
   ],
   tips: ['Paprikapoeder vervangt hier de annattozaadjes die in Vietnam de saus oranjerood kleuren. Wil je het echt doen: bij de toko liggen annattozaadjes (hạt điều màu), die je eerst in de olie laat kleuren.', 'Kokoswater maakt de saus rond en een beetje zoet, zonder naar kokos te smaken. Kokosmelk is iets anders en werkt hier niet.', 'Net als elk stoofvlees is bò kho de volgende dag nog lekkerder. Het kan ook goed de vriezer in.'],
   alt: ['Slowcooker: bak vlees en sjalot eerst aan zoals hierboven, doe alles met maar 500 ml water in de slowcooker en gaar 7 uur op LOW. Doe de wortels het laatste uur erbij.', 'Met rijstnoedels in plaats van brood is het hủ tiếu bò kho: giet dan 250 ml water extra bij de saus, zodat het meer een soep wordt.']
+},
+{
+  id: 'ca-ri-ga', toegevoegd: '2026-11-10', naam: 'Cà ri gà (Vietnamese kipcurry met zoete aardappel)',
+  ook: ['ca ri ga', 'cà ri gà', 'ca ri', 'vietnamese curry', 'vietnamese kipcurry', 'vietnamese chicken curry', 'kipcurry met kokos', 'curry met zoete aardappel'],
+  keuken: 'Vietnamees', soort: 'Hoofdgerecht',
+  tijd: 50, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'De Vietnamese curry is milder en geuriger dan de Thaise: kip met kerriepoeder en citroengras, gestoofd in kokosmelk met zoete aardappel en wortel tot de saus dik en goudgeel is. In Vietnam eet je hem met stokbrood om in de saus te dopen, of met rijst of rijstnoedels.',
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of hapjespan met deksel (28 cm)', of: 'Een grote kookpan werkt ook.' }
+  ],
+  ingr: [
+    { kop: 'Marinade' },
+    { n: 'kippendijfilet', q: 800, u: 'g', x: 'in stukken van 4 cm' },
+    { n: 'kerriepoeder', q: 3, u: 'el', x: 'gewone milde kerrie; 2 el voor de marinade, 1 el voor de saus' },
+    { n: 'vissaus', q: 2, u: 'el' },
+    { n: 'suiker', q: 1, u: 'tl' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
+    { kop: 'Curry' },
+    { n: 'zonnebloemolie', q: 2, u: 'el' },
+    { n: 'sjalot', p: 'sjalotten', q: 3, u: 'st', x: 'fijngesnipperd' },
+    { n: 'citroengras', q: 2, u: 'stengel', x: 'in stukken van 8 cm, geplet met de achterkant van je mes' },
+    { n: 'gember', q: 15, u: 'g', x: 'geraspt' },
+    { n: 'zoete aardappel', p: 'zoete aardappels', q: 600, u: 'g', x: 'geschild, in blokken van 3 cm' },
+    { n: 'wortel', p: 'wortels', q: 2, u: 'st', x: 'in schuine stukken van 2 cm' },
+    { n: 'kokosmelk', q: 400, u: 'ml' },
+    { n: 'kippenbouillon', q: 400, u: 'ml' },
+    { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'in ringetjes, mag ook weg', opt: true },
+    { kop: 'Erbij' },
+    { n: 'stokbrood', p: 'stokbroden', q: 1, u: 'st', x: 'of 300 g rijst' },
+    { n: 'verse koriander', q: 15, u: 'g', x: 'of Thaise basilicum', opt: true },
+    { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'in partjes' }
+  ],
+  stappen: [
+    { kop: 'Marinade', t: 'Meng de kip in een kom met 2 el kerriepoeder, de vissaus, suiker en knoflook. Laat 20 minuten marineren terwijl je de groente snijdt, of afgedekt een paar uur in de koelkast.', min: 20 },
+    { kop: 'Curry', t: 'Verhit de olie in de pan op middelhoog vuur. Bak de sjalot, het citroengras en de gember 2 minuten, strooi de laatste el kerriepoeder erover en bak 30 seconden mee tot het geurt.', min: 3 },
+    { t: 'Zet het vuur hoger, doe de kip erbij en bak 5 minuten tot hij rondom gekleurd is.', min: 5 },
+    { t: 'Voeg de zoete aardappel en wortel toe en schenk de kokosmelk en de bouillon erbij. Breng aan de kook, doe de deksel er schuin op en laat 20 minuten zachtjes stoven, tot de zoete aardappel en wortel zacht zijn.', min: 20 },
+    { t: 'Haal de deksel eraf en laat de curry nog 5 minuten inkoken tot de saus wat dikker is; een paar stukjes zoete aardappel mogen uit elkaar vallen, die binden de saus. Vis het citroengras eruit en proef: zouter met vissaus, zoeter met een snufje suiker. Doe de rode peper erin als je hem gebruikt.', min: 5 },
+    { kop: 'Erbij', t: 'Schep de curry in diepe borden, met koriander erover en een partje limoen erbij. Geef er stokbrood bij, of rijst.' }
+  ],
+  tips: ['Neem gewone milde kerriepoeder uit de supermarkt; die lijkt het meest op de Vietnamese cà ri-poeder. Madras-kerrie maakt het pittiger en Indiaser.', 'Zoete aardappel kookt sneller kapot dan gewone aardappel. Snijd de blokken niet kleiner dan 3 cm.', 'De curry wordt de volgende dag nog lekkerder en kan goed in de vriezer, al wordt de zoete aardappel dan wat zachter.'],
+  alt: ['Met gewone aardappel: neem 600 g vastkokende aardappelen en stoof ze 5 minuten langer.', 'Kipfilet kan ook; doe die pas bij de laatste 10 minuten stoven terug in de pan, anders wordt hij droog.']
 },
 {
   id: 'fish-and-chips', naam: 'Fish and chips', ook: ['fish & chips', 'kibbeling'],

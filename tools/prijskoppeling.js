@@ -243,6 +243,8 @@ window.PRIJSKOPPELING = {
   'vermicelli': {},
   'soeppasta': { als: 'vermicelli' },
   'mie': { niet: ['soep', 'saus', 'instant', 'kip', 'cup'] },
+  'zoete aardappel': { zoek: ['zoete aardappel', 'zoete aardappelen', 'zoete aardappels'], niet: ['friet', 'frites', 'partjes', 'puree', 'chips', 'wedges', 'blokjes', 'gesneden'] },
+  'runder short ribs': { zoek: ['short ribs', 'short rib', 'shortribs', 'runderribben'], niet: ['bbq', 'gegaard', 'saus', 'gemarineerd'] },
   'ramennoedels': { zoek: ['ramen noedels'] },
   'rijstnoedels': { niet: ['zwarte', 'zw', 'bruine', 'br'] },
   'platte rijstnoedels': { als: 'rijstnoedels' },
