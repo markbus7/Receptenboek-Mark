@@ -792,6 +792,38 @@ p.sync-fout::before { display: none; }
 .ster[aria-pressed="true"] { color: #D9A21B; }
 .ster[aria-pressed="true"] svg { fill: currentColor; }
 .log-label { font-family: var(--font-hand); font-size: 22px; line-height: 1; color: var(--pen); }
+.log-sub { margin: 4px 0 -4px; font-family: var(--font-ui); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--potlood); }
+.log-hint { margin: 0; font-family: var(--font-ui); font-size: 13px; color: var(--potlood); }
+.log-gemiddeld { display: flex; flex-direction: column; gap: 6px; }
+.log-gem-rij { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin: 0; }
+.sterren-mini { display: inline-flex; gap: 2px; padding: 0 5px; }
+.ster-mini { display: inline-grid; width: 22px; height: 22px; color: var(--potlood); }
+.ster-mini svg { width: 22px; height: 22px; fill: transparent; }
+.ster-mini.vol { color: #D9A21B; }
+.ster-mini.vol svg { fill: currentColor; }
+.ster-mini.half { color: #D9A21B; }
+.ster-mini.half svg { fill: color-mix(in srgb, #D9A21B 45%, transparent); }
+.log-gem-over { font-family: var(--font-ui); font-size: 13px; color: var(--potlood); }
+.log-keren { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.log-keer { display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; border: 1px dashed var(--lijn); border-radius: 6px; background: color-mix(in srgb, var(--papier) 70%, transparent); }
+.log-keer-kop { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.log-datum {
+  position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 2px 6px;
+  border-bottom: 1px dashed var(--potlood); border-radius: 4px; cursor: pointer;
+  font-family: var(--font-hand); font-size: 22px; line-height: 1.1; color: var(--pen);
+}
+.log-datum svg { width: 18px; height: 18px; flex: none; }
+.log-datum span { display: inline-block; }
+.log-datum span::first-letter { text-transform: uppercase; }
+.log-datum:hover { background: color-mix(in srgb, var(--k) 10%, transparent); }
+.log-datum:focus-within { outline: 2px solid var(--k); outline-offset: 2px; }
+.log-datum input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; border: 0; padding: 0; }
+.log-datum input::-webkit-calendar-picker-indicator { position: absolute; inset: 0; width: 100%; height: 100%; cursor: pointer; }
+.log-weg { width: 32px; height: 32px; font-size: 18px; flex: none; }
+.log-meer { align-self: flex-start; }
+.log-keer .log-vraag { min-width: 8.5em; font-size: 13px; }
+.log-keer .log-label { font-size: 20px; }
+.gem-ster svg { color: #D9A21B; fill: currentColor; }
 .log-notitie {
   width: 100%; resize: vertical; min-height: 90px; padding: 4px 2px; border: 0; border-bottom: 1px dashed var(--potlood);
   background: transparent; font-family: var(--font-hand); font-size: 24px; line-height: 30px; color: var(--pen);
