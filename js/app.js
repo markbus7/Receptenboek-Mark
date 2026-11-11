@@ -366,6 +366,7 @@ const App = (() => {
     const foto = Hulp.foto(r);
     const h = hk(r.keuken);
     const gemaakt = VARIANTEN.leden(r).reduce((som, v) => som + Logboek.keer(v.id), 0);
+    const lekker = Logboek.gemiddelde(VARIANTEN.leden(r).map((v) => v.id), 'smaak');
     // NIEUW zolang het recept (of een van zijn varianten) in de tab Nieuw staat; de nieuwe variant krijgt het ook op zijn knop.
     const nieuw = VARIANTEN.leden(r).some((v) => NIEUW.includes(v.id));
     const matchHtml = m ? `
@@ -389,6 +390,7 @@ const App = (() => {
               ${r.vega ? `<span class="vega">${icoon('blad')} vega</span>` : ''}
               ${r.pit ? `<span class="pit" role="img" aria-label="${Hulp.pitTekst(r)}" title="${Hulp.pitTekst(r)}">${icoon('peper').repeat(r.pit)}</span>` : ''}
               ${gemaakt ? `<span class="gemaakt" title="Zo vaak heb je dit gemaakt">${icoon('vink')} ${gemaakt}× gemaakt</span>` : ''}
+              ${lekker.aantal ? `<span class="gemaakt gem-ster" title="Gemiddeld hoe lekker, uit ${lekker.aantal}× sterren">${icoon('ster')} ${Hulp.getal(lekker.gem, 1)}</span>` : ''}
             </span>
             <span class="kaart-gerei">${gereiRegel(r)}</span>
             ${maakbaar ? '' : '<span class="label-mist">Je mist apparatuur</span>'}

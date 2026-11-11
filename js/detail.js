@@ -75,7 +75,7 @@ const Detail = (() => {
      en de scrollpositie staan. Met { personen } opent het recept meteen omgerekend (uit een gedeelde link). */
   function open(recept, context, { houd = false, personen = null } = {}) {
     const vorige = houd && r ? { personen: r.pers * factor, methode, scroll: blad.scrollTop } : null;
-    if (!vorige) kookStap = 0;
+    if (!vorige) { kookStap = 0; alleKeren = false; }
     r = recept; ctx = context; factor = 1; ikHeb = null; gekozenMixen = new Set(); gekozenVries = new Set(); openUitleg = new Set();
     if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
@@ -228,39 +228,79 @@ const Detail = (() => {
     renderLog();
   }
 
-  /* Mijn logboek: hoe vaak gemaakt, hoe lekker, hoe leuk om te maken en een eigen notitie. */
+  /* Mijn logboek: elke keer dat je het maakte met datum en sterren, het gemiddelde en een eigen notitie. */
   const datum = (t) => new Date(t).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: new Date(t).getFullYear() === new Date().getFullYear() ? undefined : 'numeric' });
+  const KEREN_KORT = 3;
+  let alleKeren = false;
 
-  function sterren(soort, waarde, labels, vraag) {
-    return `<div class="log-rij" role="group" aria-labelledby="d-log-${soort}">
-      <span class="log-vraag" id="d-log-${soort}">${vraag}</span>
+  function sterren(soort, waarde, labels, vraag, i) {
+    const kop = `d-log-${soort}-${i}`;
+    return `<div class="log-rij" role="group" aria-labelledby="${kop}">
+      <span class="log-vraag" id="${kop}">${vraag}</span>
       <span class="sterren">
-        ${[1, 2, 3, 4, 5].map((n) => `<button type="button" class="ster" data-beoordeel="${soort}" data-waarde="${n}" aria-pressed="${n <= waarde}" aria-label="${n} van 5: ${labels[n]}" title="${labels[n]}">${icoon('ster')}</button>`).join('')}
+        ${[1, 2, 3, 4, 5].map((n) => `<button type="button" class="ster" data-beoordeel="${soort}" data-keer="${i}" data-waarde="${n}" aria-pressed="${n <= waarde}" aria-label="${n} van 5: ${labels[n]}" title="${labels[n]}">${icoon('ster')}</button>`).join('')}
       </span>
       <span class="log-label">${waarde ? labels[waarde] : ''}</span>
     </div>`;
+  }
+
+  const gemTekst = (g) => Hulp.getal(Math.round(g.gem * 10) / 10, 1);
+
+  function gemiddeldeRij(soort, vraag, labels) {
+    const g = Logboek.gemiddelde(r.id, soort);
+    if (!g.aantal) return '';
+    const vol = Math.round(g.gem * 2) / 2;
+    const ster = (n) => `<span class="ster-mini${n <= vol ? ' vol' : n - 0.5 === vol ? ' half' : ''}">${icoon('ster')}</span>`;
+    return `<p class="log-gem-rij"><span class="log-vraag">${vraag}</span>
+      <span class="sterren-mini" aria-hidden="true">${[1, 2, 3, 4, 5].map(ster).join('')}</span>
+      <span class="log-label"><b>${gemTekst(g)}</b> ${labels[Math.round(g.gem)].toLowerCase()}</span>
+      <span class="log-gem-over">uit ${g.aantal}×</span></p>`;
+  }
+
+  function keerHtml(k, i) {
+    const vandaag = Logboek.dag(Date.now());
+    return `<li class="log-keer">
+      <div class="log-keer-kop">
+        <label class="log-datum" title="Tik om de datum te veranderen">${icoon('kalender')}<span>${new Date(k.t).toLocaleDateString('nl-NL', { weekday: 'long', day: 'numeric', month: 'long', year: new Date(k.t).getFullYear() === new Date().getFullYear() ? undefined : 'numeric' })}</span>
+          <input type="date" data-keer-datum="${i}" value="${Logboek.dag(k.t)}" max="${vandaag}" aria-label="Datum dat je het maakte, ${datum(k.t)}">
+        </label>
+        <button type="button" class="ikoon-knop log-weg" data-keer-weg="${i}" aria-label="Haal ${datum(k.t)} weg" title="Haal deze keer weg">−</button>
+      </div>
+      ${sterren('smaak', k.smaak, Logboek.SMAAK, 'Hoe lekker?', i)}
+      ${sterren('maken', k.maken, Logboek.MAKEN, 'Leuk om te maken?', i)}
+    </li>`;
   }
 
   function renderLog() {
     const log = Logboek.van(r.id);
     const n = log.keren.length;
     const meta = blad.querySelector('#d-meta-log');
+    const lekker = Logboek.gemiddelde(r.id, 'smaak');
     meta.hidden = !n;
-    meta.innerHTML = n ? `${icoon('vink')} ${n}× gemaakt` : '';
+    meta.innerHTML = n ? `${icoon('vink')} ${n}× gemaakt${lekker.aantal ? ` · ${icoon('ster')} ${gemTekst(lekker)}` : ''}` : '';
     const el = blad.querySelector('#d-log');
     const veld = el.querySelector('#d-log-notitie');
     const tekst = veld ? veld.value : log.notitie;
+    // Nieuwste bovenaan; bij veel keren alleen de laatste paar, de rest achter een knop.
+    const keren = log.keren.map((k, i) => ({ k, i })).reverse();
+    const zicht = alleKeren ? keren : keren.slice(0, KEREN_KORT);
     el.innerHTML = `
       <h3 id="d-log-titel">Mijn logboek</h3>
       <div class="log-gemaakt">
-        <p class="log-teller" aria-live="polite">${n ? `<b>${n}×</b> gemaakt<span class="log-laatst">, laatst op ${datum(log.keren[n - 1])}</span>` : 'Nog niet gemaakt'}</p>
+        <p class="log-teller" aria-live="polite">${n ? `<b>${n}×</b> gemaakt<span class="log-laatst">, laatst op ${datum(log.keren[n - 1].t)}</span>` : 'Nog niet gemaakt'}</p>
         <div class="log-knoppen">
-          ${n ? `<button type="button" class="ikoon-knop log-terug" id="d-log-terug" aria-label="Haal de laatste keer weg" title="Haal de laatste keer weg">−</button>` : ''}
           <button type="button" class="knop knop-klein" id="d-log-gemaakt">${icoon('vink')} ${n ? 'Weer gemaakt' : 'Gemaakt'}</button>
         </div>
       </div>
-      ${sterren('smaak', log.smaak, Logboek.SMAAK, 'Hoe lekker?')}
-      ${sterren('maken', log.maken, Logboek.MAKEN, 'Leuk om te maken?')}
+      ${n > 1 ? `<div class="log-gemiddeld"><h4 class="log-sub">Gemiddeld</h4>
+        ${gemiddeldeRij('smaak', 'Hoe lekker?', Logboek.SMAAK)}
+        ${gemiddeldeRij('maken', 'Leuk om te maken?', Logboek.MAKEN)}
+        ${!lekker.aantal && !Logboek.gemiddelde(r.id, 'maken').aantal ? '<p class="log-hint">Geef elke keer sterren, dan zie je hier het gemiddelde.</p>' : ''}
+      </div>` : ''}
+      ${n ? `<h4 class="log-sub">${n > 1 ? 'Per keer' : 'Jouw beoordeling'}</h4>
+      <ol class="log-keren">${zicht.map(({ k, i }) => keerHtml(k, i)).join('')}</ol>
+      ${n > KEREN_KORT ? `<button type="button" class="knop-tekst log-meer" id="d-log-meer">${alleKeren ? 'Toon alleen de laatste keren' : `Toon alle ${n} keren`}</button>` : ''}
+      <p class="log-hint">Verkeerde dag? Tik op de datum om hem te veranderen.</p>` : ''}
       <label class="log-vraag" for="d-log-notitie">Notitie</label>
       <textarea id="d-log-notitie" class="log-notitie" rows="3" placeholder="Bijv. volgende keer minder sambal">${Hulp.esc(tekst)}</textarea>`;
   }
@@ -847,11 +887,20 @@ const Detail = (() => {
     if (t.closest('#d-log-gemaakt')) {
       const n = Logboek.gemaakt(r.id);
       renderLog();
-      return App.toast(n === 1 ? 'Afgevinkt: je hebt dit recept gemaakt' : `Afgevinkt: nu ${n}× gemaakt`);
+      return App.toast(`${n === 1 ? 'Afgevinkt: je hebt dit recept gemaakt' : `Afgevinkt: nu ${n}× gemaakt`}. Niet vandaag? Tik op de datum.`);
     }
-    if (t.closest('#d-log-terug')) { Logboek.terug(r.id); renderLog(); return App.toast('Laatste keer weggehaald'); }
+    // Tik op de datum: open meteen de kalender (ook op de computer, waar het veld zelf onzichtbaar is).
+    const dk = t.matches('[data-keer-datum]') && t;
+    if (dk && dk.showPicker) { try { dk.showPicker(); } catch (err) { /* dan gewoon het veld */ } }
+    const kw = t.closest('[data-keer-weg]');
+    if (kw) {
+      const wanneer = datum(Logboek.van(r.id).keren[+kw.dataset.keerWeg].t);
+      Logboek.weg(r.id, +kw.dataset.keerWeg); renderLog();
+      return App.toast(`${wanneer} weggehaald`);
+    }
+    if (t.closest('#d-log-meer')) { alleKeren = !alleKeren; return renderLog(); }
     const st = t.closest('[data-beoordeel]');
-    if (st) { Logboek.beoordeel(r.id, st.dataset.beoordeel, +st.dataset.waarde); return renderLog(); }
+    if (st) { Logboek.beoordeel(r.id, +st.dataset.keer, st.dataset.beoordeel, +st.dataset.waarde); return renderLog(); }
     if (t.closest('#d-deel')) return deel(t.closest('#d-deel'));
     if (t.closest('#d-scherm')) return wisselScherm(t.closest('#d-scherm'));
     if (t.closest('#d-kook, [data-kook-start]')) return startKoken();
@@ -917,6 +966,13 @@ const Detail = (() => {
   blad.addEventListener('change', (e) => {
     if (e.target.id === 'd-heb-ingr') hebIngevuld();
     if (e.target.id === 'd-log-notitie') { clearTimeout(notitieTimer); Logboek.notitie(r.id, e.target.value); }
+    if (e.target.matches('[data-keer-datum]')) {
+      if (!e.target.value) return renderLog();
+      const nieuw = e.target.value > Logboek.dag(Date.now()) ? Logboek.dag(Date.now()) : e.target.value;
+      Logboek.zetDatum(r.id, +e.target.dataset.keerDatum, nieuw);
+      renderLog();
+      return App.toast(`Datum veranderd naar ${datum(new Date(nieuw + 'T12:00'))}`);
+    }
     if (e.target.matches('[data-ingr]')) e.target.closest('.ingr').classList.toggle('is-klaar', e.target.checked);
   });
 
