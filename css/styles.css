@@ -1031,7 +1031,7 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
 .stap-hv { font-weight: 700; color: var(--pen); white-space: nowrap; }
 
 /* ---------- Kruiden en specerijen ---------- */
-#kast-wissel, #view-kruiden, #view-sauzen, #view-basis { max-width: 900px; margin-inline: auto; width: 100%; }
+#kast-wissel, #view-kruiden, #view-sauzen, #view-basis, #view-leren { max-width: 900px; margin-inline: auto; width: 100%; }
 .kruiden-filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 18px; }
 .kruiden-lijst { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 16px; }
 .kruid { background: var(--papier); border-radius: var(--r); box-shadow: var(--schaduw); padding: 18px 20px; font-family: var(--font-lees); font-size: 15px; line-height: 1.5; }
@@ -1071,3 +1071,54 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
 .kruiden-zoek { margin: 6px 0 10px; }
 .kruiden-zoek input { width: 100%; }
 .kruid-toon { margin: 4px 0 8px; }
+
+/* ---------- Leren: kruiden ruiken en proeven ---------- */
+.kruid-knoppen { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 8px !important; }
+.kruid-knoppen .kruid-toon { margin: 0; }
+.leer-delen { margin: 0 0 14px; }
+.leer-delen button { min-height: 42px; padding: 0 16px; font-size: 15px; }
+.leer-voortgang { margin: 0 0 6px; font-size: 15px; }
+.leer-groep { margin: 0 0 26px; }
+.leer-groep-kop { margin: 0 0 2px; font-size: 24px; color: var(--fam); border-bottom: 3px solid var(--fam); padding-bottom: 2px; }
+.leer-groep > .hint { margin: 4px 0 12px; }
+.leer-kaart { border-top: 5px solid var(--fam); scroll-margin-top: calc(var(--balk-h, 0px) + 12px); transition: box-shadow .3s; }
+.leer-kaart.leer-licht { box-shadow: 0 0 0 3px var(--fam), var(--schaduw); }
+.leer-fam { color: var(--fam) !important; }
+.leer-labels { display: inline-flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.leer-label { display: inline-block; padding: 1px 8px; border-radius: 4px; background: var(--lijn); color: var(--inkt-zacht); font-family: var(--font-ui); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.leer-label-ok { background: color-mix(in srgb, #4E7A4E 18%, transparent); color: #3B6B3B; }
+.leer-zintuig { margin: 4px 0 10px; padding: 8px 12px; border-radius: 6px; background: color-mix(in srgb, var(--fam) 9%, transparent); }
+.leer-zintuig p:last-child { margin: 0; }
+.leer-icoon { margin-right: 6px; }
+.leer-kaart a, .leer-proefje a, .leer-sessie a { color: var(--pen); font-weight: 600; text-underline-offset: 2px; }
+.leer-proef { margin: 10px 0 8px; padding: 8px 12px; background: var(--notitie); border: 1px solid var(--notitie-rand); border-radius: 6px; }
+.leer-proef-kop { font-family: var(--font-ui); font-weight: 700; font-size: 14px; margin: 0 0 2px !important; }
+.leer-proef .kruid-tip { margin: 0; font-size: 19px; }
+.leer-notitie { margin-top: 8px; border-top: 1px dashed var(--lijn); padding-top: 8px; font-family: var(--font-ui); font-size: 14px; }
+.leer-notitie summary { cursor: pointer; font-weight: 700; min-height: 32px; display: list-item; }
+.leer-check { display: flex; align-items: center; gap: 8px; margin: 8px 0 4px; font-weight: 600; cursor: pointer; min-height: 36px; }
+.leer-check input { width: 20px; height: 20px; }
+.leer-ster-rij { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 4px 0 6px !important; }
+.leer-notitie textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; padding: 8px 10px; border: 1px solid var(--lijn); border-radius: 6px; background: var(--papier); color: var(--inkt); resize: vertical; }
+.leer-proefjes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 16px; }
+.leer-proefje { scroll-margin-top: calc(var(--balk-h, 0px) + 12px); }
+.leer-stappen { margin: 4px 0 10px; padding-left: 22px; }
+.leer-stappen li { margin-bottom: 5px; }
+.leer-proefje .knop { min-height: 44px; }
+.leer-route { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 16px; }
+.leer-sessie-af { border-left: 5px solid #4E7A4E; }
+.leer-quiz { max-width: 560px; }
+.leer-quiz-tekst { font-size: 18px; }
+.leer-opties { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+.leer-optie { min-height: 52px; font-size: 16px; justify-content: center; }
+.leer-optie.leer-goed { background: #4E7A4E; border-color: #4E7A4E; color: #fff; }
+.leer-optie.leer-fout { background: var(--warn); border-color: var(--warn); color: #fff; }
+.leer-optie:disabled { opacity: 1; }
+.leer-optie:disabled:not(.leer-goed):not(.leer-fout) { opacity: .55; }
+.leer-quiz-knoppen { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.leer-quiz-knoppen .knop { min-height: 44px; }
+.leer-delen button[aria-pressed="true"] { background: var(--pen); border-color: var(--pen); color: var(--papier); }
+@media (max-width: 640px) {
+  .leer-delen button { padding: 0 12px; font-size: 14px; }
+  .leer-opties { grid-template-columns: 1fr; }
+}
