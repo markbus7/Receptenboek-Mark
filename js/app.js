@@ -736,7 +736,7 @@ const App = (() => {
         ${k.waar ? `<p><b>Waar koop je het:</b> ${esc(k.waar)}</p>` : ''}
         ${k.tip ? `<p class="kruid-tip">${esc(k.tip)}</p>` : ''}
         ${k.mijn && inKast.has(k.id) ? mijnPotje(k.mijn) : ''}
-        ${rs.length ? `<button type="button" class="knop knop-klein kruid-toon" data-kruid-filter="${k.id}">Toon deze recepten</button>` : ''}
+        ${rs.length || (w === 'kruiden' && Leren.heeft(k.id)) ? `<p class="kruid-knoppen">${rs.length ? `<button type="button" class="knop knop-klein kruid-toon" data-kruid-filter="${k.id}">Toon deze recepten</button>` : ''}${w === 'kruiden' && Leren.heeft(k.id) ? `<button type="button" class="knop knop-klein kruid-toon" data-leer="${k.id}">Leer dit kruid: ruiken en proeven</button>` : ''}</p>` : ''}
         ${rs.length ? `<p class="kruid-recepten"><b>In dit boek (${rs.length}):</b> ${rs.map((r) => `<a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>`).join(', ')}</p>` : ''}
       </article>`;
     }).join('');
@@ -749,24 +749,27 @@ const App = (() => {
 
   /* ---------- Weergave wisselen ---------- */
   // Weergaven met een eigen pagina in plaats van het receptenoverzicht.
-  const APART = ['lijst', ...Object.keys(KASTEN)];
+  const APART = ['lijst', 'leren', ...Object.keys(KASTEN)];
   /* Kruiden, Sauzen en Basis staan samen onder de tab Kast; die opent waar je het laatst was. */
+  /* Leren (kruiden ruiken en proeven) is de vierde knop in de kast. */
   let laatsteKast = 'kruiden';
+  const inKastTab = (view) => !!KASTEN[view] || view === 'leren';
   function zetView(view) {
     if (view === 'kast') view = laatsteKast;
-    if (KASTEN[view]) laatsteKast = view;
+    if (inKastTab(view)) laatsteKast = view;
     state.view = view;
-    document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.view === view || (t.dataset.view === 'kast' && !!KASTEN[view]))));
-    document.querySelectorAll('[data-kast]').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.kast === view)));
-    $('#kast-wissel').hidden = !KASTEN[view];
+    document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.view === view || (t.dataset.view === 'kast' && inKastTab(view)))));
+    document.querySelectorAll('#kast-wissel [data-kast]').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.kast === view)));
+    $('#kast-wissel').hidden = !inKastTab(view);
     const apart = APART.includes(view);
     $('#view-recepten').hidden = apart;
     $('#view-lijst').hidden = view !== 'lijst';
     $('#view-kruiden').hidden = view !== 'kruiden';
     $('#view-sauzen').hidden = view !== 'sauzen';
     $('#view-basis').hidden = view !== 'basis';
+    $('#view-leren').hidden = view !== 'leren';
     document.body.classList.toggle('view-lijst', apart);
-    if (view === 'lijst') renderLijst(); else if (KASTEN[view]) renderKast(view); else render();
+    if (view === 'lijst') renderLijst(); else if (view === 'leren') Leren.render(); else if (KASTEN[view]) renderKast(view); else render();
     window.scrollTo({ top: 0 });
   }
 
@@ -987,7 +990,13 @@ const App = (() => {
     });
 
     document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.view)));
-    document.querySelectorAll('[data-kast]').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.kast)));
+    document.querySelectorAll('#kast-wissel [data-kast]').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.kast)));
+    Leren.init($('#view-leren'), {
+      inKast: () => kast('kruiden'),
+      receptenMet: (id) => { const k = kastItem(id); return k ? receptenMet(k) : []; },
+      recept: (id) => RECEPTEN.find((r) => r.id === id),
+      open: (id) => openRecept(id)
+    });
 
     $('#paneel').addEventListener('click', (e) => {
       const c = e.target.closest('[data-groep]');
@@ -1137,6 +1146,8 @@ const App = (() => {
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           return;
         }
+        const lk = e.target.closest('[data-leer]');
+        if (lk) { zetView('leren'); Leren.toon(lk.dataset.leer); return; }
         const kf = e.target.closest('[data-kruid-filter]');
         if (kf) { state.kruid = kf.dataset.kruidFilter; zetView('alle'); return; }
         const s = e.target.closest('[data-kastsoort]');
@@ -1203,8 +1214,9 @@ const App = (() => {
     Boodschappen.herlaad();
     Logboek.herlaad();
     Detail.herlaadLog();
+    Leren.herlaad();
     renderFilters();
-    if (state.view === 'lijst') renderLijst(); else if (KASTEN[state.view]) renderKast(state.view); else render();
+    if (state.view === 'lijst') renderLijst(); else if (state.view === 'leren') Leren.render(); else if (KASTEN[state.view]) renderKast(state.view); else render();
     toast('Bijgewerkt met je andere apparaten');
   }
 
