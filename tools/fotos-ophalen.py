@@ -71,7 +71,7 @@ ARTIKELEN = {
     'currywurst': 'Currywurst', 'kartoffelsalat': 'Potato salad',
     'crepes': 'Crêpe', 'croque-monsieur': 'Croque monsieur', 'creme-brulee': 'Crème brûlée',
     'pepersaus': 'Peppercorn sauce', 'champignonsaus': 'Mushroom sauce', 'bearnaise': 'Béarnaise sauce',
-    'hollandaise': 'Hollandaise sauce', 'bechamel': 'Béchamel sauce', 'spaghetti-bolognese': 'Bolognese sauce',
+    'hollandaise': 'Hollandaise sauce', 'bechamel': 'Béchamel sauce', 'spaghetti-bolognese': 'File:Spaghetti bolognese (hozinja) (cropped).jpg',
     'minestrone': 'Minestrone', 'panna-cotta': 'Panna cotta', 'spaghetti-aglio-olio': 'Spaghetti aglio e olio',
     'tomatensaus': 'Tomato sauce', 'pesto': 'Pesto',
     'gambas-al-ajillo': 'Gambas al ajillo', 'gazpacho': 'Gazpacho', 'churros': 'Churro', 'gyros': 'Gyros',

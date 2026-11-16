@@ -1711,9 +1711,9 @@ window.FOTOS = {
  },
  "spaghetti-bolognese": {
   "src": "img/spaghetti-bolognese.jpg",
-  "auteur": "Ivan Vighetto",
-  "licentie": "CC BY-SA 3.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Tagliatelle_al_rag%C3%B9_(image_modified).jpg"
+  "auteur": "hozinja",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Spaghetti_bolognese_(hozinja)_(cropped).jpg"
  },
  "spaghetti-carbonara": {
   "src": "img/spaghetti-carbonara.jpg",
