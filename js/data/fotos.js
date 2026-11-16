@@ -666,16 +666,16 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Tajine_de_boulettes_de_viande_hach%C3%A9e_aux_oeufs.jpg"
  },
- "kerriekip-wok": {
-  "src": "img/kerriekip-wok.jpg",
-  "auteur": "Mark",
-  "licentie": "eigen foto"
- },
  "kimchi-fried-rice": {
   "src": "img/kimchi-fried-rice.jpg",
   "auteur": "Sharon Ang",
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:Kimchi_fried_rice.jpg"
+ },
+ "kerriekip-wok": {
+  "src": "img/kerriekip-wok.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto"
  },
  "kip-biryani": {
   "src": "img/kip-biryani.jpg",
