@@ -145,6 +145,7 @@ const App = (() => {
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => el.classList.remove('zichtbaar'), 2600);
   }
+  window.toast = toast;
 
   /* ---------- Filters opbouwen ---------- */
   function chip(groep, waarde, label, aan) {
@@ -1257,7 +1258,8 @@ const App = (() => {
 
   function start() {
     const metVarianten = new Set(RECEPTEN.filter((r) => VARIANTEN.heeft(r)).map((r) => r.groep)).size;
-    $('#teller').textContent = `${VARIANTEN.aantalGerechten()} recepten · ${metVarianten} met varianten · ${KEUKENS.length} hoofdstukken · versie ${window.VERSIE || '?'}`;
+    $('#teller').textContent = `${VARIANTEN.aantalGerechten()} recepten · ${metVarianten} met varianten · ${KEUKENS.length} hoofdstukken`;
+    Update.start();
     renderFilters();
     koppel();
     balkEnPijlen();

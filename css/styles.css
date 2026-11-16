@@ -153,6 +153,23 @@ svg { flex-shrink: 0; }
   transform: rotate(-6deg) translateY(-6px); white-space: nowrap;
 }
 .merk-sub { grid-column: 1 / -1; margin-top: 8px; font-size: 13px; color: var(--inkt-zacht); letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+/* Versie, datum van de update en of het de nieuwste is (js/update.js). Tik erop om opnieuw te kijken. */
+.merk-versie { margin-top: 2px; }
+.merk-versie:empty { display: none; }
+.versie-knop { background: none; border: 0; padding: 2px 0; font: inherit; color: inherit; letter-spacing: inherit; text-align: left; cursor: pointer; }
+.versie-knop:hover { color: var(--inkt); }
+.versie-ok { color: var(--ok); font-weight: 600; }
+.versie-oud { color: var(--warn); font-weight: 600; }
+.versie-fout { font-style: italic; }
+.update-balk {
+  max-width: 720px; margin: 12px auto 0; margin-inline: max(16px, calc((100% - 720px) / 2));
+  padding: 12px 16px; border: 1px solid var(--notitie-rand); border-radius: var(--r);
+  background: var(--notitie); color: var(--inkt); box-shadow: var(--schaduw-klein);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+}
+.update-balk[hidden] { display: none; }
+.update-balk p { margin: 0; flex: 1 1 260px; font-size: 15px; line-height: 1.4; }
+.update-knoppen { display: flex; gap: 8px; }
 .tabs { display: flex; gap: 2px; padding: 4px; background: var(--papier); border-radius: 999px; box-shadow: var(--schaduw-klein); overflow-x: auto; max-width: 100%; }
 .tab {
   display: inline-flex; align-items: center; gap: 6px;
