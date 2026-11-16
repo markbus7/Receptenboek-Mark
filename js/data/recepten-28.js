@@ -170,10 +170,10 @@
   },
   {
     id: 'kip-piccante-paprika', toegevoegd: '2026-11-16', naam: 'Kip piccante met paprika',
-    ook: ['pollo piccante', 'kip in pittige tomatensaus', 'kip in tomatensaus', 'kip met pastasaus', 'pastasaus uit een pot', 'pot pastasaus', 'kip met paprika en tomatensaus'],
-    keuken: 'Italiaans', soort: 'Hoofdgerecht',
+    ook: ['kip in pittige tomatensaus', 'kip in tomatensaus', 'kip met pastasaus', 'pastasaus uit een pot', 'pot pastasaus', 'kip met paprika en tomatensaus'],
+    keuken: 'Nederlands', soort: 'Hoofdgerecht',
     tijd: 25, pers: 2, niveau: 'Makkelijk', vega: false, pit: 1,
-    intro: 'Blokjes kip en paprika uit de pan, gestoofd in een pot pittige tomatensaus en romig gemaakt met een scheut kookroom. Met rijst uit de rijstkoker of met pasta.',
+    intro: 'Een Hollandse doordeweekse pan, zoals de kip kerrie: blokjes kip en paprika uit de pan, gestoofd in een pot pittige tomatensaus en romig gemaakt met een scheut kookroom. Met rijst uit de rijstkoker of met pasta.',
     gerei: [
       { tool: 'hapjespan', tekst: 'Hapjespan of grote koekenpan (28 cm)' },
       { tool: 'kookpan', tekst: 'Rijstkoker of pan met deksel voor de rijst' }
