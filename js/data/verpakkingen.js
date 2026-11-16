@@ -35,6 +35,8 @@ window.VERPAKKINGEN = [
     tip: 'Tomatenpuree over? Schep de rest in eetlepels op een stukje bakpapier en vries ze in, dan heb je de volgende keer meteen een portie. Of koop een tube: die blijft open weken goed in de koelkast.' },
   { n: ['tomatenblokjes'], maat: 'g', pak: [400], per: { blik: 400 }, wat: 'blik',
     tip: 'Halve blik tomaten over? Doe hem in een bakje (niet in het blik) en gebruik hem binnen 3 dagen in een pastasaus, soep of shakshuka, of vries hem in.' },
+  { n: ['pastasaus'], maat: 'g', pak: [260, 400, 500], wat: 'pot',
+    tip: 'Pastasaus over? Schep de rest in een bakje met deksel: in de koelkast blijft hij 4 à 5 dagen goed, of vries hem in. Lekker over een tosti, als dip voor kipnuggets of in een omelet.' },
   { n: ['passata'], maat: 'ml', pak: [500, 700], wat: 'fles',
     tip: 'Passata over? Open blijft hij zo\'n 5 dagen goed in de koelkast. Maak er een snelle pastasaus of tomatensoep van, of vries hem in.' },
   { n: ['kokosmelk'], maat: 'ml', pak: [200, 400], per: { blik: 400 }, wat: 'blik',
