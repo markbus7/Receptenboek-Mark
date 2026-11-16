@@ -329,44 +329,69 @@ const Hulp = (() => {
       });
   }
 
-  /* Alle mixen die in dit recept groente vervangen, van de mix die het meest vervangt naar het minst.
-     Bij gelijkspel eerst de mixen die er echt bij passen (aanraders), dan de mixen uit dezelfde keuken
-     (Mexicaanse mix bij taco's), dan de mix die de meeste grammen vervangt.
+  /* Alle mixen die in dit recept groente vervangen, van de mix die het best past naar het minst.
+     Elke mix krijgt punten: 1 per groente die hij vervangt,
+     2 als hij met de hand gekozen is voor dit gerecht (aanrader), 1,5 als hij uit dezelfde keuken komt
+     (Mediterrane mix bij Italiaans) en 1 eraf als hij uit een andere keuken komt (wokgroente bij pasta):
+     dan zitten er ook groenten in die niet bij het gerecht horen, zoals kool en taugé.
+     Een mix die alleen de ui (of niets) vervangt staat altijd onder een mix die echte groente vervangt.
+     Bij gelijke punten de mix die meer groenten vervangt, dan de meeste grammen.
      `best` zegt of de bovenste mix echt beter past dan de tweede; staan ze helemaal gelijk, dan is er geen 'past het best'.
-     Vervangt elke mix alleen de ui, dan alleen de aanraders als extra groente: een ui snij je net zo snel zelf. */
+     Vervangt elke mix alleen de ui, dan alleen de aanraders als extra groente. */
   const ALLEEN_UI = ['ui', 'uien', 'witte ui', 'gele ui', 'rode ui', 'sjalot', 'sjalotten'];
+  const isUi = (i) => ALLEEN_UI.includes(norm(i.n));
+  const echt = (d) => d.gedekt.filter((i) => !isUi(i)).length;
+  const andereKeuken = (mix, recept) => !!(mix.keukens && mix.keukens.length && recept.keuken && !mix.keukens.includes(recept.keuken));
+  function mixPunten(d) {
+    const groente = d.gedekt.reduce((som, i) => som + 1, 0);
+    // De keuken telt alleen als de mix meer dan de ui vervangt (geen stamppotmix voor alleen de ui in macaroni).
+    return groente + (d.aanrader ? 2 : 0) + (d.keuken && echt(d) ? 1.5 : 0) - (d.vreemd ? 1 : 0);
+  }
+  /* Groenten die een mix meebrengt maar niet in het recept staan (wokgroente bij pasta: kool, taugé). */
+  function mixExtra(recept, mix) {
+    const ingr = ingrediënten(recept).filter((i) => !isBasis(i));
+    // Een andere kleur paprika of ui is geen andere groente; van de koolsoorten noemen we er één.
+    const soort = (t) => (/paprika/.test(t) ? 'paprika' : ALLEEN_UI.includes(t) ? 'ui' : /kool$/.test(t) ? 'kool' : t);
+    const inRecept = new Set(ingr.map((i) => soort(norm(i.n))));
+    const gezien = new Set();
+    return mix.bevat.filter((t) => !ingr.some((i) => termPast(t, i)) && !inRecept.has(soort(t)) && !gezien.has(soort(t)) && gezien.add(soort(t))).slice(0, 3);
+  }
   function mixRanglijst(recept, factor = 1) {
     const lijst = (window.GROENTEMIXEN || []).map((mix) => {
       const d = mixDekking(recept, mix, factor);
-      return { mix, ...d, gewicht: d.gedekt.reduce((som, i) => som + gram(i), 0) };
+      return { mix, ...d, vreemd: andereKeuken(mix, recept), gewicht: d.gedekt.reduce((som, i) => som + gram(i), 0) };
     }).filter((d) => d.aanrader || d.gedekt.length);
     // Vervangt geen mix een echte groente (alleen ui of niets), dan alleen de mixen die bij het gerecht passen, als extra groente.
-    if (!lijst.some((d) => d.gedekt.some((i) => !ALLEEN_UI.includes(norm(i.n))))) {
+    if (!lijst.some((d) => d.gedekt.some((i) => !isUi(i)))) {
       const passend = lijst.filter((d) => d.aanrader).map((d) => ({ ...d, gedekt: [], gewicht: 0, gram: 0, erbij: Math.round((recept.pers * factor * 100) / 50) * 50 }));
       lijst.length = 0;
       lijst.push(...passend);
     }
     const groenten = [...new Set(lijst.flatMap((d) => d.gedekt.map((i) => i.n)))];
-    lijst.forEach((d) => { d.mist = groenten.filter((n) => !d.gedekt.some((i) => i.n === n)); });
-    const echt = (d) => d.gedekt.filter((i) => !ALLEEN_UI.includes(norm(i.n))).length;
-    // Alleen ui vervangen weegt minder dan een mix die bij het gerecht past.
-    const vergelijk = (a, b) => (echt(b) - echt(a)) || (b.aanrader - a.aanrader) || (b.gedekt.length - a.gedekt.length) || (b.keuken - a.keuken) || (b.gewicht - a.gewicht);
+    lijst.forEach((d) => {
+      d.mist = groenten.filter((n) => !d.gedekt.some((i) => i.n === n));
+      d.punten = mixPunten(d);
+      d.extra = d.vreemd && d.gedekt.length ? mixExtra(recept, d.mix) : [];
+    });
+    // Een mix die echte groente vervangt gaat altijd voor een mix die alleen de ui of niets vervangt.
+    const vergelijk = (a, b) => ((echt(b) > 0) - (echt(a) > 0)) || (b.punten - a.punten) || (b.gedekt.length - a.gedekt.length) || (b.gewicht - a.gewicht);
     lijst.sort(vergelijk);
     const best = lijst.length === 1 || (lijst.length > 1 && (vergelijk(lijst[0], lijst[1]) < 0 || lijst[0].aanrader || lijst[0].keuken));
     // Vervangen de bovenste mixen evenveel? Dan zegt de uitleg dat de keuze op 'past bij het gerecht' viel.
-    const gelijk = lijst.length > 1 && lijst[0].gedekt.length > 0 && lijst[0].gedekt.length === lijst[1].gedekt.length && lijst[0].gewicht === lijst[1].gewicht;
+    const gelijk = lijst.length > 1 && lijst[0].gedekt.length > 0 && lijst[0].gedekt.length <= lijst[1].gedekt.length;
     return { groenten, lijst, best, gelijk, combi: mixCombi(lijst, groenten, factor) };
   }
 
   /* Twee mixen samen, als die meer groenten vervangen dan de beste mix alleen.
      De tweede mix moet er meer dan alleen ui bij doen. */
   function mixCombi(lijst, groenten, factor) {
-    const met = lijst.filter((d) => d.gedekt.length);
+    // Geen combinatie met een mix uit een andere keuken (geen wokgroente erbij voor alleen de champignons in pasta).
+    const met = lijst.filter((d) => d.gedekt.length && !d.vreemd);
     if (!met.length || met[0].gedekt.length >= groenten.length) return null;
     let beste = null;
     met.forEach((a, ai) => met.slice(ai + 1).forEach((b) => {
       const extra = b.gedekt.filter((i) => !a.gedekt.some((x) => x.n === i.n));
-      if (!extra.some((i) => !ALLEEN_UI.includes(norm(i.n)))) return;
+      if (!extra.some((i) => !isUi(i))) return;
       const samen = a.gedekt.length + extra.length;
       const score = [samen, a.aanrader + b.aanrader, a.keuken + b.keuken, -(b.gedekt.length - extra.length), a.gewicht + b.gewicht];
       // Meeste groenten samen, dan de meeste aanraders, dan dezelfde keuken, dan de minste overlap, dan de meeste grammen.
