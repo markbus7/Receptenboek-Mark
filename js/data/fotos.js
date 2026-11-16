@@ -672,6 +672,11 @@ window.FOTOS = {
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:Kimchi_fried_rice.jpg"
  },
+ "kerriekip-wok": {
+  "src": "img/kerriekip-wok.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto"
+ },
  "kip-biryani": {
   "src": "img/kip-biryani.jpg",
   "auteur": "Mahi Tatavarty",

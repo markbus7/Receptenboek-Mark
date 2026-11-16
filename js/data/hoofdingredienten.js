@@ -340,6 +340,7 @@ window.HOOFD = {
   /* Snel uit de wok */
   'kip-ketjap-wokgroente': ['kip', 'wokgroente', 'ketjap', 'rijst'],
   'kip-oestersaus-wokgroente': ['kip', 'wokgroente', 'oestersaus', 'rijst'],
+  'kerriekip-wok': ['kip', 'wokgroente', 'kerrie', 'rijst'],
 
   /* Met een pot pastasaus */
   'kip-piccante-paprika': ['kip', 'paprika', 'pastasaus uit een pot', 'rijst']
