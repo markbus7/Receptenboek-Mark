@@ -63,7 +63,7 @@ ARTIKELEN = {
     # 1.9.0
     'wentelteefjes': 'French toast', 'stoofpeertjes': 'nl:Stoofpeer', 'appelflappen': 'nl:Appelflap',
     'poffertjes': 'Poffertjes', 'oliebollen': 'Oliebol', 'zuurkoolstamppot': 'File:Zuurkool op bord.jpg',
-    'andijviestamppot': 'nl:Andijviestamppot', 'hachee': 'Hachee', 'hollandse-macaroni': 'File:Pasta al Forno 01.jpg',
+    'andijviestamppot': 'nl:Andijviestamppot', 'hachee': 'Hachee', 'hollandse-macaroni': 'File:American Chop Suey on White Plate.jpg',
     'groentesoep-balletjes': 'nl:Groentesoep', 'kapsalon': 'Kapsalon', 'kaassaus': 'File:Cauliflower-cheese.jpg', 'jus': 'Gravy',
     'mosselen': 'Moules-frites', 'gentse-waterzooi': 'Waterzooi', 'vol-au-vent': 'Vol-au-vent', 'stoemp': 'Stoemp',
     'luikse-wafels': 'nl:Luikse wafel', 'steak-frites': 'Steak frites', 'mayonaise': 'Mayonnaise',
@@ -182,7 +182,7 @@ ARTIKELEN = {
     'nachos': 'Nachos', 'salsa-fresca': 'Pico de gallo', 'brownies': 'Chocolate brownie', 'ny-cheesecake': 'Cheesecake',
     'fried-chicken': 'Fried chicken', 'chocolate-chip-cookies': 'Chocolate chip cookie', 'barbecuesaus': 'File:Ribs with Asian Barbecue Sauce 3of3 (8735180329).jpg',
     # 1.12.0
-    'gehaktballen-tomatensaus': 'File:Polpette Al Sugo - Nanninella.jpg',
+    'gehaktballen-tomatensaus': 'File:Spaghetti and meatballs 1.jpg',
     # 1.19.0: er is geen vrije foto van kip kerrie met perzik; deze kip kerrie met rijst lijkt er het meest op
     'kip-kerrie-perzik': 'File:Chicken curry rice.jpg',
     # 1.38.0
