@@ -330,64 +330,66 @@ p.sync-fout::before { display: none; }
 .sync-knoppen { display: flex; flex-wrap: wrap; gap: 8px; }
 .sync-knoppen .knop:disabled { opacity: .5; cursor: default; transform: none; box-shadow: none; }
 
-/* ---------- Tabbladen en boekpagina ---------- */
-.tabbladen {
-  display: flex; align-items: flex-end; gap: 3px;
-  padding: 10px 14px 0; overflow-x: auto; scrollbar-width: none;
-  position: relative; z-index: 1;
+/* ---------- Hoofdstukbalk en boekpagina ---------- */
+/* Onder het zoekvak: het hoofdstuk waar je bent, in de kleur van dat hoofdstuk, met de knop Inhoud. */
+.balk-binnen { flex-wrap: wrap; }
+.hst-balk {
+  order: 5; flex: 1 0 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 4px 4px 4px 14px; border-radius: 999px; background: var(--papier);
+  box-shadow: inset 4px 0 0 var(--k), var(--schaduw-klein);
 }
-.tabbladen::-webkit-scrollbar { display: none; }
-.tabblad {
-  flex: none; min-height: 32px; padding: 6px 12px 7px;
-  border: 0; border-radius: 7px 7px 0 0;
-  background: var(--k, var(--inkt)); color: #FFFDF8;
-  font-size: 13px; font-weight: 600; letter-spacing: 0.01em; white-space: nowrap;
-  opacity: .82; transform: translateY(5px);
-  transition: transform .15s, opacity .15s;
-  box-shadow: inset 0 -6px 8px -6px rgba(0, 0, 0, 0.35);
+.hst-balk[hidden] { display: none; }
+.hst-nu { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 10px; border: 0; padding: 4px 0; background: none; color: inherit; text-align: left; cursor: pointer; }
+.hst-boven { flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--k-inkt); }
+.hst-naam { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-titel); font-size: 19px; line-height: 1.2; }
+.hst-inhoud { flex: none; display: inline-flex; align-items: center; gap: 6px; }
+.hst-inhoud svg { width: 18px; height: 18px; }
+
+/* Inhoud: een vel van onderen (telefoon) of rechts (groter scherm) met alle delen en hoofdstukken. */
+.inhoud-vel { position: fixed; inset: 0; z-index: 45; }
+.inhoud-vel[hidden] { display: none; }
+.inhoud-achter { position: absolute; inset: 0; background: var(--achter); animation: infaden .2s ease-out; }
+.inhoud-blad {
+  position: absolute; top: 0; right: 0; bottom: 0; width: min(420px, 100%); overflow-y: auto; overscroll-behavior: contain; outline: none;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) 22px calc(28px + env(safe-area-inset-bottom, 0px));
+  background: var(--papier); box-shadow: var(--schaduw); animation: inschuiven .22s ease-out;
 }
-.tabblad:hover { opacity: 1; transform: translateY(2px); }
-.tabblad[aria-pressed="true"] { opacity: 1; transform: none; padding-top: 9px; box-shadow: none; }
-.tabblad-alle { background: var(--inkt); color: var(--papier); }
-/* Breed scherm: alle hoofdstukken zichtbaar, desnoods in twee rijen tabbladen zoals in een echt boek.
-   Volle rijen lopen precies tot de rand van de pagina; de onderste rij houdt zijn eigen breedte
-   doordat ::after daar de overgebleven ruimte opvult. */
-@media (min-width: 761px) {
-  .tabbladen { flex-wrap: wrap; row-gap: 7px; overflow: visible; }
-  .tabblad { flex: 1 0 auto; text-align: center; }
-  .tabbladen::after { content: ''; flex: 1000 0 0; margin-left: -3px; }
+@keyframes inschuiven { from { transform: translateX(30px); opacity: .6; } }
+body.inhoud-open { overflow: hidden; }
+.inhoud-kop { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: sticky; top: calc(-16px - env(safe-area-inset-top, 0px)); z-index: 1; margin: -4px 0 0; padding: 4px 0 6px; background: var(--papier); }
+.inhoud-kop h2 { font-size: 32px; }
+.inhoud-hint { font-family: var(--font-lees); font-style: italic; font-size: 14.5px; color: var(--inkt-zacht); margin-bottom: 6px; }
+.inhoud-deel { margin-top: 16px; }
+.inhoud-deel-kop, .inhoud-hst button {
+  width: 100%; display: flex; align-items: baseline; gap: 10px; border: 0; background: none; color: inherit; text-align: left; cursor: pointer;
 }
-/* Smal scherm: één rij om door te vegen; de rand vervaagt zodat je ziet dat er meer is. */
-@media (max-width: 760px) {
-  .tabbladen {
-    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
-            mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
-    padding-right: 36px;
-  }
+.inhoud-deel-kop { justify-content: space-between; padding: 6px 0; border-bottom: 2px solid var(--k); font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--k-inkt); }
+.inhoud-hst { list-style: none; margin: 0; padding: 0; }
+.inhoud-hst button { padding: 10px 6px; border-bottom: 1px dotted var(--lijn); font-family: var(--font-lees); font-size: 17px; border-radius: 4px; }
+.inhoud-hst button:hover:not([disabled]) { background: var(--k-vlak, var(--papier-2)); }
+.inhoud-hst button[aria-current="true"] { background: var(--k-vlak, var(--papier-2)); font-weight: 600; }
+.inhoud-nr { flex: none; min-width: 2ch; font-family: var(--font-titel); color: var(--k-inkt); font-variant-numeric: tabular-nums; }
+.inhoud-naam { flex: 1; min-width: 0; }
+.inhoud-n { flex: none; font-family: var(--font-lees); font-style: italic; font-size: 14px; color: var(--potlood); font-variant-numeric: tabular-nums; }
+.inhoud-vel [disabled] { opacity: .4; cursor: default; }
+@media (max-width: 640px) {
+  .inhoud-blad { top: auto; left: 0; width: 100%; max-height: 86vh; border-radius: 18px 18px 0 0; animation-name: omhoog; }
+  @keyframes omhoog { from { transform: translateY(40px); opacity: .6; } }
+  .inhoud-kop { top: -16px; }
 }
 
-/* Subtabs: de keukens van het gekozen deel, op een strook in de kleur van dat deel,
-   zodat het grote tabblad er als een map in doorloopt. */
-.subtabs {
-  display: flex; flex-wrap: wrap; gap: 6px;
-  padding: 8px 10px; background: var(--k, var(--inkt));
-  border-radius: 0 var(--r) 0 0; position: relative; z-index: 1;
-}
-.subtabs[hidden] { display: none; }
-.subtab {
-  flex: none; min-height: 30px; padding: 4px 12px;
-  border: 1px solid rgba(255, 253, 248, 0.45); border-radius: 999px;
-  background: transparent; color: #FFFDF8;
-  font-size: 13px; font-weight: 600; white-space: nowrap;
-}
-.subtab:hover { background: rgba(255, 253, 248, 0.14); }
-.subtab[aria-pressed="true"] { background: var(--papier); color: var(--sk, var(--k)); border-color: var(--papier); }
-.subtabs:not([hidden]) + .boekpagina { border-radius: 0 0 var(--r) var(--r); }
+/* Kaarten of lijst */
+.weergave-wissel { display: inline-flex; padding: 2px; border: 1px solid var(--lijn); border-radius: 999px; background: var(--papier); }
+.weergave-wissel button { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px; border: 0; border-radius: 999px; background: none; color: var(--inkt-zacht); font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.weergave-wissel button svg { width: 16px; height: 16px; }
+.weergave-wissel button[aria-pressed="true"] { background: var(--inkt); color: var(--papier); }
+
+.boekpagina { border-radius: 0 0 var(--r) var(--r); }
 
 .boekpagina {
   position: relative;
   padding: clamp(18px, 3vw, 40px) clamp(16px, 3vw, 44px) 48px;
-  background: var(--papier); border-radius: 2px var(--r) var(--r) var(--r); box-shadow: var(--schaduw);
+  margin-top: 14px; background: var(--papier); border-radius: var(--r); box-shadow: var(--schaduw);
 }
 .resultaat-kop { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 14px; }
 #resultaat-tekst { font-family: var(--font-lees); font-style: italic; font-size: 15px; color: var(--inkt-zacht); }
@@ -468,6 +470,27 @@ p.sync-fout::before { display: none; }
 }
 .variant-chip:hover { border-color: var(--k); color: var(--k-inkt); }
 .variant-chip[aria-current="true"] { background: var(--k-vlak); border-color: var(--k); color: var(--k-inkt); }
+.kaart-nvar { display: none !important; }
+
+/* Lijstweergave: een rij per recept met een kleine foto, zodat er veel meer op een scherm passen. */
+.raster.raster-lijst { grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); gap: 0 30px; }
+.raster-lijst .hoofdstuk-kop { margin-bottom: 6px; }
+.raster-lijst .hoofdstuk-kop:not(:first-child) { margin-top: 28px; }
+.raster-lijst .kaart { padding: 10px 0; border-bottom: 1px solid var(--lijn); }
+.raster-lijst .kaart-link { flex-direction: row; align-items: center; gap: 14px; }
+.raster-lijst .kaart-beeld { width: 76px; flex: none; aspect-ratio: 1; border-radius: 8px; box-shadow: none; }
+.raster-lijst .kaart:hover .kaart-beeld { transform: none; box-shadow: none; }
+.raster-lijst .kaart-tekst { gap: 3px; padding-right: 38px; }
+.raster-lijst .kaart-kop, .raster-lijst .kaart-gerei, .raster-lijst .kaart-varianten { display: none; }
+.raster-lijst .kaart-titel { font-size: 18px; }
+.raster-lijst .kaart-hoofd { font-size: 14px; line-height: 1.3; }
+.raster-lijst .kaart-meta { font-size: 13px; gap: 0 10px; }
+.raster-lijst .kaart-nvar { display: inline-flex !important; color: var(--k-inkt); font-weight: 600; }
+.raster-lijst .kaart-beeld .label-nieuw { left: 3px; bottom: 3px; padding: 0 4px; font-size: 9px; }
+.raster-lijst .kaart-fav { top: 50%; right: 0; left: auto; width: 34px; height: 34px; margin-top: -17px; background: transparent; box-shadow: none; }
+.raster-lijst .kaart-fav[aria-pressed="false"] { color: var(--potlood); }
+.raster-lijst .kaart-voet { margin: 8px 0 0 90px; padding-top: 6px; }
+.raster-lijst .label-mist { font-size: 11px; }
 .varianten { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 10px 12px; border: 1px dashed var(--k); border-radius: var(--r); background: var(--k-vlak); }
 .match { display: flex; align-items: center; gap: 10px; }
 .match-balk { flex: 1; height: 6px; border-radius: 999px; background: var(--papier-2); overflow: hidden; }
@@ -553,7 +576,16 @@ p.sync-fout::before { display: none; }
 .d-balk .ikoon-knop, .d-balk .knop-zacht { background: var(--papier); border-color: transparent; box-shadow: var(--schaduw-klein); }
 .d-balk .knop-zacht[aria-pressed="true"] { background: var(--inkt); color: var(--papier); }
 .d-balk-acties { display: flex; gap: 8px; align-items: center; }
-.d-balk { flex-wrap: wrap; }
+/* De knoppen en de sprongbalk staan op een effen strook boven het boek, zodat er bij het scrollen
+   geen tekst doorheen schemert. Het boek sluit er zonder naad op aan. */
+.d-balk {
+  flex-wrap: wrap; row-gap: 8px;
+  padding: 10px 14px; background: var(--papier-2);
+  border-radius: 4px 4px 0 0; border-bottom: 1px solid var(--lijn);
+  box-shadow: 0 8px 14px -12px rgba(60, 45, 25, 0.45);
+}
+.d-balk .ikoon-knop, .d-balk .knop-zacht { box-shadow: none; border-color: var(--lijn); }
+.d-balk .d-kook-knop { box-shadow: none; }
 /* Sprongbalk: blijft met de knoppen bovenin staan; de knop van het stuk waar je bent is donker. */
 .d-sprong { flex: 1 0 100%; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 2px 0; scroll-behavior: smooth; }
 .d-sprong::-webkit-scrollbar { display: none; }
@@ -573,7 +605,7 @@ p.sync-fout::before { display: none; }
   background:
     linear-gradient(90deg, transparent calc(50% - 46px), rgba(60, 45, 25, 0.10) calc(50% - 1px), rgba(60, 45, 25, 0.16) 50%, rgba(60, 45, 25, 0.10) calc(50% + 1px), transparent calc(50% + 46px)),
     var(--papier);
-  border-radius: 4px; box-shadow: var(--schaduw), 0 2px 0 var(--lijn), 0 4px 0 var(--papier-2), 0 5px 0 var(--lijn);
+  border-radius: 0 0 4px 4px; box-shadow: var(--schaduw), 0 2px 0 var(--lijn), 0 4px 0 var(--papier-2), 0 5px 0 var(--lijn);
 }
 .d-pagina { position: relative; display: flex; flex-direction: column; gap: 26px; min-width: 0; padding: 30px clamp(20px, 3.4vw, 56px) 64px; }
 .d-loopkop {
@@ -726,7 +758,6 @@ p.sync-fout::before { display: none; }
 
 /* Kookstand: één stap groot over het hele scherm, met grote knoppen voor natte of vette handen. */
 .d-kook-knop { background: var(--k); border-color: var(--k); color: #FFFDF8; }
-.d-balk .d-kook-knop { box-shadow: var(--schaduw-klein); }
 .d-stap-kop { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 4px; }
 .kook {
   position: fixed; inset: 0; z-index: 5; display: flex; flex-direction: column;
@@ -922,6 +953,13 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
 .toast.zichtbaar { opacity: 1; transform: translate(-50%, 0); }
 
 /* ---------- Kleinere schermen ---------- */
+/* iPad: drie kaarten naast elkaar in plaats van twee, met iets kleinere titels. */
+@media (min-width: 641px) and (max-width: 1000px) {
+  .raster { grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 28px 18px; }
+  .kaart-titel { font-size: 19px; }
+  .kaart-hoofd { font-size: 14px; }
+  .kaart-meta, .kaart-gerei { font-size: 13px; }
+}
 /* iPad: ook twee pagina's naast elkaar, links ingrediënten, rechts de bereiding. */
 @media (min-width: 761px) and (max-width: 1000px) {
   .d-spread { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr); }
@@ -998,12 +1036,9 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
   .sug-label { white-space: normal; grid-column: 1 / -1; }
   .sug-extra { grid-column: 1 / -1; white-space: normal; }
   .filter-knop { padding: 0 14px; }
-  .tabbladen { margin-inline: calc(-1 * var(--gutter)); padding-left: var(--gutter); padding-right: 36px; }
-  .subtabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); border-radius: 0; }
-  .subtabs::-webkit-scrollbar { display: none; }
   .raster { gap: 28px 16px; }
   .sheet-blad { inset: 0; width: 100%; }
-  .d-balk { padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px; background: color-mix(in srgb, var(--tafel) 85%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .d-balk { padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px; border-radius: 0; }
   .d-spread { border-radius: 0; margin-bottom: 0; box-shadow: none; }
   .d-pagina { padding: 0 18px 56px; gap: 20px; }
   .d-titelblok { gap: 8px; }
@@ -1034,10 +1069,23 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
   .item-tekst { font-size: 24px; }
   .item-bron { grid-column: 1; grid-row: 2; max-width: none; }
   .boodschappen .ikoon-knop { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
-  /* Kop: "van Mark" onder de titel */
-  .merk { grid-template-columns: auto; }
-  .merk h1 { font-size: 44px; }
-  .merk-hand { justify-self: end; margin-top: -10px; font-size: 30px; }
+  /* Kop: klein, op één regel, zodat er meer recepten in beeld passen */
+  .kop { padding-top: 12px; padding-bottom: 0; }
+  .merk-boven { display: none; }
+  .merk h1 { font-size: 30px; }
+  .merk-hand { font-size: 24px; }
+  .merk-sub { margin-top: 4px; font-size: 12px; letter-spacing: 0.02em; }
+  /* Sorteren, andersom en kaarten/lijst op één regel */
+  .resultaat-kop { gap: 8px; }
+  .sorteer-groep { width: 100%; flex-wrap: nowrap; gap: 6px; }
+  .sorteer { flex: 1; min-width: 0; }
+  .sorteer select { flex: 1; min-width: 0; width: 100%; }
+  .sorteer-om-tekst, .weergave-wissel span { display: none; }
+  .weergave-wissel button { padding: 0 9px; }
+  .hst-balk { padding-left: 12px; }
+  .hst-boven { display: none; }
+  .hst-naam { font-size: 18px; }
+  .boekpagina { margin-top: 10px; }
   /* Compacte kaarten: foto links, tekst rechts */
   .raster { grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .kaart-link { flex-direction: row; align-items: flex-start; gap: 14px; }
