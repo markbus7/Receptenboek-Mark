@@ -352,8 +352,8 @@ const Hulp = (() => {
   /* Groenten die een mix meebrengt maar niet in het recept staan (wokgroente bij pasta: kool, taugé). */
   function mixExtra(recept, mix) {
     const ingr = ingrediënten(recept).filter((i) => !isBasis(i));
-    // Een andere kleur paprika of ui is geen andere groente; van de koolsoorten noemen we er één.
-    const soort = (t) => (/paprika/.test(t) ? 'paprika' : ALLEEN_UI.includes(t) ? 'ui' : /kool$/.test(t) ? 'kool' : t);
+    // Een andere kleur paprika of ui is geen andere groente; van de kool- en selderijsoorten noemen we er één.
+    const soort = (t) => (/paprika/.test(t) ? 'paprika' : ALLEEN_UI.includes(t) ? 'ui' : /kool$/.test(t) ? 'kool' : /selderij$/.test(t) ? 'selderij' : t);
     const inRecept = new Set(ingr.map((i) => soort(norm(i.n))));
     const gezien = new Set();
     return mix.bevat.filter((t) => !ingr.some((i) => termPast(t, i)) && !inRecept.has(soort(t)) && !gezien.has(soort(t)) && gezien.add(soort(t))).slice(0, 3);
@@ -373,7 +373,7 @@ const Hulp = (() => {
     lijst.forEach((d) => {
       d.mist = groenten.filter((n) => !d.gedekt.some((i) => i.n === n));
       d.punten = mixPunten(d);
-      d.extra = d.vreemd && d.gedekt.length ? mixExtra(recept, d.mix) : [];
+      d.extra = d.gedekt.length ? mixExtra(recept, d.mix) : [];
     });
     // Een mix die echte groente vervangt gaat altijd voor een mix die alleen de ui of niets vervangt.
     const vergelijk = (a, b) => ((echt(b) > 0) - (echt(a) > 0)) || (b.punten - a.punten) || (b.gedekt.length - a.gedekt.length) || (b.gewicht - a.gewicht);

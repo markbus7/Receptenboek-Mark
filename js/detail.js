@@ -372,7 +372,7 @@ const Detail = (() => {
       if (nr === 5 && passend.length > 6) return `</ol><details class="mix-rang-meer"${passend.slice(5).some((d) => gekozenMixen.has(d.mix.id)) ? ' open' : ''}><summary>Nog ${passend.length - 5} mixen die minder goed passen</summary><ol class="mix-rang" start="6">${rij(d, nr)}`;
       return rij(d, nr);
     }).join('')}</ol>${passend.length > 6 ? '</details>' : ''}</details>` : '';
-    function rij({ mix, gedekt, gram, erbij, mist, extra = [] }, nr) {
+    function rij({ mix, gedekt, gram, erbij, mist, extra = [], vreemd }, nr) {
       const inVoorraad = uitVoorraad.includes('mix:' + mix.id);
       const aan = gekozenMixen.has(mix.id) || inVoorraad;
       const n = gedekt.length, m = groenten.length;
@@ -380,7 +380,7 @@ const Detail = (() => {
         : `<b>${m === 1 ? 'vervangt' : n === m ? `vervangt alle ${m}` : `vervangt ${n} van de ${m}`}</b>${m === 1 ? '' : `: ${Hulp.esc(en(gedekt.map((i) => i.n)))}`} · ±&nbsp;${gram}&nbsp;g`;
       return `<li class="mix-rang-item"><span class="mix-rang-nr" aria-hidden="true">${nr + 1}.</span>
         <button type="button" class="chip chip-mix" data-kies-mix="${mix.id}" aria-pressed="${aan}"${inVoorraad ? ' disabled title="Staat al in je voorraad"' : ''}>${Hulp.esc(mix.naam)}</button>
-        <span class="mix-rang-tekst">${nr === 0 && n && best ? '<span class="mix-rang-best">past het best</span> ' : ''}<span>${wat}</span>${n && mist.length ? `<small>nog vers: ${Hulp.esc(en(mist))}</small>` : ''}${extra.length ? `<small>past minder bij dit gerecht: er zit ook ${Hulp.esc(en(extra))} in</small>` : ''}</span>
+        <span class="mix-rang-tekst">${nr === 0 && n && best ? '<span class="mix-rang-best">past het best</span> ' : ''}<span>${wat}</span>${n && mist.length ? `<small>nog vers: ${Hulp.esc(en(mist))}</small>` : ''}${extra.length ? `<small>${vreemd ? 'past minder bij dit gerecht: er zit ook' : 'komt er extra bij:'} ${Hulp.esc(en(extra))}${vreemd ? ' in' : ''}</small>` : ''}</span>
       </li>`;
     }
     const mixEl = blad.querySelector('#d-mix');
