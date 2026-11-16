@@ -3,7 +3,8 @@
    `aanraders` zijn recepten waar de mix echt goed in past (met de hand gekozen).
    Ui zit alleen in de paprika-uienreepjes en de hutspotmix; in de andere mixen zit (bijna) nooit ui, dus die vervangen hem niet.
    `erbij` (met `erbijMin` voor de timer, `erbijMee` als hij in de saus of soep meekookt) is de extra stap als de mix niets vervangt maar er als extra groente bij gaat.
-   `keukens`: vervangen twee mixen evenveel, dan gaat de mix uit de keuken van het recept voor (Mexicaanse mix bij taco's). */
+   `keukens`: de keukens waar de mix bij past. Een mix uit de keuken van het recept krijgt voorrang (Mediterrane mix bij Italiaanse pasta),
+   een mix met keukens maar niet die van het recept zakt (wokgroente bij pasta: daar zitten kool en taugé in). Zonder `keukens` past een mix overal. */
 window.GROENTEMIXEN = [
   {
     id: 'wokgroente', erbij: 'Roerbak hem apart 5 à 7 minuten op hoog vuur in een hete wok of koekenpan met een scheut olie en schep hem op het eind door het gerecht.', erbijMin: 7, keukens: ['Chinees', 'Thais', 'Japans', 'Koreaans', 'Vietnamees', 'Indonesisch'], aanraders: ['kip-ketjap-wokgroente', 'kip-oestersaus-wokgroente', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'groene-curry', 'bibimbap', 'tjap-tjoy', 'kip-cashew', 'yakisoba', 'egg-fried-rice', 'japchae', 'pad-see-ew'], naam: 'Wokgroente', voorbeeld: 'Oosterse wokmix, roerbakgroente',
@@ -24,7 +25,7 @@ window.GROENTEMIXEN = [
     snel: 'Gebakken rijst: roerbak de groente, schuif opzij, bak er een ei bij en voeg koude rijst en ketjap toe.'
   },
   {
-    id: 'mediterraan', erbij: 'Bak hem apart in een hete pan met olijfolie, eerst op hoog vuur tot het vocht verdampt is en dan tot hij kleurt (8 à 10 minuten), of 15 minuten in de airfryer op 200 °C. Schep hem door het gerecht of serveer hem erbij.', erbijMin: 10, keukens: ['Italiaans', 'Grieks', 'Spaans', 'Frans', 'Turks', 'Midden-Oosters', 'Marokkaans'], aanraders: ['ratatouille', 'frittata', 'shakshuka', 'moussaka', 'penne-arrabbiata', 'minestrone', 'groentecouscous'], naam: 'Mediterrane groentemix', voorbeeld: 'Italiaanse of ratatouillegroente',
+    id: 'mediterraan', erbij: 'Bak hem apart in een hete pan met olijfolie, eerst op hoog vuur tot het vocht verdampt is en dan tot hij kleurt (8 à 10 minuten), of 15 minuten in de airfryer op 200 °C. Schep hem door het gerecht of serveer hem erbij.', erbijMin: 10, keukens: ['Italiaans', 'Grieks', 'Spaans', 'Frans', 'Turks', 'Midden-Oosters', 'Marokkaans'], aanraders: ['ratatouille', 'frittata', 'shakshuka', 'moussaka', 'penne-arrabbiata', 'minestrone', 'groentecouscous'], naam: 'Italiaanse of mediterrane groentemix', voorbeeld: 'Italiaanse groenten, ratatouillegroente: courgette, aubergine en paprika',
     bevat: ['courgette', 'aubergine', 'paprika', 'rode paprika', 'groene paprika', 'cherrytomaten'],
     bereiding: 'Rooster hem bevroren met olijfolie en zout: 25 minuten op een bakplaat in de oven op 220 °C, of 15 minuten in de airfryer op 200 °C. In de pan: eerst op hoog vuur het vocht laten verdampen, dan pas bakken.',
     snel: 'Door pasta met pesto en feta, op een pizza, of als vulling voor een frittata of quiche.'
@@ -42,7 +43,7 @@ window.GROENTEMIXEN = [
     snel: 'In wraps of quesadilla\'s, door chili con carne, of met rijst, kaas en salsa als burrito bowl.'
   },
   {
-    id: 'paprika-ui', erbij: 'Bak de reepjes apart op hoog vuur zonder deksel tot de randjes bruin worden (6 à 8 minuten) en schep ze bij het vlees.', erbijMin: 8, keukens: ['Hongaars'], aanraders: ['kip-fajitas', 'kip-shoarma', 'shakshuka', 'menemen', 'boerenomelet', 'hongaarse-goulash', 'paprikas-csirke', 'tjap-tjoy', 'zoetzure-kip', 'gyros'], naam: 'Paprika- en uienreepjes', voorbeeld: 'fajitamix, paprikamix',
+    id: 'paprika-ui', erbij: 'Bak de reepjes apart op hoog vuur zonder deksel tot de randjes bruin worden (6 à 8 minuten) en schep ze bij het vlees.', erbijMin: 8, keukens: ['Mexicaans', 'Hongaars', 'Turks', 'Midden-Oosters', 'Grieks', 'Spaans', 'Nederlands', 'Amerikaans'], aanraders: ['kip-fajitas', 'kip-shoarma', 'shakshuka', 'menemen', 'boerenomelet', 'hongaarse-goulash', 'paprikas-csirke', 'tjap-tjoy', 'zoetzure-kip', 'gyros'], naam: 'Paprika- en uienreepjes', voorbeeld: 'fajitamix, paprikamix',
     bevat: ['paprika', 'rode paprika', 'groene paprika', 'puntpaprika', 'ui', 'rode ui'],
     bereiding: 'Bak de reepjes bevroren op hoog vuur, zonder deksel, tot de randjes bruin worden (6 à 8 minuten). In de airfryer: 12 minuten op 200 °C.',
     snel: 'Fajita\'s, shoarma of kip-paprika uit de pan, of door een omelet of shakshuka.'
@@ -54,7 +55,7 @@ window.GROENTEMIXEN = [
     snel: 'Klassiek bij aardappelen en een gehaktbal, of door nasi, een boerenomelet of shepherd\'s pie.'
   },
   {
-    id: 'soepgroente', erbijMee: true, erbij: 'Doe hem bij het gerecht. Hij moet 15 minuten meekoken.', keukens: ['Nederlands', 'Belgisch'], aanraders: ['erwtensoep', 'harira', 'linzensoep-mercimek', 'lasagne-bolognese', 'boeuf-bourguignon', 'groentesoep-balletjes', 'minestrone', 'spaghetti-bolognese', 'gentse-waterzooi'], naam: 'Soepgroente', voorbeeld: 'prei, wortel en selderij',
+    id: 'soepgroente', erbijMee: true, erbij: 'Doe hem bij het gerecht. Hij moet 15 minuten meekoken.', keukens: ['Nederlands', 'Belgisch', 'Italiaans', 'Frans', 'Duits & Oostenrijks'], aanraders: ['erwtensoep', 'harira', 'linzensoep-mercimek', 'lasagne-bolognese', 'boeuf-bourguignon', 'groentesoep-balletjes', 'minestrone', 'spaghetti-bolognese', 'gentse-waterzooi'], naam: 'Soepgroente', voorbeeld: 'prei, wortel en selderij',
     bevat: ['prei', 'wortel', 'knolselderij', 'bleekselderij', 'verse selderij'],
     bereiding: 'Doe hem bevroren in de soep of stoofpot; 15 minuten meekoken is genoeg.',
     snel: 'Snelle groentesoep: fruit een ui, voeg 1 liter bouillon en de soepgroente toe, kook 15 minuten en doe er vermicelli of soepballetjes bij.'
@@ -84,13 +85,13 @@ window.GROENTEMIXEN = [
     snel: 'Met spekjes en ui, door een groene curry, of als groente bij gado-gado.'
   },
   {
-    id: 'currygroente', erbijMee: true, erbij: 'Doe hem bevroren in de saus. Hij moet 8 à 10 minuten meepruttelen tot de groente gaar is.', aanraders: ['aloo-gobi', 'chana-masala', 'kip-korma', 'curry-madras', 'dal'], naam: 'Indiase currygroente', voorbeeld: 'bloemkool, boontjes, wortel en erwt',
+    id: 'currygroente', erbijMee: true, keukens: ['Indiaas', 'Surinaams'], erbij: 'Doe hem bevroren in de saus. Hij moet 8 à 10 minuten meepruttelen tot de groente gaar is.', aanraders: ['aloo-gobi', 'chana-masala', 'kip-korma', 'curry-madras', 'dal'], naam: 'Indiase currygroente', voorbeeld: 'bloemkool, boontjes, wortel en erwt',
     bevat: ['bloemkool', 'sperziebonen', 'wortel', 'doperwten', 'paprika', 'spinazie'],
     bereiding: 'Doe hem bevroren bij de saus en laat 8 à 10 minuten zachtjes meegaren.',
     snel: 'Groentecurry in 20 minuten: fruit een ui, bak 2 el kerrie mee, voeg een blik tomaten, kokosmelk en de mix toe.'
   },
   {
-    id: 'erwtensoepgroente', erbijMee: true, erbij: 'Doe hem bevroren in de soep. Hij moet 15 minuten meekoken.', aanraders: ['erwtensoep', 'harira', 'linzensoep-mercimek', 'groentesoep-balletjes'], naam: 'Erwtensoepgroente', voorbeeld: 'knolselderij, prei, wortel',
+    id: 'erwtensoepgroente', erbijMee: true, keukens: ['Nederlands', 'Belgisch', 'Duits & Oostenrijks'], erbij: 'Doe hem bevroren in de soep. Hij moet 15 minuten meekoken.', aanraders: ['erwtensoep', 'harira', 'linzensoep-mercimek', 'groentesoep-balletjes'], naam: 'Erwtensoepgroente', voorbeeld: 'knolselderij, prei, wortel',
     bevat: ['knolselderij', 'prei', 'wortel', 'verse selderij'],
     bereiding: 'Voeg de mix bevroren toe in de laatste 45 minuten van de soep.',
     snel: 'Erwtensoep, of als basis voor elke stevige groentesoep.'
