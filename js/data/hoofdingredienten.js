@@ -339,5 +339,11 @@ window.HOOFD = {
 
   /* Snel uit de wok */
   'kip-ketjap-wokgroente': ['kip', 'wokgroente', 'ketjap', 'rijst'],
-  'kip-oestersaus-wokgroente': ['kip', 'wokgroente', 'oestersaus', 'rijst']
+  'kip-oestersaus-wokgroente': ['kip', 'wokgroente', 'oestersaus', 'rijst'],
+
+  /* Met een pot pastasaus */
+  'penne-piccante-pot': ['penne', 'pastasaus uit een pot'],
+  'gehaktballetjes-pastasaus': ['gehaktballetjes', 'pastasaus uit een pot', 'spaghetti'],
+  'eieren-pittige-tomatensaus': ['ei', 'pastasaus uit een pot', 'brood'],
+  'kip-piccante-paprika': ['kip', 'paprika', 'pastasaus uit een pot', 'rijst']
 };

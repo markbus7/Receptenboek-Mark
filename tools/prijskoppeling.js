@@ -364,6 +364,7 @@ window.PRIJSKOPPELING = {
   'barbecuesaus': {},
   'hete saus': { zoek: ['red hot sauce', 'redhot sauce', 'cholula hot sauce original'], niet: ['samurai', 'mayo', 'wings'] },
   'knoflooksaus': {},
+  'pastasaus': { zoek: ['pastasaus piccante', 'pastasaus'], niet: ['pesto', 'carbonara', 'kaas', 'room', 'bolognese'] },
   'passata': {},
   'tomatenpuree': {},
   'tomatenblokjes': { niet: ['knoflook', 'basilicum', 'kruiden', 'ui'] },

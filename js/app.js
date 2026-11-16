@@ -53,7 +53,9 @@ const App = (() => {
     // Kipfilet en kippendijfilet zijn uitwisselbaar (zie Hulp.uitwisselbaar): zoek je op de een, dan vind je ook de ander.
     kipfilet: ['kippendijfilet'], kipfilets: ['kippendijfilet'], kippendijfilet: ['kipfilet'], kipdijfilet: ['kippendijfilet', 'kipfilet'],
     dijfilet: ['kipfilet'], kippendij: ['kipfilet'], kipdij: ['kippendij', 'kipfilet'], kipborst: ['kipfilet', 'kippendijfilet'],
-    kippenborst: ['kipfilet', 'kippendijfilet']
+    kippenborst: ['kipfilet', 'kippendijfilet'],
+    // Een pot pastasaus: zoek je op tomatensaus of piccante, dan vind je ook de recepten met een pot.
+    tomatensaus: ['pastasaus'], piccante: ['pastasaus'], pastasaus: ['pastasaus uit een pot']
   };
   // Zoekwoorden voor de delen: "europees" of "aziatisch" geeft het hele deel.
   const REGIO_WOORDEN = {

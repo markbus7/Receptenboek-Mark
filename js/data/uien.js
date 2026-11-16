@@ -146,6 +146,10 @@ window.UIEN = {
     avgolemono: { ui: ['gele ui', 'Zacht gefruit geeft hij de bouillon een zoete basis zonder op te vallen', 'witte ui', 'sjalot'] },
     empanadas: { ui: ['witte ui', 'Zo doen ze het in Argentinië: hij blijft fris en een beetje knapperig in de vulling', 'gele ui'] },
     galbijjim: { ui: ['gele ui', 'Gepureerd met de peer maakt hij de saus zoet en dik; je proeft hem niet als stukje terug', 'witte ui'] },
-    'tjauw-min': { ui: ['gele ui', 'In halve ringen kort gebakken wordt hij zoet en blijft hij een beetje knapperig tussen de mie', 'witte ui'] }
+    'tjauw-min': { ui: ['gele ui', 'In halve ringen kort gebakken wordt hij zoet en blijft hij een beetje knapperig tussen de mie', 'witte ui'] },
+    /* Met een pot pastasaus */
+    'gehaktballetjes-pastasaus': { ui: ['gele ui', 'Zacht gefruit wordt hij zoet en valt hij weg in de pittige saus', 'sjalot', 'witte ui'] },
+    'eieren-pittige-tomatensaus': { ui: ['gele ui', 'In halve ringen zacht gebakken maakt hij de saus uit de pot zoeter en voller', 'rode ui'] },
+    'kip-piccante-paprika': { ui: ['rode ui', 'Zoet en mild, en mooi van kleur naast de paprika', 'gele ui'] }
   }
 };
