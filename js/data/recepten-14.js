@@ -297,7 +297,7 @@ RECEPTEN.push(
   bij: ['lasagne-bolognese', 'moussaka', 'croque-monsieur']
 },
 {
-  id: 'spaghetti-bolognese', naam: 'Spaghetti bolognese', ook: ['pasta bolognese', 'spag bol', 'ragù alla bolognese', 'bolognesesaus'],
+  id: 'spaghetti-bolognese', naam: 'Spaghetti bolognese', gerecht: 'Spaghetti bolognese', variant: 'Klassiek', ook: ['pasta bolognese', 'spag bol', 'ragù alla bolognese', 'bolognesesaus'],
   keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 30, wacht: '1 uur sudderen', pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Een rijke vleessaus die langzaam suddert met soffritto, tomaat, wijn en een scheut melk. Hoe langer hij staat, hoe beter hij wordt.',
@@ -336,6 +336,7 @@ RECEPTEN.push(
     { t: 'Vis het laurierblad eruit. Schep de spaghetti door de saus met 2 el kookvocht, zodat de saus zich om de pasta hecht. Serveer met Parmezaanse kaas.' }
   ],
   tips: [
+    'Geen tijd? Kies hierboven de variant *Snel met pot pastasaus*: klaar in 30 minuten.',
     'Maak meteen een dubbele portie: ragù is de volgende dag nog lekkerder en blijft in porties 3 maanden goed in de vriezer.',
     'In Bologna eet je ragù niet met spaghetti, maar met verse tagliatelle: de brede, ruwe linten houden de dikke vleessaus veel beter vast. Probeer het eens.'
   ],
@@ -343,7 +344,52 @@ RECEPTEN.push(
     'Vegetarisch: vervang het gehakt door 250 g fijngehakte champignons en 150 g rode linzen, gebruik groentebouillon en voeg 250 ml extra water toe.',
     'Weinig tijd? Na 25 minuten sudderen is de saus ook lekker, alleen minder diep van smaak.'
   ]
+},{
+  id: 'spaghetti-bolognese-pot', toegevoegd: '2026-11-16', variantVan: 'spaghetti-bolognese', variant: 'Snel met pot pastasaus',
+  naam: 'Snelle spaghetti bolognese met een pot pastasaus',
+  ook: ['pastasaus', 'pot pastasaus', 'bolognese met pastasaus', 'snelle bolognese', 'bolognese uit een pot', 'pastasaus uit een pot'],
+  tijd: 30, wacht: null, pit: 1,
+  intro: 'De simpelste bolognese: gehakt, ui, knoflook en tomatenpuree, een zak AH Roerbakgroente Italiaans en twee potten pastasaus. In 30 minuten op tafel. Met een pittige pot (zoals Grand\'Italia Piccante) wordt hij pittig, met een gewone pot mild.',
+  methodes: null,
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven, braadpan of hapjespan (ca. 26 cm)' },
+    { tool: 'kookpan', tekst: 'Grote kookpan voor de pasta' }
+  ],
+  ingr: [
+    { n: 'half-om-half gehakt', q: 500, u: 'g', x: 'of rundergehakt' },
+    { n: 'olijfolie', q: 1, u: 'el' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
+    { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
+    { n: 'gedroogde oregano', q: 1, u: 'tl' },
+    { kop: 'Groente (1 zak AH Roerbakgroente Italiaans, 450 g)' },
+    { n: 'courgette', p: 'courgettes', q: 150, u: 'g', x: 'in blokjes' },
+    { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in blokjes' },
+    { n: 'wortel', p: 'wortels', q: 100, u: 'g', x: 'in kleine blokjes' },
+    { n: 'prei', q: 75, u: 'g', x: 'in dunne ringen' },
+    { kop: 'Saus' },
+    { n: 'pastasaus', q: 520, u: 'g', x: '2 potten, bijv. Grand\'Italia Piccante' },
+    { n: 'water', q: 100, u: 'ml', x: 'om de potten mee om te spoelen' },
+    { kop: 'Erbij' },
+    { n: 'spaghetti', q: 400, u: 'g' },
+    { n: 'Parmezaanse kaas', q: 50, u: 'g', x: 'geraspt' },
+    { n: 'zout' }, { n: 'peper' }
+  ],
+  stappen: [
+    { t: 'Verhit de olie in de pan op hoog vuur. Bak het gehakt in 6 à 8 minuten rul en bruin; druk het met een spatel uit elkaar en laat het vocht verdampen tot het vlees sist. Bestrooi met zout en peper.', min: 7 },
+    { t: 'Bak de ui 3 minuten mee. Doe de groente erbij (uit de zak mag hij bevroren de pan in) en bak 6 à 8 minuten tot het vocht verdampt is.', min: 8 },
+    { t: 'Bak de knoflook, de tomatenpuree en de oregano 1 minuut mee. Zo wordt de tomatenpuree zoet in plaats van zuur.', min: 1 },
+    { kop: 'Saus', t: 'Doe de pastasaus erbij, spoel de potten om met het water en giet dat er ook bij. Laat 15 minuten zachtjes pruttelen met de deksel op een kier. Proef en breng op smaak met zout en peper.', min: 15 },
+    { kop: 'Erbij', t: 'Kook intussen de spaghetti beetgaar in {pastawater}. Houd een kopje kookvocht apart.', min: 10 },
+    { t: 'Schep de spaghetti door de saus met 2 el kookvocht en serveer met Parmezaanse kaas.' }
+  ],
+  tips: [
+    'Geen AH Roerbakgroente Italiaans? Neem 450 g van een andere mix (mediterrane mix of soepgroente), of snijd zelf courgette, paprika en wortel.',
+    'Een pot pastasaus is al gekruid; laurier, wijn en bouillon heb je hier niet nodig.'
+  ],
+  alt: ['Geen pot pastasaus? Neem een blik tomatenblokjes (400 g) met 1 tl suiker en laat 20 minuten pruttelen.']
 },
+
 {
   id: 'minestrone', naam: 'Minestrone', ook: ['italiaanse groentesoep'],
   keuken: 'Italiaans', soort: 'Soep',
@@ -497,7 +543,7 @@ RECEPTEN.push(
   bij: ['pizza-margherita', 'penne-arrabbiata']
 },
 {
-  id: 'gehaktballen-tomatensaus', toegevoegd: '2026-10-14', naam: 'Gehaktballen in tomatensaus', ook: ['polpette al sugo', 'polpette', 'italiaanse gehaktballen', 'gehaktballetjes in tomatensaus', 'balletjes in tomatensaus', 'meatballs'],
+  id: 'gehaktballen-tomatensaus', toegevoegd: '2026-10-14', naam: 'Gehaktballen in tomatensaus', ook: ['pastasaus', 'pot pastasaus', 'polpette al sugo', 'polpette', 'italiaanse gehaktballen', 'gehaktballetjes in tomatensaus', 'balletjes in tomatensaus', 'meatballs'],
   keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 55, pers: 4, niveau: 'Makkelijk', vega: false,
   intro: 'Zachte gehaktballen met Parmezaanse kaas en peterselie die zachtjes garen in een dikke tomatensaus. Lekker met spaghetti, of met brood om de saus op te deppen.',
@@ -523,7 +569,7 @@ RECEPTEN.push(
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
     { n: 'tomatenpuree', q: 1, u: 'el' },
-    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'of 800 ml passata' },
+    { n: 'tomatenblokjes', q: 800, u: 'g', x: 'of 800 ml passata', of: { q: 780, u: 'g', n: 'pastasaus uit een pot' } },
     { n: 'gedroogde oregano', q: 1, u: 'tl' },
     { n: 'suiker', q: 1, u: 'snuf', opt: true },
     { n: 'verse basilicum', q: 10, u: 'g', opt: true },
@@ -542,6 +588,7 @@ RECEPTEN.push(
     { kop: 'Afmaken', t: 'Proef de saus: is hij wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
   ],
   tips: [
+    'Pastasaus uit een pot kan in plaats van de tomaten: 3 potten van 260 g. Laat de suiker dan weg; een pittige pot (zoals Grand\'Italia Piccante) maakt de saus pittig.',
     'Steek een thermometer in een bal: bij 70 °C in het midden is hij gaar. Zonder thermometer: snijd er één doormidden, hij mag niet meer roze zijn.',
     'De ballen en de saus zijn de volgende dag nog lekkerder en blijven in porties 3 maanden goed in de vriezer.'
   ],

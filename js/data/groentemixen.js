@@ -25,7 +25,7 @@ window.GROENTEMIXEN = [
     snel: 'Gebakken rijst: roerbak de groente, schuif opzij, bak er een ei bij en voeg koude rijst en ketjap toe.'
   },
   {
-    id: 'ah-italiaans', erbij: 'Roerbak hem apart 6 à 8 minuten in een hete koekenpan met een scheut olijfolie, tot het vocht verdampt is en de groente kleurt, en schep hem door de saus.', erbijMin: 8, keukens: ['Italiaans'], aanraders: ['penne-piccante-pot', 'penne-piccante-kip', 'penne-piccante-vega', 'gehaktballetjes-pastasaus', 'minestrone', 'eieren-pittige-tomatensaus', 'frittata'], naam: 'AH Roerbakgroente Italiaans', voorbeeld: 'diepvries 450 g (ook vers in het koelvak): prei, wortel, ui, courgette en rode paprika',
+    id: 'ah-italiaans', erbij: 'Roerbak hem apart 6 à 8 minuten in een hete koekenpan met een scheut olijfolie, tot het vocht verdampt is en de groente kleurt, en schep hem door de saus.', erbijMin: 8, keukens: ['Italiaans'], aanraders: ['spaghetti-bolognese-pot', 'spaghetti-bolognese', 'lasagne-bolognese', 'gehaktballen-tomatensaus', 'penne-arrabbiata', 'kip-piccante-paprika', 'minestrone', 'frittata'], naam: 'AH Roerbakgroente Italiaans', voorbeeld: 'diepvries 450 g (ook vers in het koelvak): prei, wortel, ui, courgette en rode paprika',
     bevat: ['prei', 'wortel', 'ui', 'courgette', 'paprika', 'rode paprika'],
     bereiding: 'Bak de groente bevroren 6 à 8 minuten in een hete pan met een scheut olijfolie tot het vocht verdampt is en hij een beetje kleurt. Voeg daarna pas de saus toe. Er zit ui in, dus die hoef je niet apart te snijden.',
     snel: 'Door pasta met een pot pastasaus en gehakt, in een frittata, of met olijfolie en Parmezaan als bijgerecht.'

@@ -30,7 +30,7 @@ RECEPTEN.push(
   alt: ['Geen pancetta? Ontbijtspek of spekblokjes werken ook.', 'Geen Pecorino? Gebruik alleen Parmezaanse kaas (100 g in totaal).']
 },
 {
-  id: 'lasagne-bolognese', naam: 'Lasagne bolognese', keuken: 'Italiaans', soort: 'Hoofdgerecht',
+  id: 'lasagne-bolognese', naam: 'Lasagne bolognese', ook: ['pastasaus', 'pot pastasaus'], keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 90, pers: 6, niveau: 'Gemiddeld', vega: false,
   intro: 'Langzaam gegaarde ragù, een zijdezachte bechamelsaus en een krokant kaaskorstje.',
   methodes: [ { id: 'oven', naam: 'Oven' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'optigrill-bak', naam: 'OptiGrill-bak' } ],
@@ -49,7 +49,7 @@ RECEPTEN.push(
     { n: 'bleekselderij', q: 1, u: 'stengel' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt of geperst' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
-    { n: 'passata', q: 500, u: 'ml', x: 'gezeefde tomaten' },
+    { n: 'passata', q: 500, u: 'ml', x: 'gezeefde tomaten', of: { q: 520, u: 'g', n: 'pastasaus uit een pot' } },
     { n: 'rode wijn', q: 100, u: 'ml', opt: true },
     { n: 'gedroogde oregano', q: 1, u: 'tl', nk: 'Nederlandse gewoonte. In Bologna gaat er geen oregano in de ragù.' },
     { n: 'olijfolie', q: 2, u: 'el' },
@@ -76,7 +76,8 @@ RECEPTEN.push(
     { t: 'Sluit de deksel en bak de lasagne 25 minuten, tot de kaas goudbruin is en de saus aan de randen borrelt. Kijk na 15 minuten even: de bovenplaat zit dichtbij, dus kleurt hij al te donker, leg er dan een vel bakpapier op.', m: 'optigrill-bak', min: 25 },
     { t: 'Laat de lasagne 10 minuten rusten voordat je hem aansnijdt, dan blijven de lagen mooi.', min: 10 }
   ],
-  tips: ['De ragù is nog lekkerder als je hem een dag van tevoren maakt.'],
+  tips: [
+    'Pastasaus uit een pot kan in plaats van de passata: 2 potten van 260 g. Een pittige pot (zoals Grand\'Italia Piccante) maakt de lasagne pittig.','De ragù is nog lekkerder als je hem een dag van tevoren maakt.'],
   alt: ['Geen oven en geen airfryer? Maak lasagne uit de pan: breek de bladen in stukken, voeg ze met 300 ml extra water aan de ragù toe en laat 12 minuten garen met de deksel erop. Schep er bechamel of ricotta over.']
 },
 {
@@ -150,7 +151,7 @@ RECEPTEN.push(
   alt: ['Geen tijd om te laten rijzen? Gebruik een kant-en-klare pizzabodem. De baktijden blijven gelijk.']
 },
 {
-  id: 'penne-arrabbiata', naam: 'Penne all\'arrabbiata', keuken: 'Italiaans', soort: 'Hoofdgerecht',
+  id: 'penne-arrabbiata', naam: 'Penne all\'arrabbiata', ook: ['pastasaus', 'pot pastasaus'], keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: true, pit: 2,
   intro: 'Pittige tomatensaus met veel knoflook. Klaar in de tijd dat de pasta kookt.',
   gerei: [
@@ -159,7 +160,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'penne', q: 400, u: 'g' },
-    { n: 'tomatenblokjes', q: 800, u: 'g' },
+    { n: 'tomatenblokjes', q: 800, u: 'g', of: { q: 780, u: 'g', n: 'pastasaus uit een pot' } },
     { n: 'knoflook', q: 4, u: 'teen', x: 'in plakjes' },
     { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'of 1 tl chilivlokken' },
     { n: 'olijfolie', q: 4, u: 'el' },
@@ -174,7 +175,7 @@ RECEPTEN.push(
     { t: 'Kook intussen de penne beetgaar volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
     { t: 'Schep de penne door de saus met een scheut kookvocht en laat alles 1 minuut samen garen. Bestrooi met peterselie en eventueel kaas.' }
   ],
-  tips: ['Arrabbiata betekent "boos": maak hem zo pittig als je durft.'],
+  tips: ['Arrabbiata betekent "boos": maak hem zo pittig als je durft.', 'Pastasaus uit een pot kan in plaats van de tomatenblokjes: 3 potten van 260 g, en dan maar 5 minuten inkoken. Is het een pittige pot (zoals Grand\'Italia Piccante), proef dan eerst voor je de rode peper erbij doet.'],
   alt: ['Geen verse peper? Gebruik ½ tot 1 tl chilivlokken of sambal.']
 },
 {
