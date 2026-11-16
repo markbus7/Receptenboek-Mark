@@ -2,6 +2,7 @@
    met dezelfde knoppen als Kruiden en Sauzen (In mijn kast, Wat kan ik maken?, Wat koop ik?).
    `namen` zijn de ingrediëntnamen zoals ze in de recepten staan. Zout, peper en olie staan hier niet:
    die heb je volgens de schakelaar in Filters altijd. */
+const BASIS_PASTA_TIP = 'Alle pastasoorten zijn uitwisselbaar: vink je deze aan, dan tellen recepten met een andere pasta ook mee.';
 window.BASIS = [
   /* ---------- Suiker en zoet ---------- */
   { id: 'suiker', naam: 'Suiker (kristalsuiker)', soort: 'Zoet', namen: ['suiker', 'kristalsuiker'],
@@ -65,5 +66,42 @@ window.BASIS = [
   { id: 'cacaopoeder', naam: 'Cacaopoeder', soort: 'Bakken', namen: ['cacaopoeder'],
     wat: 'Ongezoet poeder van cacaobonen.',
     gebruik: 'Voor chocoladecake, brownies en om over tiramisu te zeven.',
-    waar: 'Bij de bakproducten of de chocolademelk.' }
+    waar: 'Bij de bakproducten of de chocolademelk.' },
+
+  /* ---------- Pasta ----------
+     Alle soorten behalve lasagnebladen zijn uitwisselbaar (Hulp.uitwisselbaar): zoeken of aanvinken op de een vindt ook de ander. */
+  { id: 'spaghetti', naam: 'Spaghetti', soort: 'Pasta', namen: ['spaghetti', 'linguine'],
+    wat: 'Lange, dunne pasta. Linguine is net zo lang maar een beetje plat.',
+    gebruik: 'Voor dunne, gladde sauzen die om de slierten heen glijden: carbonara, aglio olio, bolognese, gehaktballetjes.',
+    waar: 'Bij de pasta, in pakken van 500 g.',
+    tip: 'Niet in huis? Elke andere pasta werkt ook; reken 100 g droge pasta per persoon.' },
+  { id: 'penne', naam: 'Penne', soort: 'Pasta', namen: ['penne'],
+    wat: 'Korte buisjes met een schuin afgesneden kant, meestal met ribbels (penne rigate).',
+    gebruik: 'Voor dikke en pittige tomatensauzen, zoals arrabbiata, en pastasaus uit een pot.',
+    waar: 'Bij de pasta, in zakken van 500 g.',
+    tip: BASIS_PASTA_TIP },
+  { id: 'mezzi-rigatoni', naam: 'Mezzi rigatoni', soort: 'Pasta', namen: ['mezzi rigatoni', 'rigatoni'],
+    wat: 'Halve rigatoni: korte, brede buizen met ribbels. Wat dikker en steviger dan penne.',
+    gebruik: 'Voor stevige sauzen met stukjes: bolognese, gehaktballetjes, worst, ook carbonara.',
+    waar: 'Bij de pasta; vaak van een Italiaans merk zoals Rummo of De Cecco.',
+    tip: 'Kookt wat langer dan penne (12 à 14 minuten): kijk op de zak. ' + BASIS_PASTA_TIP },
+  { id: 'macaroni', naam: 'Macaroni', soort: 'Pasta', namen: ['macaroni'],
+    wat: 'Korte, gebogen buisjes (elleboogjes). Kookt snel, in 3 à 9 minuten.',
+    gebruik: 'Voor Hollandse macaroni met ham en kaas, mac and cheese en soep.',
+    waar: 'Bij de pasta, in zakken van 500 g.',
+    tip: BASIS_PASTA_TIP },
+  { id: 'fusilli', naam: 'Fusilli (spirelli)', soort: 'Pasta', namen: ['fusilli', 'spirelli'],
+    wat: 'Spiraaltjes. Spirelli is dezelfde pasta onder een andere naam.',
+    gebruik: 'In de spiraaltjes blijft saus goed hangen: pesto, roomsaus en pastasalade.',
+    waar: 'Bij de pasta, in zakken van 500 g.',
+    tip: BASIS_PASTA_TIP },
+  { id: 'farfalle', naam: 'Farfalle (vlindertjes)', soort: 'Pasta', namen: ['farfalle'],
+    wat: 'Pasta in de vorm van een vlindertje of strikje. Turks heet hij kelebek.',
+    gebruik: 'Voor lichte sauzen, roomsaus, pesto en pastasalade.',
+    waar: 'Bij de pasta, of in de Turkse supermarkt.',
+    tip: 'Het knoopje in het midden is dikker: proef of dat ook gaar is. ' + BASIS_PASTA_TIP },
+  { id: 'lasagnebladen', naam: 'Lasagnebladen', soort: 'Pasta', namen: ['lasagnebladen'],
+    wat: 'Platte vellen pasta die je in laagjes legt. Er zijn soorten die je niet eerst hoeft te koken.',
+    gebruik: 'Alleen voor lasagne; de andere pastasoorten kun je hier niet voor gebruiken.',
+    waar: 'Bij de pasta.' }
 ];
