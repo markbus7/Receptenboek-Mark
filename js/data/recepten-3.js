@@ -153,7 +153,7 @@ RECEPTEN.push(
     { n: 'groene currypasta', q: 3, u: 'el' },
     { n: 'kokosmelk', q: 400, u: 'ml' },
     { n: 'sperziebonen', q: 200, u: 'g', x: 'in stukken' },
-    { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in reepjes' },
+    { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in reepjes', nk: 'Westerse toevoeging. In Thailand gaan er Thaise aubergines of bamboescheuten in.' },
     { n: 'vissaus', q: 1.5, u: 'el' },
     { n: 'bruine suiker', q: 1, u: 'tl' },
     { n: 'limoen', p: 'limoenen', q: 1, u: 'st' },
@@ -165,7 +165,7 @@ RECEPTEN.push(
     { t: 'Schep de dikke laag van de kokosmelk (de room) in de hapjespan. Verhit op middelhoog vuur tot hij gaat borrelen en de olie zich afscheidt.', min: 3 },
     { t: 'Bak de currypasta 1 minuut in de kokosroom tot hij geurt.' },
     { t: 'Voeg de kip toe en bak 3 minuten. Giet de rest van de kokosmelk erbij met de sperziebonen.', min: 3 },
-    { t: 'Laat 8 minuten zachtjes koken. Voeg de paprika toe en kook nog 2 minuten.', min: 10 },
+    { t: 'Laat 8 minuten zachtjes koken. Voeg de paprika (als je die gebruikt) toe en kook nog 2 minuten.', min: 10 },
     { t: 'Breng op smaak met vissaus, suiker en limoensap. Roer de basilicum erdoor en serveer met de rijst.' }
   ],
   tips: ['Smaakt het te scherp? Voeg extra kokosmelk of 2 el room toe.'],

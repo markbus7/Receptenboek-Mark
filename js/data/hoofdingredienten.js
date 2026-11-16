@@ -185,7 +185,7 @@ window.HOOFD = {
   hollandaise: ['eidooier', 'boter', 'citroen'],
   bechamel: ['melk', 'boter', 'bloem'],
   mayonaise: ['ei', 'olie'],
-  paella: ['rijst', 'kip', 'chorizo', 'doperwten'],
+  paella: ['rijst', 'kip', 'doperwten'],
   'patatas-bravas': ['aardappel', 'pittige tomatensaus', 'knoflookmayonaise'],
   'tortilla-patatas': ['aardappel', 'ei', 'ui'],
   'gambas-al-ajillo': ['garnalen', 'knoflook', 'olijfolie'],
@@ -219,7 +219,7 @@ window.HOOFD = {
   'rakott-krumpli': ['aardappel', 'ei', 'worst', 'zure room'],
 
   /* Amerikaans en Latijns-Amerikaans */
-  'chili-con-carne': ['rundergehakt', 'kidneybonen', 'tomaat', 'mais'],
+  'chili-con-carne': ['rundergehakt', 'kidneybonen', 'tomaat'],
   'kip-fajitas': ['wraps', 'kip', 'paprika'],
   'fajitas-biefstuk': ['wraps', 'biefstuk', 'paprika'],
   quesadillas: ['wraps', 'zwarte bonen', 'kaas'],

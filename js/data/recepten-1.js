@@ -51,7 +51,7 @@ RECEPTEN.push(
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'passata', q: 500, u: 'ml', x: 'gezeefde tomaten' },
     { n: 'rode wijn', q: 100, u: 'ml', opt: true },
-    { n: 'gedroogde oregano', q: 1, u: 'tl' },
+    { n: 'gedroogde oregano', q: 1, u: 'tl', nk: 'Nederlandse gewoonte. In Bologna gaat er geen oregano in de ragù.' },
     { n: 'olijfolie', q: 2, u: 'el' },
     { kop: 'Bechamelsaus' },
     { n: 'boter', q: 50, u: 'g' },
@@ -65,7 +65,7 @@ RECEPTEN.push(
   stappen: [
     { kop: 'Ragù', t: 'Snipper ui, wortel en bleekselderij fijn. Fruit ze 8 minuten in de olijfolie in de hapjespan op middelhoog vuur.', min: 8 },
     { t: 'Voeg het gehakt toe en bak het rul en bruin, ca. 5 minuten. Bak knoflook en tomatenpuree 1 minuut mee.', min: 5 },
-    { t: 'Blus af met de wijn (of een scheut water). Voeg passata en oregano toe, breng op smaak met zout en peper. Laat 25 minuten zachtjes pruttelen met de deksel op een kier.', min: 25 },
+    { t: 'Blus af met de wijn (of een scheut water). Voeg passata en eventueel oregano toe, breng op smaak met zout en peper. Laat 25 minuten zachtjes pruttelen met de deksel op een kier.', min: 25 },
     { kop: 'Bechamelsaus', t: 'Smelt de boter in de steelpan, roer de bloem erdoor en laat 1 minuut garen. Klop de melk er in scheutjes door met de garde tot een gladde, dikke saus. Breng op smaak met nootmuskaat en zout.' },
     { kop: 'Opbouwen en bakken', t: 'Verwarm de oven voor op 180 °C (hetelucht 160 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 160 °C.', m: 'airfryer' },
@@ -132,18 +132,18 @@ RECEPTEN.push(
     { n: 'passata', q: 150, u: 'ml' },
     { n: 'mozzarella', q: 2, u: 'bol', x: 'à 125 g, uitgelekt' },
     { n: 'verse basilicum', q: 10, u: 'g', vers: 'gaat er rauw op' },
-    { n: 'gedroogde oregano', q: 0.5, u: 'tl' }
+    { n: 'gedroogde oregano', q: 0.5, u: 'tl', nk: 'Een echte margherita is alleen tomaat, mozzarella, basilicum en olijfolie.' }
   ],
   stappen: [
     { kop: 'Deeg', t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 à 10 minuten tot een glad, soepel deeg.', min: 10 },
     { t: 'Laat het deeg afgedekt op een warme plek rijzen tot het in volume verdubbeld is, ongeveer 1 uur.', min: 60 },
     { t: 'Verdeel het deeg in 2 bollen en druk ze met je vingers uit tot dunne pizza\'s van ca. 28 cm.' },
     { kop: 'Beleggen en bakken', t: 'Zet de bakplaat in de oven en verwarm voor op de hoogste stand (250 °C of hoger), minimaal 20 minuten.', m: 'oven', min: 20 },
-    { t: 'Beleg een pizza met passata, oregano en stukjes mozzarella. Schuif hem op bakpapier op de hete plaat en bak 8 à 10 minuten bovenin de oven.', m: 'oven', min: 9 },
+    { t: 'Beleg een pizza met passata, stukjes mozzarella en eventueel oregano. Schuif hem op bakpapier op de hete plaat en bak 8 à 10 minuten bovenin de oven.', m: 'oven', min: 9 },
     { t: 'Verwarm de airfryer voor op 200 °C. Maak de pizza\'s zo groot dat ze in de mand passen.', m: 'airfryer' },
-    { t: 'Beleg een pizza met passata, oregano en stukjes mozzarella. Leg hem op bakpapier in de mand en bak 7 à 9 minuten tot de rand goudbruin is.', m: 'airfryer', min: 8 },
+    { t: 'Beleg een pizza met passata, stukjes mozzarella en eventueel oregano. Leg hem op bakpapier in de mand en bak 7 à 9 minuten tot de rand goudbruin is.', m: 'airfryer', min: 8 },
     { t: 'Verhit de droge koekenpan op middelhoog vuur. Leg het deeg erin en bak 2 minuten tot de onderkant bruine vlekken heeft.', m: 'koekenpan', min: 2 },
-    { t: 'Beleg de pizza snel met passata, oregano en mozzarella. Deksel erop en bak 5 à 6 minuten op middellaag vuur tot de kaas gesmolten is.', m: 'koekenpan', min: 6 },
+    { t: 'Beleg de pizza snel met passata, mozzarella en eventueel oregano. Deksel erop en bak 5 à 6 minuten op middellaag vuur tot de kaas gesmolten is.', m: 'koekenpan', min: 6 },
     { t: 'Leg de basilicumblaadjes er pas na het bakken op en besprenkel met een beetje olijfolie.' }
   ],
   tips: ['Deeg kan ook 24 uur in de koelkast rijzen; dan wordt het nog smaakvoller.'],
@@ -189,7 +189,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'fusilli', q: 400, u: 'g', x: 'of andere pasta' },
     { n: 'kipfilet', q: 400, u: 'g', x: 'in reepjes' },
-    { n: 'zongedroogde tomaten', q: 80, u: 'g', x: 'in reepjes' },
+    { n: 'zongedroogde tomaten', q: 80, u: 'g', x: 'in reepjes', nk: 'Pesto alla genovese gaat in Italië gewoon met pasta; de tomaten geven extra zoet en zuur.' },
     { kop: 'Pesto' },
     { n: 'verse basilicum', q: 50, u: 'g', vers: 'de basilicum is de saus' },
     { n: 'pijnboompitten', q: 40, u: 'g' },

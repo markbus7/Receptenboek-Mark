@@ -115,7 +115,8 @@ for (const r of ctx.RECEPTEN) {
     if (i.of !== undefined && !(typeof i.of === 'string' && i.of.trim())
       && !(i.of && typeof i.of.n === 'string' && typeof i.of.q === 'number' && i.of.q > 0 && ctx.EENHEDEN[i.of.u])) fout(`"${i.n}": of moet tekst zijn of { q, u, n } met een bekende eenheid`);
     if (i.of !== undefined && i.vers !== undefined) fout(`"${i.n}": vers en of gaan niet samen`);
-    const onbekend = Object.keys(i).filter((k) => !['n', 'p', 'q', 'u', 'x', 'opt', 'vers', 'of'].includes(k));
+    const onbekend = Object.keys(i).filter((k) => !['n', 'p', 'q', 'u', 'x', 'opt', 'nk', 'vers', 'of'].includes(k));
+    if ('nk' in i && (typeof i.nk !== 'string' || !i.nk.trim())) fout(`"${i.n}": nk moet een korte reden zijn (waarom het niet klassiek is)`);
     if (onbekend.length) fout(`"${i.n}": onbekende velden ${onbekend.join(', ')}`);
   }
   for (const v of Object.values(r.vervang || {})) if (v && VAAG.includes(v.u)) fout(`vervang "${v.n}": "${v.u}" is geen vaste maat`);

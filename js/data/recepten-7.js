@@ -114,7 +114,7 @@ RECEPTEN.push(
     { kop: 'Masala-saus' },
     { n: 'boter', q: 30, u: 'g' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
-    { n: 'groene paprika', p: 'groene paprika\'s', q: 1, u: 'st', x: 'in blokjes' },
+    { n: 'groene paprika', p: 'groene paprika\'s', q: 1, u: 'st', x: 'in blokjes', nk: 'Restaurantstijl; de klassieke saus heeft geen paprika.' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt of geperst' },
     { n: 'gember', q: 20, u: 'g' },
     { n: 'garam masala', q: 2, u: 'tl' },
@@ -130,7 +130,7 @@ RECEPTEN.push(
     { t: 'Spreid de kip uit op de bakplaat en gril 12 minuten bovenin de oven. Keer halverwege.', m: 'oven', min: 12 },
     { t: 'Verhit de koekenpan op hoog vuur met een scheut olie. Bak de kip in 2 porties 5 minuten tot hij bruin is.', m: 'koekenpan', min: 10 },
     { kop: 'Masala-saus', t: 'Kook de rijst volgens de verpakking.', min: 12 },
-    { t: 'Smelt de boter in de hapjespan. Bak ui en paprika 8 minuten zacht. Bak knoflook, gember en specerijen 1 minuut mee.', min: 9 },
+    { t: 'Smelt de boter in de hapjespan. Bak de ui (en de paprika, als je die gebruikt) 8 minuten zacht. Bak knoflook, gember en specerijen 1 minuut mee.', min: 9 },
     { t: 'Voeg passata en suiker toe en laat 10 minuten pruttelen. Pureer met de staafmixer.', min: 10 },
     { t: 'Roer de room erdoor, voeg de kip toe en laat 5 minuten zachtjes doorwarmen. Breng op smaak met zout.', min: 5 }
   ],

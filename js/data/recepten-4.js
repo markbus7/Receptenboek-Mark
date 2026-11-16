@@ -93,7 +93,7 @@ RECEPTEN.push(
     { n: 'gember', q: 15, u: 'g' },
     { n: 'kurkuma', q: 1, u: 'tl' },
     { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes', of: { q: 200, u: 'g', n: 'tomatenblokjes uit blik' } },
-    { n: 'spinazie', q: 100, u: 'g', opt: true },
+    { n: 'spinazie', q: 100, u: 'g', nk: 'Extra groente. Een gewone rode linzen dal heeft geen spinazie.' },
     { kop: 'Tadka' },
     { n: 'zonnebloemolie', q: 3, u: 'el' },
     { n: 'mosterdzaad', q: 1, u: 'tl', opt: true },
@@ -123,10 +123,10 @@ RECEPTEN.push(
   ingr: [
     { n: 'rundergehakt', q: 500, u: 'g' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
-    { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st' },
+    { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', nk: 'Nederlandse toevoeging voor extra groente.' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt of geperst' },
     { n: 'kidneybonen', q: 240, u: 'g', x: 'uitgelekt' },
-    { n: 'mais', q: 285, u: 'g', x: 'uitgelekt' },
+    { n: 'mais', q: 285, u: 'g', x: 'uitgelekt', nk: 'Nederlandse toevoeging. In een Texaanse chili zit geen mais.' },
     { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'tomatenpuree', q: 70, u: 'g', x: 'een klein blikje is 70 g' },
     { n: 'komijn', q: 2, u: 'tl' },
@@ -136,9 +136,9 @@ RECEPTEN.push(
     { n: 'zure room', q: 125, u: 'ml', x: 'om te serveren' }
   ],
   stappen: [
-    { t: 'Bak het gehakt in een scheut olie op hoog vuur rul en bruin in de braadpan. Voeg ui, paprika en knoflook toe en bak 5 minuten.', min: 8 },
+    { t: 'Bak het gehakt in een scheut olie op hoog vuur rul en bruin in de braadpan. Voeg ui, knoflook en eventueel de paprika toe en bak 5 minuten.', min: 8 },
     { t: 'Bak tomatenpuree en specerijen 1 minuut mee.' },
-    { t: 'Voeg tomaten, bonen, mais en 150 ml water toe. Laat met de deksel op een kier 30 minuten zachtjes stoven.', m: 'braadpan', min: 30 },
+    { t: 'Voeg tomaten, bonen, eventueel de mais en 150 ml water toe. Laat met de deksel op een kier 30 minuten zachtjes stoven.', m: 'braadpan', min: 30 },
     { t: 'Doe alles over in de slowcooker, zonder extra water. Gaar 6 uur op LOW of 3 uur op HIGH.', m: 'slowcooker', min: 180 },
     { t: 'Roer de chocolade erdoor tot hij gesmolten is. Breng op smaak met zout. Serveer met rijst of tortillachips en een schep zure room.' }
   ],

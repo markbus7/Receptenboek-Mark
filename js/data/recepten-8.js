@@ -62,13 +62,13 @@ RECEPTEN.push(
     { n: 'sojasaus', q: 2, u: 'el' },
     { n: 'gula djawa', q: 1, u: 'el', x: 'of bruine suiker' },
     { n: 'sambal oelek', q: 1, u: 'tl' },
-    { n: 'tomatenpuree', q: 1, u: 'el' },
+    { n: 'tomatenpuree', q: 1, u: 'el', nk: 'Nederlandse toevoeging voor een dikkere saus.' },
     { n: 'water', q: 300, u: 'ml' },
     { n: 'zonnebloemolie', q: 2, u: 'el' }
   ],
   stappen: [
     { t: 'Bak het vlees in de olie in de Dutch oven op hoog vuur in 2 porties rondom bruin. Schep uit de pan.', min: 8 },
-    { t: 'Bak ui, knoflook en gember 5 minuten op middelhoog vuur. Bak tomatenpuree en sambal 1 minuut mee.', min: 6 },
+    { t: 'Bak ui, knoflook en gember 5 minuten op middelhoog vuur. Bak de sambal (en eventueel de tomatenpuree) 1 minuut mee.', min: 6 },
     { t: 'Doe het vlees terug met ketjap, sojasaus, gula djawa en water. Breng aan de kook.' },
     { t: 'Deksel erop en laat 1½ uur zachtjes stoven. Haal de laatste 15 minuten de deksel eraf om de saus te laten indikken.', m: 'braadpan', min: 90 },
     { t: 'Zet de pan met deksel 1¾ uur in een voorverwarmde oven op 160 °C. De laatste 20 minuten zonder deksel.', m: 'oven', min: 105 },
@@ -87,7 +87,7 @@ RECEPTEN.push(
   },
   stappen: [
     { t: 'Bestrooi de kip met zout. Bak hem in de olie in de Dutch oven op middelhoog vuur, met het vel naar beneden, in 2 porties 5 minuten tot het vel goudbruin is. Schep uit de pan.', min: 10 },
-    { t: 'Bak ui, knoflook en gember 5 minuten op middelhoog vuur. Bak tomatenpuree en sambal 1 minuut mee.', min: 6 },
+    { t: 'Bak ui, knoflook en gember 5 minuten op middelhoog vuur. Bak de sambal (en eventueel de tomatenpuree) 1 minuut mee.', min: 6 },
     { t: 'Doe de kip terug met ketjap, sojasaus, gula djawa en water. Breng aan de kook.' },
     { t: 'Deksel erop en laat 30 minuten zachtjes stoven. Haal dan de deksel eraf en laat de saus in 10 minuten indikken. Kippendijfilet is na 20 minuten al gaar.', m: 'braadpan', min: 40 },
     { t: 'Zet de pan met deksel 40 minuten in een voorverwarmde oven op 180 °C. De laatste 15 minuten zonder deksel.', m: 'oven', min: 40 },
