@@ -214,7 +214,7 @@ RECEPTEN.push(
     { n: 'ras el hanout', q: 2, u: 'el' },
     { n: 'kaneelstokje', p: 'kaneelstokjes', q: 1, u: 'st' },
     { n: 'gedroogde abrikozen', q: 150, u: 'g' },
-    { n: 'kikkererwten', q: 240, u: 'g', x: 'uitgelekt' },
+    { n: 'kikkererwten', q: 240, u: 'g', x: 'uitgelekt', nk: 'Maakt het voller. Een klassieke tajine met kip en abrikoos heeft ze niet.' },
     { n: 'tomatenblokjes', q: 400, u: 'g' },
     { n: 'kippenbouillon', q: 250, u: 'ml' },
     { n: 'honing', q: 1, u: 'el' },
@@ -225,7 +225,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Bestrooi de kip met zout en de helft van de ras el hanout. Braad hem rondom bruin in olie in de braadpan, ca. 6 minuten. Haal eruit.', min: 6 },
     { t: 'Bak ui, knoflook, de rest van de specerijen en het kaneelstokje 5 minuten.', min: 5 },
-    { t: 'Doe de kip terug met abrikozen, kikkererwten, tomaten, bouillon en honing.' },
+    { t: 'Doe de kip terug met abrikozen, tomaten, bouillon, honing en eventueel de kikkererwten.' },
     { t: 'Laat met de deksel erop 40 à 45 minuten zachtjes stoven op laag vuur.', m: 'braadpan', min: 45 },
     { t: 'Zet de afgesloten pan 50 minuten in een voorverwarmde oven op 170 °C.', m: 'oven', min: 50 },
     { t: 'Doe alles in de slowcooker en gaar 6 uur op LOW of 3 uur op HIGH. Gebruik 150 ml bouillon.', m: 'slowcooker', min: 180 },

@@ -192,6 +192,7 @@ const Detail = (() => {
             </details>
             <p class="schaal-info" id="d-schaal-info" hidden></p>
             <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
+            <div class="ingr-nk-uitleg" id="d-nk" hidden></div>
             <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
             <div class="mix-kies" id="d-mix-kies" hidden></div>
             <div class="mix-notitie" id="d-mix" hidden></div>
@@ -421,17 +422,18 @@ const Detail = (() => {
       const extra = i.x ? Hulp.metNlNamen(i.x) : (i.q == null ? 'naar smaak' : '');
       const ofTekst = mixNaam ? '' : Hulp.vervangerTekst(i, factor);
       const wat = Hulp.uitleg(i.n);
-      return `<li class="ingr${i.opt ? ' is-opt' : ''}">
+      return `<li class="ingr${i.opt ? ' is-opt' : ''}${i.nk ? ' is-nk' : ''}">
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${wat ? watKnop(h.naam, idx) : Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${pwRegel(idx)}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${potjeRegel(i)}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
+          <span class="ingr-naam">${wat ? watKnop(h.naam, idx) : Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.nk ? ' <span class="ingr-nk">extra · niet klassiek</span>' : i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${pwRegel(idx)}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${potjeRegel(i)}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
         </label>
         ${Boodschappen.isWater(i) ? '' : lijstKnop(i, idx)}
         ${mixNaam ? '' : ofKnop(i, idx)}
         ${wat ? uitlegBlok(wat, idx) : ''}
       </li>`;
     }).join('') + mixErbij.map(({ mix, erbij }) => `<li class="ingr ingr-is-mix"><label><input type="checkbox"><span class="hv">± ${erbij} g</span><span class="ingr-naam">${Hulp.esc(Hulp.mixKlein(mix))} <em>(${mix.vers ? 'koelvak' : 'diepvries'})</em><span class="ingr-x">extra groente</span></span></label></li>`).join('');
+    renderNk();
     renderRest();
     renderPrijs();
     if (blad.querySelector('#d-stappen')) renderStappen();
@@ -541,6 +543,17 @@ const Detail = (() => {
     const alt = Hulp.alternatief(i);
     if (!alt) return '';
     return `<button type="button" class="ingr-of-knop" data-mand-of="${idx}" aria-label="Zet ${Hulp.esc(altNamen(alt))} op je boodschappenlijst in plaats van ${Hulp.esc(i.n)}">${icoon('mand')} Liever ${Hulp.esc(altNamen(alt))} op je lijst</button>`;
+  }
+
+  /* Wat dit boek erbij verzonnen heeft: het originele gerecht heeft het niet. Los kopen, het zit niet in een mix. */
+  function renderNk() {
+    const el = blad.querySelector('#d-nk');
+    const nk = Hulp.nietKlassiek(r);
+    el.hidden = !nk.length;
+    if (!nk.length) return void (el.innerHTML = '');
+    const en = (namen) => namen.join(', ').replace(/, ([^,]*)$/, ' en $1');
+    el.innerHTML = `<p><b>Extra, niet klassiek:</b> ${Hulp.esc(en(nk.map((i) => i.n)))}. Dit boek doet dit erbij; in het originele gerecht zit het niet. Zonder maak je het zoals het hoort. Wil je het erbij, koop het dan los: een groentemix vervangt het niet, en <i>Op boodschappenlijst</i> zet het er niet vanzelf op (tik op het mandje ernaast).</p>
+      <ul>${nk.map((i) => `<li><b>${Hulp.esc(i.n.charAt(0).toUpperCase() + i.n.slice(1))}:</b> ${Hulp.esc(i.nk === true ? 'extra van dit boek.' : i.nk)}</li>`).join('')}</ul>`;
   }
 
   function renderLijstKnoppen() {
@@ -813,7 +826,7 @@ const Detail = (() => {
       const extra = i.x ? Hulp.metNlNamen(i.x) : (i.q == null ? 'naar smaak' : '');
       const ofTekst = Hulp.vervangerTekst(i, factor);
       const ui = Hulp.uiAdvies(r, i, factor);
-      regels.push(`- ${Hulp.hoeveelheidTekst(ui ? ui.ingr : i, factor)}${extra ? `, ${extra}` : ''}${ofTekst ? ` (${ofTekst})` : ''}${ui && ui.ook ? ` (ook goed: ${ui.ook})` : ''}${i.opt ? ' (optioneel)' : ''}`);
+      regels.push(`- ${Hulp.hoeveelheidTekst(ui ? ui.ingr : i, factor)}${extra ? `, ${extra}` : ''}${ofTekst ? ` (${ofTekst})` : ''}${ui && ui.ook ? ` (ook goed: ${ui.ook})` : ''}${i.opt ? ` (${Hulp.optLabel(i)})` : ''}`);
     });
     regels.push('', 'Bereiding');
     Hulp.stappenMetDeel(r, methode).forEach(({ s, deel }, n, alle) => {
@@ -987,9 +1000,10 @@ const Detail = (() => {
     const vk = t.closest('[data-kies-vries]');
     if (vk) { const n = vk.dataset.kiesVries; gekozenVries.has(n) ? gekozenVries.delete(n) : gekozenVries.add(n); return renderIngr(); }
     if (t.closest('#d-lijst')) {
-      const n = Boodschappen.voegReceptToe(r, factor, mixWeg);
+      const nk = Hulp.nietKlassiek(r).filter((i) => i.q != null && !Boodschappen.staatErop(r, i));
+      const n = Boodschappen.voegReceptToe(r, factor, new Set([...mixWeg, ...nk.map((i) => i.n)]));
       renderLijstKnoppen();
-      return App.toast(`${n} ingrediënten op je boodschappenlijst gezet`);
+      return App.toast(`${n} ingrediënten op je boodschappenlijst gezet${nk.length ? `. Niet klassiek, dus niet erop: ${nk.map((i) => i.n).join(', ')} (tik op het mandje als je dat wel wilt)` : ''}`);
     }
     const mandOf = t.closest('[data-mand-of]');
     if (mandOf) {

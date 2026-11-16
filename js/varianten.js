@@ -30,6 +30,10 @@ window.VARIANTEN = (() => {
     perId.set(v.id, v);
   });
 
+  // Niet klassiek (nk): wat dit boek erbij doet en het originele recept niet heeft. Dat is altijd optioneel:
+  // het telt niet mee bij 'Wat heb ik in huis?', de kast en de prijs, en een groentemix vervangt het niet.
+  RECEPTEN.forEach((r) => (r.ingr || []).forEach((i) => { if (i.nk) i.opt = true; }));
+
   const groepen = new Map();
   RECEPTEN.forEach((r) => {
     r.groep = r.variantVan && perId.has(r.variantVan) ? r.variantVan : r.id;

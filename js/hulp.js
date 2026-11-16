@@ -306,7 +306,8 @@ const Hulp = (() => {
   function mixDekking(recept, mix, factor = 1) {
     // Een mix met ui vervangt geen lente-ui: dat is een andere groente.
     const past = (t, i) => termPast(t, i) && !(/lente/.test(norm(i.n)) && !/lente/.test(norm(t)));
-    const gedekt = ingrediënten(recept).filter((i) => !isBasis(i) && mix.bevat.some((t) => past(t, i)));
+    // Niet klassiek (nk) vervangt een mix niet: dat koop je los als je het erbij wilt.
+    const gedekt = ingrediënten(recept).filter((i) => !isBasis(i) && !i.nk && mix.bevat.some((t) => past(t, i)));
     const aanrader = (mix.aanraders || []).some((id) => id === recept.id || id === recept.groep);
     // Past de mix bij de keuken van het recept (Mexicaanse mix bij taco's, wokgroente bij Chinees)?
     const keuken = (mix.keukens || []).includes(recept.keuken);
@@ -406,6 +407,14 @@ const Hulp = (() => {
   }
 
   /* Unieke, echte ingrediënten van een recept (zonder kopjes en dubbelingen). */
+  /* Het label achter een optioneel ingrediënt: 'niet klassiek' als het boek het erbij verzonnen heeft. */
+  const optLabel = (i) => (i.nk ? 'extra, niet klassiek' : i.opt ? 'optioneel' : '');
+  /* De niet-klassieke extra's van een recept (één keer per naam), met de reden waarom ze erbij staan. */
+  function nietKlassiek(recept) {
+    const gezien = new Set();
+    return (recept.ingr || []).filter((i) => i.nk && !gezien.has(norm(i.n)) && gezien.add(norm(i.n)));
+  }
+
   function ingrediënten(recept) {
     const gezien = new Set();
     return recept.ingr.filter((i) => {
@@ -817,5 +826,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stappenMetDeel, stapTekst, pastaWater, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { optLabel, nietKlassiek, vriezerbaar, vriezer, stappenMetDeel, stapTekst, pastaWater, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

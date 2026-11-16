@@ -267,7 +267,7 @@
       { n: 'tomaat', p: 'tomaten', q: 6, u: 'st', x: 'heel rijp, in grove stukken', vers: 'Het sap van de tomaat is de dressing' },
       { n: 'komkommer', p: 'komkommers', q: 0.5, u: 'st', x: 'in halve plakjes' },
       { n: 'rode ui', p: 'rode uien', q: 1, u: 'st', x: 'in dunne ringen' },
-      { n: 'kappertjes', q: 2, u: 'el' },
+      { n: 'kappertjes', q: 2, u: 'el', nk: 'Extra van dit boek. De Toscaanse panzanella is brood, tomaat, komkommer, ui en basilicum.' },
       { n: 'verse basilicum', q: 15, u: 'g' },
       { kop: 'Vinaigrette' },
       { n: 'olijfolie', q: 5, u: 'el' },
@@ -280,7 +280,7 @@
       { t: 'Hussel de blokjes brood met 2 el olijfolie en een snufje zout. Rooster ze in de airfryer 7 à 8 minuten op 180 °C tot ze goudbruin zijn; schud halverwege. In de koekenpan: 6 minuten op middelhoog vuur, vaak omscheppen.', min: 8 },
       { t: 'Doe de tomaten in de slakom met 1 tl zout en laat 10 minuten staan; het zout trekt het sap eruit. Leg de rode ui intussen in een bakje met de rode wijnazijn, dan wordt hij milder.', min: 10 },
       { kop: 'Vinaigrette', t: 'Giet de azijn van de ui bij de tomaten en roer de olijfolie, knoflook en peper erdoor.' },
-      { t: 'Schep het brood, de komkommer, ui, kappertjes en gescheurde basilicum erdoor. Laat 15 minuten staan zodat het brood het sap opzuigt, en schep nog een keer om voor het opdienen.', min: 15 }
+      { t: 'Schep het brood, de komkommer, ui, gescheurde basilicum en eventueel de kappertjes erdoor. Laat 15 minuten staan zodat het brood het sap opzuigt, en schep nog een keer om voor het opdienen.', min: 15 }
     ],
     tips: ['Niet langer dan een uur laten staan, dan wordt het brood pap.', 'Lekker met een bol mozzarella of burrata erbij, of plakjes ham.'],
     alt: ['Geen kappertjes? 50 g zwarte olijven.', 'Met geroosterde rode paprika uit een pot erdoor wordt hij zoeter.']

@@ -24,7 +24,7 @@
       { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'gesnipperd' },
       { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
       { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in blokjes' },
-      { n: 'champignons', q: 125, u: 'g', x: 'in plakjes' },
+      { n: 'champignons', q: 125, u: 'g', x: 'in plakjes', nk: 'Extra groente van dit boek. Zit (bijna) nooit in een groentemix.' },
       { n: 'tomatenpuree', q: 1, u: 'el' },
       { n: 'gedroogde oregano', q: 1, u: 'tl' },
       POT,
@@ -37,7 +37,7 @@
     stappen: [
       { t: 'Breng in een grote pan {pastawater} aan de kook.', min: 8 },
       { kop: 'Saus', t: 'Verhit de olijfolie in de hapjespan op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin; druk het met een spatel uit elkaar. Laat het even liggen voor je roert, dan kleurt het beter. Bestrooi met zout en peper.', min: 5 },
-      { t: 'Bak de ui, de paprika en de champignons 5 minuten mee tot ze zacht zijn en het vocht van de champignons weg is.', min: 5 },
+      { t: 'Bak de ui, de paprika en eventueel de champignons 5 minuten mee tot ze zacht zijn (en het vocht van de champignons weg is).', min: 5 },
       { t: 'Bak de knoflook, de tomatenpuree en de oregano 1 minuut mee. Zo wordt de tomatenpuree zoet in plaats van zuur, en dat geeft de saus uit de pot meer diepte.', min: 1 },
       { t: 'Kook intussen de penne beetgaar volgens de verpakking. Schep vlak voor het afgieten een half kopje kookvocht apart.', min: 11 },
       { t: 'Doe de pastasaus in de pan, spoel de pot om met 3 el kookvocht en giet dat er ook bij. Laat 5 minuten zachtjes pruttelen. Proef en breng op smaak met zout en peper.', min: 5 },
@@ -58,7 +58,7 @@
     stappen: [
       { t: 'Breng in een grote pan {pastawater} aan de kook.', min: 8 },
       { kop: 'Saus', t: 'Bestrooi de kip met zout en peper. Verhit de olijfolie in de hapjespan op middelhoog vuur en bak de kip in 4 à 5 minuten rondom goudbruin. Schep hem uit de pan.', min: 5 },
-      { t: 'Bak in dezelfde pan de ui, de paprika en de champignons 5 minuten tot ze zacht zijn en het vocht van de champignons weg is.', min: 5 },
+      { t: 'Bak in dezelfde pan de ui, de paprika en eventueel de champignons 5 minuten tot ze zacht zijn (en het vocht van de champignons weg is).', min: 5 },
       { t: 'Bak de knoflook, de tomatenpuree en de oregano 1 minuut mee. Zo wordt de tomatenpuree zoet in plaats van zuur, en dat geeft de saus uit de pot meer diepte.', min: 1 },
       { t: 'Kook intussen de penne beetgaar volgens de verpakking. Schep vlak voor het afgieten een half kopje kookvocht apart.', min: 11 },
       { t: 'Doe de pastasaus en de kip in de pan, spoel de pot om met 3 el kookvocht en giet dat er ook bij. Laat 5 minuten zachtjes pruttelen tot de kip gaar is. Proef en breng op smaak met zout en peper.', min: 5 },
@@ -142,24 +142,24 @@
       { n: 'olijfolie', q: 1, u: 'el' },
       { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in dunne halve ringen' },
       { n: 'knoflook', q: 1, u: 'teen', x: 'fijngehakt of geperst' },
-      { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in reepjes' },
+      { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st', x: 'in reepjes', nk: 'Extra groente voor een volle maaltijd. Het origineel is alleen tomaat, knoflook, peper en ei.' },
       { n: 'tomatenpuree', q: 1, u: 'el' },
-      { n: 'gerookt paprikapoeder', q: 0.5, u: 'tl' },
+      { n: 'gerookt paprikapoeder', q: 0.5, u: 'tl', nk: 'Spaanse smaak, niet Italiaans.' },
       { n: 'gedroogde oregano', q: 0.5, u: 'tl' },
       POT,
-      { n: 'verse spinazie', q: 150, u: 'g' },
+      { n: 'verse spinazie', q: 150, u: 'g', nk: 'Extra groente voor een volle maaltijd.' },
       { n: 'water', q: 3, u: 'el', x: 'om de pot mee om te spoelen' },
       { n: 'ei', p: 'eieren', q: 4, u: 'st' },
-      { n: 'feta', q: 75, u: 'g', x: 'verkruimeld' },
+      { n: 'feta', q: 75, u: 'g', x: 'verkruimeld', nk: 'Grieks, niet Italiaans. In Italië gaat er hooguit Parmezaan of pecorino over.' },
       { n: 'verse peterselie', q: 10, u: 'g', x: 'grof gehakt; of basilicum', opt: true },
       { n: 'brood', q: 4, u: 'plak', x: 'stevig brood of ciabatta, om te dippen' }
     ],
     stappen: [
-      { t: 'Verhit de olijfolie in de koekenpan op middelhoog vuur. Bak de ui en de paprika 6 minuten tot ze zacht en zoet zijn.', min: 6 },
-      { t: 'Bak de knoflook, de tomatenpuree, het paprikapoeder en de oregano 1 minuut mee. Doe de pastasaus erbij, spoel de pot om met het water en giet dat er ook bij. Roer de spinazie er in twee keer door en laat hem slinken. Laat 4 minuten zachtjes pruttelen, tot de saus een beetje dikker is.', min: 5 },
+      { t: 'Verhit de olijfolie in de koekenpan op middelhoog vuur. Bak de ui (en de paprika, als je die gebruikt) 6 minuten tot ze zacht en zoet zijn.', min: 6 },
+      { t: 'Bak de knoflook, de tomatenpuree, de oregano en eventueel het gerookte paprikapoeder 1 minuut mee. Doe de pastasaus erbij, spoel de pot om met het water en giet dat er ook bij. Gebruik je spinazie, roer die er dan in twee keer door en laat hem slinken. Laat 4 minuten zachtjes pruttelen, tot de saus een beetje dikker is.', min: 5 },
       { t: 'Maak met een lepel {#ei} kuiltjes in de saus en breek in elk kuiltje een ei. Strooi er een snufje zout en peper over.' },
       { t: 'Deksel erop, vuur laag, en laat 5 à 7 minuten garen tot het eiwit gestold is en de dooier nog zacht. Wil je hem hard, laat hem dan 9 minuten staan.', min: 6 },
-      { t: 'Verkruimel de feta erover, strooi er peterselie over en zet de pan op tafel. Rooster het brood in de broodrooster of op de OptiGrill en dip het in de saus.' }
+      { t: 'Verkruimel de feta erover (of rasp er Parmezaan over), strooi er peterselie over en zet de pan op tafel. Rooster het brood in de broodrooster of op de OptiGrill en dip het in de saus.' }
     ],
     tips: [
       'Het eiwit rond de dooier gaart het langzaamst. Schep er met een lepel wat warme saus overheen, dan gaat het sneller.',

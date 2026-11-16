@@ -16,7 +16,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 4, u: 'st' },
     { n: 'slagroom', q: 200, u: 'ml', x: 'vloeibaar, uit een pak (geen spuitbus); of kookroom' },
     { n: 'melk', q: 100, u: 'ml' },
-    { n: 'Gruyère', q: 100, u: 'g', x: 'geraspt, of belegen kaas' },
+    { n: 'Gruyère', q: 100, u: 'g', x: 'geraspt, of belegen kaas', nk: 'De echte quiche lorraine uit Lotharingen heeft geen kaas: alleen spek, eieren en room.' },
     { n: 'nootmuskaat', q: 1, u: 'snuf' },
     { n: 'peper' }
   ],
@@ -26,7 +26,7 @@ RECEPTEN.push(
     { t: 'Bekleed de vorm met de plakjes bladerdeeg; laat ze iets overlappen en druk de naden goed aan. Prik gaatjes in de bodem met een vork.' },
     { t: 'Bak de spekjes 5 minuten in de droge koekenpan. Laat uitlekken op keukenpapier.', min: 5 },
     { t: 'Klop eieren, room, melk, nootmuskaat en peper los. Zout is niet nodig: het spek is al zout.' },
-    { t: 'Strooi spek en kaas over de bodem en giet het eimengsel erover.' },
+    { t: 'Strooi het spek (en de kaas, als je die gebruikt) over de bodem en giet het eimengsel erover.' },
     { t: 'Bak 30 à 35 minuten in het onderste deel van de oven tot de vulling net gestold en goudbruin is.', m: 'oven', min: 33 },
     { t: 'Bak 22 à 25 minuten. Dek af met folie als de bovenkant te snel kleurt.', m: 'airfryer', min: 24 },
     { t: 'Laat 10 minuten rusten. Lekker warm én koud.', min: 10 }
@@ -106,7 +106,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'paellarijst', q: 300, u: 'g', x: 'bomba of andere ronde rijst' },
     { n: 'kippendijfilet', q: 400, u: 'g', x: 'in stukken' },
-    { n: 'chorizo', q: 120, u: 'g', x: 'in plakjes' },
+    { n: 'chorizo', q: 120, u: 'g', x: 'in plakjes', nk: 'In Valencia hoort er geen chorizo in paella; hij geeft wel een rokerige smaak.' },
     { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'fijngesnipperd' },
     { n: 'rode paprika', p: 'rode paprika\'s', q: 1, u: 'st' },
     { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
@@ -120,7 +120,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Week de saffraan in de hete bouillon.' },
-    { t: 'Bak kip en chorizo in de olie in de paellapan 6 minuten tot ze kleuren. Schuif naar de rand.', min: 6 },
+    { t: 'Bak de kip (en de chorizo, als je die gebruikt) in de olie in de paellapan 6 minuten tot ze kleuren. Schuif naar de rand.', min: 6 },
     { t: 'Bak ui, paprika en knoflook 5 minuten in het midden. Voeg tomaat en paprikapoeder toe en bak 2 minuten.', min: 7 },
     { t: 'Strooi de rijst gelijkmatig over de pan en roer 1 minuut. Giet de bouillon erbij en verdeel alles goed. Vanaf nu niet meer roeren!' },
     { t: 'Laat 10 minuten stevig koken, daarna 8 minuten zachter. Strooi na 10 minuten de doperwten erover.', min: 18 },
