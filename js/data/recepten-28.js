@@ -35,7 +35,7 @@
       { n: 'verse basilicum', q: 10, u: 'g', x: 'blaadjes', opt: true }
     ],
     stappen: [
-      { t: 'Breng een grote pan water met een flinke schep zout aan de kook.', min: 8 },
+      { t: 'Breng in een grote pan {pastawater} aan de kook.', min: 8 },
       { kop: 'Saus', t: 'Verhit de olijfolie in de hapjespan op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin; druk het met een spatel uit elkaar. Laat het even liggen voor je roert, dan kleurt het beter. Bestrooi met zout en peper.', min: 5 },
       { t: 'Bak de ui, de paprika en de champignons 5 minuten mee tot ze zacht zijn en het vocht van de champignons weg is.', min: 5 },
       { t: 'Bak de knoflook, de tomatenpuree en de oregano 1 minuut mee. Zo wordt de tomatenpuree zoet in plaats van zuur, en dat geeft de saus uit de pot meer diepte.', min: 1 },
@@ -56,7 +56,7 @@
     intro: 'Een pot pastasaus als basis, maar een volle maaltijd: goudbruine stukjes kip met ui, paprika en champignons, een lepel tomatenpuree en oregano, en Parmezaanse kaas erover.',
     vervang: { 'half-om-half gehakt': { n: 'kipfilet', q: 250, u: 'g', x: 'in blokjes van 2 cm' } },
     stappen: [
-      { t: 'Breng een grote pan water met een flinke schep zout aan de kook.', min: 8 },
+      { t: 'Breng in een grote pan {pastawater} aan de kook.', min: 8 },
       { kop: 'Saus', t: 'Bestrooi de kip met zout en peper. Verhit de olijfolie in de hapjespan op middelhoog vuur en bak de kip in 4 à 5 minuten rondom goudbruin. Schep hem uit de pan.', min: 5 },
       { t: 'Bak in dezelfde pan de ui, de paprika en de champignons 5 minuten tot ze zacht zijn en het vocht van de champignons weg is.', min: 5 },
       { t: 'Bak de knoflook, de tomatenpuree en de oregano 1 minuut mee. Zo wordt de tomatenpuree zoet in plaats van zuur, en dat geeft de saus uit de pot meer diepte.', min: 1 },
@@ -71,7 +71,7 @@
     intro: 'Een pot pastasaus als basis, maar een volle maaltijd zonder vlees: ui, paprika, courgette en extra champignons, een lepel tomatenpuree en oregano, en flink wat Parmezaanse kaas erover.',
     vervang: { 'half-om-half gehakt': { n: 'courgette', p: 'courgettes', q: 1, u: 'st', x: 'in blokjes' }, champignons: { n: 'champignons', q: 250, u: 'g', x: 'in plakjes' } },
     stappen: [
-      { t: 'Breng een grote pan water met een flinke schep zout aan de kook.', min: 8 },
+      { t: 'Breng in een grote pan {pastawater} aan de kook.', min: 8 },
       { kop: 'Saus', t: 'Verhit de olijfolie in de hapjespan op middelhoog vuur. Bak de champignons 4 minuten op hoog vuur tot ze bruin zijn; roer niet te vaak, dan kleuren ze beter. Bestrooi met zout en peper.', min: 4 },
       { t: 'Bak de ui, de paprika en de courgette 6 minuten mee tot ze zacht zijn en hier en daar kleuren.', min: 6 },
       { t: 'Bak de knoflook, de tomatenpuree en de oregano 1 minuut mee. Zo wordt de tomatenpuree zoet in plaats van zuur, en dat geeft de saus uit de pot meer diepte.', min: 1 },
@@ -121,7 +121,7 @@
       { kop: 'Saus', t: 'Bak de ui, de paprika en de courgette 6 minuten in de hapjespan op middelhoog vuur, tot ze zacht zijn. Bak de tomatenpuree 1 minuut mee; zo wordt hij zoet en krijgt de saus uit de pot meer diepte.', min: 7 },
       { t: 'Doe de pastasaus erbij, spoel de pot om met het water en giet dat er ook bij. Leg de balletjes in de saus en breng aan de kook.' },
       { t: 'Zet het vuur laag, deksel erop, en laat 12 minuten zachtjes garen. Keer de balletjes halverwege. Snijd er een open: vanbinnen mag het niet meer rood zijn.', min: 12 },
-      { kop: 'Erbij', t: 'Kook intussen de spaghetti beetgaar volgens de verpakking. Schep de balletjes met saus over de spaghetti en strooi er Parmezaanse kaas over.', min: 10 }
+      { kop: 'Erbij', t: 'Kook intussen de spaghetti beetgaar in {pastawater}, volgens de verpakking. Schep de balletjes met saus over de spaghetti en strooi er Parmezaanse kaas over.', min: 10 }
     ],
     tips: [
       'Met natte handen plakt het gehakt niet aan je vingers.',

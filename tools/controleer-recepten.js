@@ -80,6 +80,7 @@ for (const r of ctx.RECEPTEN) {
   if (r.toegevoegd !== undefined && !/^\d{4}-\d{2}-\d{2}$/.test(r.toegevoegd)) fout('toegevoegd moet een datum zijn (bijv. \'2026-10-17\')');
   if (r.wacht !== undefined && typeof r.wacht !== 'string') fout('wacht moet tekst zijn');
   if (r.stuks !== undefined && (typeof r.stuks !== 'string' || !r.stuks)) fout('stuks moet tekst zijn (bijv. \'wafels\')');
+  if (r.pastawater !== undefined && r.pastawater !== false && !(r.pastawater && r.pastawater.liter > 0)) fout('pastawater moet false zijn of { liter: liter water per 100 g pasta }');
   if (r.ook !== undefined && !(Array.isArray(r.ook) && r.ook.every((x) => typeof x === 'string'))) fout('ook moet een lijst met namen zijn');
   for (const k of ['tips', 'alt']) if (!Array.isArray(r[k]) || !r[k].every((x) => typeof x === 'string')) fout(`${k} moet een lijst met teksten zijn (mag leeg)`);
 
@@ -132,8 +133,9 @@ for (const r of ctx.RECEPTEN) {
     for (const [, naam] of (s.t || '').matchAll(/\{#([^}]+)\}/g)) {
       if (!(r.ingr || []).some((i) => !i.kop && i.q != null && i.n === naam)) fout(`stap "${s.t.slice(0, 30)}": {#${naam}} is geen ingrediënt met een hoeveelheid`);
     }
+    if (/\{pastawater\}/.test(s.t || '') && !(r.ingr || []).some((i) => !i.kop && i.q != null && ['spaghetti', 'penne', 'mezzi rigatoni', 'rigatoni', 'macaroni', 'fusilli', 'spirelli', 'farfalle', 'tagliatelle', 'linguine'].includes(i.n))) fout(`stap "${s.t.slice(0, 30)}": {pastawater} zonder pasta (in g) in de ingrediënten`);
   }
-  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'pit', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep', 'vriezer']);
+  const bekend = new Set(['id', 'naam', 'ook', 'keuken', 'soort', 'tijd', 'wacht', 'pers', 'stuks', 'niveau', 'vega', 'pit', 'intro', 'methodes', 'gerei', 'ingr', 'stappen', 'tips', 'alt', 'bij', 'gerecht', 'variant', 'variantVan', 'vervang', 'toegevoegd', 'groep', 'vriezer', 'pastawater']);
   const vreemd = Object.keys(r).filter((k) => !bekend.has(k));
   if (vreemd.length) fout(`onbekende velden: ${vreemd.join(', ')}`);
   // vriezer: { <ingrediënt>: { bevroren, inStap, water } } voor een ingrediënt uit js/data/vriezer.js

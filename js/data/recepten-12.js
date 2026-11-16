@@ -312,7 +312,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Verwarm de oven voor op 200 °C (hetelucht 180 °C).', m: 'oven' },
-    { t: 'Kook de macaroni in ruim water met zout 1 minuut korter dan op de verpakking staat. Giet af.', min: 9 },
+    { t: 'Kook de macaroni in {pastawater} 1 minuut korter dan op de verpakking staat. Giet af.', min: 9 },
     { t: 'Verhit de olie in de hapjespan op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin. Bak de ui, paprika en knoflook 4 minuten mee.', min: 9 },
     { t: 'Roer de tomatenpuree, het paprikapoeder en de oregano erdoor en bak 1 minuut. Voeg de tomatenblokjes, ketchup en ham toe en laat 5 minuten zachtjes pruttelen. Breng op smaak met zout en peper.', min: 5 },
     { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
