@@ -259,7 +259,30 @@ const App = (() => {
     });
   }
 
+  /* Zoeken: de beste treffers bovenaan. Eerst het zoekwoord in de naam, dan in een andere naam
+     ("kip ketjap" voor ajam ketjap), dan in de hoofdingrediënten, dan de rest. */
+  function relevantie(r) {
+    const ws = Hulp.norm(state.zoek).split(/\s+/).filter(Boolean);
+    const past = (s) => { const w = Hulp.norm(s).split(/[^a-z0-9]+/).filter(Boolean); return ws.every((t) => w.some((x) => x.startsWith(t))); };
+    if (past(r.naam)) return Hulp.norm(r.naam).startsWith(ws[0]) ? 0 : 0.5;
+    if ((r.ook || []).some(past)) return 1;
+    const h = Hulp.hoofd(r);
+    return h && past(h) ? 2 : 3;
+  }
+  // Zoek je iets, dan sorteert het boek op beste treffer, tenzij je zelf een andere volgorde kiest.
+  // Is het zoekvak weer leeg, dan gaat het terug naar per hoofdstuk.
+  function zoekSortering() {
+    const t = Hulp.norm(state.zoek).trim();
+    const zoekt = !!t && !SOORT_WOORDEN[t];
+    if (zoekt && state.sorteer === 'keuken' && !state.zelfGesorteerd) state.sorteer = 'relevant';
+    if (!zoekt) { state.zelfGesorteerd = false; if (state.sorteer === 'relevant') state.sorteer = 'keuken'; }
+    const opt = $('#sorteer option[value="relevant"]');
+    if (opt) opt.hidden = opt.disabled = !zoekt;
+    $('#sorteer').value = state.sorteer;
+  }
+
   function resultaten() {
+    zoekSortering();
     const metVoorraad = state.voorraad.length > 0;
     const inKast = metVoorraad ? kastNamen() : null;
     let lijst = RECEPTEN.map((r) => ({
@@ -307,6 +330,7 @@ const App = (() => {
       soort: (a, b) => (SOORTEN.indexOf(a.r.soort) - SOORTEN.indexOf(b.r.soort)) || opNaam(a, b),
       fav: (a, b) => (fav(a) - fav(b)) || opBlz(a, b),
       keuken: opBlz,
+      relevant: (a, b) => (relevantie(a.r) - relevantie(b.r)) || opBlz(a, b),
       nieuw: (a, b) => NIEUW.indexOf(a.r.id) - NIEUW.indexOf(b.r.id)
     }[state.view === 'nieuw' ? 'nieuw' : state.sorteer];
     lijst.sort(sorteer);
@@ -1068,7 +1092,7 @@ const App = (() => {
     });
     $('#voorraad-input').addEventListener('input', renderIngrSuggesties);
 
-    $('#sorteer').addEventListener('change', (e) => { state.sorteer = e.target.value; render(); });
+    $('#sorteer').addEventListener('change', (e) => { state.sorteer = e.target.value; if (Hulp.norm(state.zoek).trim()) state.zelfGesorteerd = true; render(); });
     $('#sorteer-om').addEventListener('click', (e) => {
       state.omgekeerd = !state.omgekeerd;
       e.currentTarget.setAttribute('aria-pressed', state.omgekeerd);

@@ -553,6 +553,17 @@ p.sync-fout::before { display: none; }
 .d-balk .ikoon-knop, .d-balk .knop-zacht { background: var(--papier); border-color: transparent; box-shadow: var(--schaduw-klein); }
 .d-balk .knop-zacht[aria-pressed="true"] { background: var(--inkt); color: var(--papier); }
 .d-balk-acties { display: flex; gap: 8px; align-items: center; }
+.d-balk { flex-wrap: wrap; }
+/* Sprongbalk: blijft met de knoppen bovenin staan; de knop van het stuk waar je bent is donker. */
+.d-sprong { flex: 1 0 100%; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 2px 0; scroll-behavior: smooth; }
+.d-sprong::-webkit-scrollbar { display: none; }
+.d-sprong:empty { display: none; }
+.d-sprong-knop {
+  flex: 0 0 auto; min-height: 34px; padding: 0 13px; border: 1px solid var(--lijn); border-radius: 999px;
+  background: var(--papier); color: var(--inkt); font: 600 13.5px var(--font-ui); cursor: pointer; white-space: nowrap;
+}
+.d-sprong-knop[aria-current="true"] { background: var(--inkt); border-color: var(--inkt); color: var(--papier); }
+@media (hover: hover) { .d-sprong-knop:hover { border-color: var(--k); } }
 @media (max-width: 640px) { .d-scherm-tekst { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
 @media (max-width: 380px) { .d-deel-tekst { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
 
@@ -575,6 +586,8 @@ p.sync-fout::before { display: none; }
 .d-titelblok { display: flex; flex-direction: column; gap: 12px; }
 .d-hoofd { font-family: var(--font-lees); font-size: 17px; line-height: 1.4; color: var(--inkt); margin: 6px 0 2px; }
 .d-soort { font-family: var(--font-lees); font-style: italic; font-size: 17px; color: var(--k-inkt); }
+.d-soort-keuken { display: none; }
+@media (max-width: 640px) { .d-soort-keuken { display: inline; } }
 .d-titelblok h2 { font-size: clamp(36px, 4.6vw, 58px); letter-spacing: -0.01em; }
 .d-intro { font-family: var(--font-lees); font-size: 18px; line-height: 1.6; color: var(--inkt-zacht); max-width: 46ch; }
 .d-meta { list-style: none; margin: 4px 0 0; padding: 12px 0 0; border-top: 1px solid var(--lijn); display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
@@ -613,7 +626,36 @@ p.sync-fout::before { display: none; }
 .gerei-jij { font-family: var(--font-hand); font-size: 21px; line-height: 1.15; color: var(--pen); transform: rotate(-0.6deg); transform-origin: left top; }
 .gerei-jij b { font-weight: 700; }
 
-.schaal { display: flex; flex-direction: column; gap: 12px; padding: 14px 16px; border: 1.5px dashed var(--lijn); border-radius: 8px; background: var(--papier-2); }
+/* Ingrediënten: de kop met het aantal personen ernaast; "Ik heb …" klapt open. */
+.d-ingr-kop { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.d-ingr-kop h3 { min-width: 0; }
+.d-ingr-kop .stepper { flex: 0 0 auto; gap: 4px; }
+.d-ingr-kop .stepper .ikoon-knop { width: 36px; height: 36px; }
+.d-ingr-kop .stepper output { min-width: 2.2ch; font-size: 22px; }
+.stepper-wie { font-size: 14px; font-weight: 600; color: var(--inkt-zacht); margin-right: 4px; }
+.schaal { display: flex; flex-direction: column; gap: 12px; margin-top: -4px; }
+.schaal > summary { cursor: pointer; width: fit-content; font-family: var(--font-lees); font-style: italic; font-size: 15px; color: var(--k-inkt); text-decoration: underline; text-decoration-color: var(--lijn); text-underline-offset: 4px; }
+.schaal[open] { padding: 12px 16px 14px; border: 1.5px dashed var(--lijn); border-radius: 8px; background: var(--papier-2); }
+.schaal-hint { font-family: var(--font-lees); font-size: 14px; line-height: 1.45; color: var(--inkt-zacht); }
+.schaal-info[hidden] { display: none; }
+/* Pannen op één regel; het advies voor jouw keuken klapt open. */
+.d-gerei { border-radius: 8px; background: var(--papier-2); }
+.d-gerei > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; padding: 10px 14px; cursor: pointer; list-style: none; font-size: 15px; line-height: 1.4; }
+.d-gerei > summary::-webkit-details-marker { display: none; }
+.d-gerei-kop { font-weight: 700; }
+.d-gerei-kop::after { content: ':'; }
+.d-gerei-kort { flex: 1 1 auto; min-width: 0; color: var(--inkt-zacht); }
+.d-gerei-kort s { color: var(--potlood); }
+.d-gerei-kort .label-mist { margin-left: 4px; }
+.d-gerei-meer { margin-left: auto; color: var(--pen); font-weight: 600; font-size: 14px; white-space: nowrap; }
+.d-gerei-meer::after { content: '\00a0›'; display: inline-block; transition: transform .15s; }
+.d-gerei[open] .d-gerei-meer::after { transform: rotate(90deg); }
+.d-gerei .gerei-lijst { padding: 4px 14px 16px; }
+/* Groentemix: één regel met hoeveel er passen; de ranglijst klapt open. */
+.mix-klap > summary { cursor: pointer; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.mix-klap > summary .mix-kies-vraag { display: inline; }
+.mix-klap-n { font-size: 13px; font-weight: 600; color: var(--k-inkt); }
+.mix-klap[open] > summary { margin-bottom: 8px; }
 .schaal-rij { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
 .schaal-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--k-inkt); }
 .stepper { display: flex; align-items: center; gap: 10px; }
@@ -880,7 +922,20 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
 .toast.zichtbaar { opacity: 1; transform: translate(-50%, 0); }
 
 /* ---------- Kleinere schermen ---------- */
-@media (max-width: 1000px) {
+/* iPad: ook twee pagina's naast elkaar, links ingrediënten, rechts de bereiding. */
+@media (min-width: 761px) and (max-width: 1000px) {
+  .d-spread { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr); }
+  .d-pagina { padding: 26px 22px 60px; gap: 22px; }
+  .d-titelblok h2 { font-size: 34px; }
+  .d-intro { font-size: 16px; }
+  .d-foto img { aspect-ratio: 16 / 10; }
+  .ingr label { grid-template-columns: 20px 74px minmax(0, 1fr); }
+  .ingr-of-knop { padding-left: 114px; }
+  .stap { grid-template-columns: 40px minmax(0, 1fr); gap: 10px; }
+  .stap-nr { width: 38px; height: 38px; font-size: 28px; }
+  .stap-tekst { font-size: 16px; }
+}
+@media (max-width: 760px) {
   .d-spread { grid-template-columns: minmax(0, 1fr); background: var(--papier); }
   .d-links { padding-bottom: 40px; }
   .d-links .d-blz { display: none; }
@@ -940,7 +995,8 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
   .zoek-wrap { position: static; }
   .sug { grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; }
   .sug-type { grid-column: 1 / -1; }
-  .sug-label { white-space: normal; }
+  .sug-label { white-space: normal; grid-column: 1 / -1; }
+  .sug-extra { grid-column: 1 / -1; white-space: normal; }
   .filter-knop { padding: 0 14px; }
   .tabbladen { margin-inline: calc(-1 * var(--gutter)); padding-left: var(--gutter); padding-right: 36px; }
   .subtabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); border-radius: 0; }
@@ -949,9 +1005,18 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
   .sheet-blad { inset: 0; width: 100%; }
   .d-balk { padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px; background: color-mix(in srgb, var(--tafel) 85%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   .d-spread { border-radius: 0; margin-bottom: 0; box-shadow: none; }
-  .d-pagina { padding: 22px 18px 56px; gap: 22px; }
-  .d-titelblok h2 { font-size: 34px; }
-  .d-intro { font-size: 16px; }
+  .d-pagina { padding: 0 18px 56px; gap: 20px; }
+  .d-titelblok { gap: 8px; }
+  .d-titelblok h2 { font-size: 32px; }
+  /* Telefoon: de foto bovenaan over de hele breedte, en lager, zodat de ingrediënten eerder komen. */
+  .d-links .d-foto { order: -1; margin: 0 -18px; }
+  .d-links .d-foto img { aspect-ratio: 16 / 9; border-radius: 0; box-shadow: none; }
+  .d-links .d-foto figcaption { padding: 0 18px; }
+  .d-links .d-loopkop { display: none; }
+  .d-rechts { padding-top: 22px; }
+  .d-meta { padding-top: 10px; gap: 6px 16px; }
+  .d-intro { font-size: 15px; line-height: 1.5; }
+  .d-sprong { margin: 0 -12px; padding: 2px 12px; }
   .schaal-heb { flex-direction: column; align-items: stretch; }
   .heb-velden { justify-content: flex-start; }
   .heb-velden select { max-width: none; }

@@ -88,6 +88,7 @@ const Detail = (() => {
     sheet.hidden = false;
     document.body.classList.add('sheet-open');
     blad.scrollTop = vorige ? vorige.scroll : 0;
+    sprongActief();
     if (vorige) { const knop = blad.querySelector(`[data-variant="${r.id}"]`); if (knop) knop.focus({ preventScroll: true }); }
     else blad.focus({ preventScroll: true });
   }
@@ -135,12 +136,13 @@ const Detail = (() => {
           <button type="button" class="knop knop-klein knop-zacht" id="d-scherm" aria-pressed="${wilScherm}" aria-label="Scherm aan">${icoon('scherm')} <span class="d-scherm-tekst">Scherm aan</span></button>
           <button type="button" class="ikoon-knop fav-knop" id="d-fav" aria-pressed="${fav}" aria-label="${fav ? 'Verwijder uit favorieten' : 'Voeg toe aan favorieten'}">${icoon('hart')}</button>
         </div>
+        <nav class="d-sprong" id="d-sprong" aria-label="Spring naar"></nav>
       </header>
       <div class="d-spread hk">
         <section class="d-pagina d-links">
           <p class="d-loopkop">Hoofdstuk ${h.nr} · ${Hulp.esc(r.keuken)}</p>
           <div class="d-titelblok">
-            <p class="d-soort">${Hulp.esc(r.soort)}${ctx.isNieuw(r.id) ? ' <span class="label-nieuw">Nieuw</span>' : ''}</p>
+            <p class="d-soort"><span class="d-soort-keuken">${Hulp.esc(r.keuken)} · </span>${Hulp.esc(r.soort)}${ctx.isNieuw(r.id) ? ' <span class="label-nieuw">Nieuw</span>' : ''}</p>
             <h2 id="d-titel">${Hulp.esc(r.naam)}</h2>
             ${(() => {
               const vs = ctx.varianten(r);
@@ -157,28 +159,25 @@ const Detail = (() => {
             <ul class="d-meta">${meta}</ul>
           </div>
           ${beeld}
-          <section class="d-gerei" aria-labelledby="d-gerei-titel">
-            <h3 id="d-gerei-titel">${r.soort === 'Cocktail' ? 'Glazen en gerei' : 'Pannen en apparatuur'}</h3>
-            ${ms.length ? `
-              <div class="methode" role="group" aria-label="Bereidingswijze">
-                <span class="methode-label">Bereiden met</span>
-                <div class="segment">
-                  ${ms.map((m) => `<button type="button" data-methode="${m.id}" aria-pressed="${m.id === methode}" class="${m.heb ? '' : 'mist'}">${toolIcoon(m.id)} ${Hulp.esc(m.naam === 'Braadpan' && ctx.keuken.includes('dutchoven') ? 'Dutch oven' : m.naam)}${m.heb ? '' : '<span class="sr"> (niet in jouw keuken)</span>'}</button>`).join('')}
-                </div>
-              </div>` : ''}
-            <ul class="gerei-lijst" id="d-gerei-lijst"></ul>
-          </section>
-          <section class="d-ingr" aria-labelledby="d-ingr-titel">
-            <h3 id="d-ingr-titel">Ingrediënten</h3>
-            <div class="schaal">
-              <div class="schaal-rij">
-                <span class="schaal-label">${r.stuks ? 'Aantal' : 'Personen'}</span>
-                <div class="stepper">
-                  <button type="button" class="ikoon-knop" id="d-min" aria-label="Minder ${r.stuks || 'personen'}">−</button>
-                  <output id="d-pers" aria-live="polite"></output>
-                  <button type="button" class="ikoon-knop" id="d-plus" aria-label="Meer ${r.stuks || 'personen'}">+</button>
-                </div>
+          ${ms.length ? `
+            <div class="methode" role="group" aria-label="Bereidingswijze">
+              <span class="methode-label">Bereiden met</span>
+              <div class="segment">
+                ${ms.map((m) => `<button type="button" data-methode="${m.id}" aria-pressed="${m.id === methode}" class="${m.heb ? '' : 'mist'}">${toolIcoon(m.id)} ${Hulp.esc(m.naam === 'Braadpan' && ctx.keuken.includes('dutchoven') ? 'Dutch oven' : m.naam)}${m.heb ? '' : '<span class="sr"> (niet in jouw keuken)</span>'}</button>`).join('')}
               </div>
+            </div>` : ''}
+          <section class="d-ingr" aria-labelledby="d-ingr-titel">
+            <div class="d-ingr-kop">
+              <h3 id="d-ingr-titel">Ingrediënten</h3>
+              <div class="stepper" role="group" aria-label="${r.stuks ? 'Aantal' : 'Aantal personen'}">
+                <button type="button" class="ikoon-knop" id="d-min" aria-label="Minder ${r.stuks || 'personen'}">−</button>
+                <output id="d-pers" aria-live="polite"></output>
+                <span class="stepper-wie" id="d-pers-wie"></span>
+                <button type="button" class="ikoon-knop" id="d-plus" aria-label="Meer ${r.stuks || 'personen'}">+</button>
+              </div>
+            </div>
+            <details class="schaal" id="d-schaal">
+              <summary>Ik heb een andere hoeveelheid van één ingrediënt</summary>
               <div class="schaal-rij schaal-heb">
                 <label class="schaal-label" for="d-heb-ingr">Ik heb</label>
                 <div class="heb-velden">
@@ -189,15 +188,20 @@ const Detail = (() => {
                   </select>
                 </div>
               </div>
-              <p class="schaal-info" id="d-schaal-info"></p>
-            </div>
+              <p class="schaal-hint">Vul in hoeveel je hebt, bijvoorbeeld 300 g kipfilet. Alle andere hoeveelheden rekenen mee.</p>
+            </details>
+            <p class="schaal-info" id="d-schaal-info" hidden></p>
+            <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
+            <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
             <div class="mix-kies" id="d-mix-kies" hidden></div>
             <div class="mix-notitie" id="d-mix" hidden></div>
             <div class="mix-kies vries-kies" id="d-vries-kies" hidden></div>
             <div class="mix-notitie vries-notitie" id="d-vries" hidden></div>
-          <ul class="ingr-lijst" id="d-ingr-lijst"></ul>
-            <button type="button" class="knop knop-vol" id="d-lijst">${icoon('mand')} Op boodschappenlijst</button>
           </section>
+          <details class="d-gerei" id="d-gerei" aria-labelledby="d-gerei-titel">
+            <summary><span class="d-gerei-kop" id="d-gerei-titel">${r.soort === 'Cocktail' ? 'Gerei' : 'Pannen'}</span><span class="d-gerei-kort" id="d-gerei-kort"></span><span class="d-gerei-meer">advies</span></summary>
+            <ul class="gerei-lijst" id="d-gerei-lijst"></ul>
+          </details>
           <p class="d-blz">${blz}</p>
         </section>
         <section class="d-pagina d-rechts">
@@ -308,6 +312,12 @@ const Detail = (() => {
   function renderGerei() {
     const lijst = r.gerei.filter((g) => !g.m || g.m === methode);
     const gezien = new Set();
+    // Eén regel: de pannen kort, wat je mist doorgestreept. Het advies voor jouw keuken klapt open.
+    const kort = (g) => Hulp.esc(g.tekst.replace(/\s*\(.*?\)/g, '').replace(/\s+(met|voor|van)\s.*$/i, ''));
+    const mist = lijst.filter((g) => !Hulp.heeftTool(g.tool, ctx.keuken));
+    blad.querySelector('#d-gerei-kort').innerHTML = lijst.map((g) => Hulp.heeftTool(g.tool, ctx.keuken) ? kort(g) : `<s>${kort(g)}</s>`).join(' · ')
+      + (mist.length ? ` <span class="label-mist">${mist.length === 1 ? 'Mis je' : `${mist.length} mis je`}</span>` : '');
+    if (mist.length) blad.querySelector('#d-gerei').open = true;
     blad.querySelector('#d-gerei-lijst').innerHTML = lijst.map((g) => {
       const mist = !Hulp.heeftTool(g.tool, ctx.keuken);
       const advies = Hulp.panAdvies(g, r, ctx.keuken, gezien);
@@ -327,10 +337,12 @@ const Detail = (() => {
     const pers = r.pers * factor;
     const hele = Math.abs(pers - Math.round(pers)) < 0.05;
     blad.querySelector('#d-pers').textContent = hele ? Math.round(pers) : '≈ ' + Hulp.getal(pers, 1);
+    blad.querySelector('#d-pers-wie').textContent = r.stuks || (pers <= 1 ? 'persoon' : 'pers.');
 
     const info = blad.querySelector('#d-schaal-info');
+    info.hidden = factor === 1;
     if (factor === 1) {
-      info.innerHTML = `Origineel recept. Pas het aantal ${r.stuks || 'personen'} aan, of vul in hoeveel je van één ingrediënt hebt.`;
+      info.innerHTML = '';
     } else {
       let advies = '';
       if (factor >= 1.6) advies = ' Grotere hoeveelheid: gebruik een grotere pan of bak in delen. Stooftijden blijven ongeveer gelijk.';
@@ -347,7 +359,8 @@ const Detail = (() => {
     const en = (namen) => namen.join(', ').replace(/, ([^,]*)$/, ' en $1');
     const kiesEl = blad.querySelector('#d-mix-kies');
     kiesEl.hidden = !passend.length;
-    kiesEl.innerHTML = passend.length ? `<p class="mix-kies-vraag">Heb je een groentemix uit de vriezer of het koelvak?</p>
+    const mixOpen = (kiesEl.querySelector('details.mix-klap') || {}).open || gekozenMixen.size > 0;
+    kiesEl.innerHTML = passend.length ? `<details class="mix-klap"${mixOpen ? ' open' : ''}><summary><span class="mix-kies-vraag">Heb je een groentemix uit de vriezer of het koelvak?</span> <span class="mix-klap-n">${passend.length} ${passend.length === 1 ? 'past' : 'passen'}</span></summary>
       ${!groenten.length ? `<p class="mix-rang-uitleg">Een mix vervangt hier geen groente uit het recept, maar ${passend.length === 1 ? 'deze past' : 'deze passen'} er goed bij als extra groente. Tik een mix aan om hem te gebruiken.</p>` : ''}
       ${groenten.length ? `<p class="mix-rang-uitleg">Een mix kan hier ${groenten.length === 1 ? 'de' : groenten.length} ${groenten.length === 1 ? `${Hulp.esc(groenten[0])} vervangen` : `groenten vervangen: ${Hulp.esc(en(groenten))}`}. ${gelijk ? (best && (passend[0].aanrader || passend[0].keuken) ? 'De bovenste mixen vervangen evenveel, dus bovenaan staat de mix die het best bij dit gerecht past.' : 'De bovenste mixen vervangen evenveel.') : 'Bovenaan staat de mix die er het meest van vervangt.'} Tik een mix aan om hem te gebruiken.</p>` : ''}
       ${combi ? (() => {
@@ -358,7 +371,7 @@ const Detail = (() => {
       <ol class="mix-rang">${passend.map(({ mix, gedekt, gram, erbij, mist }, nr) => {
       if (nr === 5 && passend.length > 6) return `</ol><details class="mix-rang-meer"${passend.slice(5).some((d) => gekozenMixen.has(d.mix.id)) ? ' open' : ''}><summary>Nog ${passend.length - 5} mixen die minder vervangen</summary><ol class="mix-rang" start="6">${rij({ mix, gedekt, gram, erbij, mist }, nr)}`;
       return rij({ mix, gedekt, gram, erbij, mist }, nr);
-    }).join('')}</ol>${passend.length > 6 ? '</details>' : ''}` : '';
+    }).join('')}</ol>${passend.length > 6 ? '</details>' : ''}</details>` : '';
     function rij({ mix, gedekt, gram, erbij, mist }, nr) {
       const inVoorraad = uitVoorraad.includes('mix:' + mix.id);
       const aan = gekozenMixen.has(mix.id) || inVoorraad;
@@ -417,7 +430,54 @@ const Detail = (() => {
     renderRest();
     renderPrijs();
     if (blad.querySelector('#d-stappen')) renderStappen();
+    renderSprong();
   }
+
+  /* Sprongbalk onder de knoppen bovenin: in één tik naar ingrediënten, bereiding of de briefjes eronder.
+     Hij blijft staan tijdens het scrollen en laat zien waar je bent. */
+  const SPRONG = [
+    ['#d-ingr-titel', 'Ingrediënten'], ['#d-stap-titel', 'Bereiding'], ['.notitie-bij', 'Lekker met'],
+    ['.notitie-alt', 'Alternatieven'], ['.notitie-tip', 'Tip'], ['#d-rest', 'Restjes'], ['#d-prijs', 'Kosten'], ['#d-log', 'Logboek']
+  ];
+  const doelen = () => SPRONG.map(([sel, naam]) => ({ el: blad.querySelector(sel), naam, sel })).filter((d) => d.el && !verborgen(d.el));
+  const verborgen = (el) => { for (let e = el; e && e !== blad; e = e.parentElement) if (e.hidden) return true; return false; };
+  function renderSprong() {
+    const nav = blad.querySelector('#d-sprong');
+    if (!nav) return;
+    nav.innerHTML = doelen().map((d) => `<button type="button" class="d-sprong-knop" data-sprong="${d.sel}">${d.naam}</button>`).join('');
+    sprongActief();
+  }
+  function sprongHoogte() { const b = blad.querySelector('.d-balk'); return b ? b.getBoundingClientRect().height : 0; }
+  function springNaar(sel) {
+    const el = blad.querySelector(sel);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top - blad.getBoundingClientRect().top + blad.scrollTop - sprongHoogte() - 10;
+    blad.scrollTo({ top: Math.max(0, top), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
+  function sprongActief() {
+    const nav = blad.querySelector('#d-sprong');
+    if (!nav || !nav.children.length) return;
+    const grens = blad.getBoundingClientRect().top + sprongHoogte() + 40;
+    // Twee pagina's naast elkaar: wat rechts staat telt pas als je erheen scrolt, dus kijk naar wat het laatst boven de grens kwam.
+    let actief = null;
+    doelen().forEach((d) => { if (d.el.getBoundingClientRect().top <= grens) actief = d.sel; });
+    if (!actief) actief = doelen()[0].sel;
+    let knop = null;
+    nav.querySelectorAll('[data-sprong]').forEach((b) => {
+      const aan = b.dataset.sprong === actief;
+      b.setAttribute('aria-current', aan ? 'true' : 'false');
+      if (aan) knop = b;
+    });
+    if (knop && (knop.offsetLeft < nav.scrollLeft || knop.offsetLeft + knop.offsetWidth > nav.scrollLeft + nav.clientWidth)) {
+      nav.scrollLeft = knop.offsetLeft - 16;
+    }
+  }
+  let sprongTik = false;
+  blad.addEventListener('scroll', () => {
+    if (sprongTik) return;
+    sprongTik = true;
+    requestAnimationFrame(() => { sprongTik = false; if (r) sprongActief(); });
+  }, { passive: true });
 
   /* Vlees of vis uit de vriezer: aantikken wat eruit komt, dan zegt het briefje hoe lang het moet ontdooien
      en wat er in dit recept anders gaat (js/data/vriezer.js). */
@@ -856,6 +916,8 @@ const Detail = (() => {
   blad.addEventListener('click', (e) => {
     const t = e.target;
     if (t.closest('[data-sluit]')) return ctx.sluit();
+    const sprong = t.closest('[data-sprong]');
+    if (sprong) return springNaar(sprong.dataset.sprong);
     const wat = t.closest('[data-wat]');
     if (wat) {
       e.preventDefault();
