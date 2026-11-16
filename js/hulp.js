@@ -678,10 +678,44 @@ const Hulp = (() => {
     return gevonden ? uit : null;
   }
 
+  /* Kookwater voor pasta, uit de hoeveelheid pasta die je nu kookt: 1 liter water per 100 g droge pasta
+     (minstens 2 liter, anders koelt het water te veel af en plakt de pasta) en 10 g zout per liter.
+     Een recept kan minder water willen (aglio olio: zetmeelrijk kookvocht bindt de saus): pastawater: { liter: 0.75 }.
+     In een stap zet {pastawater} de hoeveelheid in de tekst: "4 liter water met 40 g zout (2 el + 2 tl)". */
+  const LANGE_PASTA = ['spaghetti', 'linguine', 'tagliatelle'];
+  // Fijn keukenzout: 1 tl ≈ 5 g, 1 el ≈ 15 g.
+  function zoutLepels(gram) {
+    const tl = Math.max(1, Math.round(gram / 5)), el = Math.floor(tl / 3), rest = tl % 3;
+    return [el ? `${el} el` : '', rest ? `${rest} tl` : ''].filter(Boolean).join(' + ');
+  }
+  function pastaWater(recept, factor = 1) {
+    if (!recept || recept.pastawater === false) return null;
+    const pasta = (recept.ingr || []).filter((i) => !i.kop && i.q != null && (i.u === 'g' || i.u === 'kg') && PASTA.includes(norm(i.n)));
+    if (!pasta.length) return null;
+    const gram = pasta.reduce((som, i) => som + i.q * (i.u === 'kg' ? 1000 : 1) * factor, 0);
+    const per100 = (recept.pastawater && recept.pastawater.liter) || 1;
+    const liter = Math.max(2, Math.round((gram / 100) * per100 * 2) / 2);
+    const zout = Math.round(liter * 10);
+    const lepels = zoutLepels(zout);
+    const lang = pasta.find((i) => LANGE_PASTA.includes(norm(i.n)));
+    return {
+      gram: Math.round(gram), liter, zout, lepels,
+      pan: Math.ceil(liter * 1.5), // ruimte erboven, anders kookt het over
+      lang: lang ? lang.n : null,
+      tekst: `${breuk(liter, 0.5)} liter water met ${zout} g zout (${lepels})`,
+      tips: [
+        `Pan: minstens ${Math.ceil(liter * 1.5)} liter, dan kookt hij niet over.`,
+        lang ? `Past de ${lang.n} er niet in? Niet breken: zet hem rechtop in het kokende water. Na een halve minuut is hij zacht en duw je hem met een lepel onder.` : '',
+        'Doe het zout erbij als het water kookt: dan lost het meteen op en geeft het geen vlekjes in je RVS-pan. Met grof zeezout neem je een schepje meer.'
+      ].filter(Boolean)
+    };
+  }
+
   /* Aantallen in een stap die meeschalen: {#ei} wordt het aantal eieren dat je nu kookt, afgerond op hele
      stuks (minstens 1). Zo klopt "Maak 6 kuiltjes" ook als je voor 2 personen 3 eieren gebruikt. */
   function stapTekst(tekst, recept, factor = 1) {
-    return String(tekst || '').replace(/\{#([^}]+)\}/g, (heel, naam) => {
+    const pw = /\{pastawater\}/.test(tekst || '') && pastaWater(recept, factor);
+    return String(tekst || '').replace(/\{pastawater\}/g, pw ? pw.tekst : 'ruim water met zout').replace(/\{#([^}]+)\}/g, (heel, naam) => {
       const i = (recept.ingr || []).find((x) => !x.kop && x.q != null && norm(x.n) === norm(naam));
       return i ? String(Math.max(1, Math.round(i.q * factor))) : heel;
     });
@@ -717,7 +751,8 @@ const Hulp = (() => {
       uit += esc(tekst.slice(vanaf, plek)) + `<b class="stap-hv">${esc(hv)}</b> `;
       vanaf = plek;
     }
-    return uit + esc(tekst.slice(vanaf));
+    // Het kookwater voor pasta ({pastawater}) ook blauw, net als de andere hoeveelheden.
+    return (uit + esc(tekst.slice(vanaf))).replace(/[\d½]+ liter water met \d+ g zout \([^)]*\)/g, '<b class="stap-hv">$&</b>');
   }
 
   /* Vlees en vis uit de vriezer (js/data/vriezer.js): welke ingrediënten van dit recept kunnen eruit komen? */
@@ -782,5 +817,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { vriezerbaar, vriezer, stappenMetDeel, stapTekst, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { vriezerbaar, vriezer, stappenMetDeel, stapTekst, pastaWater, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

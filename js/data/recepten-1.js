@@ -19,7 +19,7 @@ RECEPTEN.push(
     { n: 'zout', x: 'voor het kookwater' }
   ],
   stappen: [
-    { t: 'Breng in de kookpan 4 liter water met een flinke schep zout aan de kook.', min: 10 },
+    { t: 'Breng in de kookpan {pastawater} aan de kook.', min: 10 },
     { t: 'Leg de pancetta in de koude koekenpan, zonder olie. Bak op middelhoog vuur in 6 à 8 minuten krokant; het vet smelt vanzelf. Zet daarna het vuur uit.', min: 7 },
     { t: 'Klop in een kom de eieren, eidooiers, beide kazen en de peper los tot een dikke, gele pasta.' },
     { t: 'Kook de spaghetti 1 minuut korter dan op de verpakking staat. Schep een kopje kookvocht apart.', min: 9 },
@@ -168,7 +168,7 @@ RECEPTEN.push(
     { n: 'Parmezaanse kaas', q: 40, u: 'g', opt: true, x: 'om te serveren' }
   ],
   stappen: [
-    { t: 'Breng een grote pan water met zout aan de kook.', min: 10 },
+    { t: 'Breng in een grote pan {pastawater} aan de kook.', min: 10 },
     { t: 'Verwarm de olie in de hapjespan op middellaag vuur. Bak knoflook en gesneden peper 2 minuten zacht; de knoflook mag niet bruin worden.', min: 2 },
     { t: 'Voeg de tomatenblokjes, de suiker en wat zout toe. Laat 12 minuten zachtjes inkoken.', min: 12 },
     { t: 'Kook intussen de penne beetgaar volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
@@ -200,7 +200,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Rooster de pijnboompitten 2 à 3 minuten in de droge koekenpan tot ze lichtbruin zijn. Laat ze afkoelen op een bord.', min: 3 },
     { t: 'Pureer basilicum, pijnboompitten, kaas, knoflook en olie met de staafmixer tot een grove pesto. Breng op smaak met zout.' },
-    { t: 'Kook de pasta beetgaar volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
+    { t: 'Kook de pasta beetgaar in {pastawater}, volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
     { t: 'Bestrooi de kip met zout en peper. Bak in een scheut olie in de koekenpan op middelhoog vuur 6 à 7 minuten rondom goudbruin en gaar.', min: 7 },
     { t: 'Meng pasta, kip, zongedroogde tomaat en pesto. Maak de saus wat losser met 2 el kookvocht.' }
   ],

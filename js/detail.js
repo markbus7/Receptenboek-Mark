@@ -403,8 +403,13 @@ const Detail = (() => {
     mixWeg = new Set(uitMix.keys());
     const mixRegel = new Map();
     mixen.forEach(({ mix, gedekt, gram }) => { if (gedekt.length && !mixRegel.has(gedekt[0].n)) mixRegel.set(gedekt[0].n, { mix, gedekt, gram }); });
+    // Pasta: onder de (eerste) pasta hoeveel kookwater en zout; staat er "zout voor het kookwater", dan krijgt dat de grammen.
+    const pw = Hulp.pastaWater(r, factor);
+    const eerstePasta = pw ? r.ingr.findIndex((i) => !i.kop && Hulp.uitwisselbaar('pasta').includes(Hulp.norm(i.n))) : -1;
+    const pwRegel = (idx) => idx === eerstePasta ? `<span class="ingr-x ingr-pastawater">kookwater: ${Hulp.esc(pw.tekst)}</span>` : '';
     blad.querySelector('#d-ingr-lijst').innerHTML = r.ingr.map((i, idx) => {
       if (i.kop) return `<li class="ingr-kop">${Hulp.esc(i.kop)}</li>`;
+      if (pw && i.q == null && Hulp.norm(i.n) === 'zout' && /kookwater/i.test(i.x || '')) i = { ...i, q: pw.zout / factor, u: 'g', x: `voor het kookwater (${pw.lepels})` };
       if (mixWeg.has(i.n)) {
         const m = mixRegel.get(i.n);
         if (!m || r.ingr.findIndex((x) => x.n === i.n) !== idx) return '';
@@ -420,7 +425,7 @@ const Detail = (() => {
         <label>
           <input type="checkbox" data-ingr="${idx}">
           <span class="hv">${Hulp.esc([h.aantal, h.eenheid].filter(Boolean).join(' '))}</span>
-          <span class="ingr-naam">${wat ? watKnop(h.naam, idx) : Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${potjeRegel(i)}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
+          <span class="ingr-naam">${wat ? watKnop(h.naam, idx) : Hulp.esc(h.naam)}${h.gram ? ` <em>(${Hulp.esc(h.gram)})</em>` : ''}${i.opt ? ' <em>(optioneel)</em>' : ''}${extra ? `<span class="ingr-x">${Hulp.esc(extra)}</span>` : ''}${ofTekst ? `<span class="ingr-x ingr-of">${Hulp.esc(ofTekst)}</span>` : ''}${pwRegel(idx)}${ui && !mixNaam ? uiRegel(ui) : ''}${mixNaam ? `<span class="ingr-mix">uit je ${Hulp.esc(mixNaam)}</span>` : ''}${potjeRegel(i)}${vriesKort.has(i.n) ? `<span class="ingr-mix">uit de vriezer: ${Hulp.esc(vriesKort.get(i.n))}</span>` : ''}</span>
         </label>
         ${Boodschappen.isWater(i) ? '' : lijstKnop(i, idx)}
         ${mixNaam ? '' : ofKnop(i, idx)}
@@ -594,6 +599,7 @@ const Detail = (() => {
      krabbels en welke ingrediënten je in die stap voor het eerst gebruikt. */
   function stapData() {
     const gebruikt = new Set(), genoemd = new Set();
+    const pastaWater = Hulp.pastaWater(r, factor);
     const lijst = Hulp.stappenMetDeel(r, methode).map(({ s, deel, ingr }, n, alle) => {
       const voor = new Set(gebruikt);
       // Met een kop zoek je alleen in de ingrediënten van dat deel: "het water" is dan het water voor het deeg,
@@ -602,6 +608,7 @@ const Detail = (() => {
       const notities = [
         ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? 'of: in je rijstkoker' : '',
         ctx.keuken.includes('rijstkoker') && typeof s.stoom === 'string' ? `of stomen in je rijstkoker: ${s.stoom}` : '',
+        ...(/\{pastawater\}/.test(s.t) && pastaWater ? pastaWater.tips : []),
         ...vries.items.filter((x) => x.stap === s).map((x) => `${x.i.n} uit de vriezer: ${x.inStap}`)
       ].filter(Boolean);
       const woorden = Hulp.norm(s.t).split(/[^\p{L}]+/u).filter(Boolean);

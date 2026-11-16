@@ -332,7 +332,7 @@ RECEPTEN.push(
     { t: 'Blus af met de wijn en schraap de aanbaksels los. Laat de wijn bijna helemaal inkoken. Giet de melk erbij en laat 3 à 4 minuten pruttelen tot ook die bijna is opgenomen; dat maakt het vlees mals.', min: 4 },
     { t: 'Voeg tomatenblokjes, passata, bouillon en laurier toe en breng op smaak met zout en peper. Breng aan de kook, zet het vuur laag en laat minimaal 1 uur (liefst 2) zachtjes sudderen met de deksel op een kier. Roer af en toe en voeg 2 el water toe als de saus te droog wordt.', m: 'braadpan', min: 60 },
     { t: 'Schep alles over in de slowcooker en voeg tomatenblokjes, passata, laurier en maar de helft van de bouillon toe; er verdampt bijna niets. Breng op smaak met zout en peper. Gaar 6 à 8 uur op LOW of 3 à 4 uur op HIGH. Leg het laatste halfuur de deksel op een kier, zodat de saus indikt.', m: 'slowcooker', min: 360 },
-    { t: 'Kook de spaghetti beetgaar in ruim water met zout. Houd een kopje kookvocht apart.', min: 10 },
+    { t: 'Kook de spaghetti beetgaar in {pastawater}. Houd een kopje kookvocht apart.', min: 10 },
     { t: 'Vis het laurierblad eruit. Schep de spaghetti door de saus met 2 el kookvocht, zodat de saus zich om de pasta hecht. Serveer met Parmezaanse kaas.' }
   ],
   tips: [
@@ -428,6 +428,7 @@ RECEPTEN.push(
 },
 {
   id: 'spaghetti-aglio-olio', naam: 'Spaghetti aglio, olio e peperoncino', ook: ['aglio olio', 'spaghetti aglio olio', 'knoflookpasta'],
+  pastawater: { liter: 0.75 }, // minder water: zetmeelrijk kookvocht bindt de saus
   keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 15, pers: 4, niveau: 'Makkelijk', vega: true, pit: 2,
   intro: 'De Romeinse middernachtspasta: spaghetti met knoflook, olijfolie en rode peper. Een handvol ingrediënten, klaar in de tijd dat de pasta kookt.',
@@ -444,7 +445,7 @@ RECEPTEN.push(
     { n: 'zout' }
   ],
   stappen: [
-    { t: 'Breng in de kookpan 3 liter water met een flinke schep zout aan de kook (sneller met water uit de waterkoker). Niet te veel water: dan wordt het kookvocht zetmeelrijk en bindt het straks de saus.' },
+    { t: 'Breng in de kookpan {pastawater} aan de kook (sneller met water uit de waterkoker). Niet te veel water: dan wordt het kookvocht zetmeelrijk en bindt het straks de saus.' },
     { t: 'Kook de spaghetti 2 minuten korter dan op de verpakking staat. Schep voor het afgieten een flinke kop kookvocht (250 ml) apart.', min: 8 },
     { t: 'Doe intussen de olie en de knoflook in de koude koekenpan. Verwarm op middellaag vuur en laat de knoflook in 3 à 4 minuten zacht garen tot hij lichtgoud is. Bak de peper de laatste minuut mee. Bruine knoflook wordt bitter, dus let goed op.', min: 4 },
     { t: 'Giet meteen een scheut kookvocht (ca. 100 ml) in de pan; pas op voor spetters. Zo stopt de knoflook met bakken.' },
@@ -537,7 +538,7 @@ RECEPTEN.push(
     { kop: 'Tomatensaus', t: 'Doe de rest van de olie in de pan en fruit de ui 4 minuten op middelhoog vuur. Bak knoflook en tomatenpuree 1 minuut mee.', min: 5 },
     { t: 'Voeg tomaten, oregano en een snuf zout toe en breng aan de kook. Leg de gehaktballen in de saus.' },
     { t: 'Zet het vuur laag en laat 20 à 25 minuten zachtjes garen met de deksel op een kier. Keer de ballen halverwege voorzichtig. De saus is klaar als hij is ingedikt.', min: 22 },
-    { kop: 'Erbij', t: 'Kook intussen de spaghetti beetgaar in ruim water met zout.', min: 10 },
+    { kop: 'Erbij', t: 'Kook intussen de spaghetti beetgaar in {pastawater}.', min: 10 },
     { kop: 'Afmaken', t: 'Proef de saus: is hij wat zuur, voeg dan een snuf suiker toe. Breng op smaak met zout en peper, scheur er de basilicum door en serveer met spaghetti of brood en Parmezaanse kaas.' }
   ],
   tips: [

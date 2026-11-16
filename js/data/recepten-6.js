@@ -221,7 +221,7 @@ RECEPTEN.push(
     { n: 'Parmezaanse kaas', q: 30, u: 'g' }
   ],
   stappen: [
-    { t: 'Kook de macaroni 2 minuten korter dan op de verpakking. Giet af.', min: 8 },
+    { t: 'Kook de macaroni in {pastawater}, 2 minuten korter dan op de verpakking. Giet af.', min: 8 },
     { t: 'Zet de bak in de OptiGrill in plaats van de onderste plaat, kies de handmatige modus, stel 220 °C in en druk op OK. Wacht tot hij klaar is met voorverwarmen.', m: 'optigrill-bak' },
     { t: 'Smelt de boter in de steelpan, roer de bloem erdoor en bak 1 minuut. Klop de melk er in scheutjes door tot een gladde saus. Laat 3 minuten zachtjes koken.', min: 4 },
     { t: 'Haal van het vuur en roer cheddar, mosterd en paprikapoeder erdoor tot de kaas gesmolten is. Breng op smaak met zout.' },
