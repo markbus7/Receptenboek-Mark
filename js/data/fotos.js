@@ -470,9 +470,9 @@ window.FOTOS = {
  },
  "gehaktballen-tomatensaus": {
   "src": "img/gehaktballen-tomatensaus.jpg",
-  "auteur": "Andy Li",
-  "licentie": "CC0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Polpette_Al_Sugo_-_Nanninella.jpg"
+  "auteur": "jeffreyw",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Spaghetti_and_meatballs_1.jpg"
  },
  "gentse-waterzooi": {
   "src": "img/gentse-waterzooi.jpg",
@@ -572,9 +572,9 @@ window.FOTOS = {
  },
  "hollandse-macaroni": {
   "src": "img/hollandse-macaroni.jpg",
-  "auteur": "Blues 1911",
-  "licentie": "CC BY-SA 3.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Pasta_al_Forno_01.jpg"
+  "auteur": "Roundhere44",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:American_Chop_Suey_on_White_Plate.jpg"
  },
  "hongaarse-goulash": {
   "src": "img/hongaarse-goulash.jpg",
