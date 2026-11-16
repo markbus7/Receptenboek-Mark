@@ -57,6 +57,11 @@ const App = (() => {
     // Een pot pastasaus: zoek je op tomatensaus of piccante, dan vind je ook de recepten met een pot.
     tomatensaus: ['pastasaus'], piccante: ['pastasaus'], pastasaus: ['pastasaus uit een pot']
   };
+  // Pastasoorten zijn uitwisselbaar (Hulp.uitwisselbaar): zoek je op farfalle of macaroni, dan vind je alle pastarecepten.
+  ['spaghetti', 'penne', 'mezzi rigatoni', 'rigatoni', 'macaroni', 'fusilli', 'spirelli', 'farfalle', 'tagliatelle', 'linguine', 'pasta']
+    .forEach((p) => { ALIASSEN[p] = [...(ALIASSEN[p] || []), ...Hulp.uitwisselbaar(p)]; });
+  Object.assign(ALIASSEN, { mezzi: ALIASSEN['mezzi rigatoni'], vlinderpasta: ALIASSEN.farfalle, vlindertjes: ALIASSEN.farfalle, strikjes: ALIASSEN.farfalle,
+    spiraaltjes: ALIASSEN.fusilli, elleboogjes: ALIASSEN.macaroni, pennes: ALIASSEN.penne });
   // Zoekwoorden voor de delen: "europees" of "aziatisch" geeft het hele deel.
   const REGIO_WOORDEN = {
     Europa: ['europees', 'europese'], 'Azië': ['aziatisch', 'aziatische', 'oosters', 'oosterse'],
@@ -538,7 +543,7 @@ const App = (() => {
     },
     basis: {
       lijst: () => window.BASIS || [], opslag: 'basiskast', start: [], foto: 'basis-',
-      soorten: [['Zoet', 'Suiker en zoet'], ['Meel', 'Meel en binden'], ['Bakken', 'Bakken en rijzen']],
+      soorten: [['Zoet', 'Suiker en zoet'], ['Meel', 'Meel en binden'], ['Bakken', 'Bakken en rijzen'], ['Pasta', 'Pasta']],
       telt: () => true,
       maakTitel: 'Alles in je kast', maakHint: 'Recepten met minstens 2 basisproducten, die je allemaal al hebt.',
       leeg: 'Nog niets: vink aan wat je hebt bij In mijn kast.', mistEen: 'Mist één pak', woord: 'basisproducten', stuk: 'pak'
@@ -551,7 +556,8 @@ const App = (() => {
   const kastItem = (id) => Object.values(KASTEN).flatMap((c) => c.lijst()).find((x) => x.id === id);
   const kruidRecepten = () => { const k = kastItem(state.kruid); return new Set(k ? receptenMet(k).map((r) => r.id) : []); };
   function receptenMet(k) {
-    const namen = k.namen.map((n) => Hulp.norm(n));
+    // Met wat uitwisselbaar is erbij: bij farfalle staan ook de recepten met penne of spaghetti.
+    const namen = k.namen.map((n) => Hulp.norm(n)).flatMap((n) => [n, ...Hulp.uitwisselbaar(n)]);
     const past = new Set(k.past || []);
     return RECEPTEN.filter((r) => past.has(r.id) || (r.ingr || []).some((i) => i.n && namen.includes(Hulp.norm(i.n))))
       .sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
@@ -560,7 +566,9 @@ const App = (() => {
   function kastNamen() {
     return new Set(Object.keys(KASTEN).flatMap((w) => {
       const inKast = kast(w);
-      return KASTEN[w].lijst().filter((k) => inKast.has(k.id)).flatMap((k) => k.namen.map((n) => Hulp.norm(n)).filter((n) => KASTEN[w].telt(k, n)));
+      // Uitwisselbaar telt ook: farfalle in je kast dekt de penne of spaghetti van een recept.
+      return KASTEN[w].lijst().filter((k) => inKast.has(k.id)).flatMap((k) => k.namen.map((n) => Hulp.norm(n)).filter((n) => KASTEN[w].telt(k, n)))
+        .flatMap((n) => [n, ...Hulp.uitwisselbaar(n)]);
     }));
   }
   // Wat in je kast staat hoef je niet te halen.

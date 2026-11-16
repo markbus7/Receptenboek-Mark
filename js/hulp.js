@@ -254,8 +254,10 @@ const Hulp = (() => {
 
   /* Ingrediënten die je zonder meer voor elkaar gebruikt: welke je neemt is een kwestie van smaak.
      Zoeken of in de kast zetten op de een vindt ook recepten met de ander. */
-  const UITWISSELBAAR = [['kipfilet', 'kippendijfilet']];
-  const uitwisselbaar = (t) => (UITWISSELBAAR.find((g) => g.includes(t)) || []).filter((x) => x !== t);
+  const PASTA = ['spaghetti', 'penne', 'mezzi rigatoni', 'rigatoni', 'macaroni', 'fusilli', 'spirelli', 'farfalle', 'tagliatelle', 'linguine'];
+  const UITWISSELBAAR = [['kipfilet', 'kippendijfilet'], PASTA];
+  // "pasta" in je voorraad of zoekopdracht staat voor elke pastasoort; lasagnebladen tellen niet mee.
+  const uitwisselbaar = (t) => (t === 'pasta' ? PASTA : (UITWISSELBAAR.find((g) => g.includes(t)) || []).filter((x) => x !== t));
 
   function termPast(term, ingr) {
     const t = norm(term);
