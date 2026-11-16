@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=1.94.0">
+<link rel="stylesheet" href="css/styles.css?v=1.95.0">
 </head>
 <body>
 <div class="app">
@@ -47,6 +47,13 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-filter"/></svg>
           Filters <span class="badge" id="filter-aantal"></span>
         </button>
+      </div>
+      <div class="hst-balk hk" id="hst-balk" hidden>
+        <button type="button" class="hst-nu" id="hst-nu" aria-haspopup="dialog" aria-controls="inhoud-vel" title="Open de inhoud">
+          <span class="hst-boven" id="hst-boven"></span>
+          <span class="hst-naam" id="hst-naam"></span>
+        </button>
+        <button type="button" class="knop knop-klein knop-zacht hst-inhoud" id="inhoud-knop" aria-haspopup="dialog" aria-controls="inhoud-vel"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-inhoud"/></svg> Inhoud</button>
       </div>
     </div>
   </div>
@@ -120,8 +127,6 @@
 
     <main class="inhoud" id="inhoud">
       <section id="view-recepten" aria-live="polite">
-        <nav class="tabbladen" id="tabbladen" aria-label="Delen"></nav>
-        <nav class="subtabs" id="subtabs" aria-label="Hoofdstukken" hidden></nav>
         <div class="boekpagina">
         <div class="resultaat-kop">
           <p id="resultaat-tekst"></p>
@@ -139,7 +144,11 @@
               <option value="fav">Favorieten eerst</option>
             </select>
           </label>
-          <button type="button" class="chip sorteer-om" id="sorteer-om" aria-pressed="false" title="Draai de volgorde om">⇅ Andersom</button>
+          <button type="button" class="chip sorteer-om" id="sorteer-om" aria-pressed="false" title="Draai de volgorde om" aria-label="Andersom">⇅<span class="sorteer-om-tekst"> Andersom</span></button>
+          <div class="weergave-wissel" role="group" aria-label="Weergave">
+            <button type="button" data-weergave="kaarten" aria-pressed="false" title="Kaarten met grote foto"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tegels"/></svg><span>Kaarten</span></button>
+            <button type="button" data-weergave="lijst" aria-pressed="false" title="Compacte lijst"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rijen"/></svg><span>Lijst</span></button>
+          </div>
           </div>
         </div>
         <div class="mix-info" id="mix-info"></div>
@@ -224,6 +233,18 @@
   <div class="kook hk" id="kook" role="dialog" aria-modal="true" aria-label="Kookstand" hidden></div>
 </div>
 
+<div class="inhoud-vel" id="inhoud-vel" hidden>
+  <div class="inhoud-achter" data-inhoud-sluit></div>
+  <section class="inhoud-blad" role="dialog" aria-modal="true" aria-labelledby="inhoud-titel" tabindex="-1">
+    <header class="inhoud-kop">
+      <h2 id="inhoud-titel">Inhoud</h2>
+      <button type="button" class="ikoon-knop" data-inhoud-sluit aria-label="Sluit de inhoud"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sluit"/></svg></button>
+    </header>
+    <p class="inhoud-hint" id="inhoud-hint"></p>
+    <div class="inhoud-lijst" id="inhoud-lijst"></div>
+  </section>
+</div>
+
 <div class="timers" id="timers" hidden></div>
 <div class="pijlen" id="pijlen">
   <button type="button" class="ikoon-knop pijl" id="naar-boven" aria-label="Naar boven" title="Naar boven" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-omhoog"/></svg></button>
@@ -262,6 +283,9 @@
     <symbol id="i-omhoog" viewBox="0 0 24 24"><path d="M6 14.5l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-zoek" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></g></symbol>
     <symbol id="i-filter" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></g></symbol>
+    <symbol id="i-inhoud" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 6.5h11M9 12h11M9 17.5h11"/><circle cx="4.6" cy="6.5" r=".9" fill="currentColor"/><circle cx="4.6" cy="12" r=".9" fill="currentColor"/><circle cx="4.6" cy="17.5" r=".9" fill="currentColor"/></g></symbol>
+    <symbol id="i-rijen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="4.5" width="5" height="5" rx="1"/><rect x="3.5" y="14.5" width="5" height="5" rx="1"/><path d="M11.5 6h9M11.5 8.5h6M11.5 16h9M11.5 18.5h6" stroke-linecap="round"/></g></symbol>
+    <symbol id="i-tegels" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.2"/></g></symbol>
     <symbol id="i-sluit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></g></symbol>
     <symbol id="i-blad" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19 13 11"/></g></symbol>
     <symbol id="i-peper" viewBox="0 0 24 24"><path d="M14.6 8.2C11 9.6 7 13 4.6 17.4c-.9 1.7-1.6 3-1.9 4 1.5-.5 3.3-1.5 5.4-2.8 4-2.6 8.4-5.6 10.6-8.1 1.1-1.3 1-2.6-.2-3.2-1.2-.6-2.6-.2-3.9.9Z" fill="currentColor"/><path d="M12.6 10.6c-2.5 1.7-4.7 4-6.2 6.5" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="1.1" stroke-linecap="round"/><path d="M13.8 8.9c.4-1.6 1.9-2.8 3.6-2.7 1.5.1 2.6 1.1 2.9 2.6-1-.5-2.1-.5-3 .1-1-.6-2.3-.6-3.5 0Z" fill="#4E8A3A"/><path d="M17.3 6.4c.2-1.7 1.1-3 2.7-3.9" fill="none" stroke="#4E8A3A" stroke-width="1.7" stroke-linecap="round"/></symbol>
@@ -274,60 +298,60 @@
   </defs>
 </svg>
 
-<script src="js/versie.js?v=1.94.0"></script>
-<script src="js/update.js?v=1.94.0"></script>
-<script src="js/data/gereedschap.js?v=1.94.0"></script>
-<script src="js/data/hoofdstukken.js?v=1.94.0"></script>
-<script src="js/data/recepten-1.js?v=1.94.0"></script>
-<script src="js/data/recepten-2.js?v=1.94.0"></script>
-<script src="js/data/recepten-3.js?v=1.94.0"></script>
-<script src="js/data/recepten-4.js?v=1.94.0"></script>
-<script src="js/data/recepten-5.js?v=1.94.0"></script>
-<script src="js/data/recepten-6.js?v=1.94.0"></script>
-<script src="js/data/recepten-7.js?v=1.94.0"></script>
-<script src="js/data/recepten-8.js?v=1.94.0"></script>
-<script src="js/data/recepten-9.js?v=1.94.0"></script>
-<script src="js/data/recepten-10.js?v=1.94.0"></script>
-<script src="js/data/recepten-11.js?v=1.94.0"></script>
-<script src="js/data/recepten-12.js?v=1.94.0"></script>
-<script src="js/data/recepten-13.js?v=1.94.0"></script>
-<script src="js/data/recepten-14.js?v=1.94.0"></script>
-<script src="js/data/recepten-15.js?v=1.94.0"></script>
-<script src="js/data/recepten-16.js?v=1.94.0"></script>
-<script src="js/data/recepten-17.js?v=1.94.0"></script>
-<script src="js/data/recepten-18.js?v=1.94.0"></script>
-<script src="js/data/recepten-19.js?v=1.94.0"></script>
-<script src="js/data/recepten-20.js?v=1.94.0"></script>
-<script src="js/data/recepten-21.js?v=1.94.0"></script>
-<script src="js/data/recepten-22.js?v=1.94.0"></script>
-<script src="js/data/recepten-23.js?v=1.94.0"></script>
-<script src="js/data/recepten-24.js?v=1.94.0"></script>
-<script src="js/data/recepten-25.js?v=1.94.0"></script>
-<script src="js/data/recepten-26.js?v=1.94.0"></script>
-<script src="js/data/recepten-27.js?v=1.94.0"></script>
-<script src="js/data/recepten-28.js?v=1.94.0"></script>
-<script src="js/data/kruiden.js?v=1.94.0"></script>
-<script src="js/data/smaakmakers.js?v=1.94.0"></script>
-<script src="js/data/basis.js?v=1.94.0"></script>
-<script src="js/varianten.js?v=1.94.0"></script>
-<script src="js/data/fotos.js?v=1.94.0"></script>
-<script src="js/data/groentemixen.js?v=1.94.0"></script>
-<script src="js/data/verpakkingen.js?v=1.94.0"></script>
-<script src="js/data/vervangers.js?v=1.94.0"></script>
-<script src="js/data/uien.js?v=1.94.0"></script>
-<script src="js/data/hoofdingredienten.js?v=1.94.0"></script>
-<script src="js/data/uitleg.js?v=1.94.0"></script>
-<script src="js/data/leren.js?v=1.94.0"></script>
-<script src="js/data/vriezer.js?v=1.94.0"></script>
-<script src="js/data/prijzen.js?v=1.94.0"></script>
-<script src="js/hulp.js?v=1.94.0"></script>
-<script src="js/prijzen.js?v=1.94.0"></script>
-<script src="js/boodschappen.js?v=1.94.0"></script>
-<script src="js/deelkaart.js?v=1.94.0"></script>
-<script src="js/logboek.js?v=1.94.0"></script>
-<script src="js/detail.js?v=1.94.0"></script>
-<script src="js/leren.js?v=1.94.0"></script>
-<script src="js/sync.js?v=1.94.0"></script>
-<script src="js/app.js?v=1.94.0"></script>
+<script src="js/versie.js?v=1.95.0"></script>
+<script src="js/update.js?v=1.95.0"></script>
+<script src="js/data/gereedschap.js?v=1.95.0"></script>
+<script src="js/data/hoofdstukken.js?v=1.95.0"></script>
+<script src="js/data/recepten-1.js?v=1.95.0"></script>
+<script src="js/data/recepten-2.js?v=1.95.0"></script>
+<script src="js/data/recepten-3.js?v=1.95.0"></script>
+<script src="js/data/recepten-4.js?v=1.95.0"></script>
+<script src="js/data/recepten-5.js?v=1.95.0"></script>
+<script src="js/data/recepten-6.js?v=1.95.0"></script>
+<script src="js/data/recepten-7.js?v=1.95.0"></script>
+<script src="js/data/recepten-8.js?v=1.95.0"></script>
+<script src="js/data/recepten-9.js?v=1.95.0"></script>
+<script src="js/data/recepten-10.js?v=1.95.0"></script>
+<script src="js/data/recepten-11.js?v=1.95.0"></script>
+<script src="js/data/recepten-12.js?v=1.95.0"></script>
+<script src="js/data/recepten-13.js?v=1.95.0"></script>
+<script src="js/data/recepten-14.js?v=1.95.0"></script>
+<script src="js/data/recepten-15.js?v=1.95.0"></script>
+<script src="js/data/recepten-16.js?v=1.95.0"></script>
+<script src="js/data/recepten-17.js?v=1.95.0"></script>
+<script src="js/data/recepten-18.js?v=1.95.0"></script>
+<script src="js/data/recepten-19.js?v=1.95.0"></script>
+<script src="js/data/recepten-20.js?v=1.95.0"></script>
+<script src="js/data/recepten-21.js?v=1.95.0"></script>
+<script src="js/data/recepten-22.js?v=1.95.0"></script>
+<script src="js/data/recepten-23.js?v=1.95.0"></script>
+<script src="js/data/recepten-24.js?v=1.95.0"></script>
+<script src="js/data/recepten-25.js?v=1.95.0"></script>
+<script src="js/data/recepten-26.js?v=1.95.0"></script>
+<script src="js/data/recepten-27.js?v=1.95.0"></script>
+<script src="js/data/recepten-28.js?v=1.95.0"></script>
+<script src="js/data/kruiden.js?v=1.95.0"></script>
+<script src="js/data/smaakmakers.js?v=1.95.0"></script>
+<script src="js/data/basis.js?v=1.95.0"></script>
+<script src="js/varianten.js?v=1.95.0"></script>
+<script src="js/data/fotos.js?v=1.95.0"></script>
+<script src="js/data/groentemixen.js?v=1.95.0"></script>
+<script src="js/data/verpakkingen.js?v=1.95.0"></script>
+<script src="js/data/vervangers.js?v=1.95.0"></script>
+<script src="js/data/uien.js?v=1.95.0"></script>
+<script src="js/data/hoofdingredienten.js?v=1.95.0"></script>
+<script src="js/data/uitleg.js?v=1.95.0"></script>
+<script src="js/data/leren.js?v=1.95.0"></script>
+<script src="js/data/vriezer.js?v=1.95.0"></script>
+<script src="js/data/prijzen.js?v=1.95.0"></script>
+<script src="js/hulp.js?v=1.95.0"></script>
+<script src="js/prijzen.js?v=1.95.0"></script>
+<script src="js/boodschappen.js?v=1.95.0"></script>
+<script src="js/deelkaart.js?v=1.95.0"></script>
+<script src="js/logboek.js?v=1.95.0"></script>
+<script src="js/detail.js?v=1.95.0"></script>
+<script src="js/leren.js?v=1.95.0"></script>
+<script src="js/sync.js?v=1.95.0"></script>
+<script src="js/app.js?v=1.95.0"></script>
 </body>
 </html>

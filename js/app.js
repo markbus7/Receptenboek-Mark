@@ -7,7 +7,7 @@ const App = (() => {
   const KEUKENS = [...HOOFDSTUKKEN.map((h) => h.keuken), ...new Set(RECEPTEN.map((r) => r.keuken))]
     .filter((k, i, a) => a.indexOf(k) === i && RECEPTEN.some((r) => r.keuken === k));
   const HK = new Map(KEUKENS.map((k, i) => [k, { nr: i + 1, kleur: (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).kleur || '#5A5048' }]));
-  // Delen (regio's) zijn de grote tabbladen; elk deel bundelt een paar hoofdstukken. Een keuken zonder regio valt onder het eerste deel.
+  // Delen (regio's) zijn de delen in de inhoud; elk deel bundelt een paar hoofdstukken. Een keuken zonder regio valt onder het eerste deel.
   const REGIO = new Map(KEUKENS.map((k) => [k, (HOOFDSTUKKEN.find((h) => h.keuken === k) || {}).regio || DELEN[0].regio]));
   const REGIOS = DELEN.filter((d) => KEUKENS.some((k) => REGIO.get(k) === d.regio));
   const keukensVan = (regio) => KEUKENS.filter((k) => REGIO.get(k) === regio);
@@ -80,10 +80,10 @@ const App = (() => {
     brood: 'Brood', broden: 'Brood', broodjes: 'Brood', broodgerechten: 'Brood', broodrecepten: 'Brood',
     cocktail: 'Cocktail', cocktails: 'Cocktail', drankje: 'Cocktail', drankjes: 'Cocktail', longdrink: 'Cocktail', longdrinks: 'Cocktail'
   };
-  /* Cocktails zijn een eigen deel van het boek: ze staan niet tussen het eten, tenzij je het tabblad Cocktails kiest,
+  /* Cocktails zijn een eigen deel van het boek: ze staan niet tussen het eten, tenzij je Cocktails in de inhoud kiest,
      de soort Cocktail aanvinkt of ernaar zoekt. In Nieuw, Favorieten en Gemaakt staan ze gewoon. */
   const DRANK = new Set(keukensVan('Cocktails'));
-  const toonDrank = () => state.view !== 'alle' || !!Hulp.norm(state.zoek).trim() || state.soorten.has('Cocktail') || [...state.keukens].some((k) => DRANK.has(k));
+  const toonDrank = () => state.alleDelen || state.view !== 'alle' || !!Hulp.norm(state.zoek).trim() || state.soorten.has('Cocktail') || [...state.keukens].some((k) => DRANK.has(k));
   const splits = (tekst) => Hulp.norm(tekst).split(/[^a-z0-9]+/).filter((w) => w.length > 1);
   // Woorden per recept voor korte zoektermen en tikfouten: naam, keuken, soort, ingrediënten en gerei.
   const WOORDEN = new Map(RECEPTEN.map((r) => [r.id, new Set(splits([
@@ -130,6 +130,8 @@ const App = (() => {
     maakbaar: false,
     sorteer: 'keuken',
     omgekeerd: false,
+    // Kaarten met grote foto of een compacte lijst; alleen op dit apparaat bewaard. Op de telefoon standaard de lijst.
+    weergave: opslag.lees('weergave', matchMedia('(max-width: 640px)').matches ? 'lijst' : 'kaarten'),
     favs: new Set(opslag.lees('favorieten', []))
   };
 
@@ -422,6 +424,7 @@ const App = (() => {
               ${r.vega ? `<span class="vega">${icoon('blad')} vega</span>` : ''}
               ${r.pit ? `<span class="pit" role="img" aria-label="${Hulp.pitTekst(r)}" title="${Hulp.pitTekst(r)}">${icoon('peper').repeat(r.pit)}</span>` : ''}
               ${gemaakt ? `<span class="gemaakt" title="Zo vaak heb je dit gemaakt">${icoon('vink')} ${gemaakt}× gemaakt</span>` : ''}
+              ${VARIANTEN.heeft(r) ? `<span class="kaart-nvar">${VARIANTEN.leden(r).length} varianten</span>` : ''}
               ${lekker.aantal ? `<span class="gemaakt gem-ster" title="Gemiddeld hoe lekker, uit ${lekker.aantal}× sterren">${icoon('ster')} ${Hulp.getal(lekker.gem, 1)}</span>` : ''}
             </span>
             <span class="kaart-gerei">${gereiRegel(r)}</span>
@@ -440,7 +443,7 @@ const App = (() => {
 
   function hoofdstukKop(keuken, aantal) {
     const h = hk(keuken);
-    return `<header class="hoofdstuk-kop hk" style="--k:${h.kleur}">
+    return `<header class="hoofdstuk-kop hk" id="${hstId(keuken)}" data-keuken="${esc(keuken)}" style="--k:${h.kleur}">
       <span class="hoofdstuk-nr">${esc(REGIO.get(keuken) || '')} · Hoofdstuk ${h.nr}</span>
       <h2>${esc(keuken)}</h2>
       <span class="hoofdstuk-aantal">${aantal} ${aantal === 1 ? 'recept' : 'recepten'}</span>
@@ -454,19 +457,87 @@ const App = (() => {
   }
   const heelDeel = (regio) => { const ks = keukensVan(regio); return ks.length === state.keukens.size && ks.every((k) => state.keukens.has(k)); };
 
-  function renderTabbladen() {
-    const deel = actiefDeel();
-    const alleen = state.keukens.size === 1 ? [...state.keukens][0] : null;
-    $('#tabbladen').innerHTML =
-      `<button type="button" class="tabblad tabblad-alle" data-tab="" aria-pressed="${!state.keukens.size}">Alle</button>` +
-      REGIOS.map((d) => `<button type="button" class="tabblad hk" style="--k:${d.kleur}" data-regio="${esc(d.regio)}" aria-pressed="${deel === d}">${esc(d.regio)}</button>`).join('');
-    const sub = $('#subtabs');
-    sub.hidden = !deel;
-    if (!deel) { sub.innerHTML = ''; return; }
-    sub.style.setProperty('--k', deel.kleur);
-    sub.innerHTML =
-      `<button type="button" class="subtab" data-regio="${esc(deel.regio)}" aria-pressed="${heelDeel(deel.regio)}">Alles</button>` +
-      keukensVan(deel.regio).map((k) => `<button type="button" class="subtab" style="--sk:${hk(k).kleur}" data-tab="${esc(k)}" aria-pressed="${alleen === k}">${esc(k)}</button>`).join('');
+  const hstId = (k) => 'hst-' + Hulp.norm(k).replace(/[^a-z0-9]+/g, '-');
+  const perHoofdstuk = () => state.view !== 'nieuw' && (state.sorteer === 'keuken' || (state.sorteer === 'match' && !state.voorraad.length));
+
+  /* ---------- Inhoud: alle delen en hoofdstukken, zoals voorin een kookboek ----------
+     Tik op een hoofdstuk en je springt erheen. Het telt mee met je zoekwoord en filters; een hoofdstuk zonder
+     treffers staat grijs. Cocktails staan niet onder Alle: tik je erop, dan zie je alleen de cocktails. */
+  function telPerKeuken() {
+    const bewaar = { keukens: state.keukens, vaag: state.vaag };
+    state.keukens = new Set(); state.alleDelen = true;
+    const n = new Map();
+    try { resultaten().forEach(({ r }) => n.set(r.keuken, (n.get(r.keuken) || 0) + 1)); }
+    finally { state.alleDelen = false; state.keukens = bewaar.keukens; state.vaag = bewaar.vaag; }
+    return n;
+  }
+
+  let inhoudTerug = null;
+  function openInhoud() {
+    const n = telPerKeuken();
+    const filters = actieveFilters().filter(([g]) => g !== 'keuken' && g !== 'regio').length + state.voorraad.length;
+    const zoek = state.zoek.trim();
+    $('#inhoud-hint').textContent = zoek || filters
+      ? `Het aantal recepten per hoofdstuk${zoek ? ` voor “${zoek}”` : ''}${filters ? ' met je filters' : ''}.`
+      : 'Tik op een hoofdstuk om erheen te gaan.';
+    const nu = huidigHoofdstuk();
+    $('#inhoud-lijst').innerHTML = REGIOS.map((d) => {
+      const ks = keukensVan(d.regio);
+      const som = ks.reduce((t, k) => t + (n.get(k) || 0), 0);
+      return `<section class="inhoud-deel hk" style="--k:${d.kleur}">
+        <button type="button" class="inhoud-deel-kop" data-inhoud-deel="${esc(d.regio)}"${som ? '' : ' disabled'}><span>${esc(d.regio)}</span><span class="inhoud-n">${som}</span></button>
+        <ol class="inhoud-hst">${ks.map((k) => `<li><button type="button" data-inhoud="${esc(k)}"${n.get(k) ? '' : ' disabled'}${k === nu ? ' aria-current="true"' : ''}>
+          <span class="inhoud-nr">${hk(k).nr}</span><span class="inhoud-naam">${esc(k)}</span><span class="inhoud-n">${n.get(k) || 0}</span></button></li>`).join('')}</ol>
+      </section>`;
+    }).join('');
+    inhoudTerug = document.activeElement;
+    $('#inhoud-vel').hidden = false;
+    document.body.classList.add('inhoud-open');
+    const actief = $('#inhoud-lijst [aria-current="true"]');
+    if (actief) actief.scrollIntoView({ block: 'center' });
+    $('.inhoud-blad').focus({ preventScroll: true });
+  }
+  function sluitInhoud() {
+    if ($('#inhoud-vel').hidden) return;
+    $('#inhoud-vel').hidden = true;
+    document.body.classList.remove('inhoud-open');
+    if (inhoudTerug && inhoudTerug.focus) inhoudTerug.focus({ preventScroll: true });
+  }
+  function naarHoofdstuk(k) {
+    sluitInhoud();
+    const drank = DRANK.has(k);
+    // Zit het hoofdstuk niet in wat je nu ziet (andere keuken gekozen, of cocktails), dan eerst het hele boek of de cocktails.
+    if (!document.getElementById(hstId(k)) || drank !== [...state.keukens].some((x) => DRANK.has(x))) {
+      state.keukens = new Set(drank ? DRANK : []);
+    }
+    if (!perHoofdstuk()) { state.sorteer = 'keuken'; if (state.zoek.trim()) state.zelfGesorteerd = true; }
+    if (APART.includes(state.view)) zetView('alle'); else render();
+    const el = document.getElementById(hstId(k));
+    if (el) el.scrollIntoView({ block: 'start' });
+    zetHoofdstukBalk();
+  }
+
+  /* Hoofdstukbalk: onder het zoekvak staat altijd in welk hoofdstuk je bent, met de knop Inhoud. */
+  function huidigHoofdstuk() {
+    const koppen = document.querySelectorAll('#raster .hoofdstuk-kop');
+    if (!koppen.length) return null;
+    const grens = $('#balk').getBoundingClientRect().bottom + 24;
+    let nu = koppen[0];
+    for (const h of koppen) { if (h.getBoundingClientRect().top <= grens) nu = h; else break; }
+    return nu.dataset.keuken;
+  }
+  function zetHoofdstukBalk() {
+    const balk = $('#hst-balk');
+    const zien = !APART.includes(state.view) && perHoofdstuk() && !!document.querySelector('#raster .hoofdstuk-kop');
+    if (balk.hidden === zien) balk.hidden = !zien;
+    if (!zien) return;
+    const k = huidigHoofdstuk();
+    const h = hk(k);
+    if (balk.dataset.keuken === k) return;
+    balk.dataset.keuken = k;
+    balk.style.setProperty('--k', h.kleur);
+    $('#hst-boven').textContent = `${REGIO.get(k) || ''} · Hoofdstuk ${h.nr}`;
+    $('#hst-naam').textContent = k;
   }
 
   function actieveFilters() {
@@ -489,17 +560,20 @@ const App = (() => {
 
   function render() {
     const lijst = resultaten();
-    const perHoofdstuk = state.view !== 'nieuw' && state.sorteer === 'keuken' || (state.sorteer === 'match' && !state.voorraad.length);
+    const groep = perHoofdstuk();
     let html = '', vorige = null;
     lijst.forEach((item) => {
-      if (perHoofdstuk && item.r.keuken !== vorige) {
+      if (groep && item.r.keuken !== vorige) {
         vorige = item.r.keuken;
         html += hoofdstukKop(vorige, lijst.filter((x) => x.r.keuken === vorige).length);
       }
       html += kaart(item);
     });
     $('#raster').innerHTML = html;
-    renderTabbladen();
+    $('#raster').classList.toggle('raster-lijst', state.weergave === 'lijst');
+    document.querySelectorAll('[data-weergave]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.weergave === state.weergave)));
+    delete $('#hst-balk').dataset.keuken;
+    zetHoofdstukBalk();
     renderMixInfo();
     const leeg = !lijst.length;
     $('#leeg').hidden = !leeg;
@@ -1110,20 +1184,31 @@ const App = (() => {
       if (a && !e.metaKey && !e.ctrlKey) { e.preventDefault(); openRecept(a.dataset.open); }
     });
 
-    // Groot tabblad: kies een heel deel (nog eens tikken = alles). Subtab: kies één keuken (nog eens tikken = terug naar het deel).
-    const kiesTab = (e) => {
-      const t = e.target.closest('[data-tab], [data-regio]');
-      if (!t) return;
-      const r = t.dataset.regio, k = t.dataset.tab, rij = e.currentTarget;
-      if (r !== undefined) state.keukens = new Set(heelDeel(r) && t.classList.contains('tabblad') ? [] : keukensVan(r));
-      else if (k && state.keukens.size === 1 && state.keukens.has(k)) state.keukens = new Set(keukensVan(REGIO.get(k)));
-      else state.keukens = new Set(k ? [k] : []);
-      if (APART.includes(state.view)) zetView('alle'); else render();
-      const nu = rij.querySelector('[aria-pressed="true"]');
-      if (nu) nu.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
-    };
-    $('#tabbladen').addEventListener('click', kiesTab);
-    $('#subtabs').addEventListener('click', kiesTab);
+    // Inhoud: openen via de hoofdstukbalk, een hoofdstuk of deel kiezen, sluiten met de achtergrond, het kruisje of Escape.
+    $('#inhoud-knop').addEventListener('click', openInhoud);
+    $('#hst-nu').addEventListener('click', openInhoud);
+    $('#inhoud-vel').addEventListener('click', (e) => {
+      if (e.target.closest('[data-inhoud-sluit]')) return sluitInhoud();
+      const k = e.target.closest('[data-inhoud]');
+      if (k) return naarHoofdstuk(k.dataset.inhoud);
+      const d = e.target.closest('[data-inhoud-deel]');
+      if (d) {
+        const eerste = [...d.closest('.inhoud-deel').querySelectorAll('[data-inhoud]:not([disabled])')][0];
+        if (eerste) naarHoofdstuk(eerste.dataset.inhoud);
+      }
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !$('#inhoud-vel').hidden) sluitInhoud(); });
+    // Kaarten of lijst
+    document.querySelector('.weergave-wissel').addEventListener('click', (e) => {
+      const b = e.target.closest('[data-weergave]');
+      if (!b || b.dataset.weergave === state.weergave) return;
+      state.weergave = b.dataset.weergave;
+      opslag.schrijf('weergave', state.weergave, { stil: true });
+      const k = huidigHoofdstuk();
+      render();
+      const el = k && window.scrollY > 0 && document.getElementById(hstId(k));
+      if (el) el.scrollIntoView({ block: 'start' });
+    });
 
     $('#actieve-filters').addEventListener('click', (e) => {
       if (e.target.closest('[data-wis-alles]')) return wisAlles();
@@ -1266,6 +1351,7 @@ const App = (() => {
       gepland = false;
       const y = window.scrollY, hoog = window.innerHeight, totaal = document.documentElement.scrollHeight;
       balk.classList.toggle('vast', balk.getBoundingClientRect().top <= 0 && y > 0);
+      zetHoofdstukBalk();
       const lang = totaal > hoog * 2.5;
       boven.hidden = !lang || y < hoog * 0.8;
       beneden.hidden = !lang || y + hoog > totaal - hoog * 0.8;
@@ -1282,7 +1368,9 @@ const App = (() => {
 
   function start() {
     const metVarianten = new Set(RECEPTEN.filter((r) => VARIANTEN.heeft(r)).map((r) => r.groep)).size;
-    $('#teller').textContent = `${VARIANTEN.aantalGerechten()} recepten · ${metVarianten} met varianten · ${KEUKENS.length} hoofdstukken`;
+    // Cocktails staan apart in het boek, dus apart geteld: zo klopt het met het overzicht onder Alle.
+    const cocktails = new Set(RECEPTEN.filter((r) => DRANK.has(r.keuken)).map((r) => r.groep)).size;
+    $('#teller').textContent = `${VARIANTEN.aantalGerechten() - cocktails} gerechten + ${cocktails} cocktails · ${metVarianten} met varianten · ${KEUKENS.length} hoofdstukken`;
     Update.start();
     renderFilters();
     koppel();
