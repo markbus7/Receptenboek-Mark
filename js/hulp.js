@@ -304,7 +304,9 @@ const Hulp = (() => {
 
   /* Welke groenten uit een recept een mix vervangt, en ongeveer hoeveel gram mix je dan gebruikt. */
   function mixDekking(recept, mix, factor = 1) {
-    const gedekt = ingrediënten(recept).filter((i) => !isBasis(i) && mix.bevat.some((t) => termPast(t, i)));
+    // Een mix met ui vervangt geen lente-ui: dat is een andere groente.
+    const past = (t, i) => termPast(t, i) && !(/lente/.test(norm(i.n)) && !/lente/.test(norm(t)));
+    const gedekt = ingrediënten(recept).filter((i) => !isBasis(i) && mix.bevat.some((t) => past(t, i)));
     const aanrader = (mix.aanraders || []).some((id) => id === recept.id || id === recept.groep);
     // Past de mix bij de keuken van het recept (Mexicaanse mix bij taco's, wokgroente bij Chinees)?
     const keuken = (mix.keukens || []).includes(recept.keuken);

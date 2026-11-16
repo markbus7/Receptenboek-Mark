@@ -1,14 +1,14 @@
 /* Groentemixen uit de supermarkt: diepvries, en met `vers: true` de verse mixen uit het koelvak die Mark bij de AH koopt. `bevat` zijn de groenten die er meestal in zitten,
    met de namen zoals ze in de recepten staan; daarmee zoekt de app recepten waar de mix in past.
    `aanraders` zijn recepten waar de mix echt goed in past (met de hand gekozen).
-   Ui zit alleen in de paprika-uienreepjes en de hutspotmix; in de andere mixen zit (bijna) nooit ui, dus die vervangen hem niet.
+   Ui zit alleen in de paprika-uienreepjes, de hutspotmix, de nasi/bamigroente, de erwtensoepgroente en de AH Roerbakgroente Italiaans (nagekeken op ah.nl, 2026-11-16); in de andere mixen zit (bijna) nooit ui, dus die vervangen hem niet.
    `erbij` (met `erbijMin` voor de timer, `erbijMee` als hij in de saus of soep meekookt) is de extra stap als de mix niets vervangt maar er als extra groente bij gaat.
    `keukens`: de keukens waar de mix bij past. Een mix uit de keuken van het recept krijgt voorrang (Mediterrane mix bij Italiaanse pasta),
    een mix met keukens maar niet die van het recept zakt (wokgroente bij pasta: daar zitten kool en taugé in). Zonder `keukens` past een mix overal. */
 window.GROENTEMIXEN = [
   {
     id: 'wokgroente', erbij: 'Roerbak hem apart 5 à 7 minuten op hoog vuur in een hete wok of koekenpan met een scheut olie en schep hem op het eind door het gerecht.', erbijMin: 7, keukens: ['Chinees', 'Thais', 'Japans', 'Koreaans', 'Vietnamees', 'Indonesisch'], aanraders: ['kip-ketjap-wokgroente', 'kip-oestersaus-wokgroente', 'bami-goreng', 'nasi-goreng', 'kung-pao-kip', 'pad-thai', 'groene-curry', 'bibimbap', 'tjap-tjoy', 'kip-cashew', 'yakisoba', 'egg-fried-rice', 'japchae', 'pad-see-ew'], naam: 'Wokgroente', voorbeeld: 'Oosterse wokmix, roerbakgroente',
-    bevat: ['paprika', 'rode paprika', 'prei', 'witte kool', 'spitskool', 'chinese kool', 'wortel', 'taugé', 'champignons', 'sperziebonen', 'peultjes', 'lente-ui', 'broccoli', 'paksoi'],
+    bevat: ['paprika', 'rode paprika', 'prei', 'witte kool', 'spitskool', 'chinese kool', 'wortel', 'taugé', 'sperziebonen', 'peultjes', 'lente-ui', 'broccoli', 'paksoi'],
     bereiding: 'Niet ontdooien. Doe de groente bevroren in een gloeiend hete wok of koekenpan met een scheut olie en roerbak 5 à 7 minuten op hoog vuur. In een kleine pan in twee porties, anders gaat de groente koken in plaats van bakken.',
     snel: 'Bijgerecht in 7 minuten: roerbak met knoflook, gember en 2 el sojasaus. Of maak er mie met ei van.'
   },
@@ -19,14 +19,20 @@ window.GROENTEMIXEN = [
     snel: 'Bijgerecht in 8 minuten: roerbak met knoflook, gember en 2 el sojasaus. Of door mie of gebakken rijst met een ei.'
   },
   {
-    id: 'nasi-bami', erbij: 'Roerbak hem apart 4 à 5 minuten op hoog vuur met een scheut olie en schep hem op het eind door het gerecht.', erbijMin: 5, keukens: ['Indonesisch', 'Surinaams'], aanraders: ['nasi-goreng', 'bami-goreng', 'sajoer-lodeh', 'gado-gado', 'egg-fried-rice', 'tjap-tjoy', 'foe-yong-hai', 'kimchi-fried-rice'], naam: 'Nasi- of bamigroente', voorbeeld: 'gesneden prei, spitskool en wortel',
-    bevat: ['prei', 'witte kool', 'spitskool', 'chinese kool', 'wortel', 'verse selderij', 'taugé'],
+    id: 'nasi-bami', erbij: 'Roerbak hem apart 4 à 5 minuten op hoog vuur met een scheut olie en schep hem op het eind door het gerecht.', erbijMin: 5, keukens: ['Indonesisch', 'Surinaams'], aanraders: ['nasi-goreng', 'bami-goreng', 'sajoer-lodeh', 'gado-gado', 'egg-fried-rice', 'tjap-tjoy', 'foe-yong-hai', 'kimchi-fried-rice'], naam: 'Nasi- of bamigroente', voorbeeld: 'AH diepvries 450 g: wortel, spitskool, prei en een beetje rode ui',
+    bevat: ['wortel', 'spitskool', 'witte kool', 'prei', 'ui', 'rode ui'],
     bereiding: 'Niet ontdooien. Roerbak de groente 4 à 5 minuten op hoog vuur, op het moment dat het recept de prei en kool toevoegt.',
     snel: 'Gebakken rijst: roerbak de groente, schuif opzij, bak er een ei bij en voeg koude rijst en ketjap toe.'
   },
   {
-    id: 'mediterraan', erbij: 'Bak hem apart in een hete pan met olijfolie, eerst op hoog vuur tot het vocht verdampt is en dan tot hij kleurt (8 à 10 minuten), of 15 minuten in de airfryer op 200 °C. Schep hem door het gerecht of serveer hem erbij.', erbijMin: 10, keukens: ['Italiaans', 'Grieks', 'Spaans', 'Frans', 'Turks', 'Midden-Oosters', 'Marokkaans'], aanraders: ['ratatouille', 'frittata', 'shakshuka', 'moussaka', 'penne-arrabbiata', 'minestrone', 'groentecouscous'], naam: 'Italiaanse of mediterrane groentemix', voorbeeld: 'Italiaanse groenten, ratatouillegroente: courgette, aubergine en paprika',
-    bevat: ['courgette', 'aubergine', 'paprika', 'rode paprika', 'groene paprika', 'cherrytomaten'],
+    id: 'ah-italiaans', erbij: 'Roerbak hem apart 6 à 8 minuten in een hete koekenpan met een scheut olijfolie, tot het vocht verdampt is en de groente kleurt, en schep hem door de saus.', erbijMin: 8, keukens: ['Italiaans'], aanraders: ['penne-piccante-pot', 'penne-piccante-kip', 'penne-piccante-vega', 'gehaktballetjes-pastasaus', 'spaghetti-bolognese', 'lasagne-bolognese', 'minestrone', 'eieren-pittige-tomatensaus', 'frittata'], naam: 'AH Roerbakgroente Italiaans', voorbeeld: 'diepvries 450 g (ook vers in het koelvak): prei, wortel, ui, courgette en rode paprika',
+    bevat: ['prei', 'wortel', 'ui', 'courgette', 'paprika', 'rode paprika'],
+    bereiding: 'Bak de groente bevroren 6 à 8 minuten in een hete pan met een scheut olijfolie tot het vocht verdampt is en hij een beetje kleurt. Voeg daarna pas de saus toe. Er zit ui in, dus die hoef je niet apart te snijden.',
+    snel: 'Door pasta met een pot pastasaus en gehakt, in een frittata, of met olijfolie en Parmezaan als bijgerecht.'
+  },
+  {
+    id: 'mediterraan', erbij: 'Bak hem apart in een hete pan met olijfolie, eerst op hoog vuur tot het vocht verdampt is en dan tot hij kleurt (8 à 10 minuten), of 15 minuten in de airfryer op 200 °C. Schep hem door het gerecht of serveer hem erbij.', erbijMin: 10, keukens: ['Italiaans', 'Grieks', 'Spaans', 'Frans', 'Turks', 'Midden-Oosters', 'Marokkaans'], aanraders: ['ratatouille', 'frittata', 'shakshuka', 'moussaka', 'penne-arrabbiata', 'minestrone', 'groentecouscous'], naam: 'Mediterrane groentemix', voorbeeld: 'gegrilde groenten of ratatouillegroente: courgette, aubergine en paprika',
+    bevat: ['courgette', 'aubergine', 'paprika', 'rode paprika', 'gele paprika', 'groene paprika'],
     bereiding: 'Rooster hem bevroren met olijfolie en zout: 25 minuten op een bakplaat in de oven op 220 °C, of 15 minuten in de airfryer op 200 °C. In de pan: eerst op hoog vuur het vocht laten verdampen, dan pas bakken.',
     snel: 'Door pasta met pesto en feta, op een pizza, of als vulling voor een frittata of quiche.'
   },
@@ -91,9 +97,9 @@ window.GROENTEMIXEN = [
     snel: 'Groentecurry in 20 minuten: fruit een ui, bak 2 el kerrie mee, voeg een blik tomaten, kokosmelk en de mix toe.'
   },
   {
-    id: 'erwtensoepgroente', erbijMee: true, keukens: ['Nederlands', 'Belgisch', 'Duits & Oostenrijks'], erbij: 'Doe hem bevroren in de soep. Hij moet 15 minuten meekoken.', aanraders: ['erwtensoep', 'harira', 'linzensoep-mercimek', 'groentesoep-balletjes'], naam: 'Erwtensoepgroente', voorbeeld: 'knolselderij, prei, wortel',
-    bevat: ['knolselderij', 'prei', 'wortel', 'verse selderij'],
-    bereiding: 'Voeg de mix bevroren toe in de laatste 45 minuten van de soep.',
+    id: 'erwtensoepgroente', erbijMee: true, vers: true, keukens: ['Nederlands', 'Belgisch', 'Duits & Oostenrijks'], erbij: 'Doe hem in de soep. Hij moet 8 à 10 minuten meekoken.', aanraders: ['erwtensoep', 'harira', 'linzensoep-mercimek', 'groentesoep-balletjes'], naam: 'Erwtensoepgroente', voorbeeld: 'AH koelvak 500 g: prei, ui, peen en knolselderij',
+    bevat: ['knolselderij', 'prei', 'wortel', 'ui'],
+    bereiding: 'Vers uit het koelvak: doe de groente in de laatste 10 minuten bij de soep en laat hem 8 à 10 minuten meekoken. Er zit ui in, dus die hoef je niet apart te snijden.',
     snel: 'Erwtensoep, of als basis voor elke stevige groentesoep.'
   }
 ];
