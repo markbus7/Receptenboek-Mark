@@ -148,6 +148,9 @@ window.UIEN = {
     galbijjim: { ui: ['gele ui', 'Gepureerd met de peer maakt hij de saus zoet en dik; je proeft hem niet als stukje terug', 'witte ui'] },
     'tjauw-min': { ui: ['gele ui', 'In halve ringen kort gebakken wordt hij zoet en blijft hij een beetje knapperig tussen de mie', 'witte ui'] },
     /* Met een pot pastasaus */
-    'kip-piccante-paprika': { ui: ['rode ui', 'Zoet en mild, en mooi van kleur naast de paprika', 'gele ui'] }
+    'kip-piccante-paprika': { ui: ['rode ui', 'Zoet en mild, en mooi van kleur naast de paprika', 'gele ui'] },
+    /* Week van 2026-11-17 */
+    'lecso': { ui: ['gele ui', 'In halve ringen langzaam gebakken wordt hij zoet en zacht en smelt hij samen met de paprika, zoals in Hongarije', 'witte ui'] },
+    'tajine-rund-pruimen': { ui: ['gele ui', 'Geraspt valt hij in twee uur stoven helemaal uiteen en maakt hij de saus dik en zoet', 'rode ui'] }
   }
 };

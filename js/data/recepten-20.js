@@ -676,5 +676,54 @@ RECEPTEN.push(
   ],
   tips: ['Niet te kort koken: dan blijft het een saus en kun je geen bolletjes rollen. Te lang en ze worden hard en taai. Die streep door de bodem is de beste test.', 'Hagelslag is precies wat ze in Brazilië gebruiken (chocolate granulado); Nederlandse pure hagelslag is zelfs lekkerder.', 'In een afgesloten bakje blijven ze 3 dagen goed buiten de koelkast, een week erin. Haal ze een half uur van tevoren uit de koelkast, dan zijn ze weer zacht.'],
   alt: ['Beijinho (witte variant): laat de cacao weg en roer 50 g geraspte kokos door de melk; rol ze door kokos in plaats van hagelslag.', 'Met 1 el sterke koffie of 1 tl rum in het mengsel worden ze iets volwassener.']
+},
+{
+  id: 'pollo-a-la-brasa', toegevoegd: '2026-11-17', naam: 'Pollo a la brasa (Peruaanse kip met groene saus)',
+  ook: ['pollo a la brasa', 'peruaanse kip', 'peruviaanse kip', 'peruvian chicken', 'pollo brasa', 'kip met aji verde', 'aji verde', 'groene saus', 'kippenpoten uit de airfryer'],
+  keuken: 'Zuid-Amerikaans', soort: 'Hoofdgerecht',
+  tijd: 55, wacht: 'minstens 2 uur marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'Het lievelingseten van Peru: kip in een donkere marinade van knoflook, komijn, sojasaus en limoen, geroosterd tot het vel knapperig en het vlees sappig is. Met ají verde, een romige groene saus van koriander, jalapeño en limoen, en friet en een frisse salade erbij. Uit de airfryer, zonder oven.',
+  gerei: [
+    { tool: 'airfryer', tekst: 'Airfryer (XXL) voor de kip en daarna de friet' },
+    { tool: 'staafmixer', tekst: 'Staafmixer of blender voor de marinade en de saus' }
+  ],
+  ingr: [
+    { kop: 'Kip' },
+    { n: 'kippenpoten', q: 1200, u: 'g', x: '4 stuks, dij en drumstick met bot en vel' },
+    { n: 'knoflook', q: 4, u: 'teen', x: 'gepeld en grof gehakt' },
+    { n: 'sojasaus', q: 3, u: 'el' },
+    { n: 'limoen', p: 'limoenen', q: 2, u: 'st', x: 'sap' },
+    { n: 'zonnebloemolie', q: 2, u: 'el' },
+    { n: 'komijn', q: 2, u: 'tl', x: 'gemalen (komijnpoeder)' },
+    { n: 'paprikapoeder', q: 1, u: 'el', x: 'edelzoet' },
+    { n: 'gedroogde oregano', q: 1, u: 'tl' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { n: 'zwarte peper', q: 1, u: 'tl', x: 'versgemalen' },
+    { kop: 'Ají verde' },
+    { n: 'verse koriander', q: 30, u: 'g', x: 'blaadjes en dunne steeltjes', vers: 'de saus draait helemaal om verse koriander' },
+    { n: 'jalapeño', p: 'jalapeño\'s', q: 2, u: 'st', x: 'grof gesneden, zaadlijsten eruit voor minder pittig' },
+    { n: 'mayonaise', q: 4, u: 'el' },
+    { n: 'Parmezaanse kaas', q: 20, u: 'g', x: 'geraspt; in Peru queso fresco' },
+    { n: 'knoflook', q: 1, u: 'teen', x: 'gepeld' },
+    { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'sap' },
+    { n: 'zout', q: 1, u: 'snuf' },
+    { kop: 'Erbij' },
+    { n: 'diepvriesfriet', q: 750, u: 'g', x: 'airfryerfriet' },
+    { n: 'ijsbergsla', q: 0.5, u: 'st', x: 'in reepjes' },
+    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in partjes' },
+    { n: 'komkommer', p: 'komkommers', q: 0.5, u: 'st', x: 'in plakjes' }
+  ],
+  stappen: [
+    { kop: 'Kip', t: 'Draai de knoflook, sojasaus, het limoensap, de olie, komijn, paprikapoeder, oregano, zout en peper met de staafmixer tot een gladde, donkere marinade.' },
+    { t: 'Snijd met een scherp mes aan beide kanten van de kippenpoten twee sneetjes tot op het bot. Wrijf de marinade er rondom in, ook in de sneetjes en onder het vel. Laat afgedekt minstens 2 uur marineren in de koelkast, liefst de hele nacht.', min: 120 },
+    { t: 'Haal de kip een half uur van tevoren uit de koelkast. Leg de poten met het vel naar boven naast elkaar in de mand van de airfryer, niet over elkaar.', min: 30 },
+    { t: 'Rooster 30 minuten op 180 °C. Zet hem daarna op 200 °C en rooster nog 5 à 8 minuten, tot het vel donker en knapperig is en het vocht helder uit het vlees loopt als je bij het bot prikt (80 °C met een thermometer).', min: 38 },
+    { kop: 'Ají verde', t: 'Draai intussen alle ingrediënten voor de ají verde met de staafmixer tot een gladde, lichtgroene saus. Proef: zuurder met limoen, pittiger met wat zaadjes van de jalapeño. Zet hem in de koelkast.' },
+    { kop: 'Erbij', t: 'Leg de kip op een schaal onder een stuk aluminiumfolie. Bak de friet in de airfryer op 200 °C volgens de verpakking, meestal 15 à 18 minuten; schud halverwege.', min: 18 },
+    { t: 'Leg de sla, tomaat en komkommer op een schaal en sprenkel er een beetje olie, limoensap en zout over.' },
+    { t: 'Serveer de kip met de friet, de salade en de ají verde om in te dopen, over de kip en over de friet.' }
+  ],
+  tips: ['In Peru draait de kip aan het spit boven houtskool. De sojasaus in de marinade komt van de Chinese Peruanen en geeft de kip zijn donkere, knapperige vel.', 'Past niet alles in één keer in je airfryer, rooster dan twee poten per keer en houd de eerste warm onder folie.', 'Ají verde blijft afgedekt 3 dagen goed in de koelkast; heerlijk op een broodje, bij friet of bij gegrilde worst.'],
+  alt: ['Pikanter, zoals in Peru: doe 1 el ají amarillo-pasta (in toko\'s en Zuid-Amerikaanse winkels) in de marinade en de saus, of 1 tl sambal oelek.', 'Met kippendijen met bot en vel: rooster 25 minuten op 180 °C en 5 minuten op 200 °C.', 'Met een hele kip (ca. 1,4 kg) in de airfryer XXL: 50 minuten op 180 °C, borst naar beneden, en na 30 minuten keren.']
 }
 );

@@ -78,6 +78,8 @@ window.PRIJSKOPPELING = {
   'krenten': { niet: ['brood', 'biscuit', 'bollen', 'koek', 'meergranen', 'rozijnenbrood'] },
   'rozijnen': { niet: ['brood', 'krenten'] },
   'gedroogde abrikozen': {},
+  'gedroogde pruimen': { zoek: ['gedroogde pruimen', 'pruimen zonder pit', 'zachte pruimen'], niet: ['sap', 'compote', 'yoghurt'] },
+  'schuimpjes': { geen: true },  // kant-en-klare meringues; de bron heeft alleen snoepschuimpjes (fruitig, mokka, Sint)
   'zongedroogde tomaten': {},
   'zilveruitjes': {},
   'augurk': { zoek: ['augurken', 'augurken zuur', 'augurken zoetzuur'], niet: ['ketchup', 'schijven', 'hamburger', 'snack', 'pikant'], st: 30 },
