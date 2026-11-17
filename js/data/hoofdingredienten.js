@@ -343,5 +343,12 @@ window.HOOFD = {
   'kerriekip-wok': ['kip', 'wokgroente', 'kerrie', 'rijst'],
 
   /* Met een pot pastasaus */
-  'kip-piccante-paprika': ['kip', 'paprika', 'pastasaus uit een pot', 'rijst']
+  'kip-piccante-paprika': ['kip', 'paprika', 'pastasaus uit een pot', 'rijst'],
+
+  /* Week van 2026-11-17 */
+  'pinchos-morunos': ['varkenshaas', 'komijn', 'groene paprika', 'stokbrood'],
+  'lecso': ['paprika', 'tomaat', 'rookworst', 'rijst'],
+  'tajine-rund-pruimen': ['rundvlees', 'gedroogde pruimen', 'amandelen', 'brood'],
+  'pollo-a-la-brasa': ['kippenpoten', 'koriandersaus', 'friet', 'salade'],
+  'eton-mess': ['aardbeien', 'slagroom', 'schuimpjes']
 };

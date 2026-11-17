@@ -209,6 +209,9 @@ ARTIKELEN = {
     'popcorn-bioscoop': 'File:Popcorn in a bowl.jpg',
     # 1.83.0 (geen vrije foto van het echte gerecht bij bife con chimichurri, tjauw min en cà ri gà, dus het tegeltje)
     'galbijjim': 'Galbi-jjim', 'loukoumades': 'Loukoumades',
+    # 1.99.0
+    'pinchos-morunos': 'Pincho moruno', 'lecso': 'Lecsó', 'tajine-rund-pruimen': 'File:Moroccan cuisine-Mrouzia beef short ribs.jpg',
+    'pollo-a-la-brasa': 'Pollo a la brasa', 'eton-mess': 'Eton mess',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

@@ -134,6 +134,50 @@ RECEPTEN.push(
   bij: ['patatas-bravas']
 },
 {
+  id: 'pinchos-morunos', toegevoegd: '2026-11-17', naam: 'Pinchos morunos (Spaanse spiesjes met komijn)',
+  ook: ['pinchos morunos', 'pincho moruno', 'pinchitos', 'spaanse spiesjes', 'moorse spiesjes', 'varkensspiesjes', 'spiesjes met komijn', 'spaanse vleesspiesjes'],
+  keuken: 'Spaans', soort: 'Hoofdgerecht',
+  tijd: 30, wacht: '2 uur marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'Kleine spiesjes varkensvlees in een rode marinade van komijn, gerookt paprikapoeder, knoflook en citroen, zoals je ze in elke tapasbar in Andalusië krijgt. Ze gaan in een paar minuten op de OptiGrill of in de pan, met gegrilde groene paprika en brood om het sap op te deppen.',
+  methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
+  gerei: [
+    { tool: 'contactgrill', tekst: 'Contactgrill (zoals de OptiGrill) op de hoogste stand, en 8 houten spiesjes die tussen de platen passen', m: 'contactgrill' },
+    { tool: 'koekenpan', tekst: 'Grillpan of gietijzeren koekenpan (28 cm), en 8 houten spiesjes', m: 'koekenpan', of: 'Een antiaanbakpan werkt ook, maar geeft minder korstje.' }
+  ],
+  ingr: [
+    { kop: 'Marinade' },
+    { n: 'varkenshaas', q: 600, u: 'g', x: 'of procureur (schouder), in blokjes van 2½ cm' },
+    { n: 'olijfolie', q: 4, u: 'el' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'geperst' },
+    { n: 'komijn', q: 2, u: 'tl', x: 'gemalen (komijnpoeder)' },
+    { n: 'gerookt paprikapoeder', q: 2, u: 'tl', x: 'pimentón de la Vera, zoet of pittig' },
+    { n: 'gemalen koriander', q: 1, u: 'tl', x: 'korianderpoeder' },
+    { n: 'gedroogde oregano', q: 1, u: 'tl' },
+    { n: 'cayennepeper', q: 1, u: 'snuf', x: 'mag ook weg' },
+    { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'sap van de helft, de rest in partjes' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { n: 'zwarte peper', x: 'versgemalen' },
+    { kop: 'Erbij' },
+    { n: 'groene paprika', p: 'groene paprika\'s', q: 2, u: 'st', x: 'in brede repen' },
+    { n: 'olijfolie', q: 1, u: 'el' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'fijngehakt' },
+    { n: 'stokbrood', p: 'stokbroden', q: 1, u: 'st' }
+  ],
+  stappen: [
+    { kop: 'Marinade', t: 'Roer in een kom de olie, knoflook, komijn, gerookt paprikapoeder, koriander, oregano, cayennepeper, het citroensap en de peper door elkaar. Schep het vlees erdoor tot alles rood is. Zout nog niet: dat doe je vlak voor het grillen, dan blijft het vlees sappiger.' },
+    { t: 'Dek af en laat minstens 2 uur marineren in de koelkast, of de hele nacht. Leg de houten spiesjes intussen een half uur in water, zodat ze niet verbranden.', min: 120 },
+    { t: 'Rijg 4 à 5 blokjes vlees aan elk spiesje, dicht tegen elkaar. Bestrooi ze met het zout. Hussel de paprikarepen met 1 el olie en een snuf zout.' },
+    { kop: 'Erbij', t: 'Verwarm de contactgrill op de hoogste stand. Grill eerst de paprikarepen met de deksel dicht 4 à 5 minuten, tot ze zacht zijn en zwarte strepen hebben. Leg ze op een schaal.', m: 'contactgrill', min: 5 },
+    { kop: 'Marinade', t: 'Leg de spiesjes naast elkaar op de grill, sluit de deksel en grill 6 à 7 minuten, tot het vlees net gaar is en mooie bruine strepen heeft. Je hoeft ze niet te keren.', m: 'contactgrill', min: 7 },
+    { kop: 'Erbij', t: 'Verhit de grillpan op hoog vuur tot hij echt heet is. Bak de paprikarepen 5 minuten, tot ze zacht zijn en hier en daar zwart. Leg ze op een schaal.', m: 'koekenpan', min: 5 },
+    { kop: 'Marinade', t: 'Bak de spiesjes in twee keer 8 à 10 minuten, en keer ze elke 2 minuten, tot ze rondom bruin en net gaar zijn.', m: 'koekenpan', min: 10 },
+    { t: 'Leg de spiesjes op de paprika, strooi de peterselie erover en leg de citroenpartjes erbij. Eet ze met stokbrood om de rode olie op te deppen.' }
+  ],
+  tips: ['Varkenshaas is mals en snel gaar; haal hem van de grill als hij net niet meer roze is, anders wordt hij droog. Procureur is vetter en blijft sappiger, maar heeft 1 à 2 minuten langer nodig.', 'Op de OptiGrill moeten de spiesjes plat tussen de platen passen. Knip lange spiesjes met een schaar korter.', 'Voor een tapasavond: zet er patatas bravas, gambas al ajillo en brood met tomaat bij.'],
+  alt: ['Met kip: neem 600 g kippendijfilet in blokjes en grill 8 minuten op de contactgrill (of 12 minuten in de pan).', 'Met lamsvlees, zoals ze het in Marokko doen: lamsbout in blokjes, met een extra theelepel komijn.', 'Liever een volle maaltijd met aardappels: bak 600 g krieltjes 20 minuten in de airfryer op 200 °C.'],
+  bij: ['patatas-bravas']
+},
+{
   id: 'gyros', naam: 'Gyros', gerecht: 'Gyros', variant: 'Varkensvlees', ook: ['pita gyros', 'gyros met tzatziki'],
   keuken: 'Grieks', soort: 'Hoofdgerecht',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false,
@@ -509,6 +553,43 @@ RECEPTEN.push(
   ],
   tips: ['Kook de aardappelen en eieren een dag van tevoren: koude aardappelen snijd je zonder dat ze breken. Haal de schaal dan wel 10 minuten langer door de oven.', 'Vastkokende aardappelen houden hun vorm; met kruimige krijg je eerder een soort puree.'],
   alt: ['Met spek: bak 125 g spekblokjes mee met de worst.', 'Zonder vlees: laat de worst weg en leg een laag gebakken paprikareepjes tussen de aardappel.']
+},
+{
+  id: 'lecso', toegevoegd: '2026-11-17', naam: 'Lecsó met worst (Hongaarse paprikastoof)',
+  ook: ['lecso', 'lecsó', 'letscho', 'kolbászos lecsó', 'hongaarse paprikastoof', 'paprikastoof', 'paprika met tomaat en worst', 'hongaarse paprika met worst'],
+  keuken: 'Hongaars', soort: 'Hoofdgerecht',
+  tijd: 40, pers: 4, niveau: 'Makkelijk', vega: false,
+  intro: 'Het Hongaarse antwoord op ratatouille: heel veel paprika, langzaam gestoofd met ui, spekjes en rijpe tomaat tot een zoete, zachte stoof, op smaak met paprikapoeder. Met plakjes worst erin en rijst erbij is het een volle maaltijd uit één pan.',
+  gerei: [
+    { tool: 'hapjespan', tekst: 'Hapjespan of brede pan met deksel (28 cm)', of: 'Een Dutch oven werkt ook.' },
+    { tool: 'rijstkoker', tekst: 'Rijstkoker of pan met deksel voor de rijst' }
+  ],
+  ingr: [
+    { n: 'rijst', q: 300, u: 'g' },
+    { kop: 'Lecsó' },
+    { n: 'spekblokjes', q: 100, u: 'g' },
+    { n: 'zonnebloemolie', q: 1, u: 'el' },
+    { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'in halve ringen' },
+    { n: 'puntpaprika', p: 'puntpaprika\'s', q: 4, u: 'st', x: 'liefst geel of lichtgroen, in ringen van 1 cm' },
+    { n: 'groene paprika', p: 'groene paprika\'s', q: 1, u: 'st', x: 'in reepjes' },
+    { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'rijp, in stukken (ca. 500 g)', of: { q: 400, u: 'g', n: 'tomatenblokjes uit blik' } },
+    { n: 'paprikapoeder', q: 1, u: 'el', x: 'edelzoet' },
+    { n: 'rookworst', p: 'rookworsten', q: 2, u: 'st', x: 'ca. 275 g per stuk, in plakjes; of Hongaarse kolbász of chorizo' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { n: 'zwarte peper' },
+    { n: 'suiker', q: 1, u: 'snuf', x: 'alleen als de tomaten zuur zijn' }
+  ],
+  stappen: [
+    { t: 'Kook de rijst in de rijstkoker of volgens de verpakking.' },
+    { kop: 'Lecsó', t: 'Bak de spekblokjes met de olie in de hapjespan op middelhoog vuur 5 minuten, tot het vet eruit loopt en ze licht bruin zijn.', min: 5 },
+    { t: 'Doe de ui erbij en bak 5 minuten tot hij zacht en glazig is, niet bruin.', min: 5 },
+    { t: 'Doe alle paprika erbij en het zout. Bak 10 minuten op middelhoog vuur, af en toe omscheppen, tot de paprika zacht begint te worden en een beetje slinkt.', min: 10 },
+    { t: 'Haal de pan even van het vuur en roer het paprikapoeder erdoor (op het vuur verbrandt het snel en wordt het bitter). Zet de pan terug en doe de tomaten erbij.' },
+    { t: 'Leg de plakjes worst erop, doe de deksel erop en laat 15 minuten zachtjes stoven, tot de tomaat uit elkaar valt en de paprika heel zacht is. Haal de laatste 5 minuten de deksel eraf als het te nat is.', min: 15 },
+    { t: 'Proef op zout, peper en eventueel een snufje suiker, en schep de lecsó op de rijst.' }
+  ],
+  tips: ['In Hongarije gebruiken ze lichtgele, puntige paprika\'s (tölteni való paprika), die zoeter en dunner van vel zijn dan blokpaprika. Gele of lichtgroene puntpaprika\'s komen het dichtst in de buurt; rode puntpaprika maakt het zoeter.', 'Lecsó wordt de volgende dag nog lekkerder. Een restje is heerlijk met een gebakken ei erop.', 'Ook lekker met een stevige snee brood in plaats van rijst, zoals ze het daar vaak eten.'],
+  alt: ['Tojásos lecsó (met ei): laat de worst weg, klop 4 eieren los en roer ze de laatste 3 minuten door de stoof tot ze net gestold zijn.', 'Pittiger: doe een in ringetjes gesneden rode peper of 1 tl hete paprikapoeder bij de paprika.', 'Zonder spek: bak de ui in 3 el zonnebloemolie.']
 },
 {
   id: 'lahmacun', naam: 'Lahmacun', ook: ['turkse pizza'],
@@ -895,6 +976,57 @@ RECEPTEN.push(
   ],
   tips: ['Heb je tijd, wrijf het vlees dan de avond ervoor in en laat het afgedekt in de koelkast staan. De kruiden trekken dan tot op het bot.', 'Klaar is het niet op de minuut, maar als het vlees zonder kracht van het bot valt. Is dat na 4 uur nog niet zo, geef het dan nog een half uur met de deksel erop.'],
   alt: ['Geen lamsschouder te krijgen? Een lamsbout (ca. 2 kg) kan ook; die is magerder, gaar hem 3 uur en bedruip hem vaker.', 'Een restje is heerlijk de volgende dag in een wrap of pitabroodje met knoflooksaus en sla.'],
+  bij: ['zaalouk']
+},
+{
+  id: 'tajine-rund-pruimen', toegevoegd: '2026-11-17', naam: 'Tajine met rundvlees en pruimen (lham bil barkouk)',
+  ook: ['lham bil barkouk', 'tajine bil barkouk', 'tagine met pruimen', 'tajine met pruimen', 'rundvlees met pruimen', 'marokkaanse stoofpot met pruimen', 'beef tagine with prunes', 'zoete tajine'],
+  keuken: 'Marokkaans', soort: 'Hoofdgerecht',
+  tijd: 35, wacht: '2 uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  intro: 'De feestelijke tajine van Marokkaanse bruiloften en het suikerfeest: rundvlees urenlang gestoofd met ui, gember, kaneel en kurkuma tot het uit elkaar valt, met zoete pruimen in honingsiroop en knapperige geroosterde amandelen en sesam erover. Een weekendgerecht dat zichzelf maakt zodra het op het vuur staat.',
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of zware braadpan (minimaal 4 liter) met deksel', of: 'Een echte tajine van aardewerk kan ook, op een sudderplaatje op laag vuur.' },
+    { tool: 'kookpan', tekst: 'Steelpan voor de pruimen' },
+    { tool: 'koekenpan', tekst: 'Kleine koekenpan om de amandelen te roosteren' }
+  ],
+  ingr: [
+    { kop: 'Vlees' },
+    { n: 'runderstoofvlees', q: 1000, u: 'g', x: 'in stukken van 4 cm; of riblappen' },
+    { n: 'olijfolie', q: 2, u: 'el' },
+    { n: 'roomboter', q: 20, u: 'g' },
+    { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'geraspt of heel fijn gesnipperd' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
+    { n: 'gemberpoeder', q: 1, u: 'tl', x: 'gemalen gember' },
+    { n: 'kurkuma', q: 1, u: 'tl', x: 'gemalen' },
+    { n: 'kaneel', q: 1, u: 'tl', x: 'gemalen' },
+    { n: 'saffraan', q: 1, u: 'snuf', x: 'mag ook weg; de kurkuma geeft al kleur', opt: true },
+    { n: 'zout', q: 1.5, u: 'tl' },
+    { n: 'zwarte peper', q: 1, u: 'tl', x: 'versgemalen' },
+    { n: 'water', q: 600, u: 'ml' },
+    { n: 'verse koriander', q: 15, u: 'g', x: 'een bosje, met een touwtje of de steeltjes samengebonden' },
+    { kop: 'Pruimen' },
+    { n: 'gedroogde pruimen', q: 250, u: 'g', x: 'zonder pit' },
+    { n: 'water', q: 200, u: 'ml' },
+    { n: 'honing', q: 2, u: 'el' },
+    { n: 'kaneelstokje', p: 'kaneelstokjes', q: 1, u: 'st' },
+    { kop: 'Erover en erbij' },
+    { n: 'geschaafde amandelen', q: 40, u: 'g', x: 'of hele gepelde amandelen' },
+    { n: 'sesamzaad', q: 1, u: 'el' },
+    { n: 'Turks brood', q: 1, u: 'st', x: 'of Marokkaans platbrood (khobz), of couscous' }
+  ],
+  stappen: [
+    { kop: 'Vlees', t: 'Dep het vlees droog met keukenpapier. Verhit de olie en de boter in de Dutch oven op middelhoog vuur en bak het vlees in twee keer rondom bruin, 5 minuten per keer. Schep het uit de pan.', min: 10 },
+    { t: 'Doe de ui in de pan en bak 5 minuten zachtjes, tot hij zacht is. Roer de knoflook, gember, kurkuma, kaneel, de saffraan als je die gebruikt, het zout en de peper erdoor en bak 1 minuut tot het geurt.', min: 6 },
+    { t: 'Doe het vlees met het sap terug, schenk het water erbij en leg de bos koriander erop. Breng aan de kook, leg de deksel erop en zet het vuur zo laag dat het net tikt.' },
+    { t: 'Laat 2 uur stoven, tot het vlees zo mals is dat het met een vork uit elkaar valt. Roer elk half uur en doe er 100 ml water bij als de saus te droog wordt.', min: 120 },
+    { kop: 'Pruimen', t: 'Doe de pruimen met het water, de honing en het kaneelstokje in de steelpan. Laat 15 minuten zachtjes koken tot de pruimen dik en zacht zijn en het vocht een stroperige siroop is.', min: 15 },
+    { kop: 'Erover en erbij', t: 'Rooster de amandelen in de droge koekenpan op middelhoog vuur 3 minuten goudbruin; schud vaak, ze verbranden snel. Rooster daarna de sesam 1 minuut.', min: 4 },
+    { kop: 'Vlees', t: 'Haal de koriander uit de pan. Laat de saus zonder deksel nog 10 minuten inkoken tot hij dik is en aan het vlees blijft plakken. Proef op zout.', min: 10 },
+    { kop: 'Pruimen', t: 'Schep het vlees met de saus in een schaal of de tajine, leg de pruimen erop en schenk de siroop erover.' },
+    { kop: 'Erover en erbij', t: 'Strooi de amandelen en de sesam erover en eet de tajine met brood, dat je in de saus doopt.' }
+  ],
+  tips: ['Geraspte ui smelt helemaal weg in de saus en maakt hem dik en zoet; zo doen ze het in Marokko. Rasp hem op de grove kant van een rasp.', 'Zoet en hartig samen is de bedoeling, maar vind je het te zoet, neem dan 1 el honing en een kneepje citroensap in de pruimen.', 'Lekker met een frisse salade ernaast, zoals zaalouk of tomaat met komkommer en rode ui. Een dag later is de tajine nog lekkerder.'],
+  alt: ['Met lamsschouder of lamsbout in stukken, het origineel van de feestdagen: stoof 1½ à 2 uur.', 'Met gedroogde abrikozen in plaats van pruimen, of de helft van elk.', 'In de slowcooker: bak vlees en ui aan zoals hierboven, en laat het daarna met 400 ml water 7 uur op laag garen.'],
   bij: ['zaalouk']
 }
 );

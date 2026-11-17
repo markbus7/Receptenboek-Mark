@@ -378,6 +378,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Andersens_Pea_Soup.jpg"
  },
+ "eton-mess": {
+  "src": "img/eton-mess.jpg",
+  "auteur": "Exx8",
+  "licentie": "CC0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Eton_Mess_2025-2_(cropped).jpg"
+ },
  "falafel": {
   "src": "img/falafel.jpg",
   "auteur": "Popo le Chien",
@@ -666,16 +672,16 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Tajine_de_boulettes_de_viande_hach%C3%A9e_aux_oeufs.jpg"
  },
+ "kerriekip-wok": {
+  "src": "img/kerriekip-wok.jpg",
+  "auteur": "Mark",
+  "licentie": "eigen foto"
+ },
  "kimchi-fried-rice": {
   "src": "img/kimchi-fried-rice.jpg",
   "auteur": "Sharon Ang",
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:Kimchi_fried_rice.jpg"
- },
- "kerriekip-wok": {
-  "src": "img/kerriekip-wok.jpg",
-  "auteur": "Mark",
-  "licentie": "eigen foto"
  },
  "kip-biryani": {
   "src": "img/kip-biryani.jpg",
@@ -1085,6 +1091,12 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Lasagne_-_stonesoup.jpg"
  },
+ "lecso": {
+  "src": "img/lecso.jpg",
+  "auteur": "zeevveez",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Warm_Colors-_my_Mom%27s_Hungarian_Lecs%C3%B3_cropped.jpg"
+ },
  "linzensoep-mercimek": {
   "src": "img/linzensoep-mercimek.jpg",
   "auteur": "Roland Unger",
@@ -1306,6 +1318,12 @@ window.FOTOS = {
   "licentie": "CC BY 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Bowl_of_Meatball_pho.jpg"
  },
+ "pinchos-morunos": {
+  "src": "img/pinchos-morunos.jpg",
+  "auteur": "fugzu",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Pinchos_-_fugzu.jpg"
+ },
  "pindasaus": {
   "src": "img/pindasaus.jpg",
   "auteur": "Gunawan Kartapranata",
@@ -1329,6 +1347,12 @@ window.FOTOS = {
   "auteur": "Illustratedjc",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Poffertjes-Melkhuis_(cropped).jpg"
+ },
+ "pollo-a-la-brasa": {
+  "src": "img/pollo-a-la-brasa.jpg",
+  "auteur": "Dtarazona",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Un_cuarto_de_Pollo_a_la_Brasa.JPG"
  },
  "pom": {
   "src": "img/pom.jpg",
@@ -1785,6 +1809,12 @@ window.FOTOS = {
   "auteur": "Larry Miller",
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:001_Tacos_de_carnitas,_carne_asada_y_al_pastor.jpg"
+ },
+ "tajine-rund-pruimen": {
+  "src": "img/tajine-rund-pruimen.jpg",
+  "auteur": "TheGirlsNY",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Moroccan_cuisine-Mrouzia_beef_short_ribs.jpg"
  },
  "tamagoyaki": {
   "src": "img/tamagoyaki.jpg",
