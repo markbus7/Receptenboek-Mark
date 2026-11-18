@@ -132,8 +132,22 @@ const App = (() => {
     omgekeerd: false,
     // Kaarten met grote foto of een compacte lijst; alleen op dit apparaat bewaard. Op de telefoon standaard de lijst.
     weergave: opslag.lees('weergave', matchMedia('(max-width: 640px)').matches ? 'lijst' : 'kaarten'),
-    favs: new Set(opslag.lees('favorieten', []))
+    favs: new Set(opslag.lees('favorieten', [])),
+    // Zoeken in de kast gaat via hetzelfde zoekveld bovenaan; per kast onthouden.
+    kastZoek: {}
   };
+  /* Wat je in huis hebt telt alleen op de tab In huis; onder Recepten zie je gewoon het hele boek. */
+  const huis = () => (state.view === 'inhuis' ? state.voorraad : []);
+  /* Mijn boek: Nieuw, Favorieten en Gemaakt onder één tab. */
+  const BOEK = ['nieuw', 'fav', 'gemaakt'];
+  /* Snelle filterknopjes onder het zoekveld; ze zetten dezelfde filters als het filterpaneel. */
+  const SNEL = [
+    ['vega', 'Vega', () => state.vega, () => { state.vega = !state.vega; }],
+    ['tijd', '≤ 30 min', () => state.tijd === 30, () => { state.tijd = state.tijd === 30 ? null : 30; }],
+    ['niveau', 'Makkelijk', () => state.niveaus.has('Makkelijk'), () => { state.niveaus.has('Makkelijk') ? state.niveaus.delete('Makkelijk') : state.niveaus.add('Makkelijk'); }],
+    ['bereid', 'Airfryer', () => state.bereid.has('airfryer'), () => { state.bereid.has('airfryer') ? state.bereid.delete('airfryer') : state.bereid.add('airfryer'); }],
+    ['soort', 'Soep', () => state.soorten.has('Soep'), () => { state.soorten.has('Soep') ? state.soorten.delete('Soep') : state.soorten.add('Soep'); }]
+  ];
 
   const mijnKeuken = () => [...state.keuken, ...state.pannen];
   const icoon = (naam) => `<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${naam}"/></svg>`;
@@ -165,6 +179,7 @@ const App = (() => {
     $('#alleen-compleet').checked = state.compleet;
     $('#alle-gekozen').checked = state.alleGekozen;
     $('#f-maakbaar').checked = state.maakbaar;
+    $('#snel').innerHTML = SNEL.map(([k, l, aan], i) => `<button type="button" class="chip chip-snel" data-snel="${i}" aria-pressed="${aan()}">${esc(l)}</button>`).join('');
     const optie = (attr, k, item, aan) => `
       <label class="gerei-optie">
         <input type="checkbox" ${attr}="${k}" ${aan ? 'checked' : ''}>
@@ -280,16 +295,20 @@ const App = (() => {
     if (!zoekt) { state.zelfGesorteerd = false; if (state.sorteer === 'relevant') state.sorteer = 'keuken'; }
     const opt = $('#sorteer option[value="relevant"]');
     if (opt) opt.hidden = opt.disabled = !zoekt;
+    if (state.sorteer === 'match' && state.view !== 'inhuis') state.sorteer = 'keuken';
+    const match = $('#sorteer option[value="match"]');
+    if (match) match.hidden = match.disabled = state.view !== 'inhuis';
     $('#sorteer').value = state.sorteer;
   }
 
   function resultaten() {
     zoekSortering();
-    const metVoorraad = state.voorraad.length > 0;
+    const voorraad = huis();
+    const metVoorraad = voorraad.length > 0;
     const inKast = metVoorraad ? kastNamen() : null;
     let lijst = RECEPTEN.map((r) => ({
       r,
-      m: metVoorraad ? metKast(Hulp.match(r, state.voorraad, state.basis), inKast) : null,
+      m: metVoorraad ? metKast(Hulp.match(r, voorraad, state.basis), inKast) : null,
       maakbaar: Hulp.maakbaar(r, mijnKeuken())
     }));
     const drank = toonDrank();
@@ -309,7 +328,7 @@ const App = (() => {
       (!state.maakbaar || maakbaar) &&
       (!metVoorraad || m.gebruikt.length > 0) &&
       (!metVoorraad || !state.compleet || m.mist.length === 0) &&
-      (!metVoorraad || !state.alleGekozen || m.gebruikt.length === state.voorraad.length)
+      (!metVoorraad || !state.alleGekozen || m.gebruikt.length === voorraad.length)
     );
     // Niets gevonden? Probeer het opnieuw met tikfouten, zodat "ommelet" toch omelet vindt.
     state.vaag = false;
@@ -349,13 +368,13 @@ const App = (() => {
     lijst.forEach((x) => {
       const g = x.r.groep;
       if (!opPlek.has(g)) { opPlek.set(g, uit.length); uit.push(x); return; }
-      if (x.r.id === g && !state.voorraad.length) uit[opPlek.get(g)] = x;
+      if (x.r.id === g && !huis().length) uit[opPlek.get(g)] = x;
     });
     return uit;
   }
 
   /* ---------- Groentemixen ---------- */
-  const mixenInVoorraad = () => state.voorraad.filter(Hulp.isMix).map(Hulp.mixVan).filter(Boolean);
+  const mixenInVoorraad = () => huis().filter(Hulp.isMix).map(Hulp.mixVan).filter(Boolean);
   const isAanrader = (r) => mixenInVoorraad().some((m) => (m.aanraders || []).some((id) => id === r.id || id === r.groep));
 
   function renderMixInfo() {
@@ -458,7 +477,7 @@ const App = (() => {
   const heelDeel = (regio) => { const ks = keukensVan(regio); return ks.length === state.keukens.size && ks.every((k) => state.keukens.has(k)); };
 
   const hstId = (k) => 'hst-' + Hulp.norm(k).replace(/[^a-z0-9]+/g, '-');
-  const perHoofdstuk = () => state.view !== 'nieuw' && (state.sorteer === 'keuken' || (state.sorteer === 'match' && !state.voorraad.length));
+  const perHoofdstuk = () => state.view !== 'nieuw' && (state.sorteer === 'keuken' || (state.sorteer === 'match' && !huis().length));
 
   /* ---------- Inhoud: alle delen en hoofdstukken, zoals voorin een kookboek ----------
      Tik op een hoofdstuk en je springt erheen. Het telt mee met je zoekwoord en filters; een hoofdstuk zonder
@@ -475,7 +494,7 @@ const App = (() => {
   let inhoudTerug = null;
   function openInhoud() {
     const n = telPerKeuken();
-    const filters = actieveFilters().filter(([g]) => g !== 'keuken' && g !== 'regio').length + state.voorraad.length;
+    const filters = actieveFilters().filter(([g]) => g !== 'keuken' && g !== 'regio').length + huis().length;
     const zoek = state.zoek.trim();
     $('#inhoud-hint').textContent = zoek || filters
       ? `Het aantal recepten per hoofdstuk${zoek ? ` voor “${zoek}”` : ''}${filters ? ' met je filters' : ''}.`
@@ -495,7 +514,7 @@ const App = (() => {
     document.body.classList.add('inhoud-open');
     const actief = $('#inhoud-lijst [aria-current="true"]');
     if (actief) actief.scrollIntoView({ block: 'center' });
-    $('.inhoud-blad').focus({ preventScroll: true });
+    $('#inhoud-vel .inhoud-blad').focus({ preventScroll: true });
   }
   function sluitInhoud() {
     if ($('#inhoud-vel').hidden) return;
@@ -559,7 +578,18 @@ const App = (() => {
   }
 
   function render() {
-    const lijst = resultaten();
+    const huisLeeg = state.view === 'inhuis' && !state.voorraad.length;
+    const lijst = huisLeeg ? [] : resultaten();
+    $('.boekpagina').hidden = huisLeeg;
+    $('#huis-blok').hidden = state.view !== 'inhuis';
+    $('#boek-wissel').hidden = !BOEK.includes(state.view);
+    document.querySelectorAll('#boek-wissel [data-boek]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.boek === state.view)));
+    $('#boek-wissel [data-boek="nieuw"]').textContent = NIEUW.length ? `Nieuw (${NIEUW_KAARTEN})` : 'Nieuw';
+    // Strookje bovenaan Recepten zolang er deze week iets nieuw is.
+    const strook = state.view === 'alle' && NIEUW.length > 0 && !state.zoek.trim();
+    $('#nieuw-strook').hidden = !strook;
+    if (strook) $('#nieuw-strook-tekst').innerHTML = `<b>Nieuw deze week</b> ${NIEUW_KAARTEN} ${NIEUW_KAARTEN === 1 ? 'recept' : 'recepten'}`;
+    $('#snel').hidden = BOEK.includes(state.view);
     const groep = perHoofdstuk();
     let html = '', vorige = null;
     lijst.forEach((item) => {
@@ -591,7 +621,7 @@ const App = (() => {
       $('#leeg-wis').hidden = true;
     } else {
       $('#leeg-titel').textContent = 'Geen recepten gevonden';
-      $('#leeg-tekst').textContent = state.voorraad.length
+      $('#leeg-tekst').textContent = huis().length
         ? 'Geen recept gebruikt deze ingrediënten met de huidige filters. Haal een filter weg of voeg meer ingrediënten toe.'
         : 'Probeer een andere zoekterm of minder filters.';
       $('#leeg-wis').hidden = false;
@@ -603,14 +633,14 @@ const App = (() => {
     if (state.view === 'fav') tekst += ' in je favorieten';
     if (state.view === 'gemaakt') tekst += n === 1 ? ' dat je gemaakt hebt' : ' die je gemaakt hebt';
     if (state.view === 'nieuw') tekst = n === NIEUW_KAARTEN ? `${tekst} van de afgelopen week, nieuwste eerst` : `${tekst} van de ${NIEUW_KAARTEN} van de afgelopen week`;
-    if (state.voorraad.length) tekst += `, gesorteerd op wat je in huis hebt`;
+    if (huis().length && state.sorteer === 'match') tekst += `, gesorteerd op wat je in huis hebt`;
     $('#resultaat-tekst').textContent = tekst;
     $('.sorteer-groep').hidden = state.view === 'nieuw';
 
     const af = actieveFilters();
     $('#actieve-filters').innerHTML = af.map(([g, w, l]) =>
       `<button type="button" class="chip chip-actief" data-wis-groep="${g}" data-wis-waarde="${esc(w)}" aria-label="Wis filter ${esc(l)}">${esc(l)} ${icoon('sluit')}</button>`).join('');
-    const aantal = af.length + state.voorraad.length;
+    const aantal = af.length + huis().length;
     if (aantal) $('#actieve-filters').insertAdjacentHTML('beforeend', `<button type="button" class="knop-tekst wis-alles" data-wis-alles>${icoon('sluit')} Wis ${aantal === 1 ? 'filter' : `alle ${aantal} filters`}</button>`);
     $('#filter-aantal').textContent = aantal || '';
 
@@ -651,6 +681,10 @@ const App = (() => {
   const soortIn = { kruiden: '', sauzen: '', basis: '' };
   // Per kast wat je in deze sessie via "Heb ik nu" in je kast zette, zodat je het nog terug kunt draaien.
   const netGekocht = { kruiden: [], sauzen: [], basis: [] };
+  /* Compacte rijen: welke potjes je hebt opengeklapt, en waar je alle recepten van wilt zien. */
+  const kastOpen = { kruiden: new Set(), sauzen: new Set(), basis: new Set() };
+  const kastAlle = new Set(), kastDicht = new Set();
+  const KAST_RECEPTEN_KORT = 6;
   const kast = (w) => new Set(opslag.lees(KASTEN[w].opslag, KASTEN[w].start));
   const kastItem = (id) => Object.values(KASTEN).flatMap((c) => c.lijst()).find((x) => x.id === id);
   const kruidRecepten = () => { const k = kastItem(state.kruid); return new Set(k ? receptenMet(k).map((r) => r.id) : []); };
@@ -812,7 +846,7 @@ const App = (() => {
     const inKast = kast(w);
     const soortNu = soortIn[w];
     // Zoeken: elk woord moet ergens voorkomen (naam, uitleg, wat erin zit, recepten); tikfouten mogen.
-    const q = Hulp.norm(($(`#${w}-zoek`) || {}).value || '').trim();
+    const q = Hulp.norm(state.kastZoek[w] || '').trim();
     const zoekPast = (k) => {
       if (!q) return true;
       const tekst = Hulp.norm([k.naam, k.soort, k.wat, k.bevat, k.gebruik, k.tip, k.mijn && k.mijn.naam, ...k.namen, ...receptenMet(k).map((x) => x.naam)].filter(Boolean).join(' '));
@@ -824,29 +858,44 @@ const App = (() => {
     const soortLabel = new Map(cfg.soorten);
     const soorten = [['', 'Alles'], ['kast', `In mijn kast (${inKast.size})`], ['maak', 'Wat kan ik maken?'], ['koop', 'Wat koop ik?'], ...cfg.soorten];
     $(`#${w}-filter`).innerHTML = soorten.map(([s, l]) => `<button type="button" class="chip" data-kastsoort="${s}" aria-pressed="${soortNu === s}">${l}</button>`).join('');
+    $(`#${w}-lijst`).classList.remove('kruiden-rijen');
     if (soortNu === 'maak' && !q) { $(`#${w}-lijst`).innerHTML = renderKastRecepten(w, inKast); return; }
     if (soortNu === 'koop' && !q) { $(`#${w}-lijst`).innerHTML = renderKoopAdvies(w, inKast); return; }
     if (!lijst.length) {
       $(`#${w}-lijst`).innerHTML = q ? `<p class="hint">Niets gevonden voor "${esc(q)}". Probeer een ander woord, zoals een gerecht of een smaak.</p>` : `<p class="hint">${cfg.leeg}</p>`;
       return;
     }
+    $(`#${w}-lijst`).classList.add('kruiden-rijen');
+    // Weinig treffers bij het zoeken: dan staan ze meteen open.
+    const vanzelf = q && lijst.length <= 2;
     $(`#${w}-lijst`).innerHTML = lijst.map((k) => {
       const foto = window.FOTOS && FOTOS[cfg.foto + k.id];
       const rs = receptenMet(k);
       const soort = w === 'kruiden' ? k.soort : (soortLabel.get(k.soort) || k.soort);
-      return `<article class="kruid" id="${cfg.foto}${k.id}">
-        <div class="kruid-kop"><p class="kruid-soort">${esc(soort)}</p>
-          <label class="kruid-kast"><input type="checkbox" data-kast="${k.id}"${inKast.has(k.id) ? ' checked' : ''}> In mijn kast</label></div>
+      const open = kastOpen[w].has(k.id) || (vanzelf && !kastDicht.has(k.id));
+      const heb = inKast.has(k.id);
+      const toonRs = kastAlle.has(k.id) ? rs : rs.slice(0, KAST_RECEPTEN_KORT);
+      const meer = !open ? '' : `<div class="kruid-meer" id="kruid-meer-${cfg.foto}${k.id}">
         ${foto ? `<figure class="kruid-foto"><img src="${foto.src}" alt="${esc(k.naam)}" loading="lazy"><figcaption>Foto: ${esc(foto.auteur)}, ${esc(foto.licentie)}</figcaption></figure>` : ''}
-        <h3>${esc(k.naam)}</h3>
         <p>${esc(k.wat)}</p>
         ${k.bevat ? `<p><b>Wat zit erin:</b> ${esc(k.bevat)}</p>` : ''}
         <p><b>Wat je ermee doet:</b> ${esc(k.gebruik)}</p>
         ${k.waar ? `<p><b>Waar koop je het:</b> ${esc(k.waar)}</p>` : ''}
         ${k.tip ? `<p class="kruid-tip">${esc(k.tip)}</p>` : ''}
-        ${k.mijn && inKast.has(k.id) ? mijnPotje(k.mijn) : ''}
-        ${rs.length || (w === 'kruiden' && Leren.heeft(k.id)) ? `<p class="kruid-knoppen">${rs.length ? `<button type="button" class="knop knop-klein kruid-toon" data-kruid-filter="${k.id}">Toon deze recepten</button>` : ''}${w === 'kruiden' && Leren.heeft(k.id) ? `<button type="button" class="knop knop-klein kruid-toon" data-leer="${k.id}">Leer dit kruid: ruiken en proeven</button>` : ''}</p>` : ''}
-        ${rs.length ? `<p class="kruid-recepten"><b>In dit boek (${rs.length}):</b> ${rs.map((r) => `<a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>`).join(', ')}</p>` : ''}
+        ${k.mijn && heb ? mijnPotje(k.mijn) : ''}
+        ${rs.length ? `<p class="kruid-recepten"><b>In dit boek (${rs.length}):</b> ${toonRs.map((r) => `<a href="#${r.id}" data-open-recept="${r.id}">${esc(r.naam)}</a>`).join(', ')}${rs.length > toonRs.length ? ` <button type="button" class="knop-tekst kruid-alle" data-kast-alle="${k.id}">toon alle ${rs.length}</button>` : ''}</p>` : ''}
+        ${rs.length || (w === 'kruiden' && Leren.heeft(k.id)) ? `<p class="kruid-knoppen">${rs.length ? `<button type="button" class="knop knop-klein kruid-toon" data-kruid-filter="${k.id}">Toon deze recepten</button>` : ''}${w === 'kruiden' && Leren.heeft(k.id) ? `<button type="button" class="knop knop-klein knop-zacht kruid-toon" data-leer="${k.id}">Leer dit kruid: ruiken en proeven</button>` : ''}</p>` : ''}
+      </div>`;
+      return `<article class="kruid kruid-rij${open ? ' open' : ''}${heb ? ' heb' : ''}" id="${cfg.foto}${k.id}">
+        <div class="kruid-kop">
+          <button type="button" class="kruid-open" data-kast-open="${k.id}" aria-expanded="${open}"${open ? ` aria-controls="kruid-meer-${cfg.foto}${k.id}"` : ''}>
+            ${foto ? `<img class="kruid-mini" src="${foto.src}" alt="" loading="lazy">` : `<span class="kruid-mini kruid-mini-leeg" aria-hidden="true">${esc(k.naam.charAt(0))}</span>`}
+            <span class="kruid-titel"><h3>${esc(k.naam)}</h3><span class="kruid-soort">${esc(soort)}${rs.length ? ` · ${rs.length} ${rs.length === 1 ? 'recept' : 'recepten'}` : ''}</span></span>
+            <svg class="kruid-pijl" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-omhoog"/></svg>
+          </button>
+          <label class="kruid-kast" title="In mijn kast"><input type="checkbox" data-kast="${k.id}"${heb ? ' checked' : ''}> <span>In mijn kast</span></label>
+        </div>
+        ${meer}
       </article>`;
     }).join('');
   }
@@ -862,12 +911,32 @@ const App = (() => {
   /* Kruiden, Sauzen en Basis staan samen onder de tab Kast; die opent waar je het laatst was. */
   /* Leren (kruiden ruiken en proeven) is de vierde knop in de kast. */
   let laatsteKast = 'kruiden';
+  /* Mijn boek opent op Nieuw zolang er deze week iets nieuw is, anders op Favorieten; daarna waar je was. */
+  let laatsteBoek = NIEUW.length ? 'nieuw' : 'fav';
   const inKastTab = (view) => !!KASTEN[view] || view === 'leren';
+  const ZOEK_TEKST = {
+    kruiden: 'Zoek kruid, smaak of gerecht… (bijv. curry, pittig)',
+    sauzen: 'Zoek saus, smaak of gerecht… (bijv. wok, zoet)',
+    basis: 'Zoek product of gerecht… (bijv. suiker, binden)'
+  };
+  // Het zoekveld bovenaan zoekt in de kast als je in een kast bent, en anders in de recepten.
+  function zetZoekveld() {
+    const veld = $('#zoek');
+    const w = KASTEN[state.view] ? state.view : null;
+    const waarde = w ? (state.kastZoek[w] || '') : state.zoek;
+    if (veld.value !== waarde) veld.value = waarde;
+    veld.placeholder = w ? ZOEK_TEKST[w] : 'Zoek gerecht of ingrediënt…';
+    veld.setAttribute('aria-label', w ? `Zoek in ${$(`#view-${w} h2`).textContent.toLowerCase()}` : 'Zoek in de recepten');
+  }
   function zetView(view) {
     if (view === 'kast') view = laatsteKast;
+    if (view === 'boek') view = laatsteBoek;
     if (inKastTab(view)) laatsteKast = view;
+    if (BOEK.includes(view)) laatsteBoek = view;
+    if (view === 'inhuis' && state.voorraad.length && state.sorteer === 'keuken') state.sorteer = 'match';
     state.view = view;
-    document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.view === view || (t.dataset.view === 'kast' && inKastTab(view)))));
+    zetZoekveld();
+    document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.view === view || (t.dataset.view === 'kast' && inKastTab(view)) || (t.dataset.view === 'boek' && BOEK.includes(view)))));
     document.querySelectorAll('#kast-wissel [data-kast]').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.kast === view)));
     $('#kast-wissel').hidden = !inKastTab(view);
     const apart = APART.includes(view);
@@ -886,7 +955,7 @@ const App = (() => {
   const context = {
     get keuken() { return mijnKeuken(); },
     blz: (id) => BLZ.get(id),
-    get voorraad() { return state.voorraad; },
+    get voorraad() { return huis(); },
     /* Je eigen potje voor dit ingrediënt, als het in je kast staat (zoals Hot curry voor kerriepoeder). */
     mijnPotje: (n) => {
       const k = KASTEN.kruiden.lijst().find((x) => x.mijn && x.namen.some((y) => Hulp.norm(y) === Hulp.norm(n)));
@@ -959,9 +1028,13 @@ const App = (() => {
 
   function wisAlles() {
     state.keukens.clear(); state.soorten.clear(); state.niveaus.clear(); state.bereid.clear(); state.tijd = null; state.vega = false; state.kruid = null;
-    state.maakbaar = false; state.compleet = false; state.alleGekozen = false; state.voorraad = []; state.zoek = '';
+    state.maakbaar = false; state.zoek = '';
     $('#zoek').value = '';
-    opslag.schrijf('voorraad', []);
+    // Je lijstje van In huis blijft staan, behalve als je het daar zelf wist.
+    if (state.view === 'inhuis') {
+      state.compleet = false; state.alleGekozen = false; state.voorraad = [];
+      opslag.schrijf('voorraad', []);
+    }
     renderFilters(); render();
   }
 
@@ -1017,7 +1090,7 @@ const App = (() => {
 
   function toonSuggesties() {
     const veld = $('#zoek'), el = $('#suggesties');
-    sugLijst = document.activeElement === veld ? maakSuggesties(veld.value) : [];
+    sugLijst = document.activeElement === veld && !KASTEN[state.view] ? maakSuggesties(veld.value) : [];
     sugActief = -1;
     const SOORT = { recept: 'Recept', regio: 'Deel', hoofdstuk: 'Hoofdstuk', ingredient: 'Ingrediënt', soort: 'Soort' };
     el.innerHTML = sugLijst.map((s, i) => `
@@ -1074,6 +1147,7 @@ const App = (() => {
   function koppel() {
     let zoekTimer;
     $('#zoek').addEventListener('input', (e) => {
+      if (KASTEN[state.view]) { state.kastZoek[state.view] = e.target.value; renderKast(state.view); return; }
       toonSuggesties();
       clearTimeout(zoekTimer);
       zoekTimer = setTimeout(() => {
@@ -1100,6 +1174,31 @@ const App = (() => {
 
     document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.view)));
     document.querySelectorAll('#kast-wissel [data-kast]').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.kast)));
+    document.querySelectorAll('#boek-wissel [data-boek]').forEach((t) => t.addEventListener('click', () => zetView(t.dataset.boek)));
+    $('#nieuw-strook').addEventListener('click', () => zetView('nieuw'));
+    $('#snel').addEventListener('click', (e) => {
+      const b = e.target.closest('[data-snel]');
+      if (!b) return;
+      SNEL[+b.dataset.snel][3]();
+      renderFilters(); render();
+    });
+    // Instellingen (tandwiel): Mijn keuken en Op al je apparaten.
+    let instelTerug = null;
+    const sluitInstel = () => {
+      if ($('#instel-vel').hidden) return;
+      $('#instel-vel').hidden = true;
+      document.body.classList.remove('inhoud-open');
+      if (instelTerug && instelTerug.focus) instelTerug.focus({ preventScroll: true });
+    };
+    $('#instel-knop').addEventListener('click', () => {
+      instelTerug = document.activeElement;
+      $('#instel-vel').hidden = false;
+      document.body.classList.add('inhoud-open');
+      $('#instel-vel .inhoud-blad').scrollTop = 0;
+      $('#instel-vel .inhoud-blad').focus({ preventScroll: true });
+    });
+    $('#instel-vel').addEventListener('click', (e) => { if (e.target.closest('[data-instel-sluit]')) sluitInstel(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') sluitInstel(); });
     Leren.init($('#view-leren'), {
       inKast: () => kast('kruiden'),
       receptenMet: (id) => { const k = kastItem(id); return k ? receptenMet(k) : []; },
@@ -1107,7 +1206,7 @@ const App = (() => {
       open: (id) => openRecept(id)
     });
 
-    $('#paneel').addEventListener('click', (e) => {
+    const paneelKlik = (e) => {
       const c = e.target.closest('[data-groep]');
       if (c) {
         const { groep, waarde } = c.dataset;
@@ -1136,9 +1235,8 @@ const App = (() => {
         state.voorraad = state.voorraad.filter((x) => x !== v.dataset.wegVoorraad);
         bewaarVoorraad();
       }
-    });
-
-    $('#paneel').addEventListener('change', (e) => {
+    };
+    const paneelWissel = (e) => {
       const t = e.target;
       if (t.id === 'f-vega') state.vega = t.checked;
       if (t.id === 'basis') { state.basis = t.checked; opslag.schrijf('basis', t.checked); }
@@ -1154,7 +1252,9 @@ const App = (() => {
         opslag.schrijf('pannen', state.pannen);
       }
       render();
-    });
+    };
+    // Het filterpaneel, het blok In huis en de instellingen delen dezelfde knoppen en vinkjes.
+    ['#paneel', '#huis-blok', '#instel-vel'].forEach((id) => { $(id).addEventListener('click', paneelKlik); $(id).addEventListener('change', paneelWissel); });
 
     $('#voorraad-form').addEventListener('submit', (e) => {
       e.preventDefault();
@@ -1231,14 +1331,23 @@ const App = (() => {
 
     $('#wis-filters').addEventListener('click', wisAlles);
     Object.keys(KASTEN).forEach((w) => {
-      $(`#${w}-zoek`).addEventListener('input', () => renderKast(w));
       $(`#view-${w}`).addEventListener('click', (e) => {
         const kb = e.target.closest('[data-kast]');
         if (kb) {
           const set = kast(w); kb.checked ? set.add(kb.dataset.kast) : set.delete(kb.dataset.kast);
           opslag.schrijf(KASTEN[w].opslag, [...set]);
+          const rij = kb.closest('.kruid-rij'); if (rij) rij.classList.toggle('heb', kb.checked);
           return soortIn[w] === 'kast' ? renderKast(w) : ($(`#${w}-filter [data-kastsoort="kast"]`).textContent = `In mijn kast (${set.size})`);
         }
+        const ko = e.target.closest('[data-kast-open]');
+        if (ko) {
+          const id = ko.dataset.kastOpen, open = ko.getAttribute('aria-expanded') === 'true';
+          // Ook als hij vanzelf open stond (bij weinig zoektreffers): dichtklappen blijft dicht.
+          if (open) { kastOpen[w].delete(id); kastDicht.add(id); } else { kastOpen[w].add(id); kastDicht.delete(id); }
+          return renderKast(w);
+        }
+        const ka = e.target.closest('[data-kast-alle]');
+        if (ka) { kastAlle.add(ka.dataset.kastAlle); return renderKast(w); }
         const kh = e.target.closest('[data-koop-heb]');
         if (kh) {
           const ids = kh.dataset.koopHeb.split(' ');
@@ -1261,7 +1370,7 @@ const App = (() => {
         }
         const kn = e.target.closest('[data-kast-naar]');
         if (kn) {
-          e.preventDefault(); soortIn[w] = ''; $(`#${w}-zoek`).value = ''; renderKast(w);
+          e.preventDefault(); soortIn[w] = ''; state.kastZoek[w] = ''; zetZoekveld(); kastOpen[w].add(kn.dataset.kastNaar); renderKast(w);
           const el = document.getElementById(KASTEN[w].foto + kn.dataset.kastNaar);
           if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
           return;
