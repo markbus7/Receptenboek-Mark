@@ -246,7 +246,7 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .blok { display: flex; flex-direction: column; gap: 10px; }
 .blok h3 { font-family: var(--font-ui); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--inkt-zacht); }
 .blok-voorraad { padding-bottom: 20px; border-bottom: 1px solid var(--lijn); }
-.blok-voorraad h3 { font-family: var(--font-titel); font-size: 22px; text-transform: none; letter-spacing: 0; color: var(--inkt); font-weight: 400; }
+.blok-voorraad h3, .huis-blok h2 { font-family: var(--font-titel); font-size: 22px; text-transform: none; letter-spacing: 0; color: var(--inkt); font-weight: 400; }
 .hint { font-size: 14px; color: var(--inkt-zacht); line-height: 1.45; }
 .sync-stappen { margin: 4px 0 8px; padding-left: 20px; }
 .sync-stappen li { margin-bottom: 4px; }
@@ -319,6 +319,38 @@ body.view-lijst .paneel, body.view-lijst .filter-knop { display: none; }
 .vries-notitie .vries-kop { font-family: var(--font-hand); font-weight: 700; font-size: 22px; color: var(--pen); }
 .ingr-mix { display: block; font-family: var(--font-hand); font-size: 18px; line-height: 1.1; color: var(--pen); }
 .blok-sync { padding-top: 18px; border-top: 1px solid var(--lijn); }
+/* In huis: het blok "Wat heb ik in huis?" als eigen pagina boven de recepten die erbij passen. */
+.huis-blok {
+  display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; padding: 20px clamp(16px, 3vw, 28px);
+  background: var(--papier); border-radius: var(--r); box-shadow: var(--schaduw); border-bottom: 0;
+}
+.huis-blok[hidden] { display: none; }
+.huis-blok h2 { font-size: 28px; }
+.boekpagina[hidden] { display: none; }
+/* Instellingen (tandwiel): Mijn keuken en Op al je apparaten. */
+.kop-binnen { position: relative; }
+.instel-knop { position: absolute; top: 0; right: 0; }
+@media (max-width: 640px) { .merk { padding-right: 46px; } }
+.instel-blok { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.instel-blok h3 { font-family: var(--font-ui); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--inkt-zacht); }
+/* Strookje bovenaan Recepten: wat er deze week nieuw is. */
+.nieuw-strook {
+  display: flex; align-items: center; gap: 10px; width: 100%; margin: 0 0 14px; padding: 10px 14px;
+  border: 1px solid var(--notitie-rand); border-radius: 10px; background: var(--notitie); color: var(--inkt);
+  font: inherit; font-size: 15px; text-align: left; cursor: pointer;
+}
+.nieuw-strook[hidden] { display: none; }
+.nieuw-strook svg { flex: none; width: 20px; height: 20px; color: var(--pen); }
+.nieuw-strook span:first-of-type { flex: 1; }
+.nieuw-strook b { font-weight: 700; margin-right: 4px; }
+.nieuw-strook-pijl { font-size: 22px; line-height: 1; color: var(--inkt-zacht); }
+.nieuw-strook:hover { border-color: var(--pen); }
+/* Snelle filterknopjes onder het zoekveld. */
+.snel { display: flex; gap: 6px; margin: 0 0 14px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.snel::-webkit-scrollbar { display: none; }
+.snel[hidden] { display: none; }
+.chip-snel { flex: none; }
+.chip-snel[aria-pressed="true"] { background: var(--inkt); border-color: var(--inkt); color: var(--papier); }
 .blok-sync a { color: var(--inkt); text-decoration-color: var(--potlood); text-underline-offset: 3px; }
 .sync-status { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
 .sync-status::before { content: ''; width: 9px; height: 9px; border-radius: 999px; background: var(--potlood); flex: none; }
@@ -1205,6 +1237,29 @@ body.sheet-open .pijlen, body.paneel-open .pijlen { display: none; }
 /* ---------- Leren: kruiden ruiken en proeven ---------- */
 .kruid-knoppen { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 8px !important; }
 .kruid-knoppen .kruid-toon { margin: 0; }
+/* Compacte rijen: naam, soort en aantal recepten; tik om open te klappen. */
+.kruiden-lijst.kruiden-rijen { grid-template-columns: minmax(0, 1fr); gap: 0; background: var(--papier); border-radius: var(--r); box-shadow: var(--schaduw); overflow: hidden; }
+.kruid-rij { background: none; box-shadow: none; border-radius: 0; padding: 0; border-bottom: 1px solid var(--lijn); scroll-margin-top: calc(var(--balk-h, 70px) + 8px); }
+.kruid-rij:last-child { border-bottom: 0; }
+.kruid-rij .kruid-kop { padding: 6px 14px 6px 8px; }
+.kruid-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 4px 6px; border: 0; border-radius: 8px; background: none; color: inherit; text-align: left; cursor: pointer; font: inherit; }
+.kruid-open:hover { background: var(--papier-2); }
+.kruid-mini { flex: none; width: 44px; height: 44px; border-radius: 8px; object-fit: cover; background: var(--papier-2); }
+.kruid-mini-leeg { display: grid; place-items: center; font-family: var(--font-titel); font-size: 20px; color: var(--potlood); }
+.kruid-titel { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.kruid-rij h3 { margin: 0; font-size: 18px; line-height: 1.25; }
+.kruid-rij .kruid-soort { margin: 2px 0 0 !important; font-size: 11px; }
+.kruid-pijl { flex: none; width: 18px; height: 18px; color: var(--potlood); transform: rotate(180deg); transition: transform .15s; }
+.kruid-rij.open .kruid-pijl { transform: none; }
+.kruid-rij .kruid-kast span { white-space: nowrap; }
+.kruid-rij .kruid-kast input { accent-color: var(--inkt); }
+.kruid-rij.heb .kruid-kast { color: var(--ok); }
+.kruid-meer { padding: 2px 20px 16px 72px; }
+.kruid-alle { font-size: 14px; }
+@media (max-width: 640px) {
+  .kruid-rij .kruid-kast { font-size: 12px; }
+  .kruid-meer { padding: 2px 16px 16px; }
+}
 .leer-delen { margin: 0 0 14px; }
 .leer-delen button { min-height: 42px; padding: 0 16px; font-size: 15px; }
 .leer-voortgang { margin: 0 0 6px; font-size: 15px; }

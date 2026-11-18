@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Figtree:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=1.99.0">
+<link rel="stylesheet" href="css/styles.css?v=1.100.0">
 </head>
 <body>
 <div class="app">
@@ -20,6 +20,7 @@
         <p class="merk-sub" id="teller">Recepten laden…</p>
         <p class="merk-sub merk-versie" id="versie-regel"></p>
       </div>
+      <button type="button" class="ikoon-knop instel-knop" id="instel-knop" aria-haspopup="dialog" aria-controls="instel-vel" aria-label="Instellingen: mijn keuken en al je apparaten" title="Instellingen"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tandwiel"/></svg></button>
     </div>
   </header>
   <div class="update-balk" id="update-balk" role="status" aria-live="polite" hidden></div>
@@ -28,9 +29,8 @@
     <div class="balk-binnen">
       <nav class="tabs" aria-label="Weergave">
         <button type="button" class="tab" id="tab-alle" data-view="alle" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-kookpan"/></svg><span>Recepten</span></button>
-        <button type="button" class="tab" id="tab-nieuw" data-view="nieuw" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-nieuw"/></svg><span>Nieuw</span></button>
-        <button type="button" class="tab" id="tab-fav" data-view="fav" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-hart"/></svg><span>Favorieten</span></button>
-        <button type="button" class="tab" id="tab-gemaakt" data-view="gemaakt" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-vink"/></svg><span>Gemaakt</span></button>
+        <button type="button" class="tab" id="tab-inhuis" data-view="inhuis" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-huis"/></svg><span>In huis</span></button>
+        <button type="button" class="tab" id="tab-boek" data-view="boek" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-boek"/></svg><span>Mijn boek</span></button>
         <button type="button" class="tab" id="tab-kast" data-view="kast" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-kast"/></svg><span>Kast</span></button>
         <button type="button" class="tab" id="tab-lijst" data-view="lijst" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mand"/></svg><span class="tab-lang">Boodschappen</span><span class="tab-kort" aria-hidden="true">Lijst</span> <span class="badge" id="lijst-aantal"></span></button>
       </nav>
@@ -65,26 +65,6 @@
         <button type="button" class="knop knop-klein" id="paneel-sluit">Toon recepten</button>
       </div>
 
-      <section class="blok blok-voorraad">
-        <h3>Wat heb ik in huis?</h3>
-        <p class="hint">Voeg ingrediënten toe die je hebt. Recepten die al je ingrediënten gebruiken komen bovenaan.</p>
-        <form id="voorraad-form" class="voorraad-invoer" autocomplete="off">
-          <label for="voorraad-input" class="sr">Ingrediënt</label>
-          <input id="voorraad-input" placeholder="bijv. kip, paprika, rijst">
-          <button type="submit" class="knop knop-klein">Voeg toe</button>
-        </form>
-        <div class="tip-chips" id="voorraad-sugg" aria-label="Suggesties: tik om toe te voegen"></div>
-        <form id="mix-form" class="mix-kies" autocomplete="off">
-          <label for="mix-input">Een diepvries groentemix?</label>
-          <input id="mix-input" placeholder="Typ bijv. wok, soep of spinazie">
-          <div class="tip-chips" id="mix-sugg" aria-label="Groentemixen: tik om toe te voegen"></div>
-        </form>
-        <div class="chips" id="voorraad-chips"></div>
-        <label class="schakel"><input type="checkbox" id="basis" checked> <span>Zout, peper, olie en water heb ik altijd</span></label>
-        <label class="schakel"><input type="checkbox" id="alle-gekozen"> <span>Alleen recepten met al deze ingrediënten</span></label>
-        <label class="schakel"><input type="checkbox" id="alleen-compleet"> <span>Alleen recepten waarvoor ik niets hoef te halen</span></label>
-      </section>
-
       <section class="blok">
         <h3>Soort gerecht</h3>
         <div class="chips" id="f-soort"></div>
@@ -110,24 +90,38 @@
         <label class="schakel"><input type="checkbox" id="f-vega"> <span>Alleen vegetarisch</span></label>
       </section>
 
-      <section class="blok">
-        <h3>Mijn keuken</h3>
-        <p class="hint">Vink aan wat je hebt. Elk recept kiest dan de bereidingswijze die bij jouw keuken past, en geeft advies voor jouw pannen.</p>
-        <div class="mijn-keuken" id="mijn-keuken"></div>
-        <label class="schakel"><input type="checkbox" id="f-maakbaar"> <span>Verberg recepten waarvoor ik apparatuur mis</span></label>
-      </section>
-
-      <section class="blok blok-sync">
-        <h3>Op al je apparaten</h3>
-        <div id="sync"></div>
-      </section>
-
       <button type="button" class="knop-tekst" id="wis-filters">Wis alle filters</button>
     </aside>
 
     <main class="inhoud" id="inhoud">
       <section id="view-recepten" aria-live="polite">
+        <nav class="segment kast-wissel boek-wissel" id="boek-wissel" aria-label="Mijn boek" hidden>
+          <button type="button" data-boek="nieuw" aria-pressed="false">Nieuw</button>
+          <button type="button" data-boek="fav" aria-pressed="false">Favorieten</button>
+          <button type="button" data-boek="gemaakt" aria-pressed="false">Gemaakt</button>
+        </nav>
+        <section class="huis-blok blok-voorraad" id="huis-blok" hidden>
+          <h2>Wat heb ik in huis?</h2>
+          <p class="hint">Voeg ingrediënten toe die je hebt. Daaronder zie je wat je ermee kunt maken: recepten die het meeste gebruiken staan bovenaan.</p>
+          <form id="voorraad-form" class="voorraad-invoer" autocomplete="off">
+            <label for="voorraad-input" class="sr">Ingrediënt</label>
+            <input id="voorraad-input" placeholder="bijv. kip, paprika, rijst">
+            <button type="submit" class="knop knop-klein">Voeg toe</button>
+          </form>
+          <div class="tip-chips" id="voorraad-sugg" aria-label="Suggesties: tik om toe te voegen"></div>
+          <form id="mix-form" class="mix-kies" autocomplete="off">
+            <label for="mix-input">Een diepvries groentemix?</label>
+            <input id="mix-input" placeholder="Typ bijv. wok, soep of spinazie">
+            <div class="tip-chips" id="mix-sugg" aria-label="Groentemixen: tik om toe te voegen"></div>
+          </form>
+          <div class="chips" id="voorraad-chips"></div>
+          <label class="schakel"><input type="checkbox" id="basis" checked> <span>Zout, peper, olie en water heb ik altijd</span></label>
+          <label class="schakel"><input type="checkbox" id="alle-gekozen"> <span>Alleen recepten met al deze ingrediënten</span></label>
+          <label class="schakel"><input type="checkbox" id="alleen-compleet"> <span>Alleen recepten waarvoor ik niets hoef te halen</span></label>
+        </section>
         <div class="boekpagina">
+        <button type="button" class="nieuw-strook" id="nieuw-strook" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-nieuw"/></svg><span id="nieuw-strook-tekst"></span><span class="nieuw-strook-pijl" aria-hidden="true">›</span></button>
+        <div class="snel" id="snel" role="group" aria-label="Snel filteren"></div>
         <div class="resultaat-kop">
           <p id="resultaat-tekst"></p>
           <div class="sorteer-groep">
@@ -200,7 +194,6 @@
           <h2>Kruiden en specerijen</h2>
           <p class="hint">Wat het is, wat erin zit, wat je ermee doet en in welke recepten uit dit boek je het gebruikt. Tik op een recept om het te openen.</p>
         </div></div>
-        <label class="zoek kruiden-zoek" for="kruiden-zoek"><span class="sr">Zoek in kruiden</span><input id="kruiden-zoek" type="search" placeholder="Zoek kruid, smaak of gerecht… (bijv. curry, citroen, pittig)" autocomplete="off"></label>
         <div class="kruiden-filter" id="kruiden-filter"></div>
         <div class="kruiden-lijst" id="kruiden-lijst"></div>
       </section>
@@ -209,7 +202,6 @@
           <h2>Sauzen en smaakmakers</h2>
           <p class="hint">Flessen, potjes en blokjes: wat het is, wat je ermee doet en in welke recepten je het gebruikt. Vink aan wat je in huis hebt, dan staat het niet meer bij Nog halen.</p>
         </div></div>
-        <label class="zoek kruiden-zoek" for="sauzen-zoek"><span class="sr">Zoek in sauzen en smaakmakers</span><input id="sauzen-zoek" type="search" placeholder="Zoek saus, smaak of gerecht… (bijv. wok, zoet, pittig)" autocomplete="off"></label>
         <div class="kruiden-filter" id="sauzen-filter"></div>
         <div class="kruiden-lijst" id="sauzen-lijst"></div>
       </section>
@@ -218,7 +210,6 @@
           <h2>Basis voor de voorraadkast</h2>
           <p class="hint">Suiker, meel en bakproducten: wat het is, wat je ermee doet en in welke recepten je het gebruikt. Vink aan wat je in huis hebt, dan staat het niet meer bij Nog halen. Zout, peper en olie staan hier niet: die heb je volgens Filters altijd.</p>
         </div></div>
-        <label class="zoek kruiden-zoek" for="basis-zoek"><span class="sr">Zoek in basisproducten</span><input id="basis-zoek" type="search" placeholder="Zoek product of gerecht… (bijv. suiker, binden, cake)" autocomplete="off"></label>
         <div class="kruiden-filter" id="basis-filter"></div>
         <div class="kruiden-lijst" id="basis-lijst"></div>
       </section>
@@ -242,6 +233,27 @@
     </header>
     <p class="inhoud-hint" id="inhoud-hint"></p>
     <div class="inhoud-lijst" id="inhoud-lijst"></div>
+  </section>
+</div>
+
+<div class="inhoud-vel instel-vel" id="instel-vel" hidden>
+  <div class="inhoud-achter" data-instel-sluit></div>
+  <section class="inhoud-blad" role="dialog" aria-modal="true" aria-labelledby="instel-titel" tabindex="-1">
+    <header class="inhoud-kop">
+      <h2 id="instel-titel">Instellingen</h2>
+      <button type="button" class="ikoon-knop" data-instel-sluit aria-label="Sluit de instellingen"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-sluit"/></svg></button>
+    </header>
+    <section class="instel-blok">
+      <h3>Mijn keuken</h3>
+      <p class="hint">Vink aan wat je hebt. Elk recept kiest dan de bereidingswijze die bij jouw keuken past, en geeft advies voor jouw pannen.</p>
+      <div class="mijn-keuken" id="mijn-keuken"></div>
+      <label class="schakel"><input type="checkbox" id="f-maakbaar"> <span>Verberg recepten waarvoor ik apparatuur mis</span></label>
+    </section>
+
+    <section class="instel-blok blok-sync">
+      <h3>Op al je apparaten</h3>
+      <div id="sync"></div>
+    </section>
   </section>
 </div>
 
@@ -293,66 +305,69 @@
     <symbol id="i-scherm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><path d="M12 7v4M10 9h4"/></g></symbol>
     <symbol id="i-ster" viewBox="0 0 24 24"><path d="m12 3.2 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 17l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
     <symbol id="i-vink" viewBox="0 0 24 24"><path d="m4.5 12.5 4.5 4.5L19.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-huis" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V19a1.5 1.5 0 0 0 1.5 1.5h10a1.5 1.5 0 0 0 1.5-1.5V9.5"/><path d="M10 20.5v-5.5h4v5.5"/></g></symbol>
+    <symbol id="i-boek" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c-2-1.6-5-2-8-1.5v13c3-.5 6-.1 8 1.5 2-1.6 5-2 8-1.5V5c-3-.5-6-.1-8 1.5Z"/><path d="M12 6.5v13"/></g></symbol>
+    <symbol id="i-tandwiel" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></g></symbol>
     <symbol id="i-nieuw" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5c.6 4.2 2.3 5.9 6.5 6.5-4.2.6-5.9 2.3-6.5 6.5-.6-4.2-2.3-5.9-6.5-6.5 4.2-.6 5.9-2.3 6.5-6.5Z"/><path d="M18.5 15.5c.2 1.5.8 2.1 2.3 2.3-1.5.2-2.1.8-2.3 2.3-.2-1.5-.8-2.1-2.3-2.3 1.5-.2 2.1-.8 2.3-2.3Z"/></g></symbol>
     <symbol id="i-kast" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="4" rx="1"/><path d="M7 7h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="M5 12h14M5 16.5h14"/></g></symbol>
   </defs>
 </svg>
 
-<script src="js/versie.js?v=1.99.0"></script>
-<script src="js/update.js?v=1.99.0"></script>
-<script src="js/data/gereedschap.js?v=1.99.0"></script>
-<script src="js/data/hoofdstukken.js?v=1.99.0"></script>
-<script src="js/data/recepten-1.js?v=1.99.0"></script>
-<script src="js/data/recepten-2.js?v=1.99.0"></script>
-<script src="js/data/recepten-3.js?v=1.99.0"></script>
-<script src="js/data/recepten-4.js?v=1.99.0"></script>
-<script src="js/data/recepten-5.js?v=1.99.0"></script>
-<script src="js/data/recepten-6.js?v=1.99.0"></script>
-<script src="js/data/recepten-7.js?v=1.99.0"></script>
-<script src="js/data/recepten-8.js?v=1.99.0"></script>
-<script src="js/data/recepten-9.js?v=1.99.0"></script>
-<script src="js/data/recepten-10.js?v=1.99.0"></script>
-<script src="js/data/recepten-11.js?v=1.99.0"></script>
-<script src="js/data/recepten-12.js?v=1.99.0"></script>
-<script src="js/data/recepten-13.js?v=1.99.0"></script>
-<script src="js/data/recepten-14.js?v=1.99.0"></script>
-<script src="js/data/recepten-15.js?v=1.99.0"></script>
-<script src="js/data/recepten-16.js?v=1.99.0"></script>
-<script src="js/data/recepten-17.js?v=1.99.0"></script>
-<script src="js/data/recepten-18.js?v=1.99.0"></script>
-<script src="js/data/recepten-19.js?v=1.99.0"></script>
-<script src="js/data/recepten-20.js?v=1.99.0"></script>
-<script src="js/data/recepten-21.js?v=1.99.0"></script>
-<script src="js/data/recepten-22.js?v=1.99.0"></script>
-<script src="js/data/recepten-23.js?v=1.99.0"></script>
-<script src="js/data/recepten-24.js?v=1.99.0"></script>
-<script src="js/data/recepten-25.js?v=1.99.0"></script>
-<script src="js/data/recepten-26.js?v=1.99.0"></script>
-<script src="js/data/recepten-27.js?v=1.99.0"></script>
-<script src="js/data/recepten-28.js?v=1.99.0"></script>
-<script src="js/data/recepten-29.js?v=1.99.0"></script>
-<script src="js/data/kruiden.js?v=1.99.0"></script>
-<script src="js/data/smaakmakers.js?v=1.99.0"></script>
-<script src="js/data/basis.js?v=1.99.0"></script>
-<script src="js/varianten.js?v=1.99.0"></script>
-<script src="js/data/fotos.js?v=1.99.0"></script>
-<script src="js/data/groentemixen.js?v=1.99.0"></script>
-<script src="js/data/verpakkingen.js?v=1.99.0"></script>
-<script src="js/data/vervangers.js?v=1.99.0"></script>
-<script src="js/data/uien.js?v=1.99.0"></script>
-<script src="js/data/hoofdingredienten.js?v=1.99.0"></script>
-<script src="js/data/uitleg.js?v=1.99.0"></script>
-<script src="js/data/leren.js?v=1.99.0"></script>
-<script src="js/data/vriezer.js?v=1.99.0"></script>
-<script src="js/data/prijzen.js?v=1.99.0"></script>
-<script src="js/hulp.js?v=1.99.0"></script>
-<script src="js/prijzen.js?v=1.99.0"></script>
-<script src="js/boodschappen.js?v=1.99.0"></script>
-<script src="js/deelkaart.js?v=1.99.0"></script>
-<script src="js/logboek.js?v=1.99.0"></script>
-<script src="js/detail.js?v=1.99.0"></script>
-<script src="js/leren.js?v=1.99.0"></script>
-<script src="js/sync.js?v=1.99.0"></script>
-<script src="js/app.js?v=1.99.0"></script>
+<script src="js/versie.js?v=1.100.0"></script>
+<script src="js/update.js?v=1.100.0"></script>
+<script src="js/data/gereedschap.js?v=1.100.0"></script>
+<script src="js/data/hoofdstukken.js?v=1.100.0"></script>
+<script src="js/data/recepten-1.js?v=1.100.0"></script>
+<script src="js/data/recepten-2.js?v=1.100.0"></script>
+<script src="js/data/recepten-3.js?v=1.100.0"></script>
+<script src="js/data/recepten-4.js?v=1.100.0"></script>
+<script src="js/data/recepten-5.js?v=1.100.0"></script>
+<script src="js/data/recepten-6.js?v=1.100.0"></script>
+<script src="js/data/recepten-7.js?v=1.100.0"></script>
+<script src="js/data/recepten-8.js?v=1.100.0"></script>
+<script src="js/data/recepten-9.js?v=1.100.0"></script>
+<script src="js/data/recepten-10.js?v=1.100.0"></script>
+<script src="js/data/recepten-11.js?v=1.100.0"></script>
+<script src="js/data/recepten-12.js?v=1.100.0"></script>
+<script src="js/data/recepten-13.js?v=1.100.0"></script>
+<script src="js/data/recepten-14.js?v=1.100.0"></script>
+<script src="js/data/recepten-15.js?v=1.100.0"></script>
+<script src="js/data/recepten-16.js?v=1.100.0"></script>
+<script src="js/data/recepten-17.js?v=1.100.0"></script>
+<script src="js/data/recepten-18.js?v=1.100.0"></script>
+<script src="js/data/recepten-19.js?v=1.100.0"></script>
+<script src="js/data/recepten-20.js?v=1.100.0"></script>
+<script src="js/data/recepten-21.js?v=1.100.0"></script>
+<script src="js/data/recepten-22.js?v=1.100.0"></script>
+<script src="js/data/recepten-23.js?v=1.100.0"></script>
+<script src="js/data/recepten-24.js?v=1.100.0"></script>
+<script src="js/data/recepten-25.js?v=1.100.0"></script>
+<script src="js/data/recepten-26.js?v=1.100.0"></script>
+<script src="js/data/recepten-27.js?v=1.100.0"></script>
+<script src="js/data/recepten-28.js?v=1.100.0"></script>
+<script src="js/data/recepten-29.js?v=1.100.0"></script>
+<script src="js/data/kruiden.js?v=1.100.0"></script>
+<script src="js/data/smaakmakers.js?v=1.100.0"></script>
+<script src="js/data/basis.js?v=1.100.0"></script>
+<script src="js/varianten.js?v=1.100.0"></script>
+<script src="js/data/fotos.js?v=1.100.0"></script>
+<script src="js/data/groentemixen.js?v=1.100.0"></script>
+<script src="js/data/verpakkingen.js?v=1.100.0"></script>
+<script src="js/data/vervangers.js?v=1.100.0"></script>
+<script src="js/data/uien.js?v=1.100.0"></script>
+<script src="js/data/hoofdingredienten.js?v=1.100.0"></script>
+<script src="js/data/uitleg.js?v=1.100.0"></script>
+<script src="js/data/leren.js?v=1.100.0"></script>
+<script src="js/data/vriezer.js?v=1.100.0"></script>
+<script src="js/data/prijzen.js?v=1.100.0"></script>
+<script src="js/hulp.js?v=1.100.0"></script>
+<script src="js/prijzen.js?v=1.100.0"></script>
+<script src="js/boodschappen.js?v=1.100.0"></script>
+<script src="js/deelkaart.js?v=1.100.0"></script>
+<script src="js/logboek.js?v=1.100.0"></script>
+<script src="js/detail.js?v=1.100.0"></script>
+<script src="js/leren.js?v=1.100.0"></script>
+<script src="js/sync.js?v=1.100.0"></script>
+<script src="js/app.js?v=1.100.0"></script>
 </body>
 </html>
