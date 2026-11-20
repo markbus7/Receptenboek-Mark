@@ -22,7 +22,7 @@ RECEPTEN.push(
     { n: 'hazelnootpasta', q: 100, u: 'g', x: 'zoals Nutella', opt: true }
   ],
   stappen: [
-    { kop: 'Beslag', t: 'Doe de bloem en het zout in een kom, maak een kuiltje en breek de eieren erin. Giet er een derde van de melk bij en klop met de garde vanuit het midden tot een dik, glad beslag. Klop dan de rest van de melk erdoor. Met de staafmixer: doe alles in de hoge beker en mix 30 seconden.' },
+    { kop: 'Beslag', t: 'Doe de bloem en het zout in een kom, maak een kuiltje en breek de eieren erin. Giet er een derde van de melk bij en klop met de garde vanuit het midden tot een dik, glad beslag. Klop dan de rest van de melk erdoor. Met de staafmixer: doe alles in de hoge beker en mix 30 seconden.', km: 'garde: bloem, zout en eieren in de kom, zet hem op stand 1 en giet de melk er in scheutjes bij. Daarna 1 minuut op stand 3 tot het glad is, zonder klontjes.' },
     { t: 'Smelt alle boter. Roer 30 g (ca. 2 el) door het beslag; de rest gebruik je straks om de pan in te vetten. Het beslag is zo dun als ongeklopte slagroom. Is het dikker, voeg dan 2 el melk toe.' },
     { t: 'Laat het beslag afgedekt 30 minuten rusten. Dan worden de crêpes soepeler en scheuren ze minder snel.', min: 30 },
     { kop: 'Bakken', t: 'Verhit de koekenpan op middelhoog vuur. Vet hem in met een propje keukenpapier dat je door de gesmolten boter haalt.' },

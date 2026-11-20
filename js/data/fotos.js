@@ -270,6 +270,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chocolate_Fondant.jpg"
  },
+ "chocolademousse": {
+  "src": "img/chocolademousse.jpg",
+  "auteur": "Lu",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Chocolate_coffee_mousse.jpg"
+ },
  "chocolate-chip-cookies": {
   "src": "img/chocolate-chip-cookies.jpg",
   "auteur": "brainloc on sxc.hu (Bob Smith)",
@@ -641,6 +647,12 @@ window.FOTOS = {
   "auteur": "Takeaway",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:2015_0731_Kaiserschmarrn_Apfelso%C3%9Fe_Edelweissh%C3%BCtte_S%C3%B6lden.jpg"
+ },
+ "kaneelbroodjes": {
+  "src": "img/kaneelbroodjes.jpg",
+  "auteur": "grongar",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Cinnamon_rolls_glazed,_July_2009.jpg"
  },
  "kapsalon": {
   "src": "img/kapsalon.jpg",
@@ -1875,6 +1887,12 @@ window.FOTOS = {
   "auteur": "Hortensja Bukietowa",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Uitsmijter2.JPG"
+ },
+ "verse-tagliatelle-kip": {
+  "src": "img/verse-tagliatelle-kip.jpg",
+  "auteur": "Paolo Piscolla",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Nests_of_tagliatelle_bolognesi.jpg"
  },
  "vlaamse-stoverij": {
   "src": "img/vlaamse-stoverij.jpg",

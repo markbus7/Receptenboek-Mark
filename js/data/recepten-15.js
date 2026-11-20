@@ -348,7 +348,7 @@ RECEPTEN.push(
     { n: 'kaneel', q: 1, u: 'tl' }
   ],
   stappen: [
-    { kop: 'Beslag', t: 'Meng de bloem, gist, suiker en zout in een kom. Schenk het lauwe water erbij en roer met een lepel 2 minuten tot een glad, dik en kleverig beslag, dikker dan pannenkoekbeslag.', min: 2 },
+    { kop: 'Beslag', t: 'Meng de bloem, gist, suiker en zout in een kom. Schenk het lauwe water erbij en roer met een lepel 2 minuten tot een glad, dik en kleverig beslag, dikker dan pannenkoekbeslag.', min: 2, km: 'K-klopper op stand 2, 2 minuten tot een glad, kleverig beslag.' },
     { t: 'Dek de kom af en laat het beslag 1 uur rijzen op een warme plek, tot het verdubbeld is en vol belletjes zit.', min: 60 },
     { kop: 'Honingsiroop', t: 'Breng intussen de honing, suiker, het water, kaneelstokje en citroenschil aan de kook in de steelpan. Laat 5 minuten zachtjes koken, roer het citroensap erdoor en zet de pan op het laagste vuur, zodat de siroop warm blijft.', min: 5 },
     { kop: 'Beslag', t: 'Verhit 5 cm olie in de Dutch oven tot 175 °C. Geen thermometer? Laat er een druppel beslag in vallen: komt die binnen een paar tellen sissend boven, dan is de olie heet genoeg.' },
@@ -459,7 +459,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { kop: 'Deeg', t: 'Kook de aardappel in 15 minuten gaar in de steelpan. Giet af, prak hem heel fijn en laat lauw worden.', min: 15, stoom: 'de aardappel in stukken 15 minuten' },
-    { t: 'Meng bloem, gist, suiker en zout in een kom. Voeg de aardappel, de lauwe melk en 1 el olie toe en kneed 8 minuten tot een zacht, licht plakkerig deeg.', min: 8 },
+    { t: 'Meng bloem, gist, suiker en zout in een kom. Voeg de aardappel, de lauwe melk en 1 el olie toe en kneed 8 minuten tot een zacht, licht plakkerig deeg.', min: 8, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 6 minuten op stand 2, het deeg blijft een beetje plakken.' },
     { t: 'Laat het deeg afgedekt op een warme plek 1 uur rijzen, tot het in volume verdubbeld is.', min: 60 },
     { kop: 'Topping', t: 'Roer intussen de knoflook door 3 el olie met een snuf zout.' },
     { kop: 'Bakken', t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 180 °C. Geen thermometer? Houd er een houten lepel in: borrelen er direct belletjes omheen, dan is de olie heet genoeg.' },
@@ -628,7 +628,7 @@ RECEPTEN.push(
     { n: 'verse peterselie', q: 10, u: 'g', x: 'grof geplukt' }
   ],
   stappen: [
-    { kop: 'Deeg', t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 minuten tot een glad, soepel deeg.', min: 8 },
+    { kop: 'Deeg', t: 'Meng bloem, gist en zout in een kom. Voeg het water en de olie toe en kneed 8 minuten tot een glad, soepel deeg.', min: 8, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 6 minuten op stand 2.' },
     { t: 'Laat het deeg afgedekt op een warme plek 1 uur rijzen.', min: 60 },
     { kop: 'Vulling', t: 'Maal ui, paprika, tomaat, knoflook en peterselie in de hakmolen tot een grove puree. Kneed het met gehakt, tomatenpuree, specerijen en zout tot een smeuïge pasta. Is het erg nat, giet dan eerst wat groentevocht af.' },
     { kop: 'Bakken', t: 'Zet de bakplaat in de oven en verwarm minstens 20 minuten voor op de hoogste stand.', m: 'oven', min: 20 },
@@ -888,7 +888,7 @@ RECEPTEN.push(
     { n: 'Turks brood', q: 1, u: 'st', x: 'of Marokkaans platbrood (khobz)' }
   ],
   stappen: [
-    { kop: 'Kefta', t: 'Meng gehakt, geraspte ui, de helft van de kruiden, komijn, paprikapoeder, kaneel, zout en peper. Kneed 1 minuut tot het plakt en draai er met natte handen balletjes van ca. 3 cm van.' },
+    { kop: 'Kefta', t: 'Meng gehakt, geraspte ui, de helft van de kruiden, komijn, paprikapoeder, kaneel, zout en peper. Kneed 1 minuut tot het plakt en draai er met natte handen balletjes van ca. 3 cm van.', km: 'K-klopper op stand 1, 1 minuut tot het gehakt plakt.' },
     { kop: 'Saus', t: 'Verhit de olie in de tajine of Dutch oven op middelhoog vuur. Fruit de ui 4 minuten en bak de knoflook, komijn en paprikapoeder 1 minuut mee.', min: 5 },
     { t: 'Voeg tomatenblokjes, tomatenpuree, water, rode peper, suiker en een snuf zout toe. Laat 10 minuten zachtjes koken tot de saus iets dikker is.', min: 10 },
     { kop: 'Afmaken', t: 'Leg de balletjes in de saus en schud de pan zodat ze erin wegzakken. Leg de deksel erop en laat 15 minuten op laag vuur garen; keer ze halverwege.', min: 15 },

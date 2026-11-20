@@ -505,7 +505,28 @@ const Hulp = (() => {
     if (recept.gerei.some((g) => /braadpan|stoofpan|dutch oven|tajine/i.test(g.tekst))) tools.add('braadpan');
     // Stappen met een `stoom`-krabbel (tekst) of die al stomen (`stoom: true`, stomen is daar lekkerder); rijst koken alleen telt niet.
     if ((recept.stappen || []).some((s) => s.stoom)) tools.add('rijstkoker');
+    // Stappen met een `km`-krabbel: kneden, kloppen of mengen kan in de keukenmachine.
+    if ((recept.stappen || []).some((s) => s.km)) tools.add('keukenmachine');
     return tools;
+  }
+
+  /* Algemeen advies voor de keukenmachine (Bourgini Kitchen Chef, 4,5 liter: garde, K-klopper, deeghaak, spatdeksel). */
+  const KEUKENMACHINE = 'Zet de spatdeksel erop en begin altijd op stand 1, dan stuift er geen bloem of melk uit de kom; draai daarna pas hoger. '
+    + 'Deeghaak voor brood- en gistdeeg (laag: stand 1 à 2), K-klopper voor cakebeslag, koekjesdeeg, boter met suiker en gehakt (laag tot middel), garde voor slagroom, eiwit en eieren met suiker (hoog). '
+    + 'Kneed niet meer dan ongeveer 500 g bloem tegelijk en laat de motor na 10 minuten kneden even rusten. '
+    + 'Heb je maar 1 eiwit of minder dan 150 ml slagroom, pak dan je handmixer: de garde raakt in de grote kom te weinig. '
+    + 'Zet hem uit voordat je de kop omhoog klapt, en schraap de kom halverwege één keer met een spatel. De K-klopper en deeghaak niet in de vaatwasser.';
+
+  /* Krabbel bij een stap voor de keukenmachine. Kneed je meer dan ± 500 g meel (bij meer personen), dan in twee keer. */
+  function kmKrabbel(stap, recept, factor = 1) {
+    if (!stap.km) return '';
+    let tekst = 'met je keukenmachine: ' + stap.km;
+    if (/deeghaak/i.test(stap.km)) {
+      const meel = (recept.ingr || []).filter((i) => !i.kop && /^(bloem|tarwebloem|bakmeel|zelfrijzend bakmeel|volkorenmeel|meel|tipo 00|patentbloem)$/i.test(i.n || '') && ['g', 'kg'].includes(i.u))
+        .reduce((som, i) => som + i.q * (i.u === 'kg' ? 1000 : 1), 0) * factor;
+      if (meel > 550) tekst += ` Dit is ± ${Math.round(meel / 10) * 10} g meel, meer dan de kom aankan: kneed het in twee porties.`;
+    }
+    return tekst;
   }
 
   /* Advies voor één stuk keukengerei, afgestemd op de pannen die je hebt.
@@ -574,6 +595,13 @@ const Hulp = (() => {
     }
     if (g.tool === 'kookpan' && heb('rijstkoker') && !recept.gerei.some((x) => x.tool === 'rijstkoker') && (recept.stappen || []).some((s) => s.stoom)) {
       return eenmalig('stomen', { soort: 'tip', tekst: 'Je kunt ook stomen in je rijstkoker (zie de stappen): ' + stomen });
+    }
+
+    if (g.tool === 'keukenmachine' && heb('keukenmachine')) {
+      return eenmalig('keukenmachine', { soort: 'tip', tekst: KEUKENMACHINE });
+    }
+    if (g.tool === 'mixer' && heb('keukenmachine') && (recept.stappen || []).some((s) => s.km)) {
+      return eenmalig('keukenmachine', { soort: 'vervang', tekst: 'Gebruik je keukenmachine; bij de stappen staat welk hulpstuk en welke stand. ' + KEUKENMACHINE });
     }
 
     if (g.tool === 'kookpan' && heb('rvs-kookpan') && /bechamel|saus|melk|room/.test(tekst)) {
@@ -826,5 +854,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { optLabel, nietKlassiek, vriezerbaar, vriezer, stappenMetDeel, stapTekst, pastaWater, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { kmKrabbel, optLabel, nietKlassiek, vriezerbaar, vriezer, stappenMetDeel, stapTekst, pastaWater, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();

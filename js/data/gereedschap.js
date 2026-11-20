@@ -8,6 +8,7 @@ window.GEREEDSCHAP = {
   grillpan:   { naam: 'Grillpan',          icoon: 'grillpan',   apparaat: true, standaard: false },
   staafmixer: { naam: 'Staafmixer / blender', icoon: 'staafmixer', apparaat: true, standaard: true },
   mixer:      { naam: 'Handmixer',         icoon: 'mixer',      apparaat: true, standaard: true },
+  keukenmachine: { naam: 'Keukenmachine',  sub: 'staande mixer met kom, garde, K-klopper en deeghaak', icoon: 'keukenmachine', apparaat: true, standaard: true },
   slowcooker: { naam: 'Slowcooker',        icoon: 'slowcooker', apparaat: true, standaard: false },
   magnetron:  { naam: 'Magnetron',         icoon: 'magnetron',  apparaat: true, standaard: true },
   contactgrill: { naam: 'Contactgrill',    sub: 'zoals Tefal OptiGrill', icoon: 'contactgrill', apparaat: true, standaard: true },

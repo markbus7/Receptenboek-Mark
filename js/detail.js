@@ -312,6 +312,10 @@ const Detail = (() => {
 
   function renderGerei() {
     const lijst = r.gerei.filter((g) => !g.m || g.m === methode);
+    // Heb je een keukenmachine en kan een stap erin, dan staat hij erbij (tenzij er al een mixer staat, die krijgt het advies).
+    if (ctx.keuken.includes('keukenmachine') && Hulp.stappenMetDeel(r, methode).some(({ s }) => s.km) && !lijst.some((g) => ['mixer', 'keukenmachine'].includes(g.tool))) {
+      lijst.push({ tool: 'keukenmachine', tekst: 'Keukenmachine' });
+    }
     const gezien = new Set();
     // Eén regel: de pannen kort, wat je mist doorgestreept. Het advies voor jouw keuken klapt open.
     const kort = (g) => Hulp.esc(g.tekst.replace(/\s*\(.*?\)/g, '').replace(/\s+(met|voor|van)\s.*$/i, ''));
@@ -621,6 +625,7 @@ const Detail = (() => {
       const notities = [
         ctx.keuken.includes('rijstkoker') && /^Kook de .*rijst/i.test(s.t) ? 'of: in je rijstkoker' : '',
         ctx.keuken.includes('rijstkoker') && typeof s.stoom === 'string' ? `of stomen in je rijstkoker: ${s.stoom}` : '',
+        ctx.keuken.includes('keukenmachine') ? Hulp.kmKrabbel(s, r, factor) : '',
         ...(/\{pastawater\}/.test(s.t) && pastaWater ? pastaWater.tips : []),
         ...vries.items.filter((x) => x.stap === s).map((x) => `${x.i.n} uit de vriezer: ${x.inStap}`)
       ].filter(Boolean);

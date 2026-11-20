@@ -126,7 +126,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Verwarm de melk tot hij lauw is (handwarm, niet heet). Roer de gist en de suiker erdoor en laat 5 minuten staan tot het licht schuimt.', min: 5 },
-    { t: 'Meng boekweitmeel, bloem en zout in een kom. Klop het ei en de gistmelk er in scheutjes door met een garde, tot een glad beslag zo dik als yoghurt.' },
+    { t: 'Meng boekweitmeel, bloem en zout in een kom. Klop het ei en de gistmelk er in scheutjes door met een garde, tot een glad beslag zo dik als yoghurt.', km: 'garde: meel, zout en ei in de kom, en de gistmelk in scheutjes erbij op stand 1. Daarna 1 minuut op stand 2.' },
     { t: 'Dek de kom af en laat het beslag 1 uur rijzen op een warme plek, tot het vol belletjes zit en duidelijk gerezen is.', min: 60 },
     { t: 'Roer het beslag kort door en doe het in een spuitzak met een opening van 1 cm, een knijpfles of een diepvrieszakje met een puntje eraf.' },
     { t: 'Verhit de koekenpan op middelhoog vuur en vet hem in met keukenpapier en wat gesmolten boter. Spuit rondjes van 3 à 4 cm in de pan, met wat ruimte ertussen.' },
@@ -160,8 +160,8 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Verwarm de melk tot hij lauw is (handwarm). Roer de gist erdoor en laat 5 minuten staan.', min: 5 },
-    { t: 'Doe bloem, suiker en zout in een grote kom. Voeg de gistmelk en het ei toe en klop 5 minuten met de deeghaken tot een glad, taai beslag dat in slierten van de haken valt.', min: 5 },
-    { t: 'Spoel de krenten en rozijnen, dep ze droog en schep ze met de appelblokjes door het beslag.' },
+    { t: 'Doe bloem, suiker en zout in een grote kom. Voeg de gistmelk en het ei toe en klop 5 minuten met de deeghaken tot een glad, taai beslag dat in slierten van de haken valt.', min: 5, km: 'deeghaak, 1 minuut op stand 1 en dan 5 minuten op stand 2, tot het beslag in slierten van de haak valt. Spatdeksel erop, het spat.' },
+    { t: 'Spoel de krenten en rozijnen, dep ze droog en schep ze met de appelblokjes door het beslag.', km: 'deeghaak op stand 1, 30 seconden: net tot alles verdeeld is.' },
     { t: 'Dek de kom af met huishoudfolie of een natte theedoek en laat het beslag 1 uur rijzen op een warme plek, tot het in volume verdubbeld is.', min: 60 },
     { t: 'Verhit 5 à 6 cm olie in de Dutch oven tot 180 °C. Geen thermometer? Steek een houten lepel in de olie: komen er direct veel belletjes omheen, dan is hij heet genoeg.', min: 10 },
     { t: 'Doop twee eetlepels of een ijsschep in de olie, schep een bol beslag en laat die met de tweede lepel in de olie glijden. Bak 4 à 5 bollen tegelijk 6 à 8 minuten, tot ze rondom donker goudbruin zijn. Draaien ze niet vanzelf om, keer ze dan halverwege.', min: 7 },

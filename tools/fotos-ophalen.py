@@ -212,6 +212,8 @@ ARTIKELEN = {
     # 1.99.0
     'pinchos-morunos': 'Pincho moruno', 'lecso': 'Lecsó', 'tajine-rund-pruimen': 'File:Moroccan cuisine-Mrouzia beef short ribs.jpg',
     'pollo-a-la-brasa': 'Pollo a la brasa', 'eton-mess': 'Eton mess',
+    # 1.102.0 (keukenmachine)
+    'chocolademousse': 'Chocolate mousse', 'kaneelbroodjes': 'File:Cinnamon rolls glazed, July 2009.jpg', 'verse-tagliatelle-kip': 'Tagliatelle',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)
