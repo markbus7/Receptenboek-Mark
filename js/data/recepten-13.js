@@ -225,10 +225,10 @@ RECEPTEN.push(
     { n: 'kaneel', q: 0.5, u: 'tl', opt: true }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, suiker, vanillesuiker en zout in een grote kom. Voeg de melk en de eieren toe en kneed met de deeghaken 5 minuten tot een samenhangend deeg.', min: 5 },
-    { t: 'Kneed de zachte boter er klontje voor klontje door en kneed daarna nog 5 minuten, tot het deeg glad en glanzend is. Het blijft plakkerig; dat hoort zo.', min: 5 },
+    { t: 'Meng bloem, gist, suiker, vanillesuiker en zout in een grote kom. Voeg de melk en de eieren toe en kneed met de deeghaken 5 minuten tot een samenhangend deeg.', min: 5, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 4 minuten op stand 2.' },
+    { t: 'Kneed de zachte boter er klontje voor klontje door en kneed daarna nog 5 minuten, tot het deeg glad en glanzend is. Het blijft plakkerig; dat hoort zo.', min: 5, km: 'deeghaak op stand 2: doe de boter er klontje voor klontje bij en laat hem daarna 5 minuten doorkneden tot het deeg glanst en loslaat van de kom.' },
     { t: 'Dek de kom af en laat het deeg op een warme plek 1 uur rijzen, tot het in volume verdubbeld is.', min: 60 },
-    { t: 'Kneed de parelsuiker (en eventueel de kaneel) kort door het deeg. Verdeel het in 12 bollen van ca. 100 g en laat ze afgedekt nog 20 minuten rijzen.', min: 20 },
+    { t: 'Kneed de parelsuiker (en eventueel de kaneel) kort door het deeg. Verdeel het in 12 bollen van ca. 100 g en laat ze afgedekt nog 20 minuten rijzen.', min: 20, km: 'deeghaak op stand 1, 30 seconden: alleen tot de parelsuiker verdeeld is.' },
     { t: 'Verwarm het wafelijzer of de OptiGrill met wafelplaten voor op middelhoge stand. Leg een bol in elk vak, sluit het ijzer en bak 3 à 4 minuten, tot de wafels goudbruin zijn en de suiker aan de buitenkant karamelliseert.', min: 4 },
     { t: 'Laat de wafels afkoelen op een rooster, niet op een bord, anders worden ze klef. Pas op: de karamel is gloeiend heet. Bak zo alle bollen.' }
   ],
@@ -445,8 +445,8 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Week de rozijnen 10 minuten in warm water (of rum) en dep ze droog.', min: 10 },
-    { t: 'Klop de eidooiers met melk, bloem, vanillesuiker en zout tot een glad beslag zonder klontjes.' },
-    { t: 'Klop de eiwitten in een schone, vetvrije kom met de suiker stijf, tot er pieken blijven staan. Spatel ze in twee keer luchtig door het beslag.' },
+    { t: 'Klop de eidooiers met melk, bloem, vanillesuiker en zout tot een glad beslag zonder klontjes.', km: 'garde op stand 1 tot de bloem is opgenomen, dan 1 minuut op stand 3. Schep het beslag in een andere kom en was de kom en garde goed af voor de eiwitten.' },
+    { t: 'Klop de eiwitten in een schone, vetvrije kom met de suiker stijf, tot er pieken blijven staan. Spatel ze in twee keer luchtig door het beslag.', km: 'garde in de schone, vetvrije kom: 1 minuut op stand 2, voeg de suiker toe en klop op de hoogste stand 2 à 3 minuten stijf. Spatel het met de hand door het beslag.' },
     { t: 'Smelt 20 g boter in de koekenpan op middelhoog vuur. Giet het beslag erin en strooi de rozijnen erover. Zet het vuur middellaag, leg de deksel op de pan en bak 5 minuten, tot de onderkant goudbruin is en de bovenkant bijna gestold.', min: 5 },
     { t: 'Verdeel de pannenkoek met de spatel in vieren en keer elk kwart om. Bak nog 2 à 3 minuten zonder deksel.', min: 3 },
     { t: 'Scheur de pannenkoek met twee spatels of vorken in hapklare stukken. Voeg de rest van de boter en 1 el poedersuiker toe en schep 2 minuten om op middelhoog vuur, tot de stukjes glanzend gekaramelliseerd zijn.', min: 2 },
@@ -629,7 +629,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { kop: 'Balletjes', t: 'Snijd de korst van het brood, scheur het in stukjes en laat het 5 minuten weken in de melk. Knijp het daarna een beetje uit.', min: 5 },
-    { t: 'Kneed het gehakt met het geweekte brood, de ui, het ei, de mosterd, de peterselie, 1 tl zout en flink wat peper tot een glad mengsel. Maak met natte handen 12 à 16 balletjes van ongeveer 4 cm.' },
+    { t: 'Kneed het gehakt met het geweekte brood, de ui, het ei, de mosterd, de peterselie, 1 tl zout en flink wat peper tot een glad mengsel. Maak met natte handen 12 à 16 balletjes van ongeveer 4 cm.', km: 'K-klopper op stand 1, 1 minuut tot het mengsel glad is.' },
     { t: 'Breng de bouillon met de laurier en peperkorrels aan de kook in de brede pan. Zet het vuur laag: de bouillon mag alleen nog trillen, niet borrelen. Leg de balletjes erin, doe de deksel erop en gaar ze 15 minuten. Ze drijven als ze gaar zijn.', min: 15 },
     { t: 'Kook intussen de aardappelen in water met zout in 20 minuten gaar.', min: 20, stoom: 'de aardappelen in stukken 25 minuten' },
     { t: 'Schep de balletjes uit de bouillon en houd ze warm onder een deksel. Zeef de bouillon in een maatbeker; je hebt er 600 ml van nodig.' },

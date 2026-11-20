@@ -351,5 +351,10 @@ window.HOOFD = {
   'lecso': ['paprika', 'tomaat', 'rookworst', 'rijst'],
   'tajine-rund-pruimen': ['rundvlees', 'gedroogde pruimen', 'amandelen', 'brood'],
   'pollo-a-la-brasa': ['kippenpoten', 'koriandersaus', 'friet', 'salade'],
-  'eton-mess': ['aardbeien', 'slagroom', 'schuimpjes']
+  'eton-mess': ['aardbeien', 'slagroom', 'schuimpjes'],
+
+  /* Keukenmachine, 2026-11-20 */
+  chocolademousse: ['pure chocolade', 'ei'],
+  kaneelbroodjes: ['zacht brooddeeg', 'kaneel', 'bruine suiker', 'roomkaas'],
+  'verse-tagliatelle-kip': ['verse pasta', 'kip', 'champignons', 'spinazie']
 };

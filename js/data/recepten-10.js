@@ -60,7 +60,7 @@ RECEPTEN.push(
     { n: 'sambal oelek', q: 0.5, u: 'tl' }
   ],
   stappen: [
-    { t: 'Klop bloem, suiker, bakpoeder, zout en water tot een glad, dik beslag.' },
+    { t: 'Klop bloem, suiker, bakpoeder, zout en water tot een glad, dik beslag.', km: 'garde of K-klopper, 1 minuut op stand 2 tot het beslag glad is.' },
     { t: 'Schil de bakbananen en snijd ze schuin in lange plakken van 1 cm.' },
     { t: 'Verhit de olie tot 175 °C (een druppel beslag sist meteen). Haal de plakken door het beslag en bak ze in porties 2 à 3 minuten per kant goudbruin. Laat uitlekken op keukenpapier.', m: 'koekenpan', min: 6 },
     { t: 'Haal de plakken door het beslag, leg ze op bakpapier in de mand en besproei met olie. Bak 10 à 12 minuten op 190 °C. Keer halverwege. Ze worden minder bol dan gefrituurd.', m: 'airfryer', min: 11 },
@@ -134,7 +134,7 @@ RECEPTEN.push(
     { n: 'Turks brood', q: 1, u: 'st', x: 'of 4 pita\'s' }
   ],
   stappen: [
-    { kop: 'Köfte', t: 'Kneed gehakt, ui, knoflook, peterselie, specerijen, paneermeel en een theelepel zout 2 minuten tot het plakt. Vorm 12 langwerpige rolletjes. Laat 10 minuten opstijven in de koelkast.', min: 10 },
+    { kop: 'Köfte', t: 'Kneed gehakt, ui, knoflook, peterselie, specerijen, paneermeel en een theelepel zout 2 minuten tot het plakt. Vorm 12 langwerpige rolletjes. Laat 10 minuten opstijven in de koelkast.', min: 10, km: 'K-klopper op stand 1, 1 minuut tot het gehakt plakt. Niet langer, dan worden ze taai.' },
     { t: 'Leg de köfte en de paprika\'s op de voorverwarmde contactgrill en sluit de deksel. Grill 6 à 7 minuten tot de köfte gaar zijn.', m: 'contactgrill', min: 7 },
     { t: 'Bak de köfte in een scheut olie op middelhoog vuur 8 à 10 minuten rondom bruin en gaar. Bak de paprika\'s ernaast mee tot ze zwarte vlekken hebben.', m: 'koekenpan', min: 9 },
     { t: 'Bak de köfte en paprika\'s 10 à 12 minuten in de airfryer op 200 °C. Schud halverwege.', m: 'airfryer', min: 11 },

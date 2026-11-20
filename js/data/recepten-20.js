@@ -23,7 +23,7 @@ RECEPTEN.push(
     { n: 'verse peterselie', q: 1, u: 'el', x: 'fijngehakt', opt: true }
   ],
   stappen: [
-    { t: 'Meng bakmeel, zout en olie in een kom. Roer de yoghurt erdoor en kneed 2 minuten tot een zacht, soepel deeg. Plakt het te veel, strooi er dan een lepel bakmeel bij.', min: 2 },
+    { t: 'Meng bakmeel, zout en olie in een kom. Roer de yoghurt erdoor en kneed 2 minuten tot een zacht, soepel deeg. Plakt het te veel, strooi er dan een lepel bakmeel bij.', min: 2, km: 'deeghaak, 2 minuten op stand 1 tot het een zachte bal is.' },
     { t: 'Verdeel het deeg in 6 stukken en rol ze op een met bakmeel bestoven aanrecht uit tot ronde lappen van 3 à 4 mm dik.' },
     { t: 'Verhit de droge pan op middelhoog vuur. Bak een platbrood 1½ à 2 minuten tot het opbolt en de onderkant bruine vlekken heeft. Keer en bak nog 1 minuut.', m: 'koekenpan', min: 3 },
     { t: 'Zet de OptiGrill op handmatig, op de hoogste stand (rood), en laat hem voorverwarmen. Leg 1 of 2 platbroden op de plaat, klap dicht en bak ze 2 à 3 minuten tot ze bruine strepen hebben. Je hoeft ze niet te keren.', m: 'contactgrill', min: 3 },
@@ -50,7 +50,7 @@ RECEPTEN.push(
     { n: 'water', q: 175, u: 'ml', x: 'heet, maar je moet er een vinger in kunnen houden' }
   ],
   stappen: [
-    { t: 'Meng bloem, bakpoeder en zout. Roer de olie en het hete water erdoor met een vork en kneed het 3 minuten tot een glad, zacht deeg.', min: 3 },
+    { t: 'Meng bloem, bakpoeder en zout. Roer de olie en het hete water erdoor met een vork en kneed het 3 minuten tot een glad, zacht deeg.', min: 3, km: 'deeghaak, 1 minuut op stand 1 en dan 3 minuten op stand 2.' },
     { t: 'Verdeel het deeg in 8 balletjes. Leg ze onder een vochtige theedoek en laat ze 30 minuten rusten. Dan trekt het deeg niet meer terug als je het uitrolt.', min: 30 },
     { t: 'Rol elk balletje op een licht bebloemd aanrecht uit tot een dunne ronde lap van ongeveer 20 cm. Draai de lap steeds een kwartslag, dan blijft hij rond.' },
     { t: 'Verhit de droge pan op middelhoog vuur. Bak een tortilla 30 à 45 seconden tot er bubbels op komen, keer en bak nog 30 seconden. Hij moet lichtbruine vlekjes hebben, maar zacht blijven.', min: 2 },
@@ -193,7 +193,7 @@ RECEPTEN.push(
     { n: 'pul biber', q: 1, u: 'tl', opt: true }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, suiker en zout. Voeg yoghurt, water en olie toe en kneed 8 minuten tot een zacht, soepel deeg dat nog een beetje plakt.', min: 8 },
+    { t: 'Meng bloem, gist, suiker en zout. Voeg yoghurt, water en olie toe en kneed 8 minuten tot een zacht, soepel deeg dat nog een beetje plakt.', min: 8, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 6 minuten op stand 2, het deeg blijft een beetje plakken.' },
     { t: 'Laat het deeg afgedekt op een warme plek 1 uur rijzen, tot het verdubbeld is.', min: 60 },
     { t: 'Verdeel het deeg in 6 ballen. Druk ze met je handen plat tot schijven van 1 cm dik en ongeveer 18 cm breed. Laat ze nog 10 minuten onder een theedoek liggen.', min: 10 },
     { t: 'Verhit de droge pan op middelhoog vuur. Bak een brood 2 à 3 minuten met de deksel op de pan, tot het opbolt en de onderkant goudbruin is. Keer en bak nog 2 minuten. Druk met een spatel op de randen, dan worden die ook gaar.', min: 5 },
@@ -223,7 +223,7 @@ RECEPTEN.push(
     { n: 'olijfolie', q: 2, u: 'el' }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, suiker en zout. Voeg water en olie toe en kneed 8 minuten tot een glad, soepel deeg.', min: 8 },
+    { t: 'Meng bloem, gist, suiker en zout. Voeg water en olie toe en kneed 8 minuten tot een glad, soepel deeg.', min: 8, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 6 minuten op stand 2.' },
     { t: 'Laat het deeg afgedekt 1 uur rijzen tot het verdubbeld is.', min: 60 },
     { t: 'Verdeel het in 8 ballen en laat ze 10 minuten rusten. Rol ze uit tot rondjes van 5 mm dik. Niet dunner: dan bollen ze niet op. Zorg dat er geen gaatjes of vouwen in zitten.', min: 10 },
     { t: 'Verhit de droge pan op hoog vuur tot hij echt heet is. Bak een pita 30 seconden, keer hem, en bak hem 1 minuut tot er bellen in komen. Keer nog eens: nu bolt hij helemaal op. Druk eventueel zachtjes met een theedoek op de bubbels om ze naar de randen te duwen.', m: 'koekenpan', min: 3 },
@@ -255,7 +255,7 @@ RECEPTEN.push(
     { n: 'griesmeel', q: 3, u: 'el', x: 'of maïsgries, om in te rollen' }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, suiker en zout. Voeg melk, boter en ei toe en kneed 8 minuten met de deeghaken tot een zacht, wat plakkerig deeg.', min: 8 },
+    { t: 'Meng bloem, gist, suiker en zout. Voeg melk, boter en ei toe en kneed 8 minuten met de deeghaken tot een zacht, wat plakkerig deeg.', min: 8, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 6 minuten op stand 2.' },
     { t: 'Laat het deeg afgedekt 1 uur rijzen tot het verdubbeld is.', min: 60 },
     { t: 'Strooi griesmeel op het aanrecht. Druk het deeg plat tot 2 cm dik en steek er met een glas van 8 cm rondjes uit. Kneed de restjes samen en steek nog eens uit. Wentel ze door het griesmeel.' },
     { t: 'Leg ze op een bakplaat of plank met griesmeel, dek af en laat nog 30 minuten rijzen.', min: 30 },
@@ -288,7 +288,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Breng melk, water, olie en zout aan de kook in de steelpan. Giet het meteen over het tapiocameel in een kom en roer met een lepel tot een kruimelig, plakkerig mengsel. Laat 10 minuten afkoelen.', min: 10 },
-    { t: 'Kneed de eieren er één voor één door, met de lepel of je handen, tot een glad, plakkerig deeg. Kneed de kaas erdoor.' },
+    { t: 'Kneed de eieren er één voor één door, met de lepel of je handen, tot een glad, plakkerig deeg. Kneed de kaas erdoor.', km: 'K-klopper op stand 2: laat het mengsel eerst 5 minuten afkoelen, doe dan de eieren één voor één erbij en klop tot elk is opgenomen. Daarna de kaas erbij, 20 seconden op stand 1. Veel minder armwerk.' },
     { t: 'Maak met ingeoliede handen balletjes ter grootte van een walnoot.' },
     { t: 'Verwarm de airfryer voor op 180 °C. Leg de balletjes met ruimte ertussen op het bakpapier: ze rijzen. Bak ze 12 à 15 minuten tot ze opgezwollen en lichtbruin zijn. In een XXL gaan er ongeveer 12 per keer.', min: 14 },
     { t: 'Eet ze warm: dan zijn ze het lekkerst.' }
@@ -317,7 +317,7 @@ RECEPTEN.push(
     { n: 'sesamzaad', q: 1, u: 'el', opt: true }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, suiker en zout. Voeg melk en boter toe en kneed 10 minuten met de deeghaken tot een glad, elastisch deeg dat loslaat van de kom.', min: 10 },
+    { t: 'Meng bloem, gist, suiker en zout. Voeg melk en boter toe en kneed 10 minuten met de deeghaken tot een glad, elastisch deeg dat loslaat van de kom.', min: 10, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 8 minuten op stand 2 tot het deeg loslaat van de kom en elastisch is.' },
     { t: 'Laat het deeg afgedekt op een warme plek 1 uur rijzen tot het verdubbeld is.', min: 60 },
     { t: 'Verdeel het deeg in 8 gelijke stukken (weeg ze, ongeveer 85 g). Vouw elk stuk naar het midden toe en rol het met de naad naar beneden onder je holle hand tot een strak bolletje.' },
     { t: 'Leg de bolletjes op stukjes bakpapier, dek af en laat ze nog 45 minuten rijzen tot ze flink gezwollen zijn.', min: 45 },
@@ -382,7 +382,7 @@ RECEPTEN.push(
     { n: 'ghee', q: 60, u: 'g', x: 'of gesmolten boter' }
   ],
   stappen: [
-    { t: 'Meng meel en zout. Voeg beetje bij beetje het water en de olie toe en kneed 5 minuten tot een zacht, soepel deeg. Laat het afgedekt 30 minuten rusten.', min: 35 },
+    { t: 'Meng meel en zout. Voeg beetje bij beetje het water en de olie toe en kneed 5 minuten tot een zacht, soepel deeg. Laat het afgedekt 30 minuten rusten.', min: 35, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 4 minuten op stand 2.' },
     { t: 'Verdeel het deeg in 6 ballen. Rol een bal uit tot een dunne lap van 20 cm, bestrijk met ghee en bestrooi met een beetje meel.' },
     { t: 'Vouw de lap als een waaier: steeds 2 cm heen en terug, zodat je een lange, smalle geplooide reep krijgt. Rol de reep op als een slakkenhuis en stop het einde eronder.' },
     { t: 'Doe dit met alle ballen en laat ze 5 minuten rusten. Rol ze daarna voorzichtig uit tot rondjes van 15 à 18 cm.', min: 5 },
@@ -416,7 +416,7 @@ RECEPTEN.push(
     { n: 'chili-olie', q: 1, u: 'tl', opt: true }
   ],
   stappen: [
-    { t: 'Doe de bloem in een kom en giet het kokende water erbij terwijl je roert met eetstokjes of een vork. Voeg het koude water toe en kneed 5 minuten tot een glad, zacht deeg. Laat het afgedekt 30 minuten rusten.', min: 35 },
+    { t: 'Doe de bloem in een kom en giet het kokende water erbij terwijl je roert met eetstokjes of een vork. Voeg het koude water toe en kneed 5 minuten tot een glad, zacht deeg. Laat het afgedekt 30 minuten rusten.', min: 35, km: 'deeghaak: giet het kokende water erbij op stand 1, dan het koude water en kneed 4 minuten op stand 2. Pas op, het deeg is in het begin heet.' },
     { t: 'Meng sesamolie, zout en eventueel vijfkruidenpoeder in een kommetje.' },
     { t: 'Verdeel het deeg in 4 stukken. Rol een stuk zo dun mogelijk uit tot een rechthoek. Bestrijk met het sesammengsel en strooi er een kwart van de lente-ui over.' },
     { t: 'Rol de lap vanaf de lange kant strak op tot een lange worst. Rol die worst daarna op als een slakkenhuis en stop het eind eronder. Druk hem plat met je hand en rol hem voorzichtig uit tot een rondje van 18 cm. Prikt er een stukje lente-ui doorheen, dan is dat geen probleem.' },
@@ -452,7 +452,7 @@ RECEPTEN.push(
     { n: 'sesamzaad', q: 2, u: 'el', x: 'of maanzaad', opt: true }
   ],
   stappen: [
-    { kop: 'Deeg', t: 'Meng bloem, gist, suiker en zout. Voeg het water toe en kneed 10 minuten tot een stevig, glad deeg. Het is steviger dan gewoon brooddeeg; dat hoort zo.', min: 10 },
+    { kop: 'Deeg', t: 'Meng bloem, gist, suiker en zout. Voeg het water toe en kneed 10 minuten tot een stevig, glad deeg. Het is steviger dan gewoon brooddeeg; dat hoort zo.', min: 10, km: 'deeghaak: 1 minuut op stand 1, dan 8 minuten op stand 2. Dit deeg is zwaar: laat de machine niet onbeheerd draaien, hij kan gaan wandelen.' },
     { t: 'Laat het deeg afgedekt 1 uur rijzen.', min: 60 },
     { t: 'Verdeel het in 8 stukken van ongeveer 100 g en rol ze tot strakke bollen. Duw je duim door het midden en draai de bal rond je vingers tot een ring met een gat van 3 cm. Het gat krimpt nog.' },
     { t: 'Leg de bagels op stukjes bakpapier en laat ze 20 minuten rusten. Een bagel is klaar als hij binnen een paar seconden boven komt drijven in een kom koud water.', min: 20 },
@@ -506,7 +506,7 @@ RECEPTEN.push(
     { kop: 'Kip', t: 'Verhit de olie in de koekenpan op middelhoog vuur en bak de kip 5 minuten tot hij rondom bruin is.', min: 5 },
     { t: 'Doe de kip in de braadpan met sojasaus, rijstwijn, suiker, steranijs, gember, knoflook en water. Breng aan de kook, leg de deksel op de pan en laat 40 minuten zachtjes stoven, tot de kip heel zacht is.', m: 'braadpan', min: 40 },
     { t: 'Doe de kip in de slowcooker met sojasaus, rijstwijn, suiker, steranijs, gember, knoflook en de helft van het water. Gaar 3 uur op laag. Giet het vocht daarna in een steelpan.', m: 'slowcooker' },
-    { kop: 'Bao', t: 'Maak intussen het deeg. Meng bloem, gist, suiker, bakpoeder en zout. Voeg melk en olie toe en kneed 10 minuten tot een heel glad, zijdezacht deeg. Laat afgedekt 1 uur rijzen.', min: 70 },
+    { kop: 'Bao', t: 'Maak intussen het deeg. Meng bloem, gist, suiker, bakpoeder en zout. Voeg melk en olie toe en kneed 10 minuten tot een heel glad, zijdezacht deeg. Laat afgedekt 1 uur rijzen.', min: 70, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 8 minuten op stand 2, tot het deeg zijdezacht is.' },
     { t: 'Rol het deeg uit tot 5 mm dik en steek er met een glas van 9 cm rondjes uit. Rol elk rondje kort uit tot een ovaal. Bestrijk de helft met een beetje olie, leg een stukje van een rietje of een eetstokje in het midden en vouw dubbel. Trek het stokje eruit.' },
     { t: 'Leg elke bao op een vierkantje bakpapier in het stoommandje, met ruimte ertussen. Laat ze afgedekt 30 minuten rijzen.', min: 30 },
     { kop: 'Kip', t: 'Haal de kip uit de pan en kook het vocht in tot een stroperige saus. Doe de kip terug en schep om tot alles glanst.', min: 10 },
@@ -551,7 +551,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 1, u: 'st', x: 'losgeklopt, om te bestrijken' }
   ],
   stappen: [
-    { kop: 'Deeg', t: 'Meng bloem en zout in een kom en wrijf de zachte boter er met je vingers door tot een kruimelig mengsel. Schenk het lauwe water erbij en kneed 5 minuten tot een soepel, glad deeg. Wikkel het in folie en leg het 30 minuten in de koelkast.', min: 5 },
+    { kop: 'Deeg', t: 'Meng bloem en zout in een kom en wrijf de zachte boter er met je vingers door tot een kruimelig mengsel. Schenk het lauwe water erbij en kneed 5 minuten tot een soepel, glad deeg. Wikkel het in folie en leg het 30 minuten in de koelkast.', min: 5, km: 'deeghaak: bloem, zout en de zachte boter 1 minuut op stand 1 tot kruimels, dan het water erbij en 4 minuten op stand 2.' },
     { kop: 'Vulling', t: 'Kook de eieren voor de vulling 10 minuten hard, laat ze schrikken, pel ze en hak ze grof.', min: 10, stoom: 'de eieren 12 minuten, daarna in koud water' },
     { t: 'Verhit de olie in de koekenpan en bak ui en paprika 6 minuten zacht. Voeg het gehakt toe en bak het 6 minuten rul en gaar.', min: 12 },
     { t: 'Roer paprikapoeder, komijn, oregano en chilivlokken erdoor en bak 1 minuut mee. Breng flink op smaak met zout en peper; de vulling mag pittig gekruid zijn. Roer de lente-ui erdoor en laat helemaal afkoelen. Warme vulling maakt het deeg slap.', min: 1 },

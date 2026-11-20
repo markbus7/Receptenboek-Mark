@@ -305,7 +305,7 @@ RECEPTEN.push(
     { n: 'verse koriander', q: 1, u: 'el', x: 'fijngehakt' }
   ],
   stappen: [
-    { t: 'Meng bloem, gist, suiker en zout. Voeg yoghurt, water en olie toe en kneed 5 minuten tot een zacht, iets plakkerig deeg.', min: 5 },
+    { t: 'Meng bloem, gist, suiker en zout. Voeg yoghurt, water en olie toe en kneed 5 minuten tot een zacht, iets plakkerig deeg.', min: 5, km: 'deeghaak, alles in de kom. 1 minuut op stand 1 tot er geen droge bloem meer is, dan 4 minuten op stand 2, het deeg blijft een beetje plakken.' },
     { t: 'Laat afgedekt 1 uur rijzen tot het verdubbeld is.', min: 60 },
     { t: 'Verdeel in 6 bolletjes en rol ze uit tot ovale lappen van 5 mm dik.' },
     { t: 'Verhit de droge pan op hoog vuur tot hij echt heet is. Leg een naan erin, deksel erop, en bak 1 à 2 minuten tot hij opbolt en de onderkant zwarte vlekken heeft. Keer en bak nog 1 minuut.', m: 'koekenpan', min: 3 },
