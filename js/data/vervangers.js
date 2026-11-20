@@ -41,6 +41,9 @@ window.VERVANGERS = [
   /* Pastasaus uit een pot: zelf maken kan ook */
   { n: ['pastasaus'], tekst: 'geen pot? 250 ml passata met ½ tl chilivlokken, een snuf suiker en zout' },
 
+  /* Pesto uit een pot: zelf maken kan ook */
+  { n: ['pesto'], tekst: 'geen pot? maak hem zelf, zie Pesto genovese bij de sauzen' },
+
   /* Kip: kipfilet en kippendijfilet zijn uitwisselbaar, welke je neemt is een kwestie van smaak.
      Niet bij platgeslagen of hele stukken kipfilet (schnitzel, cordon bleu): dat lukt niet met dijfilet. */
   { n: ['kippendijfilet'], tekst: 'of kipfilet', tenzij: ['kipfilet'] },

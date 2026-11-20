@@ -1278,9 +1278,9 @@ window.FOTOS = {
  },
  "pasta-pesto-kip": {
   "src": "img/pasta-pesto-kip.jpg",
-  "auteur": "Pastalovers",
-  "licentie": "CC BY-SA 4.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Trofie_al_pesto_.jpg"
+  "auteur": "Paul Goyette",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Pasta_with_pesto.jpg"
  },
  "patatas-bravas": {
   "src": "img/patatas-bravas.jpg",
