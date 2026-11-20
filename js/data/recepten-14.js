@@ -430,7 +430,7 @@ RECEPTEN.push(
   ],
   alt: [
     'Minestrone is een seizoenssoep: gebruik wat er is, zoals prei, pompoen, venkel of doperwten.',
-    'Zoals in Genua: schep op elke kom een lepel pesto.'
+    'Zoals in Genua: schep op elke kom een lepel pesto, zelfgemaakt of uit een pot.'
   ]
 },
 {
@@ -627,7 +627,8 @@ RECEPTEN.push(
   ],
   tips: [
     'Bewaren: schep de pesto in een potje en giet er een laagje olie op. Zo blijft hij 4 dagen groen in de koelkast. Invriezen kan ook, in een ijsblokjesvorm; roer de kaas er dan pas na het ontdooien door.',
-    'Zoals in Ligurië: kook een paar blokjes aardappel en 50 g sperziebonen mee met de pasta (liefst trofie of linguine) en meng alles met de pesto.'
+    'Zoals in Ligurië: kook een paar blokjes aardappel en 50 g sperziebonen mee met de pasta (liefst trofie of linguine) en meng alles met de pesto.',
+    'Geen tijd? Een pot pesto genovese uit de supermarkt (190 g) is genoeg voor 400 g pasta. Roer hem van het vuur door de pasta met 2 el kookvocht.'
   ],
   alt: [
     'Met de vijzel, zoals in Genua: stamp knoflook en grof zout fijn, dan de pijnboompitten en daarna de basilicum, met draaiende bewegingen langs de wand, tot een groene pasta. Roer de kaas en de olie erdoor. Het kost een kwartier, maar de pesto wordt extra romig en geurig.',

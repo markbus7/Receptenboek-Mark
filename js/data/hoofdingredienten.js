@@ -11,6 +11,7 @@ window.HOOFD = {
   'pizza-margherita': ['pizzadeeg', 'tomatensaus', 'mozzarella'],
   'penne-arrabbiata': ['penne', 'tomaat', 'rode peper'],
   'pasta-pesto-kip': ['pasta', 'kip', 'pesto', 'zongedroogde tomaat'],
+  'pasta-pesto-kip-pot': ['pasta', 'kip', 'pesto uit een pot', 'zongedroogde tomaat'],
   tiramisu: ['lange vingers', 'koffie', 'mascarpone'],
   'spaghetti-bolognese': ['spaghetti', 'gehakt', 'tomatensaus'],
   minestrone: ['groenten', 'witte bonen', 'tomaat', 'bouillon'],
