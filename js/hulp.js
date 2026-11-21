@@ -510,21 +510,23 @@ const Hulp = (() => {
     return tools;
   }
 
-  /* Algemeen advies voor de keukenmachine (Bourgini Kitchen Chef, 4,5 liter: garde, K-klopper, deeghaak, spatdeksel). */
-  const KEUKENMACHINE = 'Zet de spatdeksel erop en begin altijd op stand 1, dan stuift er geen bloem of melk uit de kom; draai daarna pas hoger. '
-    + 'Deeghaak voor brood- en gistdeeg (laag: stand 1 à 2), K-klopper voor cakebeslag, koekjesdeeg, boter met suiker en gehakt (laag tot middel), garde voor slagroom, eiwit en eieren met suiker (hoog). '
-    + 'Kneed niet meer dan ongeveer 500 g bloem tegelijk en laat de motor na 10 minuten kneden even rusten. '
-    + 'Heb je maar 1 eiwit of minder dan 150 ml slagroom, pak dan je handmixer: de garde raakt in de grote kom te weinig. '
-    + 'Zet hem uit voordat je de kop omhoog klapt, en schraap de kom halverwege één keer met een spatel. De K-klopper en deeghaak niet in de vaatwasser.';
+  /* Algemeen advies voor de keukenmachine, volgens de handleiding van de Bourgini Kitchen Chef Elements (22.5051.01):
+     8 standen plus puls, 4,5 liter, max. 700 g droge stof + 500 g water (1,5 kg deeg), zwaar deeg de kom hooguit 1/3 vol,
+     max. 10 minuten achter elkaar en dan 10 minuten afkoelen, geen hete ingrediënten, alle hulpstukken vaatwasserbestendig. */
+  const KEUKENMACHINE = 'Volgens de handleiding: deeghaak voor brood-, pizza- en pastadeeg op stand 1 tot 4, menghaak (met de flexibele rand) voor cake- en koekjesdeeg op stand 5 à 6, '
+    + 'garde alleen voor dunne of lichte mengsels zoals eiwit en slagroom, op stand 7 à 8. Zet de spatdeksel erop, begin altijd laag en draai langzaam hoger. '
+    + 'Niet meer dan 700 g droge ingrediënten plus 500 g water tegelijk; bij zwaar deeg (bagels, pastadeeg) de kom hooguit voor een derde vullen. '
+    + 'Laat hem niet langer dan 10 minuten achter elkaar draaien en daarna 10 minuten afkoelen. Geen hete ingrediënten in de kom, lauw mag. '
+    + 'Heb je maar 1 eiwit of minder dan 150 ml slagroom, pak dan je handmixer: de garde raakt in de grote kom te weinig. De kom en alle hulpstukken mogen in de vaatwasser.';
 
-  /* Krabbel bij een stap voor de keukenmachine. Kneed je meer dan ± 500 g meel (bij meer personen), dan in twee keer. */
+  /* Krabbel bij een stap voor de keukenmachine. Kneed je meer dan 700 g meel (bij meer personen; het maximum volgens de handleiding), dan in twee keer. */
   function kmKrabbel(stap, recept, factor = 1) {
     if (!stap.km) return '';
     let tekst = 'met je keukenmachine: ' + stap.km;
     if (/deeghaak/i.test(stap.km)) {
       const meel = (recept.ingr || []).filter((i) => !i.kop && /^(bloem|tarwebloem|bakmeel|zelfrijzend bakmeel|volkorenmeel|meel|tipo 00|patentbloem)$/i.test(i.n || '') && ['g', 'kg'].includes(i.u))
         .reduce((som, i) => som + i.q * (i.u === 'kg' ? 1000 : 1), 0) * factor;
-      if (meel > 550) tekst += ` Dit is ± ${Math.round(meel / 10) * 10} g meel, meer dan de kom aankan: kneed het in twee porties.`;
+      if (meel > 700) tekst += ` Dit is ± ${Math.round(meel / 10) * 10} g meel, meer dan de 700 g die de kom volgens de handleiding aankan: kneed het in twee porties.`;
     }
     return tekst;
   }

@@ -288,7 +288,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Breng melk, water, olie en zout aan de kook in de steelpan. Giet het meteen over het tapiocameel in een kom en roer met een lepel tot een kruimelig, plakkerig mengsel. Laat 10 minuten afkoelen.', min: 10 },
-    { t: 'Kneed de eieren er één voor één door, met de lepel of je handen, tot een glad, plakkerig deeg. Kneed de kaas erdoor.', km: 'K-klopper op stand 2: laat het mengsel eerst 5 minuten afkoelen, doe dan de eieren één voor één erbij en klop tot elk is opgenomen. Daarna de kaas erbij, 20 seconden op stand 1. Veel minder armwerk.' },
+    { t: 'Kneed de eieren er één voor één door, met de lepel of je handen, tot een glad, plakkerig deeg. Kneed de kaas erdoor.', km: 'menghaak: laat het mengsel eerst afkoelen tot het lauw is (er mag niets heets in de kom), doe dan de eieren één voor één erbij op stand 5 en klop tot elk is opgenomen. Daarna de kaas erbij, 20 seconden op stand 1. Veel minder armwerk.' },
     { t: 'Maak met ingeoliede handen balletjes ter grootte van een walnoot.' },
     { t: 'Verwarm de airfryer voor op 180 °C. Leg de balletjes met ruimte ertussen op het bakpapier: ze rijzen. Bak ze 12 à 15 minuten tot ze opgezwollen en lichtbruin zijn. In een XXL gaan er ongeveer 12 per keer.', min: 14 },
     { t: 'Eet ze warm: dan zijn ze het lekkerst.' }
@@ -416,7 +416,7 @@ RECEPTEN.push(
     { n: 'chili-olie', q: 1, u: 'tl', opt: true }
   ],
   stappen: [
-    { t: 'Doe de bloem in een kom en giet het kokende water erbij terwijl je roert met eetstokjes of een vork. Voeg het koude water toe en kneed 5 minuten tot een glad, zacht deeg. Laat het afgedekt 30 minuten rusten.', min: 35, km: 'deeghaak: giet het kokende water erbij op stand 1, dan het koude water en kneed 4 minuten op stand 2. Pas op, het deeg is in het begin heet.' },
+    { t: 'Doe de bloem in een kom en giet het kokende water erbij terwijl je roert met eetstokjes of een vork. Voeg het koude water toe en kneed 5 minuten tot een glad, zacht deeg. Laat het afgedekt 30 minuten rusten.', min: 35, km: 'roer het kokende water eerst met eetstokjes of een vork door de bloem en laat het 5 minuten afkoelen tot lauw, want er mag niets heets in de kom. Dan het koude water erbij en kneed met de deeghaak 1 minuut op stand 1 en 4 minuten op stand 2.' },
     { t: 'Meng sesamolie, zout en eventueel vijfkruidenpoeder in een kommetje.' },
     { t: 'Verdeel het deeg in 4 stukken. Rol een stuk zo dun mogelijk uit tot een rechthoek. Bestrijk met het sesammengsel en strooi er een kwart van de lente-ui over.' },
     { t: 'Rol de lap vanaf de lange kant strak op tot een lange worst. Rol die worst daarna op als een slakkenhuis en stop het eind eronder. Druk hem plat met je hand en rol hem voorzichtig uit tot een rondje van 18 cm. Prikt er een stukje lente-ui doorheen, dan is dat geen probleem.' },
@@ -452,7 +452,7 @@ RECEPTEN.push(
     { n: 'sesamzaad', q: 2, u: 'el', x: 'of maanzaad', opt: true }
   ],
   stappen: [
-    { kop: 'Deeg', t: 'Meng bloem, gist, suiker en zout. Voeg het water toe en kneed 10 minuten tot een stevig, glad deeg. Het is steviger dan gewoon brooddeeg; dat hoort zo.', min: 10, km: 'deeghaak: 1 minuut op stand 1, dan 8 minuten op stand 2. Dit deeg is zwaar: laat de machine niet onbeheerd draaien, hij kan gaan wandelen.' },
+    { kop: 'Deeg', t: 'Meng bloem, gist, suiker en zout. Voeg het water toe en kneed 10 minuten tot een stevig, glad deeg. Het is steviger dan gewoon brooddeeg; dat hoort zo.', min: 10, km: 'deeghaak: 1 minuut op stand 1, dan 8 minuten op stand 2. Dit deeg is zwaar: vul de kom volgens de handleiding hooguit voor een derde, dus kneed niet meer dan deze hoeveelheid tegelijk, en laat de machine niet onbeheerd draaien.' },
     { t: 'Laat het deeg afgedekt 1 uur rijzen.', min: 60 },
     { t: 'Verdeel het in 8 stukken van ongeveer 100 g en rol ze tot strakke bollen. Duw je duim door het midden en draai de bal rond je vingers tot een ring met een gat van 3 cm. Het gat krimpt nog.' },
     { t: 'Leg de bagels op stukjes bakpapier en laat ze 20 minuten rusten. Een bagel is klaar als hij binnen een paar seconden boven komt drijven in een kom koud water.', min: 20 },

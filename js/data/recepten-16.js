@@ -218,7 +218,7 @@ RECEPTEN.push(
     { n: 'ei', p: 'eieren', q: 1, u: 'st', x: 'losgeklopt' }
   ],
   stappen: [
-    { kop: 'Deeg', t: 'Meng bloem, suiker, bakpoeder en zout in een kom. Wrijf de koude boter er met je vingertoppen doorheen tot een kruimelig mengsel. Voeg het ei en het ijskoude water toe en kneed kort tot een bal; niet langer dan nodig, dan blijft het deeg kruimelig.', km: 'K-klopper: bloem, suiker, bakpoeder, zout en de koude boter in blokjes op stand 1, 1 à 2 minuten tot het eruitziet als kruimels. Ei en water erbij en op stand 1 alleen tot het deeg samenkomt, niet langer, anders wordt het taai.' },
+    { kop: 'Deeg', t: 'Meng bloem, suiker, bakpoeder en zout in een kom. Wrijf de koude boter er met je vingertoppen doorheen tot een kruimelig mengsel. Voeg het ei en het ijskoude water toe en kneed kort tot een bal; niet langer dan nodig, dan blijft het deeg kruimelig.', km: 'menghaak: bloem, suiker, bakpoeder, zout en de koude boter in blokjes op stand 1, 1 à 2 minuten tot het eruitziet als kruimels. Ei en water erbij en op stand 1 alleen tot het deeg samenkomt, niet langer, anders wordt het taai.' },
     { t: 'Druk het deeg plat, verpak het in folie en laat het 30 minuten opstijven in de koelkast.', min: 30 },
     { kop: 'Vulling', t: 'Bestrooi de kip met de Maggi en peper. Verhit de olie in de hapjespan en bak de kip in 5 minuten rondom lichtbruin. Schep uit de pan.', min: 5 },
     { t: 'Fruit de ui 5 minuten in hetzelfde vet. Bak knoflook, tomaat en tomatenpuree 2 minuten mee.', min: 7 },
@@ -918,7 +918,7 @@ RECEPTEN.push(
     { kop: 'Cake', t: 'Snijd de dadels klein, doe ze in een kom en giet het kokende water erover. Roer het zuiveringszout erdoor (het schuimt even) en laat 10 minuten wellen. Prak ze daarna grof met een vork.', min: 10 },
     { t: 'Verwarm de oven voor op 180 °C (hetelucht 160 °C). Vet de ovenschaal of de muffinvorm royaal in met boter.', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 160 °C en vet de vormpjes in.', m: 'airfryer' },
-    { t: 'Klop boter en suiker met de handmixer 3 minuten luchtig. Klop de eieren er één voor één door, en daarna de vanille en de stroop.', min: 3, km: 'K-klopper op stand 4, 3 minuten tot het luchtig is. Eieren één voor één erbij op stand 2. Schraap de kom één keer met een spatel.' },
+    { t: 'Klop boter en suiker met de handmixer 3 minuten luchtig. Klop de eieren er één voor één door, en daarna de vanille en de stroop.', min: 3, km: 'menghaak op stand 5 à 6, 3 minuten tot het luchtig is. Eieren één voor één erbij op stand 4. Schraap de kom één keer met een spatel.' },
     { t: 'Spatel het bakmeel erdoor en daarna het dadelmengsel met het vocht. Het beslag is vrij dun; dat hoort zo.' },
     { t: 'Giet het beslag in de schaal en bak 30 à 35 minuten, tot een satéprikker er schoon uitkomt. In de muffinvorm (¾ vol) is dat 20 à 22 minuten.', m: 'oven', min: 32 },
     { t: 'Vul de vormpjes voor ¾ en bak ze in delen 14 à 16 minuten, tot een satéprikker er schoon uitkomt.', m: 'airfryer', min: 15 },
@@ -1002,7 +1002,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { kop: 'Aardbeien', t: 'Was de aardbeien en haal de kroontjes eraf. Pureer een derde van de aardbeien met 1 el suiker en het citroensap tot een gladde saus. Snijd de rest in vieren, schep er de andere el suiker door en laat 15 minuten staan, zodat er sap uit komt.', min: 15 },
-    { kop: 'Room', t: 'Klop de koude slagroom met de vanillesuiker tot zachte pieken: hij is dik en houdt zijn vorm, maar is nog niet stijf.', km: 'garde: begin op stand 2 en zet hem na 30 seconden hoger. Blijf erbij en stop zodra hij zachte pieken heeft; in de machine is hij in 1 à 2 minuten klaar en daarna gaat het snel naar te stijf. Met minder dan 150 ml slagroom: liever de handmixer.' },
+    { kop: 'Room', t: 'Klop de koude slagroom met de vanillesuiker tot zachte pieken: hij is dik en houdt zijn vorm, maar is nog niet stijf.', km: 'garde: begin op stand 4 en zet hem na 30 seconden op stand 7. Blijf erbij en stop zodra hij zachte pieken heeft; in de machine is hij in 1 à 2 minuten klaar en daarna gaat het snel naar te stijf. Met minder dan 150 ml slagroom: liever de handmixer.' },
     { t: 'Breek de schuimpjes met je handen in stukken van 1 à 2 cm, met ook wat kruimels.' },
     { t: 'Schep vlak voor het eten de stukjes aardbei met hun sap en de meringue door de room, in een paar halen. Schenk de helft van de aardbeiensaus erover en schep nog één keer om, zodat er rode slierten door lopen.' },
     { t: 'Verdeel over 4 glazen of kommetjes, schenk de rest van de saus erover en leg er een blaadje munt op als je die hebt. Eet het meteen, nu de meringue nog knapperig is.' }

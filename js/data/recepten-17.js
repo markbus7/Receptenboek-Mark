@@ -670,7 +670,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Meng de fijngehakte kool met het zout en laat 10 minuten staan. Knijp hem daarna in een schone theedoek zo droog mogelijk; anders wordt de vulling waterig.', min: 10 },
-    { t: 'Meng gehakt, kool, gember, knoflook, lente-ui, sojasaus, 1 el sesamolie, suiker en peper. Kneed 1 minuut met je hand tot de vulling een beetje plakt; dan blijft hij sappig.', km: 'K-klopper op stand 1, 1 minuut tot de vulling een beetje plakt.' },
+    { t: 'Meng gehakt, kool, gember, knoflook, lente-ui, sojasaus, 1 el sesamolie, suiker en peper. Kneed 1 minuut met je hand tot de vulling een beetje plakt; dan blijft hij sappig.', km: 'menghaak op stand 1, 1 minuut tot de vulling een beetje plakt.' },
     { t: 'Vouwen: leg een velletje op je hand en schep een volle theelepel vulling in het midden. Maak de rand rondom nat met een vinger water. Vouw dicht tot een halve maan en knijp alleen het midden dicht. Leg aan de kant naar je toe aan weerszijden van het midden 3 plooitjes, steeds naar het midden gericht, en druk ze stevig tegen de gladde achterkant. Zet de gyoza met de platte onderkant op een met maïzena bestoven bord en dek af met een doek.' },
     { t: 'Verhit 1 el olie in de koekenpan op middelhoog vuur. Zet de helft van de gyoza met de platte kant naar beneden in een cirkel in de pan. Bak 2 à 3 minuten tot de bodempjes goudbruin zijn.', min: 3 },
     { t: 'Giet 75 ml water in de pan (pas op, het spat) en leg meteen de deksel erop. Laat 4 minuten stomen, tot het water bijna weg is en de velletjes doorschijnend zijn.', min: 4 },

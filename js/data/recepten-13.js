@@ -445,8 +445,8 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Week de rozijnen 10 minuten in warm water (of rum) en dep ze droog.', min: 10 },
-    { t: 'Klop de eidooiers met melk, bloem, vanillesuiker en zout tot een glad beslag zonder klontjes.', km: 'garde op stand 1 tot de bloem is opgenomen, dan 1 minuut op stand 3. Schep het beslag in een andere kom en was de kom en garde goed af voor de eiwitten.' },
-    { t: 'Klop de eiwitten in een schone, vetvrije kom met de suiker stijf, tot er pieken blijven staan. Spatel ze in twee keer luchtig door het beslag.', km: 'garde in de schone, vetvrije kom: 1 minuut op stand 2, voeg de suiker toe en klop op de hoogste stand 2 à 3 minuten stijf. Spatel het met de hand door het beslag.' },
+    { t: 'Klop de eidooiers met melk, bloem, vanillesuiker en zout tot een glad beslag zonder klontjes.', km: 'menghaak op stand 1 tot de bloem is opgenomen, dan 1 minuut op stand 5. Schep het beslag in een andere kom en was de kom goed af voor de eiwitten.' },
+    { t: 'Klop de eiwitten in een schone, vetvrije kom met de suiker stijf, tot er pieken blijven staan. Spatel ze in twee keer luchtig door het beslag.', km: 'garde in de schone, vetvrije kom: 1 minuut op stand 2, voeg de suiker toe en klop op stand 7 à 8 2 à 3 minuten stijf. Spatel het met de hand door het beslag.' },
     { t: 'Smelt 20 g boter in de koekenpan op middelhoog vuur. Giet het beslag erin en strooi de rozijnen erover. Zet het vuur middellaag, leg de deksel op de pan en bak 5 minuten, tot de onderkant goudbruin is en de bovenkant bijna gestold.', min: 5 },
     { t: 'Verdeel de pannenkoek met de spatel in vieren en keer elk kwart om. Bak nog 2 à 3 minuten zonder deksel.', min: 3 },
     { t: 'Scheur de pannenkoek met twee spatels of vorken in hapklare stukken. Voeg de rest van de boter en 1 el poedersuiker toe en schep 2 minuten om op middelhoog vuur, tot de stukjes glanzend gekaramelliseerd zijn.', min: 2 },
@@ -629,7 +629,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { kop: 'Balletjes', t: 'Snijd de korst van het brood, scheur het in stukjes en laat het 5 minuten weken in de melk. Knijp het daarna een beetje uit.', min: 5 },
-    { t: 'Kneed het gehakt met het geweekte brood, de ui, het ei, de mosterd, de peterselie, 1 tl zout en flink wat peper tot een glad mengsel. Maak met natte handen 12 à 16 balletjes van ongeveer 4 cm.', km: 'K-klopper op stand 1, 1 minuut tot het mengsel glad is.' },
+    { t: 'Kneed het gehakt met het geweekte brood, de ui, het ei, de mosterd, de peterselie, 1 tl zout en flink wat peper tot een glad mengsel. Maak met natte handen 12 à 16 balletjes van ongeveer 4 cm.', km: 'menghaak op stand 1, 1 minuut tot het mengsel glad is.' },
     { t: 'Breng de bouillon met de laurier en peperkorrels aan de kook in de brede pan. Zet het vuur laag: de bouillon mag alleen nog trillen, niet borrelen. Leg de balletjes erin, doe de deksel erop en gaar ze 15 minuten. Ze drijven als ze gaar zijn.', min: 15 },
     { t: 'Kook intussen de aardappelen in water met zout in 20 minuten gaar.', min: 20, stoom: 'de aardappelen in stukken 25 minuten' },
     { t: 'Schep de balletjes uit de bouillon en houd ze warm onder een deksel. Zeef de bouillon in een maatbeker; je hebt er 600 ml van nodig.' },
