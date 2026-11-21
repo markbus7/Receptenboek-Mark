@@ -348,7 +348,7 @@ RECEPTEN.push(
     { n: 'kaneel', q: 1, u: 'tl' }
   ],
   stappen: [
-    { kop: 'Beslag', t: 'Meng de bloem, gist, suiker en zout in een kom. Schenk het lauwe water erbij en roer met een lepel 2 minuten tot een glad, dik en kleverig beslag, dikker dan pannenkoekbeslag.', min: 2, km: 'K-klopper op stand 2, 2 minuten tot een glad, kleverig beslag.' },
+    { kop: 'Beslag', t: 'Meng de bloem, gist, suiker en zout in een kom. Schenk het lauwe water erbij en roer met een lepel 2 minuten tot een glad, dik en kleverig beslag, dikker dan pannenkoekbeslag.', min: 2, km: 'menghaak: begin op stand 1 met het lauwe water erbij, dan 2 minuten op stand 5 tot een glad, kleverig beslag.' },
     { t: 'Dek de kom af en laat het beslag 1 uur rijzen op een warme plek, tot het verdubbeld is en vol belletjes zit.', min: 60 },
     { kop: 'Honingsiroop', t: 'Breng intussen de honing, suiker, het water, kaneelstokje en citroenschil aan de kook in de steelpan. Laat 5 minuten zachtjes koken, roer het citroensap erdoor en zet de pan op het laagste vuur, zodat de siroop warm blijft.', min: 5 },
     { kop: 'Beslag', t: 'Verhit 5 cm olie in de Dutch oven tot 175 °C. Geen thermometer? Laat er een druppel beslag in vallen: komt die binnen een paar tellen sissend boven, dan is de olie heet genoeg.' },
@@ -888,7 +888,7 @@ RECEPTEN.push(
     { n: 'Turks brood', q: 1, u: 'st', x: 'of Marokkaans platbrood (khobz)' }
   ],
   stappen: [
-    { kop: 'Kefta', t: 'Meng gehakt, geraspte ui, de helft van de kruiden, komijn, paprikapoeder, kaneel, zout en peper. Kneed 1 minuut tot het plakt en draai er met natte handen balletjes van ca. 3 cm van.', km: 'K-klopper op stand 1, 1 minuut tot het gehakt plakt.' },
+    { kop: 'Kefta', t: 'Meng gehakt, geraspte ui, de helft van de kruiden, komijn, paprikapoeder, kaneel, zout en peper. Kneed 1 minuut tot het plakt en draai er met natte handen balletjes van ca. 3 cm van.', km: 'menghaak op stand 1, 1 minuut tot het gehakt plakt.' },
     { kop: 'Saus', t: 'Verhit de olie in de tajine of Dutch oven op middelhoog vuur. Fruit de ui 4 minuten en bak de knoflook, komijn en paprikapoeder 1 minuut mee.', min: 5 },
     { t: 'Voeg tomatenblokjes, tomatenpuree, water, rode peper, suiker en een snuf zout toe. Laat 10 minuten zachtjes koken tot de saus iets dikker is.', min: 10 },
     { kop: 'Afmaken', t: 'Leg de balletjes in de saus en schud de pan zodat ze erin wegzakken. Leg de deksel erop en laat 15 minuten op laag vuur garen; keer ze halverwege.', min: 15 },

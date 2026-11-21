@@ -355,7 +355,7 @@ RECEPTEN.push(
   stappen: [
     { t: 'Verwarm de oven voor op 175 °C (hetelucht 160 °C). Bekleed de bakvorm met bakpapier dat over twee randen hangt, zodat je de brownies er straks makkelijk uit tilt.' },
     { t: 'Smelt chocolade en boter au bain-marie op laag vuur en roer tot het glad is. Laat afkoelen tot lauw.', min: 5 },
-    { t: 'Klop eieren, beide suikers en het zout met de handmixer 4 à 5 minuten op de hoogste stand, tot het mengsel dik en bleek is en in volume verdubbeld. Dit zorgt voor de glanzende, krakende korst.', min: 5, km: 'garde op de hoogste stand, 4 à 5 minuten. Spatel daarna de chocolade en bloem met de hand erdoor.' },
+    { t: 'Klop eieren, beide suikers en het zout met de handmixer 4 à 5 minuten op de hoogste stand, tot het mengsel dik en bleek is en in volume verdubbeld. Dit zorgt voor de glanzende, krakende korst.', min: 5, km: 'garde op stand 8, 4 à 5 minuten. Spatel daarna de chocolade en bloem met de hand erdoor.' },
     { t: 'Spatel de gesmolten chocolade erdoor. Zeef bloem en cacao erboven en spatel voorzichtig tot er geen droge plekjes meer zijn; niet langer roeren dan nodig. Spatel de witte chocolade erdoor.' },
     { t: 'Schep het beslag in de vorm en strijk het glad. Bak 25 minuten in het midden van de oven. Ze zijn klaar als de bovenkant glanst en barstjes heeft en een satéprikker in het midden er met vochtige kruimels uitkomt, maar zonder nat beslag.', min: 25 },
     { t: 'Laat minimaal 1 uur afkoelen in de vorm. Til ze eruit en snijd ze met een warm, droog mes in 16 stukken.', min: 60 }
@@ -391,7 +391,7 @@ RECEPTEN.push(
     { t: 'Haal roomkaas, eieren en zure room minstens een uur van tevoren uit de koelkast; koude roomkaas geeft klontjes. Verwarm de oven voor op 175 °C, bij voorkeur zonder hetelucht.' },
     { kop: 'Bodem', t: 'Maal de koekjes fijn in een diepvrieszak met een deegroller en meng ze met de gesmolten boter. Druk het mengsel stevig aan op de bodem van de springvorm, bijvoorbeeld met de onderkant van een glas. Bak 10 minuten en laat iets afkoelen.', min: 10 },
     { kop: 'Vulling', t: 'Zet de oven op 150 °C. Zet de ovenschaal met 2 cm kokend water op de onderste rail. De stoom houdt de cheesecake zacht en helpt tegen scheuren.' },
-    { t: 'Klop roomkaas, suiker, bloem en zout op de laagste stand in 1 minuut glad. Klop de eieren er één voor één door, telkens tot ze net zijn opgenomen. Roer zure room, vanille, citroenrasp en -sap erdoor. Klop niet harder of langer dan nodig.', km: 'K-klopper op stand 1, 1 minuut. De eieren er één voor één door op stand 1. Laat de garde liggen: die klopt lucht erin en dan scheurt de cheesecake.' },
+    { t: 'Klop roomkaas, suiker, bloem en zout op de laagste stand in 1 minuut glad. Klop de eieren er één voor één door, telkens tot ze net zijn opgenomen. Roer zure room, vanille, citroenrasp en -sap erdoor. Klop niet harder of langer dan nodig.', km: 'menghaak op stand 1, 1 minuut. De eieren er één voor één door op stand 1. Laat de garde liggen: die klopt lucht erin en dan scheurt de cheesecake.' },
     { kop: 'Bakken', t: 'Giet de vulling op de bodem en tik de vorm een paar keer op het aanrecht om luchtbellen kwijt te raken. Bak 60 à 70 minuten op het rooster boven het water. Hij is klaar als de rand stevig is en het midden nog licht trilt als je tegen de vorm tikt.', min: 65 },
     { t: 'Zet de oven uit, zet de deur op een kier en laat de cheesecake 1 uur in de oven afkoelen. Ga daarna met een dun mes langs de rand, zodat hij los kan krimpen.', min: 60 },
     { t: 'Laat hem op het aanrecht helemaal afkoelen. Dek af en laat een nacht, minimaal 6 uur, opstijven in de koelkast. Snijd met een mes dat je steeds in heet water dompelt en afveegt.', min: 360 }
@@ -465,7 +465,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Smelt de boter in het steelpannetje op middelhoog vuur. Voor bruine boter: laat hem doorkoken tot het schuim zakt, hij nootachtig ruikt en er bruine spikkeltjes op de bodem liggen, in 4 à 5 minuten. Giet in een kom en laat 5 minuten afkoelen.', min: 5 },
-    { t: 'Klop beide suikers met een garde door de boter, daarna het ei en de vanille, tot het mengsel glad is en glanst.', km: 'K-klopper: suikers en (afgekoelde) boter 1 minuut op stand 2, ei en vanille erbij en nog 1 minuut op stand 2. Bloem en chocola daarna op stand 1, 15 seconden, of met de spatel.' },
+    { t: 'Klop beide suikers met een garde door de boter, daarna het ei en de vanille, tot het mengsel glad is en glanst.', km: 'menghaak: suikers en (afgekoelde) boter 1 minuut op stand 5, ei en vanille erbij en nog 1 minuut op stand 5. Bloem en chocola daarna op stand 1, 15 seconden, of met de spatel.' },
     { t: 'Meng bloem, baking soda en zout en roer het met een spatel kort door het botermengsel, tot je net geen bloem meer ziet. Spatel de chocolade erdoor.' },
     { t: 'Dek de kom af en laat het deeg 30 minuten in de koelkast opstijven. Heb je tijd, laat het dan tot 24 uur staan: de cookies worden dikker en karamelliger.', min: 30 },
     { t: 'Verwarm de oven voor op 180 °C (hetelucht 165 °C). Rol 16 bolletjes van ca. 40 g en leg er 8 op de bakplaat, met flink wat ruimte ertussen.' },

@@ -126,7 +126,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Verwarm de melk tot hij lauw is (handwarm, niet heet). Roer de gist en de suiker erdoor en laat 5 minuten staan tot het licht schuimt.', min: 5 },
-    { t: 'Meng boekweitmeel, bloem en zout in een kom. Klop het ei en de gistmelk er in scheutjes door met een garde, tot een glad beslag zo dik als yoghurt.', km: 'garde: meel, zout en ei in de kom, en de gistmelk in scheutjes erbij op stand 1. Daarna 1 minuut op stand 2.' },
+    { t: 'Meng boekweitmeel, bloem en zout in een kom. Klop het ei en de gistmelk er in scheutjes door met een garde, tot een glad beslag zo dik als yoghurt.', km: 'menghaak: meel, zout en ei in de kom, en de lauwe gistmelk in scheutjes erbij op stand 1. Daarna 1 minuut op stand 5.' },
     { t: 'Dek de kom af en laat het beslag 1 uur rijzen op een warme plek, tot het vol belletjes zit en duidelijk gerezen is.', min: 60 },
     { t: 'Roer het beslag kort door en doe het in een spuitzak met een opening van 1 cm, een knijpfles of een diepvrieszakje met een puntje eraf.' },
     { t: 'Verhit de koekenpan op middelhoog vuur en vet hem in met keukenpapier en wat gesmolten boter. Spuit rondjes van 3 à 4 cm in de pan, met wat ruimte ertussen.' },

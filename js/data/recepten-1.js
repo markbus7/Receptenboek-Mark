@@ -260,9 +260,9 @@ RECEPTEN.push(
     { n: 'cacaopoeder', q: 2, u: 'el' }
   ],
   stappen: [
-    { t: 'Klop de eidooiers met de suiker met de mixer 3 minuten tot een bleke, dikke crème.', min: 3, km: 'garde, op de hoogste stand 3 minuten. Handig: klop eerst de eiwitten (stap 3) stijf in de schone, droge kom en schep ze in een andere kom. Dan kun je de dooiers zonder afwassen in dezelfde kom kloppen.' },
+    { t: 'Klop de eidooiers met de suiker met de mixer 3 minuten tot een bleke, dikke crème.', min: 3, km: 'garde, 3 minuten op stand 7 à 8. Handig: klop eerst de eiwitten (stap 3) stijf in de schone, droge kom en schep ze in een andere kom. Dan kun je de dooiers zonder afwassen in dezelfde kom kloppen.' },
     { t: 'Spatel de mascarpone erdoor tot het mengsel glad is.' },
-    { t: 'Klop de eiwitten in een schone, vetvrije kom stijf. Spatel ze in twee keer luchtig door het mascarponemengsel.', km: 'garde in een schone, vetvrije kom: 1 minuut op stand 2 tot het schuimt, dan op de hoogste stand 2 à 3 minuten tot er pieken blijven staan. Spatel ze daarna met de hand erdoor, niet met de machine.' },
+    { t: 'Klop de eiwitten in een schone, vetvrije kom stijf. Spatel ze in twee keer luchtig door het mascarponemengsel.', km: 'garde in een schone, vetvrije kom: 1 minuut op stand 2 tot het schuimt, dan op stand 7 à 8 2 à 3 minuten tot er pieken blijven staan. Spatel ze daarna met de hand erdoor, niet met de machine.' },
     { t: 'Meng de koffie met de amaretto. Doop de lange vingers er kort in, 1 seconde per kant, en leg ze naast elkaar in de schaal.' },
     { t: 'Smeer de helft van de crème erover. Herhaal met een laag lange vingers en de rest van de crème.' },
     { t: 'Dek af en laat minimaal 4 uur, of een nacht, opstijven in de koelkast. Zeef vlak voor het serveren de cacao erover.', min: 240 }

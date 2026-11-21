@@ -1,4 +1,4 @@
-/* Recepten voor de keukenmachine (2026-11-20): Mark heeft een Bourgini Kitchen Chef (4,5 liter) met garde, K-klopper en deeghaak.
+/* Recepten voor de keukenmachine (2026-11-20): Mark heeft een Bourgini Kitchen Chef (4,5 liter) met garde, menghaak en deeghaak.
    Geen oven: bakken gaat in de airfryer, de rest op het fornuis of in de koelkast. */
 (() => {
   RECEPTEN.push(
@@ -23,7 +23,7 @@
     stappen: [
       { t: 'Smelt de chocolade met de boter au bain-marie: in een kom boven een pan met een laagje zacht kokend water, de kom mag het water niet raken. Roer tot het glad is en laat 5 minuten afkoelen tot lauw.', min: 5 },
       { t: 'Roer de eidooiers één voor één door de lauwe chocolade. Hij wordt dik en glanzend.' },
-      { t: 'Klop de eiwitten met het zout in een schone, vetvrije kom tot zacht schuim. Voeg de suiker in drie keer toe en klop door tot stevige, glanzende pieken die blijven staan als je de garde omhoog haalt.', km: 'garde in de schone, droge kom: 1 minuut op stand 2 tot schuim, dan de suiker erbij in 3 keer en op de hoogste stand 2 à 3 minuten tot stevige pieken. Niet langer: te stijf eiwit wordt korrelig en mengt slecht.' },
+      { t: 'Klop de eiwitten met het zout in een schone, vetvrije kom tot zacht schuim. Voeg de suiker in drie keer toe en klop door tot stevige, glanzende pieken die blijven staan als je de garde omhoog haalt.', km: 'garde in de schone, droge kom: 1 minuut op stand 2 tot schuim, dan de suiker erbij in 3 keer en op stand 7 à 8 2 à 3 minuten tot stevige pieken. Niet langer: te stijf eiwit wordt korrelig en mengt slecht.' },
       { t: 'Roer eerst een flinke lepel eiwit door de chocolade, dan wordt die wat losser. Spatel de rest in twee keer erdoor, met rustige halen van onder naar boven, tot je geen witte strepen meer ziet.' },
       { t: 'Schep de mousse in 4 glaasjes of een schaal, dek af en laat minstens 3 uur opstijven in de koelkast.', min: 180 }
     ],
@@ -67,11 +67,11 @@
     stappen: [
       { kop: 'Deeg', t: 'Doe bloem, gist, suiker en zout in de kom. Voeg de melk en het ei toe en kneed 2 minuten. Kneed dan de zachte boter erdoor en kneed nog 8 minuten, tot het deeg glad en glanzend is en loslaat van de kom. Het blijft een beetje plakkerig.', min: 10, km: 'deeghaak met de spatdeksel erop: 2 minuten op stand 1, dan de boter in klontjes erbij en 7 à 8 minuten op stand 2, tot het deeg zich als een bal om de haak draait en de kom schoon is.' },
       { t: 'Dek de kom af en laat het deeg op een warme plek 1 uur rijzen, tot het twee keer zo groot is.', min: 60 },
-      { kop: 'Vulling', t: 'Roer de zachte boter, basterdsuiker en kaneel tot een smeerbare pasta.', km: 'K-klopper op stand 2, 30 seconden. Haal het eruit voor je het glazuur maakt; spoelen hoeft niet.' },
+      { kop: 'Vulling', t: 'Roer de zachte boter, basterdsuiker en kaneel tot een smeerbare pasta.', km: 'menghaak op stand 5, 30 seconden. Haal het eruit voor je het glazuur maakt; spoelen hoeft niet.' },
       { t: 'Rol het deeg op een met bloem bestoven aanrecht uit tot een lap van ongeveer 35 × 25 cm. Smeer de vulling erop tot 1 cm van de randen. Rol de lap vanaf de lange kant strak op en knijp de naad dicht.' },
       { t: 'Snijd de rol met een scherp kartelmes (of een stukje draad dat je eronder kruist) in 8 plakken. Zet ze met de snijkant naar boven in de vorm met bakpapier, met een beetje ruimte ertussen. Dek af en laat ze 45 minuten rijzen tot ze tegen elkaar aan zitten.', min: 45 },
       { t: 'Verwarm de airfryer voor op 160 °C. Zet de vorm in de mand en bak de broodjes 18 à 22 minuten, tot ze goudbruin zijn en het midden niet meer deegachtig is. Kleurt de bovenkant na 10 minuten al flink, leg er dan een stukje aluminiumfolie op.', min: 20 },
-      { kop: 'Glazuur', t: 'Roer de roomkaas met de poedersuiker en de melk glad. Laat de broodjes 5 minuten afkoelen en smeer het glazuur erover, zodat het een beetje smelt.', km: 'K-klopper op stand 1 tot de poedersuiker is opgenomen (anders stuift hij), dan 1 minuut op stand 3.' }
+      { kop: 'Glazuur', t: 'Roer de roomkaas met de poedersuiker en de melk glad. Laat de broodjes 5 minuten afkoelen en smeer het glazuur erover, zodat het een beetje smelt.', km: 'menghaak op stand 1 tot de poedersuiker is opgenomen (anders stuift hij), dan 1 minuut op stand 5.' }
     ],
     tips: [
       'Past je vorm niet in de mand, bak ze dan in twee rondes in een kleinere vorm, of los op bakpapier met wat ruimte ertussen.',
@@ -114,7 +114,7 @@
       { n: 'peper' }
     ],
     stappen: [
-      { kop: 'Pastadeeg', t: 'Doe de bloem, eieren, olie en zout in een kom en kneed 8 à 10 minuten tot een glad, stevig en soepel deeg. Blijft het kruimelig, voeg dan 1 tl water toe; plakt het, een lepel bloem.', min: 10, km: 'deeghaak met de spatdeksel erop: 1 minuut op stand 1 tot het kruimelt, dan 6 à 7 minuten op stand 2. Het deeg is stevig; kneed het daarna 30 seconden met de hand tot een gladde bal. Blijf erbij, de machine werkt hard.' },
+      { kop: 'Pastadeeg', t: 'Doe de bloem, eieren, olie en zout in een kom en kneed 8 à 10 minuten tot een glad, stevig en soepel deeg. Blijft het kruimelig, voeg dan 1 tl water toe; plakt het, een lepel bloem.', min: 10, km: 'deeghaak met de spatdeksel erop: 1 minuut op stand 1 tot het kruimelt, dan 6 à 7 minuten op stand 2. Het deeg is zwaar: vul de kom hooguit voor een derde (deze hoeveelheid past) en kneed het daarna 30 seconden met de hand tot een gladde bal. Blijf erbij, de machine werkt hard.' },
       { t: 'Wikkel het deeg in huishoudfolie en laat het 30 minuten rusten op het aanrecht. Dan ontspant het en kun je het veel makkelijker dun uitrollen.', min: 30 },
       { t: 'Snijd het deeg in 3 stukken; houd de stukken die je nog niet gebruikt ingepakt. Rol een stuk op een met bloem bestoven aanrecht met de deegroller uit tot een lap van 1 à 2 mm dun: je moet je hand er bijna door kunnen zien. Draai de lap steeds een kwartslag en bestuif met bloem als hij plakt.' },
       { t: 'Bestuif de lap royaal met griesmeel of bloem, vouw hem losjes op tot een platte rol van 8 cm breed en snijd er met een scherp mes linten van 6 à 8 mm van. Schud ze meteen los en leg ze in losse nestjes op een met griesmeel bestoven bord. Doe hetzelfde met de andere 2 stukken.' },

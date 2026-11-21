@@ -25,9 +25,9 @@ RECEPTEN.push(
   stappen: [
     { t: 'Verwarm de oven voor op 175 °C (hetelucht 160 °C). Vet de cakevorm in en bestuif hem met bloem.', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 160 °C. Gebruik ¾ van het beslag voor een kleinere vorm; bak de rest als muffins.', m: 'airfryer' },
-    { t: 'Klop de zachte boter met de suiker, vanillesuiker en het zout in 5 minuten tot een lichte, bleke en luchtige massa. Dit is het geheim van een luchtige cake.', min: 5, km: 'K-klopper op stand 4, 5 minuten. Schraap de kom na 2 minuten één keer met een spatel.' },
-    { t: 'Klop de eieren er één voor één door; wacht steeds tot het vorige ei helemaal is opgenomen. Gaat het schiften, klop dan een eetlepel van het bakmeel mee.', km: 'K-klopper op stand 3; elk ei 30 seconden voordat het volgende erbij gaat.' },
-    { t: 'Zeef het bakmeel erboven en spatel het met de citroenrasp en eventueel de melk kort door het beslag, tot je geen meel meer ziet. Niet langer mixen, anders wordt de cake taai.', km: 'K-klopper op stand 1, 15 à 20 seconden, net tot je geen meel meer ziet. Liever met de hand afmaken dan te lang mixen.' },
+    { t: 'Klop de zachte boter met de suiker, vanillesuiker en het zout in 5 minuten tot een lichte, bleke en luchtige massa. Dit is het geheim van een luchtige cake.', min: 5, km: 'menghaak op stand 5 à 6, 5 minuten. Schraap de kom na 2 minuten één keer met een spatel.' },
+    { t: 'Klop de eieren er één voor één door; wacht steeds tot het vorige ei helemaal is opgenomen. Gaat het schiften, klop dan een eetlepel van het bakmeel mee.', km: 'menghaak op stand 5; elk ei 30 seconden voordat het volgende erbij gaat.' },
+    { t: 'Zeef het bakmeel erboven en spatel het met de citroenrasp en eventueel de melk kort door het beslag, tot je geen meel meer ziet. Niet langer mixen, anders wordt de cake taai.', km: 'menghaak op stand 1, 15 à 20 seconden, net tot je geen meel meer ziet. Liever met de hand afmaken dan te lang mixen.' },
     { t: 'Marmercake: schep een derde van het beslag in een andere kom en roer de cacao erdoor. Schep beide beslagen om en om in de vorm en trek er met een vork een paar keer een slinger doorheen.' },
     { t: 'Schep het beslag in de vorm en strijk glad. Trek met een in boter gedoopt mes een lijn in de lengte over het midden: daar scheurt de cake mooi open.' },
     { t: 'Bak de cake 55 à 65 minuten in het midden van de oven. Hij is gaar als een satéprikker er droog uitkomt.', m: 'oven', min: 60 },

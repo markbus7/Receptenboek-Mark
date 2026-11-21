@@ -284,7 +284,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Smelt chocolade en boter au bain-marie. Laat iets afkoelen.' },
-    { t: 'Klop eieren, eidooiers, suiker en zout 3 minuten luchtig.', min: 3, km: 'garde op de hoogste stand, 3 minuten tot het dik en bleek is.' },
+    { t: 'Klop eieren, eidooiers, suiker en zout 3 minuten luchtig.', min: 3, km: 'garde op stand 8, 3 minuten tot het dik en bleek is.' },
     { t: 'Spatel de chocolade en dan de bloem erdoor. Verdeel over de vormpjes (3/4 vol).' },
     { t: 'Bak 10 à 12 minuten in een voorverwarmde oven op 220 °C. De rand moet stevig zijn, het midden nog zacht.', m: 'oven', min: 11 },
     { t: 'Bak 8 à 9 minuten in een voorverwarmde airfryer op 190 °C.', m: 'airfryer', min: 8 },

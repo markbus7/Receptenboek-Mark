@@ -110,7 +110,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { t: 'Doe bloem en zout in een kom en maak een kuiltje. Breek de eieren erin en giet de helft van de melk erbij.' },
-    { t: 'Klop vanuit het midden tot een glad, dik beslag. Klop daarna de rest van de melk erdoor. Laat 10 minuten rusten.', min: 10, km: 'garde: zet hem op stand 1 en giet de melk er in scheutjes bij. Daarna 1 minuut op stand 3, tot het beslag glad is.' },
+    { t: 'Klop vanuit het midden tot een glad, dik beslag. Klop daarna de rest van de melk erdoor. Laat 10 minuten rusten.', min: 10, km: 'menghaak: zet hem op stand 1 en giet de melk er in scheutjes bij. Daarna 1 minuut op stand 5, tot het beslag glad is.' },
     { t: 'Smelt een klontje boter in de koekenpan op middelhoog vuur.' },
     { t: 'Schep een soeplepel beslag in de pan en draai de pan zodat de bodem dun bedekt is. Bak tot de bovenkant droog is, ongeveer 2 minuten.', min: 2 },
     { t: 'Keer de pannenkoek om en bak de andere kant 1 minuut. Herhaal met de rest van het beslag. Houd ze warm onder een schone theedoek.' }
@@ -156,7 +156,7 @@ RECEPTEN.push(
   ],
   stappen: [
     { kop: 'Knoflooksaus', t: 'Begin met de knoflooksaus. Wrijf de geperste knoflook voor de saus met een snuf zout fijn tot een smeuïg papje. Roer yoghurt, mayonaise, citroensap en peterselie erdoor en proef of er zout bij moet. Zet hem afgedekt in de koelkast: in een half uur wordt de knoflooksmaak ronder.', min: 30 },
-    { kop: 'Beslag', t: 'Doe bloem en zout in een kom en maak een kuiltje. Breek de eieren erin en giet de helft van de melk erbij. Klop vanuit het midden tot een glad, dik beslag en klop daarna de rest van de melk erdoor. Laat 10 minuten rusten.', min: 10, km: 'garde: zet hem op stand 1 en giet de melk er in scheutjes bij. Daarna 1 minuut op stand 3, tot het beslag glad is.' },
+    { kop: 'Beslag', t: 'Doe bloem en zout in een kom en maak een kuiltje. Breek de eieren erin en giet de helft van de melk erbij. Klop vanuit het midden tot een glad, dik beslag en klop daarna de rest van de melk erdoor. Laat 10 minuten rusten.', min: 10, km: 'menghaak: zet hem op stand 1 en giet de melk er in scheutjes bij. Daarna 1 minuut op stand 5, tot het beslag glad is.' },
     { kop: 'Pittig gekruid gehakt', t: 'Zet de koekenpan zonder boter op middelhoog vuur. Bak het gehakt in 5 minuten rul en bruin; druk de brokken steeds fijn met je spatel, zodat je straks een gelijkmatige laag kunt smeren.', min: 5 },
     { t: 'Bak de ui 3 minuten mee tot hij zacht is. Voeg knoflook, 1 Spaanse peper, paprikapoeder, komijn, oregano, chilivlokken, peper en een snuf zout toe en bak nog 1 minuut, tot het geurt.', min: 4 },
     { t: 'Roer de tomatenpuree erdoor en bak hem 1 minuut mee. Schenk het water erbij en laat 8 à 10 minuten zachtjes pruttelen tot het een dikke, donkere gehaktsaus is die niet meer loopt. Proef: het mag flink pittig zijn, want de pannenkoek en de kaas maken het milder. Schep het in een kom, houd het warm onder een deksel en veeg de pan schoon.', min: 10 },
@@ -234,7 +234,7 @@ RECEPTEN.push(
     { n: 'citroen', p: 'citroenen', q: 0.5, u: 'st', x: 'sap' }
   ],
   stappen: [
-    { kop: 'Deeg', t: 'Kneed bakmeel, boter, basterdsuiker, zout en 3/4 van het ei kort tot een samenhangend deeg. Laat 15 minuten opstijven in de koelkast.', min: 15, km: 'K-klopper op stand 1: bakmeel, suiker, zout en de koude boter in blokjes 1 minuut tot kruimels, dan het ei erbij tot het net een bal wordt. Kort houden, anders wordt het deeg taai.' },
+    { kop: 'Deeg', t: 'Kneed bakmeel, boter, basterdsuiker, zout en 3/4 van het ei kort tot een samenhangend deeg. Laat 15 minuten opstijven in de koelkast.', min: 15, km: 'menghaak op stand 1: bakmeel, suiker, zout en de koude boter in blokjes 1 minuut tot kruimels, dan het ei erbij tot het net een bal wordt. Kort houden, anders wordt het deeg taai.' },
     { kop: 'Vulling', t: 'Schil de appels, verwijder klokhuizen en snijd ze in blokjes. Meng met suiker, kaneel, rozijnen en citroensap.' },
     { t: 'Verwarm de oven voor op 175 °C (hetelucht 160 °C).', m: 'oven' },
     { t: 'Verwarm de airfryer voor op 150 °C.', m: 'airfryer' },
@@ -268,7 +268,7 @@ RECEPTEN.push(
     { n: 'zout' }, { n: 'peper' }
   ],
   stappen: [
-    { t: 'Meng gehakt, paneermeel, ei, melk, mosterd, nootmuskaat, 1 tl zout en peper. Kneed kort en draai er met natte handen 4 grote ballen van.', km: 'K-klopper op stand 1, 1 minuut. Kort houden, dan blijven de ballen mals.' },
+    { t: 'Meng gehakt, paneermeel, ei, melk, mosterd, nootmuskaat, 1 tl zout en peper. Kneed kort en draai er met natte handen 4 grote ballen van.', km: 'menghaak op stand 1, 1 minuut. Kort houden, dan blijven de ballen mals.' },
     { t: 'Laat de boter in de braadpan bruin worden op middelhoog vuur. Bak de ballen rondom bruin in ca. 8 minuten.', m: 'braadpan', min: 8 },
     { t: 'Bak de ballen 10 minuten in de airfryer op 200 °C tot ze rondom bruin zijn. Laat intussen de boter bruin worden in de braadpan en doe de ballen erin.', m: 'airfryer', min: 10 },
     { t: 'Voeg het water en het laurierblad toe. Leg de deksel op de pan en laat 30 minuten zachtjes garen. Keer de ballen halverwege.', min: 30 },
