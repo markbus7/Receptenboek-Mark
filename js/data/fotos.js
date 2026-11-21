@@ -1290,9 +1290,9 @@ window.FOTOS = {
  },
  "pasta-pesto-kip": {
   "src": "img/pasta-pesto-kip.jpg",
-  "auteur": "Paul Goyette",
-  "licentie": "CC BY-SA 2.0",
-  "bron": "https://commons.wikimedia.org/wiki/File:Pasta_with_pesto.jpg"
+  "auteur": "Shreya13jain",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Basil_pesto_pasta.jpg"
  },
  "patatas-bravas": {
   "src": "img/patatas-bravas.jpg",

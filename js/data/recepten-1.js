@@ -179,16 +179,16 @@ RECEPTEN.push(
   alt: ['Geen verse peper? Gebruik ½ tot 1 tl chilivlokken of sambal.']
 },
 {
-  id: 'pasta-pesto-kip', naam: 'Pasta pesto met kip', gerecht: 'Pasta pesto met kip', variant: 'Verse pesto', ook: ['pasta pesto pollo', 'pesto pollo'], keuken: 'Italiaans', soort: 'Hoofdgerecht',
+  id: 'pasta-pesto-kip', naam: 'Penne pollo pesto', gerecht: 'Penne pollo pesto', variant: 'Verse pesto', ook: ['pasta pesto met kip', 'pasta pesto pollo', 'pesto pollo', 'penne pesto pollo', 'penne met pesto en kip'], keuken: 'Italiaans', soort: 'Hoofdgerecht',
   tijd: 25, pers: 4, niveau: 'Makkelijk', vega: false,
-  intro: 'Verse basilicumpesto, goudbruine kip en zongedroogde tomaat. Een doordeweekse favoriet.',
+  intro: 'Penne met verse basilicumpesto, goudbruine kip (pollo) en zongedroogde tomaat. Een doordeweekse favoriet.',
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de pasta' },
     { tool: 'koekenpan', tekst: 'Koekenpan (28 cm) voor de kip' },
     { tool: 'staafmixer', tekst: 'Staafmixer of hakmolen voor de pesto', of: 'Geen staafmixer? Gebruik 190 g pesto uit een pot.' }
   ],
   ingr: [
-    { n: 'fusilli', q: 400, u: 'g', x: 'of andere pasta' },
+    { n: 'penne', q: 400, u: 'g' },
     { n: 'kipfilet', q: 400, u: 'g', x: 'in reepjes' },
     { n: 'zongedroogde tomaten', q: 80, u: 'g', x: 'in reepjes', nk: 'Pesto alla genovese gaat in Italië gewoon met pasta; de tomaten geven extra zoet en zuur.' },
     { kop: 'Pesto' },
@@ -209,16 +209,16 @@ RECEPTEN.push(
   alt: ['Kip vervangen? Kikkererwten uit blik (2 blikken, uitgelekt) maken het vegetarisch.']
 },{
   id: 'pasta-pesto-kip-pot', toegevoegd: '2026-11-20', variantVan: 'pasta-pesto-kip', variant: 'Met pesto uit een pot',
-  naam: 'Snelle pasta pesto met kip',
-  ook: ['pasta pesto pollo', 'pesto pollo', 'pot pesto', 'pesto uit een pot', 'kant-en-klare pesto', 'snelle pasta pesto'],
+  naam: 'Snelle penne pollo pesto',
+  ook: ['pasta pesto met kip', 'snelle pasta pesto met kip', 'pasta pesto pollo', 'pesto pollo', 'penne pesto pollo', 'pot pesto', 'pesto uit een pot', 'kant-en-klare pesto', 'snelle pasta pesto'],
   tijd: 20,
-  intro: 'Dezelfde pasta pesto met kip, maar met een pot pesto genovese uit de supermarkt in plaats van zelf mixen. Goudbruine kip, zongedroogde tomaat en in 20 minuten op tafel.',
+  intro: 'Dezelfde penne pollo pesto, maar met een pot pesto genovese uit de supermarkt in plaats van zelf mixen. Goudbruine kip, zongedroogde tomaat en in 20 minuten op tafel.',
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de pasta' },
     { tool: 'koekenpan', tekst: 'Koekenpan (28 cm) voor de kip' }
   ],
   ingr: [
-    { n: 'fusilli', q: 400, u: 'g', x: 'of andere pasta' },
+    { n: 'penne', q: 400, u: 'g' },
     { n: 'kipfilet', q: 400, u: 'g', x: 'in reepjes' },
     { n: 'olijfolie', q: 1, u: 'el', x: 'om de kip te bakken' },
     { n: 'zongedroogde tomaten', q: 80, u: 'g', x: 'in reepjes', nk: 'Pesto alla genovese gaat in Italië gewoon met pasta; de tomaten geven extra zoet en zuur.' },
