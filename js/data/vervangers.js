@@ -36,7 +36,7 @@ window.VERVANGERS = [
 
   /* Pasta: elke soort kan, behalve lasagnebladen */
   { n: ['spaghetti'], tekst: 'of een andere pasta, bijv. penne, fusilli of farfalle', tenzij: ['pasta', 'brood'] },
-  { n: ['penne', 'macaroni', 'fusilli'], tekst: 'of een andere korte pasta, bijv. mezzi rigatoni, fusilli of farfalle', tenzij: ['pasta'] },
+  { n: ['penne', 'macaroni'], tekst: 'of een andere korte pasta, bijv. mezzi rigatoni, fusilli of farfalle', tenzij: ['pasta'] },
 
   /* Pastasaus uit een pot: zelf maken kan ook */
   { n: ['pastasaus'], tekst: 'geen pot? 250 ml passata met ½ tl chilivlokken, een snuf suiker en zout' },

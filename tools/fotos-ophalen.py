@@ -33,7 +33,7 @@ PAUZE = 1.5      # seconden tussen downloads
 # Een "File:" is met de hand gekozen omdat de foto van het artikel niet het gerecht liet zien.
 ARTIKELEN = {
     'spaghetti-carbonara': 'Carbonara', 'lasagne-bolognese': 'Lasagna', 'risotto-paddenstoelen': 'Risotto',
-    'pizza-margherita': 'Pizza Margherita', 'penne-arrabbiata': 'Arrabbiata sauce', 'pasta-pesto-kip': 'File:Pasta with pesto.jpg',
+    'pizza-margherita': 'Pizza Margherita', 'penne-arrabbiata': 'Arrabbiata sauce', 'pasta-pesto-kip': 'File:Basil pesto pasta.jpg',
     'tiramisu': 'Tiramisu', 'hutspot-rookworst': 'Hutspot', 'erwtensoep': 'File:Andersens Pea Soup.jpg',
     'boerenkool-stamppot': 'nl:Boerenkoolstamppot', 'pannenkoeken': 'nl:Pannenkoek', 'draadjesvlees': 'File:Stewed beef.jpg',
     'appeltaart': 'nl:Appeltaart', 'gehaktballen-jus': 'nl:Gehaktbal', 'nasi-goreng': 'Nasi goreng',

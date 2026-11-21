@@ -52,7 +52,7 @@ window.SMAAKMAKERS = [
     past: ['pasta-pesto-kip-pot', 'minestrone'],
     wat: 'Kant-en-klare groene pesto genovese: basilicum, kaas, pijnboompitten (of cashewnoten) en olie, in een pot van 190 g. Rode pesto (pesto rosso) is met tomaat.',
     waar: 'Bij de pasta en pastasaus, meestal naast de potten tomatensaus.',
-    gebruik: 'In de pasta pesto met kip (variant met pesto uit een pot) en een lepel op de minestrone. Een pot van 190 g is genoeg voor 400 g pasta, dus 4 personen.',
+    gebruik: 'In de penne pollo pesto (variant met pesto uit een pot) en een lepel op de minestrone. Een pot van 190 g is genoeg voor 400 g pasta, dus 4 personen.',
     tip: 'Niet verwarmen: roer hem van het vuur door de warme pasta met een scheut kookvocht. Open met een laagje olie erop ongeveer 5 dagen goed in de koelkast.' },
   { id: 'mayonaise', naam: 'Mayonaise', soort: 'Saus', namen: ['mayonaise'],
     wat: 'Romige saus van eidooier, olie en een beetje azijn of citroen.',
