@@ -202,8 +202,8 @@ RECEPTEN.push(
     { t: 'Rooster de pijnboompitten 2 à 3 minuten in de droge koekenpan tot ze lichtbruin zijn. Laat ze afkoelen op een bord.', min: 3 },
     { t: 'Pureer basilicum, pijnboompitten, kaas, knoflook en olie met de staafmixer tot een grove pesto. Breng op smaak met zout.' },
     { t: 'Kook de pasta beetgaar in {pastawater}, volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
-    { t: 'Bestrooi de kip met zout en peper. Bak in een scheut olie in de koekenpan op middelhoog vuur 6 à 7 minuten rondom goudbruin en gaar.', min: 7 },
-    { t: 'Meng pasta, kip, zongedroogde tomaat en pesto. Maak de saus wat losser met 2 el kookvocht.' }
+    { t: 'Bak intussen de kip apart in de koekenpan: bestrooi hem met zout en peper en bak hem in een scheut olie op middelhoog vuur 6 à 7 minuten rondom goudbruin en gaar.', min: 7 },
+    { t: 'Giet de pasta af en doe hem terug in de lege kookpan, van het vuur. Schep de pesto, de gebakken kip uit de koekenpan en de zongedroogde tomaat erdoor. Maak de saus wat losser met 2 el kookvocht.' }
   ],
   tips: ['Verwarm pesto niet in de pan: dan verliest de basilicum zijn frisse kleur en smaak.', 'Geen tijd of geen staafmixer? Kies hierboven de variant *Met pesto uit een pot*: klaar in 20 minuten.'],
   alt: ['Kip vervangen? Kikkererwten uit blik (2 blikken, uitgelekt) maken het vegetarisch.']
@@ -231,8 +231,8 @@ RECEPTEN.push(
   stappen: [
     { t: 'Rooster de pijnboompitten (als je ze gebruikt) 2 à 3 minuten in de droge koekenpan tot ze lichtbruin zijn. Schep ze op een bord.', min: 3 },
     { t: 'Kook de pasta beetgaar in {pastawater}, volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
-    { t: 'Bestrooi de kip met zout en peper. Bak in de olijfolie in de koekenpan op middelhoog vuur 6 à 7 minuten rondom goudbruin en gaar. Zet het vuur uit.', min: 7 },
-    { t: 'Giet de pasta af en doe hem terug in de kookpan, van het vuur. Schep de pesto, de kip en de zongedroogde tomaat erdoor, met 2 à 3 el kookvocht tot de saus glanst.' },
+    { t: 'Bak intussen de kip apart in de koekenpan: bestrooi hem met zout en peper en bak hem in de olijfolie op middelhoog vuur 6 à 7 minuten rondom goudbruin en gaar. Zet het vuur uit.', min: 7 },
+    { t: 'Giet de pasta af en doe hem terug in de kookpan, van het vuur. Schep de pesto, de gebakken kip uit de koekenpan en de zongedroogde tomaat erdoor, met 2 à 3 el kookvocht tot de saus glanst.' },
     { t: 'Bestrooi met de Parmezaan en de pijnboompitten.' }
   ],
   tips: [
