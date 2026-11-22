@@ -184,7 +184,7 @@ RECEPTEN.push(
   intro: 'Penne met verse basilicumpesto, goudbruine kip (pollo) en zongedroogde tomaat. Een doordeweekse favoriet.',
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de pasta' },
-    { tool: 'koekenpan', tekst: 'Koekenpan (28 cm) voor de kip' },
+    { tool: 'koekenpan', tekst: 'RVS-koekenpan (28 cm) voor de kip: daarin bakt er een bruin laagje (fond) aan, dat de saus extra smaak geeft' },
     { tool: 'staafmixer', tekst: 'Staafmixer of hakmolen voor de pesto', of: 'Geen staafmixer? Kies hierboven de variant met pesto uit een pot.' }
   ],
   ingr: [
@@ -202,8 +202,9 @@ RECEPTEN.push(
     { t: 'Rooster de pijnboompitten 2 à 3 minuten in de droge koekenpan tot ze lichtbruin zijn. Laat ze afkoelen op een bord.', min: 3 },
     { t: 'Pureer basilicum, pijnboompitten, kaas, knoflook en olie met de staafmixer tot een grove pesto. Breng op smaak met zout.' },
     { t: 'Kook de pasta beetgaar in {pastawater}, volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
-    { t: 'Bak intussen de kip apart in de koekenpan: bestrooi hem met zout en peper en bak hem in een scheut olie op middelhoog vuur 6 à 7 minuten rondom goudbruin en gaar.', min: 7 },
-    { t: 'Giet de pasta af en doe hem terug in de lege kookpan, van het vuur. Schep de pesto, de gebakken kip uit de koekenpan en de zongedroogde tomaat erdoor. Maak de saus wat losser met 2 el kookvocht.' }
+    { t: 'Bak intussen de kip in de RVS-koekenpan: verhit de pan eerst droog op middelhoog vuur, doe dan een scheut olie erin en leg de kip erin, bestrooid met zout en peper. Laat hem eerst 2 à 3 minuten liggen: hij plakt vast en laat vanzelf los als hij goudbruin is. Bak hem in 6 à 7 minuten rondom bruin en gaar. Er zit nu een bruin laagje (fond) op de bodem; dat is smaak.', min: 7 },
+    { t: 'Schep de kip op een bord. Schep 4 el kookvocht uit de pastapan in de hete koekenpan en schraap de fond los met een houten spatel. Laat 30 seconden pruttelen en zet het vuur uit.', min: 1 },
+    { t: 'Giet de pasta af en doe hem terug in de lege kookpan, van het vuur. Schep de pesto, de kip, het fondvocht uit de koekenpan en de zongedroogde tomaat erdoor. Te droog? Roer er nog 1 à 2 el kookvocht door.' }
   ],
   tips: ['Verwarm pesto niet in de pan: dan verliest de basilicum zijn frisse kleur en smaak.', 'Geen tijd of geen staafmixer? Kies hierboven de variant *Met pesto uit een pot*: klaar in 20 minuten.'],
   alt: ['Kip vervangen? Kikkererwten uit blik (2 blikken, uitgelekt) maken het vegetarisch.']
@@ -215,7 +216,7 @@ RECEPTEN.push(
   intro: 'Dezelfde penne pollo pesto, maar met een pot pesto genovese uit de supermarkt in plaats van zelf mixen. Goudbruine kip, zongedroogde tomaat en in 20 minuten op tafel.',
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de pasta' },
-    { tool: 'koekenpan', tekst: 'Koekenpan (28 cm) voor de kip' }
+    { tool: 'koekenpan', tekst: 'RVS-koekenpan (28 cm) voor de kip: daarin bakt er een bruin laagje (fond) aan, dat de saus extra smaak geeft' }
   ],
   ingr: [
     { n: 'penne', q: 400, u: 'g' },
@@ -231,13 +232,14 @@ RECEPTEN.push(
   stappen: [
     { t: 'Rooster de pijnboompitten (als je ze gebruikt) 2 à 3 minuten in de droge koekenpan tot ze lichtbruin zijn. Schep ze op een bord.', min: 3 },
     { t: 'Kook de pasta beetgaar in {pastawater}, volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
-    { t: 'Bak intussen de kip apart in de koekenpan: bestrooi hem met zout en peper en bak hem in de olijfolie op middelhoog vuur 6 à 7 minuten rondom goudbruin en gaar. Zet het vuur uit.', min: 7 },
-    { t: 'Giet de pasta af en doe hem terug in de kookpan, van het vuur. Schep de pesto, de gebakken kip uit de koekenpan en de zongedroogde tomaat erdoor, met 2 à 3 el kookvocht tot de saus glanst.' },
+    { t: 'Bak intussen de kip in de RVS-koekenpan: verhit de pan eerst droog op middelhoog vuur, doe dan de olijfolie erin en leg de kip erin, bestrooid met zout en peper. Laat hem eerst 2 à 3 minuten liggen: hij plakt vast en laat vanzelf los als hij goudbruin is. Bak hem in 6 à 7 minuten rondom bruin en gaar. Er zit nu een bruin laagje (fond) op de bodem; dat is smaak.', min: 7 },
+    { t: 'Schep de kip op een bord. Schep 4 el kookvocht uit de pastapan in de hete koekenpan en schraap de fond los met een houten spatel. Laat 30 seconden pruttelen en zet het vuur uit.', min: 1 },
+    { t: 'Giet de pasta af en doe hem terug in de kookpan, van het vuur. Schep de pesto, de kip, het fondvocht uit de koekenpan en de zongedroogde tomaat erdoor, tot de saus glanst. Te droog? Roer er nog 1 à 2 el kookvocht door.' },
     { t: 'Bestrooi met de Parmezaan en de pijnboompitten.' }
   ],
   tips: [
     'Verwarm de pesto niet in de pan: roer hem van het vuur door de warme pasta. Zo blijft hij groen en fris.',
-    'Spoel de lege pot om met 2 el kookvocht en schep dat erdoor: dan gaat er niets verloren.',
+    'Spoel de lege pot om met het fondvocht uit de koekenpan of 2 el kookvocht en schep dat erdoor: dan gaat er niets verloren.',
     'Een geopende pot pesto blijft ongeveer 5 dagen goed in de koelkast als je er een dun laagje olijfolie op giet.'
   ],
   alt: ['Rode pesto (pesto rosso) uit een pot kan ook: die smaakt naar tomaat en past goed bij de kip. Laat dan de zongedroogde tomaten eventueel weg.', 'Zelf maken? Kies hierboven de variant *Verse pesto*, of maak de Pesto genovese uit de sauzen.']
