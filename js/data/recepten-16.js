@@ -141,7 +141,7 @@ RECEPTEN.push(
   ingr: [
     { kop: 'Deeg (ca. 12 stuks)' },
     { n: 'bloem', q: 300, u: 'g' },
-    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'gedroogde gist', q: 7, u: 'g' },
     { n: 'kerriepoeder', q: 1, u: 'tl', x: 'of Surinaamse masala' },
     { n: 'komijn', q: 1, u: 'tl', x: 'djeera' },
     { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
@@ -245,7 +245,7 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'Kookpan voor de mie' }
   ],
   ingr: [
-    { n: 'mie', q: 250, u: 'g', x: 'mie-nestjes (fijn), 1 pak' },
+    { n: 'mie', q: 250, u: 'g', x: 'mie-nestjes (fijn)' },
     { n: 'kippendijfilet', q: 500, u: 'g', x: 'in dunne reepjes' },
     { n: 'sojasaus', q: 4, u: 'el', x: '1 el voor de kip, de rest voor de saus' },
     { n: 'maïzena', q: 1, u: 'tl' },
@@ -417,7 +417,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'runderlappen', q: 700, u: 'g', x: 'riblappen of sukade, in blokken van 4 cm' },
     { n: 'massaman currypasta', q: 4, u: 'el', x: 'uit een pot (toko of supermarkt)' },
-    { n: 'kokosmelk', q: 800, u: 'ml', x: '2 blikken; niet schudden' },
+    { n: 'kokosmelk', q: 800, u: 'ml', x: 'niet schudden' },
     { n: 'water', q: 250, u: 'ml' },
     { n: 'vastkokende aardappelen', q: 500, u: 'g', x: 'geschild, in grote blokken' },
     { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'in grote partjes' },

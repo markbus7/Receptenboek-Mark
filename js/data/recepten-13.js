@@ -214,7 +214,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'bloem', q: 500, u: 'g' },
-    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'gedroogde gist', q: 7, u: 'g' },
     { n: 'suiker', q: 30, u: 'g' },
     { n: 'vanillesuiker', q: 8, u: 'g' },
     { n: 'zout', q: 0.5, u: 'tl' },

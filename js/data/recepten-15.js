@@ -332,7 +332,7 @@ RECEPTEN.push(
   ingr: [
     { kop: 'Beslag' },
     { n: 'bloem', q: 250, u: 'g' },
-    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'gedroogde gist', q: 7, u: 'g' },
     { n: 'suiker', q: 1, u: 'el' },
     { n: 'zout', q: 0.5, u: 'tl' },
     { n: 'lauw water', q: 300, u: 'ml' },
@@ -447,7 +447,7 @@ RECEPTEN.push(
     { kop: 'Deeg' },
     { n: 'kruimige aardappelen', q: 150, u: 'g', x: 'geschild, in stukken' },
     { n: 'bloem', q: 300, u: 'g' },
-    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'gedroogde gist', q: 7, u: 'g' },
     { n: 'suiker', q: 1, u: 'tl' },
     { n: 'zout', q: 1, u: 'tl' },
     { n: 'melk', q: 175, u: 'ml', x: 'lauw' },

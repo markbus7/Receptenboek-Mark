@@ -368,7 +368,7 @@ RECEPTEN.push(
     { n: 'wortel', p: 'wortels', q: 100, u: 'g', x: 'in kleine blokjes' },
     { n: 'prei', q: 75, u: 'g', x: 'in dunne ringen' },
     { kop: 'Saus' },
-    { n: 'pastasaus', q: 520, u: 'g', x: '2 potten, bijv. Grand\'Italia Piccante' },
+    { n: 'pastasaus', q: 520, u: 'g', x: 'bijv. Grand\'Italia Piccante' },
     { n: 'water', q: 100, u: 'ml', x: 'om de potten mee om te spoelen' },
     { kop: 'Erbij' },
     { n: 'spaghetti', q: 400, u: 'g' },

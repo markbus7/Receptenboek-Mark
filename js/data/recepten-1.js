@@ -77,7 +77,7 @@ RECEPTEN.push(
     { t: 'Laat de lasagne 10 minuten rusten voordat je hem aansnijdt, dan blijven de lagen mooi.', min: 10 }
   ],
   tips: [
-    'Pastasaus uit een pot kan in plaats van de passata: 2 potten van 260 g. Een pittige pot (zoals Grand\'Italia Piccante) maakt de lasagne pittig.','De ragù is nog lekkerder als je hem een dag van tevoren maakt.'],
+    'Pastasaus uit een pot kan in plaats van de passata: bij de passata zie je hoeveel potten je nodig hebt. Een pittige pot (zoals Grand\'Italia Piccante) maakt de lasagne pittig.','De ragù is nog lekkerder als je hem een dag van tevoren maakt.'],
   alt: ['Geen oven en geen airfryer? Maak lasagne uit de pan: breek de bladen in stukken, voeg ze met 300 ml extra water aan de ragù toe en laat 12 minuten garen met de deksel erop. Schep er bechamel of ricotta over.']
 },
 {
@@ -185,7 +185,7 @@ RECEPTEN.push(
   gerei: [
     { tool: 'kookpan', tekst: 'Grote kookpan voor de pasta' },
     { tool: 'koekenpan', tekst: 'Koekenpan (28 cm) voor de kip' },
-    { tool: 'staafmixer', tekst: 'Staafmixer of hakmolen voor de pesto', of: 'Geen staafmixer? Gebruik 190 g pesto uit een pot.' }
+    { tool: 'staafmixer', tekst: 'Staafmixer of hakmolen voor de pesto', of: 'Geen staafmixer? Kies hierboven de variant met pesto uit een pot.' }
   ],
   ingr: [
     { n: 'penne', q: 400, u: 'g' },
@@ -223,7 +223,7 @@ RECEPTEN.push(
     { n: 'olijfolie', q: 1, u: 'el', x: 'om de kip te bakken' },
     { n: 'zongedroogde tomaten', q: 80, u: 'g', x: 'in reepjes', nk: 'Pesto alla genovese gaat in Italië gewoon met pasta; de tomaten geven extra zoet en zuur.' },
     { kop: 'Saus' },
-    { n: 'pesto', q: 190, u: 'g', x: '1 pot pesto genovese (groen), bijv. Barilla of AH' },
+    { n: 'pesto', q: 190, u: 'g', x: 'pesto genovese (groen), bijv. Barilla of AH' },
     { kop: 'Erbij' },
     { n: 'Parmezaanse kaas', q: 30, u: 'g', x: 'geraspt', opt: true },
     { n: 'pijnboompitten', q: 20, u: 'g', x: 'geroosterd, om erover te strooien', opt: true }

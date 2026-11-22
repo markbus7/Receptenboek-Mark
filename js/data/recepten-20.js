@@ -662,7 +662,7 @@ RECEPTEN.push(
     { tool: 'kookpan', tekst: 'Steelpan met dikke bodem en een siliconen spatel' }
   ],
   ingr: [
-    { n: 'gecondenseerde melk', q: 397, u: 'g', x: 'gezoet, 1 blik' },
+    { n: 'gecondenseerde melk', q: 397, u: 'g', x: 'gezoet' },
     { n: 'cacaopoeder', q: 2, u: 'el', x: 'ongezoet' },
     { n: 'roomboter', q: 15, u: 'g', x: 'plus een beetje voor je handen' },
     { n: 'zout', q: 1, u: 'snuf' },

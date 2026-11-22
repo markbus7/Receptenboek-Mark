@@ -116,7 +116,7 @@ RECEPTEN.push(
   ingr: [
     { n: 'boekweitmeel', q: 125, u: 'g' },
     { n: 'bloem', q: 125, u: 'g' },
-    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'gedroogde gist', q: 7, u: 'g' },
     { n: 'suiker', q: 1, u: 'el' },
     { n: 'zout', q: 1, u: 'snuf' },
     { n: 'ei', p: 'eieren', q: 1, u: 'st' },
@@ -147,7 +147,7 @@ RECEPTEN.push(
   ],
   ingr: [
     { n: 'bloem', q: 500, u: 'g' },
-    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'gedroogde gist', q: 7, u: 'g' },
     { n: 'melk', q: 450, u: 'ml', x: 'lauw' },
     { n: 'ei', p: 'eieren', q: 1, u: 'st' },
     { n: 'suiker', q: 2, u: 'el' },
