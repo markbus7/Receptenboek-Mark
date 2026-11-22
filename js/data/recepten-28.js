@@ -2,7 +2,7 @@
    In de Italiaanse tomatenrecepten (bolognese, lasagne, gehaktballen, arrabbiata) staat de pot als alternatief
    bij de tomaten ("of ... g pastasaus uit een pot"), niet als apart recept. */
 (() => {
-  const POT = { n: 'pastasaus', q: 260, u: 'g', x: 'één pot, bijv. Grand\'Italia Piccante met rode peper' };
+  const POT = { n: 'pastasaus', q: 260, u: 'g', x: 'bijv. Grand\'Italia Piccante met rode peper' };
 
   RECEPTEN.push(
   {

@@ -527,7 +527,7 @@ RECEPTEN.push(
   ingr: [
     { kop: 'Deeg' },
     { n: 'bloem', q: 250, u: 'g' },
-    { n: 'gedroogde gist', q: 7, u: 'g', x: '1 zakje' },
+    { n: 'gedroogde gist', q: 7, u: 'g' },
     { n: 'suiker', q: 1, u: 'el' },
     { n: 'zout', q: 0.5, u: 'tl' },
     { n: 'melk', q: 180, u: 'ml', x: 'lauw' },

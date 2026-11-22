@@ -161,7 +161,7 @@
       { n: 'krieltjes', q: 500, u: 'g', x: 'ongeschild, gewassen' },
       { n: 'sperziebonen', q: 250, u: 'g', x: 'de puntjes eraf' },
       { n: 'ei', p: 'eieren', q: 4, u: 'st' },
-      { n: 'tonijn', q: 320, u: 'g', x: 'uit blik, in olijfolie, uitgelekt (2 blikjes van 160 g)' },
+      { n: 'tonijn', q: 320, u: 'g', x: 'uit blik, in olijfolie, uitgelekt' },
       { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'in partjes' },
       { n: 'zwarte olijven', q: 80, u: 'g', x: 'het liefst met pit, zoals in Nice' },
       { n: 'rode ui', p: 'rode uien', q: 0.5, u: 'st', x: 'in flinterdunne ringen' },

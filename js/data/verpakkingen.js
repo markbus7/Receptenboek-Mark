@@ -8,6 +8,8 @@
    wat:  hoe de verpakking heet (pak, blik, beker, ...)
    vanaf: laat niets zien als je minder dan dit gebruikt (bijv. een scheutje melk)
    vaag: geen vaste verpakking; toon alleen de tip, en alleen als je minder dan 'tot' gebruikt
+   heel: je gebruikt de hele verpakking (een pot pesto of pastasaus). De hoeveelheid in het recept volgt
+         dan de potten die je kunt kopen ("1 pot (90 g)" in plaats van 95 g), dus er blijft niets over.
    Optionele ingrediënten tellen ook mee, met "(als je het gebruikt)". */
 window.VERPAKKINGEN = [
   /* Zuivel */
@@ -35,8 +37,10 @@ window.VERPAKKINGEN = [
     tip: 'Tomatenpuree over? Schep de rest in eetlepels op een stukje bakpapier en vries ze in, dan heb je de volgende keer meteen een portie. Of koop een tube: die blijft open weken goed in de koelkast.' },
   { n: ['tomatenblokjes'], maat: 'g', pak: [400], per: { blik: 400 }, wat: 'blik',
     tip: 'Halve blik tomaten over? Doe hem in een bakje (niet in het blik) en gebruik hem binnen 3 dagen in een pastasaus, soep of shakshuka, of vries hem in.' },
-  { n: ['pastasaus'], maat: 'g', pak: [260, 400, 500], wat: 'pot',
+  { n: ['pastasaus', 'pastasaus uit een pot'], maat: 'g', pak: [260, 400, 500], wat: 'pot', heel: true,
     tip: 'Pastasaus over? Schep de rest in een bakje met deksel: in de koelkast blijft hij 4 à 5 dagen goed, of vries hem in. Lekker over een tosti, als dip voor kipnuggets of in een omelet.' },
+  { n: ['pesto'], maat: 'g', pak: [90, 135, 185, 190], wat: 'pot', heel: true,
+    tip: 'Pesto over? Strijk hem glad, giet er een laagje olijfolie op en zet de pot in de koelkast: zo blijft hij zo\'n 5 dagen groen. Lekker op een tosti of door een salade.' },
   { n: ['passata'], maat: 'ml', pak: [500, 700], wat: 'fles',
     tip: 'Passata over? Open blijft hij zo\'n 5 dagen goed in de koelkast. Maak er een snelle pastasaus of tomatensoep van, of vries hem in.' },
   { n: ['kokosmelk'], maat: 'ml', pak: [200, 400], per: { blik: 400 }, wat: 'blik',

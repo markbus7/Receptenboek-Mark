@@ -153,7 +153,8 @@ for (const r of ctx.RECEPTEN) {
 
 // Verpakkingen: elke naam moet in minstens één recept voorkomen, anders is het waarschijnlijk een tikfout.
 vm.runInContext(fs.readFileSync(path.join(map, 'verpakkingen.js'), 'utf8'), ctx, { filename: 'verpakkingen.js' });
-const namen = new Set(ctx.RECEPTEN.flatMap((r) => [...(r.ingr || []), ...Object.values(r.vervang || {}).filter(Boolean)]).map((i) => (i.n || '').toLowerCase()));
+// Ook de alternatieven (of: { n: 'pastasaus uit een pot' }) tellen mee.
+const namen = new Set(ctx.RECEPTEN.flatMap((r) => [...(r.ingr || []), ...(r.ingr || []).map((i) => i.of).filter((o) => o && typeof o === 'object'), ...Object.values(r.vervang || {}).filter(Boolean)]).map((i) => (i.n || '').toLowerCase()));
 for (const v of ctx.VERPAKKINGEN) {
   for (const n of v.n) if (!namen.has(n)) fouten.push({ f: 'verpakkingen.js', id: n, m: 'komt in geen enkel recept voor' });
   if (!v.tip) fouten.push({ f: 'verpakkingen.js', id: v.n[0], m: 'tip ontbreekt' });

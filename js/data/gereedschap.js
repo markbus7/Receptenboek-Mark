@@ -37,6 +37,7 @@ window.EENHEDEN = {
   teen:   { e: 'teen',   m: 'tenen',   soort: 'stuk' },
   st:     { e: '',       m: '',        soort: 'stuk' },
   blik:   { e: 'blik',   m: 'blikken', soort: 'stuk' },
+  blikje: { e: 'blikje', m: 'blikjes', soort: 'stuk' },
   bos:    { e: 'bos',    m: 'bossen',  soort: 'stuk' },
   takje:  { e: 'takje',  m: 'takjes',  soort: 'stuk' },
   plak:   { e: 'plak',   m: 'plakken', soort: 'stuk' },
@@ -52,9 +53,10 @@ window.EENHEDEN = {
 /* Verpakkingen in gram, om naast het gewicht te tonen: "1 zakje vanillesuiker (8 g)".
    Recepten staan in gram (dan klopt het ook met een pot of een grote zak); de app rekent het
    aantal zakjes, bossen of blikken uit voor het aantal personen dat je kookt.
-   Bij bonen en mais is het gewicht uitgelekt. */
+   Bij bonen en mais is het gewicht uitgelekt. Kokosmelk staat in ml en telt ook in blikken. */
 window.PAKMATEN = {
   vanillesuiker: { zakje: 8 },
+  'gedroogde gist': { zakje: 7 },
   'verse peterselie': { bos: 30, handje: 10 },
   'verse koriander': { bos: 30, handje: 10 },
   'verse basilicum': { bos: 25, handje: 10 },
@@ -73,7 +75,10 @@ window.PAKMATEN = {
   'perziken op siroop': { blik: 410 },
   'baked beans': { blik: 415 },
   bamboescheuten: { blik: 225 },
-  ananas: { blik: 225 }
+  ananas: { blik: 225 },
+  tonijn: { blikje: 160 },
+  'gecondenseerde melk': { blik: 397 },
+  kokosmelk: { blik: 400 }
 };
 
 /* Pannen die je zelf aanvinkt onder "Mijn keuken". Recepten gebruiken de algemene namen

@@ -155,17 +155,50 @@ const Hulp = (() => {
       eenheid = ingr.u === 'st' ? '' : (meervoud ? def.m : def.e);
     }
     const naam = metNlNaam(ingr.n, ingr.x, (ingr.u === 'st' && meervoud && ingr.p) ? ingr.p : ingr.n);
+    const pot = potten(ingr, waarde);
+    if (pot) return { aantal: pot.aantal, eenheid: pot.eenheid, gram: pot.gram, naam: naam.replace(/ uit een pot$/, ''), waarde: pot.totaal };
     const pak = verpakt(ingr, waarde);
     if (pak) return { ...pak, gram: `${aantal} ${eenheid}`, naam, waarde };
     return { aantal, eenheid, naam, waarde };
+  }
+
+  /* Iets dat je in zijn geheel gebruikt (heel: true in js/data/verpakkingen.js, zoals een pot pesto of
+     pastasaus): de hoeveelheid volgt de potten die je echt kunt kopen. Voor 2 personen geen 95 g pesto,
+     maar 1 pot van 90 g; voor 6 personen 2 potten (190 g + 90 g). We kiezen wat het dichtst bij de
+     hoeveelheid ligt, met zo min mogelijk potten (hooguit twee maten). Null als het geen hele pot is. */
+  function potten(ingr, waarde) {
+    const v = verpakkingVoor(ingr);
+    if (!v || !v.heel || !v.pak) return null;
+    const per = inBasis(ingr, v);
+    if (!per) return null;
+    const doel = waarde * per;
+    const maten = [...v.pak].sort((a, b) => b - a);
+    let beste = null;
+    for (const s of maten) for (const t of maten) {
+      if (t > s) continue;
+      for (let k = 1; k <= 6; k++) for (let j = 0; j <= (t === s ? 0 : 6 - k); j++) {
+        const totaal = k * s + j * t, aantal = k + j;
+        const mis = Math.abs(totaal - doel);
+        if (!beste || mis < beste.mis - 1e-9 || (Math.abs(mis - beste.mis) < 1e-9 && (aantal < beste.aantal || (aantal === beste.aantal && totaal > beste.totaal)))) {
+          beste = { s, k, t, j, totaal, aantal, mis };
+        }
+      }
+    }
+    const { s, k, t, j, totaal, aantal } = beste;
+    const e = v.maat === 'ml' ? 'ml' : 'g';
+    const deel = (n, x) => (n === 1 ? `${getal(x)}\u00a0${e}` : `${n} × ${getal(x)}\u00a0${e}`);
+    return {
+      aantal: String(aantal), eenheid: aantal === 1 ? v.wat : (MEERVOUD[v.wat] || v.wat),
+      gram: j ? `${deel(k, s)} + ${deel(j, t)}` : deel(k, s), totaal: totaal / per
+    };
   }
 
   /* Gram omgerekend naar zakjes, bossen of blikken (js/data/gereedschap.js, PAKMATEN): de grootste
      verpakking die op een hele of halve uitkomt, anders de kleinste in kwarten. Null als het niet past. */
   function verpakt(ingr, waarde) {
     const maten = (window.PAKMATEN || {})[norm(ingr.n)];
-    if (!maten || !['g', 'kg'].includes(ingr.u)) return null;
-    const gram = ingr.u === 'kg' ? waarde * 1000 : waarde;
+    if (!maten || !['g', 'kg', 'ml', 'l'].includes(ingr.u)) return null;
+    const gram = ['kg', 'l'].includes(ingr.u) ? waarde * 1000 : waarde;
     const opties = Object.entries(maten).sort((a, b) => b[1] - a[1]);
     let keus = opties.find(([, g]) => gram / g >= 0.5 && Math.abs(gram / g * 2 - Math.round(gram / g * 2)) < 0.1);
     if (!keus) { const kleinste = opties[opties.length - 1]; if (gram / kleinste[1] >= 0.25) keus = kleinste; }
@@ -615,7 +648,7 @@ const Hulp = (() => {
   /* Restjes: per ingrediënt met een vaste verpakking (js/data/verpakkingen.js) wat je koopt en wat je
      overhoudt, voor het aantal personen dat je nu kookt. Optionele ingrediënten tellen mee (opt), want als je ze gebruikt, koop je ze ook.
      Geeft per verpakkingssoort { regels: [{ naam, zin, opt }], tip }. */
-  const MEERVOUD = { pak: 'pakken', blik: 'blikken', blikje: 'blikjes', beker: 'bekers', bak: 'bakken', bakje: 'bakjes', blok: 'blokken', fles: 'flessen', zak: 'zakken', stuk: 'stuks' };
+  const MEERVOUD = { pot: 'potten', pak: 'pakken', blik: 'blikken', blikje: 'blikjes', beker: 'bekers', bak: 'bakken', bakje: 'bakjes', blok: 'blokken', fles: 'flessen', zak: 'zakken', stuk: 'stuks' };
   const OMREKEN = { g: 1, ml: 1, kg: 1000, l: 1000, el: 15, tl: 5 };
 
   function inBasis(i, v) {
@@ -648,6 +681,7 @@ const Hulp = (() => {
     for (const [v, m] of nodig) {
       const regels = [];
       for (const [naam, { hv, opt }] of m) {
+        if (v.heel) continue;   // een hele pot: de hoeveelheid volgt al de potten die je koopt, dus niets over
         if (v.eiwit) {
           const n = Math.round(hv);
           regels.push({ naam: 'eiwit', opt, zin: `je houdt ${n} ${n === 1 ? 'eiwit' : 'eiwitten'} over.` });
