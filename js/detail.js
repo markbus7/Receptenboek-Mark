@@ -2,11 +2,35 @@
 
 const Timers = (() => {
   const el = document.getElementById('timers');
+  /* Lopende timers staan met hun eindtijd in deze browser, zodat ze na verversen of bijwerken
+     gewoon doorlopen. Een timer die intussen afliep, geeft na het laden alsnog een melding. */
+  const SLEUTEL = 'timers';
   let lijst = [], tik = null, audio = null;
 
-  function start(label, minuten) {
+  const bewaar = () => Hulp.opslag.schrijf(SLEUTEL, lijst, { stil: true });
+
+  function maakAudio() {
     try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { audio = null; }
+    if (audio && audio.state === 'suspended') audio.resume().catch(() => {});
+  }
+
+  function start(label, minuten) {
+    maakAudio();
     lijst.push({ id: Date.now() + Math.random(), label, eind: Date.now() + minuten * 60000, klaar: false });
+    bewaar();
+    if (!tik) tik = setInterval(render, 1000);
+    render();
+  }
+
+  function herstel() {
+    const opgeslagen = Hulp.opslag.lees(SLEUTEL, []);
+    if (!Array.isArray(opgeslagen)) return;
+    lijst = opgeslagen.filter((t) => t && t.id != null && Number.isFinite(t.eind));
+    if (!lijst.length) return;
+    /* Na verversen mag geluid pas na een tik op het scherm; dan alvast klaarzetten. */
+    maakAudio();
+    const ontgrendel = () => { maakAudio(); document.removeEventListener('pointerdown', ontgrendel); };
+    document.addEventListener('pointerdown', ontgrendel);
     if (!tik) tik = setInterval(render, 1000);
     render();
   }
@@ -25,9 +49,11 @@ const Timers = (() => {
 
   function render() {
     const nu = Date.now();
+    let afgelopen = false;
     lijst.forEach((t) => {
-      if (!t.klaar && nu >= t.eind) { t.klaar = true; piep(); App.toast(`Timer klaar: ${t.label}`); }
+      if (!t.klaar && nu >= t.eind) { t.klaar = true; afgelopen = true; piep(); App.toast(`Timer klaar: ${t.label}`); }
     });
+    if (afgelopen) bewaar();
     el.hidden = !lijst.length;
     if (!lijst.length) { clearInterval(tik); tik = null; return; }
     el.innerHTML = lijst.map((t) => {
@@ -46,8 +72,12 @@ const Timers = (() => {
     const b = e.target.closest('[data-timer]');
     if (!b) return;
     lijst = lijst.filter((t) => String(t.id) !== b.dataset.timer);
+    bewaar();
     render();
   });
+
+  /* Wachten tot alle scripts (ook App) geladen zijn. */
+  if (document.readyState === 'complete') herstel(); else window.addEventListener('load', herstel);
 
   return { start };
 })();
