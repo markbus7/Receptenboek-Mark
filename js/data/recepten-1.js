@@ -204,9 +204,9 @@ RECEPTEN.push(
     { t: 'Kook de pasta beetgaar in {pastawater}, volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
     { t: 'Bak intussen de kip in de RVS-koekenpan: verhit de pan eerst droog op middelhoog vuur, doe dan een scheut olie erin en leg de kip erin, bestrooid met zout en peper. Laat hem eerst 2 à 3 minuten liggen: hij plakt vast en laat vanzelf los als hij goudbruin is. Bak hem in 6 à 7 minuten rondom bruin en gaar. Er zit nu een bruin laagje (fond) op de bodem; dat is smaak.', min: 7 },
     { t: 'Schep de kip op een bord. Schep 4 el kookvocht uit de pastapan in de hete koekenpan en schraap de fond los met een houten spatel. Laat 30 seconden pruttelen en zet het vuur uit.', min: 1 },
-    { t: 'Giet de pasta af en schep hem in de koekenpan, bij het fondvocht (het vuur blijft uit). Schep de pesto, de kip en de zongedroogde tomaat erdoor en hussel tot alles glanst. Te droog? Roer er nog 1 à 2 el kookvocht door.' }
+    { t: 'Giet de pasta af en schep hem in de koekenpan, bij het fondvocht. Zet het vuur laag (stand 2 à 3) en schep de pesto, de kip en de zongedroogde tomaat erdoor. Schep 1 à 2 minuten om tot alles warm is en glanst. Te droog? Roer er nog 1 à 2 el kookvocht door.', min: 2 }
   ],
-  tips: ['Verwarm pesto niet: zet het vuur onder de koekenpan uit voordat de pasta en de pesto erin gaan. Anders verliest de basilicum zijn frisse kleur en smaak.', 'Een koekenpan van 28 cm is groot genoeg voor 4 personen. Kook je voor meer, giet dan het fondvocht uit de koekenpan bij de pasta in de kookpan en meng alles daar.', 'Geen tijd of geen staafmixer? Kies hierboven de variant *Met pesto uit een pot*: klaar in 20 minuten.'],
+  tips: ['Warm de pesto alleen op laag vuur (stand 2 à 3) en kort op, al omscheppend. Op hoog vuur wordt de basilicum donker en bitter en klontert de kaas.', 'Een koekenpan van 28 cm is groot genoeg voor 4 personen. Kook je voor meer, giet dan het fondvocht uit de koekenpan bij de pasta in de kookpan en meng alles daar.', 'Geen tijd of geen staafmixer? Kies hierboven de variant *Met pesto uit een pot*: klaar in 20 minuten.'],
   alt: ['Kip vervangen? Kikkererwten uit blik (2 blikken, uitgelekt) maken het vegetarisch.']
 },{
   id: 'pasta-pesto-kip-pot', toegevoegd: '2026-11-20', variantVan: 'pasta-pesto-kip', variant: 'Met pesto uit een pot',
@@ -234,11 +234,11 @@ RECEPTEN.push(
     { t: 'Kook de pasta beetgaar in {pastawater}, volgens de verpakking. Houd een half kopje kookvocht apart.', min: 11 },
     { t: 'Bak intussen de kip in de RVS-koekenpan: verhit de pan eerst droog op middelhoog vuur, doe dan de olijfolie erin en leg de kip erin, bestrooid met zout en peper. Laat hem eerst 2 à 3 minuten liggen: hij plakt vast en laat vanzelf los als hij goudbruin is. Bak hem in 6 à 7 minuten rondom bruin en gaar. Er zit nu een bruin laagje (fond) op de bodem; dat is smaak.', min: 7 },
     { t: 'Schep de kip op een bord. Schep 4 el kookvocht uit de pastapan in de hete koekenpan en schraap de fond los met een houten spatel. Laat 30 seconden pruttelen en zet het vuur uit.', min: 1 },
-    { t: 'Giet de pasta af en schep hem in de koekenpan, bij het fondvocht (het vuur blijft uit). Schep de pesto, de kip en de zongedroogde tomaat erdoor en hussel tot alles glanst. Te droog? Roer er nog 1 à 2 el kookvocht door.' },
-    { t: 'Bestrooi met de Parmezaan en de pijnboompitten.' }
+    { t: 'Giet de pasta af en schep hem in de koekenpan, bij het fondvocht. Zet het vuur laag (stand 2 à 3) en schep de pesto, de kip en de zongedroogde tomaat erdoor. Schep 1 à 2 minuten om tot alles warm is en glanst. Te droog? Roer er nog 1 à 2 el kookvocht door.', min: 2 },
+    { t: 'Bestrooi met de Parmezaan (als je die gebruikt) en doe de deksel 1 minuut op de pan: dan smelt de kaas. Strooi de pijnboompitten erover.', min: 1 }
   ],
   tips: [
-    'Verwarm de pesto niet: zet het vuur onder de koekenpan uit voordat de pasta en de pesto erin gaan. Zo blijft hij groen en fris.',
+    'Warm de pesto alleen op laag vuur (stand 2 à 3) en kort op, al omscheppend. Op hoog vuur wordt de basilicum donker en bitter en klontert de kaas.',
     'Een koekenpan van 28 cm is groot genoeg voor 4 personen. Kook je voor meer, giet dan het fondvocht uit de koekenpan bij de pasta in de kookpan en meng alles daar.',
     'Spoel de lege pot om met het fondvocht uit de koekenpan of 2 el kookvocht en schep dat erdoor: dan gaat er niets verloren.',
     'Een geopende pot pesto blijft ongeveer 5 dagen goed in de koelkast als je er een dun laagje olijfolie op giet.'
