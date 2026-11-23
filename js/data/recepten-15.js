@@ -1028,5 +1028,36 @@ RECEPTEN.push(
   tips: ['Geraspte ui smelt helemaal weg in de saus en maakt hem dik en zoet; zo doen ze het in Marokko. Rasp hem op de grove kant van een rasp.', 'Zoet en hartig samen is de bedoeling, maar vind je het te zoet, neem dan 1 el honing en een kneepje citroensap in de pruimen.', 'Lekker met een frisse salade ernaast, zoals zaalouk of tomaat met komkommer en rode ui. Een dag later is de tajine nog lekkerder.'],
   alt: ['Met lamsschouder of lamsbout in stukken, het origineel van de feestdagen: stoof 1½ à 2 uur.', 'Met gedroogde abrikozen in plaats van pruimen, of de helft van elk.', 'In de slowcooker: bak vlees en ui aan zoals hierboven, en laat het daarna met 400 ml water 7 uur op laag garen.'],
   bij: ['zaalouk']
+},
+{
+  id: 'madartej', toegevoegd: '2026-11-23', naam: 'Madártej (Hongaarse vanillevla met eiwitwolken)',
+  ook: ['madártej', 'madartej', 'vogelmelk', 'floating island', 'ile flottante', 'île flottante', 'oeufs à la neige', 'vanillevla met eiwit', 'drijvende eilandjes', 'hongaars toetje', 'schuimwolken'],
+  keuken: 'Hongaars', soort: 'Dessert',
+  tijd: 35, wacht: '2 uur koelen', pers: 4, niveau: 'Gemiddeld', vega: true,
+  intro: 'Vogelmelk, het toetje van elke Hongaarse oma: luchtige wolken van geklopt eiwit, gepocheerd in vanillemelk, drijvend op een koude, dunne vanillevla van diezelfde melk en de dooiers. Je gebruikt het hele ei en hebt geen oven nodig, alleen een beetje geduld bij het roeren van de vla.',
+  gerei: [
+    { tool: 'kookpan', tekst: 'Brede pan of hapjespan (24 cm of groter) om de wolken te pocheren en de vla te maken' },
+    { tool: 'mixer', tekst: 'Handmixer of garde voor het eiwit, en een schuimspaan en een zeef' }
+  ],
+  ingr: [
+    { n: 'melk', q: 1, u: 'l', x: 'volle melk' },
+    { n: 'vanillestokje', p: 'vanillestokjes', q: 1, u: 'st', x: 'of 2 zakjes vanillesuiker' },
+    { n: 'ei', p: 'eieren', q: 4, u: 'st', x: 'koud gesplitst in dooiers en eiwitten' },
+    { n: 'suiker', q: 100, u: 'g', x: '40 g voor het eiwit, 60 g voor de vla' },
+    { n: 'maïzena', q: 1, u: 'el', x: 'afgestreken' },
+    { n: 'zout', q: 1, u: 'snuf' }
+  ],
+  stappen: [
+    { kop: 'Wolken', t: 'Snijd het vanillestokje in de lengte open en schraap het merg eruit. Verwarm de melk met het merg en het stokje in de brede pan tot hij dampt en er belletjes langs de rand komen. Zet het vuur laag: de melk mag niet borrelen.' },
+    { t: 'Klop de eiwitten met het zout in een schone, vetvrije kom tot ze schuimen. Klop er lepel voor lepel 40 g suiker door en klop verder tot het schuim glanst en er stevige pieken blijven staan.', km: 'garde in de schone, vetvrije kom: 1 minuut op stand 2 tot het schuimt, dan op stand 7 à 8 en de suiker er lepel voor lepel bij, 2 à 3 minuten tot er stevige pieken blijven staan.' },
+    { t: 'Steek met twee eetlepels wolken zo groot als een ei van het schuim en laat er 4 tegelijk in de hete melk glijden. Pocheer ze 1 minuut, keer ze voorzichtig om en pocheer nog 1 minuut. Ze zwellen op en voelen dan veerkrachtig. Schep ze met de schuimspaan op een bord en ga zo door tot het schuim op is (ongeveer 12 wolken).', min: 8 },
+    { kop: 'Vla', t: 'Giet de melk door de zeef in een kan en gooi het stokje weg. Spoel de pan om. Klop in een kom de dooiers met 60 g suiker en de maïzena tot een gladde, lichtgele crème.' },
+    { t: 'Giet de warme melk in een dun straaltje bij de dooiers terwijl je blijft kloppen. Giet alles terug in de pan.' },
+    { t: 'Verwarm op laag vuur en roer 6 à 8 minuten rustig met een spatel over de bodem, tot de vla iets dikker wordt en een dun laagje op de spatel achterlaat: trek je er met je vinger een streep door, dan blijft die staan. Laat hem niet koken, anders gaat het ei schiften.', min: 8 },
+    { kop: 'Koelen', t: 'Giet de vla meteen in een schaal en laat hem 15 minuten afkoelen; roer af en toe, dan komt er geen vel op. Leg de wolken erop, met het vocht dat op het bord is gelopen erbij.', min: 15 },
+    { t: 'Zet de schaal minstens 2 uur in de koelkast. Schep de vla koud in kommen, met een paar wolken erop.', min: 120 }
+  ],
+  tips: ['De vla is dun, eerder een dikke saus dan vla uit een pak. Zo hoort het; in de koelkast wordt hij nog iets dikker.', 'Is de vla toch gaan schiften (kleine korreltjes)? Giet hem meteen in een hoge beker en zet er 20 seconden de staafmixer in, dan is hij weer glad.', 'De wolken zakken in als ze te lang pocheren. Twee minuten in totaal is genoeg; ze garen vanbinnen nog even na.', 'Een spoor eigeel in het eiwit en het wordt niet stijf. Splits de eieren een voor een boven een kopje.'],
+  alt: ['Geen vanillestokje: roer 2 zakjes vanillesuiker (16 g) door de melk en neem 15 g minder suiker in de vla.', 'Met karamel, zoals de Franse île flottante: smelt 50 g suiker met 1 el water in een steelpan tot hij goudbruin is en sprenkel hem in draadjes over de wolken.', 'Strooi er 20 g geroosterd amandelschaafsel of een beetje cacaopoeder over.']
 }
 );

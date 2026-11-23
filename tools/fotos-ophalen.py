@@ -214,6 +214,9 @@ ARTIKELEN = {
     'pollo-a-la-brasa': 'Pollo a la brasa', 'eton-mess': 'Eton mess',
     # 1.102.0 (keukenmachine)
     'chocolademousse': 'Chocolate mousse', 'kaneelbroodjes': 'File:Cinnamon rolls glazed, July 2009.jpg', 'verse-tagliatelle-kip': 'Tagliatelle',
+    # 1.106.0
+    'dakgalbi': 'Dak-galbi', 'bruine-bonen-met-rijst': 'nl:Bruine bonen met rijst', 'bun-cha': 'Bún chả',
+    'sauerbraten': 'Sauerbraten', 'madartej': 'Floating island (dessert)',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

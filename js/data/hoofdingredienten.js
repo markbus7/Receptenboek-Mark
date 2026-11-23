@@ -356,5 +356,12 @@ window.HOOFD = {
   /* Keukenmachine, 2026-11-20 */
   chocolademousse: ['pure chocolade', 'ei'],
   kaneelbroodjes: ['zacht brooddeeg', 'kaneel', 'bruine suiker', 'roomkaas'],
-  'verse-tagliatelle-kip': ['verse pasta', 'kip', 'champignons', 'spinazie']
+  'verse-tagliatelle-kip': ['verse pasta', 'kip', 'champignons', 'spinazie'],
+
+  /* Week van 2026-11-23 */
+  dakgalbi: ['kip', 'witte kool', 'zoete aardappel', 'rijst'],
+  'bruine-bonen-met-rijst': ['bruine bonen', 'kip', 'rookworst', 'rijst'],
+  'bun-cha': ['varkensgehakt', 'rijstnoedels', 'sla', 'verse kruiden'],
+  sauerbraten: ['rundvlees', 'azijn', 'aardappel', 'rode kool'],
+  madartej: ['melk', 'ei', 'vanille']
 };

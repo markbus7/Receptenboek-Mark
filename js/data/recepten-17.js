@@ -720,5 +720,48 @@ RECEPTEN.push(
   ],
   tips: ['Rauwe vis: koop zalm van sushikwaliteit bij de visboer of toko; die is diepgevroren tegen parasieten. Twijfel je, neem dan gerookte zalm: veilig en net zo lekker.', 'Bewaar sushi niet in de koelkast, dan wordt de rijst hard. Maak hem op de dag dat je hem eet.'],
   alt: ['Vegetarisch: vul de rollen met komkommer, avocado, reepjes paprika en reepjes tamagoyaki (Japanse omelet).']
+},
+{
+  id: 'dakgalbi', toegevoegd: '2026-11-23', naam: 'Dakgalbi (Koreaanse pittige kip met kool)',
+  ook: ['dakgalbi', 'dak galbi', 'dak-galbi', 'chuncheon dakgalbi', 'koreaanse roerbakkip', 'pittige koreaanse kip', 'kip met gochujang', 'kip met kool en zoete aardappel'],
+  keuken: 'Koreaans', soort: 'Hoofdgerecht',
+  tijd: 40, wacht: '30 minuten marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 2,
+  intro: 'Het studenteneten van de stad Chuncheon: stukjes kip in een rode marinade van gochujang, knoflook en gember, in één grote pan gebakken met kool, zoete aardappel en ui tot alles zacht, kleverig en pittig is. In Korea staat de pan midden op tafel en schept iedereen eruit, met rijst erbij.',
+  gerei: [
+    { tool: 'hapjespan', tekst: 'Hapjespan of grote koekenpan (28 cm of groter)', of: 'Een wok of Dutch oven werkt ook; het moet ruim zijn, want de kool neemt eerst veel plek in.' },
+    { tool: 'rijstkoker', tekst: 'Rijstkoker of pan met deksel voor de rijst' }
+  ],
+  ingr: [
+    { n: 'rijst', q: 300, u: 'g' },
+    { kop: 'Kip en marinade' },
+    { n: 'kippendijfilet', q: 600, u: 'g', x: 'in stukken van 3 cm' },
+    { n: 'gochujang', q: 3, u: 'el', x: 'Koreaanse chilipasta' },
+    { n: 'sojasaus', q: 2, u: 'el' },
+    { n: 'mirin', q: 1, u: 'el', x: 'of 1 tl suiker extra' },
+    { n: 'suiker', q: 1, u: 'el' },
+    { n: 'sesamolie', q: 1, u: 'el' },
+    { n: 'knoflook', q: 4, u: 'teen', x: 'geraspt of geperst' },
+    { n: 'gember', q: 10, u: 'g', x: 'geraspt' },
+    { n: 'kerriepoeder', q: 1, u: 'tl', x: 'zo doen ze het in Chuncheon; mag ook weg' },
+    { n: 'chilivlokken', q: 1, u: 'tl', x: 'liefst gochugaru (Koreaanse chilivlokken); alleen als je het pittiger wilt', opt: true },
+    { kop: 'Groente' },
+    { n: 'zonnebloemolie', q: 1, u: 'el' },
+    { n: 'witte kool', q: 400, u: 'g', x: 'of spitskool, in stukken van 3 cm' },
+    { n: 'zoete aardappel', p: 'zoete aardappelen', q: 1, u: 'st', x: 'ca. 300 g, geschild, in halve plakken van ½ cm' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'in halve ringen' },
+    { n: 'lente-ui', p: 'lente-uien', q: 3, u: 'st', x: 'in stukken van 3 cm' },
+    { n: 'water', q: 100, u: 'ml' },
+    { n: 'sesamzaad', q: 1, u: 'el' }
+  ],
+  stappen: [
+    { kop: 'Kip en marinade', t: 'Roer in een kom de gochujang, sojasaus, mirin, suiker, sesamolie, knoflook, gember, het kerriepoeder en eventueel de chilivlokken tot een gladde rode marinade. Schep de kip erdoor en laat 30 minuten staan (of tot een dag in de koelkast).', min: 30 },
+    { t: 'Kook intussen de rijst in de rijstkoker of volgens de verpakking.' },
+    { kop: 'Groente', t: 'Verhit de olie in de hapjespan op middelhoog vuur. Leg de zoete aardappel, de ui en de kool erin en schep de kip met alle marinade erbovenop. Spoel de kom om met het water en giet dat erbij.' },
+    { t: 'Laat 3 minuten staan tot het begint te sissen en schep dan alles om. Bak 15 minuten en schep elke 2 minuten om, zodat de saus niet aanbrandt. De kool slinkt en geeft vocht af; wordt het toch te droog, doe er dan 2 el water bij.', min: 18 },
+    { t: 'Prik in een plak zoete aardappel: hij moet zacht zijn, en de kip gaar. Doe de lente-ui erbij en bak nog 2 minuten, tot de saus dik is en glanzend om alles heen zit.', min: 2 },
+    { t: 'Strooi het sesamzaad erover en zet de pan op tafel. Eet de dakgalbi met de rijst.' }
+  ],
+  tips: ['Snijd de zoete aardappel niet dikker dan ½ cm, anders is de kip gaar voordat de aardappel zacht is.', 'In Korea bakken ze het laatste restje in de pan met een kom rijst, 1 tl sesamolie en verkruimeld nori tot gebakken rijst (bokkeumbap). Doe dat vooral ook: de aangekoekte saus is het lekkerst.', 'Gochujang is pittig maar ook zoet. Met 3 el is dit flink pittig; neem 2 el als je voorzichtig wilt beginnen.'],
+  alt: ['Met kaas, zoals het nu in Seoul gegeten wordt: strooi op het eind 100 g geraspte mozzarella in het midden, doe de deksel erop en laat 2 minuten smelten.', 'Met rijstcakes (tteok, uit de toko): week 200 g een kwartier in water en bak ze de laatste 6 minuten mee.', 'Als wrap: leg een schep kip en wat rijst in een blad kropsla en eet het uit de hand.', 'Kipfilet kan ook, maar bak dan 3 minuten korter; hij wordt sneller droog.']
 }
 );

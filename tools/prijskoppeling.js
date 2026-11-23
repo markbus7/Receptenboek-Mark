@@ -408,6 +408,8 @@ window.PRIJSKOPPELING = {
   'diepvriesfriet': { als: 'friet' },
   'friet': { zoek: ['friet', 'franse friet', 'verse friet', 'ovenfriet'], niet: ['avocado', 'groente', 'krul', 'kreukel', 'luxe', 'zoete', 'saus', 'sticks', 'mayo', 'schep', 'bakjes', 'zakjes', 'snijder'] },
   'koolsla': { geen: true },
+  'rode kool met appel': { zoek: ['rode kool appel', 'rode kool appeltjes'], niet: ['hachee', 'stamppot', 'jachtschotel', 'maaltijd', 'stoofpot', 'peer', 'peertjes'], ruim: 3 },
+  'bruine bonen': { niet: ['soep', 'bonensoep', 'gedroogde', 'stoof', 'olvarit', 'schotel'] },
   'zuurkool': { niet: ['ananas', 'ham', 'spek', 'worst', 'stamppot'] },
   'sateprikkers': { geen: true },
   'nori': { zoek: ['nori', 'sushi nori', 'zeewierbladen'], e: 'st', om: { vel: 1 } },

@@ -198,11 +198,23 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chocolatebrownie.JPG"
  },
+ "bruine-bonen-met-rijst": {
+  "src": "img/bruine-bonen-met-rijst.jpg",
+  "auteur": "Arnold Gatilao",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Red_Beans_and_Rice.jpg"
+ },
  "bulgogi": {
   "src": "img/bulgogi.jpg",
   "auteur": "국립국어원",
   "licentie": "CC BY-SA 2.0 kr",
   "bron": "https://commons.wikimedia.org/wiki/File:Bulgogi_2.jpg"
+ },
+ "bun-cha": {
+  "src": "img/bun-cha.jpg",
+  "auteur": "stuart_spivack",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_ch%E1%BA%A3_Vietnamese_food.jpg"
  },
  "bun-cha-gio": {
   "src": "img/bun-cha-gio.jpg",
@@ -329,6 +341,12 @@ window.FOTOS = {
   "auteur": "Ziko van Dijk",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:20220430_currywurst.jpg"
+ },
+ "dakgalbi": {
+  "src": "img/dakgalbi.jpg",
+  "auteur": "by shizu k (shezzz) at Flickr",
+  "licentie": "CC BY-SA 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Korean_cuisine-Dakgalbi-01.jpg"
  },
  "dal": {
   "src": "img/dal.jpg",
@@ -1139,6 +1157,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Original_Mac_n_Cheese_.jpg"
  },
+ "madartej": {
+  "src": "img/madartej.jpg",
+  "auteur": "Juhan Harm.",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Ujuvad_saarekesed.jpg"
+ },
  "massaman-curry": {
   "src": "img/massaman-curry.jpg",
   "auteur": "Takeaway",
@@ -1485,6 +1509,12 @@ window.FOTOS = {
   "auteur": "Sumit Surai",
   "licentie": "CC BY-SA 4.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Chicken_Satay_With_Peanut_Sauce.jpg"
+ },
+ "sauerbraten": {
+  "src": "img/sauerbraten.jpg",
+  "auteur": "Dr. Bernd Gross",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Heldrunger_Sauerbraten_2.JPG"
  },
  "shakshuka": {
   "src": "img/shakshuka.jpg",
