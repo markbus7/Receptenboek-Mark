@@ -89,6 +89,24 @@ const Detail = (() => {
   let gekozenVries = new Set(), vries = { items: [], algemeen: [] };
   let openUitleg = new Set();
   let r = null, ctx = null, factor = 1, methode = null, ikHeb = null, wakeLock = null, wilScherm = false, terugFocus = null;
+  /* basis is het recept zoals het in het boek staat; r is dat recept omgerekend met hele eieren
+     (Hulp.heleEieren). eiKeus: -1 of 1 als je zelf voor minder of meer eieren koos, 0 = vanzelf.
+     hebIdx: het ingrediënt uit "Ik heb ...". eiInfo: wat er aan de eieren is aangepast. */
+  let basis = null, eiKeus = 0, hebIdx = null, hebWaarde = null, eiInfo = [];
+  /* Laatst gekozen hoeveelheid per recept, zodat het recept na verversen of later weer zo opent. */
+  const SCHAAL = 'schaal';
+  const leesSchaal = (id) => { const alles = Hulp.opslag.lees(SCHAAL, {}); return alles && typeof alles === 'object' ? alles[id] || null : null; };
+  function bewaarSchaal() {
+    if (!basis) return;
+    const alles = { ...(Hulp.opslag.lees(SCHAAL, {}) || {}) };
+    if (Math.abs(factor - 1) < 1e-9 && !eiKeus) delete alles[basis.id];
+    else alles[basis.id] = hebIdx != null ? { heb: hebIdx, waarde: hebWaarde, ei: eiKeus } : { pers: Math.round(basis.pers * factor * 100) / 100, ei: eiKeus };
+    Hulp.opslag.schrijf(SCHAAL, alles, { stil: true });
+  }
+  function stem() {
+    const uit = Hulp.heleEieren(basis, factor, { heb: hebIdx, keus: eiKeus });
+    r = uit.recept; eiInfo = uit.info;
+  }
 
   const icoon = (naam) => `<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${naam}"/></svg>`;
   const toolIcoon = (tool) => icoon((GEREEDSCHAP[tool] || {}).icoon || 'koekenpan');
@@ -106,7 +124,7 @@ const Detail = (() => {
   function open(recept, context, { houd = false, personen = null } = {}) {
     const vorige = houd && r ? { personen: r.pers * factor, methode, scroll: blad.scrollTop } : null;
     if (!vorige) { kookStap = 0; alleKeren = false; }
-    r = recept; ctx = context; factor = 1; ikHeb = null; gekozenMixen = new Set(); gekozenVries = new Set(); openUitleg = new Set();
+    basis = recept; r = recept; ctx = context; factor = 1; ikHeb = null; eiKeus = 0; hebIdx = null; hebWaarde = null; gekozenMixen = new Set(); gekozenVries = new Set(); openUitleg = new Set();
     if (sheet.hidden) terugFocus = document.activeElement;
     const ms = Hulp.methodes(r, ctx.keuken);
     methode = ms.length ? (ms.find((m) => m.heb) || ms[0]).id : null;
@@ -114,7 +132,18 @@ const Detail = (() => {
       factor = Math.max(1, Math.round(vorige.personen)) / r.pers;
       if (ms.some((m) => m.id === vorige.methode)) methode = vorige.methode;
     } else if (personen > 0) factor = Math.round(personen) / r.pers;
+    const bewaard = !vorige && !(personen > 0) ? leesSchaal(r.id) : null;
+    if (bewaard && bewaard.pers > 0) { factor = bewaard.pers / r.pers; eiKeus = bewaard.ei || 0; }
+    stem();
     render();
+    if (bewaard && bewaard.heb != null && bewaard.waarde > 0 && r.ingr[bewaard.heb] && r.ingr[bewaard.heb].q != null) {
+      const sel = blad.querySelector('#d-heb-ingr'), veld = blad.querySelector('#d-heb-aantal');
+      if (sel && [...sel.options].some((o) => +o.value === bewaard.heb)) {
+        sel.value = String(bewaard.heb); veld.value = String(bewaard.waarde).replace('.', ',');
+        blad.querySelector('#d-schaal').open = true;
+        hebIngevuld(bewaard.ei || 0);
+      }
+    }
     sheet.hidden = false;
     document.body.classList.add('sheet-open');
     blad.scrollTop = vorige ? vorige.scroll : 0;
@@ -369,6 +398,7 @@ const Detail = (() => {
   }
 
   function renderIngr() {
+    stem();
     const pers = r.pers * factor;
     const hele = Math.abs(pers - Math.round(pers)) < 0.05;
     blad.querySelector('#d-pers').textContent = hele ? Math.round(pers) : '≈ ' + Hulp.getal(pers, 1);
@@ -382,7 +412,7 @@ const Detail = (() => {
       let advies = '';
       if (factor >= 1.6) advies = ' Grotere hoeveelheid: gebruik een grotere pan of bak in delen. Stooftijden blijven ongeveer gelijk.';
       else if (factor <= 0.6) advies = ' Kleinere hoeveelheid: houd de baktijd in de gaten, het kan iets sneller gaar zijn.';
-      info.innerHTML = `<strong>Aangepast ×${Hulp.getal(factor, 2)}</strong>${ikHeb ? ` op ${Hulp.esc(ikHeb)}` : ''}.${advies} <button type="button" class="knop-tekst" id="d-reset">Terug naar origineel</button>`;
+      info.innerHTML = `<strong>Aangepast ×${Hulp.getal(factor, 2)}</strong>${ikHeb ? ` op ${Hulp.esc(ikHeb)}` : ''}.${advies}${eiTekst()} <button type="button" class="knop-tekst" id="d-reset">Terug naar origineel</button>`;
     }
 
     // Groentemix uit "Wat heb ik in huis?": wat vervangt hij hier en hoeveel gebruik je?
@@ -816,6 +846,25 @@ const Detail = (() => {
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) kookNaar(kookStap + (dx < 0 ? 1 : -1));
   });
 
+  /* Uitleg als een half ei een heel ei werd en de rest van dat deel daarom meerekent, met een knop
+     voor de andere kant op (1 ei of 2 eieren). */
+  function eiTekst() {
+    return eiInfo.map((e) => {
+      const ei = basis.ingr[e.idx];
+      const stuks = (n) => `${n} ${n === 1 ? ei.n : (ei.p || ei.n)}`;
+      const deel = e.alles ? 'de andere ingrediënten rekenen' : `de rest van “${e.kop.replace(/\s*\(.*$/, '')}” rekent`;
+      const voor = (k) => (e.alles && hebIdx == null ? ` (genoeg voor ongeveer ${Hulp.getal(basis.pers * factor * k, 1)} ${basis.stuks || 'personen'})` : '');
+      let tekst = ` Een half ${ei.n} gaat niet: het ${e.n === 1 ? 'wordt' : 'worden'} ${stuks(e.n)} en ${deel} daarmee mee, zodat de verhouding klopt${voor(e.k)}.`;
+      if (e.ander) {
+        const kk = e.ander / e.exact;
+        let extra = voor(kk);
+        if (hebIdx != null && e.leden.includes(hebIdx)) extra = `, dan ${e.ander > e.n ? 'heb je' : 'gebruik je'} ${Hulp.hoeveelheidTekst(basis.ingr[hebIdx], factor * kk)}${e.ander > e.n ? ' nodig' : ''}`;
+        tekst += ` <button type="button" class="knop-tekst" data-ei-keus="${e.ander > e.n ? 1 : -1}">Liever ${Hulp.esc(stuks(e.ander) + extra)}</button>`;
+      }
+      return tekst;
+    }).join('');
+  }
+
   function zetHebEenheid() {
     const sel = blad.querySelector('#d-heb-ingr');
     if (!sel || !sel.value) { const rij = blad.querySelector('.schaal-heb'); if (rij) rij.hidden = true; return; }
@@ -824,26 +873,27 @@ const Detail = (() => {
     blad.querySelector('#d-heb-aantal').placeholder = Hulp.getal(i.q * factor, 1);
   }
 
-  function zetPersonen(p) {
+  function zetPersonen(p, keus = 0) {
     factor = Math.max(1, p) / r.pers;
-    ikHeb = null;
+    ikHeb = null; hebIdx = null; hebWaarde = null; eiKeus = keus;
     blad.querySelector('#d-heb-aantal').value = '';
-    renderIngr(); zetHebEenheid();
+    renderIngr(); zetHebEenheid(); bewaarSchaal();
   }
 
-  function hebIngevuld() {
+  function hebIngevuld(keus = 0) {
     const sel = blad.querySelector('#d-heb-ingr');
     const veld = blad.querySelector('#d-heb-aantal');
-    const i = r.ingr[+sel.value];
+    const i = basis.ingr[+sel.value];
     const waarde = parseFloat(String(veld.value).replace(',', '.'));
     zetHebEenheid();
-    if (!(waarde > 0)) { if (ikHeb) { factor = 1; ikHeb = null; renderIngr(); } return; }
+    if (!(waarde > 0)) { if (ikHeb) { factor = 1; ikHeb = null; hebIdx = null; hebWaarde = null; eiKeus = 0; renderIngr(); bewaarSchaal(); } return; }
     factor = waarde / i.q;
+    hebIdx = +sel.value; hebWaarde = waarde; eiKeus = keus;
     const def = EENHEDEN[i.u] || EENHEDEN.st;
     const eenheid = def.soort === 'gewicht' || def.soort === 'volume' ? eenheidLabel(i) : (waarde > 1 ? def.m : def.e);
     const naam = i.u === 'st' ? (waarde > 1 && i.p ? i.p : i.n) : `${eenheid} ${i.n}`;
     ikHeb = `${Hulp.getal(waarde, 2)} ${naam}`;
-    renderIngr();
+    renderIngr(); bewaarSchaal();
   }
 
   /* Het recept als platte tekst, precies zoals het nu op je scherm staat: gekozen variant,
@@ -994,6 +1044,8 @@ const Detail = (() => {
     if (t.closest('#d-min')) return zetPersonen(Math.ceil(r.pers * factor - 0.01) - 1);
     if (t.closest('#d-plus')) return zetPersonen(Math.floor(r.pers * factor + 0.01) + 1);
     if (t.closest('#d-reset')) return zetPersonen(r.pers);
+    const ek = t.closest('[data-ei-keus]');
+    if (ek) { eiKeus = +ek.dataset.eiKeus; renderIngr(); zetHebEenheid(); bewaarSchaal(); return; }
     if (t.closest('#d-fav')) {
       const aan = ctx.wisselFav(r.id);
       const b = t.closest('#d-fav');

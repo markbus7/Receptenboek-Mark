@@ -129,6 +129,61 @@ const Hulp = (() => {
     return lijst.join(', ').replace(/, ([^,]*)$/, ' en $1');
   }
 
+  /* Eieren gebruik je heel: niemand breekt een half ei. Gewicht per stuk, om te zien hoe zwaar ze meetellen. */
+  const EI_GRAM = { ei: 55, eieren: 55, eidooier: 18, eidooiers: 18, eiwit: 35, eiwitten: 35, kwartelei: 10, kwarteleitjes: 10 };
+  const isEi = (i) => !!i && !i.kop && i.q != null && (!i.u || i.u === 'st') && EI_GRAM[norm(i.n)] != null;
+  const GRAM_PER = { g: 1, kg: 1000, ml: 1, l: 1000, el: 15, tl: 5 };
+
+  /* Omrekenen met hele eieren. Komt er bij deze factor een half ei uit, dan kiezen we een heel aantal.
+     Telt het ei zwaar mee in zijn deel van het recept (minstens 10% van het gewicht, zoals in beslag),
+     dan rekent dat hele deel (het ingrediëntkopje, of het hele recept zonder kopjes) mee met dat aantal
+     eieren, zodat de verhouding klopt: 1,6 ei voor 400 ml melk wordt 1 ei met 250 ml melk, of 2 eieren
+     met 500 ml. Is het ei maar een klein bindmiddel (1 ei door 500 g gehakt), dan ronden we alleen het
+     ei af. Hoe: keus -1 = naar beneden, 1 = naar boven, 0 = het dichtstbij; heb = index van het ingrediënt
+     uit "Ik heb ...": zit dat in hetzelfde deel, dan naar beneden, zodat je niet meer nodig hebt dan je hebt.
+     Geeft { recept, info }: recept met aangepaste hoeveelheden (factor blijft gelijk), info per aangepast
+     deel { idx, leden, exact, n, ander, kop, alles, k } of een lege lijst. */
+  function heleEieren(recept, factor = 1, { heb = null, keus = 0 } = {}) {
+    if (!recept || !recept.ingr || Math.abs(factor - 1) < 1e-9) return { recept, info: [] };
+    const groep = [];
+    let g = 0, kop = [''];
+    recept.ingr.forEach((i, idx) => { if (i.kop) { g++; kop[g] = i.kop; } groep[idx] = g; });
+    const k = recept.ingr.map(() => 1);
+    const info = [];
+    const gewicht = (i) => (isEi(i) ? EI_GRAM[norm(i.n)] * i.q : (i.q != null && GRAM_PER[i.u] ? GRAM_PER[i.u] * i.q : 0));
+    for (let gr = 0; gr <= g; gr++) {
+      const idxs = recept.ingr.map((_, idx) => idx).filter((idx) => groep[idx] === gr && !recept.ingr[idx].kop);
+      const eieren = idxs.filter((idx) => isEi(recept.ingr[idx]));
+      if (!eieren.length) continue;
+      const totaal = idxs.reduce((s, idx) => s + gewicht(recept.ingr[idx]), 0);
+      const eiGram = eieren.reduce((s, idx) => s + gewicht(recept.ingr[idx]), 0);
+      const hoofdIdx = eieren.reduce((a, b) => (gewicht(recept.ingr[b]) > gewicht(recept.ingr[a]) ? b : a));
+      const exact = recept.ingr[hoofdIdx].q * factor;
+      const rond = Math.abs(exact - Math.round(exact)) < 0.05;
+      if (!rond && totaal > 0 && eiGram / totaal >= 0.1 && idxs.length > eieren.length) {
+        const omlaag = Math.max(1, Math.floor(exact)), omhoog = Math.max(1, Math.ceil(exact));
+        const n = keus < 0 ? omlaag : keus > 0 ? omhoog
+          : (heb != null && groep[heb] === gr && !isEi(recept.ingr[heb])) ? omlaag : Math.max(1, Math.round(exact));
+        const kk = n / exact;
+        idxs.forEach((idx) => { k[idx] = kk; });
+        info.push({ idx: hoofdIdx, leden: idxs, exact, n, ander: n === omlaag ? (omhoog !== n ? omhoog : null) : omlaag, kop: kop[gr], alles: g === 0, k: kk });
+      }
+      // Overige eieren (en eieren die maar weinig meetellen): elk afzonderlijk op een heel aantal.
+      eieren.forEach((idx) => {
+        const i = recept.ingr[idx], x = i.q * factor * k[idx], n = Math.max(1, Math.round(x));
+        if (Math.abs(x - n) > 1e-9) k[idx] = n / (i.q * factor);
+      });
+    }
+    if (k.every((x) => x === 1)) return { recept, info };
+    const ingr = recept.ingr.map((i, idx) => {
+      if (k[idx] === 1 || i.q == null) return i;
+      const uit = { ...i, q: i.q * k[idx] };
+      if (i.of && typeof i.of === 'object' && i.of.q != null) uit.of = { ...i.of, q: i.of.q * k[idx] };
+      return uit;
+    });
+    return { recept: { ...recept, ingr }, info };
+  }
+
   /* Geeft { aantal, eenheid, naam } voor een ingrediënt met een vermenigvuldigingsfactor. */
   function hoeveelheid(ingr, factor = 1) {
     if (ingr.q == null) return { aantal: '', eenheid: '', naam: metNlNaam(ingr.n, ingr.x), waarde: null };
@@ -148,8 +203,8 @@ const Hulp = (() => {
         eenheid = def.soort === 'gewicht' ? 'g' : 'ml';
       }
     } else {
-      // Hele stuks ronden we af op halven; lepels en kleine stukken (½ citroen) op kwarten.
-      const stap = def.soort === 'stuk' && ingr.q >= 1 ? 0.5 : 0.25;
+      // Hele stuks ronden we af op halven; lepels en kleine stukken (½ citroen) op kwarten. Eieren heel.
+      const stap = isEi(ingr) ? 1 : def.soort === 'stuk' && ingr.q >= 1 ? 0.5 : 0.25;
       aantal = breuk(waarde, stap);
       meervoud = Math.max(stap, Math.round(waarde / stap) * stap) >= 2;
       eenheid = ingr.u === 'st' ? '' : (meervoud ? def.m : def.e);
@@ -890,5 +945,5 @@ const Hulp = (() => {
     return { items, algemeen };
   }
 
-  return { kmKrabbel, optLabel, nietKlassiek, vriezerbaar, vriezer, stappenMetDeel, stapTekst, pastaWater, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
+  return { heleEieren, isEi, kmKrabbel, optLabel, nietKlassiek, vriezerbaar, vriezer, stappenMetDeel, stapTekst, pastaWater, stapMetHoeveelheden, foto, isMix, mixVan, mixKlein, mixDekking, mixenVoor, mixRanglijst, afstand, lijktOp, opslag, esc, norm, metNlNaam, metNlNamen, uitleg, uiAdvies, metUi, hoofd, getal, breuk, hoeveelheid, hoeveelheidTekst, vervanger, vervangerTekst, alternatief, isBasis, termPast, uitwisselbaar, ingrediënten, match, heeftTool, methodes, maakbaar, tijdTekst, pitTekst, bereidIn, panAdvies, restjes };
 })();
