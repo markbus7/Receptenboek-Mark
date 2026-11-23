@@ -151,6 +151,10 @@ window.UIEN = {
     'kip-piccante-paprika': { ui: ['rode ui', 'Zoet en mild, en mooi van kleur naast de paprika', 'gele ui'] },
     /* Week van 2026-11-17 */
     'lecso': { ui: ['gele ui', 'In halve ringen langzaam gebakken wordt hij zoet en zacht en smelt hij samen met de paprika, zoals in Hongarije', 'witte ui'] },
-    'tajine-rund-pruimen': { ui: ['gele ui', 'Geraspt valt hij in twee uur stoven helemaal uiteen en maakt hij de saus dik en zoet', 'rode ui'] }
+    'tajine-rund-pruimen': { ui: ['gele ui', 'Geraspt valt hij in twee uur stoven helemaal uiteen en maakt hij de saus dik en zoet', 'rode ui'] },
+    /* Week van 2026-11-23 */
+    'dakgalbi': { ui: ['gele ui', 'In halve ringen meegebakken wordt hij zoet en zacht, een mooi tegenwicht voor de pittige gochujang', 'witte ui'] },
+    'bruine-bonen-met-rijst': { ui: ['gele ui', 'Lichtbruin gebakken geeft hij de zoete, hartige basis van de saus en valt hij tussen de bonen weg', 'rode ui'] },
+    'sauerbraten': { ui: ['gele ui', 'Hij trekt drie dagen mee in de marinade en stooft daarna uren; zijn zoet haalt de scherpte van de azijn af', 'witte ui'] }
   }
 };

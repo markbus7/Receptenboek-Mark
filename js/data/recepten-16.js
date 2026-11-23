@@ -1009,5 +1009,102 @@ RECEPTEN.push(
   ],
   tips: ['Schep alles pas door elkaar als je gaat eten. Na 15 minuten wordt de meringue zacht en zakt de room in.', 'Aardbeien uit de winter smaken waterig; neem dan diepvriesaardbeien, laat ze ontdooien en gebruik ze met het sap.', 'Klop de room niet te stijf: half geklopt blijft hij luchtig en zacht als je hem omschept.'],
   alt: ['Lichter: vervang de helft van de slagroom door Griekse yoghurt en roer die pas na het kloppen erdoor.', 'Met frambozen, of de helft aardbei en de helft framboos.', 'Zelf schuimpjes maken: klop 2 eiwitten stijf met 100 g suiker en bak ze op bakpapier 1 à 1½ uur op 100 °C in de airfryer, tot ze droog zijn en loslaten.']
+},
+{
+  id: 'bruine-bonen-met-rijst', toegevoegd: '2026-11-23', naam: 'Bruine bonen met rijst (BB met R)',
+  ook: ['bb met r', 'bbr', 'bruine bonen met rijst', 'surinaamse bruine bonen', 'bruine bonen met kip', 'bruine bonen met rookworst', 'brong bonki'],
+  keuken: 'Surinaams', soort: 'Hoofdgerecht',
+  tijd: 60, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'Het bekendste gerecht van Suriname, zo geliefd dat er een liedje over is: bruine bonen in een dikke, hartige saus van tomaat, ui en selderij, met kip en plakjes worst, en een hele madame jeanette die meestooft voor de geur. Op witte rijst, met frisse komkommer in het zuur ernaast.',
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of braadpan met deksel (minimaal 4 liter)' },
+    { tool: 'rijstkoker', tekst: 'Rijstkoker of pan met deksel voor de rijst' }
+  ],
+  ingr: [
+    { n: 'rijst', q: 300, u: 'g' },
+    { kop: 'Bruine bonen' },
+    { n: 'kippendijfilet', q: 500, u: 'g', x: 'in grote stukken van 4 cm' },
+    { n: 'rookworst', p: 'rookworsten', q: 1, u: 'st', x: 'ca. 275 g, in plakjes van 1 cm' },
+    { n: 'zonnebloemolie', q: 2, u: 'el' },
+    { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'gesnipperd' },
+    { n: 'knoflook', q: 3, u: 'teen', x: 'fijngehakt' },
+    { n: 'tomatenpuree', q: 2, u: 'el' },
+    { n: 'tomaat', p: 'tomaten', q: 2, u: 'st', x: 'in blokjes' },
+    { n: 'kippenbouillon', q: 400, u: 'ml' },
+    { n: 'laurierblad', p: 'laurierbladen', q: 2, u: 'st' },
+    { n: 'madame jeanette', p: 'madame jeanettes', q: 1, u: 'st', x: 'heel, of 1 tl sambal' },
+    { n: 'bruine bonen', q: 800, u: 'g', x: 'uit een pot of blik, met het vocht' },
+    { n: 'verse selderij', q: 15, u: 'g', x: 'bladselderij (soepselderij), fijngesneden' },
+    { n: 'suiker', q: 1, u: 'tl' },
+    { n: 'zout' },
+    { n: 'zwarte peper' },
+    { kop: 'Komkommer in het zuur' },
+    { n: 'komkommer', p: 'komkommers', q: 1, u: 'st', x: 'in dunne plakjes' },
+    { n: 'azijn', q: 3, u: 'el' },
+    { n: 'suiker', q: 1, u: 'tl' },
+    { n: 'zout', q: 1, u: 'snuf' }
+  ],
+  stappen: [
+    { kop: 'Komkommer in het zuur', t: 'Meng de komkommer met de azijn, 1 tl suiker en een snuf zout. Zet hem in de koelkast; hij wordt beter naarmate hij langer staat.' },
+    { kop: 'Bruine bonen', t: 'Bestrooi de kip met zout en peper. Verhit de olie in de braadpan op middelhoog vuur en bak de kip in 5 minuten rondom bruin. Bak de plakjes rookworst de laatste 2 minuten mee. Schep alles uit de pan.', min: 5 },
+    { t: 'Bak de ui in hetzelfde vet 5 minuten tot hij zacht en lichtbruin is. Bak de knoflook en de tomatenpuree 1 minuut mee, en daarna de tomaat 3 minuten, tot hij uit elkaar valt.', min: 9 },
+    { t: 'Doe de kip en de worst terug en giet de bouillon erbij. Leg de laurier en de hele madame jeanette erin (niet insnijden). Breng aan de kook, leg de deksel erop en laat 15 minuten zachtjes stoven.', min: 15 },
+    { t: 'Kook intussen de rijst in de rijstkoker of volgens de verpakking.' },
+    { t: 'Doe de bonen met hun vocht, de helft van de selderij en 1 tl suiker bij het vlees. Laat zonder deksel 15 à 20 minuten zachtjes koken, tot de saus dik is. Roer voorzichtig, zodat de peper heel blijft, en druk een paar lepels bonen fijn tegen de rand van de pan: dat bindt de saus.', min: 20 },
+    { t: 'Vis de madame jeanette en de laurier eruit. Proef en breng op smaak met zout en peper. Roer de rest van de selderij erdoor en schep de bonen over de rijst, met de komkommer ernaast.' }
+  ],
+  tips: ['Zolang de madame jeanette heel blijft, geeft hij vooral geur en maar een beetje pit. Barst hij open, dan wordt de hele pan heel heet; haal hem er dus op tijd uit, en eerder als je voorzichtig wilt zijn.', 'Het nat uit het blik of de pot maakt de saus dik en donker. Giet het dus niet weg.', 'Net als elke stoof is BB met R een dag later nog lekkerder. Het kan ook goed de vriezer in.'],
+  alt: ['Met zoutvlees, zoals in Suriname: kook 250 g zoutvlees (toko of slager) eerst 15 minuten in ruim water om het te ontzouten, snijd het in blokjes en stoof het mee in plaats van de rookworst. Zout dan pas op het eind.', 'Met kip aan het bot: neem 800 g drumsticks of kippenbouten in stukken en stoof ze 30 minuten voordat de bonen erbij gaan.', 'Met gedroogde bruine bonen: week 300 g een nacht en kook ze in 1 à 1½ uur gaar in vers water zonder zout. Gebruik 300 ml van het kookvocht in plaats van het nat uit de pot.']
+},
+{
+  id: 'bun-cha', toegevoegd: '2026-11-23', naam: 'Bún chả (Vietnamese gehaktballetjes met noedels)',
+  ook: ['bun cha', 'bún chả', 'bun cha hanoi', 'vietnamese gehaktballetjes', 'vietnamese balletjes met noedels', 'gegrilde varkensballetjes', 'noedels met gehaktballetjes', 'obama noedels'],
+  keuken: 'Vietnamees', soort: 'Hoofdgerecht',
+  tijd: 45, wacht: '30 minuten marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'De lunch van Hanoi: platte, gekaramelliseerde balletjes van varkensgehakt, van de grill zo in een kom lauwe, zoetzure dipsaus met plakjes wortel. Je doopt er koude rijstnoedels, sla en verse kruiden in en eet alles door elkaar. Van de OptiGrill, uit de airfryer of uit de pan.',
+  methodes: [ { id: 'contactgrill', naam: 'Contactgrill' }, { id: 'airfryer', naam: 'Airfryer' }, { id: 'koekenpan', naam: 'Koekenpan' } ],
+  gerei: [
+    { tool: 'contactgrill', tekst: 'Contactgrill (zoals de OptiGrill) op de hoogste stand', m: 'contactgrill' },
+    { tool: 'airfryer', tekst: 'Airfryer, mand licht ingevet', m: 'airfryer' },
+    { tool: 'koekenpan', tekst: 'Grote koekenpan of grillpan', m: 'koekenpan' },
+    { tool: 'kookpan', tekst: 'Kookpan voor de noedels en een steelpan voor de dipsaus' }
+  ],
+  ingr: [
+    { kop: 'Balletjes' },
+    { n: 'varkensgehakt', q: 500, u: 'g', x: 'of half-om-half gehakt' },
+    { n: 'sjalot', p: 'sjalotten', q: 2, u: 'st', x: 'heel fijn gesnipperd' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
+    { n: 'vissaus', q: 2, u: 'el' },
+    { n: 'bruine suiker', q: 1.5, u: 'el' },
+    { n: 'oestersaus', q: 1, u: 'el' },
+    { n: 'zwarte peper', q: 0.5, u: 'tl', x: 'versgemalen' },
+    { kop: 'Dipsaus' },
+    { n: 'water', q: 300, u: 'ml' },
+    { n: 'vissaus', q: 4, u: 'el' },
+    { n: 'suiker', q: 3, u: 'el' },
+    { n: 'rijstazijn', q: 2, u: 'el' },
+    { n: 'limoen', p: 'limoenen', q: 1, u: 'st', x: 'sap' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
+    { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'in dunne ringetjes; zonder zaadjes voor minder pit' },
+    { n: 'wortel', p: 'wortels', q: 1, u: 'st', x: 'in flinterdunne plakjes' },
+    { kop: 'Erbij' },
+    { n: 'rijstvermicelli', q: 250, u: 'g' },
+    { n: 'kropsla', q: 1, u: 'st', x: 'de blaadjes los' },
+    { n: 'komkommer', p: 'komkommers', q: 0.5, u: 'st', x: 'in reepjes', nk: 'in Hanoi krijg je alleen sla en kruiden; komkommer maakt er meer groente van' },
+    { n: 'verse munt', q: 15, u: 'g', vers: 'gaat rauw in de kom' },
+    { n: 'verse koriander', q: 15, u: 'g', vers: 'gaat rauw in de kom' }
+  ],
+  stappen: [
+    { kop: 'Balletjes', t: 'Kneed het gehakt met de sjalot, de geperste knoflook, 2 el vissaus, de bruine suiker, de oestersaus en de peper tot het plakkerig wordt. Laat 30 minuten in de koelkast staan.', min: 30, km: 'menghaak op stand 1, 1 minuut tot het mengsel plakkerig is.' },
+    { kop: 'Dipsaus', t: 'Verwarm het water met de suiker in de steelpan tot de suiker is opgelost; het hoeft niet te koken. Haal van het vuur en roer er 4 el vissaus, de rijstazijn, het limoensap, de gehakte knoflook en de rode peper door. Doe de wortel erbij: die wordt in de saus licht zuur en blijft knapperig.' },
+    { kop: 'Erbij', t: 'Kook de rijstvermicelli volgens de verpakking, spoel hem koud af en laat goed uitlekken. Leg de sla, de komkommer als je die gebruikt, de munt en de koriander op een grote schaal.', min: 4 },
+    { kop: 'Balletjes', t: 'Maak met natte handen 16 platte balletjes van het gehakt, ongeveer 5 cm breed en 1½ cm dik.' },
+    { t: 'Verwarm de contactgrill op de hoogste stand. Leg de balletjes erop, sluit de deksel en grill ze in twee keer 4 à 5 minuten, tot ze gaar zijn en donkerbruine strepen hebben.', m: 'contactgrill', min: 10 },
+    { t: 'Leg de balletjes naast elkaar in de mand en bak ze 10 minuten op 200 °C. Keer ze halverwege. Ze mogen aan de randen donker worden.', m: 'airfryer', min: 10 },
+    { t: 'Verhit 1 el olie in de koekenpan op middelhoog vuur en bak de balletjes in twee keer 3 à 4 minuten per kant, tot ze donkerbruin en gaar zijn.', m: 'koekenpan', min: 16 },
+    { kop: 'Serveren', t: 'Verdeel de lauwe dipsaus met de wortel over 4 kommen en leg in elke kom 4 hete balletjes. Zet de noedels en de schaal met sla en kruiden op tafel. Neem met je stokjes een pluk noedels en wat sla en kruiden, doop ze in je kom en eet ze samen met een stuk van een balletje.' }
+  ],
+  tips: ['De suiker in het gehakt karamelliseert op de grill. Die donkere randjes horen erbij en geven de rokerige smaak van de houtskool in Hanoi.', 'De dipsaus lijkt veel en slap, maar dat hoort: het is half saus, half bouillon, en je lepelt hem op het eind uit de kom.', 'Het gehakt kun je een dag van tevoren kruiden; de balletjes worden er alleen maar lekkerder van.'],
+  alt: ['Met kipgehakt kan ook; doe er dan 1 el olie door, want het is magerder.', 'Met citroengras, zoals in het zuiden van Vietnam: kneed 1 stengel heel fijn gehakt citroengras door het gehakt.', 'In Hanoi liggen er ook dunne plakjes gegrild varkensvlees in de kom. Marineer daarvoor 200 g dunne reepjes varkensschouder mee in dezelfde kruiden en grill ze 3 minuten.']
 }
 );

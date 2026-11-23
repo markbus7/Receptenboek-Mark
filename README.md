@@ -1,6 +1,6 @@
 # Receptenboek Mark
 
-Een receptenboek in de browser met 279 gerechten (waarvan 31 cocktails) uit 23 keukens, waarvan 35 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
+Een receptenboek in de browser met 284 gerechten (waarvan 31 cocktails) uit 23 keukens, waarvan 35 in meerdere varianten (bijvoorbeeld met kip of met gehakt). Je opent het door `index.html` in je browser te openen; er is geen installatie of server nodig.
 
 ## Wat kan het
 
@@ -117,6 +117,7 @@ Dat laat per ingrediënt de goedkoopste producten zien. Komt er een nieuw ingred
 
 Het versienummer staat bovenin de app, onder de titel, met de datum en tijd van die update (Nederlandse tijd). Daarachter staat of je de nieuwste versie hebt: de app haalt `js/versie.js` opnieuw op, buiten de cache om (van dezelfde site, of van GitHub als je het bestand lokaal opent), bij het openen, als je terugkomt in de app en elk uur. Staat er online een nieuwere versie, dan verschijnt er een geel briefje met *Nu bijwerken*, dat de pagina vers ophaalt. Tik op de versieregel om zelf opnieuw te kijken. Zet bij elke wijziging die live gaat een nieuw nummer met `python3 tools/nieuwe-versie.py x.y.z`. Dat werkt `js/versie.js` bij (nummer plus datum en tijd) en geeft alle CSS- en JS-bestanden in `index.html` een `?v=x.y.z`, zodat browsers na een update meteen de nieuwe bestanden laden.
 
+- **1.106.0**: Vijf nieuwe recepten: *Dakgalbi* (Koreaanse kip in gochujang, in één pan gebakken met witte kool, zoete aardappel en ui, met rijst), *Bruine bonen met rijst* (Surinaamse BB met R met kip, rookworst en een hele madame jeanette, met komkommer in het zuur), *Bún chả* (Vietnamese gekaramelliseerde gehaktballetjes van de OptiGrill, uit de airfryer of de pan, in lauwe zoetzure dipsaus met rijstnoedels, sla en kruiden), *Sauerbraten* (Duits rundvlees, 3 dagen gemarineerd in azijn en rode wijn en 2½ uur gestoofd, saus met ontbijtkoek en rozijnen, met aardappelen en rode kool) en als dessert *Madártej* (Hongaarse vanillevla met gepocheerde eiwitwolken, zonder oven, eiwit kloppen met de keukenmachine). Alle vijf hebben een foto. Rode kool met appel en bruine bonen volgen de echte potmaten.
 - **1.105.2**: *Penne pollo pesto*: het mengen in de koekenpan gaat nu op laag vuur (stand 2 à 3), 1 à 2 minuten omscheppen tot alles warm is. Bij de variant met pesto uit een pot gaat de deksel er 1 minuut op zodat de Parmezaan smelt. Hoog vuur blijft af: dan wordt de pesto bitter en klontert de kaas.
 - **1.105.1**: *Penne pollo pesto*: je eindigt nu in de RVS-koekenpan. De pasta gaat bij het fondvocht in de koekenpan (vuur uit) en daar meng je de pesto, kip en tomaat erdoor. Voor meer dan 4 personen meng je in de kookpan.
 - **1.104.1**: *Penne pollo pesto* (beide varianten): de kip bakt nu in de RVS-koekenpan, zodat er fond aanbakt. Daarna blus je de pan met 4 el kookvocht, schraap je de fond los en gaat dat fondvocht met de pesto door de pasta.

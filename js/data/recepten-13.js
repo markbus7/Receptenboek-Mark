@@ -640,5 +640,57 @@ RECEPTEN.push(
   ],
   tips: ['Laat de bouillon echt alleen trillen. Borrelt hij, dan worden de balletjes taai en vallen ze uit elkaar.', 'De overgebleven bouillon is een prima basis voor soep; hij kan ook de vriezer in.', 'In Duitsland eet je er een schaaltje rode bietjes uit een pot bij; dat zoete past heel goed bij de zure saus.'],
   alt: ['Rijst in plaats van aardappelen kan ook: in de DDR at iedereen Klopse met rijst.', 'Geen kappertjes in huis: een paar fijngehakte augurkjes met 1 el augurkennat geven ook dat frisse.']
+},
+{
+  id: 'sauerbraten', toegevoegd: '2026-11-23', naam: 'Sauerbraten (Duits zoetzuur stoofvlees)',
+  ook: ['sauerbraten', 'rheinischer sauerbraten', 'zuurvlees', 'duits zuurvlees', 'zoetzuur stoofvlees', 'rundvlees in azijn', 'gemarineerd stoofvlees', 'duits stoofvlees', 'zoervleisj'],
+  keuken: 'Duits & Oostenrijks', soort: 'Hoofdgerecht',
+  tijd: 45, wacht: '3 dagen marineren en 2½ uur stoven', pers: 4, niveau: 'Gemiddeld', vega: false,
+  intro: 'Het zondagsgerecht van het Rijnland: rundvlees dat drie dagen in azijn, rode wijn en kruiden ligt en daarna urenlang stooft tot je het met een lepel kunt eten. De saus is donker, zoet en zuur tegelijk, gebonden met ontbijtkoek en met rozijnen erin, net als bij het Limburgse zuurvlees. Met gekookte aardappelen en rode kool. Je begint drie dagen van tevoren, maar het werk is klein.',
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of zware braadpan met deksel (minimaal 4 liter)' },
+    { tool: 'kookpan', tekst: 'Kookpan voor de marinade en later voor de aardappelen' },
+    { tool: 'kookpan', tekst: 'Steelpan voor de rode kool' }
+  ],
+  ingr: [
+    { kop: 'Marinade' },
+    { n: 'runderlappen', q: 1000, u: 'g', x: 'sukadelappen of riblappen, zo dik mogelijk; of één stuk sukade van de slager' },
+    { n: 'rode wijnazijn', q: 250, u: 'ml' },
+    { n: 'rode wijn', q: 250, u: 'ml' },
+    { n: 'water', q: 250, u: 'ml' },
+    { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'in ringen' },
+    { n: 'wortel', p: 'wortels', q: 1, u: 'st', x: 'in plakjes' },
+    { n: 'laurierblad', p: 'laurierbladen', q: 2, u: 'st' },
+    { n: 'kruidnagel', p: 'kruidnagels', q: 4, u: 'st' },
+    { n: 'jeneverbes', p: 'jeneverbessen', q: 6, u: 'st', x: 'gekneusd', opt: true },
+    { n: 'zwarte peperkorrels', q: 8, u: 'st' },
+    { kop: 'Stoven en saus' },
+    { n: 'roomboter', q: 30, u: 'g' },
+    { n: 'zonnebloemolie', q: 1, u: 'el' },
+    { n: 'tomatenpuree', q: 1, u: 'el' },
+    { n: 'runderbouillon', q: 250, u: 'ml' },
+    { n: 'ontbijtkoek', q: 3, u: 'plak', x: 'in Duitsland Aachener Printen of Lebkuchen' },
+    { n: 'rozijnen', q: 50, u: 'g' },
+    { n: 'stroop', q: 1, u: 'el', x: 'schenkstroop of appelstroop; in het Rijnland Rübenkraut' },
+    { n: 'zout', q: 1.5, u: 'tl' },
+    { n: 'zwarte peper', x: 'versgemalen' },
+    { kop: 'Erbij' },
+    { n: 'kruimige aardappelen', q: 1, u: 'kg', x: 'geschild, in gelijke stukken' },
+    { n: 'rode kool met appel', q: 680, u: 'g', x: 'uit een pot' }
+  ],
+  stappen: [
+    { kop: 'Marinade', t: 'Breng de azijn, de wijn en het water met de ui, de wortel, de laurier, kruidnagels, jeneverbessen en peperkorrels aan de kook. Laat 5 minuten zachtjes koken en daarna helemaal afkoelen.', min: 5 },
+    { t: 'Leg het vlees in een kom van glas of plastic, of in een stevige diepvrieszak (geen metaal: dat reageert met de azijn). Giet de koude marinade erover, zodat het vlees onder staat. Dek af en zet 3 dagen in de koelkast. Keer het vlees elke dag een keer.' },
+    { kop: 'Stoven en saus', t: 'Haal het vlees uit de marinade en dep het heel goed droog met keukenpapier; nat vlees wordt niet bruin. Giet de marinade door een zeef en bewaar het vocht en de groente apart. Bestrooi het vlees met het zout en peper.' },
+    { t: 'Verhit de boter en de olie in de Dutch oven op middelhoog vuur. Bak het vlees in twee keer rondom donkerbruin, 4 minuten per keer. Schep het uit de pan.', min: 8 },
+    { t: 'Bak de ui en de wortel uit de zeef (de kruiden mogen mee) 5 minuten in hetzelfde vet. Bak de tomatenpuree 1 minuut mee.', min: 6 },
+    { t: 'Giet er 400 ml van het marinadevocht en de bouillon bij en schraap de bodem los. Leg het vlees terug. Breng aan de kook, leg de deksel erop en zet het vuur zo laag dat het net tikt. Laat 2½ uur stoven, tot het vlees zo mals is dat een vork er zonder kracht in gaat. Keer het halverwege.', min: 150 },
+    { kop: 'Erbij', t: 'Kook het laatste halfuur de aardappelen in water met zout in 20 minuten gaar. Warm de rode kool op laag vuur door in de steelpan.', min: 20, stoom: 'de aardappelen in stukken 25 minuten' },
+    { kop: 'Stoven en saus', t: 'Schep het vlees voorzichtig uit de pan en houd het warm onder aluminiumfolie. Giet de saus door de zeef terug in de pan en druk de groente met een lepel goed uit.' },
+    { t: 'Verkruimel de ontbijtkoek boven de saus en doe de rozijnen en de stroop erbij. Laat 10 minuten zonder deksel koken en roer af en toe, tot de koek is opgelost en de saus glanst en dik genoeg is om een lepel te bedekken.', min: 10 },
+    { t: 'Proef: de saus moet duidelijk zuur én zoet zijn. Te zuur? Doe er nog 1 tl stroop bij. Te zoet? Een lepel van de overgebleven marinade. Leg het vlees terug in de saus en warm het 2 minuten door. Serveer met de aardappelen en de rode kool.', min: 2 }
+  ],
+  tips: ['Drie dagen is het lekkerst, twee is het minimum en vijf mag ook. De azijn maakt het vlees mals en geeft de smaak; korter marineren proef je meteen.', 'Ontbijtkoek doet hier hetzelfde als in hachee: hij bindt de saus en geeft zoet en specerijen. Neem gewone ontbijtkoek, geen met stukjes.', 'Sauerbraten is op de tweede dag nog lekkerder en kan in de saus goed de vriezer in.', 'In het Rijnland eten ze er aardappelknoedels (Kartoffelklöße) en appelmoes bij. Kant-en-klare Knödel liggen bij Duitse supermarkten.'],
+  alt: ['Zonder wijn: neem 300 ml azijn en 450 ml water voor de marinade.', 'In de slowcooker: braad het vlees en de groente aan zoals hierboven, en laat het daarna met het vocht 7 à 8 uur op laag garen. Bind de saus op het eind in een pan op het vuur.', 'Zonder rozijnen kan ook, maar doe er dan 1 tl stroop extra bij.']
 }
 );
