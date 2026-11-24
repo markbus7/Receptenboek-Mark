@@ -725,6 +725,12 @@ window.FOTOS = {
   "licentie": "CC BY 2.5",
   "bron": "https://commons.wikimedia.org/wiki/File:Hainanese_Chicken_Rice.jpg"
  },
+ "kibbeling": {
+  "src": "img/kibbeling.jpg",
+  "auteur": "Superbass",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:2021-10-13-Kibbeling-4943.jpg"
+ },
  "kimchi-fried-rice": {
   "src": "img/kimchi-fried-rice.jpg",
   "auteur": "Sharon Ang",

@@ -220,6 +220,8 @@ ARTIKELEN = {
     # 1.108.0
     'feijoada': 'File:Feijoada completa.jpg', 'luikse-balletjes': 'Boulets à la Liégeoise', 'khao-man-gai': 'Hainanese chicken rice',
     'iskender-kebab': 'İskender kebap', 'leche-frita': 'Leche frita',
+    # 1.109.0
+    'kibbeling': 'Kibbeling',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)
