@@ -217,6 +217,9 @@ ARTIKELEN = {
     # 1.106.0
     'dakgalbi': 'Dak-galbi', 'bruine-bonen-met-rijst': 'nl:Bruine bonen met rijst', 'bun-cha': 'Bún chả',
     'sauerbraten': 'Sauerbraten', 'madartej': 'Floating island (dessert)',
+    # 1.108.0
+    'feijoada': 'File:Feijoada completa.jpg', 'luikse-balletjes': 'Boulets à la Liégeoise', 'khao-man-gai': 'Hainanese chicken rice',
+    'iskender-kebab': 'İskender kebap', 'leche-frita': 'Leche frita',
 }
 
 VRIJ = re.compile(r'^(cc0|public domain|pd|cc by(-sa)? [\d.]+)', re.I)

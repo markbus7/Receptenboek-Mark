@@ -363,5 +363,10 @@ window.HOOFD = {
   'bruine-bonen-met-rijst': ['bruine bonen', 'kip', 'rookworst', 'rijst'],
   'bun-cha': ['varkensgehakt', 'rijstnoedels', 'sla', 'verse kruiden'],
   sauerbraten: ['rundvlees', 'azijn', 'aardappel', 'rode kool'],
-  madartej: ['melk', 'ei', 'vanille']
+  madartej: ['melk', 'ei', 'vanille'],
+  feijoada: ['zwarte bonen', 'varkensvlees', 'worst', 'rijst'],
+  'luikse-balletjes': ['gehakt', 'ui', 'bier', 'friet'],
+  'khao-man-gai': ['kip', 'rijst', 'gember'],
+  'iskender-kebab': ['lamsvlees', 'brood', 'yoghurt', 'tomatensaus'],
+  'leche-frita': ['melk', 'ei', 'kaneelsuiker']
 };

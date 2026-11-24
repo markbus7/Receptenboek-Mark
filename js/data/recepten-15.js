@@ -99,6 +99,46 @@ RECEPTEN.push(
   alt: ['Airfryer: spuit de churros op bakpapier en leg ze 20 minuten in de vriezer, zodat ze stevig worden. Bestrijk ze rondom met olie, leg ze in een goed ingevette mand en bak 10 à 12 minuten op 200 °C; keer halverwege. Bestrijk ze met gesmolten boter en rol ze door de kaneelsuiker. Lekker, maar minder krokant dan gefrituurd.', 'Snelle chocoladesaus: verwarm 150 ml slagroom tot net tegen de kook en smelt er 150 g pure chocolade in.']
 },
 {
+  id: 'leche-frita', toegevoegd: '2026-11-24', naam: 'Leche frita (Spaanse gebakken vla met kaneelsuiker)',
+  ook: ['leche frita', 'gebakken melk', 'gefrituurde melk', 'gebakken vla', 'spaanse vlablokjes', 'spaans toetje', 'fried milk'],
+  keuken: 'Spaans', soort: 'Dessert',
+  tijd: 40, wacht: '3 uur opstijven', pers: 4, niveau: 'Gemiddeld', vega: true,
+  intro: '"Gebakken melk", het toetje van Spaanse oma\'s: een stevige vla met citroen en kaneel die opstijft in de koelkast, in blokjes gesneden, door bloem en ei gehaald en in de pan goudbruin gebakken. Buiten knapperig met kaneelsuiker, binnen warm en romig. Zonder oven, en de vla maak je de dag ervoor.',
+  gerei: [
+    { tool: 'kookpan', tekst: 'Steelpan met dikke bodem en een garde' },
+    { tool: 'bakvorm', tekst: 'Vierkante schaal of bakvorm van ongeveer 20 × 20 cm, met huishoudfolie bekleed', of: 'Een plastic bakje of lage vershoudbak van dezelfde maat werkt ook.' },
+    { tool: 'koekenpan', tekst: 'Antiaanbak koekenpan om te bakken' }
+  ],
+  ingr: [
+    { kop: 'Vla' },
+    { n: 'melk', q: 500, u: 'ml', x: 'volle melk' },
+    { n: 'citroen', p: 'citroenen', q: 1, u: 'st', x: 'alleen de schil, in brede repen geschild' },
+    { n: 'kaneelstokje', p: 'kaneelstokjes', q: 1, u: 'st' },
+    { n: 'suiker', q: 100, u: 'g' },
+    { n: 'maïzena', q: 60, u: 'g' },
+    { n: 'eidooier', p: 'eidooiers', q: 2, u: 'st' },
+    { n: 'roomboter', q: 15, u: 'g' },
+    { kop: 'Bakken' },
+    { n: 'bloem', q: 40, u: 'g' },
+    { n: 'ei', p: 'eieren', q: 1, u: 'st', x: 'losgeklopt met de eiwitten van de vla' },
+    { n: 'zonnebloemolie', q: 100, u: 'ml', x: 'een laagje van ½ cm in de pan' },
+    { kop: 'Kaneelsuiker' },
+    { n: 'suiker', q: 50, u: 'g' },
+    { n: 'kaneel', q: 1, u: 'tl', x: 'gemalen' }
+  ],
+  stappen: [
+    { kop: 'Vla', t: 'Houd een vijfde van de melk apart en breng de rest met de citroenschil en het kaneelstokje tegen de kook aan. Zet het vuur uit, leg de deksel erop en laat 15 minuten trekken. Vis de schil en het kaneelstokje eruit.', min: 15 },
+    { t: 'Klop in een kom de apart gehouden melk met de suiker, de maïzena en de eidooiers glad. Bewaar de eiwitten in de koelkast voor het bakken.' },
+    { t: 'Giet het maïzenamengsel al kloppend bij de warme melk. Zet de pan op middelhoog vuur en blijf roeren met de garde, ook langs de bodem en de rand. Na 3 à 4 minuten wordt het ineens heel dik. Laat het nog 2 minuten zachtjes pruttelen en blijf roeren: zo verdwijnt de smaak van rauwe maïzena en wordt de vla stevig genoeg om te snijden.', min: 6 },
+    { t: 'Haal de pan van het vuur en roer de boter erdoor. Schep de vla in de beklede vorm, strijk hem glad tot een laag van ongeveer 2 cm en leg er folie direct op, zodat er geen vel op komt. Laat afkoelen en zet hem minstens 3 uur in de koelkast, of een nacht.', min: 180 },
+    { kop: 'Bakken', t: 'Til de vla met de folie uit de vorm en snijd hem met een nat mes in blokjes van 4 à 5 cm. Klop het ei los met de eiwitten. Haal elk blokje eerst door de bloem, klop de bloem eraf en haal het dan door het ei.' },
+    { t: 'Verhit de olie in de koekenpan op middelhoog vuur, tot een snippertje brood er meteen in gaat sissen. Bak de blokjes in twee keer 1 à 2 minuten per kant, tot ze goudbruin zijn. Draai ze voorzichtig om met twee vorken. Laat ze kort uitlekken op keukenpapier.', min: 8 },
+    { kop: 'Kaneelsuiker', t: 'Meng de suiker met de kaneel en rol de warme blokjes erdoor. Eet ze lauw, als de binnenkant nog zacht en romig is.' }
+  ],
+  tips: ['Is de vla na het koelen te zacht om te snijden, dan heeft hij te kort gekookt. Hij moet echt 2 minuten doorpruttelen nadat hij dik is geworden.', 'Bak niet te veel blokjes tegelijk: dan koelt de olie af en lopen ze uit. Zijn ze eenmaal mooi bruin, dan houden ze hun vorm.', 'De vla kan 2 dagen in de koelkast staan. Bak de blokjes pas vlak voor het toetje.'],
+  alt: ['Met een bolletje vanille-ijs ernaast, of een lepel honing in plaats van kaneelsuiker.', 'Flambé, zoals in Noord-Spanje: schenk er aan tafel 2 el warme rum over en steek hem aan. Doe dit alleen als je er ervaring mee hebt.', 'In de airfryer: haal de blokjes door bloem, ei en paneermeel, spuit ze in met olie en bak ze 6 à 8 minuten op 200 °C. Ze worden minder knapperig dan uit de pan.']
+},
+{
   id: 'pollo-al-ajillo', toegevoegd: '2026-11-03', naam: 'Pollo al ajillo (Spaanse knoflookkip)',
   ook: ['pollo al ajillo', 'knoflookkip', 'spaanse kip met knoflook', 'kip met knoflook en witte wijn', 'kip in knoflook', 'pollo ajillo'],
   keuken: 'Spaans', soort: 'Hoofdgerecht',
@@ -686,6 +726,60 @@ RECEPTEN.push(
   ],
   tips: ['Door de schil in streepjes te verwijderen en te zouten nemen de aubergines minder olie op en blijven ze mooi heel.', 'De aubergines moeten echt helemaal zacht zijn voordat je ze vult; in de oven garen ze niet veel meer.'],
   alt: ['Vegetarisch: dan wordt het imam bayıldı. Vul de aubergines met in olijfolie gestoofde ui, knoflook, tomaat en peterselie, zonder gehakt.', 'Alles in de oven: halveer de aubergines in de lengte, bestrijk ze met olie en rooster ze 25 minuten op 200 °C met de snijkant naar beneden. Schep de vulling erop en bak nog 15 minuten.']
+},
+{
+  id: 'iskender-kebab', toegevoegd: '2026-11-24', naam: 'İskender kebab (Turks vlees met tomatensaus, yoghurt en boter)',
+  ook: ['iskender', 'iskender kebab', 'iskender kebap', 'bursa kebab', 'turkse kebab met yoghurt', 'kebab met tomatensaus', 'doner met yoghurt', 'döner iskender'],
+  keuken: 'Turks', soort: 'Hoofdgerecht',
+  tijd: 40, wacht: '1 uur marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'Uit de stad Bursa en tegenwoordig op elke Turkse menukaart: blokjes geroosterd brood met daarop flinterdun gebakken lamsvlees, een warme tomatensaus en een flinke lepel koele knoflookyoghurt. Aan tafel schenk je er sissende bruine boter over. Thuis maak je het in een koekenpan, met gegrilde tomaat en peper ernaast.',
+  gerei: [
+    { tool: 'koekenpan', tekst: 'Grote RVS- of gietijzeren koekenpan voor het vlees, op hoog vuur' },
+    { tool: 'kookpan', tekst: 'Steelpan voor de tomatensaus en een klein pannetje voor de boter' },
+    { tool: 'airfryer', tekst: 'Airfryer of grillpan om het brood te roosteren', of: 'In de koekenpan gaat het ook, in twee keer.' }
+  ],
+  ingr: [
+    { kop: 'Vlees' },
+    { n: 'lamsvlees', q: 600, u: 'g', x: 'lamsbout of lamsschouder zonder bot, of rundvlees (biefstuk of entrecote)' },
+    { n: 'ui', p: 'uien', q: 1, u: 'st', x: 'geraspt, alleen het sap' },
+    { n: 'olijfolie', q: 3, u: 'el', x: '2 el voor de marinade, 1 el om te bakken' },
+    { n: 'volle yoghurt', q: 2, u: 'el' },
+    { n: 'paprikapoeder', q: 1, u: 'tl' },
+    { n: 'komijn', q: 0.5, u: 'tl', x: 'gemalen komijnzaad' },
+    { n: 'gedroogde oregano', q: 0.5, u: 'tl' },
+    { n: 'zout', q: 1, u: 'tl' },
+    { n: 'zwarte peper', q: 0.5, u: 'tl' },
+    { kop: 'Tomatensaus' },
+    { n: 'roomboter', q: 20, u: 'g' },
+    { n: 'tomatenpuree', q: 2, u: 'el' },
+    { n: 'passata', q: 250, u: 'ml' },
+    { n: 'water', q: 100, u: 'ml' },
+    { n: 'pul biber', q: 1, u: 'tl', x: 'Turkse chilivlokken' },
+    { n: 'suiker', q: 1, u: 'snuf' },
+    { kop: 'Yoghurt en brood' },
+    { n: 'Turkse yoghurt', q: 500, u: 'g', x: 'of Griekse yoghurt' },
+    { n: 'knoflook', q: 1, u: 'teen', x: 'geperst' },
+    { n: 'Turks brood', q: 1, u: 'st', x: 'of 4 pita\'s, in blokjes van 3 cm' },
+    { kop: 'Erbij' },
+    { n: 'tomaat', p: 'tomaten', q: 4, u: 'st', x: 'gehalveerd' },
+    { n: 'groene peper', p: 'groene pepers', q: 4, u: 'st', x: 'lange, milde Turkse pepers (sivri biber), heel' },
+    { n: 'roomboter', q: 60, u: 'g', x: 'voor de bruine boter' },
+    { n: 'verse peterselie', q: 10, u: 'g', x: 'grof gehakt', opt: true }
+  ],
+  vriezer: { lamsvlees: { bevroren: 'Half ontdooid is hier juist handig: als je er net een mes in krijgt maar het nog stevig is, snijd je het flinterdun. Laat de plakjes daarna in de marinade verder ontdooien in de koelkast.', inStap: 'half ontdooid flinterdun snijden' } },
+  stappen: [
+    { kop: 'Vlees', t: 'Leg het vlees 30 minuten in de vriezer, dan snijd je het makkelijker. Snijd het tegen de draad in zo dun mogelijk, liefst 2 à 3 mm, en de plakken in stukken van 5 cm.', min: 30 },
+    { t: 'Rasp de ui boven een zeef en druk het sap eruit; de rest van de ui gebruik je niet. Meng het uiensap met 2 el olijfolie, de yoghurt, paprikapoeder, komijn, oregano, zout en peper en schep het vlees erdoor. Laat het minstens 1 uur marineren in de koelkast.', min: 60 },
+    { kop: 'Tomatensaus', t: 'Smelt de boter in de steelpan en bak de tomatenpuree 1 minuut. Doe de passata, het water, de pul biber, de suiker en een snuf zout erbij en laat 10 minuten zachtjes pruttelen. Houd warm.', min: 11 },
+    { kop: 'Yoghurt en brood', t: 'Roer de yoghurt los met de knoflook en een snuf zout. Laat hem op kamertemperatuur komen, dan koelt hij het gerecht niet te veel af.' },
+    { t: 'Rooster de blokjes brood in de airfryer 4 à 5 minuten op 180 °C, tot ze knapperig zijn aan de buitenkant maar nog zacht van binnen.', min: 5 },
+    { kop: 'Erbij', t: 'Verhit de koekenpan op hoog vuur zonder olie en bak de tomaten met de snijkant naar beneden en de hele pepers 5 minuten, tot ze zwarte plekken hebben en zacht zijn. Schep ze uit de pan.', min: 5 },
+    { kop: 'Vlees', t: 'Verhit 1 el olie in dezelfde koekenpan op hoog vuur. Bak het vlees in drie keer, telkens in één laag, 1½ à 2 minuten tot het bruine randjes heeft. Schep het uit de pan en houd het warm.', min: 6 },
+    { kop: 'Opdienen', t: 'Verdeel de blokjes brood over de borden en schep er een paar lepels tomatensaus over, zodat het brood zich volzuigt. Leg het vlees erop en schep er nog wat saus over. Leg een flinke lepel yoghurt ernaast, en de tomaten en pepers.' },
+    { t: 'Smelt de boter voor de bruine boter in het pannetje en laat hem 2 à 3 minuten bruisen tot hij goudbruin is en naar noten ruikt. Schenk hem sissend over het vlees en de yoghurt, strooi de peterselie erover en eet meteen.', min: 3 }
+  ],
+  tips: ['Hoe dunner het vlees, hoe meer het op döner lijkt. Vraag de slager anders om het in de snijmachine flinterdun te snijden, of koop het als shoarmavlees van lam.', 'Bak het vlees in kleine porties in een gloeiend hete pan. Te veel tegelijk en het gaat koken in zijn eigen vocht in plaats van bruin te worden.', 'De bruine boter op het eind is het hoogtepunt; in Bursa schenken ze hem aan tafel over je bord.'],
+  alt: ['Met kip: neem 600 g kippendijfilet in dunne reepjes, net zo gemarineerd. Bak ze 3 à 4 minuten.', 'Met kant-en-klaar döner- of shoarmavlees van de Turkse slager: sla het marineren over en bak het vlees alleen kort.', 'Snel brood: rooster het in de koekenpan met 1 el olijfolie, 3 à 4 minuten, in twee keer.']
 },
 {
   id: 'sutlac', toegevoegd: '2026-10-20', naam: 'Sütlaç (Turkse rijstpudding)', ook: ['sutlac', 'fırın sütlaç', 'firin sutlac', 'turkse rijstpudding', 'rijstpudding', 'rijstpudding uit de oven'],

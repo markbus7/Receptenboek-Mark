@@ -420,6 +420,12 @@ window.FOTOS = {
   "licentie": "CC BY-SA 3.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Fattoush_mixed-salad.jpg"
  },
+ "feijoada": {
+  "src": "img/feijoada.jpg",
+  "auteur": "Andre Rebeiro",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Feijoada_completa.jpg"
+ },
  "fish-and-chips": {
   "src": "img/fish-and-chips.jpg",
   "auteur": "Matthias Meckel",
@@ -642,6 +648,12 @@ window.FOTOS = {
   "licentie": "CC0",
   "bron": "https://commons.wikimedia.org/wiki/File:Huzarensalade_van_kliekjes.jpg"
  },
+ "iskender-kebab": {
+  "src": "img/iskender-kebab.jpg",
+  "auteur": "Garrett Ziegler",
+  "licentie": "CC BY-SA 4.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:%C4%B0skender_Kebap.jpg"
+ },
  "japchae": {
   "src": "img/japchae.jpg",
   "auteur": "korea.net",
@@ -706,6 +718,12 @@ window.FOTOS = {
   "src": "img/kerriekip-wok.jpg",
   "auteur": "Mark",
   "licentie": "eigen foto"
+ },
+ "khao-man-gai": {
+  "src": "img/khao-man-gai.jpg",
+  "auteur": "No machine-readable author provided. Terence assumed (based ",
+  "licentie": "CC BY 2.5",
+  "bron": "https://commons.wikimedia.org/wiki/File:Hainanese_Chicken_Rice.jpg"
  },
  "kimchi-fried-rice": {
   "src": "img/kimchi-fried-rice.jpg",
@@ -1121,6 +1139,12 @@ window.FOTOS = {
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Lasagne_-_stonesoup.jpg"
  },
+ "leche-frita": {
+  "src": "img/leche-frita.jpg",
+  "auteur": "https://www.flickr.com/people/deramaenrama/",
+  "licentie": "CC BY 2.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Leche_frita.jpg"
+ },
  "lecso": {
   "src": "img/lecso.jpg",
   "auteur": "zeevveez",
@@ -1144,6 +1168,12 @@ window.FOTOS = {
   "auteur": "elif ayse",
   "licentie": "CC BY 2.0",
   "bron": "https://commons.wikimedia.org/wiki/File:Sam%27dan_lokma_tatlisi.jpg"
+ },
+ "luikse-balletjes": {
+  "src": "img/luikse-balletjes.jpg",
+  "auteur": "Marianne Casamance",
+  "licentie": "CC BY-SA 3.0",
+  "bron": "https://commons.wikimedia.org/wiki/File:Boulets_%C3%A0_la_li%C3%A9geoise_1.jpg"
  },
  "luikse-wafels": {
   "src": "img/luikse-wafels.jpg",
