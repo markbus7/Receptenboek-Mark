@@ -69,6 +69,7 @@ window.PRIJSKOPPELING = {
   'gember': { niet: ['shot', 'allesreiniger', 'thee', 'koek', 'bolus', 'kurkuma', 'citroen', 'stem', 'poeder', 'gemalen', 'sushi', 'ingelegd', 'siroop', 'gembershot'] },
   'ingelegde gember': { zoek: ['sushi gember', 'gember ingelegd'] },
   'daikon': { geen: true },
+  'taotjo': { geen: true },   // gefermenteerde sojabonensaus: alleen in de toko
   'waterkers': { geen: true },
   'limoen': { niet: ['sap', 'blad'] },
   'bakbanaan': {},

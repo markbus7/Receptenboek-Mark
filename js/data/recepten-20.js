@@ -725,5 +725,51 @@ RECEPTEN.push(
   ],
   tips: ['In Peru draait de kip aan het spit boven houtskool. De sojasaus in de marinade komt van de Chinese Peruanen en geeft de kip zijn donkere, knapperige vel.', 'Past niet alles in één keer in je airfryer, rooster dan twee poten per keer en houd de eerste warm onder folie.', 'Ají verde blijft afgedekt 3 dagen goed in de koelkast; heerlijk op een broodje, bij friet of bij gegrilde worst.'],
   alt: ['Pikanter, zoals in Peru: doe 1 el ají amarillo-pasta (in toko\'s en Zuid-Amerikaanse winkels) in de marinade en de saus, of 1 tl sambal oelek.', 'Met kippendijen met bot en vel: rooster 25 minuten op 180 °C en 5 minuten op 200 °C.', 'Met een hele kip (ca. 1,4 kg) in de airfryer XXL: 50 minuten op 180 °C, borst naar beneden, en na 30 minuten keren.']
+},
+{
+  id: 'feijoada', toegevoegd: '2026-11-24', naam: 'Feijoada (Braziliaanse zwarte bonen met varkensvlees)',
+  ook: ['feijoada', 'feijoada completa', 'braziliaanse bonenstoof', 'braziliaanse stoofpot', 'zwarte bonen met vlees', 'zwarte bonenstoof', 'braziliaans eten'],
+  keuken: 'Zuid-Amerikaans', soort: 'Hoofdgerecht',
+  tijd: 45, wacht: '2¼ uur stoven', pers: 6, niveau: 'Gemiddeld', vega: false,
+  intro: 'Het nationale gerecht van Brazilië, voor de zaterdag: varkensschouder, spareribs, worst en spek urenlang gestoofd met zwarte bonen tot een donkere, romige stoofpot. Op tafel met witte rijst, knoflookboerenkool die maar 3 minuten bakt (couve) en partjes sinaasappel, die alles fris houden.',
+  gerei: [
+    { tool: 'braadpan', tekst: 'Dutch oven of grote braadpan met deksel (minimaal 5 liter)' },
+    { tool: 'rijstkoker', tekst: 'Rijstkoker of pan met deksel voor de rijst' },
+    { tool: 'koekenpan', tekst: 'Koekenpan of wok voor de boerenkool' }
+  ],
+  ingr: [
+    { kop: 'Feijoada' },
+    { n: 'spekblokjes', q: 125, u: 'g' },
+    { n: 'varkensschouder', q: 750, u: 'g', x: 'in stukken van 4 cm' },
+    { n: 'spareribs', q: 600, u: 'g', x: 'naturel, in losse ribben gesneden' },
+    { n: 'zonnebloemolie', q: 1, u: 'el' },
+    { n: 'ui', p: 'uien', q: 2, u: 'st', x: 'gesnipperd' },
+    { n: 'knoflook', q: 5, u: 'teen', x: 'fijngehakt' },
+    { n: 'laurierblad', p: 'laurierbladen', q: 3, u: 'st' },
+    { n: 'water', q: 1200, u: 'ml' },
+    { n: 'rookworst', p: 'rookworsten', q: 1, u: 'st', x: 'ca. 275 g, in plakjes van 1 cm' },
+    { n: 'chorizo', q: 150, u: 'g', x: 'in plakjes; in Brazilië linguiça' },
+    { n: 'zwarte bonen', q: 720, u: 'g', x: 'uit blik, uitgelekt en afgespoeld' },
+    { n: 'zout' },
+    { n: 'zwarte peper' },
+    { kop: 'Erbij' },
+    { n: 'rijst', q: 400, u: 'g' },
+    { n: 'boerenkool', q: 300, u: 'g', x: 'gesneden uit een zak, of de bladeren van een struik in heel dunne reepjes' },
+    { n: 'olijfolie', q: 2, u: 'el' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'fijngehakt' },
+    { n: 'sinaasappel', p: 'sinaasappels', q: 2, u: 'st', x: 'geschild, in partjes' }
+  ],
+  stappen: [
+    { kop: 'Feijoada', t: 'Bak de spekblokjes in de droge braadpan op middelhoog vuur in 5 minuten uit tot ze bruin zijn. Schep ze uit de pan en laat het vet erin.', min: 5 },
+    { t: 'Bestrooi de varkensschouder en de spareribs met zout en peper. Doe de olie bij het spekvet en bak het vlees in twee keer rondom bruin, 5 minuten per keer. Schep het uit de pan.', min: 10 },
+    { t: 'Bak de ui 5 minuten zacht in hetzelfde vet en schraap de aanbaksels los. Bak de knoflook 1 minuut mee.', min: 6 },
+    { t: 'Doe het vlees en de spekblokjes terug, leg de laurier erin en giet het water erbij. Breng aan de kook, leg de deksel erop en laat 1½ uur heel zachtjes stoven. Roer af en toe.', min: 90 },
+    { t: 'Doe de rookworst, de chorizo en de zwarte bonen erbij. Laat zonder deksel nog 45 minuten zachtjes koken, tot het vlees van het bot valt en de saus donker en dik is. Druk een pollepel bonen fijn tegen de rand van de pan: dat maakt hem romig. Wordt hij te droog, doe er dan een scheut water bij.', min: 45 },
+    { kop: 'Erbij', t: 'Kook intussen de rijst in de rijstkoker of volgens de verpakking.' },
+    { t: 'Verhit vlak voor het eten de olijfolie in de koekenpan op hoog vuur. Bak de knoflook 30 seconden, doe de boerenkool erbij en roerbak 2 à 3 minuten, tot hij felgroen en net geslonken is. Bestrooi met zout.', min: 3 },
+    { kop: 'Feijoada', t: 'Vis de laurier eruit, haal de botjes uit de spareribs als je wilt en proef op zout en peper. Zet de pan op tafel met de rijst, de boerenkool en de sinaasappel. Schep op je bord rijst, bonen met vlees ernaast en een paar partjes sinaasappel.' }
+  ],
+  tips: ['Feijoada is op zijn best als hij een nacht heeft gestaan. Maak hem een dag van tevoren en warm hem langzaam op; hij gaat ook goed de vriezer in.', 'De sinaasappel is geen versiering: een hap ertussen maakt het vette, zware stoofvlees weer licht. Zo eten ze het in Brazilië ook.', 'Boerenkool lijkt het meest op de Braziliaanse couve. Snijd hem heel dun en bak hem kort, dan blijft hij knapperig.'],
+  alt: ['Met gedroogde zwarte bonen, zoals in Brazilië: week 400 g een nacht in ruim water en stoof ze vanaf het begin mee met 500 ml water extra. Zout dan pas op het eind.', 'Met farofa erover: bak 150 g maniokmeel (toko) met 30 g boter en een gesnipperde ui 5 minuten goudbruin. Strooi het over je bord.', 'Zonder spareribs: neem 1 kg varkensschouder in grote stukken.']
 }
 );

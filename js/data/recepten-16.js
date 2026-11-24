@@ -514,6 +514,57 @@ RECEPTEN.push(
   ]
 },
 {
+  id: 'khao-man-gai', toegevoegd: '2026-11-24', naam: 'Khao man gai (Thaise kip met rijst uit de bouillon)',
+  ook: ['khao man kai', 'khao man gai', 'hainanese chicken rice', 'hainan kip', 'kip met rijst', 'gepocheerde kip met rijst', 'thaise kiprijst', 'chicken rice'],
+  keuken: 'Thais', soort: 'Hoofdgerecht',
+  tijd: 60, pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,
+  intro: 'Het eenvoudigste en misschien wel lekkerste straatgerecht van Bangkok: zachte, sappige kip die heel rustig gaart in een bouillon met gember, rijst die in diezelfde bouillon kookt met knoflook, en een pittig-zoute saus van gefermenteerde sojabonen, gember en peper. Met een kommetje bouillon ernaast. De rijstkoker doet het meeste werk.',
+  gerei: [
+    { tool: 'kookpan', tekst: 'Grote kookpan met deksel (minimaal 4 liter) voor de kip' },
+    { tool: 'rijstkoker', tekst: 'Rijstkoker, of een pan met dikke bodem en deksel' },
+    { tool: 'koekenpan', tekst: 'Kleine koekenpan om de knoflook en gember voor de rijst te bakken' }
+  ],
+  ingr: [
+    { kop: 'Kip' },
+    { n: 'kippendijen', q: 1000, u: 'g', x: 'met bot en vel, ca. 8 stuks' },
+    { n: 'water', q: 1500, u: 'ml' },
+    { n: 'verse gember', q: 30, u: 'g', x: 'in plakjes, de schil mag eraan' },
+    { n: 'knoflook', q: 4, u: 'teen', x: 'gekneusd' },
+    { n: 'lente-ui', p: 'lente-uien', q: 3, u: 'st', x: 'in stukken van 5 cm' },
+    { n: 'zout', q: 2, u: 'tl' },
+    { kop: 'Rijst' },
+    { n: 'jasmijnrijst', q: 300, u: 'g' },
+    { n: 'zonnebloemolie', q: 1, u: 'el', x: 'of 2 el vet van de bouillon' },
+    { n: 'knoflook', q: 4, u: 'teen', x: 'fijngehakt' },
+    { n: 'verse gember', q: 10, u: 'g', x: 'fijngeraspt' },
+    { kop: 'Saus' },
+    { n: 'taotjo', q: 2, u: 'el', x: 'gefermenteerde sojabonensaus (toko); of 1 el gele miso met 1 el water' },
+    { n: 'sojasaus', q: 2, u: 'el' },
+    { n: 'donkere sojasaus', q: 1, u: 'tl' },
+    { n: 'rijstazijn', q: 1, u: 'el' },
+    { n: 'suiker', q: 1, u: 'el' },
+    { n: 'verse gember', q: 20, u: 'g', x: 'fijngeraspt' },
+    { n: 'knoflook', q: 2, u: 'teen', x: 'geperst' },
+    { n: 'rode peper', p: 'rode pepers', q: 1, u: 'st', x: 'fijngehakt; zonder zaadjes voor minder pit' },
+    { kop: 'Erbij' },
+    { n: 'komkommer', p: 'komkommers', q: 1, u: 'st', x: 'in schuine plakjes' },
+    { n: 'verse koriander', q: 15, u: 'g', vers: 'gaat rauw over de kip' },
+    { n: 'lente-ui', p: 'lente-uien', q: 1, u: 'st', x: 'in dunne ringetjes, voor de bouillon' }
+  ],
+  stappen: [
+    { kop: 'Kip', t: 'Breng het water met de plakjes gember, de gekneusde knoflook, de lente-ui en het zout aan de kook in de grote pan. Leg de kip erin; hij moet net onder staan. Laat de bouillon weer tegen de kook aan komen.', min: 5 },
+    { t: 'Zet het vuur zo laag dat er maar af en toe een belletje opkomt, leg de deksel erop en laat de kip 25 minuten garen. Niet laten koken: dan wordt hij taai.', min: 25 },
+    { t: 'Haal de kip uit de pan en leg hem 5 minuten in een kom met ijskoud water. Zo blijft het vel strak en glad en het vlees sappig. Laat uitlekken. Zeef de bouillon en schep er met een lepel 2 el vet af voor de rijst, als je wilt.', min: 5 },
+    { kop: 'Rijst', t: 'Spoel de rijst in een zeef tot het water helder is. Verhit de olie of het kippenvet in de kleine koekenpan op middelhoog vuur en bak de gehakte knoflook en de geraspte gember 1 minuut, tot het geurt maar niet bruin is. Schep de rijst erdoor en bak hem 1 minuut mee, zodat elke korrel glanst.', min: 2 },
+    { t: 'Doe de rijst in de rijstkoker en giet er bouillon bij in plaats van water, tot het streepje voor de hoeveelheid rijst die je kookt. Zet hem aan. In een pan: 1½ ml bouillon per gram rijst erbij, aan de kook brengen, deksel erop en 12 minuten op het laagste vuur garen, dan 10 minuten laten staan.', min: 20 },
+    { kop: 'Saus', t: 'Roer de taotjo, beide sojasauzen, de rijstazijn en de suiker door elkaar tot de suiker is opgelost. Roer de gember, de geperste knoflook en de rode peper erdoor.' },
+    { kop: 'Erbij', t: 'Breng de rest van de bouillon weer aan de kook en proef op zout. Schenk hem in kleine kommetjes en strooi de ringetjes lente-ui erover.', min: 3 },
+    { kop: 'Kip', t: 'Snijd het vlees van de botten en snijd het met vel en al in plakken van 1 cm. Druk de rijst in een kommetje en keer hem om op een bord. Leg de kip ernaast, met de komkommer en de koriander. Schep de saus over de kip of zet hem in een schaaltje ernaast, en drink de bouillon tussendoor.' }
+  ],
+  tips: ['Hoe zachter de kip garen, hoe sappiger hij wordt. Zie je de bouillon borrelen, zet het vuur dan lager of haal de pan even van het vuur.', 'De bouillon die overblijft is goud waard: vries hem in voor soep, noedels of de volgende keer rijst.', 'Taotjo staat in de toko ook als yellow bean sauce of tao jiao. De saus is ook lekker bij gebakken rijst en bij gestoomde vis.'],
+  alt: ['Met een hele kip (ca. 1,4 kg), zoals in Thailand: laat hem 40 minuten garen en daarna 15 minuten in de bouillon staan met het vuur uit.', 'Met kipfilet: 15 minuten garen is genoeg. Hij wordt minder sappig dan dijen.', 'Met een stuk pandanblad (toko) in de rijstkoker: de rijst krijgt dan de geur die hij in Bangkok heeft.']
+},
+{
   id: 'banh-mi', naam: 'Banh mi', gerecht: 'Banh mi', variant: 'Varkensvlees', ook: ['bánh mì', 'vietnamees broodje'],
   keuken: 'Vietnamees', soort: 'Ontbijt & lunch',
   tijd: 35, wacht: '30 min marineren', pers: 4, niveau: 'Makkelijk', vega: false, pit: 1,

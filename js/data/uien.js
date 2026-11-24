@@ -155,6 +155,10 @@ window.UIEN = {
     /* Week van 2026-11-23 */
     'dakgalbi': { ui: ['gele ui', 'In halve ringen meegebakken wordt hij zoet en zacht, een mooi tegenwicht voor de pittige gochujang', 'witte ui'] },
     'bruine-bonen-met-rijst': { ui: ['gele ui', 'Lichtbruin gebakken geeft hij de zoete, hartige basis van de saus en valt hij tussen de bonen weg', 'rode ui'] },
-    'sauerbraten': { ui: ['gele ui', 'Hij trekt drie dagen mee in de marinade en stooft daarna uren; zijn zoet haalt de scherpte van de azijn af', 'witte ui'] }
+    'sauerbraten': { ui: ['gele ui', 'Hij trekt drie dagen mee in de marinade en stooft daarna uren; zijn zoet haalt de scherpte van de azijn af', 'witte ui'] },
+    /* Week van 2026-11-24 */
+    'feijoada': { ui: ['gele ui', 'Zacht gebakken in het spekvet geeft hij de zoete basis en valt hij in ruim twee uur stoven helemaal weg tussen de bonen', 'witte ui'] },
+    'luikse-balletjes': { ui: ['gele ui', 'In halve ringen goudbruin gebakken wordt hij zoet en zacht als jam, en dat is samen met de stroop de kern van de Luikse saus', 'rode ui'] },
+    'iskender-kebab': { ui: ['gele ui', 'Je gebruikt alleen het sap in de marinade; een sappige gele ui geeft het meeste sap en maakt het vlees mals', 'witte ui'] }
   }
 };
