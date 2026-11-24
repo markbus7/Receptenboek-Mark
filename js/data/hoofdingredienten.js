@@ -368,5 +368,6 @@ window.HOOFD = {
   'luikse-balletjes': ['gehakt', 'ui', 'bier', 'friet'],
   'khao-man-gai': ['kip', 'rijst', 'gember'],
   'iskender-kebab': ['lamsvlees', 'brood', 'yoghurt', 'tomatensaus'],
-  'leche-frita': ['melk', 'ei', 'kaneelsuiker']
+  'leche-frita': ['melk', 'ei', 'kaneelsuiker'],
+  'kibbeling': ['witvis', 'friet', 'remoulade', 'knoflooksaus']
 };

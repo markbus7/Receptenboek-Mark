@@ -836,7 +836,7 @@ RECEPTEN.push(
   alt: ['Met gewone aardappel: neem 600 g vastkokende aardappelen en stoof ze 5 minuten langer.', 'Kipfilet kan ook; doe die pas bij de laatste 10 minuten stoven terug in de pan, anders wordt hij droog.']
 },
 {
-  id: 'fish-and-chips', naam: 'Fish and chips', ook: ['fish & chips', 'kibbeling'],
+  id: 'fish-and-chips', naam: 'Fish and chips', ook: ['fish & chips'],
   keuken: 'Brits', soort: 'Hoofdgerecht',
   tijd: 50, pers: 4, niveau: 'Gemiddeld', vega: false,
   intro: 'Witvis in een krokant, luchtig bierbeslag met dikke frieten, mushy peas en tartaarsaus. Zout en azijn erover, zoals aan de Engelse kust.',
